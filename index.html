@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaiser East Bay Anesthesia — Scheduling Platform</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:#0a2540;background:#0f2744;min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{display:flex;width:100vw;min-height:100vh;overflow:hidden;background:#fff}
+
+  /* ── LEFT: branded hero ── */
+  .hero{
+    flex:0 0 44%;
+    background:linear-gradient(160deg,#0f2744 0%,#00507e 60%,#006ba6 100%);
+    color:#fff;padding:48px 52px;
+    display:flex;flex-direction:column;justify-content:center;gap:4px;
+  }
+  .hero-logo{margin-bottom:20px}
+  .hero-eyebrow{
+    font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#9fd0ec;margin-bottom:10px;
+  }
+  .hero-title{font-size:clamp(2rem,3.6vw,3rem);font-weight:900;line-height:1.02;letter-spacing:.01em}
+  .hero-sub{
+    font-size:clamp(1.05rem,1.8vw,1.5rem);font-weight:700;line-height:1.2;
+    margin-top:12px;color:#d7ecf8;
+  }
+  .hero-tag{
+    margin-top:26px;font-size:.95rem;line-height:1.5;color:#bcd9ec;max-width:340px;
+  }
+
+  /* ── RIGHT: link list ── */
+  .panel{flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:48px 40px;background:#fff}
+  .panel-inner{width:100%;max-width:520px}
+  .panel-head{font-size:1.35rem;font-weight:800;color:#132f49;margin:0 0 4px}
+  .panel-sub{font-size:.9rem;color:#5a728a;margin:0 0 26px}
+
+  .group-label{
+    font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    color:#006ba6;margin:22px 0 10px;display:flex;align-items:center;gap:8px;
+  }
+  .group-label:first-of-type{margin-top:0}
+  .group-label::before{content:'';width:4px;height:15px;border-radius:2px;background:linear-gradient(180deg,#006ba6,#00753a)}
+  .group-label-admin{color:#8a5a00}
+  .group-label-admin::before{background:linear-gradient(180deg,#8a5a00,#b8860b)}
+
+  .site-link{
+    display:flex;align-items:center;gap:16px;text-decoration:none;
+    border:1.5px solid #d9e2ec;border-radius:14px;padding:15px 18px;margin-bottom:10px;
+    background:#fff;transition:border-color .16s,box-shadow .16s,transform .16s;
+  }
+  .site-link:hover{
+    border-color:#006ba6;box-shadow:0 6px 20px rgba(0,107,166,.14);transform:translateY(-1px);
+  }
+  .site-ico{
+    flex:0 0 44px;width:44px;height:44px;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,rgba(0,107,166,.12),rgba(59,130,246,.08));
+    color:#006ba6;
+  }
+  .site-link.is-admin .site-ico{
+    background:linear-gradient(135deg,rgba(122,78,0,.14),rgba(234,179,8,.08));color:#8a5a00;
+  }
+  .site-body{flex:1 1 auto;min-width:0}
+  .site-title-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .site-title{font-size:1rem;font-weight:700;color:#132f49}
+  .badge{
+    font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:2px 8px;border-radius:999px;
+  }
+  .badge-staff{background:rgba(0,107,166,.12);color:#006ba6}
+  .badge-admin{background:rgba(122,78,0,.14);color:#8a5a00}
+  .site-desc{display:block;font-size:.82rem;color:#5a728a;margin:3px 0 5px;line-height:1.35}
+  .site-url{display:block;font-size:.76rem;color:#8595a6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+  .site-arrow{flex:0 0 auto;color:#b6c3d1;font-size:1.3rem;line-height:1}
+  .site-link:hover .site-arrow{color:#006ba6}
+
+  .footer{margin-top:26px;font-size:.74rem;color:#94a3b4;text-align:center;line-height:1.5}
+
+  /* ── Responsive ── */
+  @media (max-width:860px){
+    .wrap{flex-direction:column}
+    .hero{flex:none;padding:38px 28px 30px;text-align:left}
+    .hero-tag{max-width:none}
+    .panel{padding:32px 22px 44px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- LEFT: hero -->
+    <div class="hero">
+      <div class="hero-logo" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/><path d="M8.5 14.5l2.2 2.2 4.3-4.6"/>
+        </svg>
+      </div>
+      <div class="hero-eyebrow">Kaiser East Bay</div>
+      <div class="hero-title">Department of<br>Anesthesia</div>
+      <div class="hero-sub">Scheduling Platform</div>
+      <div class="hero-tag">Your home for the vacation auction and daily scheduling tools. Pick a site below to get started.</div>
+    </div>
+
+    <!-- RIGHT: link list -->
+    <div class="panel">
+      <div class="panel-inner">
+        <h1 class="panel-head">Choose a site</h1>
+        <p class="panel-sub">Department member sites at the top; administrator access below.</p>
+
+        <!-- Department members -->
+        <div class="group-label">Department Member Websites</div>
+
+        <a class="site-link" href="https://anesthesia-kp.github.io/vacation/">
+          <span class="site-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 3v4M18 3v4"/><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 13l2.5 2.5L16 10"/></svg>
+          </span>
+          <span class="site-body">
+            <span class="site-title-row"><span class="site-title">Vacation Auction</span></span>
+            <span class="site-desc">Place and manage your vacation-week bids through each phase.</span>
+            <span class="site-url">anesthesia-kp.github.io/vacation/</span>
+          </span>
+          <span class="site-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="site-link" href="https://anesthesia-kp.github.io/schedule/">
+          <span class="site-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>
+          </span>
+          <span class="site-body">
+            <span class="site-title-row"><span class="site-title">Daily Scheduling</span></span>
+            <span class="site-desc">View the daily schedule and submit your assignment requests.</span>
+            <span class="site-url">anesthesia-kp.github.io/schedule/</span>
+          </span>
+          <span class="site-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <!-- Admin only -->
+        <div class="group-label group-label-admin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:-2px"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+          Admin Access Only
+        </div>
+
+        <a class="site-link is-admin" href="https://anesthesia-kp.github.io/vacation/admin/">
+          <span class="site-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 3v4M18 3v4"/><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 13l2.5 2.5L16 10"/></svg>
+          </span>
+          <span class="site-body">
+            <span class="site-title-row"><span class="site-title">Vacation Auction</span><span class="badge badge-admin">Admin</span></span>
+            <span class="site-desc">Run auction phases, approve or deny bids, and manage users and settings.</span>
+            <span class="site-url">anesthesia-kp.github.io/vacation/admin/</span>
+          </span>
+          <span class="site-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="site-link is-admin" href="https://anesthesia-kp.github.io/schedule/admin/">
+          <span class="site-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>
+          </span>
+          <span class="site-body">
+            <span class="site-title-row"><span class="site-title">Daily Scheduling</span><span class="badge badge-admin">Admin</span></span>
+            <span class="site-desc">Build and publish the daily schedule and manage staff and rules.</span>
+            <span class="site-url">anesthesia-kp.github.io/schedule/admin/</span>
+          </span>
+          <span class="site-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <div class="footer">Kaiser East Bay Department of Anesthesia · Scheduling Platform</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
