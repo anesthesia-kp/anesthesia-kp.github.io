@@ -1095,3 +1095,27 @@ Owner, verbatim:
    open. Any subscribe button/link stays admin-only or hidden until the second gate opens.
 3. Residual **ASK** from IDEAS 1b still stands before design: feed contents (shifts only?)
    and the per-doctor secret-URL security ruling.
+
+## §55 — Staff may NOT request ineligible shifts. A deliberate exception to §51 — 17 Aug 2026
+
+Owner, verbatim, overruling Claude's warn-and-allow proposal for the staff page:
+
+> *"Users should not be able to request shifts they are not marked as eligible for. Admin
+> can override assign with a conifirmation warning, but not users themselves."*
+
+**What this settles:**
+1. **The staff request form is a HARD BLOCK.** The shift dropdown lists only shifts the
+   signed-in user is marked eligible for, and the submit handler refuses an ineligible
+   shift outright even if the page is manipulated. No override, no confirm-and-proceed.
+2. **§51 is UNCHANGED for admins** — warn, allow the override, record it. The two rules
+   are one policy seen from two sides: the admin is trusted to override with a recorded
+   reason; a user is not.
+3. This eligible-only dropdown is **not** §41's curated requestable list — §41, when built,
+   narrows the list FURTHER (eligible AND requestable). Eligibility is the floor.
+4. **Stage-4 note (§53b):** today "unticked = ineligible" is the truth of the grid. When
+   option C lands and an untick comes to mean "no exception recorded", this staff check
+   must be re-pointed at the same single checker the admin uses — the code carries the
+   same note.
+5. Enforcement is client-side only for now; the Firestore rules cannot cheaply check
+   per-shift eligibility, and a rules change is an auction deploy — deferred, noted here
+   so it is a decision and not an oversight.
