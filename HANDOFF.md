@@ -510,11 +510,10 @@ original text as historical evidence.**
 
 ---
 
-## D1 · Open residuals on the LIVE auction → `tests/docs/OPEN-RESIDUALS.md`
+## D1 · Open residuals on the LIVE auction → the vacation section of `TODO.md`
 
-The auction's deliberately-open defects and their mitigations now have ONE home:
-**`tests/docs/OPEN-RESIDUALS.md`**. Do not restate them here or anywhere else; point at that
-file. It carries M1, M3, L2, L3, L4 and the cosmetic items, each with what neutralises it.
+The auction's deliberately-open defects and their mitigations have ONE home:
+**the vacation section of `TODO.md` in this repo** (one-TODO ruling, 17 Aug). Do not restate them anywhere else; point there. It carries M1, M3, L2, L3, L4 and the cosmetic items, each with what neutralises it.
 
 Two things to know without opening it:
 

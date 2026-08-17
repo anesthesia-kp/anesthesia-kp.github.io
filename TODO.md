@@ -1,0 +1,246 @@
+# TODO — the ONE list, both sites
+
+**Owner ruling, 17 Aug 2026:** one TODO file for the whole project, not four. This is it.
+The per-repo `TODO.md` files are pointers here; `MASTER-TODO.md` and
+`OPEN-RESIDUALS` were folded in and archived (copies in `_archive/`) the same day.
+
+**What stays separate, and why:** `schedule/DECISIONS.md` (the rulings register — what is
+*settled*) and `schedule/BUILD-LOG.md` (what *shipped*). This file is what is *outstanding*.
+A fact lives in ONE of the three, never two.
+
+> ⚠️ **These repos are PUBLIC.** Defects are described by shape, never by reproduction.
+
+---
+
+# 1 · THE QUEUE — work, in order
+
+## ⛔ Standing constraint until the owner closes it
+
+**Phase 3 of the live rehearsal is UNDERWAY.** No vacation-site code. Vacation-repo pushes
+are docs-only at the owner's discretion (a push redeploys Pages; harmless only while served
+bytes are identical and `versions.json` is unchanged). The **M3 build deploys between phases
+only** — never mid-send, because the in-flight ledger may hold mixed-case entries.
+
+**Owner's priority ruling, 17 Aug 2026, verbatim:**
+> *"My current #1 priority is the vacation site. Nothing can corrupt that since we are close
+> to launch. The schedule site is months away from actual use and I can continue to build and
+> check that as long as it doesn't disturb the vacation site."*
+
+## Now — documentation and the system (nothing the auction serves)
+
+- [x] **A0 · Rescue the orphans.** Done 16 Aug: HANDOFF Part D, residuals consolidated,
+      superseded files banded. Verified by grep-back.
+- [x] **A-TODO · ONE todo file.** Done 17 Aug — this file. Pointers left in both site repos.
+- [ ] **A1 · Fix the six actively-misleading items** (`DOC-AUDIT-2026-08-16.md` Part 1):
+      §35 superseded marker + §43 mis-attribution · vacation "AWAITING PUSH" lines ·
+      README's redirect-stub description · START-HERE's dead step 1 · HANDOFF's ruling
+      index completed to §53b · the git-lock rule corrected (locks appeared DESPITE
+      `--no-optional-locks`; check at session end too).
+- [ ] **A2 · The update-discipline system.** (a) A generator script: reads `versions.json`,
+      git state, suite counts → writes ONE STATUS block; every other file points at it.
+      (b) A one-page WHAT-UPDATES-WHEN table: at a build / a ruling / a push / session end —
+      which files change, every time.
+- [ ] **A3 · One home per fact in the masters**: delete duplicate build tables from
+      HANDOFF; replace its ruling index with a pointer once complete; merge START-HERE's two
+      overlapping rules sections; fix the two files still teaching `.claude-commit-msg.txt`.
+- [ ] **A4 · Remaining schedule-records repair**: dated status headers on the four design
+      docs (all claim "nothing here is built"); fix `design/RULES.md` where it contradicts
+      §53b (within-category) and §46 (caps wanted); DECISIONS housekeeping — duplicate §47
+      heading, two out-of-order sections, three heading styles, §53a's wrong arithmetic,
+      the §30 quote flagged per §22, numbers for the twelve buried rulings.
+- [ ] **A5 · Rewrite `START-HERE.md` as THE single next-chat prompt.** Priorities at the
+      top exactly as ruled above. Commit-summary rule and archive rule stay prominent.
+      Fix structure (broken numbering, dangling §refs, empty final section).
+- [ ] **A6 · File-hygiene pass, own commits**: archive the three banded `tests/docs` files ·
+      `.DS_Store` sweep · `_archive/README.md` inventory brought current.
+- [ ] **A7 · The two "what's left" lists**: a vacation LAUNCH CHECKLIST (today → launch,
+      incl. the M3 build and each open residual's accept/fix decision) · the schedule
+      build roadmap is §3 below, now corrected — keep it current instead.
+- [ ] **A8 · The schedule ideas document** — thorough list for full physician-group
+      functionality, modelled on the auction: phones (Apple AND Android), e-mail updates
+      and alerts (shared EmailJS quota is a real constraint), .ics calendar feeds, the
+      rules engine (§44), request types, draft/publish + change feed, auction-parity items
+      (rehearsal mode, backup/restore, never-events charter, battery depth). Ideas only.
+
+## When Phase 3 closes — the owner says when
+
+- [ ] **B2 · THE M3 BUILD — approved 17 Aug, scope FROZEN.** (1) Read side, the actual fix:
+      admin `recipientsFor` returns lower-cased addresses — what its comment already claims,
+      what the staff site already does — so both sites agree regardless of stored case; no
+      data migration. (2) Save-path hygiene, both sites' KP-address saves: trim + lower-case,
+      reject only the unarguable (whitespace inside · more than one `@` · domain without a
+      dot · leading/trailing dot). **NO domain checking, not even a warning** — settled July
+      2026, HANDOFF D5. Ships with: a suite executing both sites' real functions against a
+      mixed-case roster · honesty check failing on 269 · the full auction battery · one
+      commit summary per repo. **Deploy between phases only.**
+- [ ] **B3 · After it ships**: note for the record which stored addresses had uppercase, in
+      case any Phase-3 duplicate e-mails need explaining.
+
+## Then — the schedule's big builds
+
+Defect 12 → defect 4's staff half → **stage 4** (two answers still owed — §2 below) →
+**stage 5, the rules engine (§44)** — the actual goal → then the A8 list, prioritised by
+the owner.
+
+---
+
+# 2 · VACATION AUCTION — live, in production
+
+**State:** admin 269 · staff 139 · mobile 17, live and pushed. Rules PUBLISHED. Build work
+PAUSED except the approved M3 build above. Battery: 14 suites (~1,075 assertions — 1,074
+appears in older notes; the itemised list sums to 1,075; re-run to settle it).
+
+## Watch items — dated facts, not defects
+
+- [ ] **The `phases` document grows ~20KB per Phase-4 round against Firestore's 1MB cap.**
+      Late 2027 on current rates. Detail: `HANDOFF.md` D3.
+
+## Open defects on the live site — ONE home, and this is it
+
+*Consolidated from the 25 Jul code review; statuses re-verified 16–17 Aug. The full fix
+sketches survive in `tests/docs/CODE-REVIEW-FINDINGS.md` and the archived copy of
+OPEN-RESIDUALS.*
+
+> ⚠️ **ID COLLISION.** `HANDOFF.md` Part B also uses the labels M1/L2/L3 for the **31 Jul
+> Batch-D** items — different, closed defects. The IDs below are the **25 Jul code-review**
+> numbering. Never quote a bare ID; name the list.
+
+| id | what | status | neutralised by |
+|---|---|---|---|
+| **M3** | the two sites disagree on a mixed-case e-mail address | **CONFIRMED EXPOSED 17 Aug** (owner checked: some KP addresses have uppercase). Reproduced 16 Aug by executing both sites' real functions. **Fix approved (B2), deferred to phase close** | watch for duplicate e-mails during Phase 3; note WHICH address |
+| **M1** | results e-mails can double-send if two admins press Send inside a slow >2-min window | open on purpose (owner, July: *"better to leave it alone than create new problems"*) | **one admin runs the auction** — complete. Unverified: 269's server-truth ledger reads may narrow it; do not assume |
+| **L2** | mail-queue claim is claim/settle/re-check, not a transaction | open; worst case one duplicate alert from a lagging background tab | nothing needed |
+| **L3** | a bid queued on an offline device can replay into a freshly reset auction, stale phase tag, no error | open on purpose — the code fix touches the launch lifecycle | **after Reset: Global Lock ON until Begin Phase 1**; glance at the board before going live |
+| **L4** | an earlier phase's unsent results can become unsendable | narrowed in 245 (auto-targets an earlier unsent phase) | send or rehearsal-skip each phase's results before beginning the next |
+| **L1** | `welcomeLog` write rule unconfined | **not re-checked since July** | — |
+| **L5** | `mobile.html` redirect mangles one query shape | **not re-checked since July** | — |
+
+Cosmetic, accepted: the Approvals week-header clips at phone width. The dashboard loading
+placeholder on a cold load is intended behaviour.
+
+A residual leaves this table only when a build closes it and a suite proves it.
+
+## Optional hardening — deferred-minor, no urgency
+
+- [ ] Firestore rule freezing `auctionConfig` + `bidFloors` once Phase 1 starts (today the
+      Phase-1 lock is client-side; the editor is the only sanctioned write path).
+- [ ] Version auto-refresh on tab re-focus (today: page-load only; idle tabs keep the old
+      build until next visit — acceptable, documented).
+
+## Launch checklist
+
+→ **A7 builds it.** Placeholder so nobody thinks it exists yet.
+
+---
+
+# 3 · DAILY SCHEDULE — in build, months from use
+
+**State:** admin 63 · staff 28, live and pushed. Battery: 16 suites (~587 assertions).
+Stages 1–3 and 9 shipped. **Next: defect 12, defect 4's staff half, then stage 4.**
+
+*This section was rebuilt 17 Aug from the code-verified audit. The old `schedule/TODO.md`
+(a build-52-era document — builds 53–63 appeared nowhere in it) is archived; its dead
+line-number anchors were dropped deliberately. Function names are the stable reference.*
+
+## Open questions — awaiting the owner
+
+| # | question | why it matters |
+|---|---|---|
+| Q18a | **How does the eligibility-grid migration run** under option C (§53b)? Existing ticks must be re-interpreted, not copied — the ones that merely restate a subgroup grant should not become 60×91 exceptions. | Blocks stage 4. §22: do not invent. |
+| Q18b | **Two same-named subgroups, one per category** — a shared capability (e.g. Peds) cannot be one subgroup under §53b's within-category rule. Is that what you pictured? | Blocks the stage-4 editor UI. |
+| Q19 | **§5's approval-timing edge case** — "the test is the month's state at the moment of approval" is Claude's stated default, never owner-confirmed. | Decides whether an approved request is visible or invisible in an edge case. |
+| Q20 | **68 of 91 shifts have no owner-stated time** (parked by §38). The rules engine treats a timeless shift as an input it cannot reason about (§44). | Becomes blocking at stage 5. |
+| Q8 | Phone-first staff view priority — movable stage 8; pull forward if the group starts using the site early. | Sequencing only. |
+| Q10r | Residuals: 2 shifts marked CHECK ME (`NICU9+`, `SMOB Uro`); 7 Richmond assignments rest on the R-start rule alone; 5 labels transcribed from an unclear photo (fix via the catalog UI — the rename tool shipped in 57). | Data quality. |
+
+## Known defects — statuses re-verified against build 63/28, 16 Aug
+
+**Closed:** 1 (b61, §51) · 2 (b52) · 6 (b58) · 10 (b50) · 11 (staff 26) · 14 (staff 26) ·
+19 (b50) · 24's remedy (b57 — labels themselves still need checking, Q10r) · 30 (b50/26;
+residual: the auction's `requiredBuilds` ratchet was NOT ported — still open).
+
+**Half-closed:** **4** — admin approval checks eligibility since b61; **the staff half is
+next**: doctors can still *request* shifts they are not eligible for, nothing flags it.
+**8** — `auditLog` became a subcollection in b63 (the real defect was a silent 400→300 trim,
+not the 1MB cap); `requests`, `swaps`, `openShifts` are still single `{list:[…]}` documents
+and will not survive daily use by 60 people. **9** (security, shape deliberately not
+described here) becomes fixable as each document migrates — rules comment at the
+`dailysched` block is the reference.
+
+**Open — correctness:** 3 (swap apply not atomic with swap status; self-declared in code;
+b59 narrowed, did not close) · 5 (auto-populate loops the whole catalog; needs stage 1
+demand data) · **12 (`renderAll` rebuilds 13 components on every snapshot, destroying
+unsaved typing in the Users grid — NEXT UP)** · 13 (year-mode Stats has no in-flight guard).
+
+**Open — data safety:** 7 (non-merge overwrites in `clearAllSchedFte` and `saveBaseline`;
+`clearMonth` is fixed — it batches with the v2 marker since §47).
+
+**Open — UX:** 15 (no withdraw) · 16 (no denial reason) · 17 (mobile: 9px grid, no
+small-screen override) · 18 (drag-and-drop has no touch fallback).
+
+**Open — hardcoding (§11):** 20 (two admin e-mail constants in two places) · 21 (MD/CRNA/
+Both fixed list — superseded in design by §53; retire with stage 4) · 22 (vacation-site URL
+in both pages) · 23 (shift `role` decorative — §42 made it the shift's category field;
+verify at stage 4).
+
+**Dead code:** 25 (`callTotals` subscribed, never read) · 26 (`saveSchedUser`, no call
+site) · 28 (`passcodesData` loaded, never read) · 29 (`namesLoaded`/`schedFteLoaded` set,
+never read) · 27 — **corrected 16 Aug:** `sha256`, `resolveUser`, `onSignUserInput` are dead
+as recorded, but `#signWelcomeErr` is LIVE in staff 28 (three write sites); remove it from
+the dead list when 27 is cleaned.
+
+## Roadmap — corrected 17 Aug against BUILD-LOG
+
+| # | stage | state |
+|---|---|---|
+| 0 | Test battery | 16 suites + runner. Still missing for auction parity: button sweep, lifecycle run-through, never-events list, fuzzing, mobile sweeps |
+| 1 | Shift definition | **shipped 54–57** (times+sites, demand+holidays, bulk entry, rename). Remaining: compatibility checking, group edit (§13) |
+| 2 | Coverage board | **shipped 58** |
+| 3 | Assignment model | **shipped 52** |
+| 4 | Roles + subgroups | **unblocked by §53–§53b except Q18a/Q18b above.** Not small: the eligibility migration is a re-interpretation, not a copy |
+| 5 | Rules engine (§44) | not started — **the goal** |
+| 6 | Safety net remainder | b61 shipped the unified approval check; remaining: uniform confirmations, swap atomicity (defect 3) |
+| 7 | Draft/publish + change feed | not started |
+| 8 | Staff phone view + notifications | not started — see FUTURE CAPABILITY; movable (Q8) |
+| 9 | Reports | **shipped 51** |
+
+Unmapped shipped builds (in BUILD-LOG, deliberately not stages): 53 rehearsal mode (§45) ·
+59 month subcollection (§47) · 60 locks open by default (§50) · 62 observed holidays +
+catalog grouping (§49a/§52) · 63 audit-log subcollection.
+
+## Request types — designed, not built
+
+The owner's 27-entry list and both structural rulings live in `design/REQUEST-TYPES.md`
+(strength is a field, not three list entries; the requestable list is admin-curated, §41).
+Dependencies now real: overnight-call tag ✅ (51) · site on shifts ✅ (54) · a "late" tag ◻ ·
+approval checks ✅ (61 — the old "makes defect 1 worse" warning is obsolete). Open: the
+Limits/Balances tabs from the screenshots — not specified, not invented (§22).
+
+## FUTURE CAPABILITY — owner-raised, written down the turn they are raised
+
+- [ ] **Phone access — CONFIRMED WANTED, 17 Aug 2026, verbatim:** *"They will need to have
+      access to the schedule from their phones, either apple or andoird."* Reads as the web
+      app working well in both phones' browsers rather than native apps — **ASK before
+      designing.** Overlaps stage 8 and defect 17.
+- [ ] **E-mail updating and alerts — CONFIRMED WANTED, same message, verbatim:** *"They
+      will need e-mail updating and alerts."* What triggers an alert is unspecified. Shares
+      the auction's EmailJS quota — a real constraint to design around.
+- [ ] **Calendar links on phones** (owner-raised pre-16-Aug; detail lost). Obvious shape is
+      a per-doctor `.ics` feed — that is a guess; confirm. Check against the auction's
+      "Auction Calendar" concept.
+- [ ] **Anything else from the pre-16-Aug sessions** — the owner said there were "a lot of
+      good ideas"; ask what else he recalls, record each the moment he says it.
+- The full ideas document is queue item **A8**.
+
+## Test assets
+
+`tests/sched/`: 16 suites + `run-all.mjs` (build50–build63, elig, isolation). The isolation
+suite is the cardinal rule's only enforcement — run it before filing anything. Honesty
+baselines come from git history (see START-HERE's cloud-session notes); the old `/tmp/
+schedpre` fixture recipe is retired.
+
+---
+
+*Update discipline: tick the box in the same session the work completes; correct a status
+the moment it is known to have changed. The A2 generator will own the build numbers on this
+page once it exists — until then they are hand-maintained and were last verified 17 Aug 2026.*
