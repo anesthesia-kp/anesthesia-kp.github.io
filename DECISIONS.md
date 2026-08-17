@@ -1043,18 +1043,18 @@ grant this, and has an exception overridden it.* An unticked box must stop meani
 "ineligible" and start meaning "no exception recorded". Migrating the existing grid is
 therefore **not** a data copy — every existing tick has to be re-interpreted, and the ones
 that merely restate what a subgroup would grant are noise that should not become 60 × 91
-exceptions. **How that migration runs is NOT specified and must not be invented (§22).**
+exceptions. **How that migration runs: ANSWERED — the §56 cutover switch (17 Aug).**
 
 **2. ZERO subgroups is legal.** Owner: *"I can live with 0 or more, maybe usefyl for new
 users."* [sic — verbatim] §53's original "zero or more" stands; §53a's residual is closed. A person in no
 subgroup is a valid, saveable person — not an error state. They are simply granted nothing
 by subgroup, and can still be reached by an explicit exception.
 
-**3. SUBGROUPS ARE WITHIN-CATEGORY. An MD cannot hold a CRNA subgroup, or the reverse.**
+**3. ~~SUBGROUPS ARE WITHIN-CATEGORY~~ — SUPERSEDED BY §53c (17 Aug): a subgroup MAY span both categories.**
 Every subgroup belongs to exactly one category. §53's reading of *"MDs and CRNAs then can
 each have subgroups"* was correct.
 
-### One consequence to put to the owner before stage 4 is built — NOT a guess, a flag
+### ~~One consequence to put to the owner~~ — ANSWERED, see §53c: one shared subgroup is fine
 
 If subgroups are strictly within-category, then a capability both groups share — a Peds
 skill, say — cannot be one subgroup. It is **two** subgroups with the same name, one per
@@ -1119,3 +1119,70 @@ Owner, verbatim, overruling Claude's warn-and-allow proposal for the staff page:
 5. Enforcement is client-side only for now; the Firestore rules cannot cheaply check
    per-shift eligibility, and a rules change is an auction deploy — deferred, noted here
    so it is a decision and not an oversight.
+
+## §53c — Shared subgroups ARE allowed across categories. Amends §53b item 3 — 17 Aug 2026
+
+Asked directly whether a skill both categories share (e.g. Peds) must be TWO same-named
+subgroups (one MD, one CRNA), the owner chose: **"No — one shared subgroup is fine."**
+
+**What this settles:**
+1. **A subgroup MAY contain both MDs and CRNAs.** §53b item 3's strict within-category rule
+   is SUPERSEDED. The owner's original sentence ("MDs and CRNAs can only stay in that
+   subgroup") is now read as being about the PERSON's category — an MD is always an MD —
+   not about a subgroup's membership.
+2. A shift open to both categories can require ONE subgroup. No duplicated skill lists.
+3. §10's original shape ("any number of overlapping groups, not a tree") turns out closer
+   to the final model than §53b's tree reading — the 17 Aug annotation on §10 should be
+   read with this amendment in mind.
+4. The shift's own MD/CRNA/Both field (§42) still exists and still filters WHO can hold
+   the shift — a CRNA in a shared Peds subgroup still cannot take an MD-only Peds shift.
+   Category and subgroup are independent tests, both applied.
+
+## §54a — Calendar feed: contents and access — 17 Aug 2026
+
+Chosen from options, recorded per §37 practice (no quotation marks; selections, not
+dictation):
+
+1. **Contents: the doctor's assigned shifts (times + site) PLUS their approved vacation
+   weeks as all-day events.** Not the whole group's schedule; no who-else-is-on.
+2. **Access: a per-doctor secret link** — an unguessable token in the URL, the standard
+   calendar-sharing mechanism. A leaked link is revoked by regenerating THAT doctor's
+   token; nobody else's feed is affected. No sign-in step (calendar apps cannot log in).
+3. §54's two gates unchanged: build when slotted, RELEASE only when the owner declares the
+   schedule complete.
+
+## §56 — Stage 4 ships with a CUTOVER SWITCH, not a flag day — 17 Aug 2026
+
+Chosen from options: **"Cutover switch."**
+
+1. **Stage 4 ships with the tick grid still authoritative.** Subgroups can be created,
+   staffed and attached to shifts with NO effect on eligibility answers.
+2. **One deliberate, admin-pressed switch** flips authority to subgroups-plus-exceptions
+   (§53b option C). Until it is pressed, nothing changes; after it is pressed, the old
+   ticks are RETIRED BUT KEPT as a record, never consulted (§19: the loser stops being
+   consulted, not merely stops being edited).
+3. There is never a moment where nobody is eligible for anything, and no machine-invented
+   exceptions are ever created (auto-convert was explicitly declined).
+4. The switch is the §47-style pattern: a one-way, confirmed, audited conversion with the
+   old data preserved.
+
+## §57 — Three residuals settled by option-selection — 17 Aug 2026
+
+Recorded per §37 practice (selections from written options, not dictation):
+
+1. **Approval timing (closes §5's open edge, Q19):** an approval is checked against the
+   schedule **as it is at the moment of approval**, not as it was when the request was
+   made. Claude's stated default of 15 Aug is now owner-confirmed. This is how build 61's
+   checker already behaves; no code change.
+2. **Timeless shifts and the rules engine (Q20):** stage 5 **works around blank times** —
+   a shift with no time is a visible, warned-about gap ("cannot check overlaps for this
+   one"), never a guess. §38 (estimates stay out) stands unchanged. The owner fills real
+   times in the catalog at his own pace.
+3. **Catalog data checks (Q10r):** the 7 R-rule Richmond guesses, the 2 no-rule sites
+   (NICU9+, SMOB Uro) and the 5 photo-transcribed labels (NICU9+, RC0+, R9/5, R11+, CV8+)
+   are **handed to the owner to correct in the Shift Catalog UI** — data, not code (§11).
+   They stay flagged in TODO until he says they are done; sites matter once the schedule
+   goes real (§18, one site per day).
+
+Also confirmed in the same round: **Phase 3 is still running** — the M3 build window is
+not yet open.

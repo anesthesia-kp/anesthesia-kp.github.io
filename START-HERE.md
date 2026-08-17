@@ -7,7 +7,7 @@ Rewritten 17 Aug 2026 to one copy of every rule. The five files that govern ever
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§54 + the buried-rulings index) |
+| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§57 + the buried-rulings index) |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it
@@ -162,8 +162,12 @@ TODO files are pointers; lists never fork again.
 
 ## 6 · RUNNING THE BATTERIES
 
-On the owner's machine: `node run-all.mjs` (auction, `tests/`) · `node sched/run-all.mjs`
-(schedule). From a cloud session: stage the CURRENT build as `ROOT` and the PREVIOUS build
+**THE BATTERIES ARE CLAUDE'S JOB, IN-SESSION, EVERY BUILD. The owner does not run them —
+his words, 17 Aug 2026: "yeah, i don't do those things." Never hand him a build with a
+"run the battery first" instruction; run it, show the result, THEN hand over.** The
+commands (`node run-all.mjs` in `tests/`, `node sched/run-all.mjs` for the schedule) are
+recorded for Claude's use — from a cloud session, stage the files and run there (a full
+auction battery ran green in-cloud on 17 Aug, so this is proven practice). From a cloud session: stage the CURRENT build as `ROOT` and the PREVIOUS build
 to the uploads path for honesty checks — staging the current build to both makes every
 honesty check compare a build to itself and fail, which looks exactly like a regression and
 is not. Historical bytes come from read-only git:

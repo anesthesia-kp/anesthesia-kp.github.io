@@ -113,7 +113,7 @@ only** — never mid-send, because the in-flight ledger may hold mixed-case entr
 
 ## Then — the schedule's big builds
 
-~~Defect 12 (build 64)~~ → ~~defect 4 (staff 29, §55)~~ → **stage 4 is NEXT** — **stage 4** (two answers still owed — §3 below) →
+~~Defect 12 (build 64)~~ → ~~defect 4 (staff 29, §55)~~ → **stage 4 is NEXT and now FULLY UNBLOCKED (§53c + §56)** — **stage 4** (two answers still owed — §3 below) →
 **stage 5, the rules engine (§44)** — the actual goal → then the A8 list, prioritised by
 the owner. **Approved from that list already: the calendar feed (DECISIONS §54) — design
 and build may start whenever the owner slots it; the RELEASE gate stays SHUT until he
@@ -223,12 +223,12 @@ line-number anchors were dropped deliberately. Function names are the stable ref
 
 | # | question | why it matters |
 |---|---|---|
-| Q18a | **How does the eligibility-grid migration run** under option C (§53b)? Existing ticks must be re-interpreted, not copied — the ones that merely restate a subgroup grant should not become 60×91 exceptions. | Blocks stage 4. §22: do not invent. |
-| Q18b | **Two same-named subgroups, one per category** — a shared capability (e.g. Peds) cannot be one subgroup under §53b's within-category rule. Is that what you pictured? | Blocks the stage-4 editor UI. |
-| Q19 | **§5's approval-timing edge case** — "the test is the month's state at the moment of approval" is Claude's stated default, never owner-confirmed. | Decides whether an approved request is visible or invisible in an edge case. |
-| Q20 | **68 of 91 shifts have no owner-stated time** (parked by §38). The rules engine treats a timeless shift as an input it cannot reason about (§44). | Becomes blocking at stage 5. |
+| ~~Q18a~~ | **ANSWERED 17 Aug — the §56 CUTOVER SWITCH**: grid stays authoritative until one deliberate admin-pressed switch; ticks then retired but kept; no auto-conversion. | Stage 4 UNBLOCKED. |
+| ~~Q18b~~ | **ANSWERED 17 Aug — §53c: one shared subgroup is fine**; §53b's within-category rule superseded. The shift's MD/CRNA/Both field still applies independently. | Stage 4 UNBLOCKED. |
+| ~~Q19~~ | **ANSWERED 17 Aug (§57): at the moment of approval.** Confirmed; matches build 61's behaviour; no code change. | Closed. |
+| ~~Q20~~ | **ANSWERED 17 Aug (§57): stage 5 works around blanks** — timeless shifts are visible warned gaps, never guesses; §38 stands; owner fills times at his own pace. | No longer blocking. |
 | Q8 | Phone-first staff view priority — movable stage 8; pull forward if the group starts using the site early. | Sequencing only. |
-| Q10r | Residuals: 2 shifts marked CHECK ME (`NICU9+`, `SMOB Uro`); 7 Richmond assignments rest on the R-start rule alone; 5 labels transcribed from an unclear photo (fix via the catalog UI — the rename tool shipped in 57). | Data quality. |
+| Q10r | **WITH THE OWNER (17 Aug, §57): he corrects the 14 flagged items himself in the Shift Catalog UI** (2 CHECK-ME sites, 7 R-rule Richmond guesses, 5 photo-transcribed labels). Stays open here until he says done. | Data quality; matters when the schedule goes real. |
 
 ## Known defects — statuses re-verified against build 63/28, 16 Aug
 
@@ -304,8 +304,8 @@ Limits/Balances tabs from the screenshots — not specified, not invented (§22)
       the auction's EmailJS quota — a real constraint to design around.
 - [ ] **Calendar feed — APPROVED to design and build, 17 Aug (DECISIONS §54).** NOT
       released to doctors until the owner declares the schedule complete (weeks–months) —
-      build gate open, release gate SHUT. Ask before design: feed contents, and the
-      per-doctor secret-URL security ruling (IDEAS 1b).
+      build gate open, release gate SHUT. **Scope settled 17 Aug (§54a): shifts + approved
+      vacations, per-doctor secret link, regenerable per doctor. No open questions.**
 - [ ] **Anything else from the pre-16-Aug sessions** — the owner said there were "a lot of
       good ideas"; ask what else he recalls, record each the moment he says it.
 - The full ideas document is queue item **A8**.
