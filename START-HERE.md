@@ -100,6 +100,15 @@ disk (NOT a dotfile — the old dotfile name was invisible in Finder AND GitHub 
 once, which is how messages got lost), and the BUILD-LOG row. Copy from the outputs column
 or COMMIT-MESSAGE.txt, never from a source or test file.
 
+> ⛔ **THE OUTPUTS COLUMN IS THE DELIVERABLE, NOT A COURTESY. Owner ruling, 17 Aug 2026:**
+> *"ALWAYS ALWAYS ALWAYS send them to the output so i can easily copy."*
+> **Every time a `COMMIT-MESSAGE.txt` changes — every revision, not just the first — the
+> same text goes to the chat outputs column IN THE SAME TURN.** The disk copy is the
+> backup; the outputs column is what the owner actually copies from. This rule was broken
+> once (three revisions went disk-only and the owner had stale messages on screen at push
+> time); it does not get broken again. A repo whose message is not in the outputs column
+> is NOT ready to push.
+
 **File hygiene** — a standing rule, not a one-off. Main folders hold only what is live or in
 flight. Outdated → `~/Documents/GitHub/_archive/<area>/<category>/` (areas on disk:
 `vacation`, `schedule`, `tests`, `anesthesia` — use the existing names, do not invent
