@@ -7,7 +7,7 @@ Rewritten 17 Aug 2026 to one copy of every rule. The five files that govern ever
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `schedule/DECISIONS.md` | what the owner has ruled (§1–§53b + the buried-rulings index) |
+| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§54 + the buried-rulings index) |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it

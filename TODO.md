@@ -4,7 +4,7 @@
 The per-repo `TODO.md` files are pointers here; `MASTER-TODO.md` and
 `OPEN-RESIDUALS` were folded in and archived (copies in `_archive/`) the same day.
 
-**What stays separate, and why:** `schedule/DECISIONS.md` (the rulings register — what is
+**What stays separate, and why:** `DECISIONS.md` (this repo) (the rulings register — what is
 *settled*) and `schedule/BUILD-LOG.md` (what *shipped*). This file is what is *outstanding*.
 A fact lives in ONE of the three, never two.
 

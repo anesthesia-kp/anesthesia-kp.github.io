@@ -367,7 +367,7 @@ that look shared.
 
 ---
 
-## THE RULINGS — read them in `schedule/DECISIONS.md`, not here
+## THE RULINGS — read them in `DECISIONS.md` (this repo), not here
 
 An index of every ruling used to live here. It stopped at §41 while DECISIONS ran to §53b —
 an incomplete copy claiming to be complete, which is worse than no copy. **`DECISIONS.md` is
