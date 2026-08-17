@@ -121,6 +121,72 @@ declares the schedule complete.**
 
 ---
 
+# 1a · NEW PROJECT — THE CRNA VACATION AUCTION (owner directive, 17 Aug 2026)
+
+**Recorded the turn it was raised. Requirements in the owner's words:** *"The vacation site
+is currently only being used by the MDs. The CRNAs are going to use their own vacation
+auction that has the identical design- admin and user interfaces, pulls from the same code,
+but has their own set of users, get their own alerts, has their own admin, with again
+vacation goddess gmail as the dominant admin who cannot be kicked off. They will need their
+own URLs that I want to be https://anesthesia-kp.github.io/vacation/crna and
+[…]/vacation/crna/admin/. I want to update the landing page so that it says Choose a site
+at the top. Department member websites will now have 3 options: Daily Scheduling at the
+top, then MD Vacation Auction, then CRNA Vacation Auction. Admin Access only would have 3
+as well: Daily Scheduling, MD Vacation Auction, then CRNA Vacation Auction. I assume we
+will need 2 new repos and a new firebase. I want all the code to come from my main
+vacation repo so that the 2 sites remain identical other than users."*
+
+**Settled by the requirements themselves:** identical UIs · separate users, alerts, admins ·
+dr.vacation.goddess@gmail.com is lead admin on BOTH, cannot be removed (the existing
+LEAD_ADMIN mechanism) · URLs `/vacation/crna/` + `/vacation/crna/admin/` · landing page
+"Choose a site" with 3+3 options ordered Daily Scheduling → MD Auction → CRNA Auction.
+
+**DECIDED (17 Aug, owner):** labels — CRNA only for now (admin dashboard title
+"Dashboard CRNA Vacation Auction — 2027"; staff page "CRNA" below the auction title,
+above the Department line, same size; MD gets its label at the next regular MD build) ·
+**shared EmailJS account for now, consider changing later** · one handoff/START-HERE/TODO —
+this project adds no new doc files.
+
+**CORRECTED ASSUMPTION:** zero new repos, not two. GitHub Pages can only serve
+`/vacation/crna/` from inside the `vacation` repo — a new repo would get a different URL.
+The CRNA site is a generated `crna/` folder in the existing repo.
+
+**BUILT 17 Aug (working tree, gated):** `crna-stamp.mjs` — generates crna/index.html +
+crna/admin/index.html + crna/versions.json from the MD pages with a fixed transform set
+(Firebase config · seven shared-origin browser-storage keys renamed, or the two sites
+would poison each other's caches on the shared anesthesia-kp.github.io origin · the
+owner's labels · cross-links kept inside /crna/ · the Google-sign-in help note re-pointed
+at the CRNA auth domain). LEAD_ADMIN stays dr.vacation.goddess@gmail.com, unremovable,
+both sites. `tests/test-crna-stamp.mjs` (22 assertions, in the auction battery — now 15
+suites) proves the crna/ files match a fresh stamp and goes RED on any hand edit or
+un-restamped MD build. `crna/` is GITIGNORED until release — the release gate is removing
+that line.
+
+**Go-live default (owner did not pick; assumption stated 17 Aug): build now, PUSH BETWEEN
+PHASES, landing page in the same push so its links are never dead.**
+
+- [ ] **C1 · OWNER: create the CRNA Firebase project** (console work, yours only):
+      console.firebase.google.com → Add project (suggest name `crna-vacation`) → no
+      Analytics needed → Build→Authentication→Get started→Sign-in method→enable
+      **Google** → Build→Firestore Database→Create (production mode, same region as the
+      MD project: check MD console) → Project settings→General→Your apps→Web app (</>)
+      → register (no hosting) → copy the config values into
+      `vacation-kp.github.io/crna-config.json` (replace every REPLACE_ME) → tell Claude;
+      the stamper re-runs and the warning disappears.
+- [ ] **C2 · OWNER, same console: publish the rules.** Firestore→Rules → paste the FULL
+      contents of `vacation-kp.github.io/firestore.rules` → Publish. **Standing rule from
+      now on: every rules change is published in BOTH consoles, same file, same day.**
+- [ ] **C3 · OWNER: authorized domain.** Authentication→Settings→Authorized domains →
+      ensure `anesthesia-kp.github.io` is listed (add if not).
+- [ ] **C4 · Claude: landing page update** ("Choose a site", 3+3: Daily Scheduling → MD
+      Vacation Auction → CRNA Vacation Auction) — built to ship in the SAME push as crna/.
+- [ ] **C5 · Release, between phases:** real config stamped → remove the `crna/` gitignore
+      line → push vacation repo (crna/ + landing timing per C4) → verify live URLs →
+      owner adds CRNA admin e-mails and roster in the CRNA admin's Users page.
+- [ ] **C6 · Later, owner's call:** separate EmailJS account (decision recorded above);
+      MD site label at next MD build; CRNA rows in the capacity report? (ask when B4 is
+      designed — the two auctions have separate data, so B4 as specced is MD-only).
+
 # 2 · VACATION AUCTION — live, in production
 
 **State:** see the STATUS block at the top of this file. Rules PUBLISHED. Build work
