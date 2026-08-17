@@ -176,7 +176,7 @@ standing rule). Further separation (a different web origin) was considered and d
 it would break the /vacation/crna/ URL and defends only against threats the guards already
 close mechanically.
 
-- [ ] **C1 · OWNER: create the CRNA Firebase project** (console work, yours only):
+- [x] **C1 · DONE 17 Aug — project `crna-vacation` created, config in `crna-config.json`, stamp clean 22/22.** Original steps kept for the record: create the CRNA Firebase project (console work, yours only):
       console.firebase.google.com → Add project (suggest name `crna-vacation`) → no
       Analytics needed → Build→Authentication→Get started→Sign-in method→enable
       **Google** → Build→Firestore Database→Create (production mode, same region as the
@@ -184,14 +184,14 @@ close mechanically.
       → register (no hosting) → copy the config values into
       `vacation-kp.github.io/crna-config.json` (replace every REPLACE_ME) → tell Claude;
       the stamper re-runs and the warning disappears.
-- [ ] **C2 · OWNER, same console: publish the rules.** Firestore→Rules → paste the FULL
+- [x] **C2 · DONE 17 Aug (owner confirmed: database created, rules published).** Firestore→Rules → paste the FULL
       contents of `vacation-kp.github.io/firestore.rules` → Publish. **Standing rule from
       now on: every rules change is published in BOTH consoles, same file, same day.**
-- [ ] **C3 · OWNER: authorized domain.** Authentication→Settings→Authorized domains →
+- [x] **C3 · DONE 17 Aug (owner confirmed).** Authentication→Settings→Authorized domains →
       ensure `anesthesia-kp.github.io` is listed (add if not).
-- [ ] **C4 · Claude: landing page update** ("Choose a site", 3+3: Daily Scheduling → MD
+- [x] **C4 · DONE 17 Aug** — landing page rebuilt ("Choose a site", 3+3, Daily Scheduling first, MD/CRNA labelled). Original: landing page update ("Choose a site", 3+3: Daily Scheduling → MD
       Vacation Auction → CRNA Vacation Auction) — built to ship in the SAME push as crna/.
-- [ ] **C5 · Release, between phases:** real config stamped → remove the `crna/` gitignore
+- [x] **C5 · RELEASED 17 Aug — owner's explicit call to go live DURING Phase 3** after the risk trade was laid out (MD bytes untouched; empty roster = inert site; tail risk accepted). Gate removed, crna/ staged to commit. Remaining from the original list: real config stamped → remove the `crna/` gitignore
       line → push vacation repo (crna/ + landing timing per C4) → verify live URLs →
       owner adds CRNA admin e-mails and roster in the CRNA admin's Users page.
 - [ ] **C6 · Later, owner's call:** separate EmailJS account (decision recorded above);
