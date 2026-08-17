@@ -500,3 +500,125 @@ Firebase, no real data, every invented value labelled (§22).
 6. **Stage 4** — roles + groups, which unblocks stage 5 (rules + conflict report, §44).
 
 ---
+
+# PART D — RESCUED RECORDS, 16 Aug 2026
+
+Everything in this part existed in exactly ONE place, and that place was a file that looks
+obsolete and was a candidate for archiving. It was lifted here on 16 Aug so that archiving
+those files costs nothing. **Sources are named at each section; the source files keep their
+original text as historical evidence.**
+
+---
+
+## D1 · Open residuals on the LIVE auction → `tests/docs/OPEN-RESIDUALS.md`
+
+The auction's deliberately-open defects and their mitigations now have ONE home:
+**`tests/docs/OPEN-RESIDUALS.md`**. Do not restate them here or anywhere else; point at that
+file. It carries M1, M3, L2, L3, L4 and the cosmetic items, each with what neutralises it.
+
+Two things to know without opening it:
+
+- **M3 was never triaged, and it reproduces on the live build.** The two sites disagree about
+  a doctor's e-mail address whenever that address contains a capital letter, because the KP
+  address is not normalised on save and only one of the two sites lower-cases what it returns.
+  Reproduced 16 Aug by extracting and executing both sites' real functions. Whether it has
+  ever fired depends on whether any stored KP address has a capital letter — a data question,
+  answerable on the admin Users page.
+- **M1's mitigation is complete and is an operating habit, not code:** a single admin runs the
+  auction. The same is true of L3: after Reset Auction, Global Lock ON until Begin Phase 1.
+
+> ⚠️ **ID COLLISION.** Part B of this file contains items also labelled **M1, L2 and L3** —
+> those are the **31 Jul Batch-D** numbering and are different, closed defects. The residuals
+> file uses the **25 Jul code-review** numbering. Never quote a bare ID; name the list.
+
+---
+
+## D2 · Phase 4 — rounds as mini-phases. The lifecycle, in one place
+
+*Rescued from `tests/docs/NEXT-SESSION-PROMPT-2026-08-11.md`, which was the only
+human-readable description of this machine anywhere in the project. The mechanism is
+implemented in both pages and pinned by `tests/test-p4-rounds.mjs` (154 assertions) — but a
+suite tells you what breaks, not how the thing is meant to work.*
+
+**In plain terms:** Phase 4 is not one phase with many decisions. It is a series of small
+phases. Each round closes, gets decided, gets archived, gets mailed, and only then does the
+next round open. Nothing a doctor sees moves until the results for that round have actually
+been sent.
+
+**The sequence, quoted from the 11 Aug record:**
+
+> close bidding → decide → Complete Round N (archives to admin-only staging `pendingP4Rounds`)
+> → Send Round N Results (mails that round, publishes archive to `phases.p4Rounds[N]` +
+> `p4RoundResultsSent[N]`) → Start Round N+1 (retires denied bids from `schedule` + `bidPhase`,
+> clears approvals/denials/worstBids docs, `p4Round++`, smart-lock reopen) → … → Complete
+> Phase 4 (gated: current round archived, all rounds sent, no orphan live decisions; year
+> record = union of round archives; finish via `_p4FinishStamp`).
+
+**The invariants, likewise quoted:**
+
+> announced round wins lock via `getPriorPhaseWinners` (`p4RoundWinnersOn`) on BOTH sites;
+> announced denials freeze until retirement (staff `p4AnnouncedDecision`); unsent results never
+> visible to users; archived decisions immutable (`_p4ArchivedDecisionRound` guards
+> approve/deny/revoke, pending counts, decide panel); plain Reopen redirects to Start Round
+> when round archived; reports/history/filters treat rounds like phases ('Phase 4: Round N').
+
+**Why each invariant is there, in one line:** results are not visible before they are sent, so
+nobody learns their outcome early. An archived round cannot be re-decided, so the record of
+what was announced cannot drift. Both sites agree on who won, so the two pages never show
+different answers to the same doctor.
+
+---
+
+## D3 · A dated capacity ceiling on a live document
+
+*Same source, and it appeared nowhere else in the project.*
+
+> phases doc grows ~20KB/round (watch vs 1MB late 2027)
+
+The `phases` document grows by roughly 20KB each Phase-4 round. Firestore caps a single
+document at 1MB. On the growth rate observed in August 2026 that becomes a problem around late
+2027. **This is not urgent and it is not theoretical** — it is a dated arithmetic fact about a
+document the live auction writes every round. Tracked as a watch item in
+`vacation-kp.github.io/TODO.md`.
+
+---
+
+## D4 · Operating habits for the live auction
+
+*Rescued from §5 of `tests/docs/SESSION-HANDOFF-2026-08-07.md`. Several of these are carried
+elsewhere already; the three marked ★ were carried nowhere.*
+
+1. **Run as the sole admin.** Most residual risks require two simultaneous admins.
+2. **The timer may expire on its own** — safe since build 244. The admin machine's clock should
+   be OS-synced. ★ **Keep one admin page open at and after expiry** so auto-close can fire; the
+   manual Close Bidding path still works either way.
+3. **Rehearsal Mode was once found unexpectedly OFF.** Verify the banner state before a
+   rehearsal (ON) and before a real launch (OFF). Reset keeps it armed by design.
+4. **After any Reset:** Global Lock ON until Begin Phase 1. See L3 in the residuals file.
+5. **E-mail quota:** the in-app meter is advisory; **EmailJS's dashboard is the source of
+   truth.** ★ The app's cycle resets on a configurable day, **default the 22nd**, which may
+   differ from EmailJS's own billing day — that mismatch is why the meter can under-state.
+6. **Send (or rehearsal-skip) each phase's results before beginning the next phase.** Build 245
+   auto-targets an earlier unsent phase, but do not rely on it live.
+7. ★ **Don't reload the admin dashboard mid-presentation**, and give it ~2s after opening.
+
+---
+
+## D5 · Accepted design decisions — do NOT relitigate
+
+*Rescued from §6 of the same file. The first is carried in Part A; the rest were carried
+nowhere.*
+
+- `computeApprovals` has deliberately different signatures on the two sites (admin: an
+  `ignoreAdmin` boolean; staff: a schedule snapshot). Port the logic only, never the signature.
+- Reset Auction keeps Rehearsal Mode armed.
+- **Review overage up to 1.0 is allowed**, and overage locks while the current phase has bids —
+  including after the final phase. A reset clears it.
+- **No e-mail-domain restriction.** *(Settled July 2026. Anything that would refuse an address
+  for its domain — including a non-blocking "that doesn't look like a KP address" warning — is
+  a change to this decision and needs the owner to say so explicitly.)*
+- Passcodes are retired. The staff site does not auto-reconnect.
+- The NP phase toggle is superseded by the high-demand week rule: Phase-1 weeks are all
+  high-demand, so an NP-in-P1 toggle is moot. That is correct behaviour, not a bug.
+- **Priority-lock OFF legalises below-floor bids, and re-enabling it does not unwind them.**
+- **Raising a cap auto-raises later phases' caps.**
