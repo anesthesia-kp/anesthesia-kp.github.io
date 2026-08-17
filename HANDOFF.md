@@ -495,6 +495,14 @@ different answers to the same doctor.
 
 ---
 
+## D2a · Requested next auction feature (17 Aug 2026) — capacity-by-week report
+
+The owner's first post-Phase-3 feature request: a report on the Reports dash, beneath the
+user summaries, showing **each week of the year with what's been taken and what's
+available**, styled like the existing reports. Verbatim wording and the one open scoping
+question are in `TODO.md` §1 B4 — that is the home; this note exists so the handoff reader
+knows an auction feature is queued behind the M3 build.
+
 ## D3 · A dated capacity ceiling on a live document
 
 *Same source, and it appeared nowhere else in the project.*
