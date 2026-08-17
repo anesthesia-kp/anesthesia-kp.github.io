@@ -165,6 +165,17 @@ that line.
 **Go-live default (owner did not pick; assumption stated 17 Aug): build now, PUSH BETWEEN
 PHASES, landing page in the same push so its links are never dead.**
 
+**HARDENED 17 Aug after the owner's "paramount that the sites never contaminate each
+other":** the stamper now carries GENERIC guards, not just named ones — any storage key
+that ever appears in the MD pages without a crna prefix in the stamped output, and any
+absolute /vacation/ link that is not /vacation/crna/, ABORTS the stamp. Proven by planting
+a rogue future key and watching it refuse. Residual risks accepted and named: shared code
+is shared fate (a bug ships to both — the owner's own requirement); the shared EmailJS
+quota (owner: reconsider later); the rules file must be published to both consoles (the
+standing rule). Further separation (a different web origin) was considered and declined:
+it would break the /vacation/crna/ URL and defends only against threats the guards already
+close mechanically.
+
 - [ ] **C1 · OWNER: create the CRNA Firebase project** (console work, yours only):
       console.firebase.google.com → Add project (suggest name `crna-vacation`) → no
       Analytics needed → Build→Authentication→Get started→Sign-in method→enable
