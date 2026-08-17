@@ -101,10 +101,15 @@ only** — never mid-send, because the in-flight ledger may hold mixed-case entr
       is a report for available capacity by week. Similar in styling to the other reports,
       but just shows each week of the year and what's been taken and what's available. For
       later though."* Placement: beneath the user summary reports. Styling: match the
-      existing reports. Content: every week of the year, taken vs available. Queued for
-      after Phase 3; an auction build (needs the full auction gates). Open before design:
-      does "available" mean capacity minus approved winners only, or minus all live bids
-      too — ask when scoping.
+      existing reports. Content: every week of the year, taken vs available.
+      **ANSWERED 17 Aug (owner): "available" = capacity − APPROVED WINNERS ONLY — live
+      bids do not count. The report's header must SAY so** (owner: *"specify that in the
+      header"*), e.g. "available = capacity minus approved winners; pending bids not
+      counted". Owner: *"It's mostly designed for use between phases"* — between phases
+      everything is decided, so the number is exact; mid-phase it will show more available
+      than will survive the round, which is why the header must state the definition.
+      Queued for after Phase 3; an auction build (needs the full auction gates). No open
+      questions — ready to design when its turn comes.
 
 ## Then — the schedule's big builds
 
