@@ -35,7 +35,7 @@ owner's request. The cardinal rule in `START-HERE.md` exists to protect this sit
 
 ## ⭐ BACKLOG — pending updates (added 11 Aug 2026, after the first live rehearsal)
 
-**Live state right now [VERIFIED]:** admin **264** (F1 fix: Begin-Phase-4 clears the round
+**Live state ~~right now~~ AS OF 11 AUG — HISTORICAL, live is 269/139/17:** admin **264** (F1 fix: Begin-Phase-4 clears the round
 mirrors locally before the Round-1 month picker reads them), staff index **135**, mobile **17**;
 versions.json matches. First live rehearsal with real users ran clean. The only real issue was a
 data-entry typo — a user's corrupted KP e-mail (`...Bielinski.kp@org`, `@` misplaced) made EmailJS
@@ -124,8 +124,8 @@ FIRST**, for the user to sign off on before any edit.
   (f) Confirmed email sending works (Send Phase Results delivered; users w/o e-mail skipped).
   (g) Over-cap weeks (~1.0 FTE over) explained: the **review overage is configured at 1.0** (user
   confirmed) — by design, not a bug; a week may be approved up to a full FTE over cap via reviews/draws.
-- **Live: staff 127 / admin 239** (admin 236→239 pushed & user-verified 3 Aug), versions.json
-  {"index":127,"mobile":16,"admin":239}. Nothing awaits push. admin 227→236 was adversarially
+- **[HISTORICAL — 3 Aug] Live then: staff 127 / admin 239**, versions.json
+  {"index":127,"mobile":16,"admin":239}. (Live NOW: 269/139/17.) admin 227→236 was adversarially
   audited BEFORE deploy; 236→239 is the priority-inversion fix (two audits + the live verification above).
 - **Test suite: 832 assertions, 7 suites, all green** (added `test-priority-inversion.mjs`; H2 in
   `test-high-fixes.mjs` updated to strict-priority per user ruling); every new test carries an executed
@@ -165,7 +165,7 @@ FIRST**, for the user to sign off on before any edit.
 **Audits run (all "skeptical Claude" adversarial):** backup/restore changes (found the 221 issue),
 UI wiring, rehearsal lifecycle ×2 (found the 222 and 226 issues), duplicate-email fix (found the
 restore HIGH). Two-skeptic verification (confirmer vs refuter pairs) of sweep D6–D13 and the 3
-critic leads — see archive/VERIFICATION-2026-07-30.md for full verdicts.
+critic leads — see `tests/docs/archive/VERIFICATION-2026-07-30.md` (tests repo) for full verdicts.
 
 ## 3. THE QUEUE — **ALL DONE (this section is now the historical record of what shipped)**
 
@@ -222,7 +222,7 @@ critic leads — see archive/VERIFICATION-2026-07-30.md for full verdicts.
    are caught ("Your bid IS saved…"), the modal always closes, and local floor/timestamp mirrors
    stamp only after their writes land. L1: getUserFTE coerces string FTEs on BOTH sites. L2:
    Begin Phase failure toasts stopped claiming "nothing was changed". L3 had already shipped in
-   231. **M1 — CLOSED, user ruling 31 Jul (final): accepted as DESIGN, no fix ever.** A tied
+   231. **M1 [31-Jul Batch-D numbering — NOT the 25-Jul code-review M1 in TODO.md, which is still open] — CLOSED, user ruling 31 Jul (final): accepted as DESIGN, no fix ever.** A tied
    group may all show DRAW even when only some members fit the remaining capacity; the admin
    holds the override authority in exactly those situations (the approve dialog's cap warning
    fires before any over-cap approval), so the badge is not misleading in practice. Do NOT
@@ -316,12 +316,9 @@ permanently; the refuted items in §3 above.
 
 ## Where things stand
 
-| | live | working tree |
-|---|---|---|
-| schedule admin | **51 — live** | **52 FILED, byte-verified, NOT pushed** |
-| schedule staff | **26 — live** | **27 FILED, byte-verified, NOT pushed** |
-| auction admin | 269 | clean |
-| auction staff / mobile | 139 / 17 | clean |
+**Build numbers live in ONE place: the STATUS block at the top of `TODO.md` (this repo),**
+kept current by `status.mjs`. This file never carries a build table again — the last one
+sat here saying "NOT pushed" for 12 builds after the push.
 
 The auction numbers are as of 16 Aug and are **not** maintained by schedule sessions —
 re-check them from the auction's own records before relying on them.
@@ -370,75 +367,13 @@ that look shared.
 
 ---
 
-## EVERY RULING ON THE RECORD — the index
+## THE RULINGS — read them in `schedule/DECISIONS.md`, not here
 
-`DECISIONS.md` is the authority; this is the map so a fresh session knows what exists
-before it proposes something already settled. **Do not re-litigate any of these.**
-The ones marked ⟵ **overruled Claude** — Claude recommended the opposite and was told no.
-
-**The cardinal rule** — no schedule work may degrade the live Vacation Auction. Outranks
-everything below it.
-
-### Isolation and the shared surface
-| § | ruling |
-|---|---|
-| 1 | The schedule's Users panel **keeps full write access** to the auction roster. ⟵ **overruled Claude twice** — Claude proposed severing those writes; the owner refused, and a phase gate is also ruled out because the auction runs all year. |
-| 2 | **FTE is the schedule's own** (`dailysched/fteMap`) and must stay independent of the auction. |
-| 30 | The mitigation for §1 is the **per-page lock**, not a gate and not a severance. |
-
-### How the site behaves
-| § | ruling |
-|---|---|
-| 3 | **Confirm every change** — uniform confirmation style, matching the auction. |
-| 4 | **Nothing is ever blocked.** Warn, never refuse. |
-| 5 | Requests made **before** a month is published are part of the draft; after publication they are changes needing approval. |
-| 6 | The change feed is **personal** — a user sees only changes involving them. |
-| 7 | Compatibility = **times AND an explicit approved-pairs list.** Times alone are not enough. |
-| 8 | A person **can hold two day shifts.** A second shift must never silently replace the first. |
-| 18 | **One site per day, never both.** Oakland and Richmond are the only sites. |
-| 21 | "N per month" is a **debt the month owes** — track it and suggest dates. |
-
-### Configuration — all of it admin-editable
-| § | ruling |
-|---|---|
-| 9 | Shift demand supports **every imaginable frequency** — daily, weekly on given days, N per week, N per month, weekdays, weekends, holidays, and combinations. |
-| 10 | **Groups**: MD vs CRNA is primary; each subdivides into pediatric, obstetric, admin, call/non-call, per diem, locums, and more. |
-| 11 | **Everything admin-editable.** "When something changes, I don't have to go into code." |
-| 12 | Lock / unlock for rarely-changed config. |
-| 13 | **Group editing** of times and days. |
-| 17 | Times and the clock: **24-hour always.** D = 07:30 + 8h · D10 = 10h · AP = 12h · all PM shifts start 15:30 · admin never runs past 17:30 · AM 07:30–11:30 · PM 13:30–17:30 · DPM 11:30–15:30 · CVPM 13:30–17:30 · Ev 15:30–23:30 · Pedi PM 13:30–17:30 · Eye Call 07:30–15:30. |
-| 19 | **Group rules drive the eligibility grid** — including add and remove. |
-| 20 | Locks are **one master switch per page**, not per field. |
-| 23 | Bulk entry: **duplicate an existing shift first**, then edit. |
-| 24 | The catalog is **91 shifts** (corrected — 104 was the highest `order` value, not a count). |
-
-### Tracking, fairness and reports
-| § | ruling |
-|---|---|
-| 25 | `kind: 'day' \| 'call'` is **retired.** Counting is universal; **admin-defined tags** are what rules, fairness and reports point at. |
-| 26 | **Per diem and locums are OUT** of the fairness pools. |
-| 27 | **Overnight call is a list the admin sets** — starting exactly `Call 16`, `Call 24`, `OB PM`. **Never derive it:** crossing midnight wrongly catches `RCH-ICU B`; the call family wrongly catches `Eye Call` (07:30–15:30) and `Call 12 AM`. |
-| 28 | Reports, first set: **admin only**, per doctor, for a chosen day / month / quarter / year / range — how many of each shift, **calls at the top**, a **dated list of every overnight call**, and a comparison to the group. ⟵ **overruled Claude** — Claude's own suggested report contents were rejected as not useful. |
-| 29 | Every comparison is **FTE-adjusted**, per diem and locums excluded, and **the method is printed inside the report.** |
-| 32 | Report styling matches the auction — `REPORT_CSS` lifted **verbatim**, not approximated. |
-
-### Process
-| § | ruling |
-|---|---|
-| 14 | The demo banner is **removed** (shipped in 49/25). |
-| 15 | Working discipline is **inherited from the Vacation Auction** — see the binding list below. |
-| 16 | A full test battery to auction standard, plus **periodic adversarial audits** of new builds. |
-| 22 | **Never present invented data as the owner's.** This exists because Claude did exactly that on 15 Aug and was caught. Label every placeholder, every time. |
-| 31 | Fix the **Quick View bug now**; phone view and notifications later. |
-| 33 | Build order: the **small independent fixes first** — which is build 50/26. |
-| 34 | **One chat for both sites.** ⟵ **overruled Claude** — Claude recommended separate chats from general principle; a full day of evidence pointed the other way and the recommendation was withdrawn. |
-| 35 | The comparison pool is a **per-person switch, default ON**. Shipped on the **Reports** page, not Users — a schedule-only setting must never be a reason to unlock the page that writes the live auction roster. |
-| 36 | A doctor with **no FTE** gets a full report but **no expected figure**, and is outside the pool. A blank is never treated as 1.0. |
-| 37 | The **call baseline is out of dated reports** and appears only in a separate rolling-12-month fairness view. ⟵ **Claude pushed back once** on the owner's first answer, on grounds the original framing had missed; the owner then chose the two-view answer. |
-| 38 | **Estimated times are parked** — every unconfirmed shift stays blank. The 68 estimates and the 4 SUSPECT call times are not loaded. |
-| 39 | **`4 to 6` is a real shift** (15:30–17:30), catalog 91 → 92. Added in the Shift Catalog UI, **not** in code — the seeding migration is one-shot (defect 24) and §11 says data needs no build. |
-| 40 | **No bulk demand editing.** Dropped from stage 1. |
-| 41 | **Only some shifts are requestable — a curated list.** ⟵ **overruled Claude** — Claude proposed generating the requestable set from the catalog; the owner: *"Not all shifts can be requested, that's why i want just these."* |
+An index of every ruling used to live here. It stopped at §41 while DECISIONS ran to §53b —
+an incomplete copy claiming to be complete, which is worse than no copy. **`DECISIONS.md` is
+the authority and its headings ARE the index** (§1–§53b, plus the buried-rulings index at
+the end of that file). Do not re-litigate anything there; rulings marked as overruling
+Claude mean Claude argued the opposite and was told no.
 
 ## Four traps a fresh session will fall into
 
@@ -471,7 +406,7 @@ everything below it.
 
 ## Design artefacts — delivered, NOT built
 
-`design/` now holds six previews and four specs. They are **mockups, not the app** — no
+`design/` holds six previews, three specs and a README (statuses corrected 17 Aug — several shipped; each file now carries a dated status banner). They are **mockups, not the app** — no
 Firebase, no real data, every invented value labelled (§22).
 
 | file | what |
@@ -484,20 +419,12 @@ Firebase, no real data, every invented value labelled (§22).
 | `RULES.md` + `rules-preview.html` | stage 5 — **blocked on roles/groups**, two questions flagged |
 | `shift-times.xlsx` | the owner's worksheet. **Not an import** — §38 parks every estimate |
 
-## Next actions, in order
+## Next actions
 
-1. **Owner pushes build 59/28 + 60 + the housekeeping** (both are in the same commit; message
-   at `schedule/.claude-commit-msg-59.txt` and `tests/.claude-commit-msg-59.txt`), and the
-   auction repo's housekeeping-only commit (`vacation-kp.github.io/.claude-commit-msg.txt`).
-2. **Run the AUCTION battery on the owner's machine** — 14 suites. Build 59 changed the
-   schedule admin page and the auction suites read it. Every anchor was checked by hand
-   and all survive, but that is not the same as running them.
-3. **Convert the existing months** in the live admin once pushed — the banner's button.
-4. **The defect sweep**: defect 1 (approval bypasses eligibility/capacity/vacation/
-   collision checks), defect 3 (swap apply not atomic — build 59 narrowed it but did not
-   close it), defect 12 (renderAll destroys unsaved typing in the Users grid), defect 7.
-5. **Request types** (designed, approved, unblocked).
-6. **Stage 4** — roles + groups, which unblocks stage 5 (rules + conflict report, §44).
+**The queue lives in ONE place: `TODO.md` §1 (this repo).** The list that used to sit here
+went stale within a day of being written (it still ordered a push that had long landed and
+called defect 1 open after build 61 closed it). This file records what happened; TODO
+orders what happens next.
 
 ---
 
@@ -534,7 +461,7 @@ Two things to know without opening it:
 
 ## D2 · Phase 4 — rounds as mini-phases. The lifecycle, in one place
 
-*Rescued from `tests/docs/NEXT-SESSION-PROMPT-2026-08-11.md`, which was the only
+*Rescued from NEXT-SESSION-PROMPT-2026-08-11 (now `_archive/tests/session-docs/`), which was the only
 human-readable description of this machine anywhere in the project. The mechanism is
 implemented in both pages and pinned by `tests/test-p4-rounds.mjs` (154 assertions) — but a
 suite tells you what breaks, not how the thing is meant to work.*
@@ -584,7 +511,7 @@ document the live auction writes every round. Tracked as a watch item in
 
 ## D4 · Operating habits for the live auction
 
-*Rescued from §5 of `tests/docs/SESSION-HANDOFF-2026-08-07.md`. Several of these are carried
+*Rescued from §5 of SESSION-HANDOFF-2026-08-07 (now `_archive/tests/session-docs/`). Several of these are carried
 elsewhere already; the three marked ★ were carried nowhere.*
 
 1. **Run as the sole admin.** Most residual risks require two simultaneous admins.
