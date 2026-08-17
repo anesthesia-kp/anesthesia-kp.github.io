@@ -72,10 +72,10 @@ only** — never mid-send, because the in-flight ledger may hold mixed-case entr
       Fix structure (broken numbering, dangling §refs, empty final section).
 - [x] **A6 · File-hygiene pass, own commits**: archive the three banded `tests/docs` files ·
       `.DS_Store` sweep · `_archive/README.md` inventory brought current.
-- [ ] **A7 · The vacation LAUNCH CHECKLIST** (the schedule half is DONE — §3 of this file is the corrected roadmap): a vacation LAUNCH CHECKLIST (today → launch,
+- [x] **A7 · Both "what's left" lists** — the vacation LAUNCH CHECKLIST is in §2 below; the schedule roadmap is §3.: a vacation LAUNCH CHECKLIST (today → launch,
       incl. the M3 build and each open residual's accept/fix decision) · the schedule
       build roadmap is §3 below, now corrected — keep it current instead.
-- [ ] **A8 · The schedule ideas document** — thorough list for full physician-group
+- [x] **A8 · The schedule ideas document** — `schedule/design/IDEAS.md`. — thorough list for full physician-group
       functionality, modelled on the auction: phones (Apple AND Android), e-mail updates
       and alerts (shared EmailJS quota is a real constraint), .ics calendar feeds, the
       rules engine (§44), request types, draft/publish + change feed, auction-parity items
@@ -97,9 +97,11 @@ only** — never mid-send, because the in-flight ledger may hold mixed-case entr
 
 ## Then — the schedule's big builds
 
-Defect 12 → defect 4's staff half → **stage 4** (two answers still owed — §2 below) →
+Defect 12 → defect 4's staff half → **stage 4** (two answers still owed — §3 below) →
 **stage 5, the rules engine (§44)** — the actual goal → then the A8 list, prioritised by
-the owner.
+the owner. **Approved from that list already: the calendar feed (DECISIONS §54) — design
+and build may start whenever the owner slots it; the RELEASE gate stays SHUT until he
+declares the schedule complete.**
 
 ---
 
@@ -146,9 +148,49 @@ A residual leaves this table only when a build closes it and a suite proves it.
 - [ ] Version auto-refresh on tab re-focus (today: page-load only; idle tabs keep the old
       build until next visit — acceptable, documented).
 
-## Launch checklist
+## LAUNCH CHECKLIST — what stands between today and launch
 
-→ **A7 builds it.** Placeholder so nobody thinks it exists yet.
+Built 17 Aug 2026. Items marked **ASK** need the owner's answer; nothing here was invented.
+
+**Finish the rehearsal**
+- [ ] Phase 3 → close. Phase 4 with rounds → complete (the round machine's invariants are
+      `HANDOFF.md` D2). Watch throughout: anyone receiving the same e-mail twice → note
+      WHICH address (M3 evidence).
+- [ ] Rehearsal debrief: anything the group tripped over goes in this file the same day.
+
+**The pre-launch build window (between phases / after rehearsal)**
+- [ ] **The M3 build** — approved, scope frozen (§1 B2). Full battery + honesty vs 269.
+- [ ] **L1 and L5 re-check** — the two items July called "safe to fix pre-launch"
+      (`welcomeLog` rule confinement; the `mobile.html` redirect edge). Never re-verified
+      since. Check both; fix or explicitly accept, in the residuals table above.
+- [ ] Explicitly accept (or fix) M1, L2, L3, L4 — each already has a working mitigation;
+      launch just makes the acceptance formal. One line each in the residuals table.
+
+**Data readiness — ASK/verify, cannot be determined from code**
+- [ ] Roster complete: all ~60 doctors in `userList`, names right.
+- [ ] Every login e-mail correct — this IS the bid-security map. The duplicate-login guard
+      refuses collisions at entry; a wrong (not duplicate) address locks that person out.
+- [ ] KP e-mails entered where wanted; after the M3 build they normalise on save, but
+      **existing mixed-case entries stay as stored** (harmless once the read side is fixed).
+- [x] **ANSWERED 17 Aug (owner): e-mails GO TO REAL USERS.** The 7 Aug test-only note is
+      obsolete. ⚠️ Implication: any duplicate e-mail M3 produces during Phase 3 reaches a
+      REAL doctor, not a test inbox — the watch instruction above is live, not academic.
+- [ ] EmailJS quota headroom for launch volume — the DASHBOARD is the truth, not the
+      in-app meter; app cycle resets on the configured day (default the 22nd).
+
+**The launch sequence itself**
+- [ ] Fresh cloud backup before anything.
+- [ ] Full Reset Auction → **Global Lock ON immediately** (L3 habit) → board visibly empty.
+- [ ] **Rehearsal Mode OFF** — verify the banner, not memory (it was once found
+      unexpectedly OFF mid-rehearsal; the failure can point either way).
+- [ ] Begin Phase 1 answers the real-launch question honestly → Global Lock off.
+- [ ] Operating habits in force for the whole run: sole admin · keep an admin page open at
+      timer expiry · send (or skip) each phase's results before beginning the next ·
+      don't reload the dashboard mid-presentation (`HANDOFF.md` D4).
+
+**Standing watches after launch**
+- [ ] `phases` doc growth (~20KB/round vs 1MB — late 2027).
+- [ ] The two optional-hardening items below — revisit once launch settles.
 
 ---
 
@@ -244,9 +286,10 @@ Limits/Balances tabs from the screenshots — not specified, not invented (§22)
 - [ ] **E-mail updating and alerts — CONFIRMED WANTED, same message, verbatim:** *"They
       will need e-mail updating and alerts."* What triggers an alert is unspecified. Shares
       the auction's EmailJS quota — a real constraint to design around.
-- [ ] **Calendar links on phones** (owner-raised pre-16-Aug; detail lost). Obvious shape is
-      a per-doctor `.ics` feed — that is a guess; confirm. Check against the auction's
-      "Auction Calendar" concept.
+- [ ] **Calendar feed — APPROVED to design and build, 17 Aug (DECISIONS §54).** NOT
+      released to doctors until the owner declares the schedule complete (weeks–months) —
+      build gate open, release gate SHUT. Ask before design: feed contents, and the
+      per-doctor secret-URL security ruling (IDEAS 1b).
 - [ ] **Anything else from the pre-16-Aug sessions** — the owner said there were "a lot of
       good ideas"; ask what else he recalls, record each the moment he says it.
 - The full ideas document is queue item **A8**.
