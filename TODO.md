@@ -270,11 +270,20 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner request, 18 Aug 2026 — verbatim
 
-- [x] **V7 · BUILT 18 Aug 2026 in build 271 with B4 (owner reorder, 18 Aug: "b3 and b4.
-      also, the floating next decision button") — AWAITING OWNER PUSH.** Fixed bottom copy
-      at the original's left-right position whenever the toolbar scrolls out of view; same
-      handler; hides with the panel; below every modal. Gates with B4 (§1). Original spec,
-      for the record · "Jump to next decision" floats with the admin.** Owner: *"Jump
+- [x] **V7 · REVISED SAME DAY → V7b, BUILT 18 Aug 2026 as build 272 — AWAITING OWNER
+      PUSH.** 271's bottom-float was wrong per owner feedback (verbatim): *"Instead of
+      floating at the bottom, I want it to float immediately to the right of next decision
+      from the top that needs to be made. That way, it's right there for admin to click to
+      advance to the next decision. IT SHOULD ONLY BE PRESENT next to draws/reviews since
+      that is where it's needed. I want it to be located in the same row as the decision …
+      There should only be 1 floating button at a time … The key is to facilitate rapid
+      decision making."* Shipped as: ONE inline "⏭ Next Decision" button in the actions
+      cell of the topmost undecided draw/review row; re-anchors on every render (deciding
+      a row walks it down); click advances to the next pending draw/review (wrap; lone-last
+      toasts); removed entirely when nothing is pending; toolbar jump unchanged. Gates:
+      suite reworked 44/44 · honesty vs 271 fails · battery 17/1,188 green. (271 first
+      shipped V7 as a bottom-of-window float with B4 — superseded, code removed.)
+      Original 18 Aug spec, for the record · "Jump to next decision" floats.** Owner: *"Jump
       to next decision button should float down in the page to where the next decision is
       made so that admin doesn't have to keep scrolling up to access it. I want it in
       roughly the same position left to right and ideally not overlying other text and
