@@ -192,6 +192,15 @@ close mechanically.
       now on: every rules change is published in BOTH consoles, same file, same day.**
 - [x] **C3 · DONE 17 Aug (owner confirmed).** Authentication→Settings→Authorized domains →
       ensure `anesthesia-kp.github.io` is listed (add if not).
+- [ ] **C8 · REVISIT WHEN THE SCHEDULING SITE GOES LIVE: scheduling links on the CRNA
+      admin.** Owner ruling 18 Aug 2026: *"for now, they do not belong there"* — the Daily
+      Schedule is an MD tool, so the stamper removes both Other Systems scheduling links
+      from the CRNA admin, and the link guard aborts any stamp that would reintroduce a
+      /schedule/ link. **When the scheduling site launches for real use** (and especially
+      if a CRNA schedule ever exists), decide deliberately: restore the links (remove the
+      stamper transform + guard clause together, then restamp) or keep the CRNA site
+      schedule-free. Do not let a future MD-page edit resurrect them by accident — the
+      guard makes that impossible without a deliberate stamper change.
 - [ ] **C7 · NEXT MD BUILD (270+), bundled items — between phases, full gates:** the M3
       e-mail fix (B2, scope frozen) · the "MD" site label (deferred from the CRNA labels
       ruling) · **remove the hardcoded starting roster from both MD pages** (serves
