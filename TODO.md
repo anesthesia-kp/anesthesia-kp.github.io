@@ -364,7 +364,14 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       FIRST bid on an empty week affects no one under this rule — should it reset the
       timer or not? (Under the strict reading it would not, which means a quiet phase can
       expire while people are still placing first bids.) Ask before building.
-- [ ] **V4 (EXPLORE→small build) · Year header derives from the calendar.** Owner: *"There
+- [x] **V4 · CLOSED 18 Aug 2026 in build 275/142 (owner: "Add V4 to this").** The explore
+      found B5 (builds 136/265) had ALREADY wired everything to `auctionConfig.year`:
+      both week lists, acYearHero/acYearSub (staff) and acYearHdr/acYearLogin (admin) all
+      derive from AC_YEAR; the markup "2027"s are pre-load placeholders overwritten at
+      boot. The two real leftovers are now fixed: the hardcoded year in the admin
+      dashboard title (275's dedupe moved the config span into it) and a stale staff
+      comment claiming a hardcoded 2027 (corrected; staff 142). Suite proves the chain
+      with a non-2027 year. Original request — Owner: *"There
       is a year header at the top of both the main auction and crna auction sites. I am
       not sure how that year is derived, but I don't think it's from the set calendar.
       Can we set that year to derive from the calendar settings?"* First look 17 Aug: the
