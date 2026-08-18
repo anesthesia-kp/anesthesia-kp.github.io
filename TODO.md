@@ -368,6 +368,32 @@ Built 17 Aug 2026. Items marked **ASK** need the owner's answer; nothing here wa
 
 ---
 
+## OVERNIGHT DIRECTIVE — 18 Aug 2026 (owner, going to sleep; answers expected in the morning)
+
+Owner's words: *"Determine what aspects of the site are visually difficult and determine
+solutions… Review what excellent scheduling sites do… I am primarily speaking about the
+admin scheduling site… The schedule grid, shift eligibility, shift catalog, stats, and
+reports section are all hard to read. The shift families is a noticeable standout in that
+it looks good and easy to edit. I also want additional ideas on what a fully functional
+scheduling site needs with 90 possible shifts, 40 MDs, 40 CRNAs, and working 24/7…
+review the layout and code and determine if the site is properly organized… Create a list
+of questions for me to answer tomorrow… We are working on a prototype still."*
+
+⚠️ **NEW FACT recorded the turn it was said: the schedule serves 40 MDs AND 40 CRNAs
+(~80 people).** Every prior plan assumed the MD-auction roster (~37). CRNAs are not in
+`vacations/userList` — where the schedule's CRNA users come from is an open architecture
+question. **MORNING ANSWER (owner, 18 Aug): Q1 DEFERRED with principles recorded:**
+*"CRNAs may be added in the future"* (not now — the 80-person scale is future, not
+immediate); the roster mechanism is *"unclear — we can address that later"*; and the
+standing principle: *"Vacation will always be separate, so will need a way to separate
+users properly"* — the auctions' rosters and the schedule's users are to be properly
+separated when the time comes; no cross-contamination of user lists. Design work that
+depends on the roster fork waits; everything else proceeds. **DELIVERED overnight: `schedule/design/UX-PLAN.md`**
+— per-section diagnosis + ranked fixes, industry patterns (QGenda/Amion/Lightning Bolt/
+Deputy et al.), the missing-features gap list, code verdict (renderAll fan-out and the
+three {list:[]} docs are the two real problems; format otherwise sound), a 10-step
+proposed sequence, and 13 quick-decision questions (in the plan §8 and in chat).
+
 # 3 · DAILY SCHEDULE — in build, months from use
 
 **State:** see the STATUS block at the top of this file. Battery: 16 suites (~587 assertions).
