@@ -27,6 +27,29 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
+> ⛔ **CURRENT STANDING ORDER — owner, 18 Aug 2026: THE VACATION BUILD QUEUE IS CLOSED.
+> THE NEXT SESSION AUDITS; IT DOES NOT BUILD.** His words: *"the vacation site is complete
+> in terms of build and is ready for the real deal. I want the next session to perform a
+> full audit with multiple claudes and adversarial review… focus on critical and high
+> findings that could lead to trouble during the real auction."* **The full brief — scope,
+> priority order, the CRNA question, the deliverable — is `TODO.md` §1 `A-AUDIT`. Read it
+> before anything else, and do not start a feature.** How an audit runs here, because it is
+> not how a build runs:
+> - **Audit the PUSHED bytes, not the working tree** — `versions.json` cache-busted first,
+>   then BOTH batteries green as the baseline, so a failure means a finding.
+> - **Fan out, then refute.** Independent reviewers, one lens each, blind to each other;
+>   every candidate finding then handed to a separate skeptic whose job is to KILL it
+>   against the real code. Survives = report it. No line and no auction-day consequence =
+>   drop it, do not soften it. A padded list is how a real CRITICAL gets skimmed.
+> - **CRITICAL/HIGH is the headline** (lost or corrupted bid · mis-awarded week · wrong
+>   mass mail · people locked out mid-phase · wrong numbers the owner would act on).
+>   MEDIUM/LOW live in an appendix. Shape only, never a reproduction — the repos are PUBLIC.
+> - **The audit produces a LIST, not commits.** Every fix that follows is a separate
+>   smallest-change build with its own "go", its suite and its honesty check (§3). Priority
+>   focus, owner's words: **calendar, timer, bid lowerings, bid floors** — *"Focus on those,
+>   but look at everything."* The schedule site is OUT of scope except where it touches
+>   vacation, and the CRNA site must be PROVEN clean of the MD site, not asserted.
+
 ## 2 · THE TWO SITES, AND WHAT THEY SHARE
 
 **Vacation Auction** — `vacation-kp.github.io`, served at

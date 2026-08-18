@@ -582,3 +582,87 @@ nowhere.*
   high-demand, so an NP-in-P1 toggle is moot. That is correct behaviour, not a bug.
 - **Priority-lock OFF legalises below-floor bids, and re-enabling it does not unwind them.**
 - **Raising a cap auto-raises later phases' caps.**
+
+---
+
+## Session record — 18 Aug 2026, cloud session (the seven-build day)
+
+**One line:** the vacation build queue was emptied — builds 270, 271, 272, 273, 274, 275
+and mobile 18 all built, gated, and pushed the same day; B3 answered from live data; the
+July L1/L5 residuals closed; M1/L2/L3/L4 formally accepted. The facts live in their homes
+(TODO §1–2 statuses · BUILD-LOG rows 270–mobile 18 · DECISIONS §58–§59); below is only
+what a next session cannot reconstruct from those.
+
+**Session-specific knowledge worth keeping:**
+
+- **The V7 lineage is a lesson, not just history.** The Next-Decision button took THREE
+  same-day iterations (271 bottom-float → 272 in-row auto-jump → 273 sticky header
+  anchor) because each version was built to a reasonable reading the owner then refined
+  on sight. For UI-feel features, expect to ship small and iterate on screenshots —
+  the full owner quotes for each turn are in the BUILD-LOG rows.
+- **Suites must pin build numbers as FLOORS (≥), never exact (===).** The battery caught
+  === pins three times today (M3 suite at 271; two crna-stamp anchors at 274). All
+  current suites now use floors; keep the convention.
+- **In-cloud battery practice held for seven builds**: stage current files as ROOT under
+  ~/work/GitHub, keep the previous build's bytes as /tmp/buildNNN fixtures for honesty
+  runs (md5s recorded in each suite header), NEVER put current bytes at the uploads
+  default paths. 19 suites / 1,273 assertions green at session end.
+- **The device bridge degraded mid-session** (`untrusted_device` — staging device→cloud
+  blocked; the desktop app raised a sign-in banner the owner has not yet cleared).
+  SendUserFile→device_commit_files kept working byte-exact throughout (every file md5
+  verified both sides). The base64-chunk path for pulling large files OFF the device
+  corrupted one chunk in two of three uses — re-fetch halves and compare per-chunk md5s,
+  or avoid it; this entry itself was appended on-device for that reason.
+- **B3 detail not in the public TODO:** the two uppercase-stored KP addresses (initials
+  CB, HR in the table) — full addresses were given to the owner in chat on 18 Aug.
+- **Context-health note:** the session stayed verified-from-disk throughout (no
+  unverified assertions found on re-audit), but the owner asked and was told plainly:
+  after seven builds this is a natural seam. This entry closes the session; the next one
+  starts from START-HERE at full strength.
+
+**Exact state at session end:** all four repos clean and in sync once the owner pushes
+mobile 18 (the last delivered set); live verified serially through 275/142/17 during the
+session — verify 18 after the push. Remaining vacation work is owner-side only (data
+checks, C6, launch sequence) plus deferred builds V6 (batch-add users, spec on record)
+and C8 (CRNA schedule links, gated on the schedule site going live). Schedule track
+resumes at S5 (grid upgrades — GO already given).
+
+### Addendum, same session — THE AUDIT MANDATE (owner's closing order, 18 Aug 2026)
+
+After the closeout above, the owner declared the build finished and set the next session's
+job. Verbatim:
+
+> *"This is a great stopping point. I think the vacation site is complete in terms of build
+> and is ready for the real deal. I want the next session to perform a full audit with
+> multiple claudes and adversarial review. All aspects of the build need to be audited to
+> check for errors with a focus on the more recently added items and the rest of the code
+> effected by the changes. I want to focus on critical and high findings that could lead to
+> trouble during the real auction. The newest big features are the calendar, timer, bid
+> lowerings, bid floors. Focus on those, but look at everything. Add all these items to the
+> handoff, todo, and start here. The schedule site does not need this audit with the
+> exception of what touches vacation. also confirm that the new crna vacay site is clean and
+> doesn't mess with the md that is going live first."*
+
+**Where it now lives** (one home per fact, as always): the FULL BRIEF is `TODO.md` §1
+`A-AUDIT`, at the head of the queue — scope, the four priority features, the "everything
+else" list weighted to code the 270→275 builds touched, the CRNA proof requirement, the
+schedule exclusion, and the deliverable. `START-HERE.md` §1 carries the standing order and
+the audit METHOD (audit the pushed bytes · fan out blind, then refute each finding ·
+CRITICAL/HIGH headline, MEDIUM/LOW appendix · shape only, the repos are public · the audit
+produces a list, not commits), pointing at the TODO brief for scope. This file records that
+the order was given and when. Nothing was added to `DECISIONS.md`: this is an instruction
+with a home in the queue, not a rule interpretation, and a fourth copy is how drift starts.
+
+**Why the shape matters, in the owner's terms.** He asked for adversarial review, not a
+second opinion — so the reviewers work blind to each other and every finding must survive a
+reader whose only job is to kill it. What that buys him is a short list he can trust: the
+failure mode of a pre-launch audit is not missing a bug, it is handing him forty items so
+the real one gets skimmed. The bar is deliberately set at "could cause trouble during the
+real auction" because that is the only question that matters in the next two weeks.
+
+**The build queue is closed.** No feature work resumes until the audit is done and he has
+ruled on the findings — V6 (batch-add users) and C6/C8 stay deferred behind it, and each
+audit fix, if he orders one, is its own smallest-change build with its own go, suite and
+honesty check. The state at handover is unchanged from the closeout above: everything is
+delivered and byte-verified on disk, awaiting his push of the mobile-18 set plus these
+three records edits.
