@@ -239,6 +239,17 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       prevent 'overpaying' for a week"* to *"Consider starting with lower bids and
       increasing as necessary to prevent 'overpaying' for a week."* Rules page + welcome
       e-mail, both sites via stamper.
+- [ ] **V5 · FAIR PLAY: flag lowerings FROM A WINNING POSITION (owner, 18 Aug: "that
+      would be useful").** Today the monitor flags winning-bid CANCELS but not winning-bid
+      LOWERINGS — and its only lowering signal (over-allowance) is explicitly skipped in
+      unlimited mode, so unlimited lowerings currently blind Fair Play to lowering
+      behaviour entirely. New signal: a 'lowered' entry where the pre-lowering bid was in
+      a winning position at that moment — reusing the existing winning-position
+      reconstruction the cancel flag already uses. Own column in the monitor + report;
+      works in ALL modes including unlimited. Pairs naturally with V1 (unlimited wording)
+      — build together. FACT recorded same day: the usage counter has no ceiling and keeps
+      counting accurately in unlimited mode, so the Bid Lowerings panel stays honest at
+      any volume.
 - [ ] **V3 (SPECCED by owner 17 Aug — a build, awaiting his "when") · TIMER MODE CARD.**
       Owner: *"a new timer control card in admin settings with all 3 presented options…
       The current version with description, the version where only bids that change
