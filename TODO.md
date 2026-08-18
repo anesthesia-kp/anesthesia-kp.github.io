@@ -244,7 +244,7 @@ close mechanically.
       stamper transform + guard clause together, then restamp) or keep the CRNA site
       schedule-free. Do not let a future MD-page edit resurrect them by accident — the
       guard makes that impossible without a deliberate stamper change.
-- [ ] **C7 · NEXT MD BUILD (271+), bundled items — between phases, full gates:** ~~the M3
+- [x] **C7 · BUILT 18 Aug 2026 in build 274/141 (with V1+V2+V5+V3 — owner order: "do C7 bundle and V3 as next build"; V5 added by owner choice) — AWAITING OWNER PUSH.** MD labels on both pages (stamper now SWAPS MD→CRNA); hardcoded roster removed from both MD pages (`let names=[]`). Gates: `tests/test-c7-timer-bundle.mjs` 53/53 · honesty vs 273/140 fails · battery 18 suites/1,244 green. Original text:** ~~the M3
       e-mail fix~~ (shipped separately as build 270, 18 Aug — see §1 B2) · the "MD" site
       label (deferred from the CRNA labels
       ruling) · **remove the hardcoded starting roster from both MD pages** (serves
@@ -304,7 +304,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner requests, 17 Aug 2026 — four items, verbatim
 
-- [ ] **V1 (→ C7 bundle) · Rules + welcome e-mail adapt to unlimited bid-lowering.** Owner:
+- [x] **V1 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Unlimited in EVERY phase collapses the rule to the owner's exact two sentences (rules page + welcome, both sites, twin-identical; mixed configs keep the breakdown). Original spec — Owner:
       *"When I enter unlimited bid lowerings in all phases … the rules and welcome e-mail
       should be smart about it in similar fashion to collapsing the rule for simplicity.
       When set to unlimited, it should say: Ideally, bid priorities would not be decreased
@@ -312,7 +312,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       rules text is already config-driven (the opening-window rule collapses the same
       way), so this is a conditional-text change in the staff page + welcome template.
       Flows to the CRNA site automatically via the stamper.
-- [ ] **V2 (→ C7 bundle) · Soften the overpaying tip.** Owner: change *"To maximize your
+- [x] **V2 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Prefix removed in all three places (staff rules + both welcome e-mails). Original spec — Owner: change *"To maximize your
       own benefit, consider starting with lower bids and increasing as necessary to
       prevent 'overpaying' for a week"* to *"Consider starting with lower bids and
       increasing as necessary to prevent 'overpaying' for a week."* Rules page + welcome
@@ -328,8 +328,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       per-line duplicate-login refusal (225 guard); sanctioned save paths only. **Build
       ONCE on the MD auction admin** (shared roster serves the schedule; stamper serves
       CRNA). AUCTION BUILD: full battery + honesty, between phases.
-- [ ] **V5 · FAIR PLAY: flag lowerings FROM A WINNING POSITION (owner, 18 Aug: "that
-      would be useful").** Today the monitor flags winning-bid CANCELS but not winning-bid
+- [x] **V5 · BUILT 18 Aug 2026 in build 274 (owner chose to include it with V1) — awaiting push.** New winLower flag: same winning-position reconstruction as the cancel flag, own label/color in monitor + report, counts toward totals, works in EVERY mode including unlimited. Original spec (owner, 18 Aug: "that would be useful"):** Today the monitor flags winning-bid CANCELS but not winning-bid
       LOWERINGS — and its only lowering signal (over-allowance) is explicitly skipped in
       unlimited mode, so unlimited lowerings currently blind Fair Play to lowering
       behaviour entirely. New signal: a 'lowered' entry where the pre-lowering bid was in
@@ -339,7 +338,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       — build together. FACT recorded same day: the usage counter has no ceiling and keeps
       counting accurately in unlimited mode, so the Bid Lowerings panel stays honest at
       any volume.
-- [ ] **V3 (SPECCED by owner 17 Aug — a build, awaiting his "when") · TIMER MODE CARD.**
+- [x] **V3 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Three-mode Timer Reset card (classic default / affects-others / new-bids-always), confirmed + audited changes, staff Timer Rules text adapts per mode, all guards (same-value, opening window, extend-only, expired-timer M-6) stand above the mode; the affects-others predicate IS the outbid pipeline's comparison, sharing one after-snapshot. **EMPTY-WEEK QUESTION RESOLVED (owner, 18 Aug: "why should first bids be different?"): NO special case in mode 2 — wanting first bids to reset IS mode 3** (DECISIONS §59). Simulator batch reset unchanged. Original spec:**
       Owner: *"a new timer control card in admin settings with all 3 presented options…
       The current version with description, the version where only bids that change
       something for other users reset the timer, and 3rd option where placing new bids

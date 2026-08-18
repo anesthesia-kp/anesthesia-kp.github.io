@@ -1215,3 +1215,21 @@ interpretation:
    DOMAIN (covers `.a@kp.org`, `a.@kp.org`, `a@.kp.org`, `a@kp.org.`). Every rejected shape
    is unarguable garbage; no deliverable address is refused. The old floor (must contain
    `@`, non-empty) is kept; NO domain policy of any kind (HANDOFF D5 untouched).
+
+## §59 — Build 274 rulings: timer-mode empty-week, V5 inclusion, bundle order — 18 Aug 2026
+
+1. **Timer modes, first bid on an empty week — NO special case.** The V3 record's open
+   question ("should a first bid on an empty week reset the timer in modes 2/3?") was put
+   to the owner; his answer, verbatim: *"why should first bids be different?"* Resolution:
+   mode 2 stays strictly affects-others (a first bid on an empty week does NOT reset);
+   wanting first bids to keep the phase alive IS mode 3, which the owner already specced.
+   The distinction lives in the mode choice, never in a hidden exception. The admin card
+   states this plainly on the mode-2 option.
+
+2. **V5 rides build 274** (owner picked "Include V5"): the Fair Play winning-position
+   lowering flag ships with V1's unlimited wording, so unlimited mode is never blind to
+   lowering behaviour.
+
+3. **Bundle order** (owner, mid-session): *"Then do C7 bundle and V3 as next build"* —
+   274/141 = MD labels + roster removal + V1 + V2 + V5 + V3. V4 (year derivation) and V6
+   (batch-add users) remain queued, untouched.
