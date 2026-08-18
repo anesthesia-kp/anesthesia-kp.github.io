@@ -270,8 +270,20 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner request, 18 Aug 2026 — verbatim
 
-- [x] **V7 · REVISED SAME DAY → V7b, BUILT 18 Aug 2026 as build 272 — AWAITING OWNER
-      PUSH.** 271's bottom-float was wrong per owner feedback (verbatim): *"Instead of
+- [x] **V7 · REVISED TWICE SAME DAY → V7c, BUILT 18 Aug 2026 as build 273 — AWAITING OWNER
+      PUSH.** Owner feedback on 272 (verbatim): *"prior phase results button must stay where
+      it is. next decision just to the right of that. Also, need a new method for that
+      button to move. it jumps down to the next decision the moment i make a decision and
+      then i can't use it to scroll there, which is the entire point. i think it should
+      remain at the top most decision until it is clicked by admin. once it's clicked, the
+      page should scroll and the button should appear by the next decision. if admin
+      scrolls and the next decision button leaves the view, it should then auto-relocate to
+      the next decision."* Shipped exactly so: card-header anchor right of Prior Phase
+      Results; sticky until clicked; click = scroll+highlight topmost pending + re-anchor;
+      off-screen = quiet re-anchor (no page scroll, 1.2s post-click stand-down). Gates:
+      suite 47/47 · honesty vs 272 fails · battery 17/1,191 green. 272 (in-row button,
+      auto-jumped on decisions) was committed `86e6ca1` but superseded before deploy.
+      Earlier note, for lineage — V7b, BUILT 18 Aug 2026 as build 272:** 271's bottom-float was wrong per owner feedback (verbatim): *"Instead of
       floating at the bottom, I want it to float immediately to the right of next decision
       from the top that needs to be made. That way, it's right there for admin to click to
       advance to the next decision. IT SHOULD ONLY BE PRESENT next to draws/reviews since
