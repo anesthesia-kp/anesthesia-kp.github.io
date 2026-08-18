@@ -109,6 +109,43 @@ or COMMIT-MESSAGE.txt, never from a source or test file.
 > time); it does not get broken again. A repo whose message is not in the outputs column
 > is NOT ready to push.
 
+> 📋 **RULES FILES GET THE SAME TREATMENT. Owner ruling, 18 Aug 2026:** whenever
+> `firestore.rules` (or any file the owner must copy-paste into a console) is created or
+> changed, deliver it to the chat outputs column as ITS OWN clearly-captioned file in the
+> same turn — never buried inside a multi-file batch, and ALWAYS as plain text (owner
+> ruling 18 Aug: never a Word doc — Word's smart quotes and hidden characters break a
+> console paste; anything a machine reads ships as plain text). The owner copies straight
+> from the Claude desktop outputs viewer — so the standalone captioned send IS the
+> delivery; no other format or channel is needed. The owner pastes rules into the
+> Firebase console by hand; a rules change that is hard to find is a deploy blocker.
+
+> 🧹 **OUTPUTS HYGIENE — owner ruling, 18 Aug 2026: the outputs column is CURATED.**
+> Already-sent files cannot be removed by the session (no such tool — the column resets
+> only in a fresh chat), so curation means what goes IN. Per build, the outputs column
+> receives EXACTLY what the owner copy-pastes and nothing else:
+>   1. ONE combined `COMMIT-MESSAGES.txt` (all repos' messages in one file), and
+>   2. the rules file, ONLY when it changed (standalone, ⚙️-captioned, plain text).
+>   3. ONE zip bundle (`build-<n>-files.zip`) holding every other changed file —
+>      pages, tests, docs, versions.json, BUILD-LOG — which the session then commits
+>      to `_to_delete/xfer/` on the owner's disk and UNPACKS into the repos with
+>      `device_bash` + `unzip -p <zip> <name> > <repo path>` per file (NOT `unzip -o`,
+>      which delete-then-replaces and the bridge forbids deletes — hit 18 Aug),
+>      md5-verifying EVERY extracted file against its
+>      cloud copy (a mismatch means redo, never shrug). The spent zip stays in
+>      `_to_delete/` — that folder is designated junk the owner empties.
+> So a normal build adds ~3 outputs, not 16. Do NOT ship file bytes as base64 through
+> `device_bash` commands — tried 18 Aug, corrupted in transit (CRC fail), and it burns
+> session context; the zip-through-the-pipe route is the one that works. If unzip or
+> the bridge fails, fall back to committing files individually (they will then appear
+> in outputs — caption them with the build number).
+>
+> 📄 **Copy-paste files ship with a `.txt` extension — owner caught this 18 Aug:** a
+> `firestore.rules` filename is not a recognised type, so the viewer/macOS hands it to
+> Word — and copying OUT of Word's window can smart-quote the clipboard even though
+> the file itself is clean. Deliver `firestore-rules.txt` (and the like) to outputs;
+> the repo copy keeps its real name via the zip bundle.
+> Copy-paste items also go in chat text, so the column is a convenience, not a hunt.
+
 **File hygiene** — a standing rule, not a one-off. Main folders hold only what is live or in
 flight. Outdated → `~/Documents/GitHub/_archive/<area>/<category>/` (areas on disk:
 `vacation`, `schedule`, `tests`, `anesthesia` — use the existing names, do not invent
