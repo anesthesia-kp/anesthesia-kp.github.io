@@ -104,9 +104,17 @@ close to launch; nothing may degrade it.
       commit summary per repo. **Deploy between phases only.** Ships as build 270 — and
       **270 starts a `BUILD-LOG.md` in the vacation repo** (one row per build from here on,
       same shape as the schedule's; agreed 17 Aug).
-- [ ] **B3 · After it ships**: note for the record which stored addresses had uppercase, in
-      case any Phase-3 duplicate e-mails need explaining.
-- [ ] **B4 · NEW REPORT — available capacity by week.** Owner, 17 Aug 2026, verbatim: *"I
+- [x] **B3 · DONE 18 Aug 2026** — read from the live admin Users page (owner signed in,
+      read-only). 39 users; all 39 login e-mails lower-case; 20 KP e-mails on file; exactly
+      **TWO stored with uppercase: CB and HR** (full addresses given to the owner in chat —
+      not recorded here, repo is public). Any Phase-3 duplicate-e-mail question traces to
+      those two. Harmless under 270+ (read side lower-cases); stored case left as stored.
+- [x] **B4 · BUILT 18 Aug 2026 as build 271 (with V7) — AWAITING OWNER PUSH.** Report added
+      beneath the User summary section; `_capacityWeekRows` counts approved winners only
+      (completed phases + announced P4 rounds + current-phase approvals — never live bids);
+      definition stated in the card, the report header and the xlsx band. Gates:
+      `tests/test-capacity-float.mjs` 40/40 · honesty vs 270 fails · battery 17/1,184 green.
+      Original spec, for the record — Owner, 17 Aug 2026, verbatim: *"I
       want a new report in the reports dash that sits beneath the user summary reports that
       is a report for available capacity by week. Similar in styling to the other reports,
       but just shows each week of the year and what's been taken and what's available. For
@@ -262,7 +270,11 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner request, 18 Aug 2026 — verbatim
 
-- [ ] **V7 (→ C7 bundle) · "Jump to next decision" floats with the admin.** Owner: *"Jump
+- [x] **V7 · BUILT 18 Aug 2026 in build 271 with B4 (owner reorder, 18 Aug: "b3 and b4.
+      also, the floating next decision button") — AWAITING OWNER PUSH.** Fixed bottom copy
+      at the original's left-right position whenever the toolbar scrolls out of view; same
+      handler; hides with the panel; below every modal. Gates with B4 (§1). Original spec,
+      for the record · "Jump to next decision" floats with the admin.** Owner: *"Jump
       to next decision button should float down in the page to where the next decision is
       made so that admin doesn't have to keep scrolling up to access it. I want it in
       roughly the same position left to right and ideally not overlying other text and
