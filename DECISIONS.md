@@ -1186,3 +1186,32 @@ Recorded per §37 practice (selections from written options, not dictation):
 
 Also confirmed in the same round: **Phase 3 is still running** — the M3 build window is
 not yet open.
+
+## §58 — The M3 build (270/140): case-blind sent-checks IN, schedule-side saves DEFERRED — 18 Aug 2026
+
+Two rulings made while approving the M3 build's final shape, plus one recorded
+interpretation:
+
+1. **The already-sent checks ignore case (IN scope, owner: "also make the already sent
+   checks ignore case").** Lower-casing `recipientsFor` alone would have made lower-cased
+   recipients miss MIXED-CASE entries recorded in the delivered-address ledgers before 270 —
+   a retry of an already-sent phase could then RE-send to exactly the addresses M3 affects
+   (the duplicate-mass-e-mail never-event). So 270/140 lower-case ledger membership at the
+   comparison point: `_sentAddrsFor`, `_ledgerFresh`, and both sites' mail-queue `sentTo`
+   skips. Context that informed the ruling, all verified in code that day: Reset Auction
+   preserves the roster (names, FTE, login + KP e-mails) and wipes the ledger; the Users
+   page refuses case-only edits as "no change", so hand-editing stored case was never a
+   workable alternative; welcome e-mails were off during the discussion but that bears only
+   on the (rejected) manual-edit path.
+
+2. **Schedule-side KP-address saves DEFERRED (owner picked "defer to a schedule build").**
+   The schedule admin's Users page also writes `vacations/emails` (four handlers). It keeps
+   saving as-typed until its own gated build folds in the same normaliser — recorded as
+   S-hygiene in TODO §3. Harmless meanwhile: the auction read side now lower-cases
+   regardless of stored case.
+
+3. **Recorded interpretation (not an owner ruling): "leading/trailing dot"** in the frozen
+   rejection list is implemented as a leading or trailing dot in the LOCAL PART or the
+   DOMAIN (covers `.a@kp.org`, `a.@kp.org`, `a@.kp.org`, `a@kp.org.`). Every rejected shape
+   is unarguable garbage; no deliverable address is refused. The old floor (must contain
+   `@`, non-empty) is kept; NO domain policy of any kind (HANDOFF D5 untouched).
