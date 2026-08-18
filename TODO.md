@@ -179,7 +179,10 @@ close mechanically.
 - [x] **C1 · DONE 17 Aug — project `crna-vacation` created, config in `crna-config.json`, stamp clean 22/22.** Original steps kept for the record: create the CRNA Firebase project (console work, yours only):
       console.firebase.google.com → Add project (suggest name `crna-vacation`) → no
       Analytics needed → Build→Authentication→Get started→Sign-in method→enable
-      **Google** → Build→Firestore Database→Create (production mode, same region as the
+      **Google** AND **Anonymous** (⚠️ the staff page BOOTSTRAPS on anonymous auth before
+      Google — without it the page never comes alive; missed on 17 Aug, found when the
+      first CRNA user could not sign in. The admin page does not use it, which is why the
+      admin worked while staff failed) → Build→Firestore Database→Create (production mode, same region as the
       MD project: check MD console) → Project settings→General→Your apps→Web app (</>)
       → register (no hosting) → copy the config values into
       `vacation-kp.github.io/crna-config.json` (replace every REPLACE_ME) → tell Claude;
@@ -189,6 +192,14 @@ close mechanically.
       now on: every rules change is published in BOTH consoles, same file, same day.**
 - [x] **C3 · DONE 17 Aug (owner confirmed).** Authentication→Settings→Authorized domains →
       ensure `anesthesia-kp.github.io` is listed (add if not).
+- [ ] **C7 · NEXT MD BUILD (270+), bundled items — between phases, full gates:** the M3
+      e-mail fix (B2, scope frozen) · the "MD" site label (deferred from the CRNA labels
+      ruling) · **remove the hardcoded starting roster from both MD pages** (serves
+      nothing since the database took over; its ghost is what appeared on the CRNA site
+      on release day). **DECIDED 17 Aug: NO git-history rewrite** — the initials are
+      public in the current page source regardless, a rewrite would invalidate every
+      recorded commit hash and force-push over the live repo mid-rehearsal; risk without
+      gain. Do not relitigate.
 - [x] **C4 · DONE 17 Aug** — landing page rebuilt ("Choose a site", 3+3, Daily Scheduling first, MD/CRNA labelled). Original: landing page update ("Choose a site", 3+3: Daily Scheduling → MD
       Vacation Auction → CRNA Vacation Auction) — built to ship in the SAME push as crna/.
 - [x] **C5 · RELEASED 17 Aug — owner's explicit call to go live DURING Phase 3** after the risk trade was laid out (MD bytes untouched; empty roster = inert site; tail risk accepted). Gate removed, crna/ staged to commit. Remaining from the original list: real config stamped → remove the `crna/` gitignore
@@ -203,6 +214,56 @@ close mechanically.
 **State:** see the STATUS block at the top of this file. Rules PUBLISHED. Build work
 PAUSED except the approved M3 build above. Battery: 14 suites (~1,075 assertions — 1,074
 appears in older notes; the itemised list sums to 1,075; re-run to settle it).
+
+## Owner requests, 17 Aug 2026 — four items, verbatim
+
+- [ ] **V1 (→ C7 bundle) · Rules + welcome e-mail adapt to unlimited bid-lowering.** Owner:
+      *"When I enter unlimited bid lowerings in all phases … the rules and welcome e-mail
+      should be smart about it in similar fashion to collapsing the rule for simplicity.
+      When set to unlimited, it should say: Ideally, bid priorities would not be decreased
+      once they are set. However, it is okay to reduce bid priorities as needed."* The
+      rules text is already config-driven (the opening-window rule collapses the same
+      way), so this is a conditional-text change in the staff page + welcome template.
+      Flows to the CRNA site automatically via the stamper.
+- [ ] **V2 (→ C7 bundle) · Soften the overpaying tip.** Owner: change *"To maximize your
+      own benefit, consider starting with lower bids and increasing as necessary to
+      prevent 'overpaying' for a week"* to *"Consider starting with lower bids and
+      increasing as necessary to prevent 'overpaying' for a week."* Rules page + welcome
+      e-mail, both sites via stamper.
+- [ ] **V3 (SPECCED by owner 17 Aug — a build, awaiting his "when") · TIMER MODE CARD.**
+      Owner: *"a new timer control card in admin settings with all 3 presented options…
+      The current version with description, the version where only bids that change
+      something for other users reset the timer, and 3rd option where placing new bids
+      always resets the timer, changes and cancels only reset when they effect someone
+      else."* Design points settled in assessment: DEFAULT stays mode 1 (current
+      behaviour) until deliberately changed · mode change is confirmed + audited ·
+      the staff page's timer description text adapts to the mode (V1-style dynamic
+      text) so bidders always know the rule in force · stage rules and the opening
+      window sit ABOVE all three modes (the mode gates whether an action qualifies;
+      the stage rules still decide reset length, and the opening window still
+      suppresses all resets) · the expired-timer never-reset guard (M-6/b244) holds in
+      every mode · the affects-someone predicate is the outbid pipeline's, computed by
+      the same client at the same moment. Deploy between phases with full suites.
+      ORIGINAL request: Owner: *"I want to explore having the timer reset only with bid
+      placements, cancels, or changes that effect another user. I think we could use the
+      same event that triggers an outbid e-mail to trigger a timer reset. This could help
+      prevent timer stalling."* Assessment 17 Aug: the pieces EXIST — the audit log
+      already flags no-net-change round trips as "possible timer stalling", and the
+      outbid pipeline already computes "changes your projected outcome for a week". So
+      the predicate can be reused as proposed. NOT trivial: timer semantics on a live
+      auction; must be built as an admin-selectable timer MODE (current behaviour stays
+      the default until chosen), with suites. ⚠️ OPEN DESIGN QUESTION for the owner: a
+      FIRST bid on an empty week affects no one under this rule — should it reset the
+      timer or not? (Under the strict reading it would not, which means a quiet phase can
+      expire while people are still placing first bids.) Ask before building.
+- [ ] **V4 (EXPLORE→small build) · Year header derives from the calendar.** Owner: *"There
+      is a year header at the top of both the main auction and crna auction sites. I am
+      not sure how that year is derived, but I don't think it's from the set calendar.
+      Can we set that year to derive from the calendar settings?"* First look 17 Aug: the
+      header year comes from `auctionConfig.year` (with a static "2027" in the page as the
+      pre-load default), and the staff page separately PRECOMPUTES its week list for 2027
+      in code — so "the calendar" and the header have different sources today. Confirm
+      the derivation chain and point everything at one source. Both sites via stamper.
 
 ## Watch items — dated facts, not defects
 
