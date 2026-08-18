@@ -23,6 +23,30 @@ server-clock timer, biddingClosed gate, append-only changes, admin-only decision
 
 ---
 
+## 5a. 18 AUG 2026 SESSION — what changed (detail lives in BUILD-LOG / TODO / START-HERE)
+
+Schedule: S3 shipped as admin 67 (visual batch) and S4 as admin 68 + staff 30 (the three
+{list:[]} docs went per-item; legacy docs frozen; both pages deploy together). All pushed
+in `7fcd3f1` / tests `594778e`; live site verified serving 68/30. The full battery is 23
+suites; four probes were re-anchored to per-item storage, none weakened.
+
+Rules: `firestore.rules` gained the dailysched SUBCOLLECTION match — the repo file never
+had one although builds 59/63 already needed it. Owner published to BOTH consoles 18 Aug.
+Drift question RESOLVED same day: the owner pasted the console's prior version from
+Rules → History; content-identical to the repo file, so today's publish dropped nothing.
+Real finding: dailysched subcollection writes (months [59], audit entries [63]) had been
+DENIED in production until this publish — bounded (prototype); verdict details in TODO.
+
+Rehearsal: Phase 3 closed 18 Aug; **Phase 4 skipped by owner ruling** — rehearsal
+COMPLETE. The vacation build window is open; M3 (B2, frozen scope) is the next vacation
+action. New owner request V7 (floating jump-to-next-decision button) queued in TODO.
+
+Delivery mechanics changed this session — READ THE RULINGS IN START-HERE before sending
+anything: one combined COMMIT-MESSAGES.txt (with the copy-one-section banner), rules as
+.txt, zip-bundle transfer through `_to_delete/xfer/` with `unzip -p` + md5 gates.
+
+---
+
 # PART B — VACATION AUCTION
 
 **LIVE. admin 269 / staff 139 / mobile 17, rules published.** Build work is PAUSED at the
@@ -460,6 +484,8 @@ Two things to know without opening it:
 ---
 
 ## D2 · Phase 4 — rounds as mini-phases. The lifecycle, in one place
+
+*(18 Aug 2026: the REHEARSAL's phase 4 was skipped by owner ruling — this lifecycle was never exercised live. It remains the reference for real phases run with rounds.)*
 
 *Rescued from NEXT-SESSION-PROMPT-2026-08-11 (now `_archive/tests/session-docs/`), which was the only
 human-readable description of this machine anywhere in the project. The mechanism is

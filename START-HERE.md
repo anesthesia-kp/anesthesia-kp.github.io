@@ -95,10 +95,17 @@ What they genuinely share — why a change to one can break the other:
 
 **Commit summaries** — one per build PER REPO touched, SHORT (a recognisable subject + 2–4
 plain lines; the reasoning lives in BUILD-LOG/DECISIONS/HANDOFF). Delivered THREE ways,
-every time: the chat outputs column (`COMMIT-<repo>.txt`), `<repo>/COMMIT-MESSAGE.txt` on
-disk (NOT a dotfile — the old dotfile name was invisible in Finder AND GitHub Desktop at
-once, which is how messages got lost), and the BUILD-LOG row. Copy from the outputs column
-or COMMIT-MESSAGE.txt, never from a source or test file.
+every time: the chat outputs column as **ONE combined `COMMIT-MESSAGES.txt`** holding
+every touched repo's message under a clear per-repo divider (owner ruling 18 Aug 2026 —
+"I like the 1 commit message idea, ensure that sticks"; the old per-repo
+`COMMIT-<repo>.txt` outputs are retired). The file MUST open with a banner line —
+"⚠ COPY ONE SECTION PER REPO" — because a whole-file paste makes the divider the
+commit subject (happened 18 Aug: `7fcd3f1`/`594778e`; recorded in BUILD-LOG, not
+rewritten). Also delivered: `<repo>/COMMIT-MESSAGE.txt` on disk per repo
+(NOT a dotfile — the old dotfile name was invisible in Finder AND GitHub Desktop at
+once, which is how messages got lost), and the BUILD-LOG row. Copy from the combined
+outputs file or COMMIT-MESSAGE.txt, never from a source or test file. Any revision to
+any message = the WHOLE combined file re-sent to outputs in the same turn.
 
 > ⛔ **THE OUTPUTS COLUMN IS THE DELIVERABLE, NOT A COURTESY. Owner ruling, 17 Aug 2026:**
 > *"ALWAYS ALWAYS ALWAYS send them to the output so i can easily copy."*
