@@ -1233,3 +1233,101 @@ interpretation:
 3. **Bundle order** (owner, mid-session): *"Then do C7 bundle and V3 as next build"* —
    274/141 = MD labels + roster removal + V1 + V2 + V5 + V3. V4 (year derivation) and V6
    (batch-add users) remain queued, untouched.
+
+---
+
+## §60 — The 19 Aug 2026 session: every ruling the owner made, verbatim — 19 Aug 2026
+
+**Why this section exists.** Owner, 19 Aug 2026: *"ensure that all of my decisions are in the
+handoff so that i never depend on chat history."* This is that guarantee. Rulings live HERE
+(this file is the rulings register); `HANDOFF.md` §5b carries the narrative and points here.
+Nothing below needs the chat to be understood.
+
+**1 · Build the timer-editor fixes as one build — "Fix now, all of it."** Presented with three
+defects (TR-1 wrong line, TR-2 unvalidated ladder, TR-3 invented rules) plus his own batching
+idea (TR-4) and three options — fix all now / two-line fix now and batch later / park all —
+the owner chose all of it, in one build. Shipped as **276**. Claude's stated reason for one
+build rather than two, which the owner accepted: they live in the same two functions, and
+splitting them means touching live auction code twice for one outcome.
+
+**2 · Batched timer-rule saves — the owner's own idea.** Verbatim: *"Would it help to batch
+save timer edits? Make admin responsible for clicking save at the end of re-working the
+times/days?"* and *"those things will generally be edited several at a time and it's actually
+annoying to click save each time."* Adopted. The admin now edits freely and presses Save once;
+one confirm dialog still guards the write (§3 rule 5 is NOT weakened). Side benefit recorded
+at the time: a multi-field edit became ATOMIC — the old per-field save briefly wrote
+half-finished ladders that were the live rule for seconds.
+
+**3 · Fix the Change Log — "let's fix this."** CL-1 (system admin actions rendered as bids)
+and CL-2 (the same entries counted as bid activity on both sites, including every bidder's
+"changes in last 24h" chip). Shipped as **277**.
+
+**4 · Rules copy — COPY-1, Claude's proposal, approved as written.** Collapse the lowering
+sentence so adjacent phases sharing an allowance merge and "up to" is said once. Phase 4 never
+merges, because its count is per ROUND.
+
+**5 · Rules copy — COPY-2, the owner's OWN wording, supplied verbatim:** *"On the highest
+demand weeks (Ski Week, Spring Break, Thanksgiving, Christmas, New Year's), your bid must be 5
+or better · On summer weeks it must be 8 or better"*. He rejected Claude's longer variants
+that kept the range. Verified before writing, and the reason it is safe to drop the list of
+allowed values: the engine's `priorityScore` ranks 1/2 (score 1) and 1/2/3 (score 0) ABOVE a
+solo 1 (score 2), so "N or better" still includes the combinations at every floor.
+
+**6 · COPY-2 follow-up — "1-agree."** The summer sentence must STAND ALONE ("On summer weeks,
+your bid must be 8 or better"), not lean on the sentence above with "it must be". Reason,
+found by the owner: the rules list joins the two sentences with a separator, but the welcome
+e-mail prints them as SEPARATE BULLETS, where a leading pronoun has nothing to refer to.
+
+**7 · "2- fix."** The staff rules list's hardcoded placeholder still carried the old wording
+and a floor that was never live. Now empty and hidden until the live floors fill it. Recorded
+as a Claude miss in the first pass, not an owner change of mind.
+
+**8 · COPY-3 — "I prefer just eliminating the rule altogether if there is no floor."** A floor
+that is not set produces NO sentence at all; the old "currently have no bid floor — all bids
+may be used" wording is retired, and with neither floor set the bullet disappears entirely.
+Consequence recorded for whoever reads this later: with no floor the engine also re-admits
+**NP** bids on those weeks (any numeric floor rejects NP), subject to the separate NP phase
+toggle — the text now says nothing about it either way.
+
+**9 · COPY-4 — the admin "Save bid floors?" dialog, owner's wording verbatim:** *"High demand
+weeks: 4 or better. Summer weeks: 10 or better. All other weeks: no floor — every bid
+allowed."* He asked for it simpler after Claude proposed a version that also carried the
+range and an NP note. **Stated trade, explicitly the owner's call:** the dialog no longer
+mentions that any numeric floor blocks NP while "No floor" allows it. That consequence is
+still spelled out in the Bid Floors card description directly above the controls.
+
+**10 · COPY-5 — "I don't want that type of wording anywhere."** Ruling on enumerated
+allowed-bid lists. A sweep found one remaining producer (the staff bid-rejection alert), now
+"This high-demand week needs a bid of 4 or better." `bfAllowedText` was then left with zero
+callers on either page and was DELETED outright rather than kept as dead code able to
+regenerate the banned wording. A suite assertion sweeps both pages so it cannot return
+without a test going red. Shipped as **280 / staff 145** with COPY-4 (279) in one commit.
+
+**11 · "leave this" — CLOSED, do not re-raise.** *"A combined bid like 1/2/3 uses bids 1, 2,
+and 3 at once"* stays on the rules list and in the welcome e-mail. It defines what a combined
+bid IS rather than listing which bids are allowed, so ruling 10 does not reach it.
+
+**12 · A-AUDIT — "hold for now, will do soon."** Still the queue head, still the next
+substantial piece of work. Do NOT start it unsolicited, and do not start a feature either.
+
+**13 · The launch checklist — "i know."** Those are the owner's actions, not a session's work
+queue. Do not re-present the list unprompted.
+
+**14 · V6 · C6 · C8 · `phases` doc growth · both optional-hardening items — "keep deferred."**
+None is a launch blocker; none starts without a fresh explicit "go".
+
+**15 · The owner finds defects a code-reading pass does not — and the audit changed because of
+it.** Owner, verbatim: *"In my experience, I am able to find defects that you can't."*
+Assessed as substantially true and the reason recorded, because it is structural rather than
+effort: all five of the evening's defects were code doing exactly what it said, where what it
+said was wrong for a HUMAN. Intent ("the ladder must tighten", "a log row should be readable")
+is not written in the code; the owner holds it, Claude infers it. Resulting binding change,
+now in `TODO.md` §1 and `START-HERE.md`: the audit must include a reviewer that EXECUTES the
+render functions and reads the produced markup as a person would, and **"the screen tells the
+admin or a bidder something untrue" is HIGH** even with no data loss and no bid affected.
+
+**16 · Standing instruction — "ensure that all of my decisions are in the handoff so that i
+never depend on chat history."** Every ruling gets written to this file in the turn it is
+made, in the owner's own words where he gave them, with enough surrounding fact that it is
+intelligible without the conversation. This supersedes nothing; it makes §3's paperwork rule
+explicit about WHY.

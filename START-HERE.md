@@ -7,7 +7,7 @@ Rewritten 17 Aug 2026 to one copy of every rule. The five files that govern ever
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§57 + the buried-rulings index) |
+| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§60 + the buried-rulings index). **§60 = every ruling of the 19 Aug session, verbatim** — written because of the owner's standing instruction that he must never depend on chat history |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it
@@ -27,14 +27,27 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> ⛔ **CURRENT STANDING ORDER — owner, 18 Aug 2026: THE VACATION BUILD QUEUE IS CLOSED.
-> THE NEXT SESSION AUDITS; IT DOES NOT BUILD.** His words: *"the vacation site is complete
-> in terms of build and is ready for the real deal. I want the next session to perform a
-> full audit with multiple claudes and adversarial review… focus on critical and high
-> findings that could lead to trouble during the real auction."* **The full brief — scope,
-> priority order, the CRNA question, the deliverable — is `TODO.md` §1 `A-AUDIT`. Read it
-> before anything else, and do not start a feature.** How an audit runs here, because it is
-> not how a build runs:
+> ⛔ **CURRENT STANDING ORDER — A-AUDIT, ON HOLD BY THE OWNER (19 Aug 2026).** The audit is
+> still the queue head and still the next substantial piece of work, but the owner's word on
+> 19 Aug was **"hold for now, will do soon."** So: **do not start the audit unsolicited, and
+> do not start a feature either.** Ask what he wants, and if he says go, run the brief below.
+>
+> **Reality check for a fresh session, so the history reads honestly.** The original order
+> (18 Aug) was *"the vacation site is complete in terms of build… I want the next session to
+> perform a full audit with multiple claudes and adversarial review… focus on critical and
+> high findings that could lead to trouble during the real auction."* That is still the
+> brief. But on **19 Aug the owner reopened the queue five times in one evening**, each time
+> for a defect HE found by using the site (builds 276 → 280 / staff 145 — see
+> `HANDOFF.md` §5b). None of it was audit work. **The pattern to expect: the owner tests, he
+> finds real things, and he will ask for a fix on the spot.** That is legitimate and it
+> outranks the audit when he asks — but each fix is still a §3 build with its own "go",
+> its suite, its executed honesty check and both batteries. Do not let "we're mid-audit"
+> become a reason to lower that bar, and do not let a string of small fixes quietly become
+> a reason never to run the audit.
+>
+> **The full brief — scope, priority order, the CRNA question, the deliverable — is
+> `TODO.md` §1 `A-AUDIT`.** Read it before anything else. How an audit runs here, because it
+> is not how a build runs:
 > - **Audit the PUSHED bytes, not the working tree** — `versions.json` cache-busted first,
 >   then BOTH batteries green as the baseline, so a failure means a finding.
 > - **Fan out, then refute.** Independent reviewers, one lens each, blind to each other;
@@ -44,6 +57,14 @@ phase in flight) before doing anything.
 > - **CRITICAL/HIGH is the headline** (lost or corrupted bid · mis-awarded week · wrong
 >   mass mail · people locked out mid-phase · wrong numbers the owner would act on).
 >   MEDIUM/LOW live in an appendix. Shape only, never a reproduction — the repos are PUBLIC.
+> - **Include the HUMAN lens (added 19 Aug, after the owner found two defects a code-reading
+>   pass would have missed or downgraded).** Both were code doing exactly what it said, where
+>   what it said was wrong for a person: a settings row that moved to a line the admin never
+>   typed on, and a log line reading "bid for ALL on Wk 0 · undefined undefined NaN". So one
+>   reviewer must EXECUTE the render functions against a DOM shim and read the produced
+>   markup as a person would — and **"the screen tells the admin or a bidder something
+>   untrue" is HIGH**, even with no data lost and no bid affected. Under the old bar the
+>   first of those would have been logged cosmetic and killed by a skeptic. That was wrong.
 > - **The audit produces a LIST, not commits.** Every fix that follows is a separate
 >   smallest-change build with its own "go", its suite and its honesty check (§3). Priority
 >   focus, owner's words: **calendar, timer, bid lowerings, bid floors** — *"Focus on those,
@@ -196,6 +217,13 @@ assuming. Record every move in `_archive/README.md`. Housekeeping is its own com
 3. `git --no-optional-locks status --short --branch` on all four repos. Assume every build
    number you did not personally verify minutes ago is stale — the owner pushes
    mid-session, and has twice been the one to catch Claude quoting stale state.
+   **HEAD MOVES UNDER YOU. 19 Aug: it moved three times in one evening.** Consequence that
+   actually bit: a `--pre` honesty fixture built from `HEAD~1` silently became the WRONG
+   build, and the honesty check then reported a **false PASS** — the worst possible failure,
+   because it looks like proof. **Build every honesty fixture from an explicit SHA, and
+   re-read `git log` immediately before building it.** Never `HEAD~n`. If a build was filed
+   but never committed before the next one was written over it, that intermediate build has
+   NO fixture and never will — baseline against the last PUSHED build and say so.
 4. Stale-lock check: `find <repo>/.git -maxdepth 2 -name '*.lock'` — all four repos.
 5. Report the state in a few lines. Then work. **When in doubt during the day: run it,
    don't recall it.** Files too — an hour once went to a "failing test" that was a stale
@@ -242,6 +270,18 @@ is not. Historical bytes come from read-only git:
 cleanly when the baseline is absent; feeding it current bytes is the only dishonest option.
 Schedule suites take `PRE_ADMIN=`/`PRE_STAFF=`; auction suites `PREFIX_SRC=`;
 `test-audit-fixes.mjs` has a HARDCODED schedule baseline path, no env override.
+
+**⚠️ A SKIPPED HONESTY CHECK IS A FAILED GATE, NOT A PASS (19 Aug).** Suites skip their
+honesty block cleanly when the baseline file is absent — and a skip prints tidily and exits
+**0**. The device workspace restarted mid-session and wiped `/tmp`, so all three honesty
+checks silently became skips. **Read the honesty line every time: it must say FAILED with a
+non-zero exit.** If it says "skipped", regenerate the fixture from its SHA and re-run before
+reporting anything.
+
+**Running the batteries when file staging is blocked:** the device has node (`/usr/bin/node`,
+v22) and the repos are mounted, so run the suites there with `device_bash` directly — no
+staging needed. `device_bash` also edits files fine via `python3` heredocs, which sidesteps
+the zip-transfer dance entirely for a code build. It CANNOT delete: use `mv` to `_to_delete/`.
 
 **File transfer when staging is blocked** (`untrusted_device`): `SendUserFile` →
 `device_commit_files` works and is byte-exact — md5 both directions. Getting a file OFF the

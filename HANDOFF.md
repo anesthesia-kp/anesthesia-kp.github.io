@@ -89,6 +89,24 @@ not an allow-list). Suite 53/53, honesty fails 10 on 278. **Note: 279 was never 
 before 280 was written over it, so no 279 fixture exists — both honesty-check against the
 pushed 278/144.**
 
+**Where it ended (all PUSHED and live — admin 280 / staff 145 / mobile 18, disk == live).**
+Vacation commits, in order: `84f3b8a` (276) · `23cd748` (277) · `a5d0bb8` + `bc2a635` (278/144)
+· `50a5d97` (279+280/145). Tests: `4b87e0c`, `7b14d2d`, `0b06e95`, `39e5018`. Anesthesia:
+`4d8582e` and follow-ups.
+
+**EVERY ruling the owner made this session is written out verbatim in `DECISIONS.md` §60** —
+all sixteen of them, each with enough surrounding fact to be understood without the chat. That
+section exists because of his standing instruction, 19 Aug: *"ensure that all of my decisions
+are in the handoff so that i never depend on chat history."* Rulings live in DECISIONS (the
+rulings register); this file carries the narrative and points there. The headline ones:
+
+**Owner's closing rulings, 19 Aug 2026 — treat these as settled:**
+- **A-AUDIT: "hold for now, will do soon."** Still the queue head. Do NOT start it unsolicited.
+- **"A combined bid like 1/2/3 uses bids 1, 2, and 3 at once": "leave this."** CLOSED — it
+  defines what a combined bid is rather than listing what is allowed. Do not re-raise.
+- **The launch checklist: "i know."** His actions, not a session's work queue.
+- **V6 · C6 · C8 · `phases` doc growth · both optional-hardening items: "keep deferred."**
+
 **Three things a later session should carry forward:**
 
 1. **A-AUDIT gained a required lens** (recorded in `TODO.md` §1). The owner said, correctly,
