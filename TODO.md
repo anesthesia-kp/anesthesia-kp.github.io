@@ -755,6 +755,28 @@ On pay-as-you-go most of that value disappears. Also note this is a NEW FEATURE 
 admin page during an audit hold: it needs its own "go", its own suite and its own honesty
 check like any other build.
 
+### FB-7 · EmailJS sending restriction — RAISED 19 Aug 2026, owner action, NOT yet checked
+
+**Surfaced while writing the owner a plain-English overview of the whole stack — i.e. by
+explaining it, not by auditing it.** Worth noting as a method: describing a system simply forces
+you to state what protects each part, and this one had no answer.
+
+**Shape only — this repo is PUBLIC, so no specifics here.** EmailJS's own position is that its
+public identifiers are safe to ship in page source, because a stranger can only trigger *your*
+template with *your* content. **That reasoning does not fully hold for our template**, whose
+recipient and message body are both parameters. The exposure is therefore not quota-burn but
+CREDIBILITY: mail that appears to come from the department's auction sender. No evidence of
+abuse; this is a design observation, not an incident.
+
+**OWNER ACTION — check whether EmailJS's domain/origin allow-list is enabled** for the account,
+so sending is restricted to our own site. It is an account setting, not code. If it is already
+on, close this item and record that. **Both auctions share the one EmailJS account (C6), so this
+covers MD and CRNA together** — which also means a restriction must list every origin both sites
+are served from, or it will silently break sending on one of them. Verify by sending one real
+test after changing it.
+
+**Do NOT write reproduction detail into any repo file when this is worked on.**
+
 ### FB-4 · Abuse/billing hardening for pay-as-you-go — RAISED 19 Aug 2026 (owner asked)
 
 Owner question, 19 Aug: *"is there any risk to a hacker stealing my api keys and running up a
