@@ -33,6 +33,25 @@ Suites on disk: auction **23** (`tests/test-*.mjs`) · schedule **25**
 
 # 1 · THE QUEUE — work, in order
 
+## ⭐ OWNER ACTION, HELD HIGH BY HIS OWN REQUEST — 19 Aug 2026: GET PEOPLE TO LOG IN
+
+> **The owner asked, in his own words, that this be kept high on his list.** Reproduced because
+> it is the single step that turns App Check enforcement from a bet into a test:
+>
+> *"Ask a handful of your bidders to sign in this week. Deliberately include phones, someone on
+> Safari or Firefox, and anyone you know runs an ad-blocker or a VPN. Enforcement only teaches
+> you anything if people log in. Enforce and then leave the site idle until launch and you
+> haven't run a test, you've placed a bet."*
+>
+> **Why it cannot be delegated to Claude:** the whole question is whether OTHER PEOPLE'S real
+> browsers, on their real devices, pass reCAPTCHA scoring. Claude's machine passing proves
+> nothing about 35 others. reCAPTCHA v3 gives a low-scoring person NO puzzle and NO way to prove
+> themselves — they simply stop being able to use the site, silently. That failure is invisible
+> from the console; it only surfaces when someone tells you.
+>
+> **Do it while enforcement is ON but the auction is NOT running.** That window is the whole
+> point, and it closes at go-live.
+
 ## 🔴 QUEUE HEAD — A-AUDIT · FULL PRE-LAUNCH ADVERSARIAL AUDIT — **ON HOLD, owner's word**
 
 > **STATUS, 19 Aug 2026: ON HOLD. Owner: "hold for now, will do soon."** It remains the queue
@@ -866,12 +885,130 @@ the FB-4 load-timing risk, checked against the real deployed site rather than as
 **✅ BADGE RESOLVED in build 282/147 + 72/32 — DECISIONS §65.** One prefix-selector CSS rule
 un-hides Firebase's container on all six pages. Verified in a real browser before shipping.
 
-### ENFORCEMENT — the checklist for when you are ready (owner, 19 Aug: "document for later")
+### ✅ ENFORCEMENT — **DONE AND PROVEN, 19 Aug 2026.** Both projects. Checklist kept below.
+
+**Owner enforced Cloud Firestore on `crna-vacation` first, then `vacation-25e8e`, hard-refreshed
+the schedule pages, and confirmed he can sign in to all six Firebase-backed pages** (plus the
+landing page, which carries no Firebase at all and is therefore untouched by App Check).
+
+**PROVEN, not assumed — the discriminating test.** Claude built a SECOND Firebase app instance
+inside the live page using the SAME config but with App Check deliberately NOT initialised, so its
+requests carry no App Check token, and read the same document with both:
+
+| request | result |
+|---|---|
+| no App Check token | **DENIED — permission-denied** |
+| the page's own instance, token attached | **ALLOWED** |
+
+Same document (`vacations/phases`, which the RULES still make world-readable), same config, same
+browser, same second. **The only variable was the token.** That is enforcement working, and it
+also demonstrates the layering: App Check now gates who may talk to the database at all, and the
+rules gate what they may see once through the door.
+
+**⏳ WHAT IS STILL UNPROVEN, and it is the whole remaining risk:** every verified request so far
+came from the owner's machine or Claude's browser. **Nothing yet tells us whether the other ~34
+participants' devices pass reCAPTCHA scoring** — and under v3 a low-scoring person gets no puzzle
+and no way through, silently. That is why the owner-action item at the top of §1 exists. Until
+real people log in, this is tested code and an untested population.
+
+### ENFORCEMENT — the checklist, kept for the record and for the next project
 
 **Current state: MONITORING. Pages carry App Check tokens; NOTHING is rejected.** That is a
 safe resting state and there is no deadline on leaving it. Enforcement is console-only — no
 code, no deploy, no push — and it is the ONE action in this whole thread that can lock real
 people out, which is why it is the owner's to take deliberately.
+
+**⚠️ FIRST READING OF THE REAL NUMBERS — 19 Aug 2026, owner screenshot. DO NOT PANIC AT THE
+98%.** The console showed, over a **7-day window (Aug 12–20)**: verified **2%** (5.4K), unverified
+**"outdated client" 98%** (314K), unknown-origin **0**, invalid **0**.
+
+**What that actually means, and why it is fine:** App Check only shipped on 19 Aug. Every request
+in that window from BEFORE the deploy came from pages with no App Check SDK in them, which is
+exactly what "outdated client" counts. So the 98% is almost entirely HISTORY, not a live problem.
+The chart bears this out — orange sits at 100% until 19 Aug, then falls away as blue (verified)
+climbs to ~100% at the right-hand edge. **The 7-day aggregate is the wrong number to read.
+Switch the date range to 1 day and look at the current day only.** Also reassuring: unknown-origin
+and invalid are both flat ZERO — nobody is hitting the project from anywhere unexpected.
+
+**🔑 THE REAL PRE-ENFORCEMENT STEP, and the site already has the tool for it.** "Outdated client"
+also covers **a real person sitting on a CACHED copy of the old page**. Enforce while anyone is
+still on pre-App-Check bytes and that person is locked out with no error they can act on. The fix
+is already built: `adminSettings.requiredBuilds` — the admin page arms it as a one-way ratchet,
+and every client running an older build gets `_rbShowGate`, a full-screen "A new version of this
+page has been published — reloading in 5…" overlay that force-reloads with a cache-busting `?v=`.
+**So the order is: arm requiredBuilds to the current builds → give it a day so open tabs and
+cached clients roll over → confirm the ONE-DAY verified figure is ~100% → only then Enforce.**
+That converts the main lockout risk into a five-second reload the user barely notices.
+
+**Also worth a look while in there — a possible FB-1/FB-3 signal.** 320K App Check requests over
+7 days is ~45K/day. The rehearsal measured ~15K Firestore *reads*/day. These are NOT the same
+unit (an App Check request is not a billed document read), so this is not a contradiction — but
+the gap is big enough to be worth checking the actual Firestore usage graph now that the project
+is on Blaze and the consequence is a bill rather than a cliff.
+
+**✅ SECOND READING — LAST 60 MINUTES: 100% VERIFIED, 870/870.** Outdated 0 · unknown origin 0 ·
+invalid 0. This settles the previous entry: the 98% was history, and the live mechanism works —
+tokens are being issued and accepted on the real site.
+
+**⚠️ CLAUDE CHANGED ITS RECOMMENDATION HERE. Recorded, not quietly shifted.** Through the day
+Claude said "wait several days before enforcing." That was right when the only evidence was a
+7-day aggregate dominated by pre-deploy traffic. With a clean 100% window it is worth stating
+the counter-argument honestly, because it is stronger:
+
+- **The blast radius will never be smaller than it is right now.** No auction is running, no bids
+  exist to lose, go-live is weeks away, and enforcement is a ONE-CLICK revert. A problem found
+  today costs an apology; the same problem found during Phase 1 costs the auction.
+- **Waiting does not, by itself, generate evidence.** The 870 requests in that window are
+  essentially the owner plus Claude's browser probes. Sitting in monitoring for another week
+  while nobody logs in produces exactly the same knowledge — and then enforcement gets flipped
+  closer to launch, which is strictly worse.
+
+**✅ CRNA PROJECT READING — 100% verified, 211/211, every failure row ZERO.** All of it on
+19 Aug, because that site has no history to speak of. Two things this proves:
+1. **The `crna-stamp.mjs` key swap works END TO END, live.** The CRNA pages carry a DIFFERENT
+   reCAPTCHA key from the MD site and it attests against the *CRNA* Firebase project. That was
+   proven statically by the stamper canary; this is the running confirmation.
+2. The CRNA project has essentially no users — the 211 requests are the owner's own testing.
+
+**⚠️ THAT REVERSES THE PROJECT ORDER CLAUDE GAVE EARLIER.** The first version of this checklist
+said "enforce `vacation-25e8e` first, `crna-vacation` separately and later," reasoning that the
+live site should go first. **That was backwards.** `crna-vacation` has NO users and NO live
+auction, so enforcing there costs nothing if it goes wrong and is a free rehearsal of the switch
+itself — you learn what the Enforce button does, and what a blocked request looks like, on a
+project where nobody is harmed. **Do CRNA FIRST.** Be clear about what it does and does not
+prove: it tests the MECHANISM, not browser diversity, because there are no real users on it.
+
+**⚠️ THE SCHEDULE SITE HAS NO BUILD GATE — checked 19 Aug, and it matters here.**
+`requiredBuilds` / `_rbShowGate` exist ONLY on the auction pages; `grep` finds zero references on
+either schedule page. But **the schedule shares the `vacation-25e8e` project**, so enforcing App
+Check there enforces it for the schedule too — and a cached schedule tab has nothing to force it
+to reload. Low stakes today (the schedule is a prototype with essentially one user), but the fix
+is trivial and manual: **after enforcing, hard-refresh both schedule pages.** Worth a real build
+gate before the schedule goes live for the department — logged against FB-3.
+
+**REVISED RECOMMENDATION — enforce soon, but only in this order:**
+0. **✅ ARMED 19 Aug 2026 — verified live: `requiredBuilds` = {index:150, admin:284}, matching
+   `versions.json` exactly.** Read straight off `vacations/adminSettings` (publicly readable) after
+   the owner opened the admin page. Note for a fresh session: **there is no button.** The ratchet
+   fires automatically on admin page LOAD — the page's own `versions.json` fetch sets
+   `window.__vlatest` and pokes `_rbTryRatchet()`. Before he opened it, the stored value was
+   {148, 283}: proof the mechanism has been working all along, just two builds behind.
+   **And the protection is effectively IMMEDIATE, not a day's wait:** the gate fires off the
+   `adminSettings` snapshot every open tab already holds, so an open stale tab overlays and
+   reloads within seconds; a closed-but-cached client gets it on its next load, then reloads to
+   a cache-busted `?v=150`.
+1. **Arm `requiredBuilds` FIRST.** Cached clients are the one real lockout path
+   ("outdated client" covers a person sitting on stale bytes). `_rbShowGate` force-reloads them.
+   This step is not optional and it is what makes the rest safe.
+2. **Enforce `crna-vacation` first** (free rehearsal, no users), THEN **Cloud Firestore on
+   `vacation-25e8e`**. Never Firebase Auth, on either project.
+3. **THEN MANUFACTURE THE EVIDENCE — this is the step that actually matters and it is the owner's
+   to do.** Ask a handful of real participants to sign in this week, deliberately including
+   phones, a non-Chrome browser, and anyone known to run ad-blockers or a VPN. **Enforcement only
+   teaches you something if people actually use the site.** Enforcing and then leaving it idle
+   until launch converts a test into a gamble.
+4. Watch for "invalid" or "unknown origin" appearing above zero, and for anyone reporting a page
+   that will not load. Revert on the first real report, diagnose second.
 
 **Before flipping anything — read the numbers, do not guess:**
 1. Firebase console → the project → **App Check → APIs tab → Cloud Firestore**. It shows
