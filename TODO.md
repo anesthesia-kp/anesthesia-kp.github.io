@@ -115,6 +115,19 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       `dailysched` block inside the auction's `firestore.rules`, `tests/sched/isolation-test.mjs`
       (run it), and the shared EmailJS quota. Nothing else in the schedule is in scope.
 
+      **A REQUIRED LENS — added 19 Aug 2026 after the owner found two real defects by USING
+      the site that a code-reading pass would likely have missed or downgraded.** Owner:
+      *"In my experience, I am able to find defects that you can't."* Substantially true, and
+      the reason is structural: both defects were code that did exactly what it said, where
+      what it said was wrong for a human (a settings row that moved; a log line that read
+      "bid for ALL on Wk 0 · undefined undefined NaN"). So the audit must include a reviewer
+      whose lens is **what the screen actually says**, not what the function returns —
+      EXECUTE the render functions against a DOM shim and read the produced markup as a
+      person would, exactly as the TR probes did. And the bar changes: **"the screen tells
+      the admin or a bidder something untrue" is HIGH**, even with no data loss and no bid
+      affected. TR-1 would probably have been logged as cosmetic and killed by a skeptic
+      under the old bar; that would have been wrong.
+
       **Deliverable:** one findings file in this repo (`AUDIT-<date>.md`), CRITICAL and HIGH
       first with the proposed smallest fix for each, MEDIUM/LOW in an appendix, and a plain
       one-paragraph verdict: is this safe to run the real auction on, yes or no. Then STOP
@@ -495,6 +508,8 @@ OPEN-RESIDUALS.*
 | **TR-1** | **Timer Rules editor: the line you edit is not the line that changes.** Owner-reported 19 Aug 2026. The editor renders line *i* from a **days-sorted** stage array and the save re-sorts, so changing an "After N days" value moves that rule to a different line — the admin sees his number land somewhere he did not type it | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** Both redundant sorts removed; `getTimerRules` keeps the engine's sort (pinned: exactly ONE day-sort left in the page). Reproduced first by executing the real `renderTimerRules` + `buildTimerRulesFromDOM` from the pushed 275 page | nothing — the data saved is faithful, only the row position moves, so it is confusing rather than corrupting **on its own**; TR-2 is the consequence |
 | **TR-2** | **The reset ladder can be saved non-monotonic, with no warning.** Because of TR-1 the admin easily lands a shorter reset *before* a longer one; nothing validates that days ascend and hours descend, and duplicate day values silently kill the earlier rule (last match wins in `timerResetHours`) | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** `_trValidate` blocks Save with a plain-English reason unless the switched-on steps ascend in days and shorten in hours. Engine consequence had been executed against the real `timerResetHours`: a ladder that should tighten instead *lengthened* mid-round, and `timerRulesEmailText` printed the same bad ladder to every bidder | nothing — needs an editor-side validation + a fix for TR-1 |
 | **TR-3** | **Fewer than 5 saved stages ⇒ invented stages become real.** If `adminSettings.timerRules.stages` holds fewer than 5 entries (legacy config, restore, hand edit), the editor fills the empty lines from a hardcoded positional default and displays them as if configured; the next save of **any** field in the block writes those invented, enabled stages into the live rules | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** An unset line now renders switched OFF and saves as `enabled:false`, which `getTimerRules` drops, so nothing the admin never set can reach the engine | nothing — check the stored config before trusting the editor after any restore |
+| **CL-1** | **The admin Change Log renders system admin actions as if they were bids.** Owner-reported 19 Aug 2026 with a screenshot. `adminLog` writes non-bid, system-level actions into the same `changes` log as bid edits, using `'ALL'` as filler for both the user and the week; the renderer assumes every entry is a bid, so the row reads "Admin <raw-type> bid for ALL on Wk 0 · undefined undefined NaN". Seven action types are affected, including remove-user, delete-all-users and restore-full — the entries the audit trail exists for | **FIX BUILT 19 Aug (build 277 / staff 143) — awaiting owner push.** System entries get their own sentence, pill, filter option and no week column; recognised by SHAPE as well as by the new `scope:'system'` stamp, so the three rows already in the live log render correctly with no migration | nothing — the STORED data is correct, so no history is lost; it is the display that is untrue. The staff site has no Change Log, so this half is admin-only |
+| **CL-2** | **Those same system entries are counted as bid activity — on BOTH sites.** They pass the `changeEvents24h` filter (which only excludes approve/deny/revoke), so they inflate the admin Popcornometer and the bid-activity chart's "N changes over Xh", and on the STAFF site they inflate every bidder's "N changes in last 24h" chip and appear in its popover as a meaningless row | **FIX BUILT 19 Aug (build 277 / staff 143) — awaiting owner push.** Excluded from the activity feeds on BOTH pages (admin Popcornometer + bid chart, staff 24h chip/popover + 48h notifications) | nothing — wrong numbers on screen, no bid affected |
 
 Cosmetic, accepted: the Approvals week-header clips at phone width. The dashboard loading
 placeholder on a cold load is intended behaviour.
@@ -531,6 +546,25 @@ marker and a guard on collapsing the card / leaving the page; (b) the M-13 snaps
 hazard gets WIDER — the editor is dirty for minutes instead of seconds, so a live snapshot
 must not re-render over an in-progress edit; (c) two admins / two tabs — a batched save
 overwrites blind across a longer window than today's per-field writes.
+
+### COPY-1 / COPY-2 · Owner wording requests, 19 Aug 2026 — proposed, NOT built (no "go")
+
+Both are generated strings, twin byte-identical on both sites, feeding the rules page AND
+the welcome e-mail. `test-c7-timer-bundle.mjs` pins them (2 assertions) and the twin-compare
+pins the generators — any change updates those in the same build.
+
+**COPY-1 — collapse the lowering sentence.** Owner: *"I think this can be more collapsed."*
+`prioLockBullets()` already collapses when ALL FOUR phase allowances are equal, but not when
+a RUN of them is equal — so 2/4/4/2 spells out four clauses and repeats "up to" four times.
+Proposed: group adjacent equal phases and say "up to" once →
+*"…you may lower a bid up to 2 times in Phase 1, 4 times in Phases 2 and 3, and 2 times in
+each round of Phase 4."* Config-driven, so it keeps working for any allowance pattern.
+
+**COPY-2 — the bid-floor list should be a range, not a list.** Owner asked for clearer
+phrasing. `bfAllowedText()` enumerates every allowed value, so a STRONGER floor produces a
+LONGER list ("1, 2, 3, 4, 5, 6, 7, 8, 1/2, or 1/2/3"), which reads backwards. Proposed:
+say the rule, then the range → *"5 or stronger — 1–5, or the combinations 1/2 and 1/2/3."*
+Edge cases to handle: floor 1 → just "1"; floor 2 → "1 or 2"; 3+ → "1–N".
 
 ## Optional hardening — deferred-minor, no urgency
 
