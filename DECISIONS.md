@@ -1486,3 +1486,41 @@ The protection the old comment was worried about survives the copy change, in a 
 **SEQUENCING — this copy ships WITH App Check, never before it.** The line claims reCAPTCHA
 protection; shipping it while App Check is unbuilt would tell 35 people the site is protected by
 something that is not installed. One build, both changes, or neither.
+
+## §65 — The reCAPTCHA badge is SHOWN; enforcement documented, not yet done — 19 Aug 2026
+
+**The finding this settles.** After 281/146 went live the owner said *"I don't see the
+recaptcha."* Diagnosed by INSPECTING THE LIVE PAGE in a browser, not by re-reading code:
+**Firebase App Check renders the reCAPTCHA v3 badge inside a container it creates itself —
+`div#fire_app_check_<firebaseAppName>` — and puts an inline `display:none` on that container.**
+The badge was present, sized and working the whole time; Firebase hides it. This is Firebase's
+documented-by-behaviour default, not a misconfiguration, and no amount of key-checking would
+have found it. **Claude had told the owner the badge would be visible. That was wrong**, and it
+was only caught because he looked at his own site and said so — the same pattern recorded in
+`TODO.md` A-AUDIT's human lens.
+
+**RULING — SHOW IT.** One CSS rule on all six pages:
+`div[id^="fire_app_check"]{display:block!important}`. Two independent reasons, either
+sufficient: the owner wants visible reCAPTCHA because it reassures users (§63), AND showing the
+badge exactly as Google serves it is **the one position that requires no attribution text**.
+The alternative — leaving it hidden — would oblige us to carry Google's specified wording plus
+links to its Privacy Policy and Terms. Before 282/147 the site sat in NEITHER position, which
+is the state actually worth avoiding.
+
+**Two constraints on any future edit here.**
+1. **PREFIX selector, never a hardcoded id.** The container id embeds the Firebase app name,
+   which differs per page: `user-site` · the default app (auction admin) · `sched-user-site` ·
+   `sched-admin`. A hardcoded id would silently cover one page and miss three. The suite
+   asserts the prefix form and fails a hardcoded one.
+2. **Do NOT restyle or reposition the badge itself.** Google's terms permit showing it as
+   served or hiding it with attribution, and nothing in between. The badge's own
+   `right:-186px` is Google's design — a logo tab that expands on hover — not a bug to fix.
+
+**Verified in a real browser BEFORE shipping**, per "run it, don't recall it": with the rule
+applied the badge measures 294×69 at the bottom-right with the standard logo tab on screen.
+
+**ENFORCEMENT — DOCUMENTED, DELIBERATELY NOT DONE (owner, 19 Aug: "document for later").**
+App Check is live in MONITORING mode on both projects: pages carry tokens, nothing is rejected.
+Turning it on is console-only, no code, no deploy — and it is the single action in this whole
+thread that can lock people out, so it stays the owner's, taken deliberately. The steps live in
+`TODO.md` FB-4 under "ENFORCEMENT — the checklist for when you are ready".
