@@ -547,7 +547,7 @@ hazard gets WIDER — the editor is dirty for minutes instead of seconds, so a l
 must not re-render over an in-progress edit; (c) two admins / two tabs — a batched save
 overwrites blind across a longer window than today's per-field writes.
 
-### COPY-1 / COPY-2 · Owner wording requests, 19 Aug 2026 — proposed, NOT built (no "go")
+### COPY-1 / COPY-2 · Owner wording requests, 19 Aug 2026 — **BUILT in 278/144, awaiting push**
 
 Both are generated strings, twin byte-identical on both sites, feeding the rules page AND
 the welcome e-mail. `test-c7-timer-bundle.mjs` pins them (2 assertions) and the twin-compare
@@ -564,7 +564,12 @@ each round of Phase 4."* Config-driven, so it keeps working for any allowance pa
 phrasing. `bfAllowedText()` enumerates every allowed value, so a STRONGER floor produces a
 LONGER list ("1, 2, 3, 4, 5, 6, 7, 8, 1/2, or 1/2/3"), which reads backwards. Proposed:
 say the rule, then the range → *"5 or stronger — 1–5, or the combinations 1/2 and 1/2/3."*
-Edge cases to handle: floor 1 → just "1"; floor 2 → "1 or 2"; 3+ → "1–N".
+**Owner ruling, 19 Aug 2026:** COPY-1 built as proposed. For COPY-2 the owner supplied his
+own wording and dropped the range entirely — *"On the highest demand weeks (…), your bid must
+be 5 or better · On summer weeks it must be 8 or better"*. Verified BEFORE writing that this
+is true and not just shorter: the engine's `priorityScore` ranks 1/2 (score 1) and 1/2/3
+(score 0) ABOVE a solo 1 (score 2), so "or better" still covers the combinations at every
+floor — pinned for floors 1/2/5/8 in `test-copy-rules-wording.mjs`.
 
 ## Optional hardening — deferred-minor, no urgency
 
