@@ -571,6 +571,19 @@ is true and not just shorter: the engine's `priorityScore` ranks 1/2 (score 1) a
 (score 0) ABOVE a solo 1 (score 2), so "or better" still covers the combinations at every
 floor — pinned for floors 1/2/5/8 in `test-copy-rules-wording.mjs`.
 
+**COPY-3 · owner ruling, 19 Aug 2026:** *"I prefer just eliminating the rule altogether if
+there is no floor."* A floor that is not set now produces NO sentence; with neither floor set
+the bullet disappears entirely and the old "currently have no bid floor — all bids may be
+used" wording is retired. Note for whoever reads this later: with no floor the engine also
+re-admits **NP** bids on those weeks (a floor always rejects NP), subject to the separate NP
+phase toggle — the text no longer says anything about it either way.
+
+**Owner caught, same session:** the two floor sentences are joined by a separator on the
+rules list but printed as SEPARATE BULLETS in the welcome e-mail, so the "it must be…" form
+dangled. Both sentences now stand alone. **Claude miss, recorded:** the staff rules list's
+hardcoded placeholder still carried the OLD wording and a floor that was never live; it is
+now empty and hidden until the live floors fill it.
+
 ## Optional hardening — deferred-minor, no urgency
 
 - [ ] Firestore rule freezing `auctionConfig` + `bidFloors` once Phase 1 starts (today the
