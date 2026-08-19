@@ -1,4 +1,10 @@
-# Daily Schedule — owner rulings
+# Owner rulings — BOTH sites
+
+*The title said "Daily Schedule" until 19 Aug 2026. It was never renamed as auction and
+process rulings were added, and by §62 that was simply wrong — §58 (auction build 270),
+§59 (auction timer modes), §60 (a whole auction session), §61 (Firestore billing) and §62
+(commit summaries) are not schedule rulings. Corrected rather than left to mislead. The
+section numbers are unchanged; nothing below moved.*
 
 **Settled decisions. Do not re-litigate.** Add to the bottom with a date; never quietly
 reverse an entry. If a ruling turns out to be wrong, write a new dated entry that says so

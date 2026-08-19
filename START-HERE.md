@@ -1,13 +1,22 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-Rewritten 17 Aug 2026 to one copy of every rule. The five files that govern everything:
+**LAST REVISED: 19 Aug 2026.** (Structure rewritten 17 Aug to one copy of every rule;
+substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
+gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
+skipped-honesty rule and the run-on-device route.)
+
+> ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
+> reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
+> own age is worse than no date at all — a fresh session trusts it.
+
+The five files that govern everything:
 
 | file | answers |
 |---|---|
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `DECISIONS.md` (this repo) | what the owner has ruled (§1–§60 + the buried-rulings index). **§60 = every ruling of the 19 Aug session, verbatim** — written because of the owner's standing instruction that he must never depend on chat history |
+| `DECISIONS.md` (this repo) | what the owner has ruled — **BOTH sites**, despite its legacy title (§1–§62 + the buried-rulings index). **§60 = every ruling of the 19 Aug session verbatim** (his standing instruction: never depend on chat history) · **§61** Firestore pay-as-you-go · **§62** the commit-summary length cap |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it
