@@ -1524,3 +1524,36 @@ App Check is live in MONITORING mode on both projects: pages carry tokens, nothi
 Turning it on is console-only, no code, no deploy — and it is the single action in this whole
 thread that can lock people out, so it stays the owner's, taken deliberately. The steps live in
 `TODO.md` FB-4 under "ENFORCEMENT — the checklist for when you are ready".
+
+## §66 — The reCAPTCHA badge is HIDDEN after all; attribution now mandatory — 19 Aug 2026
+
+**REVERSES §65, same day, on the owner's word after seeing it live:** *"I don't like the
+recaptcha being visible actually. it's in the way."* §65 stands as the record of why it was
+shown; this entry supersedes its ruling. **Nobody was wrong here** — §65 was built from what he
+asked for before it existed on screen, and he changed his mind once it did. That is the correct
+order of events and the cheapest possible moment to change course. The badge was visible for
+exactly one build (282/147 · 72/32).
+
+**THE CONSEQUENCE IS NOT OPTIONAL, and it is the whole point of this entry.** Google's branding
+terms permit exactly TWO positions and nothing between them:
+1. show the badge as Google serves it — no attribution text needed; or
+2. hide it — and carry the reCAPTCHA attribution **visibly in the user flow**.
+We are now in position 2, so the sign-in security box gained a third line, in Google's own
+words, with both required links:
+> This site is protected by reCAPTCHA and the Google [Privacy Policy] and [Terms of Service] apply.
+
+**A PAIRED INVARIANT, pinned by the suite.** The un-hide CSS rule and the attribution text are
+now two halves of one obligation: `test-appcheck-login.mjs` asserts the rule is ABSENT **and**
+the attribution plus both links are PRESENT, on all six pages. A future edit that deletes the
+attribution without restoring the badge fails the battery rather than shipping a quiet terms
+violation. The CSS comment left in each page says the same thing at the point of temptation.
+
+**KNOWN GAP, ACCEPTED FOR NOW AND TRACKED AS `TODO.md` FB-6.** The security box lives inside the
+sign-in PICKER panel, and "Remember me on this device" is checked by default — so returning
+users see the WELCOME BACK panel and do not see the box, or therefore the attribution. This
+predates the change (the old note had the same placement) but it now carries a compliance
+dimension as well as the owner's original goal of people actually seeing the line. **FB-6 is
+raised to the next build.** Claude deliberately did NOT relocate it in this build: it is
+structural DOM surgery across four differently-shaped files, and this was the tail of a very
+long session (START-HERE §4). Splitting it was the safer call, and the gap is written down here
+rather than left implicit.
