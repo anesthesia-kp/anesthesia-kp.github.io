@@ -1331,3 +1331,38 @@ never depend on chat history."** Every ruling gets written to this file in the t
 made, in the owner's own words where he gave them, with enough surrounding fact that it is
 intelligible without the conversation. This supersedes nothing; it makes §3's paperwork rule
 explicit about WHY.
+
+
+---
+
+## §61 — Firestore moved to pay-as-you-go; the reads tracker declined — 19 Aug 2026
+
+**Context.** Analysis in `TODO.md` FB-1: on the FREE plan, the owner's own numbers (35
+participants, ~400 bid actions on a busy day) project ~43,000–63,000 document reads against a
+hard 50,000/day cap. Exceeding it DENIES reads until UTC midnight — the board stops loading
+and nobody can bid, mid-phase. The multiplier was verified against the code, not estimated:
+one staff bid writes 3 listened documents always (`schedule` · `changes` · `bidTimes`) plus up
+to 2 conditionally (`timer`, `bestBids`), and every staff page listens to all five.
+
+**Ruling 1 — the owner is SWITCHING to pay-as-you-go. DECIDED 19 Aug 2026, NOT YET DONE —
+it is a line on the LAUNCH CHECKLIST in `TODO.md`, added at his request.** Verbatim:
+*"switching to pay as you go."* This removes the cliff: the same free allowances continue and only usage beyond them is
+charged. Priced 19 Aug 2026 from Google's own pricing page: reads **$0.03 per 100,000**,
+writes $0.09 per 100,000, 10 GiB/month egress free then $0.12/GiB. At a sustained 100,000
+reads/day for a month that is 1.5M billable reads ≈ **$0.45/month**, writes free, storage
+negligible; outbound data transfer is the only meaningful variable. Re-check prices in the
+console rather than trusting this note — they change.
+
+**The stated downside, accepted:** a budget alert NOTIFIES, it does not STOP spending. There
+is no true hard cap on the paid plan. So the failure mode changes from "the auction stops" to
+"an unexpected bill", which is the trade the owner chose knowingly.
+
+**Ruling 2 — no reads tracker.** Verbatim: *"skip the tracker."* FB-2 stays in `TODO.md` as
+the record of what was possible and what was not, chiefly so the anti-pattern (a shared
+counter document incremented per read — which adds a write per read AND re-broadcasts to every
+listener) is never built by a later session. **Do not propose it again unless the owner asks.**
+
+**Still true regardless of plan:** the cheapest code lever, if this is ever revisited, is
+dropping the staff page's `changes` listener — ~25% of every bid's read cost for a purely
+decorative Popcornometer and "changes in last 24h" chip. The WRITE would stay, so the admin
+Change Log and Fair Play reconstruction lose nothing. Audit item, not a pre-launch patch.

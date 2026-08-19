@@ -21,7 +21,7 @@ exists, point at it. The pre-merge documents drifted precisely because facts had
 > to launch. The schedule site is months away from actual use and I can continue to build and
 > check that as long as it doesn't disturb the vacation site."*
 
-**The Vacation Auction is LIVE** (~60 anesthesiologists, all year, launch near). **The Daily
+**The Vacation Auction is LIVE** (**35 participating anesthesiologists** — owner, 19 Aug 2026; earlier docs said ~60, which was the roster size, not the number bidding — all year, launch near). **The Daily
 Schedule is a prototype** built alongside it. If a schedule change carries ANY risk to the
 auction, it does not ship. If the auction needs attention — a phase, a send, an incident —
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
@@ -75,8 +75,16 @@ phase in flight) before doing anything.
 
 **Vacation Auction** — `vacation-kp.github.io`, served at
 `https://anesthesia-kp.github.io/vacation/`. **Daily Schedule** — `schedule`, in build.
-**ONE Firebase project holds both**: `vacations/*` belongs to the auction, `dailysched/*` to
-the schedule.
+**ONE Firebase project holds both** (`vacation-25e8e`): `vacations/*` belongs to the auction,
+`dailysched/*` to the schedule. **That means ONE Firestore quota and ONE bill across both
+sites** — verified in the code 19 Aug 2026. The CRNA auction is a SEPARATE project
+(`crna-vacation`) with its own allowance. The schedule contributes nothing today, but it
+carries 19–25 listeners per page and would run every working day all year, so once it goes
+live it plausibly becomes the LARGER consumer — redo the arithmetic before that, not after
+(`TODO.md` FB-3). The plan is moving to pay-as-you-go (DECISIONS §61, on the launch
+checklist), so the failure mode is a bill rather than an outage — which is the right way
+round, but is not the same as free. `isolation-test.mjs` guards shared WRITES; nothing guards
+shared SPEND.
 
 What they genuinely share — why a change to one can break the other:
 

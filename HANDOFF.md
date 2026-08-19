@@ -107,6 +107,30 @@ rulings register); this file carries the narrative and points there. The headlin
 - **The launch checklist: "i know."** His actions, not a session's work queue.
 - **V6 · C6 · C8 · `phases` doc growth · both optional-hardening items: "keep deferred."**
 
+**The Firestore capacity thread (19 Aug, after the builds).** The owner asked whether he was
+at risk of hitting Firebase caps. Worked through with real numbers rather than reassurance, and
+the conclusion moved THREE TIMES as facts arrived — recorded that way on purpose, because the
+reasoning is the useful part:
+1. First model (assuming the docs' "~60 users") put a busy day near the 50,000/day read cap.
+2. The owner supplied a MEASURED rehearsal peak of 15,000 reads → looked comfortable.
+3. He then noted not everyone had participated, and reads scale with roughly the SQUARE of
+   head-count (reads = write-events × connected-listeners, and both grow with people) → back
+   to undecided.
+4. Final inputs: **35 participants** (the docs' ~60 was the ROSTER, not the bidders — corrected
+   in START-HERE) and **~400 bid actions on a busy day**. Multiplier verified in code, not
+   estimated: one staff bid writes 3 listened docs always (`schedule`·`changes`·`bidTimes`)
+   plus up to 2 conditionally (`timer`, `bestBids`). Result: **~43,000–63,000 reads on a busy
+   day against a hard 50,000 cap.**
+
+**Outcome: the fix is the PLAN, not the code** — pay-as-you-go keeps the same free allowances
+and only charges past them (~$0.45/month in reads even at 100k/day; outbound transfer the only
+real variable). It is DECIDED but NOT YET DONE and now sits on the launch checklist. The reads
+tracker the owner asked about was declined; FB-2 keeps the record of what is impossible (the
+client SDK exposes no read counter) and the anti-pattern to refuse (a shared counter document
+incremented per read — a write per read, re-broadcast to everyone). FB-3 records that the
+schedule shares the same project and will likely become the larger consumer once live.
+Full detail: `TODO.md` FB-1/FB-2/FB-3 and `DECISIONS.md` §61.
+
 **Three things a later session should carry forward:**
 
 1. **A-AUDIT gained a required lens** (recorded in `TODO.md` §1). The owner said, correctly,
