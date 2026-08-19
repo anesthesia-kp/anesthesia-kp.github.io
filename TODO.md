@@ -492,11 +492,45 @@ OPEN-RESIDUALS.*
 | **L4** | an earlier phase's unsent results can become unsendable | **ACCEPTED for launch, 18 Aug 2026** — narrowed in 245 (auto-targets an earlier unsent phase) | send or rehearsal-skip each phase's results before beginning the next |
 | **L1** | `welcomeLog` write rule unconfined | **RE-CHECKED 18 Aug 2026: ALREADY FIXED** — the shipped rules carry the [L-8] registered-user gate + [L1 · APPEND-ONLY containment] (writes touch only 'sent'; old keys must survive). Console parity verified 18 Aug (§3 S4 note). Pinned by `test-l1-l5-close.mjs` | the forge-half (pre-seeding one key) is the documented, accepted low-impact residual — rules cannot tie a key to its caller |
 | **L5** | `mobile.html` redirect mangles one query shape | **RE-CHECKED + CLOSED 18 Aug 2026 (mobile 18)** — the reported leading-& shape was already fixed in the shipped page; the last degenerate boundary (a flag value merely starting with "1" clipped mid-value) closed by anchoring the strip regex. Every shape executed in `test-l1-l5-close.mjs`; honesty fails on mobile 17 | — |
+| **TR-1** | **Timer Rules editor: the line you edit is not the line that changes.** Owner-reported 19 Aug 2026. The editor renders line *i* from a **days-sorted** stage array and the save re-sorts, so changing an "After N days" value moves that rule to a different line — the admin sees his number land somewhere he did not type it | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** Both redundant sorts removed; `getTimerRules` keeps the engine's sort (pinned: exactly ONE day-sort left in the page). Reproduced first by executing the real `renderTimerRules` + `buildTimerRulesFromDOM` from the pushed 275 page | nothing — the data saved is faithful, only the row position moves, so it is confusing rather than corrupting **on its own**; TR-2 is the consequence |
+| **TR-2** | **The reset ladder can be saved non-monotonic, with no warning.** Because of TR-1 the admin easily lands a shorter reset *before* a longer one; nothing validates that days ascend and hours descend, and duplicate day values silently kill the earlier rule (last match wins in `timerResetHours`) | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** `_trValidate` blocks Save with a plain-English reason unless the switched-on steps ascend in days and shorten in hours. Engine consequence had been executed against the real `timerResetHours`: a ladder that should tighten instead *lengthened* mid-round, and `timerRulesEmailText` printed the same bad ladder to every bidder | nothing — needs an editor-side validation + a fix for TR-1 |
+| **TR-3** | **Fewer than 5 saved stages ⇒ invented stages become real.** If `adminSettings.timerRules.stages` holds fewer than 5 entries (legacy config, restore, hand edit), the editor fills the empty lines from a hardcoded positional default and displays them as if configured; the next save of **any** field in the block writes those invented, enabled stages into the live rules | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** An unset line now renders switched OFF and saves as `enabled:false`, which `getTimerRules` drops, so nothing the admin never set can reach the engine | nothing — check the stored config before trusting the editor after any restore |
 
 Cosmetic, accepted: the Approvals week-header clips at phone width. The dashboard loading
 placeholder on a cold load is intended behaviour.
 
 A residual leaves this table only when a build closes it and a suite proves it.
+
+### TR-4 · Owner proposal, 19 Aug 2026 — BATCH the timer-rule edits — **BUILT in 276, awaiting push**
+
+Owner, 19 Aug: *"Would it help to batch save timer edits? Make admin responsible for
+clicking save at the end of re-working the times/days?"* and *"those things will generally
+be edited several at a time and it's actually annoying to click save each time."*
+
+**Answer: yes, but it is a separate thing from TR-1.** Today every field change fires its
+own confirm dialog and its own write. Batching (edit freely → one Save → one dialog → one
+write) fixes the annoyance, keeps §3 rule 5 satisfied (one dialog still guards the write),
+makes the change ATOMIC (today a multi-field edit writes 2–4 intermediate ladders that are
+briefly live), and is the only way to validate the ladder sensibly — you cannot check
+"days ascend, hours descend" until the whole ladder is in hand.
+
+**Batching alone does NOT fix TR-1** — the rows would still re-sort once, at Save. The
+TR-1 fix is separate and tiny: `getTimerRules()` already sorts for the engine, so the sort
+inside `renderTimerRules` (display) and the one inside `buildTimerRulesFromDOM` (save) are
+both redundant. Removing those two leaves rows anchored to the line the admin typed on.
+**Proven 19 Aug** by re-running the real functions with exactly those two sorts patched
+out: the edit stays on its line, and the engine's own sort survives untouched.
+
+**Owner ruling, 19 Aug 2026: "Fix now, all of it"** — TR-1 + TR-2 + TR-3 + TR-4 shipped
+together as build 276 (one build: they all live in the same two functions, and splitting
+them would have meant touching live auction code twice for one outcome). Gates in
+`vacation-kp.github.io/BUILD-LOG.md`.
+
+**Costs designed in, all three handled in 276:** (a) a Save button can LOSE work — needs a dirty
+marker and a guard on collapsing the card / leaving the page; (b) the M-13 snapshot-revert
+hazard gets WIDER — the editor is dirty for minutes instead of seconds, so a live snapshot
+must not re-render over an in-progress edit; (c) two admins / two tabs — a batched save
+overwrites blind across a longer window than today's per-field writes.
 
 ## Optional hardening — deferred-minor, no urgency
 
