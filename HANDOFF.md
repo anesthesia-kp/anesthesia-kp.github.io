@@ -867,3 +867,63 @@ combined commit message delivered to outputs. **App Check enforcement is deliber
 it is a console switch, staged per service and per project after monitoring shows the real
 pages producing valid traffic, and it is a one-click revert. Nothing about sign-in changed for
 any user. The audit (A-AUDIT) remains queue head and remains on hold at the owner's word.
+
+## Session record — 19 Aug 2026, cloud session, PART 2 (the security day)
+
+**Continues the record above.** That entry covered the analysis; this covers what shipped and,
+more usefully, what was learned. **Six builds, all gated, all verified live.**
+
+### What shipped
+`281/146 + 71/31` App Check on all six pages · `282/147 + 72/32` badge shown ·
+`283/148 + 73/33` badge hidden again with Google's attribution · `284/149 + 74/34` FB-6, the
+security box moved so returning users see it · **rules-only** FB-5 stage 1, the bid document
+gated · `staff 150 + 35` the retired passcodes listener deleted · `staff 151` FB-5 stage 2
+batch 1. The last of these is **awaiting the owner's push**; everything before it is live.
+
+### The lessons worth carrying, not the changelog
+
+**1 · The owner found things by USING the site that no amount of reading found.** He reported
+"I don't see the recaptcha" — Firebase App Check renders the reCAPTCHA badge inside a container
+it creates with `display:none`. Claude had told him it would be visible. Only loading the real
+page in a browser found it. **Then he reversed himself after seeing it** ("it's in the way"),
+which was cheap because it was one build old. Both directions are recorded (DECISIONS §65/§66)
+and NEITHER was a mistake — that is what seeing a thing does.
+
+**2 · Two tests were quietly worthless and the battery only caught one of them.**
+`test-crna-stamp` asserted the MD auth domain never appeared *wrapped in the sign-in note's curly
+quotes* — §64 deleted that note, so the assertion passed by testing for a phrase that no longer
+existed anywhere, and would have kept passing with the domain sitting in the page unquoted.
+`test-delta-fixes` asserted the sign-out teardown tracked "exactly three" listeners — a form that
+would PASS if someone added an untracked listener, leaking exactly the zombie the section exists
+to prevent. **Both re-anchored to the real property, both now STRICTER than what they replaced.**
+The general lesson: an assertion that pins a COUNT or a QUOTED STRING decays into a no-op as the
+code moves. Assert the invariant.
+
+**3 · Claude reversed its own recommendation three times, on evidence, and said so each time.**
+App Check "not before launch" → "do it now" (the timeline turned out to be weeks, not days).
+Enforce "wait several days" → "enforce soon" (waiting generates no evidence if nobody logs in).
+Enforce "MD first" → "CRNA first" (CRNA has no users, so it is the free rehearsal). Each reversal
+is dated in `TODO.md` FB-4 with the reasoning. **A fresh session should feel free to do the same
+— but write it down rather than quietly drifting.**
+
+**4 · A question that looked like it needed the owner was answered by the code.** Before designing
+the read-privacy work Claude was about to ask "open auction or sealed?". The staff board already
+paints every other participant's bid on live weeks. **Check before asking.**
+
+**5 · The device bridge degraded mid-session and it did NOT block delivery.** File staging failed
+with `untrusted_device` (stale desktop sign-in). `device_bash` still read fine, so the rules file
+came off the device via the documented gzip+base64 fallback and was md5-verified after
+reassembly. **Staging being down does not mean files cannot be delivered.**
+
+**6 · Cost is a security input, not a separate concern.** The bid-document gate uses
+`isVerifiedAccount` rather than `isRegisteredUser` because the stronger predicate costs an
+`exists()` + `get()` per evaluation, and rules document-accesses are BILLED — on the auction's
+hottest document that is a permanent per-delivery charge. The accepted residual is that someone
+with any Google account can read bids; App Check covers the scripted case.
+
+### State at handover
+Three repos clean; `vacation-kp.github.io`, `tests` and `anesthesia-kp.github.io` hold the
+staff-151 build awaiting push. No git locks. App Check ENFORCED on both projects. Rules
+published and verified from an anonymous session. The audit remains queue head and on hold.
+**The single most valuable outstanding item is not code:** real participants signing in on their
+own devices while enforcement is on and no auction is running.

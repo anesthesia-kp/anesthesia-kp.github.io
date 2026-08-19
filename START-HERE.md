@@ -3,9 +3,9 @@
 **LAST REVISED: 19 Aug 2026.** (Structure rewritten 17 Aug to one copy of every rule;
 substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
 gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
-skipped-honesty rule and the run-on-device route; §1 revised again later on 19 Aug — the
-Firestore switch is DONE, and the owner has a FEW WEEKS before go-live, which re-times the
-security work in `TODO.md` FB-4/FB-5.)
+skipped-honesty rule and the run-on-device route; §1 rewritten AGAIN at the close of 19 Aug
+after a long security session — App Check is now ENFORCED on both Firebase projects, the bid
+data is no longer world-readable, and the where-to-start block below was replaced wholesale.)
 
 > ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
 > reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
@@ -38,29 +38,52 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (19 Aug 2026, end of session).** Everything is pushed and live —
-> auction **280 / staff 145 / mobile 18**, schedule **admin 70 / staff 30**, all four repos
-> clean and in sync, no locks.
+> 🟢 **WHERE TO START (19 Aug 2026, close of the SECURITY session).**
+> **LIVE NOW: auction admin 284 / staff 151 / mobile 18 · schedule admin 74 / staff 35.**
+> All four repos pushed and in sync at the close of the session; no git locks. Verify live
+> before believing any of these — `versions.json`, cache-busted, twice if the first disagrees.
+> **✅ VERIFIED LIVE by the owner, 19 Aug:** signed in on the real site and the bidding board
+> populates normally on staff 151, and mail still sends after the EmailJS domain restriction.
+> Both were the outstanding checks; there are none left from this session.
 >
-> **TWO FACTS THAT CHANGED LATE ON 19 AUG AND RE-TIME EVERYTHING BELOW.**
-> **(1) The Firestore pay-as-you-go switch is DONE** — the owner moved the project to Blaze
-> and set billing alerts. That was the last launch blocker on the free plan, and the
-> hard-denial cliff (reads stopping mid-phase at the daily cap) is gone. What replaces it is
-> a bill, so the exposure is now abuse and runaway-read shaped, not outage shaped.
-> **(2) The owner has A FEW WEEKS after the rehearsal to update and test before go-live**
-> (his words, 19 Aug). Earlier docs read as though launch were days away; it is not. This is
-> the single most important scheduling fact in this file — a few weeks with NO live auction
-> running is the right window for changes that would be reckless mid-phase, and it is why
-> `TODO.md` FB-4 (App Check) moved from "not before launch" to "do it now".
+> **THE THREE FACTS THAT GOVERN EVERYTHING BELOW.**
+> **(1) The auction is WEEKS from go-live, not days** (owner, 19 Aug). The rehearsal is over.
+> A window with no live auction is the right time for changes that would be reckless
+> mid-phase — and it closes at go-live.
+> **(2) The project is on Blaze pay-as-you-go with billing alerts.** The old hard-denial cliff
+> is gone; the failure mode is now a bill, not an outage.
+> **(3) APP CHECK IS ENFORCED on BOTH Firebase projects** (`crna-vacation` and
+> `vacation-25e8e`), Cloud Firestore only, never Firebase Auth. Requests that do not come from
+> the real pages are refused outright. Proven, not assumed: a second app instance built with
+> the same config but no App Check token is DENIED a document the page's own instance reads
+> fine. **If the site ever mysteriously stops working for someone, App Check is now a suspect
+> — and enforcement is a ONE-CLICK revert in the console.**
 >
-> **The security work the owner asked for on 19 Aug is `TODO.md` FB-4 and FB-5.** FB-4 is
-> billing/abuse (App Check first, in monitoring mode, then enforce; plus a console key
-> restriction). FB-5 is read-privacy (public reads that the login screen does not need —
-> a client change first, then rules, one document at a time). **FB-4 before FB-5.**
-> **Claude's next SCHEDULE build is still `S5c`** — the grid filter bar, whose role/site
-> half is blocked until Stage 4 (`TODO.md` §1, item 5).
-> The audit below is still the queue head for the AUCTION and still on hold at the owner's
-> word ("audit later", 19 Aug).
+> **WHAT THE 19 AUG SECURITY SESSION SHIPPED** (detail in `HANDOFF.md`, gates in the BUILD-LOGs):
+> App Check across all six pages · the reCAPTCHA badge shown, then HIDDEN at the owner's word
+> with Google's required attribution carried (DECISIONS §65/§66) · the login security box moved
+> so returning users see it (FB-6) · `vacations/schedule` — every participant's bids — gated
+> behind a verified sign-in and PUBLISHED (FB-5 stage 1) · the retired `passcodes` listener
+> deleted from both staff pages · six more board listeners moved behind sign-in (FB-5 stage 2
+> batch 1).
+>
+> **⭐ THE OWNER'S OWN TOP ITEM, held high at his request — `TODO.md` §1, first entry:**
+> get real bidders to sign in this week, on their own phones and browsers, while enforcement
+> is ON and no auction is running. **Claude cannot do this and must not pretend otherwise** —
+> reCAPTCHA v3 gives a low-scoring real person no puzzle and no way through, silently, and one
+> machine passing proves nothing about 35 others.
+>
+> **CLAUDE'S NEXT WORK, in order, none urgent:**
+> 1. **FB-5 stage 2 batch 2** — the remaining six listeners (`locks` · `fteMap` · `bidPhase` ·
+>    `slots` · `timer` · `mailStats`). `timer` LAST and ALONE (it calls `startCountdownTick()`
+>    at module level). Then gate documents ONE AT A TIME, never as a batch.
+> 2. **S5c** — the schedule grid filter bar. Scope is PINNED: name/text + coverage filters only.
+>    The role/site half is still blocked and was re-confirmed on 19 Aug — role and site are
+>    fields on SHIFTS, not on people.
+> 3. **A-AUDIT** — still the queue head for the auction, still on hold (below).
+>
+> **STILL OWED BY THE OWNER:** only one thing — check two-factor is on the admin Google
+> account. It is the single key to the whole system: settings, awards, mass mail, wipe.
 >
 > ⛔ **CURRENT STANDING ORDER — A-AUDIT, ON HOLD BY THE OWNER (19 Aug 2026).** The audit is
 > still the queue head and still the next substantial piece of work, but the owner's word on
