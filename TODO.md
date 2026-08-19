@@ -755,7 +755,7 @@ On pay-as-you-go most of that value disappears. Also note this is a NEW FEATURE 
 admin page during an audit hold: it needs its own "go", its own suite and its own honesty
 check like any other build.
 
-### FB-7 · EmailJS sending restriction — RAISED 19 Aug 2026, owner action, NOT yet checked
+### FB-7 · EmailJS sending restriction — ✅ ENABLED by the owner 19 Aug 2026 · one verification still owed
 
 **Surfaced while writing the owner a plain-English overview of the whole stack — i.e. by
 explaining it, not by auditing it.** Worth noting as a method: describing a system simply forces
@@ -774,6 +774,24 @@ on, close this item and record that. **Both auctions share the one EmailJS accou
 covers MD and CRNA together** — which also means a restriction must list every origin both sites
 are served from, or it will silently break sending on one of them. Verify by sending one real
 test after changing it.
+
+**✅ OWNER ENABLED IT, 19 Aug 2026** — sends are now restricted to his own domain.
+
+**The multi-site worry does NOT apply here — checked.** All six pages are served from ONE origin,
+`https://anesthesia-kp.github.io`; MD, CRNA and the Daily Schedule differ only by PATH. So a
+single domain entry covers all of them and there is no split-origin trap.
+
+**⏳ STILL OWED — one verification, because this failure mode is SILENT.** A wrong or
+over-narrow entry does not raise an error; mail simply stops going out, and on this site mail is
+auction-critical (outbid alerts, results, welcomes). **There is no test-send button on the admin
+page** — checked; the only mail paths are the real ones. So verify either of these ways:
+1. **EmailJS's own dashboard history** — the next time any real mail fires, confirm it appears as
+   SENT rather than blocked. Cheapest option; needs no action beyond looking.
+2. **Check the entry is the bare domain**, not a path. `anesthesia-kp.github.io` will match every
+   page; something like `anesthesia-kp.github.io/vacation` may match none.
+
+**Until one of those is done, treat mail as working-but-unconfirmed.** Do NOT let the first
+confirmation be a real results send during a live phase.
 
 **Do NOT write reproduction detail into any repo file when this is worked on.**
 
@@ -1031,6 +1049,30 @@ gate before the schedule goes live for the department — logged against FB-3.
    until launch converts a test into a gamble.
 4. Watch for "invalid" or "unknown origin" appearing above zero, and for anyone reporting a page
    that will not load. Revert on the first real report, diagnose second.
+
+**📖 HOW TO READ THAT SCREEN — owner asked 19 Aug; definitions are Google's own, not paraphrase.**
+**App Check has NOTHING to do with who is signed in.** It asks "did this request come from our
+real app?", never "who is this person?". A visitor who has never signed in still produces
+**verified** requests the moment they load the page.
+
+| category | Google's definition | what it would mean here |
+|---|---|---|
+| **Verified** | has a valid App Check token | normal — the only category allowed once enforcing |
+| **Outdated client** | missing a token; "might be from an older version of your app before you added the App Check SDK" | someone on cached/stale bytes — the `requiredBuilds` gate exists to fix exactly this |
+| **Unknown origin** | missing a token AND "don't look like they come from the Firebase SDK… might be using stolen API keys, or forged requests" | **the row that actually matters** — somebody scripting against the project |
+| **Invalid** | has an INVALID token; "an inauthentic client attempting to impersonate your app, or emulated environments" | impersonation attempt, or an odd/emulated browser |
+
+**A ROSTER TYPO DOES NOT APPEAR HERE — different layer entirely.** If a login e-mail is entered
+wrong, that person still signs in to Google fine and still produces VERIFIED App Check requests;
+they simply are not recognised as a participant and cannot bid. **That failure surfaces on the
+admin Users page via the `signInMisses` log** (the staff page writes the attempted address there
+on a failed match), which is where to look — not App Check. Wrong-address lockout is already on
+the launch checklist for this reason.
+
+**The one case where a REAL person shows as unverified** is reCAPTCHA scoring their browser as
+bot-like, so no token is ever issued. Claude has NOT confirmed which bucket that lands in
+(most likely "outdated client", since the request arrives tokenless from a Firebase SDK) — treat
+the bucket as unconfirmed. **The reliable signal is a person telling you the site will not load.**
 
 **Before flipping anything — read the numbers, do not guess:**
 1. Firebase console → the project → **App Check → APIs tab → Cloud Firestore**. It shows
