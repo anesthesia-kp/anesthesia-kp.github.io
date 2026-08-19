@@ -47,6 +47,69 @@ anything: one combined COMMIT-MESSAGES.txt (with the copy-one-section banner), r
 
 ---
 
+## 5b. 19 AUG 2026 SESSION — three builds, all owner-found, all pushed (detail in BUILD-LOG)
+
+**The session did NOT run A-AUDIT.** It stayed the queue head. Everything below came from the
+owner USING the site and reporting what he saw; each was traced, fixed, gated and pushed.
+
+**276 (`84f3b8a`) · Timer Rules editor.** Owner: setting "After x days" updated the wrong
+line. Cause: the editor sorted the stages for DISPLAY and again on SAVE, while
+`getTimerRules` already sorts for the engine — both were redundant, and they moved an edited
+rule onto a line the admin never typed on. Also shipped: batched Save (owner's idea — edits
+mark the editor dirty, nothing is written until Save, still one confirm dialog, so a
+multi-field edit is now ATOMIC), ladder validation (steps must ascend in days and shorten in
+hours; Save blocks with a plain reason), and unset lines rendering switched OFF instead of as
+invented rules. `tests/test-tr-timer-editor.mjs` 43/43, honesty fails 17 on 275.
+
+**277 (`23cd748`) · Change Log.** Owner screenshot: rows reading "Admin admin-timer-mode-1
+bid for ALL on Wk 0 · undefined undefined NaN". Cause: `adminLog` writes SEVEN system-level
+action types into the same log as bid changes with `'ALL'` filling the user and week slots,
+and every reader assumed a bid. System entries now get their own sentence, pill, filter
+option and no week column, recognised by SHAPE as well as the new `scope:'system'` stamp so
+existing live rows fixed themselves with no migration. Second half (CL-2): those entries were
+counted as bid activity on BOTH sites — including every bidder's "changes in last 24h" chip.
+`tests/test-cl-system-entries.mjs` 34/34, honesty fails 13 on 276.
+
+**278 / staff 144 (`a5d0bb8` + `bc2a635`) · Rules copy.** Two owner wording requests.
+COPY-1: adjacent phases sharing a lowering allowance now merge and "up to" is said once
+(Phase 4 never merges — its count is per ROUND). COPY-2: the bid-floor sentence states the
+rule instead of listing every allowed value. COPY-3 (owner ruling): a floor that is not set
+produces NO sentence at all. `tests/test-copy-rules-wording.mjs` 41/41, honesty fails 19
+on 277. Battery finished the session at 22 suites / 1,391 assertions.
+
+**279 + 280 / staff 145 · Bid-floor wording, everywhere.** Owner screenshot: the "Save bid floors?" confirm still
+enumerated every allowed bid while 278 had already switched the bidders to "your bid must be
+4 or better". Now states the rule in the owner's own words. The owner then ruled: *"I don't
+want that type of wording anywhere."* A sweep found one remaining producer — the staff
+bid-rejection alert — which now reads "needs a bid of 4 or better"; `bfAllowedText` was left
+with no callers on either page and was DELETED rather than kept as dead code able to
+regenerate the banned wording. A suite assertion now sweeps both pages for any surviving list.
+Left for a ruling: "A combined bid like 1/2/3 uses bids 1, 2, and 3 at once" (a definition,
+not an allow-list). Suite 53/53, honesty fails 10 on 278. **Note: 279 was never committed
+before 280 was written over it, so no 279 fixture exists — both honesty-check against the
+pushed 278/144.**
+
+**Three things a later session should carry forward:**
+
+1. **A-AUDIT gained a required lens** (recorded in `TODO.md` §1). The owner said, correctly,
+   that he finds defects a code-reading pass does not. Both of his finds were code doing
+   exactly what it said, where what it said was wrong for a HUMAN. So the audit must include
+   a reviewer that EXECUTES the render functions and reads the produced markup as a person
+   would, and **"the screen tells someone something untrue" is HIGH** even with no data loss.
+   Under the old bar TR-1 would have been logged cosmetic and killed by a skeptic.
+2. **The owner pushes mid-session, repeatedly.** HEAD moved three times during this one. A
+   `--pre` fixture built from `HEAD~1` silently became the WRONG build and the honesty check
+   reported a false PASS. Build honesty fixtures from an explicit SHA, never from `HEAD~n`,
+   and re-read `git log` before every fixture.
+3. **The device workspace can restart and wipe `/tmp`.** When it did, all three honesty
+   checks SKIPPED — and a skip prints green-ish and exits 0. Treat a skipped honesty check as
+   a failed gate; regenerate the fixture and re-run before reporting anything.
+
+Note: `status.mjs`'s own live check prints "unreachable (offline?)" from this environment
+even when both sites answer fine — verify live builds with a separate cache-busted fetch, not
+from that column.
+
+
 # PART B — VACATION AUCTION
 
 **LIVE. admin 269 / staff 139 / mobile 17, rules published.** Build work is PAUSED at the
