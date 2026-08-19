@@ -27,6 +27,14 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
+> 🟢 **WHERE TO START (19 Aug 2026, end of session).** Everything is pushed and live —
+> auction **280 / staff 145 / mobile 18**, schedule **admin 70 / staff 30**, all four repos
+> clean and in sync, no locks. The owner's own next step is the **Firestore pay-as-you-go
+> switch** on the launch checklist (`TODO.md` §2) — a console setting, not code, and the
+> only launch blocker left on the free plan. **Claude's next build is `S5c`** — the schedule
+> grid filter bar, whose role/site half is blocked until Stage 4 (`TODO.md` §1, item 5).
+> The audit below is still the queue head for the AUCTION and still on hold.
+>
 > ⛔ **CURRENT STANDING ORDER — A-AUDIT, ON HOLD BY THE OWNER (19 Aug 2026).** The audit is
 > still the queue head and still the next substantial piece of work, but the owner's word on
 > 19 Aug was **"hold for now, will do soon."** So: **do not start the audit unsolicited, and
@@ -145,8 +153,14 @@ What they genuinely share — why a change to one can break the other:
 | a batch completes | tick it in `TODO.md` §1 |
 | session end | `HANDOFF.md` if anything session-specific matters · status regenerated · stale-lock check (below) — the repos are the memory, not the chat |
 
-**Commit summaries** — one per build PER REPO touched, SHORT (a recognisable subject + 2–4
-plain lines; the reasoning lives in BUILD-LOG/DECISIONS/HANDOFF). Delivered THREE ways,
+**Commit summaries** — one per build PER REPO touched. **HARD CAP, owner ruling 19 Aug 2026:
+a subject line plus AT MOST 4 short lines — about 50 words. If it is longer, it is wrong.**
+His words: *"i am using only the summaries though and they are too long"* — cut to roughly a
+QUARTER of what they had grown to. This rule already existed and Claude drifted past it all
+through 18–19 Aug, writing 150–200-word messages; the cap is now numeric so drift is
+detectable. Say WHAT changed, not why or how it was proven — the reasoning lives in
+BUILD-LOG/DECISIONS/HANDOFF, and the gates live in BUILD-LOG. No test counts, no honesty
+numbers, no battery results in a commit message. Delivered THREE ways,
 every time: the chat outputs column as **ONE combined `COMMIT-MESSAGES.txt`** holding
 every touched repo's message under a clear per-repo divider (owner ruling 18 Aug 2026 —
 "I like the 1 commit message idea, ensure that sticks"; the old per-repo

@@ -131,6 +131,47 @@ incremented per read — a write per read, re-broadcast to everyone). FB-3 recor
 schedule shares the same project and will likely become the larger consumer once live.
 Full detail: `TODO.md` FB-1/FB-2/FB-3 and `DECISIONS.md` §61.
 
+**THE SCHEDULE SIDE, same session (builds 69 + 70, both pushed as `2c97296`).** The owner
+pivoted off the auction late on: *"I want to pivot back to scheduling site for a bit, we can
+return to the audit later."* Then, after S5a: *"Keep going with the list the best you can in
+the order proposed above."*
+
+- **69 — S5a.** Grid coverage strip: a second sticky header row colouring each day by how
+  much of its demand is filled, plus a Detail/Compact density switch. The strip reads the
+  SAME `coverageRows()` the coverage report uses — the per-day roll-up (`byDay`) was added
+  INSIDE that existing loop rather than recomputed, so the two cannot drift; an assertion
+  pins that the per-day totals sum to the report totals.
+- **70 — S5b.** The grid flips: a View switch draws one row per shift with cells naming who
+  is on it, and an inset shortfall ring (`box-shadow`, chosen so it STACKS with the weekend
+  and today tints instead of fighting them). **Read-only by design** — a shift-view cell holds
+  several people, so no single click target exists. Revisit only if the owner asks.
+- **Both suites are deliberately NOT Playwright.** 21 of the schedule battery's suites skip
+  on the owner's machine for want of a chromium, and a suite that skips is not a gate. These
+  execute the real functions against a DOM shim and RUN. The battery went 2 → 4 green.
+- **The battery earned its keep:** build 70 gave `renderGrid` a second axis and build 69's
+  suite went red immediately, because its shim had not declared `gridView`. Shim fixed, not
+  the code.
+
+**S5c is NEXT and one half of it is BLOCKED.** The filter bar's name/text and coverage
+filters are buildable; **role/site grouping is not** — people carry no role or site attribute
+(only `usernamesData` and `fteMap`; MD/CRNA and site live on SHIFTS). It waits for Stage 4.
+Confirm that is still true before designing.
+
+**A commit message was mis-pasted again.** `2c97296` in the schedule repo carries the TESTS
+repo's summary, and an older over-length draft of it. **Contents verified correct** — BUILD 70,
+`versions.json` admin:70, live serving 70/30 — so it is recorded in `schedule/BUILD-LOG.md`
+and NOT rewritten, exactly as `7fcd3f1`/`594778e` were on 18 Aug. This is the second time; the
+banner on the combined outputs file is not enough on its own.
+
+**COMMIT SUMMARIES MUST BE SHORT — owner ruling, 19 Aug 2026.** Verbatim: *"the commits
+have been consistent and great. i am using only the summaries though and they are too long.
+…must remain short, maybe 1/4 of what they are now."* The cap now lives in `START-HERE.md`
+§3: **subject line + at most 4 short lines, about 50 words.** Note for whoever reads this:
+the rule was ALREADY there ("SHORT — a recognisable subject + 2–4 plain lines") and Claude
+drifted past it steadily across two days without noticing, because each message individually
+felt justified. The numeric cap exists so the drift is measurable rather than a judgement
+call. The owner reads ONLY the summary — everything else belongs in BUILD-LOG.
+
 **Three things a later session should carry forward:**
 
 1. **A-AUDIT gained a required lens** (recorded in `TODO.md` §1). The owner said, correctly,

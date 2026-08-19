@@ -1366,3 +1366,22 @@ listener) is never built by a later session. **Do not propose it again unless th
 dropping the staff page's `changes` listener — ~25% of every bid's read cost for a purely
 decorative Popcornometer and "changes in last 24h" chip. The WRITE would stay, so the admin
 Change Log and Fair Play reconstruction lose nothing. Audit item, not a pre-launch patch.
+
+
+---
+
+## §62 — Commit summaries: a hard length cap — 19 Aug 2026
+
+**Owner, verbatim:** *"the commits have been consistent and great. i am using only the
+summaries though and they are too long. add to the handoff that these commit summaries must
+remain short, maybe 1/4 of what they are now."*
+
+**The cap: a subject line plus AT MOST 4 short lines — about 50 words.** Say WHAT changed.
+Not why, not how it was proven. No test counts, no honesty-check numbers, no battery
+results — those belong in `BUILD-LOG.md`, which is where the full record already lives.
+
+**Recorded honestly:** this rule already existed in `START-HERE.md` §3 ("SHORT — a
+recognisable subject + 2–4 plain lines") and Claude drifted past it steadily across 18–19
+Aug, writing 150–200-word messages, because each one individually felt justified by the size
+of the build. The cap is now numeric precisely so the drift is measurable instead of a
+judgement call. The owner reads only the summary; length costs him time on every push.
