@@ -812,3 +812,58 @@ audit fix, if he orders one, is its own smallest-change build with its own go, s
 honesty check. The state at handover is unchanged from the closeout above: everything is
 delivered and byte-verified on disk, awaiting his push of the mobile-18 set plus these
 three records edits.
+
+## Session record — 19 Aug 2026, cloud session (the security build)
+
+**How it started.** A plain owner question: *"for my firestore pay as you go account, is there
+any risk to a hacker stealing my api keys and running up a bill?"* The premise needed
+correcting rather than answering — **the browser API key is not a secret and never was.** It
+ships in the public page source of every Firebase web app by design. The useful question is
+what an unauthenticated stranger can do with the key they can already read.
+
+**What the code actually said.** WRITES are well defended (verified Google account on the
+admin-managed allow-list; own-keys confinement; server-clock timer gate; extend-only). READS
+are the exposure: the `vacations` read rule ends in a public default and the whole `dailysched`
+tree is world-readable, so the roster, every live bid and the whole schedule are readable with
+no sign-in — and every read is metered. Order of magnitude, so it is not over-feared: past the
+50k/day free allowance it is roughly 3–6 cents per 100,000 reads, i.e. tens to a few hundred
+dollars a day for a *deliberate* scrape. A runaway listener loop in our own code (FB-1/FB-3)
+remains the likelier cause of a surprise bill than an attacker.
+
+**Two owner facts arrived mid-session and re-timed everything.** (1) He moved the project to
+Blaze and set billing alerts — the last free-plan launch blocker, and the hard-denial cliff is
+gone. (2) **The rehearsal is over and he has a few weeks before go-live.** Claude had advised
+"App Check, but not before launch"; that advice was correct for a launch believed days away and
+WRONG once the window appeared, so it was reversed openly (DECISIONS §63). Doing it after
+go-live would mean changing the live site under a running auction.
+
+**A question that did not need asking.** Claude was about to put "open auction or sealed?" to
+the owner before designing the read-privacy work. Checked first: the staff board already
+collects every OTHER participant's bid on live weeks and paints it under a "competitors" label.
+**It is an open auction by design.** So gating those reads costs participants nothing — the
+whole gain is against non-participants. Recorded as FB-5, deliberately sequenced AFTER App
+Check, and it is two changes not one (move the pre-sign-in listeners onto the signed-in path
+first, THEN gate documents one at a time — gating a read the bootstrap silently needs does not
+degrade the site, it locks everyone out).
+
+**Built and gated: 281 / staff 146 · schedule 71 / staff 31.** Details in both BUILD-LOGs.
+Three things worth carrying forward:
+- **The 1500 ms sign-in fallback was a real trap.** App Check puts a reCAPTCHA script load and
+  a token fetch in front of the first Firestore request; the old guard, chosen when Firestore
+  answered in <500 ms, could fire first and unlock the screen with an EMPTY person list. Raised
+  to 3000 ms, and the warning now names the missing document. Found by reading, not by luck.
+- **A test had gone vacuous and nobody would have noticed.** `test-crna-stamp`'s auth-domain
+  assertion looked for the MD domain wrapped in the sign-in note's curly quotes. §64 deleted
+  that note, so the assertion passed by testing for a phrase that no longer exists anywhere —
+  it would have kept passing with the MD domain sitting in the page unquoted. Now asserts
+  absence anywhere, in any form, plus the same for the MD App Check key.
+- **Honesty fixtures now come straight out of git by explicit SHA** (`50a5d97` / `34f19b7`),
+  read inside the suite, so there is no `/tmp` file to be wiped mid-session — the exact failure
+  §6 records. A missing baseline is a HARD FAIL in that suite, never a skip. Measured as
+  discriminating: 10/10 now vs 1/10 on the previous build, on every page.
+
+**State at handover.** All four repos have delivered, gated files awaiting the owner's push;
+combined commit message delivered to outputs. **App Check enforcement is deliberately OFF** —
+it is a console switch, staged per service and per project after monitoring shows the real
+pages producing valid traffic, and it is a one-click revert. Nothing about sign-in changed for
+any user. The audit (A-AUDIT) remains queue head and remains on hold at the owner's word.

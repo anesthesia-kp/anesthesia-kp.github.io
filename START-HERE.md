@@ -3,7 +3,9 @@
 **LAST REVISED: 19 Aug 2026.** (Structure rewritten 17 Aug to one copy of every rule;
 substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
 gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
-skipped-honesty rule and the run-on-device route.)
+skipped-honesty rule and the run-on-device route; §1 revised again later on 19 Aug — the
+Firestore switch is DONE, and the owner has a FEW WEEKS before go-live, which re-times the
+security work in `TODO.md` FB-4/FB-5.)
 
 > ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
 > reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
@@ -16,7 +18,7 @@ The five files that govern everything:
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `DECISIONS.md` (this repo) | what the owner has ruled — **BOTH sites**, despite its legacy title (§1–§62 + the buried-rulings index). **§60 = every ruling of the 19 Aug session verbatim** (his standing instruction: never depend on chat history) · **§61** Firestore pay-as-you-go · **§62** the commit-summary length cap |
+| `DECISIONS.md` (this repo) | what the owner has ruled — **BOTH sites**, despite its legacy title (§1–§63 + the buried-rulings index). **§60 = every ruling of the 19 Aug session verbatim** (his standing instruction: never depend on chat history) · **§61** Firestore pay-as-you-go · **§62** the commit-summary length cap · **§63** the pre-launch security ruling (App Check across all six pages, staged enforcement, privacy after) |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it
@@ -38,11 +40,27 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (19 Aug 2026, end of session).** Everything is pushed and live —
 > auction **280 / staff 145 / mobile 18**, schedule **admin 70 / staff 30**, all four repos
-> clean and in sync, no locks. The owner's own next step is the **Firestore pay-as-you-go
-> switch** on the launch checklist (`TODO.md` §2) — a console setting, not code, and the
-> only launch blocker left on the free plan. **Claude's next build is `S5c`** — the schedule
-> grid filter bar, whose role/site half is blocked until Stage 4 (`TODO.md` §1, item 5).
-> The audit below is still the queue head for the AUCTION and still on hold.
+> clean and in sync, no locks.
+>
+> **TWO FACTS THAT CHANGED LATE ON 19 AUG AND RE-TIME EVERYTHING BELOW.**
+> **(1) The Firestore pay-as-you-go switch is DONE** — the owner moved the project to Blaze
+> and set billing alerts. That was the last launch blocker on the free plan, and the
+> hard-denial cliff (reads stopping mid-phase at the daily cap) is gone. What replaces it is
+> a bill, so the exposure is now abuse and runaway-read shaped, not outage shaped.
+> **(2) The owner has A FEW WEEKS after the rehearsal to update and test before go-live**
+> (his words, 19 Aug). Earlier docs read as though launch were days away; it is not. This is
+> the single most important scheduling fact in this file — a few weeks with NO live auction
+> running is the right window for changes that would be reckless mid-phase, and it is why
+> `TODO.md` FB-4 (App Check) moved from "not before launch" to "do it now".
+>
+> **The security work the owner asked for on 19 Aug is `TODO.md` FB-4 and FB-5.** FB-4 is
+> billing/abuse (App Check first, in monitoring mode, then enforce; plus a console key
+> restriction). FB-5 is read-privacy (public reads that the login screen does not need —
+> a client change first, then rules, one document at a time). **FB-4 before FB-5.**
+> **Claude's next SCHEDULE build is still `S5c`** — the grid filter bar, whose role/site
+> half is blocked until Stage 4 (`TODO.md` §1, item 5).
+> The audit below is still the queue head for the AUCTION and still on hold at the owner's
+> word ("audit later", 19 Aug).
 >
 > ⛔ **CURRENT STANDING ORDER — A-AUDIT, ON HOLD BY THE OWNER (19 Aug 2026).** The audit is
 > still the queue head and still the next substantial piece of work, but the owner's word on
