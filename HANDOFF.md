@@ -10,6 +10,34 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 # PART A — SHARED
 
+## 20 Aug 2026 — THE AUDIT SESSION (A-AUDIT run + every CRITICAL and HIGH fixed same day)
+
+The full pre-launch adversarial audit ran per the §67 brief: 9 blind lenses → one skeptic
+per finding → a second skeptic on every CRITICAL. **22 findings survived, 0 refuted**
+(4 CRITICAL · 13 HIGH · 2 MEDIUM · 3 LOW). Full report delivered to the owner as
+`AUDIT-REPORT-2026-08-20.md` (kept OUT of the public repos — it contains file:line detail).
+The Chrome walkthrough ran the same day (MD pages only, owner ruling §68): every control on
+both live pages, every destructive/send dialog cancelled, zero console errors; observations
+fed the report. Megafuzz ran green against the live engines (144k checks).
+
+**Then, under owner rulings given during the session** (per-item "go" for the CRITICALs; a
+standing go for all HIGHs "if safe"; one held HIGH ruled explicitly), every CRITICAL and all
+13 HIGHs were FIXED the same day — builds staff 153/154/155 and admin 285–289, each its own
+§3 build with an executed suite, an honesty check against the pushed SHA (152s vs `6448f17`,
+later builds vs `ce427a2`), full battery, CRNA restamp, md5 device==cloud. The battery grew
+23 suites/1,495 → **31 suites/1,615**. It caught real mistakes DURING the fixing four times
+(the 234-L2 wording rule, two slice-window artifacts, a hang-masking honesty run) — details
+in the BUILD-LOG gate records, which are the authoritative per-build account.
+
+**Still open from the audit:** 2 MEDIUM + 3 LOW (per-item rulings needed — TODO §1), W-1's
+My-Bid-Count line + W-2 grammar fix (specs pinned in TODO), and the completeness critic's
+three gaps no code read could cover: (a) OWNER: confirm in the Firebase console that
+crna-vacation has rules + App Check actually deployed; (b) no rules-emulator suite exists —
+the 501-line firestore.rules has only ever been read, never executed; (c) stale staged
+builds (`build268-staged/`, `_to_delete/era268/`) are SERVED by Pages and carry the live
+Firebase config — needs an owner ruling (archive + push removal vs accept).
+
+
 
 ## 4. ARCHITECTURE — unchanged (the 29 Jul handoff's §4 ten-line summary is still accurate)
 

@@ -93,9 +93,15 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       **ALL FOUR CRITICALs PUSHED 20 Aug 2026 (staff 154 + admin 285 live at `ce427a2`).
       HIGH batch H-A BUILT same day as staff 155 (pending push): the C-2 cancel sibling ·
       App-Check permanent-block message · cancel-dialog floor wording (delivers W-1's
-      dialog half, owner wording) · NP chip follows the live policy. 8 HIGHs remain,
-      standing go: Fair Play pair · admin manual-entry floor · apostrophe escaping ·
-      reminder-mail guards · admin-edit timer reset · report "approved" labels.** (BUILD-LOG
+      dialog half, owner wording) · NP chip follows the live policy. HIGH batch H-B BUILT same day as admin 286
+      (Fair Play pair: tie=draw + Phase-4 round fence). HIGH batch H-C BUILT same day as admin 287
+      (manual-entry floor clause · Edit-Bid gate · apostrophe escaping, 52 onclick args).
+      HIGH batch H-D BUILT same day as admin 288 (reminder-mail
+      guards · report "approved" labels) — ALL standing-go HIGHs BUILT · the held timer HIGH RULED
+      (owner, 20 Aug: admin edits reset the countdown, simulator precedent) and BUILT as
+      admin 289 — ALL 13 audit HIGHs are now closed + 1 HIGH held for an OWNER DECISION: admin manual bid edits never
+      reset the countdown — fix by resetting (simulator precedent) or by softening the
+      staff Timer Rules text; Claude will present both options.** (BUILD-LOG
       has the gate record). The FOUR CRITICALs, owner triage in progress:
       **C-1/C-3 (ONE bug, found by TWO independent lenses):** staff vs admin disagree on the
       summer bid-floor for holiday-labeled summer weeks (Memorial Day, July 4th) — staff
