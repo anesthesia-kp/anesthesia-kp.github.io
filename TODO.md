@@ -78,9 +78,33 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
 > exception of what touches vacation. also confirm that the new crna vacay site is clean and
 > doesn't mess with the md that is going live first."*
 
-- [ ] **A-AUDIT · THE AUDIT.** No feature work until it is done and the owner has ruled on
+- [x] **A-AUDIT · DONE 20 Aug 2026 (fresh session).** 9 blind lenses → per-finding
+      skeptic refutation → 2nd skeptic on every CRITICAL. 36 agents, 0 errors. **22 findings
+      survived, 0 refuted: 4 CRITICAL, 13 HIGH, 2 MEDIUM, 3 LOW.** Full report delivered to
+      the owner as AUDIT-REPORT-2026-08-20.md (a LIST, not commits — each fix is its own §3
+      build with its own "go"). Owner process directive, 20 Aug: present the remaining findings ONE AT A TIME in
+      the order they should be fixed; each fix is its own build with its own "go".
+      **C-1/C-3 BUILT 20 Aug 2026 as staff 153 + CRNA restamp — pending push** (BUILD-LOG
+      has the gate record). The FOUR CRITICALs, owner triage in progress:
+      **C-1/C-3 (ONE bug, found by TWO independent lenses):** staff vs admin disagree on the
+      summer bid-floor for holiday-labeled summer weeks (Memorial Day, July 4th) — staff
+      accepts/【shows WINNING】 a below-floor or NP bid the admin engine silently drops at
+      award. Only bites when a numeric summer floor is set (the owner's stated use). CRNA
+      inherits. mega-fuzz can't catch it (it hardwires summerOnly=true).
+      **C-2:** a Phase 2+ re-bid on a week lost in a completed phase is judged "no change" —
+      no outbid e-mail, no timer reset — because dead prior-phase schedule entries linger and
+      persistScheduleChange reads them without a phase-visibility check. Silent late displace.
+      **C-4:** Approve/Deny (and Begin-Phase, a related HIGH) have no action-time phase re-check
+      — a stale confirm dialog clicked after the phase advances freezes a permanent mis-award.
+      Completeness critic flagged 3 gaps code review COULDN'T cover, worth the owner's eye:
+      (a) confirm crna-vacation has Firestore rules + App Check deployed console-side;
+      (b) no rules-emulator test exists — the 501-line firestore.rules was only read, not run;
+      (c) stale staged builds (build268-staged/, _to_delete/era268/) carry LIVE Firebase config
+      and are served at guessable URLs — an old bookmark reaches a pre-fix app on prod data.
+
+  ~~- [ ] **A-AUDIT · THE AUDIT.** No feature work until it is done and the owner has ruled on
       the findings. Nothing ships from the audit without a separate explicit "go" — the
-      audit produces a LIST, not commits (§3 rule 1 still governs every fix that follows).
+      audit produces a LIST, not commits (§3 rule 1 still governs every fix that follows).~~
 
       **Before anything:** the audit runs against the PUSHED bytes, not the working tree —
       fetch both sites' `versions.json` cache-busted, confirm disk == live, then run BOTH
