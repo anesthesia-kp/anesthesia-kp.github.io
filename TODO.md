@@ -1332,6 +1332,9 @@ behind sign-in: `locks` · `fteMap` · `bidPhase` · `slots`. **Plan corrections
 code:** `mailStats` has NO staff listener (this page only WRITES it via `trackEmailSent`; the
 admin listener already sits behind authReady) — so stage 2's listener work is now COMPLETE
 except **`timer`, which remains, last and alone** (its callback runs `startCountdownTick()`).
+**Owner gave the GO for the timer build, 20 Aug 2026** — the session ended before it started;
+the next session runs it as its own smallest-change build (verify startCountdownTick and
+renderTimerRulesInfo have no pre-sign-in readers before moving anything).
 As with batch 1: prove batch 2 on the live site (owner signs in, board populates) BEFORE
 gating any document.
 
