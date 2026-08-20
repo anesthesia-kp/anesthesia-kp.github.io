@@ -1,15 +1,19 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 20 Aug 2026 (evening) — THE AUDIT IS DONE AND ITS HEADLINE IS FIXED.**
-PW-1 fixed; the A-AUDIT ran (22 verified findings, 0 refuted — report with the owner, kept
-out of the public repos); the MD Chrome walkthrough passed (owner rulings §68); and under
-same-day owner rulings ALL 4 CRITICALs and ALL 13 HIGHs were built: staff 153–155 + admin
-285–289, gates in BUILD-LOG. Pushed through `ce427a2` (staff 154 / admin 285 live); 155/289
-pending push at revision time. STILL OPEN: 2 MEDIUM + 3 LOW (need per-item rulings), W-1
-card line + W-2 (specs in TODO §1), and the completeness critic's three gaps (CRNA console
-check = OWNER; rules-emulator suite; stale staged builds served with live config — needs a
-ruling). See HANDOFF 20 Aug for the session account. (Earlier 20 Aug notes: §6 cost-gate
-rule added; PW-1 found and fixed same day.)** (Structure rewritten 17 Aug to one copy of every rule;
+**LAST REVISED: 21 Aug 2026 (pre-dawn) — THE AUDIT IS DONE AND EVERY FINDING IS FIXED.**
+The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
+of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
+owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
+5 LOWs, W-1 and W-2, the guessable staged builds archived, the crna-stamp guard v2, and
+the first firestore.rules emulator suite (skips loudly until its one-time jar fetch —
+RA-2). Builds: staff 153–156 · admin 285–290 · schedule admin 75. Pushed through
+`d619afe` (staff 155 / admin 289 live); 156/290/75 + tests + docs PENDING the owner's
+morning push — the combined COMMIT-MESSAGES file in the 20 Aug session's outputs is FINAL.
+Batteries at close: auction 34 suites / 1,638 · schedule 26, all green.
+**THE QUEUE HEAD IS RA-1 (TODO §1): the owner ordered a RE-AUDIT of the entire 20 Aug fix
+wave in the next session — audit the freshly PUSHED bytes, same §67 method.** Also ⭐
+real-bidder sign-ins (16 of 37 never signed in) stay the owner's top personal item.
+(Session account: HANDOFF 20 Aug. Earlier same day: §6 cost-gate rule; PW-1 fixed.)** (Structure rewritten 17 Aug to one copy of every rule;
 substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
 gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
 skipped-honesty rule and the run-on-device route; §1 rewritten AGAIN at the close of 19 Aug

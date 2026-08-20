@@ -29,13 +29,26 @@ later builds vs `ce427a2`), full battery, CRNA restamp, md5 device==cloud. The b
 (the 234-L2 wording rule, two slice-window artifacts, a hang-masking honesty run) — details
 in the BUILD-LOG gate records, which are the authoritative per-build account.
 
-**Still open from the audit:** 2 MEDIUM + 3 LOW (per-item rulings needed — TODO §1), W-1's
-My-Bid-Count line + W-2 grammar fix (specs pinned in TODO), and the completeness critic's
-three gaps no code read could cover: (a) OWNER: confirm in the Firebase console that
-crna-vacation has rules + App Check actually deployed; (b) no rules-emulator suite exists —
-the 501-line firestore.rules has only ever been read, never executed; (c) stale staged
-builds (`build268-staged/`, `_to_delete/era268/`) are SERVED by Pages and carry the live
-Firebase config — needs an owner ruling (archive + push removal vs accept).
+**The overnight wave (owner orders at end of day, all executed unattended):** W-1 built
+(staff 156, owner-specced wording/placement); the 1 MEDIUM + 5 LOWs fixed (staff 156 ×2,
+admin 290 ×2, schedule admin 75, crna-stamp guard v2 — negative-tested); the guessable
+staged builds archived out of the served repo (owner ruling; grep-verified, recorded in
+_archive/README.md); the rules-emulator suite written and battery-wired with a LOUD skip
+(the jar needs storage.googleapis.com — one-time enable is next session's RA-2). Owner
+confirmed console-side that crna-vacation has rules + App Check deployed (gap a closed).
+Batteries at close: auction 34 suites / 1,638 · schedule 26 suites, all green; every
+changed file md5-verified. One self-caught mistake worth knowing: a git checkout during
+the stamp guard's negative test briefly reverted the cloud copy of unfiled build 156 —
+recovered byte-exact from the fuzz fixture; rule now followed: temp copies for negative
+tests, never git checkout with unfiled work.
+
+**NEXT SESSION: the owner wants a RE-AUDIT of this entire fix wave — TODO §1 RA-1 is the
+queue head and carries the scope.**
+
+**Still open after the overnight wave:** only RA-2 (enable the emulator suite — one
+command on an open network). W-2 was fixed in the same wave. Everything else from the
+audit is fixed, archived, or confirmed. The queue head is RA-1, the owner-ordered
+RE-AUDIT of the whole 20 Aug fix wave.
 
 
 
