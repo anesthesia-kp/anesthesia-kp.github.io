@@ -84,7 +84,7 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       the owner as AUDIT-REPORT-2026-08-20.md (a LIST, not commits — each fix is its own §3
       build with its own "go"). Owner process directive, 20 Aug: present the remaining findings ONE AT A TIME in
       the order they should be fixed; each fix is its own build with its own "go".
-      **C-1/C-3 BUILT 20 Aug 2026 as staff 153 + CRNA restamp — pending push** (BUILD-LOG
+      **C-1/C-3 BUILT 20 Aug 2026 as staff 153; C-2 BUILT same day as staff 154 — one push, pending** (BUILD-LOG
       has the gate record). The FOUR CRITICALs, owner triage in progress:
       **C-1/C-3 (ONE bug, found by TWO independent lenses):** staff vs admin disagree on the
       summer bid-floor for holiday-labeled summer weeks (Memorial Day, July 4th) — staff
