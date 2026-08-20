@@ -1585,3 +1585,23 @@ audit sees the final security posture, timer included); S5c waits until after.
 Addendum, 20 Aug 2026 — owner: *"I want a new session for my audit."* The audit runs in a
 FRESH session, per the original 18 Aug order. Its first task is PW-1 (TODO): the schedule
 Playwright harness must gain the firebase-app-check stub before the in-cloud baseline can run.
+
+## §68 · A-AUDIT scope narrowed — walkthrough is MD-only (owner, 20 Aug 2026)
+
+Given mid-audit, correcting the §67 walkthrough scope, verbatim:
+
+> "Correction, only walk through the MD vacation admin and user sites. This audit should
+> oinly look at parts of crna vacation or schedule sites IF there is something that could
+> touch and effect the MD vacation auction."
+
+So: the Chrome walkthrough drives ONLY the MD vacation admin and staff pages (still
+everything on them — every button, input, toggle, tab and dialog, per the same-day
+clarification in TODO §1). CRNA and schedule are in the audit's scope ONLY where they
+could touch or affect the MD auction (the CRNA-clean proof and the shared-roster writer
+remain in scope for exactly that reason).
+
+Two follow-ups the same turn: *"OVerall, this audit is purely for the vacation sites"* —
+the audit is for the VACATION sites; the schedule appears only where it could touch them.
+And walkthrough logistics: *"I will sign in, you drive"* — the owner signs the live MD
+pages in (AF test account / admin Google); Claude drives every control from there,
+cancelling every dialog.
