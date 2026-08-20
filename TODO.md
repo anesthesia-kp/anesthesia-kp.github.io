@@ -82,9 +82,15 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       skeptic refutation → 2nd skeptic on every CRITICAL. 36 agents, 0 errors. **22 findings
       survived, 0 refuted: 4 CRITICAL, 13 HIGH, 2 MEDIUM, 3 LOW.** Full report delivered to
       the owner as AUDIT-REPORT-2026-08-20.md (a LIST, not commits — each fix is its own §3
-      build with its own "go"). Owner process directive, 20 Aug: present the remaining findings ONE AT A TIME in
-      the order they should be fixed; each fix is its own build with its own "go".
-      **C-1/C-3 BUILT 20 Aug 2026 as staff 153; C-2 BUILT same day as staff 154 — one push, pending** (BUILD-LOG
+      build with its own "go"). Owner process directive, 20 Aug (superseded same day): first "present findings one
+      at a time, each with its own go" — then, after C-4's go: *"you can keep going if you
+      think it's safe and unlikely to break thiungs. i want all the highs fixed please."*
+      STANDING GO for all HIGH findings, gated by Claude's own safe-and-unlikely-to-break
+      judgment per fix; anything risky is presented instead of built. MEDIUM/LOW still
+      need per-item rulings; W-1/W-2 build after the HIGHs. Same day: *"pause when a
+      decision is needed or if builds should be broken up"* — pauses on genuine decisions
+      and on batch-size judgment calls.
+      **ALL FOUR CRITICALs BUILT 20 Aug 2026: C-1/C-3 (staff 153), C-2 (staff 154), C-4 + Begin-Phase HIGH sibling (admin 285) — one push, pending. 12 HIGHs remain, standing go.** (BUILD-LOG
       has the gate record). The FOUR CRITICALs, owner triage in progress:
       **C-1/C-3 (ONE bug, found by TWO independent lenses):** staff vs admin disagree on the
       summer bid-floor for holiday-labeled summer weeks (Memorial Day, July 4th) — staff
