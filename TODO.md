@@ -180,7 +180,7 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       one-paragraph verdict: is this safe to run the real auction on, yes or no. Then STOP
       and wait for the owner to pick what gets fixed.
 
-## 🔧 PW-1 · Schedule Playwright harness: stub firebase-app-check — FOUND 20 Aug 2026, BLOCKS THE AUDIT BASELINE
+## ✅ PW-1 · Schedule Playwright harness: stub firebase-app-check — FIXED 20 Aug 2026 (found 20 Aug; blocked the audit baseline)
 
 Since App Check shipped (281/146 + schedule 71/31), every page imports a FOURTH gstatic
 script — `firebase-app-check.js` — that the 21 Playwright schedule suites' swap list never
@@ -190,6 +190,8 @@ suite dies at boot: 20 of 25 failed in-cloud on 20 Aug, all with
 suite's SWAPS and ship a tiny `fake/firebase-app-check.js` (no-op `initializeAppCheck`,
 stub `ReCaptchaV3Provider`). **Do this FIRST in the audit session** — the audit needs both
 batteries green in-cloud as its baseline. The device cannot substitute (no chromium there).
+
+**FIXED 20 Aug 2026 (audit session, tests repo only, pending push):** the fourth URL added to all 21 suites’ SWAPS; inert `fake/firebase-app-check.js` shipped. Schedule battery 25/25 suites green in-cloud; auction battery 23 suites / 1,495 green. The audit baseline is UNBLOCKED.
 
 ## ✅ Constraint CLOSED — 18 Aug 2026
 
