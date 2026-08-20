@@ -1605,3 +1605,28 @@ the audit is for the VACATION sites; the schedule appears only where it could to
 And walkthrough logistics: *"I will sign in, you drive"* — the owner signs the live MD
 pages in (AF test account / admin Google); Claude drives every control from there,
 cancelling every dialog.
+
+
+## §69 — Admin Edit Selections: duplicate numbers REFUSED; admin edits re-stamp the lock — 20 Aug 2026
+
+Owner found two defects in admin Edit Selections (his words: "1 more example of me finding
+2 things you didn't"):
+
+1. **Duplicate bid # → both weeks lose.** Admin surfaces warned but allowed a current-phase
+   number on two weeks; the engine's I2 anti-forgery rule then scores every bid carrying the
+   number as no-bid. Ruling: **"disallow with explanation. good call."** The refusal is HARD
+   (no "Save anyway") and explains why; it covers exactly the state the engine kills. Reuse
+   of a number consumed by a prior-phase WIN stays a warning — the engine honors that
+   override. The engine itself is untouched: I2 cannot tell an admin duplicate from a forged
+   one, so entry is the gate.
+
+2. **Admin edit deleted the week's priority lock.** Ruling: **"do as described"** — the
+   admin-set bid BECOMES the new lock (staff-lowering precedent build 139; simulator
+   precedent), NP stamps "NP" exactly like the staff twin. Admin adds stamp the lock too —
+   every placed bid stamps; no path leaves "no lock". Deliberate unlocking lives on the
+   Priority Locks page (its Clear button unchanged); remove/cancel still clear the lock
+   because the bid is gone.
+
+Built together as admin 291 (owner: "do together"). Logged as ES-1/ES-2 in TODO §1. Same
+turn the owner also ruled: admin Edit Selections becomes a dedicated RA-1 audit lens
+("perhaps admin edit selections needs a more thorough review and audit").

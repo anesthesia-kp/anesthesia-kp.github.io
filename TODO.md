@@ -64,6 +64,23 @@ Suites on disk: auction **34** (`tests/test-*.mjs`) · schedule **26**
       change-model edits (persistScheduleChange is the most sensitive code touched), the
       C-4 guards vs legitimate flows, the 156 revocation branch vs normal sign-outs, and
       the 289 admin timer resets vs the mode gate.
+- [x] **ES-1 · BUILT as admin 291, 20 Aug 2026, pending push — owner ruled "disallow with explanation."** Was:
+      Admin bid surfaces (dropdown / Edit Bid / Add Selection) WARN about a current-phase
+      number reused across two weeks but allow "Save anyway" — and the engine's I2
+      anti-forgery rule then treats every bid carrying that number as no-bid, so BOTH weeks
+      project LOSE regardless of competition. Admin override is allowed at entry but not
+      honored by the engine. Owner: disallow it or make it work. Claude's recommendation:
+      hard-refuse at entry exactly the state the engine will kill (engine untouched). Done on
+      all surfaces + a write-level backstop; prior-win number reuse stays a warning.
+- [x] **ES-2 · BUILT as admin 291, 20 Aug 2026, pending push — owner: "do as described. do together."** Was:
+      Both admin edit paths delete the week's lock outright ("rebid freely") — but when the
+      admin lowers a bid, the owner wants the admin-set bid to become the NEW lock (staff
+      lowering already re-stamps — build 139 precedent). Deliberate clearing stays available
+      on the Priority Locks page; remove/cancel paths still clear (bid is gone). Admin ADDs
+      stamp the lock too; NP stamps "NP" like the staff twin. Gates in BUILD-LOG (291).
+- [ ] **RA-1 scope addition (owner, 20 Aug: "perhaps admin edit selections needs a more
+      thorough review and audit")** — add a dedicated lens: every admin manual-bid surface
+      vs what the engine actually does with the state it creates.
 - [ ] **RA-2 · Enable the rules-emulator suite** — one command on an open network:
       `cd tests && npx firebase setup:emulators:firestore`, then `node test-rules-emulator.mjs`
       (25 assertions, first-ever execution of firestore.rules; skips loudly until then).
