@@ -1,6 +1,10 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 19 Aug 2026.** (Structure rewritten 17 Aug to one copy of every rule;
+**LAST REVISED: 20 Aug 2026 — FB-5 batch 2 FILED (staff 152, four listeners; timer remains);
+audit scope expanded (DECISIONS §67) and the audit runs in a FRESH SESSION; new blocker PW-1
+(schedule Playwright harness lacks the app-check stub — fix FIRST in the audit session); §6
+gained the ⛔ cost-gate rule after Claude burned ~7% of the owner's weekly usage on an
+avoidable transfer — see HANDOFF, 20 Aug.** (Structure rewritten 17 Aug to one copy of every rule;
 substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
 gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
 skipped-honesty rule and the run-on-device route; §1 rewritten AGAIN at the close of 19 Aug
@@ -74,21 +78,31 @@ phase in flight) before doing anything.
 > machine passing proves nothing about 35 others.
 >
 > **CLAUDE'S NEXT WORK, in order, none urgent:**
-> 1. **FB-5 stage 2 batch 2** — the remaining six listeners (`locks` · `fteMap` · `bidPhase` ·
->    `slots` · `timer` · `mailStats`). `timer` LAST and ALONE (it calls `startCountdownTick()`
->    at module level). Then gate documents ONE AT A TIME, never as a batch.
+> 1. **FB-5 stage 2 batch 2 — ✅ BUILT, staff 152, FILED 20 Aug, pending push.** Four
+>    listeners moved (`locks` · `fteMap` · `bidPhase` · `slots`); `mailStats` was on the plan
+>    in error (write-only on staff; admin already deferred). **`timer` remains — its own
+>    build, last and alone** (it calls `startCountdownTick()`). After the owner pushes and
+>    verifies live, gate documents ONE AT A TIME, never as a batch.
 > 2. **S5c** — the schedule grid filter bar. Scope is PINNED: name/text + coverage filters only.
 >    The role/site half is still blocked and was re-confirmed on 19 Aug — role and site are
 >    fields on SHIFTS, not on people.
-> 3. **A-AUDIT** — still the queue head for the auction, still on hold (below).
+> 3. **A-AUDIT** — hold LIFTED 19 Aug evening; runs right after FB-5 batch 2 is pushed
+>    (below). S5c moved to after the audit.
 >
-> **STILL OWED BY THE OWNER:** only one thing — check two-factor is on the admin Google
-> account. It is the single key to the whole system: settings, awards, mass mail, wipe.
+> **OWED BY THE OWNER: ✅ NOTHING.** Two-factor on the admin Google account was confirmed ON
+> by the owner, 19 Aug 2026 — the last owner-owed item from the security session is closed.
+> (The get-bidders-to-sign-in item above is still open — it needs other people, not the owner
+> alone, and the window closes at go-live.)
 >
-> ⛔ **CURRENT STANDING ORDER — A-AUDIT, ON HOLD BY THE OWNER (19 Aug 2026).** The audit is
-> still the queue head and still the next substantial piece of work, but the owner's word on
-> 19 Aug was **"hold for now, will do soon."** So: **do not start the audit unsolicited, and
-> do not start a feature either.** Ask what he wants, and if he says go, run the brief below.
+> ✅ **STANDING ORDER UPDATED, 19 Aug 2026 (evening): the A-AUDIT HOLD IS LIFTED.** Owner:
+> *"go with fb-5 … i'm also ready for the audit."* Agreed order: **FB-5 stage 2 batch 2 →
+> owner pushes → THE AUDIT** (on pushed bytes, so it sees the final security posture, timer
+> included). S5c waits until after. Audit scope EXPANDED the same turn — DECISIONS §67:
+> a MEGAFUZZ pass, a Chrome-controlled walkthrough of EVERY button (destructive/send actions
+> walked to their dialog and cancelled, never confirmed), and the 19 Aug security work
+> (App Check, logins, reCAPTCHA, rules) as a fifth focus. Brief: `TODO.md` §1 A-AUDIT.
+> **20 Aug addendum:** owner — *"I want a new session for my audit."* Do NOT start the audit
+> here; a fresh session runs PW-1 first (harness stub), then the baseline, then the brief.
 >
 > **Reality check for a fresh session, so the history reads honestly.** The original order
 > (18 Aug) was *"the vacation site is complete in terms of build… I want the next session to
@@ -354,6 +368,16 @@ reporting anything.
 v22) and the repos are mounted, so run the suites there with `device_bash` directly — no
 staging needed. `device_bash` also edits files fine via `python3` heredocs, which sidesteps
 the zip-transfer dance entirely for a code build. It CANNOT delete: use `mv` to `_to_delete/`.
+
+⛔ **THE COST GATE — owner order, 20 Aug 2026: "ensure this doesn't happen again."** On
+20 Aug, with staging blocked by a stale sign-in, Claude ground through the chunk-transfer
+fallback below for two hours and ~7% of the owner's WEEKLY usage — while the owner was
+present and a 30-second re-sign-in fixed it completely. The owner's verdict, verbatim: *"you
+sabotaged me."* THE RULE: **before starting ANY token-expensive workaround (chunked
+transfers, rebuilding files by hand, mass re-reads), STOP and tell the owner the cheap
+alternative first** — re-sign-in, attach a file, push so the cloud can clone. The fallbacks
+below are for when the owner is genuinely away, and even then: state the cost estimate in
+the chat BEFORE starting, and abandon the route if it exceeds a few percent of a session.
 
 **File transfer when staging is blocked** (`untrusted_device`): `SendUserFile` →
 `device_commit_files` works and is byte-exact — md5 both directions. Getting a file OFF the

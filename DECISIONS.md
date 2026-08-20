@@ -1557,3 +1557,31 @@ raised to the next build.** Claude deliberately did NOT relocate it in this buil
 structural DOM surgery across four differently-shaped files, and this was the tail of a very
 long session (START-HERE §4). Splitting it was the safer call, and the gap is written down here
 rather than left implicit.
+
+## §67 — Audit scope EXPANDED: megafuzz, full-UI Chrome walkthrough, security focus — 19 Aug 2026
+
+Owner, verbatim, on giving the FB-5 go: *"then I want the audit include a megafuzz and chrome
+control walk throughs of every single button click to ensure proper functionality in addition
+to the full overhail audit. we are close to complete with the vacation site. Add new security
+features, logins, recaptcha others done in last session as a focus of audit."*
+
+Three additions to the A-AUDIT brief (the brief itself stays in `TODO.md` §1 — this section is
+the ruling, that one is the plan):
+1. **MEGAFUZZ** — a fuzzing pass over the auction's input surfaces, in addition to the
+   adversarial code review.
+2. **CHROME-CONTROLLED WALKTHROUGH** — drive the real pages in Chrome and exercise every
+   button to prove proper functionality, not just read the code. Safety rule (Claude's,
+   standing unless the owner overrules): on the LIVE site, destructive or sending actions are
+   walked TO their confirmation dialog and then CANCELLED — the dialog appearing is the pass;
+   confirming a wipe or a mass mail on live data is never part of a walkthrough.
+3. **SECURITY AS A FIFTH FOCUS** — everything the 19 Aug security session shipped: App Check
+   enforcement on all six pages, the sign-in gating of listeners (FB-5 stages), the login
+   flows, reCAPTCHA (hidden badge + mandatory attribution, §65/§66), the EmailJS domain
+   restriction, and the Firestore rules changes.
+
+Ordering also ruled the same turn: FB-5 stage 2 batch 2 completes BEFORE the audit (so the
+audit sees the final security posture, timer included); S5c waits until after.
+
+Addendum, 20 Aug 2026 — owner: *"I want a new session for my audit."* The audit runs in a
+FRESH session, per the original 18 Aug order. Its first task is PW-1 (TODO): the schedule
+Playwright harness must gain the firebase-app-check stub before the in-cloud baseline can run.
