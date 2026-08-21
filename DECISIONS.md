@@ -1737,3 +1737,57 @@ an existing list in `firestore.rules`, with NO page edited, because every page t
 them already does so from a signed-in position. The cost that remains is not the edit: it
 is the console paste, the emulator suite re-run on the owner's Mac (`tests/RA-2.command`),
 and new assertions covering the two gates. A rules change is still an auction deploy.
+
+## §77 — PROJECTIONS NEVER CHANGE. They freeze when the phase closes. SUPERSEDES §70 — 20 Aug 2026 (night)
+
+Owner, verbatim: **"I 100% want the projection to say lose if it said lose when the phase
+closed. we already decided that projections never change. I don't care what admin
+approves/denies, PROJECTIONS NEVER CHANGE!!!!!"**
+
+THE RULE. A projection is computed from the bids as they stood when bidding closed, and
+from nothing else. Once the phase closes it is FROZEN — a historical fact about that phase,
+not a live readout. No approval, no denial, no revocation, no re-open, no later phase
+recomputes it. If a bid read "Losing" at close, it reads "Losing" for ever.
+
+WHAT THIS DELETES. The whole §70 apparatus goes: the capacity-vs-policy classification, the
+pre-denial "natural" re-run, the contested set, the block floor, and the demotion loop that
+strips weaker bids off the board after a denial. About 45 lines in `admin/index.html` and
+the same block in the CRNA twin. Both of that machinery's failure directions die with it —
+the one that PROMOTED a weaker bid over a capacity-denied stronger one (RA-3's CRITICAL),
+and the one that ERASED bidders from a week that still had room (owner-found, same night,
+reproduced on both the current and the pre-wave engines).
+
+WHAT REPLACES IT. Two independent things on the admin's decision board:
+  · the FROZEN projection — win / draw / review / lose, as at close. Never recomputed.
+  · a LEDGER — plain arithmetic over the admin's own decisions: capacity, how much has been
+    approved, how much room is left. Denials change nothing in it; they neither consume nor
+    free capacity. The admin reads both numbers and decides.
+
+CONSEQUENCES to carry into the build. ① `test-admin-294-engine.mjs` becomes nine assertions
+guarding a deleted rule — it is replaced in the SAME build, never after; its oracle shared
+the engine's blind spot and would certify either behaviour. ② The ENGINE-RULES-REVIEW docx
+needs revising: rule 26 ("a denied bid that could not have fit anyway keeps blocking every
+weaker bid") is retired by this ruling. ③ The staff site is already compliant and must stay
+so — it never reads approvals/denials, and its runtime guard against cross-porting the admin
+engine variant stays. ④ The board must say plainly that the projection is as-at-close, so a
+frozen label is never mistaken for live advice.
+
+## §78 — The public/private repo question is CLOSED for now; the closed-phase pop-up goes — 20 Aug 2026 (night)
+
+Two owner calls at the end of the RA-3 session.
+
+**(a) Repo visibility is not being touched.** Owner: **"I don't want to touch the public vs.
+private repos now."** So SEC-1 stays deferred, and with it the RA-3 leakage findings that
+are only fixable by moving or hiding files — `build269-staged/ADVERSARIAL-AUDIT-269.md`,
+`BUILD-NOTES-269.md`, the two personal e-mail addresses hard-coded in the public staff page,
+and the README that wrongly calls the auction repo private. They stay listed, unfixed, and
+are NOT to be re-raised as urgent each session. The standing discipline is unchanged and
+still binding: nothing new that describes a defect by reproduction goes into a public repo.
+
+**(b) The closed-phase pop-up is to go.** Owner, on the modal that fires on every click once
+bidding is closed: **"it actually just gets in the way."** It is removed; the page states the
+closed state instead. Claude's caveat, recorded because it is evidence from this same
+session (finding F-2): a message placed only at the TOP of the page is invisible to someone
+scrolled down at the bidding board, which is where every bid is made. So the closed state
+must also be visible AT the week cards — greyed or locked, so nobody is invited to tap
+something that will not respond. Removing the pop-up must not leave a dead-feeling board.

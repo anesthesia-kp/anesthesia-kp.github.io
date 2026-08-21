@@ -89,6 +89,16 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       BEFORE pushing, then double-click `tests/RA-2.command`** — it now runs the suite and
       the honesty check against the pre-fix rules in one go. Claude could not execute either:
       no emulator jar in the work environments. The schedule-side exposure is DEFERRED (§75).
+- [ ] **RA-3/A-03 · the "Auction Closed" wording — VERIFIED to be wording only, plus an
+      owner design idea (20 Aug, night).** `isAuctionClosed()` is true when the admin's
+      per-phase `biddingClosed` flag is set, so the six user-visible "The auction has closed
+      — no more changes allowed" strings, the "Auction Closed" banner, and arguably the
+      function name are all the wrong word for "this phase's bidding is closed". No logic
+      changes. **Owner's idea:** drop the pop-up entirely and state "Phase closed" at the top
+      of the page instead. Claude's caveat, from tonight's F-2 evidence: a banner at the TOP
+      is invisible to someone scrolled down at the board, which is where every bid is made —
+      so the closed state should be visible AT the week cards too (greyed / locked, so nobody
+      is invited to tap), not only in a header. Decide the shape before building.
 - [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
       The flash banner is fixed near the top of the page while every bid is made far down the
       board behind a centred modal. Seventeen messages take that path, the save-failure one
