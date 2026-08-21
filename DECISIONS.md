@@ -1707,3 +1707,33 @@ commit messages are expanding beyond the rules."** He was right: the wave's vaca
 message ran 5 lines / ~60 words against the §62 cap (subject + ≤4 short lines, ~50 words).
 The cap is unchanged; the discipline is now explicit in START-HERE §3: COUNT lines and
 words before sending; a multi-build wave is summarized as a wave, never enumerated.
+
+## §75 — RA-3 triage: the Daily Schedule is OUT of scope until much later — 20 Aug 2026 (night)
+
+Owner, verbatim, on the RA-3 findings: **"I don't care about what the daily schedule shows
+currently, that's a problem for MUCH later."**
+
+Six of the 39 RA-3 findings are schedule-only and are DEFERRED, not fixed, not re-raised
+each session: the schedule ADMIN grid missing Phase-4 round wins (the RA-H12 twin gap), the
+world-readable `dailysched` audit log, registered users being able to overwrite schedule
+audit entries, `vacations/passcodes` still world-readable, the shared browser-storage keys
+across the two sites on one origin, and the schedule admin's un-embargoed subscription to
+the auction's mid-phase decision sheet. They stay listed in TODO under a single deferred
+heading. This is §1 applied, not an exception to it: the auction is weeks from go-live and
+the schedule is months from use.
+
+## §76 — World-readable data: fix it only if the fix is cheap — 20 Aug 2026 (night)
+
+Owner, verbatim: **"I don't even care that much about world readable unless it's a super
+easy fix that doesn't mess with code that much."**
+
+The standing test for any data-exposure finding is therefore COST, not severity alone:
+- **Rules-only, no client change** → propose it, it qualifies as cheap.
+- **Needs page code to change** → it goes on the list and waits, however bad it reads.
+
+Verified against the pushed bytes the night this was ruled: the two auction documents
+(`changesArchive`, `welcomeLog`) meet the cheap test — each is one document name added to
+an existing list in `firestore.rules`, with NO page edited, because every page that reads
+them already does so from a signed-in position. The cost that remains is not the edit: it
+is the console paste, the emulator suite re-run on the owner's Mac (`tests/RA-2.command`),
+and new assertions covering the two gates. A rules change is still an auction deploy.
