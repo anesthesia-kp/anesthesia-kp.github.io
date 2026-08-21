@@ -1689,3 +1689,21 @@ be allowed to break. It would be visible to all users and create trouble."* Ruli
    now says so in a banner (296). Added to NEVER-EVENTS.md as NE-14.
 3. **RETAINED, owner verbatim: "Admin should retain the ability to place bids over caps and
    in locked weeks."** Caps, locked weeks, and Phase-1 scope stay warn-and-override.
+
+
+## §73 — Rules files: ALWAYS the paste-ready presentation — 20 Aug 2026 (post-push)
+
+Owner, verbatim: **"I always want new firestore rules presented just like this."** "This" =
+re-sent FRESH to outputs at paste time, standalone ⚙️-captioned plain-text .txt, caption
+carrying the full console path (console → vacation-25e8e → Firestore Database → Rules →
+select-all, paste, Publish), the console-validates / on-error-publish-nothing line, and a
+VERIFIED md5 match to the repo copy. Rule text (one copy): START-HERE §3, 📋 block.
+
+## §74 — Commit-length cap RE-AFFIRMED; Claude drifted again within a day — 20 Aug 2026
+
+Owner, verbatim: **"I always commit messages just like you are doing. Ensure they continue
+like this and don't get longer,"** then, minutes later: **"I can actually see that the
+commit messages are expanding beyond the rules."** He was right: the wave's vacation-repo
+message ran 5 lines / ~60 words against the §62 cap (subject + ≤4 short lines, ~50 words).
+The cap is unchanged; the discipline is now explicit in START-HERE §3: COUNT lines and
+words before sending; a multi-build wave is summarized as a wave, never enumerated.

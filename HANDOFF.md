@@ -1077,3 +1077,16 @@ already freeze the board once bidding closes — 25 Jul audit) with an open-bidd
 on Approvals & Denials. Rules doc REVISED to 32 rules and re-delivered. Batteries at
 close: auction 42 / 1,765 green · schedule 6 green / 21 skipped. NP-off was folded into
 the §72 refusal (same filter, same logic) — flagged in §72 for owner veto.
+
+**TWO POST-PUSH RULINGS (record for every future session):** ① every firestore.rules
+change is presented the §73 way — fresh paste-ready .txt at paste time, console path in
+the caption, verified md5 match (START-HERE §3 📋 block carries the rule). ② the commit
+cap was RE-AFFIRMED after the owner caught this session drifting to 5–6 lines within a
+day of the cap — count lines and words before sending, always (§74; START-HERE §3).
+
+**RULES PUBLISHED — owner, 20 Aug 2026, BOTH consoles (vacation-25e8e + crna-vacation):**
+RA-H13 and RA-M8 are CLOSED; FB-5 is finished — the last world-readable bid data
+(bestBids · changes · bidTimes · bidPhase · bidLowerings) is behind verified sign-in and
+the mail meter is update-only. Owner owes one 30-second look: staff site, sign in, board
+populates. The rules-emulator suite (RA-2, still pending its jar) carries the executed
+assertions for exactly these gates.

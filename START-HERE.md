@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (pre-dawn) — THE AUDIT IS DONE AND EVERY FINDING IS FIXED.**
+**LAST REVISED: 21 Aug 2026 — rules-delivery rule EXTENDED and the commit-length cap RE-AFFIRMED (owner rulings, §3); prior revision: pre-dawn, audit complete.**
 The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
 of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
 owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
@@ -228,6 +228,11 @@ What they genuinely share — why a change to one can break the other:
 
 **Commit summaries** — one per build PER REPO touched. **HARD CAP, owner ruling 19 Aug 2026:
 a subject line plus AT MOST 4 short lines — about 50 words. If it is longer, it is wrong.**
+**RE-AFFIRMED by the owner 20 Aug 2026 — and he caught Claude drifting to 5–6 lines within
+ONE DAY of the cap ("I can actually see that the commit messages are expanding beyond the
+rules"). COUNT THE LINES AND WORDS BEFORE SENDING, every message, every time: 4 is a hard
+number, not a mood. When a wave spans many builds, the summary names the wave, not the
+builds — detail lives in BUILD-LOG.**
 His words: *"i am using only the summaries though and they are too long"* — cut to roughly a
 QUARTER of what they had grown to. This rule already existed and Claude drifted past it all
 through 18–19 Aug, writing 150–200-word messages; the cap is now numeric so drift is
@@ -264,6 +269,14 @@ any message = the WHOLE combined file re-sent to outputs in the same turn.
 > from the Claude desktop outputs viewer — so the standalone captioned send IS the
 > delivery; no other format or channel is needed. The owner pastes rules into the
 > Firebase console by hand; a rules change that is hard to find is a deploy blocker.
+> **EXTENDED — owner ruling, 20 Aug 2026 ("I always want new firestore rules presented
+> just like this"): every new or changed rules file is ALSO re-sent FRESH to outputs at
+> the moment the owner is ready to paste (not only when first prepared), as a standalone
+> ⚙️-captioned plain-text .txt whose caption carries: the full console path (Firebase
+> console → project vacation-25e8e → Firestore Database → Rules → select-all, paste,
+> Publish), the "console validates before publishing — on any error publish NOTHING and
+> say so" line, and the statement that the file is md5-IDENTICAL to the repo copy
+> (verified, never asserted).**
 
 > 🧹 **OUTPUTS HYGIENE — owner ruling, 18 Aug 2026: the outputs column is CURATED.**
 > Already-sent files cannot be removed by the session (no such tool — the column resets

@@ -70,11 +70,13 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       21 of 25 findings FIXED** (H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 · M1 M2 M3 M4 M5
       M6 M7 · L1 L2 L3). Detail + gates: the vacation and schedule BUILD-LOG rows.
       **STILL OPEN from RA-1:**
-      · **RA-H13 + RA-M8 — PREPARED, NOT LIVE**: the new `firestore.rules` (five bid-data
-        docs behind sign-in; mailStats tamper-guard) is in the repo and in the owner's
-        outputs as a captioned txt. ⭐ OWNER: paste into the Firebase console
-        (vacation-25e8e) on return — the console validates before publishing; if it
-        reports an error, publish nothing and say so. Client needs no change either way.
+      · **RA-H13 + RA-M8 — ✅ PUBLISHED by the owner, 20 Aug 2026, in BOTH consoles**
+        (vacation-25e8e AND crna-vacation — the same file fits both, same collection
+        names). FB-5 is FINISHED: no bid data is world-readable; mailStats is
+        tamper-guarded. Sanity check owed: owner opens the staff site once and sees the
+        board populate (client was already sign-in-gated, so nothing should change).
+        Executed proof lands with RA-2's emulator run — its suite asserts these exact
+        gates.
       · **RA-L4 — DEFERRED** (a bidder can pin the countdown with extend-only timer writes,
         invisibly): not expressible in rules alone (nothing ties a timer write to a bid);
         candidate post-launch fix = surface raw timer writes in the Fair Play monitor.
