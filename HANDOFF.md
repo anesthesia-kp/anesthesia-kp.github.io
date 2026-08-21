@@ -10,6 +10,168 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 # PART A — SHARED
 
+## 20 Aug 2026 (EVENING–NIGHT) — RA-3: THE WHOLE-PROJECT RE-AUDIT, AND THE RULING THAT ENDS THE ENGINE'S DENIAL LOGIC
+
+Owner's order: re-audit the 20 Aug evening wave, broaden it to the whole project, use extra
+agents with adversarial review, drive both live sites in Chrome, and check all wording.
+Audited the PUSHED bytes: vacation `d49cd15`, schedule `6d31b3e`, tests `2623c94`.
+
+### What was run
+
+Ten blind lenses, one agent each, no sight of one another. Every finding then went to an
+adversarial skeptic instructed to REFUTE and to default to refuted when it could not
+reproduce the reasoning from the code; CRITICAL/HIGH went to a second skeptic told to trust
+neither previous reviewer. **28 agents, 0 errors, ~99 minutes.**
+**45 raised → 8 refuted → 39 stand** (36 adversarially confirmed, 2 uncertain, 1 unverified).
+Severity: 1 CRITICAL · 3 HIGH · 14 MEDIUM · 19 LOW · 2 NIT. Roughly half the findings are in
+code older than the wave, i.e. backlog a bigger net would have caught at any time.
+
+Reports (PRIVATE, `tests/docs/`, never the public repos):
+`RA-3-INTERIM-2026-08-20.md` (the twelve Claude confirmed by hand) and
+`RA-3-FINAL-2026-08-20.md` (the 39, with skeptic verdicts). The final report supersedes the
+interim but both are kept — the interim carries fuller prose on its twelve.
+
+### The security-rules finding, and its PROOF
+
+Three documents were readable by anyone on the open internet, with no sign-in:
+* **`vacations/welcomeLog`** — keys are participants' e-mail addresses via `_wlKey`
+  (lower-case, every non-alphanumeric → underscore: `aaronjfrankel_gmail_com`), a trivially
+  reversible encoding. An open list of 37 physicians' personal and KP addresses. The rules
+  file's own comment called it "no PII" and was wrong; that comment is corrected.
+* **`vacations/changesArchive`** — `completePhase` merges the bid log with the DECISION log
+  (`changesDecisions`, admin-only precisely so winners/losers cannot leak) and writes the
+  union here. It was on no read gate at all, and Complete Phase runs BEFORE results are
+  e-mailed, so the whole approve/deny outcome of every completed phase, plus every bid ever
+  placed, was public — permanently. It was already admin-WRITE-only; only the read was missed.
+* **`dailysched/auditLog/entries/*`** — every entry carries the acting admin's Google
+  address. DEFERRED with the schedule (§75).
+
+THE FIX, under owner ruling §76 (fix data exposure only when it is cheap): **two document
+names added to two existing lists** — `changesArchive` → `isAdminReadDoc`,
+`welcomeLog` → `isSensitiveDoc`. Two functional lines; every other line in the diff is
+comment. **NO page changed**, verified first: the staff sites never reference
+`changesArchive`, and read `welcomeLog` only from the sensitive-listener set and inside
+`welcomeOnce()`, both post-sign-in; the admin sites subscribe to `changesArchive` in the same
+block as approvals/denials/phaseStaging, already gated identically.
+
+**PROVEN, EXECUTED, on the owner's Mac via `tests/RA-2.command`:**
+* current rules — **56 passed, 0 failed**
+* honesty run against the pre-fix rules at the explicit SHA `d49cd15` — **50 passed,
+  6 failed**, and the six are EXACTLY the six new gates:
+  *"HONESTY: 6 of 6 new-gate assertions FAILED — GOOD, the gates are real."*
+* the three assertions that had to KEEP working — admin reads the archive, a registered
+  bidder reads `welcomeLog` for `welcomeOnce()`, the `welcomeLog` write path — passed in
+  BOTH runs, so nothing the pages depend on was gated.
+
+`rules-emu/assertions.mjs` gained a `PRE_RULES` override so the same assertions can run
+against any rules file from an explicit SHA; `RA-2.command` gained step 4 so both runs are
+one double-click. **This is the project's first executed honesty check on the rules.**
+
+STILL OPEN, one small thing: the emulator reads the REPO copy, so what is proven is that the
+FILE is correct. That the two Firebase consoles hold the same text is not machine-verified —
+an outside-the-browser check is impossible while App Check refuses un-tokened requests (it
+returned PERMISSION_DENIED even for the public `phases` doc, which incidentally proves App
+Check is working). To close it: open each console's Rules tab and eyeball `'changesArchive'`
+at the end of the admin-read list and `'welcomeLog'` at the end of the sensitive list.
+
+### The CRITICAL, and the ruling it produced
+
+The §70 engine judged every denial against a re-run of the week **with all denials erased**,
+so earlier denials were invisible to it. Reproduced by extracting the real `computeApprovals`
+and executing it: cap 1.0, threshold 0.5, A bids 1 (FTE 1.0), B 2, C 5, D 9, E 10 (all 0.5) —
+deny A (policy), then deny D, and **E, who bid 10, is promoted to REVIEW while D who bid 9 is
+out**. The pre-wave engine at `1bdcb23` does not do this: a regression the wave introduced.
+
+**The half no agent found, and the more important half:** `test-admin-294-engine.mjs` passes
+9/9 including *"zero §70/NE-1 violations across 2,000 random decided sequences"*, and it
+cannot catch this for two independent reasons. (1) Its "independent first-principles oracle"
+builds `natWin`/`contested` ONCE, before the loop, from the zero-denial world — byte for byte
+the engine's own assumption. **The guard and its check share one blind spot.** (2) Its fuzz
+driver denies in exactly two places, an over-threshold draw and a natural loser; it always
+APPROVES winners and reviews, so the sequence that breaks the engine is not in its
+vocabulary. This is why audits kept finding things the suite did not.
+
+**Then the owner found the mirror image**, and it is worse: the same machinery ERASES people.
+Reproduced on both builds — cap 1.0, A bids 1, B 2, C 5, D 6, all FTE 0.5; deny A then C, and
+the board shows only B with **0.5 FTE free and D removed entirely**. On the PRE-wave engine a
+single denial blanked the whole week: `WIN[] DRAW[] REVIEW[]` with 1.0 free. Both engines are
+wrong, in opposite directions, from one idea: letting decisions feed back into projections.
+
+Scope, established by reading the code and worth never re-deriving: **no bidder can be
+affected by any of this.** The staff page never subscribes to `approvals`/`denials` — it
+declares the refs and never reads them — and its `computeApprovals` throws if the admin
+variant is cross-ported. The damage is confined to the admin's own decision board, where the
+consequence is a wrong LABEL: a person shows "lose" on a week that still has room. They keep
+their row and their Approve/Deny buttons (`renderAppDenials` iterates every bid in
+`scheduleData`, not the engine's groups), so nobody is hidden and nothing is deleted — the
+demoted names come out of local Sets rebuilt on every render, and no Firestore write occurs.
+
+→ **RULING §77: PROJECTIONS NEVER CHANGE. They freeze at phase close. Supersedes §70.**
+See DECISIONS for the full text and the three consequences that must ride in the same build.
+
+### The other things worth carrying forward
+
+* **The sandbox button sweep had been measuring nothing since App Check went in (19 Aug).**
+  `make-site.mjs` faked four Firebase modules but not `firebase-app-check`; offline that
+  import failed and took every page handler with it. The staff pass clicked **0** controls;
+  the admin pass logged 325 copies of one error. FIXED and pushed (`af57c09`): a new
+  `sweep/fake/firebase-app-check.js` plus one line in `make-site.mjs`. After the fix, with the
+  driver restored byte-for-byte: **584 clicks · 261 dialogs · 154 confirms · 0 errors**, both
+  sites, four passes. STILL OPEN: make the harness fail LOUDLY (zero clicks on a site, or more
+  page errors than clicks, must exit non-zero) — this rot was silent.
+* **Refusals on the bidder page are shown where nobody can see them.** `showError()` writes to
+  a static banner near the TOP of the page while every bid is made far down the board behind a
+  centred modal. Reproduced live: pressed Continue with no bid chosen and the page did nothing
+  at all. 17 call sites take that path, including "Save failed". `showCenterAlert()` is the
+  mechanism that works and its own comment says why.
+* **Live walkthrough done** (staff + admin, real Chrome, owner's session) including a real
+  end-to-end write: Week 1 bid 7→6→7. Pool and lowering counter both correct; the lowering
+  warning was exact. Owner's bids are unchanged; **one bid lowering was consumed (2 of 4).**
+* **Batteries on the pushed bytes:** auction 42 suites / 1,765 assertions, schedule 27/27.
+
+### Honesty notes — things that did NOT survive, recorded so nobody quotes them
+
+* The CRITICAL's original evidence cited an in-file comment that **does not exist** — the wave
+  deleted it; it survives only on the `-` side of the diff. The skeptic caught it. The finding
+  stands on its other, verbatim-accurate quote and on the reproduction.
+* The CRITICAL's second scenario ("a bid of 10 wins outright") is **not settled** — the two
+  agents disagreed, the reproduction is ambiguous, and the denial in it looks like a policy
+  denial. **Do not quote it.** The clean case is the E/D one above.
+* A 20,000-scenario fuzz Claude wrote to size the problem **proved nothing** — it flagged
+  near-identical counts on both engines, so its oracle cannot separate a legitimate cascade
+  from an inversion. Only signal worth noting: weaker-bid REVIEW promotions 242 post-wave vs
+  31 pre-wave.
+* Two items Claude nearly reported were wrong and the code said so: the greyed NP chip already
+  carries its own reason, and the "No limit" bid caps really are set to 6/6.
+* `audit-handlers.mjs` now prints 1 violation where 0 is expected. It is a **false positive** —
+  line 6991 is a COMMENT quoting an onclick pattern, and the auditor has no comment stripping.
+
+### Rulings made this session
+
+**§75** the Daily Schedule is out of scope until much later (six findings deferred) ·
+**§76** fix data exposure only when the fix is cheap (rules-only qualifies; page changes wait) ·
+**§77** projections never change, they freeze at phase close, supersedes §70 ·
+**§78** the public/private repo question is closed for now, and the closed-phase pop-up goes.
+
+### Queue at close, in order
+
+1. **§77** — freeze projections, delete the §70 machinery, and replace
+   `test-admin-294-engine.mjs` **in the same build** (its oracle would bless either behaviour).
+   Retire rule 26 of the ENGINE-RULES-REVIEW docx with it.
+2. **Closed-phase experience** — kill the pop-up; correct the six "the auction has closed"
+   strings and the banner to say the PHASE closed; add "Phase closed" at the top. Verified
+   safe: closing a phase calls `_lockEveryWeek()`, and the staff board already paints every
+   card at 50% opacity, `cursor:not-allowed`, red tint and a "🔒 LOCKED" badge. One residual:
+   a brief window where the closed flag is set but the lock write has not landed.
+3. **Make refusals visible** — the `showError` family.
+4. Everything else in the final report, batched by subsystem.
+
+⭐ Unchanged and still the owner's own top item, which no audit can do for him:
+**16 of 37 people have never signed in**, and App Check is enforced. That window closes at
+go-live.
+
+---
+
 ## 20 Aug 2026 — THE AUDIT SESSION (A-AUDIT run + every CRITICAL and HIGH fixed same day)
 
 The full pre-launch adversarial audit ran per the §67 brief: 9 blind lenses → one skeptic
