@@ -1969,7 +1969,25 @@ server states, including the historical timer-OFF trap and the revokes staying a
 honesty vs the last PUSHED build fails 12 of 17, the 5 passing being exactly the
 must-keep-working ones; auction battery 48 suites / 1,881 green.
 
-**One thing left undone and recorded rather than glossed:** the 21 browser-based schedule suites
-were not re-run in-cloud, because file staging was refused mid-session (`untrusted_device` — a
-stale desktop sign-in) and the §6 cost gate forbids working around it. They do not touch the
-auction. Re-run after re-authenticating.
+**The one gap is now closed.** The 21 browser-based schedule suites could not be re-run in-cloud
+when this was written — staging was refused mid-session (`untrusted_device`, a stale desktop
+sign-in). The §6 cost gate was obeyed: the owner was told the 30-second fix rather than a
+workaround being attempted. He signed in, and the schedule battery then ran **27/27 in-cloud
+against admin 299 with ZERO skipped**. Both builds pushed as `2cd6a55` (suites `985e9b4`), and
+live `versions.json` was verified twice at admin 299 / staff 161 / mobile 18.
+
+## §83 — A thin commit SUBJECT is acceptable; the summary that matters is the BUILD-LOG row — 21 Aug 2026
+
+Owner, on the schedule repo's commit landing with GitHub's default "Update BUILD-LOG.md" instead
+of the prepared text: **"I'm ok with the brief uninformative commit summary."**
+
+So this stops being raised. It has now happened four times (`7fcd3f1`, `594778e`, `2c97296`,
+`fe168c5`) and each time the CONTENTS were correct — which is the whole reason BUILD-LOG exists.
+A future session should note a thin subject in the row, if it notices, and move on. It is not a
+defect, it does not warrant an amend, and it must never become a reason to rewrite history.
+
+**What this does NOT relax:** §62's hard cap still governs the messages Claude PREPARES (a
+subject plus at most 4 short lines, ~50 words), they are still delivered to the outputs column
+every time they change, and every build still gets its BUILD-LOG row written in the same breath
+as the code. The ruling is about what happens when a prepared message does not make it into the
+commit box — not about writing worse ones.
