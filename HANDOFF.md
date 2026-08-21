@@ -6,6 +6,85 @@ the current state of both sites. This file is the per-site detail behind it.
 Nothing here restates a rule from `START-HERE.md`. If you find something that does, delete it
 here and keep the copy there — that duplication is the disease this merge cured.
 
+
+---
+
+## 21 Aug 2026 — §77 lands as admin 298; the pre-commit check earned its keep
+
+**Where the session started.** The RA-3 wave (staff 161 / admin 297 / rules) was already
+pushed and RA-2 already run — 59/59 on the current rules, 52/7 on the pre-fix rules with all
+seven failures being the seven new gates. START-HERE and the STATUS block were both still
+describing the previous state and were rewritten. A live `versions.json` fetch returned the
+PREVIOUS build on the first cache-busted request and the truth on the second: the §4 rule
+about fetching twice is not theoretical.
+
+**How §77 was finally explained.** Four sessions of confused explanation ended when the owner
+said, correctly, *"if a projection cannot change, how can it be promoted?"* — he was right, and
+the answer is that promotion was the OLD world's problem and §77 abolishes it. What had been
+missing from every previous explanation was one concrete example (a week with room for three;
+deny the bid of 2 and the bid of 4 becomes a winner) and the discipline of never saying
+"winner" without saying WHICH — now binding as §81. Two of his own observations drove the
+build: that the approvals page "looks perfect", which is exactly why the defect survived, and
+that he had in fact NOTICED the projected list rearranging and disliked it — making §77's only
+visible change a change he had already asked for.
+
+**The pre-commit screen diff found a defect (§82d).** Rather than trust the parked build's
+comments claiming the numbers were unchanged, both real engines were run over ~4,000 random
+week states and compared. Three repointed consumers were correct — differing only in the 852
+intended re-deal cases, and in ZERO cases where nothing was denied. `weekLedger.committedFte`
+was not: it never subtracted the denied, so under §77 (where the projection still lists them)
+denied bids counted as filling a week. 2,864 of 3,958 states disagreed with 297; worst case a
+capacity-3 week reported 0.2 remaining when every bidder on it had been denied. One line fixed
+it and the same harness proved the fix. **The lesson is the general one: a comment asserting
+"same number" is not evidence, and the cost of checking was one harness.**
+
+**Suites.** `test-admin-294-engine.mjs` archived — it guarded deleted machinery. The three red
+suites were NOT rewritten to agree with the new engine; their denied-is-never-a-winner
+assertions were REPLACED by the §77 invariance (run the real engine twice, with and without
+decisions, demand identical output), which is checkable without modelling the engine and which
+the pre-§77 build fails. Two new suites: `test-admin-298-frozen` (17/17) and
+`test-admin-298-readouts` (4/4, proving its teeth by restoring the §82d defect).
+
+**Three things the gates caught that nobody asked for.**
+1. `test-c4-phase-identity` went red: `adApprove` gained a real ledger dependency its sandbox
+   did not have. Fixed by giving the sandbox the REAL functions and REAL data — never a stub,
+   which would have let the suite pass while the capacity arithmetic drifted.
+2. `test-priority-inversion` carries TWO honesty checks with DIFFERENT baselines. One is
+   archaeological (pre-239) and cannot be produced by the standing explicit-SHA rule; pointing
+   a modern baseline at it made it fail for the wrong reason. It now runs only when the
+   baseline really is pre-239 and says LOUDLY that it did not run otherwise — never a silent
+   pass.
+3. **21 of the 27 schedule suites had been silently skipping** on the owner's Mac for want of
+   a browser, and the schedule battery had been reporting "all 6 passed · 21 skipped" as if
+   that were green. Staged to the cloud and run with the preinstalled chromium: **27/27, zero
+   skipped — the first complete schedule battery there has ever been.** Worth keeping: the
+   cloud route needs the `fake/` firebase shims, `schedule/versions.json`, the auction admin
+   page, and `NODE_PATH` pointing at the global node_modules.
+
+**Filed, pending the owner's push:** admin 298 + CRNA restamp + versions.json (vacation),
+five suite changes + two new suites + one archive (tests), the BUILD-LOG row (schedule),
+DECISIONS §79-§82 + TODO + STATUS (anesthesia).
+
+**§79 shipped the same session, as admin 299.** Approvals and denials are now BLOCKED while
+bidding is open rather than warned about. The expression that decides "is bidding open" was
+LIFTED into one named function shared by the readiness check and the new guard, because the bug
+it guards against — a merely switched-OFF timer reading as closed — came from having two copies.
+The two REVOKES are deliberately NOT gated: a revoke only removes a decision, and blocking
+correction would leave an admin with a stale decision and no way out (§72). Four suites went red
+and each was fixed at the cause: two pinned the readiness expression by its literal text and were
+RE-POINTED to its new home (moved, never weakened), one got the real guard plus a closed server
+state, one opens the gate for an unrelated scenario under the file's existing convention.
+
+**What stopped, and why it stopped rather than being worked around.** File staging was refused
+mid-session — `untrusted_device`, a stale desktop sign-in — which blocked re-running the 21
+browser-based schedule suites in-cloud. Per the §6 cost gate the owner was told the cheap fix
+immediately instead of a workaround being attempted; that gate exists because the same situation
+on 20 Aug consumed ~7% of a week's usage for nothing. Those suites do not touch the auction.
+
+The
+owner's own top item is unchanged and still cannot be delegated: real bidders signing in while
+App Check is enforced and the auction is not running.
+
 ---
 
 # PART A — SHARED

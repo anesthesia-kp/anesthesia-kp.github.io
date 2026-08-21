@@ -1922,8 +1922,54 @@ than the PROJECTION. Claude owes a precise before-and-after of every on-screen d
 between admin 297 and the parked 298 before the owner commits. It is the only part of (b) that
 is not yet proven.
 
+**(d-CLOSED, 21 Aug):** the one-line fix is in admin 298 and proven by the same harness that
+found the defect — differences fell from 2,864 to 852, exactly matching the three consumers
+that were already correct. The harness is now a permanent suite, `test-admin-298-readouts`,
+which proves its own teeth by putting the defect back and requiring the assertions to fail.
+
 **(e) `test-admin-294-engine.mjs` is RETIRED.** Owner: *"Yes, to question number four."* It
 tests the §70 re-dealing machinery that §77 deletes, so it cannot be repaired, only archived
 (to `_archive/tests/`, per the never-delete rule). The other three red suites —
 `test-engine-fuzz`, `test-never-events`, `test-priority-inversion` — are REWRITTEN to §80, not
 archived.
+
+**(f) FILED 21 Aug on the owner's "go on all".** Admin 298, CRNA restamped, 294 archived, the
+three suites replaced by the §77 invariance, two new suites registered. Auction battery 47
+suites / 1,861 assertions green with honesty EXECUTED; schedule battery 27/27 with ZERO
+skipped. Two things the batteries caught that no one had asked for: `test-c4-phase-identity`
+went red because `adApprove` gained a real ledger dependency its sandbox did not know about
+(fixed by giving the sandbox the real functions and real data, never a stub), and 21 schedule
+browser suites had been silently skipping on the owner's Mac for want of a browser — they now
+run in-cloud, which is the first time the schedule battery has ever been complete.
+
+## §79a — §79 as built: what is gated, what is not, and why — 21 Aug 2026
+
+Filed as admin **299** on the owner's "go".
+
+**ONE definition of "bidding is open".** The expression was LIFTED out of `approvalReadiness`
+into a single named `biddingOpenOnServer()`, which both the readiness check and the new guard
+call. SERVER truth only — the `biddingClosed` flag, or an ENABLED timer past its deadline. Week
+locks are client-side and never count. This satisfies §79(a) literally: there is now exactly one
+copy of the expression whose earlier duplication produced the timer-OFF bug.
+
+**GATED — the five surfaces that CREATE or CHANGE a decision:** Approve, Deny, Approve All
+Current Winners, Deny All Losers, confirmApprove.
+
+**NOT GATED — the two REVOKES**, and this is a deliberate judgment the owner should know about.
+A revoke only ever REMOVES a decision: it moves toward the ruling, never against it. Blocking it
+would leave an admin who reopened bidding staring at a stale decision with no way to undo it —
+which is §72's failure mode, a refusal with no way out. If the owner wants revokes gated too,
+say so and it is a one-line change.
+
+**The refusal names what is blocked, why, and which button clears it**, and in Phase 4 it names
+the open ROUND rather than the phase (§79(b)).
+
+**Gates:** `test-admin-299-bidding-open.mjs` 18/18 executing the real handlers against real
+server states, including the historical timer-OFF trap and the revokes staying available;
+honesty vs the last PUSHED build fails 12 of 17, the 5 passing being exactly the
+must-keep-working ones; auction battery 48 suites / 1,881 green.
+
+**One thing left undone and recorded rather than glossed:** the 21 browser-based schedule suites
+were not re-run in-cloud, because file staging was refused mid-session (`untrusted_device` — a
+stale desktop sign-in) and the §6 cost gate forbids working around it. They do not touch the
+auction. Re-run after re-authenticating.
