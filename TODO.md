@@ -71,6 +71,18 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       anything still readable pre-sign-in) ⑥ the SUITE changes themselves — did any
       spec-pin update quietly weaken an oracle? ⑦ Edit Selections archive view + NE-14
       banner truthfulness (human lens).
+- [ ] **ARCH-1 · Move the schedule site to its OWN Firebase project? (owner asked 20 Aug;
+      Claude: yes in principle, not now).** Buys: separate bills (kills the FB-3 runaway
+      risk), per-site rules deploys (kills most of LP-1 freeze ①), and the cardinal rule
+      becomes physics for everything but the roster. THE design constraint: the shared
+      roster (incl. emailToUser, the bid-security map) must stay SINGLE-SOURCE in the
+      auction project, read by schedule pages via a SECOND Firebase connection — NEVER
+      replicated/synced (a sync layer on the bid-security map is a new failure class).
+      Cost: every schedule page rewired (two configs, two App Checks), one auction rules
+      deploy to retire the dailysched block, full re-test. TIMING: after the auction is
+      live and stable, in a phase gap, before the schedule goes live (months away).
+      EmailJS is unaffected by the split — schedule needs its own EmailJS account
+      whenever it starts sending. Awaiting the owner's ruling when the window opens.
 - [ ] **LP-1 · DRAFT live-phase protocol — schedule work during a LIVE auction (owner asked
       20 Aug: "Is that safe?"; answer: yes, with three freezes — awaiting his ruling to
       make it permanent).** Safe by construction: schedule pushes deploy ONLY the schedule
