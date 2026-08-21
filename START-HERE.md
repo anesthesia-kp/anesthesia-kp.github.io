@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (session close) — WHERE-TO-START rewritten for RA-3; rules live+tested; queue = RA-3 then polish.**
+**LAST REVISED: 21 Aug 2026 (overnight close) — WHERE-TO-START rewritten after the RA-3 audit and its clean-up wave. Queue = publish rules, run RA-2, push the wave; then §77, which needs a ruling.**
 The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
 of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
 owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
@@ -51,46 +51,66 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (rewritten at the close of 20 Aug 2026, the RA-1-fix + rulings day).**
-> **LIVE NOW: auction admin 296 / staff 158 / mobile 18 · schedule admin 76 / staff 36.**
-> All four repos pushed and in sync; owner verified the live boards populate after the
-> rules publish. Verify before believing: `versions.json`, cache-busted, twice.
+> 🟢 **WHERE TO START (rewritten 21 Aug 2026, after the RA-3 audit and its clean-up wave).**
+>
+> **LIVE NOW: auction staff 160 / admin 296 / mobile 18 · schedule admin 76 / staff 36.**
+> **IN THE WORKING TREE, NOT PUSHED: staff 161 · admin 297 · firestore.rules · four test files.**
+> Verify before believing: `versions.json`, cache-busted, twice.
+>
+> **THE FIRST THREE THINGS, IN ORDER.**
+> **(1) Publish the rules in BOTH consoles, then push.** A rules change is an auction deploy and
+> the console publish comes first. The pending change adds a CREATE branch to the quota-meter
+> clause — without it the CRNA meter under-reports from its first send and the 2,000-message
+> ceiling can arrive with the gauge looking healthy.
+> **(2) Double-click `tests/RA-2.command`.** It runs the rules suite and then the honesty check
+> against the pre-fix rules in one go. **Claude cannot run the emulator** — this is the only
+> proof the rules are right, and it is the standing step after ANY rules change.
+> **(3) Push the wave** (staff 161 / admin 297 / tests). Commit messages are prepared.
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
 > **(2) Blaze pay-as-you-go** — failure mode is a bill, not an outage.
-> **(3) App Check ENFORCED on both projects** (Firestore only, never Auth).
-> **(4) firestore.rules are HARDENED and EXECUTED-TESTED** — published in BOTH consoles
-> 20 Aug (FB-5 finished: no bid data world-readable; mailStats tamper-guarded) and proven
-> by the emulator suite, **45/45**, run on the OWNER'S Mac via the double-click
-> `tests/RA-2.command`. The VM battery still LOUD-SKIPS that one suite (jar+Java live on
-> the owner's Mac) — after ANY rules change, the owner double-clicks RA-2.command again.
+> **(3) App Check ENFORCED on both projects** (Firestore only, never Auth). It works: an
+> un-tokened REST read is refused before the rules are even consulted.
+> **(4) firestore.rules are HARDENED and EXECUTED-TESTED.** RA-3 closed two documents that were
+> readable by anyone with no sign-in: `changesArchive` (the whole approve/deny trail of every
+> completed phase, public from Complete Phase — which runs BEFORE results are e-mailed) and
+> `welcomeLog` (every participant's e-mail address in a trivially reversible encoding). Proven
+> on the owner's Mac: **56/56 current, and 6 of 6 new gates fail on the pre-fix rules.**
 >
-> **WHAT THE 20 AUG DAY SHIPPED** (detail: BUILD-LOGs + HANDOFF): RA-1 re-audit (25
-> confirmed findings) → the fix wave staff 157–158 / admin 292–296 / schedule 36/76 →
-> owner rulings **§69–§74** (duplicates refused · admin edits re-stamp locks · §70
-> capacity-vs-policy denials · §71 THE BOUNDARY FORGETS · §72 FLOORS ABSOLUTE + NE-14 ·
-> rules-delivery presentation · commit-cap re-affirmed) → rules published both consoles →
-> RA-2 done. The ENGINE-RULES-REVIEW docx (32 rules) is the owner-approved spec.
+> **WHAT THE RA-3 DAY PRODUCED** (detail: HANDOFF + BUILD-LOG): a whole-project re-audit — ten
+> blind lenses, an adversarial skeptic per finding, a second skeptic on every CRITICAL/HIGH;
+> 28 agents, **45 raised → 8 refuted → 39 stood**. Reports are PRIVATE, in `tests/docs/`
+> (`RA-3-FINAL-2026-08-20.md` supersedes the interim; keep both). Then five builds: staff
+> 159 · 160 · 161, admin 297, the rules, and the sweep harness. Rulings **§75–§78**
+> (schedule deferred · fix data exposure only when cheap · **§77 projections never change** ·
+> repo visibility closed for now + the closed-phase pop-up removed).
 >
-> **THE QUEUE HEAD IS RA-3 (TODO §1): re-audit the evening wave on the PUSHED bytes** —
-> diff `1bdcb23`→`d49cd15` (+ schedule `dc6b8cc`→`6d31b3e`, tests `2623c94`). Owner:
-> *"I need to keep doing this because we keep finding so many items."* Same §67 method;
-> batteries green first; fresh lens list in the TODO entry. POLISH items (RA-H2 live
-> check · Chrome walkthrough on current bytes · launch-eve restore drill) are queued
-> after it.
+> **THE QUEUE HEAD IS §77, AND IT NEEDS A RULING BEFORE ANY MORE CODE.** The engine work is
+> built, green and parked at `_to_delete/xfer/s77b/` — the §70 apparatus deleted, the ledger
+> in, four consumers repointed, its own suite 17/17 with an invariance oracle that cannot
+> inherit the engine's blind spot. Four never-event suites stay red because their invariant is
+> written against the OLD meaning of the projection. **What NE-1 means now is safety policy,
+> not implementation** — see TODO for the exact question. Claude stopped rather than rewrite a
+> never-event unattended, because that is precisely how the old oracle went blind.
 >
-> **⭐ THE OWNER'S OWN TOP ITEM, unchanged: real-bidder sign-ins** (16 of 37 never signed
-> in) — owner says "soon"; the window closes at go-live. Claude cannot do this. SEC-1
-> (private repos) deliberately deferred by the owner ("later").
+> **AFTER THAT, THE OWNER'S STANDING DECISION (21 Aug): NO MORE SMALL ITEMS.** He judged the
+> chase endless and is right. The remaining list is 10 MEDIUM and the LOW/NIT tail; 10 LOW/NIT
+> were dropped outright as incapable of troubling the live auction. The next audit is to look
+> ONLY for auction-derailing events that could cause real and genuine harm.
 >
-> **Reality check for a fresh session.** The pattern held again on 20 Aug: the owner
-> reads, tests, and finds real things (dead-bid design, absolute floors, a commit-cap
-> drift Claude committed the very day after the cap). Every owner-found item outranks the
-> queue when he raises it — and each fix is still a §3 build with its own "go", suite,
-> EXECUTED honesty check and both batteries. **Count commit-message lines before sending
-> (§74).** Note for honesty: the final 20 Aug push crossed two commit LABELS (tests ↔
-> docs); content correct, recorded in HANDOFF, never rewritten.
+> **⭐ THE OWNER'S OWN TOP ITEM, unchanged: real-bidder sign-ins** (16 of 37 never signed in).
+> App Check is enforced and has never been tested by anyone but him. No audit can do this, and
+> the window closes at go-live.
+>
+> **Reality check for a fresh session.** The pattern held again: the owner found, in one
+> sentence, the mirror image of the CRITICAL the agents found — the same machinery that could
+> promote a weaker bid could also ERASE bidders from a week with room. Every owner-found item
+> outranks the queue. And two of tonight's fixes were to GATES, not features: a handler audit
+> that always printed 1, and a button sweep that exited 0 having tested nothing. **When a gate
+> reports success, check that it actually ran.**
+
+
 ## 2 · THE TWO SITES, AND WHAT THEY SHARE
 
 **Vacation Auction** — `vacation-kp.github.io`, served at

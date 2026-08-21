@@ -121,31 +121,36 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       the plain "Phase closed" line at the top of the page. One residual worth a look, not a
       blocker: there is a brief window during Close Phase where the closed flag is set but the
       lock write has not landed, and the cards look normal until it does.
-- [ ] **§77 · THE ENGINE BUILD — STARTED, PROVEN, DELIBERATELY NOT FILED. The batteries found
-      the half nobody had thought about. READ THIS BEFORE RESTARTING IT.**
-      What was built and works (parked at `_to_delete/xfer/s77-wip/`, admin 297): the denial
-      feedback, the approvals-promotion and the entire §70 apparatus deleted (~6,275 chars —
-      `_natFilter`, `_natReqs`, `_natContested`, `_blockFloor`, the demotion loop); a new
-      `weekLedger(wk)` giving cap / projectedFte / approvedFte / committedFte / remaining, with
-      a denial consuming and freeing NOTHING; three capacity call sites repointed so "how full
-      is this week" keeps its old number. Its suite `test-admin-297-frozen.mjs` is **17/17**,
-      and its oracle cannot inherit the engine's blind spot the way 294's did — §77 is checked
-      as a pure INVARIANCE (run the real engine twice, with and without decisions, and demand
-      identical output) rather than by reimplementing the rule. Honesty vs admin 296 at the
-      explicit SHA `13b59de`: **1 passed, 11 failed, exit 1**, and it reproduces the owner's own
-      erasure finding on the old build verbatim — `{"w":["B"],"d":[],"r":[],"f":0.5}`.
-      **WHY IT IS NOT FILED.** With the feedback gone, three suites go red for a REAL reason,
-      not a stale pin: `test-engine-fuzz`, `test-never-events` (26 "denied-and-elevated") and
-      `test-priority-inversion` (1,016). Their invariant is "a denied user must never appear in
-      winners/draws/reviews" — and under §77 a denied bid KEEPS its frozen outcome, so it does.
-      That is correct for a projection and dangerous for the consumers that read `winners` as
-      "who is getting this week". **The unfinished work is those consumers**: `adApproveAllWinners`
-      (would offer to approve someone already denied), `adDenyAllLosers`, the approved-FTE
-      reporting around admin 7132/7198, and the cumulative-cap counter at 8203 (would count a
-      denied bidder as having won). Each must read DECISIONS (approvals + prior winners), never
-      the projection. Then the three never-event invariants get re-expressed: not "never in the
-      projection" but "never treated as a winner by anything that acts". Budget it as its own
-      session with the batteries in the loop — the tests were right and they caught it.
+- [ ] **§77 · THE ENGINE — BUILT AND PROVEN TWICE, STILL NOT FILED. ONE RULING IS MISSING AND
+      IT IS YOURS. Read this before restarting it.**
+      Parked at `_to_delete/xfer/s77b/` (admin **298** page, `test-admin-298-frozen.mjs`, the
+      honesty log, and the exact list of suites still red).
+      **What is done and green.** The whole §70 apparatus deleted (~6,275 chars —
+      `_natFilter`, `_natReqs`, `_natContested`, `_blockFloor`, the demotion loop); the denial
+      feedback removed; `decidedWinners(wk)` and `weekLedger(wk)` added so "who is getting this
+      week" and "how full is this week" are answered by DECISIONS, never by the projection;
+      four consumers repointed (`capBreaches` and its simulator branch, and the two
+      "approved FTE" unions), each with the file's own typeof/try sandbox guards. Its suite is
+      **17/17** and its oracle cannot inherit the engine's blind spot the way 294's did — §77
+      is checked as a pure INVARIANCE (run the real engine twice, with and without decisions,
+      demand identical output). Honesty vs admin 296 at `13b59de`: **1 passed, 11 failed**,
+      and it reproduces the owner's own erasure finding verbatim: `{"w":["B"],...,"f":0.5}`.
+      **CORRECTION to what was written here earlier:** "Approve All Current Winners would
+      offer to approve someone already denied" is **WRONG** — it already skips anyone in
+      `approvedHere` or `deniedHere`, and so does Deny All Losers. Both action drivers were
+      safe all along. Do not re-raise them.
+      **WHAT IS ACTUALLY LEFT — a decision, not code.** Four suites stay red because their
+      never-event invariant is written against the OLD meaning of the projection:
+      `test-admin-294-engine` (guards the deleted §70 outright — it is superseded and should
+      be archived, not fixed), plus `test-engine-fuzz`, `test-never-events` and
+      `test-priority-inversion`, which assert *"a denied user never appears in
+      winners/draws/reviews"* and *"an explicitly approved weaker bidder stays a winner"*.
+      Under §77 a denied bid KEEPS its frozen outcome and an approval does not touch the
+      projection, so both assertions are false by design. **The question only the owner can
+      answer: what does NE-1 mean now?** The candidate is *"nothing ever ACTS on a weaker bid
+      as a winner"* — i.e. the invariant moves off the projection and onto the decisions. That
+      is safety policy, so Claude stopped rather than rewrite it unattended. Rewriting a
+      never-event to match new code is exactly how 294's oracle went blind in the first place.
 - [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
       The flash banner is fixed near the top of the page while every bid is made far down the
       board behind a centred modal. Seventeen messages take that path, the save-failure one

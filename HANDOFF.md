@@ -10,6 +10,75 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 # PART A — SHARED
 
+## 21 Aug 2026 (OVERNIGHT) — THE RA-3 CLEAN-UP: five builds filed, two gates made honest, §77 parked a second time
+
+Owner went to bed with a plan: finish F-1, then the four MEDIUMs, then the six LOW-but-real,
+then §77, then verify the session's own work, then update the documents. Everything below was
+done unattended and left in the working tree — **nothing was pushed by Claude**.
+
+### What is filed and green (staff 161 · admin 297 · rules · harness)
+
+* **F-1, second half.** The button sweep can no longer look successful when it tested nothing:
+  zero clicks on a site, or errors outnumbering clicks, now print a verdict and exit non-zero,
+  and a site that cannot be swept is REPORTED rather than thrown. Proven both ways — with the
+  App Check mapping removed it exits 1 naming the cause; restored, it exits 0.
+* **Four MEDIUMs (admin 297).** Begin Phase called its bulk delete "N denied bids retired" when
+  it removes every non-winning leftover bid; the Draws & Reviews dialog put "Cancel Bid" beside
+  the shared "Cancel"; "Disable Timer" hid that it also removes the deadline that ends the
+  phase; `saveTimerRules` announced success on a refused write.
+* **Six LOW-but-real** (the owner's filter: skip LOW/NIT unless it can trouble the live
+  auction — 10 of 16 dropped, 6 kept). Staff 161: `getCurrentUser()` read the roster dropdown,
+  which auto-selects the first name, so a doctor signing in briefly saw ANOTHER doctor's used
+  bid numbers and a lowerings counter showing the full allowance; and a sanctioned lowering
+  whose counter write failed left the benefit uncounted under a message promising it would
+  self-correct. Admin 297: the NE-14 "bidding is still OPEN" strip read a switched-OFF
+  countdown as "finished" (the opposite — nothing expires then); "results already sent to all
+  N users" counted only doctors WITH an address; Delete All Users lacked both gates that Reset
+  Auction beside it carries. Rules: the quota-meter clause demanded `update`, but the staff
+  pages bump it with a merge-write Firestore calls a CREATE while the doc does not exist — so
+  on the fresh CRNA project every staff-side send was refused and swallowed.
+
+### The verification pass found two more, both about gates telling the truth
+
+* `audit-handlers.mjs` is documented as "expect 0 violations" and had started printing **1** —
+  a COMMENT quoting `onclick="fn('${_jsq(...)}')"` as an example was read as a real handler.
+  Now 0, with the three comment-embedded examples excluded and all 152 real onclick lines
+  untouched. Worth recording HOW: the first attempt tracked strings and comments together and
+  got it backwards — an apostrophe inside an earlier comment ("don't") opened a phantom string
+  and swallowed every `//` after it. The shipped rule is the dumbest one that cannot misfire.
+* Staff `saveEmail`/`declineEmail` wrote `vacations/emails[getCurrentUser()]` unguarded. Not
+  reachable in practice, but that document is read by the Daily Schedule too, and a write on an
+  empty identity would put a junk key in a document neither site owns alone. Both refuse now.
+
+### Gates at close
+
+auction **46 suites / 1,847 assertions** · schedule **27/27** · handlers **188 / 0 violations**
+· isolation **27/27** · 4-pass sweep clean, exit 0 · every filed file md5-verified device==cloud.
+Two legitimate pin updates, each annotated in-file (`test-admin-295-db1` retire wording;
+`test-audit-fixes` bookkeeping-message count 2→4, split so self-correcting and
+non-self-correcting cases are asserted separately).
+**The rules change is NOT verified by Claude** — the emulator cannot run in the work
+environments. `tests/RA-2.command` on the owner's Mac is the proof, and the console publish
+must precede the push.
+
+### §77 — parked a second time, deliberately, and this time only a ruling is missing
+
+Everything mechanical is done and green (see TODO for the full state; the build is at
+`_to_delete/xfer/s77b/`). Four suites stay red because their never-event invariant is written
+against the OLD meaning of the projection: they assert *"a denied user never appears in
+winners/draws/reviews"* and *"an explicitly approved weaker bidder stays a winner"*. Under §77
+a denied bid keeps its frozen outcome and an approval does not touch the projection, so both
+are false by design. **What NE-1 means now is safety policy, not implementation**, so Claude
+stopped. Rewriting a never-event to match new code is precisely how 294's oracle went blind.
+
+**A correction to the 20 Aug entry:** it recorded that "Approve All Current Winners would offer
+to approve someone already denied". That is **wrong** — it already skips anyone in
+`approvedHere` or `deniedHere`, and so does Deny All Losers. Both action drivers were safe all
+along; the claim was made from reasoning rather than from reading the code, and reading it
+settled it.
+
+---
+
 ## 20 Aug 2026 (EVENING–NIGHT) — RA-3: THE WHOLE-PROJECT RE-AUDIT, AND THE RULING THAT ENDS THE ENGINE'S DENIAL LOGIC
 
 Owner's order: re-audit the 20 Aug evening wave, broaden it to the whole project, use extra
