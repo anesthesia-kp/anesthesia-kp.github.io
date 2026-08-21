@@ -154,6 +154,38 @@ Suites on disk: auction **46** (`tests/test-*.mjs`) · schedule **27**
       as a winner"* — i.e. the invariant moves off the projection and onto the decisions. That
       is safety policy, so Claude stopped rather than rewrite it unattended. Rewriting a
       never-event to match new code is exactly how 294's oracle went blind in the first place.
+      **THE FOUR QUESTIONS PUT TO THE OWNER, 21 Aug 2026 — answers go in DECISIONS, then code:**
+      **Q1 · What must never happen?** Proposed replacement for NE-1/NE-B: *"a denied bid is
+      never among the DECIDED winners for a week, and denying someone never lets a weaker
+      bidder into the decided winners."* The invariant moves off the projection and onto
+      `decidedWinners`/`weekLedger`. Is that the right sentence?
+      **Q1b · Does a structural pin go in with it?** — only the four sanctioned consumers may
+      read the raw projection for "who gets this week"; a new direct read fails the suite (same
+      shape as the existing NE-7 pin). Without it the invariant goes blind the first time
+      someone adds a consumer without reading the suite.
+      **Q2 · Should a denied person still appear as a projected winner on the admin screen?**
+      Under §77 they do — the projection ignores decisions by design. Claude's recommendation:
+      leave the ARITHMETIC untouched and mark them in the DISPLAY only (a denied badge). A
+      display marker cannot reintroduce the cascade; changing the number can.
+      **Q3 · Two things are now called "winners"** — "would win" (projection) and "does win"
+      (decided). Do they get different words on screen? Claude: yes, or an admin eventually
+      reads the wrong one.
+      **Q4 · Archive `test-admin-294-engine.mjs`?** It guards the deleted §70 machinery, so it
+      cannot be repaired, only retired. It is a safety suite, so it needs an explicit go.
+      **Not questions:** the engine code is built and green (17/17); the approve/deny-while-
+      bidding-is-open BLOCK is agreed (21 Aug) and is its own separate build.
+      **ALL FOUR ANSWERED 21 Aug — see DECISIONS §80/§81/§82. Q1 accepted as written; Q2 no
+      badge; Q3 two columns (projected outcome | decision); Q4 yes, retire the 294 suite.**
+      **AND THE PRE-COMMIT CHECK FOUND A DEFECT — the parked build is NOT ready (DECISIONS
+      §82d).** `weekLedger.committedFte` never subtracts the DENIED, so under §77 — where the
+      projection still lists them — denied bids consume capacity in the two readouts that use
+      the ledger. Measured against the live build over ~4,000 random week states: 2,864 differ,
+      worst case a week reading nearly FULL when every bidder on it was denied. The other three
+      repointed consumers are correct (they differ only in the intended re-deal cases). The fix
+      is one line and was proven by the same harness, not guessed: subtracting the denied drops
+      the differences to exactly the intended set. **NEXT: owner's go on that one-line change,
+      then the parked build comes in, the 294 suite is archived, three suites are rewritten to
+      §80, and the differential harness becomes a permanent suite.**
 - [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
       The flash banner is fixed near the top of the page while every bid is made far down the
       board behind a centred modal. Seventeen messages take that path, the save-failure one

@@ -1791,3 +1791,139 @@ session (finding F-2): a message placed only at the TOP of the page is invisible
 scrolled down at the bidding board, which is where every bid is made. So the closed state
 must also be visible AT the week cards — greyed or locked, so nobody is invited to tap
 something that will not respond. Removing the pop-up must not leave a dead-feeling board.
+
+---
+
+## §79 — Approvals and denials are BLOCKED while bidding is open, not merely discouraged — 21 Aug 2026
+
+Owner, on the existing dialog warning: **"we currently have a warning not to do that, but
+blocking is better."** Confirmed in code the same turn: `adApprove` and `adDeny` consult
+nothing about bidding state — the readiness warning renders in the dialog body, but the
+click is not stopped. So this is a new guard, not a tightening of an old one.
+
+**Two conditions on how it is built, both from earlier audits of this repo:**
+
+**(a) One definition of "open", and it is the one that already survived an audit.** The
+phase-readiness check uses SERVER truth: the `biddingClosed` flag OR an enabled timer past
+its deadline. A comment at that check records the bug it was written for — a merely
+switched-OFF timer was treated as closed, the dashboard printed "Bidding is now closed",
+and every bidder could still write from devtools. A second, hand-rolled definition of open
+is how that bug returns. The block reuses the existing expression.
+
+**(b) Phase 4 runs in rounds all year — a false refusal is its own incident.** §72 spent an
+entire audit lens on refusals firing on legitimate admin flows. The refusal must name what
+is blocking it and which button clears it, never just say no.
+
+**This does NOT substitute for §77.** The decision cascade §77 removes happens AFTER bidding
+closes, which is exactly when deciding is legitimate. The two are complements: bids frozen
+by the close, projection made decision-blind by §77, so the projection at close is one fixed
+thing for the whole decision session — which is the natural anchor for the rewritten NE-1.
+
+---
+
+## §80 — NE-1 rewritten: the guarantee moves off the projection and onto the outcome — 21 Aug 2026
+
+Owner, asked whether this is the right replacement sentence: **"good."** NE-1 now reads:
+
+> **Nobody gets a week unless the frozen PROJECTION gave it to them, or the admin approved
+> them by name. Denying someone gives their spot to no one.**
+
+**Why it had to change.** The old NE-1 guarded against the engine promoting a weaker bid —
+deny the bid of 2 on a week with room for three, and the engine re-dealt the week so the bid
+of 4, which had lost fairly, became a projected winner. §77 removes the re-deal entirely: the
+projection is computed once from BIDS ALONE, and decisions are not an input to it. Promotion
+is impossible by construction, not by a test catching it. The four red suites are not finding
+a bug — they check for promotion by asserting a denied person is ABSENT from the projected
+list, and under §77 that person is still present, because the projected list never changes.
+They are speaking the old language.
+
+**What is now worth guarding** is the far side: that the DECIDED list is the frozen projection
+plus the admin's explicit decisions and nothing else. That is what the sentence above says,
+and it is what the suites get rewritten to.
+
+## §81 — VOCABULARY, BINDING EVERYWHERE: "projected" or "decided", never a bare "winner" — 21 Aug 2026
+
+Owner, after a run of confused explanations: **"You must always specify projected verse admin
+approved/denied. I 100% want the projection to remain the same. I have said this 1000 times."**
+
+Two different things share one word today, and that is the root of the confusion:
+
+- **PROJECTED** — what the engine computes from the bids. Frozen at phase close. Never changed
+  by an approval or a denial, ever (§77). This is the one the owner has repeatedly protected.
+- **DECIDED** — who actually gets the week: the projection, plus the admin's explicit
+  approvals, minus the people the admin denied.
+
+**The rule.** Every reference — in chat, in the repos, in commit messages, in test names and in
+on-screen copy — says which one it means. A bare "winner", "wins" or "winner list" is a defect,
+the same way a bare build number is.
+
+**On-screen shape, owner's own words (21 Aug):** *"If a projected winner is denied, the
+projection should say winning, and the result should say approved."* Two independent columns:
+the PROJECTED outcome (winning / losing / draw / review), which never moves, and the DECISION
+(approved / denied), which is the admin's. A row reading winning + denied is not a
+contradiction; a row reading losing + approved makes an override visibly an override.
+
+**A wrinkle Claude raised and the owner closed (21 Aug):** *"The auction cannot progress unless
+every single bid is either approved or denied. The admin must make a decision on every bid
+explicitly."* So the decision column is never blank at results time and needs no third word.
+**Consequence — §77 costs ZERO extra clicks:** under the old engine, denying a projected winner
+auto-promoted the next person, whom the admin then had to approve anyway. Under §77 that person
+stays projected-losing and the admin approves them by name. Same number of decisions either
+way. The only difference is that the PROJECTED list holds still while the admin works.
+
+## §82 — §77 acceptance conditions — 21 Aug 2026
+
+**(a) NO BADGE.** Owner, explicitly: *"No badge at all."* The earlier proposal to paint a
+"denied" marker on a row of the PROJECTED list is withdrawn. The decision column carries that
+information; the projected list gets no new ornament.
+
+**(b) The approve/deny page does not change.** Owner: *"I absolutely do not want the appearance
+or functionality of the admin approval/denial page to change."* Buttons, layout, wording and
+flow are untouched by §77.
+
+**(c) The ONE exception is the fix itself, and the owner wants it.** After a denial on a
+contested week the PROJECTED list stops rearranging. Claude put it to him that there is no
+version where the re-deal stops and the screen is identical in every case. His answer: *"I did
+notice that it was rearranging actually, and I don't like that part of it."* So the single
+visible change §77 makes is a change he asked for. This is the SECOND time he has caught this
+class of defect from the screen alone.
+
+**(d) VERIFIED 21 Aug — and it FOUND A DEFECT. The parked build is NOT ready to file.**
+Measured by running BOTH real engines (297 and the parked 298) on ~4,000 random week states
+and comparing the four repointed readouts. Result:
+
+- The two "approved FTE" unions and the cap-breach warning are **CORRECT**. They differ from
+  297 in 852 of 3,958 states, and in **zero** states where nothing was denied — i.e. they
+  differ only where 297 was re-dealing the week, which is the intended §77 change (c).
+- The **capacity readouts and the approve dialog's "how full is this week" are WRONG**: 2,864
+  of 3,958 states differ, in the dangerous direction. `weekLedger`'s `committedFte` is the
+  union of the frozen projection's winners and the decided winners — and it never subtracts
+  the DENIED. Under §77 the projection still lists denied people, so their FTE counts as
+  consuming the week. Worst measured case: a week of capacity 3 whose bidders were all denied
+  reports **0.2 remaining instead of 3** — a panel telling the admin a week is full when it is
+  empty. In 296/297 this could not happen, because the old engine removed denied bids from the
+  competitor set before `fteWon` was computed.
+- **ROOT CAUSE, one shape, applied unevenly.** §70 did two things — it filtered denials OUT of
+  the projection and promoted approvals IN. §77 removes both. The three consumers that were
+  hand-repointed each compensate for the half they needed. `weekLedger` was not given the
+  denial half, and the two consumers that read the ledger inherited the gap.
+- **THE FIX IS PROVEN, not guessed.** The harness tested the hypothesis directly: subtract the
+  denied inside `committedFte` and the differences fall from 2,864 to **852 — exactly matching
+  the two consumers that are already correct**, i.e. only the intended re-deal cases remain.
+  One line, in one function.
+- The harness itself should become a permanent suite when §77 lands: it is the honesty check
+  for the CONSUMERS, which the §77 invariance oracle does not cover. It models neither build —
+  it runs both and compares.
+
+**Superseded text (kept for the record):** it was previously listed as UNVERIFIED — The parked build repoints four
+callers of "how full is this week" onto `weekLedger`, including the capacity readouts and the
+over-cap warnings. Those may show different numbers, because they would count DECISIONS rather
+than the PROJECTION. Claude owes a precise before-and-after of every on-screen difference
+between admin 297 and the parked 298 before the owner commits. It is the only part of (b) that
+is not yet proven.
+
+**(e) `test-admin-294-engine.mjs` is RETIRED.** Owner: *"Yes, to question number four."* It
+tests the §70 re-dealing machinery that §77 deletes, so it cannot be repaired, only archived
+(to `_archive/tests/`, per the never-delete rule). The other three red suites —
+`test-engine-fuzz`, `test-never-events`, `test-priority-inversion` — are REWRITTEN to §80, not
+archived.
