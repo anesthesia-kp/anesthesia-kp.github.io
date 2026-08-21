@@ -82,8 +82,21 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       Fixed in `tests/sweep/`. **Still open: make the harness FAIL LOUDLY** (zero clicks on a
       site, or more page errors than clicks, must exit non-zero) — the same principle as §6's
       "a skipped honesty check is a failed gate".
-- [x] **RA-3/A-02 + A-06 · FILED (rules only, awaiting console publish): the two auction
-      documents that were readable without signing in are now gated** — the completed-phase
+- [x] **RA-3/A-02 + A-06 · DONE AND PROVEN (20 Aug, night): the two auction documents that
+      were readable without signing in are now gated.** **EXECUTED on the owner's Mac via
+      `tests/RA-2.command`: current rules 56/56 pass; honesty run against the pre-fix rules
+      at `d49cd15` = 50 passed / 6 failed, and the six failures are EXACTLY the six new
+      gates — "HONESTY: 6 of 6 new-gate assertions FAILED — GOOD, the gates are real."** The
+      three assertions that had to keep working (admin reads the archive, a registered bidder
+      reads welcomeLog for welcomeOnce, the welcomeLog write path) passed in BOTH runs, so
+      nothing was gated that the pages depend on. Rules-file correctness is therefore proven.
+      **The one thing still unproven is that the CONSOLE copy matches the repo copy** — the
+      emulator reads the repo file, and an outside-the-browser check is impossible while App
+      Check refuses un-tokened requests (it returned PERMISSION_DENIED even for the public
+      `phases` doc). To close it: open each console's Rules tab and eyeball two strings —
+      `'changesArchive'` at the end of the admin-read list, `'welcomeLog'` at the end of the
+      sensitive list. Both projects.
+      Original filing note: the two auction documents — the completed-phase
       decision archive to admins, the welcomed-address list to signed-in accounts. Two lines
       in `firestore.rules`, no page touched (owner ruling §76). **Publish in BOTH consoles
       BEFORE pushing, then double-click `tests/RA-2.command`** — it now runs the suite and
@@ -97,8 +110,17 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       changes. **Owner's idea:** drop the pop-up entirely and state "Phase closed" at the top
       of the page instead. Claude's caveat, from tonight's F-2 evidence: a banner at the TOP
       is invisible to someone scrolled down at the board, which is where every bid is made —
-      so the closed state should be visible AT the week cards too (greyed / locked, so nobody
-      is invited to tap), not only in a header. Decide the shape before building.
+      so the closed state should be visible AT the week cards too. **VERIFIED 20 Aug (night):
+      it already is.** Closing a phase calls `_lockEveryWeek()`, which locks all 52 weeks; the
+      staff board then paints every card at 50% opacity with `cursor:not-allowed`, a red tint
+      and a red "🔒 LOCKED" badge, and lists them under "Locked Weeks — No bid changes
+      allowed". So the board already reads as closed without any pop-up, and Claude's caveat
+      is satisfied by existing behaviour — **the pop-up can simply go.** Owner: "it actually
+      just gets in the way." BUILD SHAPE: remove the modal at the four click sites, correct
+      the six "auction has closed" strings and the banner to say the phase closed, and add
+      the plain "Phase closed" line at the top of the page. One residual worth a look, not a
+      blocker: there is a brief window during Close Phase where the closed flag is set but the
+      lock write has not landed, and the cards look normal until it does.
 - [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
       The flash banner is fixed near the top of the page while every bid is made far down the
       board behind a centred modal. Seventeen messages take that path, the save-failure one
