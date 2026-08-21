@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (overnight close) — WHERE-TO-START rewritten after the RA-3 audit and its clean-up wave. Queue = publish rules, run RA-2, push the wave; then §77, which needs a ruling.**
+**LAST REVISED: 21 Aug 2026 (midday) — the rules are PUBLISHED, RA-2 is EXECUTED (59/59, 7 of 7 honesty) and the wave is PUSHED. Queue head is now §77, which needs a ruling before any more code.**
 The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
 of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
 owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
@@ -51,21 +51,20 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (rewritten 21 Aug 2026, after the RA-3 audit and its clean-up wave).**
+> 🟢 **WHERE TO START (rewritten 21 Aug 2026 midday, after the wave went live).**
 >
-> **LIVE NOW: auction staff 160 / admin 296 / mobile 18 · schedule admin 76 / staff 36.**
-> **IN THE WORKING TREE, NOT PUSHED: staff 161 · admin 297 · firestore.rules · four test files.**
-> Verify before believing: `versions.json`, cache-busted, twice.
+> **LIVE NOW: auction staff 161 / admin 297 / mobile 18 · schedule admin 76 / staff 36.**
+> **All four repos clean and in sync with origin. Nothing is pending a push.**
+> Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug the first fetch
+> returned the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
 >
-> **THE FIRST THREE THINGS, IN ORDER.**
-> **(1) Publish the rules in BOTH consoles, then push.** A rules change is an auction deploy and
-> the console publish comes first. The pending change adds a CREATE branch to the quota-meter
-> clause — without it the CRNA meter under-reports from its first send and the 2,000-message
-> ceiling can arrive with the gauge looking healthy.
-> **(2) Double-click `tests/RA-2.command`.** It runs the rules suite and then the honesty check
-> against the pre-fix rules in one go. **Claude cannot run the emulator** — this is the only
-> proof the rules are right, and it is the standing step after ANY rules change.
-> **(3) Push the wave** (staff 161 / admin 297 / tests). Commit messages are prepared.
+> **THE LAST WAVE IS FINISHED — do not restart it.** Rules published in the console;
+> `tests/RA-2.command` EXECUTED on the owner's Mac (**current rules 59 passed / 0 failed;
+> honesty run against the pre-fix rules 52 / 7, and the 7 failures are EXACTLY the 7 new
+> gates**); `6bbb4af` (staff 161 · admin 297 · rules) pushed. **One residual, an eyeball:**
+> confirm the CONSOLE copy matches the repo copy in BOTH projects (`vacation-25e8e` and
+> `crna-vacation`) — `'changesArchive'` in the admin-read list, `'welcomeLog'` in the
+> sensitive list. The emulator reads the REPO file; it cannot see what Firebase enforces.
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
@@ -76,7 +75,7 @@ phase in flight) before doing anything.
 > readable by anyone with no sign-in: `changesArchive` (the whole approve/deny trail of every
 > completed phase, public from Complete Phase — which runs BEFORE results are e-mailed) and
 > `welcomeLog` (every participant's e-mail address in a trivially reversible encoding). Proven
-> on the owner's Mac: **56/56 current, and 6 of 6 new gates fail on the pre-fix rules.**
+> on the owner's Mac: **59/59 current, and 7 of 7 new gates fail on the pre-fix rules** (re-run 21 Aug, after the console publish and the push).
 >
 > **WHAT THE RA-3 DAY PRODUCED** (detail: HANDOFF + BUILD-LOG): a whole-project re-audit — ten
 > blind lenses, an adversarial skeptic per finding, a second skeptic on every CRITICAL/HIGH;
