@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 — rules-delivery rule EXTENDED and the commit-length cap RE-AFFIRMED (owner rulings, §3); prior revision: pre-dawn, audit complete.**
+**LAST REVISED: 21 Aug 2026 (session close) — WHERE-TO-START rewritten for RA-3; rules live+tested; queue = RA-3 then polish.**
 The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
 of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
 owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
@@ -51,107 +51,46 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (19 Aug 2026, close of the SECURITY session).**
-> **LIVE NOW: auction admin 284 / staff 151 / mobile 18 · schedule admin 74 / staff 35.**
-> All four repos pushed and in sync at the close of the session; no git locks. Verify live
-> before believing any of these — `versions.json`, cache-busted, twice if the first disagrees.
-> **✅ VERIFIED LIVE by the owner, 19 Aug:** signed in on the real site and the bidding board
-> populates normally on staff 151, and mail still sends after the EmailJS domain restriction.
-> Both were the outstanding checks; there are none left from this session.
+> 🟢 **WHERE TO START (rewritten at the close of 20 Aug 2026, the RA-1-fix + rulings day).**
+> **LIVE NOW: auction admin 296 / staff 158 / mobile 18 · schedule admin 76 / staff 36.**
+> All four repos pushed and in sync; owner verified the live boards populate after the
+> rules publish. Verify before believing: `versions.json`, cache-busted, twice.
 >
-> **THE THREE FACTS THAT GOVERN EVERYTHING BELOW.**
-> **(1) The auction is WEEKS from go-live, not days** (owner, 19 Aug). The rehearsal is over.
-> A window with no live auction is the right time for changes that would be reckless
-> mid-phase — and it closes at go-live.
-> **(2) The project is on Blaze pay-as-you-go with billing alerts.** The old hard-denial cliff
-> is gone; the failure mode is now a bill, not an outage.
-> **(3) APP CHECK IS ENFORCED on BOTH Firebase projects** (`crna-vacation` and
-> `vacation-25e8e`), Cloud Firestore only, never Firebase Auth. Requests that do not come from
-> the real pages are refused outright. Proven, not assumed: a second app instance built with
-> the same config but no App Check token is DENIED a document the page's own instance reads
-> fine. **If the site ever mysteriously stops working for someone, App Check is now a suspect
-> — and enforcement is a ONE-CLICK revert in the console.**
+> **THE FOUR FACTS THAT GOVERN EVERYTHING.**
+> **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
+> **(2) Blaze pay-as-you-go** — failure mode is a bill, not an outage.
+> **(3) App Check ENFORCED on both projects** (Firestore only, never Auth).
+> **(4) firestore.rules are HARDENED and EXECUTED-TESTED** — published in BOTH consoles
+> 20 Aug (FB-5 finished: no bid data world-readable; mailStats tamper-guarded) and proven
+> by the emulator suite, **45/45**, run on the OWNER'S Mac via the double-click
+> `tests/RA-2.command`. The VM battery still LOUD-SKIPS that one suite (jar+Java live on
+> the owner's Mac) — after ANY rules change, the owner double-clicks RA-2.command again.
 >
-> **WHAT THE 19 AUG SECURITY SESSION SHIPPED** (detail in `HANDOFF.md`, gates in the BUILD-LOGs):
-> App Check across all six pages · the reCAPTCHA badge shown, then HIDDEN at the owner's word
-> with Google's required attribution carried (DECISIONS §65/§66) · the login security box moved
-> so returning users see it (FB-6) · `vacations/schedule` — every participant's bids — gated
-> behind a verified sign-in and PUBLISHED (FB-5 stage 1) · the retired `passcodes` listener
-> deleted from both staff pages · six more board listeners moved behind sign-in (FB-5 stage 2
-> batch 1).
+> **WHAT THE 20 AUG DAY SHIPPED** (detail: BUILD-LOGs + HANDOFF): RA-1 re-audit (25
+> confirmed findings) → the fix wave staff 157–158 / admin 292–296 / schedule 36/76 →
+> owner rulings **§69–§74** (duplicates refused · admin edits re-stamp locks · §70
+> capacity-vs-policy denials · §71 THE BOUNDARY FORGETS · §72 FLOORS ABSOLUTE + NE-14 ·
+> rules-delivery presentation · commit-cap re-affirmed) → rules published both consoles →
+> RA-2 done. The ENGINE-RULES-REVIEW docx (32 rules) is the owner-approved spec.
 >
-> **⭐ THE OWNER'S OWN TOP ITEM, held high at his request — `TODO.md` §1, first entry:**
-> get real bidders to sign in this week, on their own phones and browsers, while enforcement
-> is ON and no auction is running. **Claude cannot do this and must not pretend otherwise** —
-> reCAPTCHA v3 gives a low-scoring real person no puzzle and no way through, silently, and one
-> machine passing proves nothing about 35 others.
+> **THE QUEUE HEAD IS RA-3 (TODO §1): re-audit the evening wave on the PUSHED bytes** —
+> diff `1bdcb23`→`d49cd15` (+ schedule `dc6b8cc`→`6d31b3e`, tests `2623c94`). Owner:
+> *"I need to keep doing this because we keep finding so many items."* Same §67 method;
+> batteries green first; fresh lens list in the TODO entry. POLISH items (RA-H2 live
+> check · Chrome walkthrough on current bytes · launch-eve restore drill) are queued
+> after it.
 >
-> **CLAUDE'S NEXT WORK, in order, none urgent:**
-> 1. **FB-5 stage 2 batch 2 — ✅ BUILT, staff 152, FILED 20 Aug, pending push.** Four
->    listeners moved (`locks` · `fteMap` · `bidPhase` · `slots`); `mailStats` was on the plan
->    in error (write-only on staff; admin already deferred). **`timer` remains — its own
->    build, last and alone** (it calls `startCountdownTick()`). After the owner pushes and
->    verifies live, gate documents ONE AT A TIME, never as a batch.
-> 2. **S5c** — the schedule grid filter bar. Scope is PINNED: name/text + coverage filters only.
->    The role/site half is still blocked and was re-confirmed on 19 Aug — role and site are
->    fields on SHIFTS, not on people.
-> 3. **A-AUDIT** — hold LIFTED 19 Aug evening; runs right after FB-5 batch 2 is pushed
->    (below). S5c moved to after the audit.
+> **⭐ THE OWNER'S OWN TOP ITEM, unchanged: real-bidder sign-ins** (16 of 37 never signed
+> in) — owner says "soon"; the window closes at go-live. Claude cannot do this. SEC-1
+> (private repos) deliberately deferred by the owner ("later").
 >
-> **OWED BY THE OWNER: ✅ NOTHING.** Two-factor on the admin Google account was confirmed ON
-> by the owner, 19 Aug 2026 — the last owner-owed item from the security session is closed.
-> (The get-bidders-to-sign-in item above is still open — it needs other people, not the owner
-> alone, and the window closes at go-live.)
->
-> ✅ **STANDING ORDER UPDATED, 19 Aug 2026 (evening): the A-AUDIT HOLD IS LIFTED.** Owner:
-> *"go with fb-5 … i'm also ready for the audit."* Agreed order: **FB-5 stage 2 batch 2 →
-> owner pushes → THE AUDIT** (on pushed bytes, so it sees the final security posture, timer
-> included). S5c waits until after. Audit scope EXPANDED the same turn — DECISIONS §67:
-> a MEGAFUZZ pass, a Chrome-controlled walkthrough of EVERY button (destructive/send actions
-> walked to their dialog and cancelled, never confirmed), and the 19 Aug security work
-> (App Check, logins, reCAPTCHA, rules) as a fifth focus. Brief: `TODO.md` §1 A-AUDIT.
-> **20 Aug addendum:** owner — *"I want a new session for my audit."* Do NOT start the audit
-> here; a fresh session runs PW-1 first (harness stub), then the baseline, then the brief.
->
-> **Reality check for a fresh session, so the history reads honestly.** The original order
-> (18 Aug) was *"the vacation site is complete in terms of build… I want the next session to
-> perform a full audit with multiple claudes and adversarial review… focus on critical and
-> high findings that could lead to trouble during the real auction."* That is still the
-> brief. But on **19 Aug the owner reopened the queue five times in one evening**, each time
-> for a defect HE found by using the site (builds 276 → 280 / staff 145 — see
-> `HANDOFF.md` §5b). None of it was audit work. **The pattern to expect: the owner tests, he
-> finds real things, and he will ask for a fix on the spot.** That is legitimate and it
-> outranks the audit when he asks — but each fix is still a §3 build with its own "go",
-> its suite, its executed honesty check and both batteries. Do not let "we're mid-audit"
-> become a reason to lower that bar, and do not let a string of small fixes quietly become
-> a reason never to run the audit.
->
-> **The full brief — scope, priority order, the CRNA question, the deliverable — is
-> `TODO.md` §1 `A-AUDIT`.** Read it before anything else. How an audit runs here, because it
-> is not how a build runs:
-> - **Audit the PUSHED bytes, not the working tree** — `versions.json` cache-busted first,
->   then BOTH batteries green as the baseline, so a failure means a finding.
-> - **Fan out, then refute.** Independent reviewers, one lens each, blind to each other;
->   every candidate finding then handed to a separate skeptic whose job is to KILL it
->   against the real code. Survives = report it. No line and no auction-day consequence =
->   drop it, do not soften it. A padded list is how a real CRITICAL gets skimmed.
-> - **CRITICAL/HIGH is the headline** (lost or corrupted bid · mis-awarded week · wrong
->   mass mail · people locked out mid-phase · wrong numbers the owner would act on).
->   MEDIUM/LOW live in an appendix. Shape only, never a reproduction — the repos are PUBLIC.
-> - **Include the HUMAN lens (added 19 Aug, after the owner found two defects a code-reading
->   pass would have missed or downgraded).** Both were code doing exactly what it said, where
->   what it said was wrong for a person: a settings row that moved to a line the admin never
->   typed on, and a log line reading "bid for ALL on Wk 0 · undefined undefined NaN". So one
->   reviewer must EXECUTE the render functions against a DOM shim and read the produced
->   markup as a person would — and **"the screen tells the admin or a bidder something
->   untrue" is HIGH**, even with no data lost and no bid affected. Under the old bar the
->   first of those would have been logged cosmetic and killed by a skeptic. That was wrong.
-> - **The audit produces a LIST, not commits.** Every fix that follows is a separate
->   smallest-change build with its own "go", its suite and its honesty check (§3). Priority
->   focus, owner's words: **calendar, timer, bid lowerings, bid floors** — *"Focus on those,
->   but look at everything."* The schedule site is OUT of scope except where it touches
->   vacation, and the CRNA site must be PROVEN clean of the MD site, not asserted.
-
+> **Reality check for a fresh session.** The pattern held again on 20 Aug: the owner
+> reads, tests, and finds real things (dead-bid design, absolute floors, a commit-cap
+> drift Claude committed the very day after the cap). Every owner-found item outranks the
+> queue when he raises it — and each fix is still a §3 build with its own "go", suite,
+> EXECUTED honesty check and both batteries. **Count commit-message lines before sending
+> (§74).** Note for honesty: the final 20 Aug push crossed two commit LABELS (tests ↔
+> docs); content correct, recorded in HANDOFF, never rewritten.
 ## 2 · THE TWO SITES, AND WHAT THEY SHARE
 
 **Vacation Auction** — `vacation-kp.github.io`, served at

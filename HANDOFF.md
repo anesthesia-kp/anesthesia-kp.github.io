@@ -1099,3 +1099,19 @@ rules per run), and two vacuous one-key mailStats seeds (now two-month seeds —
 refusals are genuinely proven). Scope: jar+Java live on the owner's Mac; VM batteries
 still show the loud skip — re-runs are one double-click, always against live repo bytes.
 Repo state: tests + anesthesia carry uncommitted changes (commit file in outputs).
+
+
+---
+
+# SESSION CLOSE — 20 Aug 2026 (night). Owner verdict: "yet another whirlwind."
+
+Everything pushed and owner-verified live (auction 158/296 · schedule 36/76; boards
+populate normally after the rules publish). RA-2 DONE 45/45. Owner status: sign-in
+campaign "soon"; SEC-1 (private repos) "later"; polish items kept on the list (TODO).
+**NEXT SESSION = RA-3** (TODO §1 queue head): re-audit the evening wave on the pushed
+bytes — baselines `d49cd15` / `6d31b3e` / `2623c94`, prior audited bytes `1bdcb23` /
+`dc6b8cc`. NOTE for the record (never rewrite): the final push's commit messages got
+SWAPPED — the tests repo carries the docs message and anesthesia carries "todo".
+Content is correct in both; only the labels crossed. Day's totals: RA-1 (25 findings) →
+24 fixed + 2 rules-closed across 9 builds · rulings §69–§74 · rules published BOTH
+consoles + executed-tested · batteries at close 42/1,765 + sched 6 green/21 skipped.
