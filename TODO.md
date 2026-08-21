@@ -71,6 +71,31 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       anything still readable pre-sign-in) ⑥ the SUITE changes themselves — did any
       spec-pin update quietly weaken an oracle? ⑦ Edit Selections archive view + NE-14
       banner truthfulness (human lens).
+- [x] **RA-3 · re-audit RUN 20 Aug (evening).** Batteries green on the pushed bytes first:
+      auction **42 suites / 1,765 assertions**, schedule **27/27**; rules-emulator loud-skipped
+      as designed (owner's Mac, `tests/RA-2.command`). Live Chrome walkthrough of the staff and
+      admin sites done, plus one real end-to-end bid write (edited and put back; one lowering
+      spent). **Full findings live in the PRIVATE tests repo: `tests/docs/RA-3-INTERIM-2026-08-20.md`
+      — not here, by §67.** Twelve items confirmed; by shape only:
+- [ ] **RA-3/F-1 · FILED (this build): the sandbox button sweep had stopped exercising anything**
+      once App Check was added — one un-faked import took every page handler with it, quietly.
+      Fixed in `tests/sweep/`. **Still open: make the harness FAIL LOUDLY** (zero clicks on a
+      site, or more page errors than clicks, must exit non-zero) — the same principle as §6's
+      "a skipped honesty check is a failed gate".
+- [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
+      The flash banner is fixed near the top of the page while every bid is made far down the
+      board behind a centred modal. Seventeen messages take that path, the save-failure one
+      included. The centred-alert mechanism already in the page is the fix.
+- [ ] **RA-3/F-3…F-12 · the remaining ten** — a mislabelled timer control on the admin dashboard;
+      a bid pool that offers numbers the week cap will refuse; a destructive dialog whose buttons
+      sit in the opposite order to every other dialog; the sweep never reaching the week cards
+      (which are also not keyboard-reachable); the retired vocabulary surviving in one admin
+      panel plus three names for one concept; a false positive in `audit-handlers`; an
+      adversarial-audit file left in a PUBLIC repo; two personal e-mails hard-coded in the public
+      staff page; a first-click-does-nothing on the sign-in button; and a short copy list.
+      **Each is its own §3 build: its own go, suite, EXECUTED honesty check, both batteries.**
+- [ ] **RA-3 · the 10-lens adversarial agent sweep was still running at session close** — its
+      findings are NOT in the interim report. Pick them up next session.
 - [ ] **ARCH-1 · Move the schedule site to its OWN Firebase project? (owner asked 20 Aug;
       Claude: yes in principle, not now).** Buys: separate bills (kills the FB-3 runaway
       risk), per-site rules deploys (kills most of LP-1 freeze ①), and the cardinal rule
