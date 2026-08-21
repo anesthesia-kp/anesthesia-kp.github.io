@@ -1991,3 +1991,50 @@ subject plus at most 4 short lines, ~50 words), they are still delivered to the 
 every time they change, and every build still gets its BUILD-LOG row written in the same breath
 as the code. The ruling is about what happens when a prepared message does not make it into the
 commit box — not about writing worse ones.
+
+## §84 — THE AUDIT CHARTER for the next session: serious harm only — 21 Aug 2026
+
+Owner, closing the 21 Aug session: **"I want the next session to audit only for bugs that could
+directly harm the vacation auction. I am not after cosmetic or wording things at this time, only
+serious problems."**
+
+This supersedes the scope of every prior audit. The §67 METHOD is unchanged — batteries green on
+the PUSHED bytes first, blind lenses, an adversarial skeptic per finding, a second skeptic on
+anything CRITICAL or HIGH, the human lens mandatory, report kept OUT of the public repos. What
+changes is what counts as a finding.
+
+**IN SCOPE — a defect qualifies only if it can produce one of these:**
+1. **A wrong outcome.** Someone gets a week they should not have, or loses one they should have.
+2. **Lost or corrupted bid data.** A bid silently not saved, overwritten, or destroyed; a
+   decision that vanishes; an archive that does not match what was announced.
+3. **A locked-out bidder.** Someone who cannot sign in, cannot bid, or cannot change a bid when
+   the rules say they may — including App Check refusing a legitimate person.
+4. **Wrong or missing mail.** Results to the wrong people, wrong contents, sent twice, or never
+   sent; the quota exhausted so real mail stops.
+5. **Exposure.** Bid data, e-mail addresses or decisions readable by someone who should not see
+   them, or visible BEFORE results are announced.
+6. **An unguarded destructive action.** Any one-click path that erases or overwrites auction
+   state without a dialog AND a guard at the moment of action.
+7. **A stuck auction.** A phase or round that cannot be completed, or state that corrupts so the
+   year cannot finish.
+8. **A runaway bill or an outage** from listener or write volume.
+
+**OUT OF SCOPE — do not raise, do not build, do not re-verify:** wording, labels, copy, tone,
+layout, spacing, colour, tooltips, naming consistency, keyboard reachability, console noise,
+dead code, and every other cosmetic or ergonomic item. The 10 MEDIUM and the LOW/NIT tail
+already listed in TODO stay listed and stay UNWORKED.
+
+**THE ONE CARVE-OUT, and it is deliberate.** Wording is in scope when the words cause a wrong
+ACTION — a destructive button that does not say what it destroys, a dialog whose buttons invite
+the wrong click, a screen that states the opposite of what the system will do. That is not
+cosmetic; it is a defect wearing a copy costume. Judge by consequence, never by category.
+
+**What to do with a non-qualifying finding:** one line in the audit report's appendix, no
+verification effort, no build. Do not spend a skeptic on it.
+
+**WHERE TO LOOK FIRST.** Admin **298** and **299** shipped 21 Aug and have never been audited by
+anybody. 298 changed what the engine means (the projection is frozen; decisions live in their own
+ledger) and repointed four capacity readouts — one of which was already found wrong before it
+shipped, which is evidence the blast radius of that change is real. 299 added a REFUSAL to five
+decision paths, and a refusal that fires when it should not is exactly the §72 failure mode.
+Those two builds are the hottest bytes in the repo.

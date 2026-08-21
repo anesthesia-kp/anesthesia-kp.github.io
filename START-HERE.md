@@ -1,24 +1,22 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (midday) — the rules are PUBLISHED, RA-2 is EXECUTED (59/59, 7 of 7 honesty) and the wave is PUSHED. Queue head is now §77, which needs a ruling before any more code.**
-The A-AUDIT ran 20 Aug (22 verified findings, 0 refuted; report with the owner, kept out
-of the public repos); the MD Chrome walkthrough passed (§68). Same day + overnight, under
-owner rulings, EVERYTHING was built: all 4 CRITICALs, all 13 HIGHs, the 1 MEDIUM and all
-5 LOWs, W-1 and W-2, the guessable staged builds archived, the crna-stamp guard v2, and
-the first firestore.rules emulator suite (skips loudly until its one-time jar fetch —
-RA-2). Builds: staff 153–156 · admin 285–290 · schedule admin 75. Pushed through
-`d619afe` (staff 155 / admin 289 live); 156/290/75 + tests + docs PENDING the owner's
-morning push — the combined COMMIT-MESSAGES file in the 20 Aug session's outputs is FINAL.
-Batteries at close: auction 34 suites / 1,638 · schedule 26, all green.
-**THE QUEUE HEAD IS RA-1 (TODO §1): the owner ordered a RE-AUDIT of the entire 20 Aug fix
-wave in the next session — audit the freshly PUSHED bytes, same §67 method.** Also ⭐
-real-bidder sign-ins (16 of 37 never signed in) stay the owner's top personal item.
-(Session account: HANDOFF 20 Aug. Earlier same day: §6 cost-gate rule; PW-1 fixed.)** (Structure rewritten 17 Aug to one copy of every rule;
-substantially revised 19 Aug — §1 gained the where-to-start block and the audit hold, §3
-gained the commit-length cap, §4 gained the explicit-SHA fixture rule, §6 gained the
-skipped-honesty rule and the run-on-device route; §1 rewritten AGAIN at the close of 19 Aug
-after a long security session — App Check is now ENFORCED on both Firebase projects, the bid
-data is no longer world-readable, and the where-to-start block below was replaced wholesale.)
+**LAST REVISED: 21 Aug 2026 (close) — §77 shipped as admin 298 and §79 as admin 299, both PUSHED and live. Nothing is outstanding in the repos. THE NEXT SESSION IS AN AUDIT WITH A NARROW SCOPE — serious harm only, DECISIONS §84.**
+**Everything is pushed and live: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 /
+staff 36.** All four repos clean and in sync, no locks. Batteries at close: auction **48 suites /
+1,881 assertions**, schedule **27/27 in-cloud with zero skipped**. Nothing is outstanding in the
+repos.
+
+**THE QUEUE HEAD IS AN AUDIT WITH A NARROW SCOPE — read DECISIONS §84 first, it is binding.**
+Owner, 21 Aug: only bugs that could DIRECTLY HARM the vacation auction; cosmetic and wording items
+are not findings. Start on admin **298** and **299** — they shipped 21 Aug and nobody has audited
+them. Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
+and cannot be delegated.
+
+(Session account: HANDOFF 21 Aug. Structure rewritten 17 Aug to one copy of every rule; revised
+19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the
+cost gate, App Check enforced on both projects; 20 Aug — the A-AUDIT wave and the rules emulator
+suite; 21 Aug — §77 froze the projection, §79 blocked decisions during open bidding, and §80–§84
+were ruled. Older narrative lives in HANDOFF, not here.)
 
 > ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
 > reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
@@ -51,20 +49,36 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (rewritten 21 Aug 2026 midday, after the wave went live).**
+> 🟢 **WHERE TO START (rewritten 21 Aug 2026 at the close of the §77/§79 session).**
 >
-> **LIVE NOW: auction staff 161 / admin 297 / mobile 18 · schedule admin 76 / staff 36.**
-> **All four repos clean and in sync with origin. Nothing is pending a push.**
-> Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug the first fetch
-> returned the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
+> **LIVE NOW: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 / staff 36.**
+> **All four repos clean and in sync. NOTHING is pending a push.**
+> Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
+> the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
 >
-> **THE LAST WAVE IS FINISHED — do not restart it.** Rules published in the console;
-> `tests/RA-2.command` EXECUTED on the owner's Mac (**current rules 59 passed / 0 failed;
-> honesty run against the pre-fix rules 52 / 7, and the 7 failures are EXACTLY the 7 new
-> gates**); `6bbb4af` (staff 161 · admin 297 · rules) pushed. **One residual, an eyeball:**
-> confirm the CONSOLE copy matches the repo copy in BOTH projects (`vacation-25e8e` and
-> `crna-vacation`) — `'changesArchive'` in the admin-read list, `'welcomeLog'` in the
-> sensitive list. The emulator reads the REPO file; it cannot see what Firebase enforces.
+> **THE NEXT SESSION IS AN AUDIT, AND ITS SCOPE IS DELIBERATELY NARROW.** Owner, 21 Aug: *"I want
+> the next session to audit only for bugs that could directly harm the vacation auction. I am not
+> after cosmetic or wording things at this time, only serious problems."* **DECISIONS §84 is the
+> charter and it is binding; TODO §1 carries the qualifying list.** In short: a finding counts only
+> if it can cause a wrong outcome, lost bid data, a locked-out bidder, wrong or missing mail,
+> exposure, an unguarded destructive action, a stuck auction, or a runaway bill. Wording, labels
+> and layout are NOT findings — one appendix line, no skeptic, no build — EXCEPT where the words
+> cause a wrong action, which is a defect wearing a copy costume. The §67 method is unchanged.
+>
+> **Look at admin 298 and 299 first. Nobody has audited them.** 298 changed what the engine MEANS
+> (the projection is frozen from the bids alone; approvals and denials live in their own ledger)
+> and repointed four capacity readouts — one of which was already found wrong before it shipped,
+> so the blast radius is proven, not hypothetical. 299 added a REFUSAL to five decision paths, and
+> a refusal that fires when it should not is the §72 failure mode.
+>
+> **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
+> 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
+> bare word "winner" (§81), and a thin commit subject is acceptable because the BUILD-LOG row is
+> the real summary (§83).
+>
+> **⭐ THE OWNER'S OWN TOP ITEM, unchanged and still undone: real-bidder sign-ins** (16 of 37 have
+> never signed in). App Check is ENFORCED and has been tested by nobody but him. No audit can do
+> this, and the window closes at go-live.
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.

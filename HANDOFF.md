@@ -65,6 +65,11 @@ the pre-§77 build fails. Two new suites: `test-admin-298-frozen` (17/17) and
 five suite changes + two new suites + one archive (tests), the BUILD-LOG row (schedule),
 DECISIONS §79-§82 + TODO + STATUS (anesthesia).
 
+**Everything in this entry is PUSHED and live** — `2cd6a55` (admin 298 and 299 in one commit,
+CRNA restamped), suites `985e9b4`, docs `8f99769`/`579e7e8`, BUILD-LOG `f643c31`. Live
+`versions.json` verified twice at admin 299 / staff 161 / mobile 18. Auction battery 48 suites /
+1,881 assertions; schedule 27/27 in-cloud with zero skipped.
+
 **§79 shipped the same session, as admin 299.** Approvals and denials are now BLOCKED while
 bidding is open rather than warned about. The expression that decides "is bidding open" was
 LIFTED into one named function shared by the readiness check and the new guard, because the bug
@@ -1425,3 +1430,19 @@ SWAPPED — the tests repo carries the docs message and anesthesia carries "todo
 Content is correct in both; only the labels crossed. Day's totals: RA-1 (25 findings) →
 24 fixed + 2 rules-closed across 9 builds · rulings §69–§74 · rules published BOTH
 consoles + executed-tested · batteries at close 42/1,765 + sched 6 green/21 skipped.
+
+**How the session ENDED, and what the next one is for.** The owner set the scope himself: *"I want
+the next session to audit only for bugs that could directly harm the vacation auction. I am not
+after cosmetic or wording things at this time, only serious problems."* That is DECISIONS **§84**,
+the queue head in TODO §1, and the where-to-start block in START-HERE. The §67 method is unchanged;
+only what counts as a finding changed. **The temptation a fresh session must resist is the one that
+has bitten every previous audit: a long tail of true-but-trivial findings that consume the
+skeptics' effort and the owner's attention.** A non-qualifying item gets ONE appendix line and no
+verification. The 10 MEDIUM and the LOW/NIT tail stay listed and stay unworked.
+
+**And the honest note for whoever audits next: admin 298 and 299 have been audited by nobody.**
+298 changed the MEANING of the engine's output and repointed four capacity readouts — the
+pre-commit differential caught one of them already wrong, before it shipped, which is the best
+available evidence that this change's blast radius is real rather than theoretical. 299 added a
+refusal to five decision paths; a refusal that fires when it should not is §72's failure mode and
+is invisible until an admin is blocked at the worst moment. Start there.
