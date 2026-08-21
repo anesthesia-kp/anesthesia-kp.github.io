@@ -40,34 +40,46 @@ Suites on disk: auction **48** (`tests/test-*.mjs`) · schedule **27**
 > ZERO skipped**. All four §77 questions answered (DECISIONS §80/§81/§82) and the pre-commit check
 > caught a real defect before it shipped (§82d).
 
-## 🔴 QUEUE HEAD — THE NEXT SESSION IS AN AUDIT, AND ITS SCOPE IS NARROW (DECISIONS §84)
+## 🔴 QUEUE HEAD — RA-4 IS DONE. FOURTEEN FINDINGS STAND AND NONE IS BUILT. AWAITING A RULING.
 
-> **Owner, 21 Aug 2026, verbatim:** *"I want the next session to audit only for bugs that could
-> directly harm the vacation auction. I am not after cosmetic or wording things at this time, only
-> serious problems."*
+> **The §84/§85 audit ran on 21 Aug (evening) against the pushed bytes `2cd6a55`.** Batteries green
+> first: auction **48 suites / 1,878 assertions**, zero skips. Ten blind lenses → 27 candidates →
+> twelve adversarial skeptics, two on every CRITICAL and HIGH, all told to default to REFUTED.
+> **27 raised → 6 refuted → 7 demoted below the floor → 14 stand: 5 HIGH, 9 MEDIUM. No CRITICAL
+> survived two skeptics.**
 >
-> **Read DECISIONS §84 before starting — it is the charter, and it is binding.** The §67 METHOD is
-> unchanged (batteries green on the PUSHED bytes first · blind lenses · a skeptic per finding · a
-> second skeptic on CRITICAL/HIGH · human lens mandatory · report OUT of the public repos). What
-> changed is what counts as a finding.
+> **The findings live in the PRIVATE tests repo: `tests/docs/RA-4-2026-08-21.md`.** They are NOT
+> reproduced here — these repos are public and defects are described by shape only (§3).
 >
-> **A defect qualifies ONLY if it can cause:** a wrong outcome (someone gets or loses a week they
-> should not) · lost or corrupted bid data · a bidder locked out of signing in or bidding · wrong,
-> duplicated or missing results mail · exposure of bids, addresses or decisions · an unguarded
-> destructive action · an auction that cannot progress · a runaway bill or outage.
+> **NOTHING HAS BEEN BUILT AND NOTHING SHOULD BE UNTIL THE OWNER RULES.** §85 forbids a finding
+> licensing neighbouring changes; the owner decides which of the fourteen, if any, are worth a
+> build, and in what order.
 >
-> **NOT findings:** wording, labels, copy, layout, colour, tooltips, naming, keyboard reach,
-> console noise, dead code. One line in an appendix, no skeptic, no build. **The 10 MEDIUM and the
-> LOW/NIT tail below stay listed and stay UNWORKED.**
+> **The five HIGH ones, by shape:**
+> 1. Build 298 repointed three consumers of the projection onto the ledger. **Five more were
+>    missed** — including the approve dialog, both decision-panel capacity headers, and the two
+>    helpers that WRITE week locks. Same defect class the owner measured and fixed himself in
+>    §82(d), in consumers nobody checked. Measured, not asserted: a skeptic reproduced his worst
+>    case verbatim and swept 4,000 states.
+> 2. A bid write that never reaches the server is **painted onto the board** and lost with the tab.
+>    Proven by running the real client offline, not by reading the code.
+> 3. A refused or failed bid save writes its message into a dialog that is closed in the same
+>    breath — **the bidder is shown nothing at all.** Proven in a DOM harness over the real code.
+>    This is the path an App-Check-refused device lands on.
+> 4. The results-mail ledger **survives a restore**, so a re-announced phase or round can mail
+>    nobody and report success. No remedy short of Reset Auction.
+> 5. A published archive is world-readable and carries more than the outcomes it is meant to
+>    publish.
 >
-> **The one carve-out:** wording IS in scope when the words cause a wrong ACTION — a destructive
-> button that does not say what it destroys, a dialog that invites the wrong click, a screen
-> stating the opposite of what will happen. Judge by consequence, not by category.
+> **Two of the fourteen cost nothing to settle and need no build — see the report's M-4 and the
+> housekeeping notes.**
 >
-> **Look here first: admin 298 and 299.** They shipped 21 Aug and NOBODY has audited them. 298
-> changed what the engine means and repointed four capacity readouts — one was already found wrong
-> before it shipped, so the blast radius is proven real. 299 added a REFUSAL to five decision
-> paths, and a refusal firing when it should not is the §72 failure mode.
+> **What was REFUTED is recorded in the report too**, so a later session does not re-raise it.
+
+## ✅ DONE 21 Aug (evening) — the §84/§85 audit itself
+- [x] **RA-4 · narrow-scope audit of the whole vacation auction.** Charter: DECISIONS §84 as
+      sharpened by **§85** (no can of worms; whole vacation project, emphasis on recent updates).
+      Batteries green on the pushed bytes first. Report filed PRIVATE. Zero code changes.
 
 
 ## ⭐ OWNER ACTION, HELD HIGH BY HIS OWN REQUEST — 19 Aug 2026: GET PEOPLE TO LOG IN

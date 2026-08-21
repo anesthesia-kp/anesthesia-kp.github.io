@@ -2038,3 +2038,30 @@ ledger) and repointed four capacity readouts — one of which was already found 
 shipped, which is evidence the blast radius of that change is real. 299 added a REFUSAL to five
 decision paths, and a refusal that fires when it should not is exactly the §72 failure mode.
 Those two builds are the hottest bytes in the repo.
+
+
+## §85 — AUDIT SCOPE, SHARPENED: no can of worms; whole vacation project, recent updates first — 21 Aug 2026
+
+Owner, opening the audit session, verbatim: **"The most important thing about this audit is that
+i don't want to open a can of worms that leads to small changes that never end. I only want to
+look for major bugs that could directly create trouble for the auction. ignore the small stuff."**
+
+And, on breadth, verbatim: **"review the entire project - vacation only with emphasis on recent
+updates."**
+
+This does not replace §84; it adds the containment rule §84 lacked and settles the breadth.
+
+**BREADTH:** the WHOLE vacation auction — staff, admin and mobile — not only the two unaudited
+builds. The Daily Schedule is OUT (§75 stands). Emphasis, not exclusivity, on the recent wave:
+admin 298 and 299 first, then the rest of the auction.
+
+**CONTAINMENT — the new rule.** A finding is judged ALONE, on its own capacity to cause §84 harm.
+It does not license neighbouring tidy-ups, refactors, consistency sweeps or "while we are in
+here" changes. If fixing a qualifying defect appears to require a wider change, that is not a
+licence to make the wider change: STOP, say so, and let the owner rule. The failure mode this
+forbids is the one he named — a real finding becoming a cascade of small ones that never ends.
+
+**Consequence for the report:** the report lists what could cause serious harm and nothing else.
+No "consider also" section, no ranked backlog of minor items, no re-litigation of the 10 MEDIUM
+or the LOW/NIT tail. An appendix line for a non-qualifying item is the ONLY place small stuff may
+appear, and it carries no recommendation.

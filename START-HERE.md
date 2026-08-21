@@ -1,15 +1,18 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (close) — §77 shipped as admin 298 and §79 as admin 299, both PUSHED and live. Nothing is outstanding in the repos. THE NEXT SESSION IS AN AUDIT WITH A NARROW SCOPE — serious harm only, DECISIONS §84.**
+**LAST REVISED: 21 Aug 2026 (evening) — the §84/§85 AUDIT HAS RUN. 14 findings stand (5 HIGH, 9 MEDIUM); NOTHING IS BUILT and nothing should be until the owner rules. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
 **Everything is pushed and live: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 /
-staff 36.** All four repos clean and in sync, no locks. Batteries at close: auction **48 suites /
-1,881 assertions**, schedule **27/27 in-cloud with zero skipped**. Nothing is outstanding in the
-repos.
+staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 21 Aug evening on
+the pushed bytes: **48 suites / 1,878 assertions, zero skips** (recorded as 1,881 at the close of
+the previous session — same suites, same result, worth reconciling once).
 
-**THE QUEUE HEAD IS AN AUDIT WITH A NARROW SCOPE — read DECISIONS §84 first, it is binding.**
-Owner, 21 Aug: only bugs that could DIRECTLY HARM the vacation auction; cosmetic and wording items
-are not findings. Start on admin **298** and **299** — they shipped 21 Aug and nobody has audited
-them. Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
+**THE QUEUE HEAD IS A RULING, NOT A BUILD — read `TODO.md` §1, then the private report.**
+The audit ordered on 21 Aug is DONE: ten blind lenses, twelve adversarial skeptics (two on every
+CRITICAL and HIGH), 27 raised → 6 refuted → 7 demoted → **14 stand, no CRITICAL surviving two
+skeptics**. §85 forbids a finding licensing neighbouring tidy-ups, so the owner picks which of the
+fourteen are worth a build and in what order. Two of them cost nothing to settle and need no code.
+**Do not describe any of them by reproduction in these repos — they are PUBLIC (§3).**
+Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
 and cannot be delegated.
 
 (Session account: HANDOFF 21 Aug. Structure rewritten 17 Aug to one copy of every rule; revised
@@ -56,20 +59,24 @@ phase in flight) before doing anything.
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
 > the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
 >
-> **THE NEXT SESSION IS AN AUDIT, AND ITS SCOPE IS DELIBERATELY NARROW.** Owner, 21 Aug: *"I want
-> the next session to audit only for bugs that could directly harm the vacation auction. I am not
-> after cosmetic or wording things at this time, only serious problems."* **DECISIONS §84 is the
-> charter and it is binding; TODO §1 carries the qualifying list.** In short: a finding counts only
-> if it can cause a wrong outcome, lost bid data, a locked-out bidder, wrong or missing mail,
-> exposure, an unguarded destructive action, a stuck auction, or a runaway bill. Wording, labels
-> and layout are NOT findings — one appendix line, no skeptic, no build — EXCEPT where the words
-> cause a wrong action, which is a defect wearing a copy costume. The §67 method is unchanged.
+> **THAT AUDIT HAS RUN, AND ITS RESULT IS THE QUEUE HEAD.** Ordered 21 Aug — owner: *"I want the
+> next session to audit only for bugs that could directly harm the vacation auction… only serious
+> problems"* — and sharpened the same evening by **§85**: *"I don't want to open a can of worms
+> that leads to small changes that never end"*, whole vacation project, emphasis on recent updates.
+> **DECISIONS §84 + §85 are the charter. Both stay binding for whatever gets built next.**
 >
-> **Look at admin 298 and 299 first. Nobody has audited them.** 298 changed what the engine MEANS
-> (the projection is frozen from the bids alone; approvals and denials live in their own ledger)
-> and repointed four capacity readouts — one of which was already found wrong before it shipped,
-> so the blast radius is proven, not hypothetical. 299 added a REFUSAL to five decision paths, and
-> a refusal that fires when it should not is the §72 failure mode.
+> **RA-4, 21 Aug evening.** Batteries green on the pushed bytes first (48 suites / 1,878
+> assertions, zero skips). Ten blind lenses → 27 candidates → twelve adversarial skeptics, two on
+> every CRITICAL and HIGH, all told to default to REFUTED. **27 raised → 6 refuted → 7 demoted
+> below the scope floor → 14 stand: 5 HIGH, 9 MEDIUM. No CRITICAL survived two skeptics.**
+> Two skeptics worked EMPIRICALLY rather than by re-reading — one ran the real engine functions
+> over ~9,000 week states, one ran the real Firebase client offline and drove the real dialog code
+> in a DOM harness. Three of the five HIGH findings rest on what those two OBSERVED, and one of
+> them reproduces the owner's own §82(d) worst case verbatim in consumers nobody repointed.
+>
+> **Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`. Nothing is built, and nothing should be
+> until the owner rules which findings are worth a build** — §85 forbids one finding licensing its
+> neighbours. What was REFUTED is recorded there too, so nobody re-raises it.
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
 > 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
@@ -99,13 +106,10 @@ phase in flight) before doing anything.
 > (schedule deferred · fix data exposure only when cheap · **§77 projections never change** ·
 > repo visibility closed for now + the closed-phase pop-up removed).
 >
-> **THE QUEUE HEAD IS §77, AND IT NEEDS A RULING BEFORE ANY MORE CODE.** The engine work is
-> built, green and parked at `_to_delete/xfer/s77b/` — the §70 apparatus deleted, the ledger
-> in, four consumers repointed, its own suite 17/17 with an invariance oracle that cannot
-> inherit the engine's blind spot. Four never-event suites stay red because their invariant is
-> written against the OLD meaning of the projection. **What NE-1 means now is safety policy,
-> not implementation** — see TODO for the exact question. Claude stopped rather than rewrite a
-> never-event unattended, because that is precisely how the old oracle went blind.
+> **§77 AND §79 ARE DONE — that paragraph is history now.** They shipped as admin 298 and 299 on
+> 21 Aug and are live. The NE-1 question they raised was answered by the owner as §80, and the
+> acceptance conditions are §82. Kept here only so a fresh session does not go looking for parked
+> work at `_to_delete/xfer/s77b/`: there is none.
 >
 > **AFTER THAT, THE OWNER'S STANDING DECISION (21 Aug): NO MORE SMALL ITEMS.** He judged the
 > chase endless and is right. The remaining list is 10 MEDIUM and the LOW/NIT tail; 10 LOW/NIT
