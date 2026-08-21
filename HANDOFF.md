@@ -1000,3 +1000,80 @@ FRESH session; PW-1 first. 2FA on the admin Google account: confirmed ON by the 
 
 **For the audit session:** everything it needs is in TODO §1 (A-AUDIT brief + PW-1) and
 START-HERE. Baseline = both batteries green in-cloud AFTER PW-1; audit the pushed bytes.
+
+
+---
+
+# HANDOFF — 20 Aug 2026 (day session): build 291 · RA-2 attempt · RA-1 RE-AUDIT
+
+**Owner found two Edit Selections defects** ("1 more example of me finding 2 things you
+didn't"): duplicate bid # via admin → both weeks lose (engine I2 working as designed, entry
+was warn-and-allow); admin lowering deleted the priority lock outright. Rulings in
+DECISIONS §69. **Built together as admin 291** (ES-1 hard refusal with explanation on every
+admin surface + write-level backstop; ES-2 admin-set bids re-stamp the lock, NP stamps
+"NP", adds stamp too). Gates: new suite 33/33 executing real code; honesty vs `f3d8e2a`
+FAILED exit 1 in both environments; auction battery 35/1,671 green ×3; isolation 27/27;
+3 files md5-verified. Owner pushed (`1bdcb23`), live-verified admin 291.
+
+**RA-2: BLOCKED.** Jar host (storage.googleapis.com) refused by the cloud allowlist —
+verified by running the fetch; device VM has no network. Practical route = owner's own Mac
+Terminal (exact commands in TODO §1 RA-2). Rules remain UNEXECUTED; RA-1 hand-traced them
+instead.
+
+**RA-1 RE-AUDIT: DONE, unattended, on the pushed bytes** (owner order before leaving:
+focus yesterday's wave + a full pass + never events; vacation only; assume go-live bytes).
+§67 method, 41 agents. **0 CRITICAL · 13 HIGH · 8 MEDIUM · 4 LOW · 2 refuted.** Wave fixes
+largely held under execution. Top four in the report's fix order: the engine decided-view
+denial arithmetic (RA-H9/H10, NE-1 class, pre-dates the wave — needs an owner ruling
+first), the 155-cancel listener-echo question (verify live before fixing), finishing FB-5
+document gating (RA-H13), and 291's Add-Bid write-time re-check (RA-H7). Report =
+`RE-AUDIT-REPORT-2026-08-20-RA1.md` in the owner's outputs, NOT in the repos. Coverage
+gaps stated in the report: no Chrome walkthrough (owner away), rules not executed,
+listener timing modeled not observed, 21 schedule Playwright suites still device-skipped.
+
+**NO fixes were built from the audit — every finding awaits its own "go" (§3/§7).**
+Working tree at session end: docs only (TODO, HANDOFF, DECISIONS pushed earlier with 291).
+
+
+---
+
+# HANDOFF — 20 Aug 2026 (evening, owner away): THE RA-1 FIX WAVE + ENGINE RULES DOC
+
+Owner (from phone): proceed with as many fixes as possible, Claude picks the order, don't
+break things, group when safe; asked his two questions NOW — rulings §70 (engine
+capacity-vs-policy) and rules prepare-and-hold. Also ordered the ENGINE RULES review doc.
+
+**Delivered: `ENGINE-RULES-REVIEW-2026-08-20.docx`** (31 rules, 2 pages, never-events
+included; rule 26 marked PENDING = §70, now built) — in his outputs AND at the vacation
+repo root. **Built, safest-first: staff 157, 158 · admin 292, 293, 294 · schedule 36/76 —
+21 of 25 RA-1 findings.** The engine build (294) went LAST: §70 classification
+(policy/contested/loser) against the pre-denial natural fill; both audit repros + all
+239-era anchors + Week-7 executed green; 400-auction twin-parity fuzz zero divergences;
+2,000-scenario decided-sequence fuzz vs an independent §70 oracle clean; NE-1 oracles in
+test-never-events/test-priority-inversion updated to the same rule (they are the spec now).
+RA-H13/M8 rules PREPARED (repo + captioned txt, console paste = owner's); RA-L4 deferred
+with rationale; stamp guard v3 negative-tested. Full detail: the two BUILD-LOG rows.
+
+**Batteries at close: auction 40 suites / 1,733 green · schedule 6 green / 21
+Playwright-skipped (device VM, known) · isolation 27/27.** Every build: own suite,
+executed honesty check FAILED against explicit-SHA fixtures (1bdcb23 / dc6b8cc), md5
+both sides, CRNA restamped (158/294). Six SendUserFile zips carried the bytes; spent
+zips in `_to_delete/xfer/`. NOTHING pushed — all five repos carry the wave uncommitted;
+COMMIT-MESSAGES in the outputs column. RA-2 remains blocked in both environments.
+
+**LATE ADDENDUM (same evening): DB-1 RULED AND BUILT.** Owner, on reviewing the rules doc,
+ordered dead bids out of existence; ruling §71 "the boundary forgets" + the look-back rule
+(bid + projection + result). Built as admin 295 — Begin Phase retires strictly-prior
+non-winners in the same atomic batch (round-rule precedent); round archives gain
+projections; Edit Selections completed-phase filters read the archives. Battery at close:
+**41 suites / 1,747** green. Final COMMIT-MESSAGES re-sent (now four repos, 292–295).
+
+**SECOND ADDENDUM (late evening): §72 + NE-14, admin 296.** Owner, still reviewing the
+rules doc: floors must be unbreakable even for admin ("visible to all users and create
+trouble"), mid-decision stability should be a never-event, caps/locked-weeks overrides
+stay. Built: hard floor/NP-off refusals on every admin surface + backstops; 266 approve
+override retired; adApprove refuses floor-filtered clicks; NE-14 added (verified the rules
+already freeze the board once bidding closes — 25 Jul audit) with an open-bidding banner
+on Approvals & Denials. Rules doc REVISED to 32 rules and re-delivered. Batteries at
+close: auction 42 / 1,765 green · schedule 6 green / 21 skipped. NP-off was folded into
+the §72 refusal (same filter, same logic) — flagged in §72 for owner veto.

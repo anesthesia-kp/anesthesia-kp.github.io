@@ -1630,3 +1630,62 @@ Owner found two defects in admin Edit Selections (his words: "1 more example of 
 Built together as admin 291 (owner: "do together"). Logged as ES-1/ES-2 in TODO §1. Same
 turn the owner also ruled: admin Edit Selections becomes a dedicated RA-1 audit lens
 ("perhaps admin edit selections needs a more thorough review and audit").
+
+
+## §70 — Engine ruling: denials are CAPACITY vs POLICY, judged against the pre-denial natural projection — 20 Aug 2026 (owner, away, via question card)
+
+RA-H9/H10 fix semantics, owner's choice, verbatim option: **"Capacity vs policy"** —
+judge each denial against the PRE-denial natural projection. A denied bid that could not
+have fit naturally keeps blocking every weaker bid (NE-1 holds). A policy denial of a
+naturally-winning bid frees its spot WITHOUT demoting the other rightful natural winners.
+This corrects build 239's arithmetic; it does not change its intent. Both twins in
+lockstep; both audit repros become suite fixtures.
+
+Same card: **FB-5 rules publish = PREPARE AND HOLD** — Claude writes and tests the
+firestore.rules change and delivers the captioned plain-text file; the owner pastes it
+into the console on return. Nothing deploys before that paste.
+
+Same message (owner): proceed with as many RA fixes as safe, Claude decides order,
+grouping allowed if safe; "the key is not to break things and create a critical problem
+to fix a high/medium problem." Also ordered: the ENGINE RULES review doc (Word, concise,
+every rule, all phases + admin decisions + never-events if useful).
+
+
+## §71 — DB-1 ruling: "THE BOUNDARY FORGETS" — denied bids retire at every phase boundary — 20 Aug 2026
+
+Owner: **"Agree, the boundary forgets."** Phase boundaries adopt the round rule
+(startNextP4Round precedent, build 255): Begin Phase N retires every strictly-prior
+non-winning live entry in the SAME atomic batch that clears locks and decisions — the bid
+numbers return, the live doc forgets. NEVER at denial time (revocability + the §70 block
+floor both need the denied bid's value while the phase runs). Winners' live entries are
+permanent and never scrubbed.
+
+**Binding look-back requirement, owner verbatim: "Any look back at prior phases must show
+the bid placed, the projection, and the result."** Satisfied by the archives: every phase
+snapshot already stores schedule (bids as placed) + projections (pre-admin outcomes,
+"kept for reports") + approvals/denials (results); the Reports phase views read those
+archives, not the live doc. Round archives gain the same projections field (295), and the
+Edit Selections completed-phase filters now read the archives too — so history never
+depends on corpses again. Built as admin 295; logged DB-1.
+
+
+## §72 — Floors are ABSOLUTE (admin included); NE-14 mid-decision stability; caps/locks stay overridable — 20 Aug 2026
+
+Owner, on reviewing the rules doc (verbatim): *"This doesn't seem like a rule admin should
+be allowed to break. It would be visible to all users and create trouble."* Rulings:
+
+1. **Below-floor bids: HARD refusal for admin, everywhere** (entry surfaces, write-level
+   backstops) — same contract as duplicate numbers. **The build-266 approve-override
+   (_bfOverrideEligible) is RETIRED**: the engine no longer honors an approval of a
+   floor-filtered bid, and adApprove refuses the click with the honest route ("change the
+   floor setting itself"). NP-in-an-NP-off-phase is folded into the same refusal (it is the
+   same engine filter and the same all-users-can-see-it logic) — **flag for the owner: veto
+   this half if NP should stay overridable.** Built as admin 296.
+2. **NE-14 (owner: "That should be a never event"): a bid or projection must not change
+   under the admin's decisions.** VERIFIED already server-enforced for the designed rhythm:
+   once bidding closes (timer expiry or the Close flag), firestore.rules refuse every user
+   bid write (the 25 Jul audit closed exactly this). Deciding while bidding is still OPEN is
+   the one window where projections can legitimately move — the Approvals & Denials panel
+   now says so in a banner (296). Added to NEVER-EVENTS.md as NE-14.
+3. **RETAINED, owner verbatim: "Admin should retain the ability to place bids over caps and
+   in locked weeks."** Caps, locked weeks, and Phase-1 scope stay warn-and-override.
