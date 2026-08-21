@@ -82,6 +82,13 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       Fixed in `tests/sweep/`. **Still open: make the harness FAIL LOUDLY** (zero clicks on a
       site, or more page errors than clicks, must exit non-zero) — the same principle as §6's
       "a skipped honesty check is a failed gate".
+- [x] **RA-3/A-02 + A-06 · FILED (rules only, awaiting console publish): the two auction
+      documents that were readable without signing in are now gated** — the completed-phase
+      decision archive to admins, the welcomed-address list to signed-in accounts. Two lines
+      in `firestore.rules`, no page touched (owner ruling §76). **Publish in BOTH consoles
+      BEFORE pushing, then double-click `tests/RA-2.command`** — it now runs the suite and
+      the honesty check against the pre-fix rules in one go. Claude could not execute either:
+      no emulator jar in the work environments. The schedule-side exposure is DEFERRED (§75).
 - [ ] **RA-3/F-2 · HIGH — the bidder page's refusals are shown where the bidder cannot see them.**
       The flash banner is fixed near the top of the page while every bid is made far down the
       board behind a centred modal. Seventeen messages take that path, the save-failure one
