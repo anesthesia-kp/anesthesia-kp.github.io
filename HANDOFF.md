@@ -1090,3 +1090,12 @@ RA-H13 and RA-M8 are CLOSED; FB-5 is finished — the last world-readable bid da
 the mail meter is update-only. Owner owes one 30-second look: staff site, sign in, board
 populates. The rules-emulator suite (RA-2, still pending its jar) carries the executed
 assertions for exactly these gates.
+
+**RA-2 DONE — 20 Aug 2026, late evening: firestore.rules executed for the first time,
+45/45 green** (owner's first-ever Terminal session: Node + Temurin Java installed, then
+the double-click RA-2.command). Fixed en route: tests/package.json was MISSING (overnight
+claim wrong), firebase-tools' outside-project rules-path refusal (wrapper copies live
+rules per run), and two vacuous one-key mailStats seeds (now two-month seeds — the RA-M8
+refusals are genuinely proven). Scope: jar+Java live on the owner's Mac; VM batteries
+still show the loud skip — re-runs are one double-click, always against live repo bytes.
+Repo state: tests + anesthesia carry uncommitted changes (commit file in outputs).

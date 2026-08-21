@@ -143,14 +143,18 @@ Suites on disk: auction **42** (`tests/test-*.mjs`) · schedule **27**
       already private. If flipped: verify Pages stays enabled, then update the "repos are
       PUBLIC" rules in START-HERE/TODO; cloud sessions lose repo cloning (device route
       unaffected). Recommendation: worth it; owner's call.
-- [ ] **RA-2 · Enable the rules-emulator suite — ATTEMPTED 20 Aug, BLOCKED in both work
-      environments.** The cloud container's network allowlist refuses storage.googleapis.com
-      (the jar host), verified by running the fetch; the device VM has no network at all.
-      The suite keeps skipping LOUDLY — firestore.rules stays unexecuted. The practical
-      route is the owner's own Mac Terminal (needs node): `cd Documents/GitHub/tests &&
-      npm i firebase-tools firebase @firebase/rules-unit-testing && npx firebase
-      setup:emulators:firestore && node test-rules-emulator.mjs`. (No package.json exists
-      in tests/ yet, despite the suite header saying so — the npm i creates one.)
+- [x] **RA-2 · ✅ DONE 20 Aug 2026 (evening) — the rules are EXECUTED-TESTED: 45/45.**
+      The owner (first-ever Terminal use!) installed Node + Temurin Java and drove the
+      double-click `tests/RA-2.command`; en route we found and fixed: the missing
+      `tests/package.json` (the overnight session had claimed it existed), newer
+      firebase-tools refusing an outside-project rules path (wrapper now copies the live
+      rules in per run), and two weak one-key mailStats seeds whose "refusals" tested
+      nothing (now two-month seeds; both refusals PROVEN). Result: every published gate
+      executed green — FB-5 complete, confinement, timer extend-only, RA-H13, RA-M8.
+      **Honest scope note: the jar+Java live on the OWNER'S Mac — batteries run in
+      Claude's device VM still show the loud skip. Executed rules coverage = re-run
+      `RA-2.command` (double-click) after any rules change; it always tests the live
+      repo bytes.**
 - [ ] **⭐ OWNER · real-bidder sign-ins** — deliberately kept for this session (owner,
       20 Aug). 16 of 37 have never signed in (Whitelist Tracker names them); phones,
       Safari, ad-blockers, VPNs — while enforcement is ON and no real auction runs.
