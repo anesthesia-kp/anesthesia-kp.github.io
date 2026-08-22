@@ -982,7 +982,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Found live, 22 Aug 2026 — the pre-sign-in badge says "Bidding open" when it is closed (LOGIN-1)
 
-- [ ] **LOGIN-1 · The first thing a bidder sees can be false for the whole gap between phases.**
+- [x] **LOGIN-1 · BUILT AS STAFF 163, 22 Aug 2026 (owner: "fix the login 1 issue") — filed, not pushed.**
       **OBSERVED, not inferred:** with Phase 1 started and bidding closed, the sign-in screen read
       **"PHASE 1 · BIDDING OPEN"** while the board behind it read *"Bidding is closed — no more
       changes can be made."* When the owner then Reset the auction entirely, the same badge
@@ -994,9 +994,12 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       **When it bites:** every interval between a phase's timer running out and the admin
       beginning the next phase — four-plus times per auction, on the page everyone lands on
       first. A bidder reads "bidding open", signs in, and finds it shut.
-      **Fix shape — NOT built, needs a ruling (§85/§87).** Do **NOT** change `biddingOpen()`: it
-      has **12 callers** on the staff page and is the wrong blast radius. Change
-      `updateSigninPhase()` only, so the badge asks the same question the board asks.
+      **AS BUILT.** `biddingOpen()` untouched (12 callers — wrong blast radius).
+      `updateSigninPhase()` now asks `biddingOpen() && !isAuctionClosed()`. **And the half that
+      the fix is inert without:** the badge was only recomputed by the PHASES listener, so a
+      closure occurring while someone sat on the login screen never reached them — the TIMER
+      listener now calls `updateSigninPhase()` too. 10 assertions executing the real functions;
+      honesty vs the pushed 162 at explicit SHA `719566c` = 4 of 10 FAIL, exit 1.
 
 ## Owner request, 22 Aug 2026 — decision-list sort order (SORT-1) — NOT BUILT · 1 of 3 questions ruled
 
