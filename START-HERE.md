@@ -10,7 +10,10 @@ rebuild is byte-correct. (Pre-162 baseline 1,878 holds and 162's own suite is ex
 missing suite.) Rules suite rebuilt and re-run on the new machine: **RA-2 59/59 on the current
 rules, and 7 of 7 new gates FAIL on the pre-RA-3 rules** — the historical figures exactly.
 
-**THE QUEUE HEAD IS H-1 AND M-1 — NOTHING ELSE. Read `DECISIONS.md` §87 first, then `TODO.md`
+**H-1 AND M-1 ARE BUILT AS ADMIN 300 (22 Aug), FILED AND AWAITING THE OWNER'S PUSH — batteries
+green, honesty check EXECUTED and failing on the pushed 299. See `TODO.md` §1 and the
+BUILD-LOG row before assuming there is anything left to build.**
+**THE QUEUE HEAD WAS H-1 AND M-1 — NOTHING ELSE. Read `DECISIONS.md` §87 first, then `TODO.md`
 §1, then the private report.** §87 (22 Aug) narrowed §86 on the owner's instruction — *"i only
 want to do 100% necessary fixes at this point"*, then *"ignore other items"*. **M-3, M-6, M-7, M-9
 and M-4 are OFF THE QUEUE.** Do not build them and do not re-raise them as urgent.

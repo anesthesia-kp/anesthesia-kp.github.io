@@ -9,6 +9,56 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 22 Aug 2026 (LATER) — §87's two findings built as admin 300
+
+**Owner: "go ahead with h1 and m1."** So exactly those two, and nothing adjacent (§85/§87).
+Filed to the working tree, batteries green, **not pushed** — the owner pushes.
+
+**What the session actually did first, and why it mattered.** The START-HERE text pasted into the
+chat was the PRE-§87 copy: it still described the queue as two builds (H-1 · M-1 · M-3 · M-6 · M-7
+plus a rules change). The copy on disk and DECISIONS §87 say two FINDINGS, one build. Working from
+the paste would have shipped five findings and touched `firestore.rules` for no reason. **A pasted
+governing document is a snapshot; the disk copy is the document.** Everything below was verified
+against the bytes before anything was edited.
+
+**H-1 — five consumers of the frozen projection that 298 did not repoint.** The report's shape held
+up exactly. The measurement is the part worth keeping: run over 5,000 decided week states, the
+frozen projection's `cap - fteWon` and `weekLedger(...).remainingFte` disagree in **82.1%** of them,
+worst gap **3 FTE**, and — this is the part a comment would never have caught — **in both
+directions**. 3,147 states report a week FULLER than it is (which locks an empty week) and 960
+report it EMPTIER (which offers a committed one). The owner's own §82(d) case reproduces verbatim:
+a capacity-3 week whose bidders were all denied reads **0.2 remaining instead of 3**. Repointed one
+line each: the ✓ Approve as Win dialog, the **Remaining** figure on both decision-panel headers
+(**Winning** deliberately left on the projection — that is what it means, §77/§82(b)), the two lock
+helpers that WRITE locks, the Phase-4 round opener, and the rehearsal simulator's fit test.
+
+**M-1 — the second row.** Because the projection is frozen, an approved person stayed in the draw
+set and was drawn again as a bare row with no chip and a live ✕ Deny whose handler removes the
+approval. Now one row per person per week, wearing the decision, Revoke in place of Deny; the wheel
+reads the draw rows so decided people leave it; and Deny's confirm names an approval it will remove.
+
+**THREE EXISTING SUITES WENT RED, AND THE FIX FOR THEM IS THE POINT.** `test-p4-rounds`,
+`test-reopen-smartlock` and `test-round-months` sandbox `_reopenRoundMonths`, and their contexts
+carried no ledger — `ReferenceError: weekLedger is not defined`. The cheap repair was a stub
+returning `cap - fteWon`, which would have written **the defect itself** into three suites as the
+definition of capacity. They were instead given the REAL extracted `decidedWinners`/`weekLedger`,
+with `test-round-months`'s fixtures expressing each week's `fteWon` as one synthetic holder so
+every case is unchanged and the arithmetic under it is the shipping arithmetic.
+
+**GATES.** New `tests/test-admin-300-capacity.mjs`: 35 assertions, every behavioural one executing
+extracted code. Honesty check EXECUTED against the pushed 299, fixture built from the **explicit
+SHA `903ab97`** (§4 — never `HEAD~n`): **17 of 35 fail there, exit 1.** Not a skip. Full battery
+**50 suites / 1,951 assertions, zero skips** — 1,916 + 35, reconciled exactly, which is the check
+that no suite quietly lost assertions. Schedule isolation guard 27/27. CRNA restamped to 300 by the
+battery itself (`test-crna-stamp` regenerates and fails if `crna/` is stale — so the crna/ diff in
+the working tree is required, not a stray edit). `firestore.rules` untouched, so RA-2 was neither
+required nor run; the rules-emulator suite's "not covered by this run" line in the battery is that
+same pre-existing condition, unchanged.
+
+**Still the owner's own, still undone: real-bidder sign-ins** — 16 of 37 have never signed in.
+
+---
+
 ## 22 Aug 2026 — THE MACHINE DIED. Everything was rebuilt from GitHub, and two files were nearly lost for good
 
 **What happened.** The Mac every previous session ran on failed. The owner moved to a new

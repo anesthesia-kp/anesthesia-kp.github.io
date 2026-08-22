@@ -47,7 +47,30 @@ Suites on disk: auction **49** (`tests/test-*.mjs`) · schedule **27**
 > §77 questions answered (DECISIONS §80/§81/§82) and the pre-commit check caught a real defect
 > before it shipped (§82d).
 
-## 🔴 QUEUE HEAD — §87: BUILD H-1 AND M-1. IGNORE EVERYTHING ELSE.
+## 🟢 QUEUE HEAD — §87's TWO ARE BUILT AS ADMIN 300. AWAITING THE OWNER'S PUSH.
+
+> **BUILT 22 Aug 2026, filed to the working tree, NOT pushed.** Admin **300** carries H-1 and
+> M-1 and nothing else (§85/§87). `versions.json` admin 299 → 300; CRNA restamped to 300 by
+> `crna-stamp.mjs`, as every admin build requires. **`firestore.rules` untouched**, so RA-2 was
+> not required and was not run.
+>
+> **Gates, run in-session on the device:** new `tests/test-admin-300-capacity.mjs` — 35
+> assertions, every behavioural one EXECUTING extracted code. H-1 is proved to §82(d)'s
+> standard by MEASUREMENT: both engines run over 5,000 decided week states and disagree in
+> **82.1%** of them, worst gap **3 FTE**, in BOTH directions (3,147 read fuller than the truth,
+> 960 emptier) — and the owner's own capacity-3 all-denied case reproduces verbatim (0.2 vs 3).
+> Honesty check EXECUTED against the pushed 299, fixture built from the EXPLICIT SHA `903ab97`:
+> **17 of 35 FAIL there, exit 1** — a real failure, not a skip. Full battery **50 suites /
+> 1,951 assertions, zero skips** (1,916 + 35, reconciled exactly). Schedule isolation guard 27/27.
+>
+> Three existing suites (`test-p4-rounds`, `test-reopen-smartlock`, `test-round-months`) sandbox
+> `_reopenRoundMonths` and went red because their contexts had no ledger. They were repaired by
+> giving them the REAL `decidedWinners`/`weekLedger` — not a stub restating the old arithmetic —
+> so their cases are unchanged and the arithmetic under them is now the shipping arithmetic.
+>
+> **AFTER THE PUSH:** re-run `node status.mjs`, and fetch `versions.json` cache-busted TWICE.
+> The STATUS block above was generated at 06:26 UTC and is older than this work.
+
 
 > **DECISIONS §87 (22 Aug) narrows §86.** Owner, verbatim: *"i only want to do 100% necessary
 > fixes at this point"* — then, on the remainder, *"ignore other items"*.
