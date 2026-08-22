@@ -208,9 +208,9 @@ Suites on disk: auction **50** (`tests/test-*.mjs`) · schedule **27**
 > **Do it while enforcement is ON but the auction is NOT running.** That window is the whole
 > point, and it closes at go-live.
 
-## 🔴 QUEUE HEAD (next session) — RA-3: RE-AUDIT the 20 Aug EVENING wave — owner order
+## ✅ DONE 20–21 Aug 2026 — RA-3: the re-audit of the 20 Aug EVENING wave (was the queue head)
 
-- [ ] **RA-3 · RE-AUDIT everything that changed AFTER RA-1's audited bytes** (owner, end of
+- [x] **RA-3 · RE-AUDIT everything that changed AFTER RA-1's audited bytes — RAN 20 Aug (evening), 45 raised → 8 refuted → 39 stood; reports in `tests/docs/`.** (owner, end of
       20 Aug: *"I am going to start 1 more session with another re-audit. I need to keep
       doing this because we keep finding so many items."*). Scope = the diff from
       `1bdcb23` → **`d49cd15`** (vacation: staff 157–158, admin 292–296, firestore.rules)
@@ -443,7 +443,7 @@ Suites on disk: auction **50** (`tests/test-*.mjs`) · schedule **27**
       change-model edits (persistScheduleChange is the most sensitive code touched), the
       C-4 guards vs legitimate flows, the 156 revocation branch vs normal sign-outs, and
       the 289 admin timer resets vs the mode gate.
-- [x] **ES-1 · BUILT as admin 291, 20 Aug 2026, pending push — owner ruled "disallow with explanation."** Was:
+- [x] **ES-1 · BUILT as admin 291, 20 Aug 2026, since pushed and live — owner ruled "disallow with explanation."** Was:
       Admin bid surfaces (dropdown / Edit Bid / Add Selection) WARN about a current-phase
       number reused across two weeks but allow "Save anyway" — and the engine's I2
       anti-forgery rule then treats every bid carrying that number as no-bid, so BOTH weeks
@@ -451,7 +451,7 @@ Suites on disk: auction **50** (`tests/test-*.mjs`) · schedule **27**
       honored by the engine. Owner: disallow it or make it work. Claude's recommendation:
       hard-refuse at entry exactly the state the engine will kill (engine untouched). Done on
       all surfaces + a write-level backstop; prior-win number reuse stays a warning.
-- [x] **ES-2 · BUILT as admin 291, 20 Aug 2026, pending push — owner: "do as described. do together."** Was:
+- [x] **ES-2 · BUILT as admin 291, 20 Aug 2026, since pushed and live — owner: "do as described. do together."** Was:
       Both admin edit paths delete the week's lock outright ("rebid freely") — but when the
       admin lowers a bid, the owner wants the admin-set bid to become the NEW lock (staff
       lowering already re-stamps — build 139 precedent). Deliberate clearing stays available
@@ -538,7 +538,7 @@ Owner, 18 Aug 2026, at the close of the seven-build day, verbatim:
       decision is needed or if builds should be broken up"* — pauses on genuine decisions
       and on batch-size judgment calls.
       **ALL FOUR CRITICALs PUSHED 20 Aug 2026 (staff 154 + admin 285 live at `ce427a2`).
-      HIGH batch H-A BUILT same day as staff 155 (pending push): the C-2 cancel sibling ·
+      HIGH batch H-A BUILT same day as staff 155 (since pushed and live): the C-2 cancel sibling ·
       App-Check permanent-block message · cancel-dialog floor wording (delivers W-1's
       dialog half, owner wording) · NP chip follows the live policy. HIGH batch H-B BUILT same day as admin 286
       (Fair Play pair: tie=draw + Phase-4 round fence). HIGH batch H-C BUILT same day as admin 287
@@ -691,7 +691,7 @@ suite's SWAPS and ship a tiny `fake/firebase-app-check.js` (no-op `initializeApp
 stub `ReCaptchaV3Provider`). **Do this FIRST in the audit session** — the audit needs both
 batteries green in-cloud as its baseline. The device cannot substitute (no chromium there).
 
-**FIXED 20 Aug 2026 (audit session, tests repo only, pending push):** the fourth URL added to all 21 suites’ SWAPS; inert `fake/firebase-app-check.js` shipped. Schedule battery 25/25 suites green in-cloud; auction battery 23 suites / 1,495 green. The audit baseline is UNBLOCKED.
+**FIXED 20 Aug 2026 (audit session, tests repo only, since pushed and live):** the fourth URL added to all 21 suites’ SWAPS; inert `fake/firebase-app-check.js` shipped. Schedule battery 25/25 suites green in-cloud; auction battery 23 suites / 1,495 green. The audit baseline is UNBLOCKED.
 
 ## ✅ Constraint CLOSED — 18 Aug 2026
 
@@ -748,7 +748,7 @@ is live and close to launch; nothing may degrade it.
 **Queued for AFTER the A-AUDIT report (owner rulings, 20 Aug 2026, during the walkthrough —
 sequenced post-audit because the lowerings lens is auditing this exact accounting):**
 
-- [x] **W-1 · BUILT 20 Aug 2026 (overnight) as staff 156 — pending push.** Original spec: Owner: users need a way to track
+- [x] **W-1 · BUILT 20 Aug 2026 (overnight) as staff 156 — since pushed and live.** Original spec: Owner: users need a way to track
       their own bid lowerings or they will bother the admin. Show "lowerings left this
       phase: X of Y" — in the change/remove-bid dialog note (owner: "It could go here"),
       and it **auto-disappears when the phase allows unlimited lowerings** (owner ruling).
@@ -763,7 +763,7 @@ sequenced post-audit because the lowerings lens is auditing this exact accountin
       FINAL WORDING, owner 20 Aug: "X of Y bid lowerings left" (e.g. "1 of 2 bid lowerings left"; supersedes the shorter draft) — small MUTED hint styling (owner:
       "i want it unobstrusive"), no chip/color/icon; shows the current round's number in
       Phase 4; "0 lowerings left" at zero; the line disappears when unlimited.**
-- [x] **W-2 · FIXED 20 Aug 2026 (overnight), amended into admin 290 — pending push.** the Phase-1 unlock warning renders "unlock 1
+- [x] **W-2 · FIXED 20 Aug 2026 (overnight), amended into admin 290 — since pushed and live.** the Phase-1 unlock warning renders "unlock 1
       standard week that are supposed to stay locked" — singular/plural agreement. Owner:
       "fix."
 
@@ -1017,7 +1017,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner requests, 17 Aug 2026 — four items, verbatim
 
-- [x] **V1 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Unlimited in EVERY phase collapses the rule to the owner's exact two sentences (rules page + welcome, both sites, twin-identical; mixed configs keep the breakdown). Original spec — Owner:
+- [x] **V1 · BUILT 18 Aug 2026 in build 274/141 — since pushed and live.** Unlimited in EVERY phase collapses the rule to the owner's exact two sentences (rules page + welcome, both sites, twin-identical; mixed configs keep the breakdown). Original spec — Owner:
       *"When I enter unlimited bid lowerings in all phases … the rules and welcome e-mail
       should be smart about it in similar fashion to collapsing the rule for simplicity.
       When set to unlimited, it should say: Ideally, bid priorities would not be decreased
@@ -1025,7 +1025,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       rules text is already config-driven (the opening-window rule collapses the same
       way), so this is a conditional-text change in the staff page + welcome template.
       Flows to the CRNA site automatically via the stamper.
-- [x] **V2 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Prefix removed in all three places (staff rules + both welcome e-mails). Original spec — Owner: change *"To maximize your
+- [x] **V2 · BUILT 18 Aug 2026 in build 274/141 — since pushed and live.** Prefix removed in all three places (staff rules + both welcome e-mails). Original spec — Owner: change *"To maximize your
       own benefit, consider starting with lower bids and increasing as necessary to
       prevent 'overpaying' for a week"* to *"Consider starting with lower bids and
       increasing as necessary to prevent 'overpaying' for a week."* Rules page + welcome
@@ -1041,7 +1041,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       per-line duplicate-login refusal (225 guard); sanctioned save paths only. **Build
       ONCE on the MD auction admin** (shared roster serves the schedule; stamper serves
       CRNA). AUCTION BUILD: full battery + honesty, between phases.
-- [x] **V5 · BUILT 18 Aug 2026 in build 274 (owner chose to include it with V1) — awaiting push.** New winLower flag: same winning-position reconstruction as the cancel flag, own label/color in monitor + report, counts toward totals, works in EVERY mode including unlimited. Original spec (owner, 18 Aug: "that would be useful"):** Today the monitor flags winning-bid CANCELS but not winning-bid
+- [x] **V5 · BUILT 18 Aug 2026 in build 274 (owner chose to include it with V1) — since pushed and live.** New winLower flag: same winning-position reconstruction as the cancel flag, own label/color in monitor + report, counts toward totals, works in EVERY mode including unlimited. Original spec (owner, 18 Aug: "that would be useful"):** Today the monitor flags winning-bid CANCELS but not winning-bid
       LOWERINGS — and its only lowering signal (over-allowance) is explicitly skipped in
       unlimited mode, so unlimited lowerings currently blind Fair Play to lowering
       behaviour entirely. New signal: a 'lowered' entry where the pre-lowering bid was in
@@ -1051,7 +1051,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       — build together. FACT recorded same day: the usage counter has no ceiling and keeps
       counting accurately in unlimited mode, so the Bid Lowerings panel stays honest at
       any volume.
-- [x] **V3 · BUILT 18 Aug 2026 in build 274/141 — awaiting push.** Three-mode Timer Reset card (classic default / affects-others / new-bids-always), confirmed + audited changes, staff Timer Rules text adapts per mode, all guards (same-value, opening window, extend-only, expired-timer M-6) stand above the mode; the affects-others predicate IS the outbid pipeline's comparison, sharing one after-snapshot. **EMPTY-WEEK QUESTION RESOLVED (owner, 18 Aug: "why should first bids be different?"): NO special case in mode 2 — wanting first bids to reset IS mode 3** (DECISIONS §59). Simulator batch reset unchanged. Original spec:**
+- [x] **V3 · BUILT 18 Aug 2026 in build 274/141 — since pushed and live.** Three-mode Timer Reset card (classic default / affects-others / new-bids-always), confirmed + audited changes, staff Timer Rules text adapts per mode, all guards (same-value, opening window, extend-only, expired-timer M-6) stand above the mode; the affects-others predicate IS the outbid pipeline's comparison, sharing one after-snapshot. **EMPTY-WEEK QUESTION RESOLVED (owner, 18 Aug: "why should first bids be different?"): NO special case in mode 2 — wanting first bids to reset IS mode 3** (DECISIONS §59). Simulator batch reset unchanged. Original spec:**
       Owner: *"a new timer control card in admin settings with all 3 presented options…
       The current version with description, the version where only bids that change
       something for other users reset the timer, and 3rd option where placing new bids
@@ -1099,6 +1099,13 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       Late 2027 on current rates. Detail: `HANDOFF.md` D3.
 
 ## Open defects on the live site — ONE home, and this is it
+
+> ⚠️ **READING BUILD NUMBERS IN THIS SECTION.** A build number here is PUSHED AND LIVE if it is
+> at or below the current live builds in the STATUS block at the top of this file (auction
+> admin/staff/mobile, schedule admin/staff). Entries below were once written as "awaiting
+> push" and stayed that way long after the push, which reads as unpushed work that does not
+> exist — corrected 22 Aug 2026. **Do not write "awaiting push" into a permanent entry;**
+> the queue at §1 is where in-flight work belongs, and `node status.mjs` is what tracks it.
 
 *Consolidated from the 25 Jul code review; statuses re-verified 16–17 Aug. The full fix
 sketches survive in `tests/docs/CODE-REVIEW-FINDINGS.md` and the archived copy of
@@ -1167,7 +1174,7 @@ placeholder on a cold load is intended behaviour.
 
 A residual leaves this table only when a build closes it and a suite proves it.
 
-### TR-4 · Owner proposal, 19 Aug 2026 — BATCH the timer-rule edits — **BUILT in 276, awaiting push**
+### TR-4 · Owner proposal, 19 Aug 2026 — BATCH the timer-rule edits — **BUILT in 276, since pushed and live**
 
 Owner, 19 Aug: *"Would it help to batch save timer edits? Make admin responsible for
 clicking save at the end of re-working the times/days?"* and *"those things will generally
@@ -1198,7 +1205,7 @@ hazard gets WIDER — the editor is dirty for minutes instead of seconds, so a l
 must not re-render over an in-progress edit; (c) two admins / two tabs — a batched save
 overwrites blind across a longer window than today's per-field writes.
 
-### COPY-1 / COPY-2 · Owner wording requests, 19 Aug 2026 — **BUILT in 278/144, awaiting push**
+### COPY-1 / COPY-2 · Owner wording requests, 19 Aug 2026 — **BUILT in 278/144, since pushed and live**
 
 Both are generated strings, twin byte-identical on both sites, feeding the rules page AND
 the welcome e-mail. `test-c7-timer-bundle.mjs` pins them (2 assertions) and the twin-compare
@@ -1235,7 +1242,7 @@ dangled. Both sentences now stand alone. **Claude miss, recorded:** the staff ru
 hardcoded placeholder still carried the OLD wording and a floor that was never live; it is
 now empty and hidden until the live floors fill it.
 
-### COPY-4 · Owner, 19 Aug 2026 — the admin bid-floors dialog — **BUILT in 279, awaiting push**
+### COPY-4 · Owner, 19 Aug 2026 — the admin bid-floors dialog — **BUILT in 279, since pushed and live**
 
 Owner screenshot: the "Save bid floors?" confirm still enumerated every allowed value while
 278 had already switched the bidders to "your bid must be 4 or better". Owner asked for it
@@ -1247,7 +1254,7 @@ better. All other weeks: no floor — every bid allowed."* Built as given.
 consequence is still spelled out in the Bid Floors card description directly above the
 controls, so it is documented — just not restated at the moment of saving.
 
-### COPY-5 · Owner ruling, 19 Aug 2026 — **BUILT in 280 / staff 145, awaiting push**
+### COPY-5 · Owner ruling, 19 Aug 2026 — **BUILT in 280 / staff 145, since pushed and live**
 
 Owner, on being told the staff bid-rejection alert still enumerated: *"I don't want that type
 of wording anywhere."* A sweep of both pages found exactly one remaining producer, and it now
@@ -1852,7 +1859,7 @@ calls `startCountdownTick()` at module level. **Gate documents only AFTER their 
 moved AND the move has been proven on the live site.**
 
 
-**✅ BATCH 2 BUILT — staff 152, FILED 20 Aug 2026, pending push + live verification.** Moved
+**✅ BATCH 2 — staff 152, filed 20 Aug 2026; SINCE PUSHED AND LIVE.** Moved
 behind sign-in: `locks` · `fteMap` · `bidPhase` · `slots`. **Plan corrections found in the
 code:** `mailStats` has NO staff listener (this page only WRITES it via `trackEmailSent`; the
 admin listener already sits behind authReady) — so stage 2's listener work is now COMPLETE
