@@ -9,6 +9,75 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 22 Aug 2026 — THE MACHINE DIED. Everything was rebuilt from GitHub, and two files were nearly lost for good
+
+**What happened.** The Mac every previous session ran on failed. The owner moved to a new
+MacBook Air, where iCloud had mirrored `~/Documents/GitHub` — and that mirror is what made the
+day hard. With **"Optimize Mac Storage" ON**, iCloud keeps placeholders instead of file contents
+and materialises them on access. Ordinary apps cope. Git does not: it reads hundreds of small
+files at once, receives `EDEADLK` instead of bytes, and reports a healthy repository as corrupt,
+empty, or *"not a git repository"*. Roughly 10% of the tree was actually readable. Two hours were
+spent trying to rescue files out of a source that was rearranging itself underneath the attempt.
+**The setting is now OFF. That is the whole fix, and it is the single most important operational
+fact on this page.**
+
+**What was actually at risk, and what was not.** Everything ever pushed was safe and always had
+been — three repos came straight back with `git clone` and needed nothing. The danger was
+entirely in what git had never seen:
+
+- **`test-staff-162.mjs`** and **`docs/RA-4-2026-08-21.md`** were UNTRACKED. Not ignored —
+  simply never added. They existed on one dying machine's disk and nowhere else on earth.
+- Four modified suites (`test-audit-fixes`, `test-c2-priorphase-rebid`, `test-staff-158`,
+  `test-staff-highs-155`) were uncommitted.
+- The entire **Staff 162 build** — `index.html`, `crna/index.html`, both `versions.json`,
+  `BUILD-LOG.md` — was uncommitted.
+
+All of it was recovered: the build from the disk mirror before it emptied, and the two untracked
+files from **iCloud → Recently Deleted** after the folder had already been thrown away. Margin
+was hours. **`_archive/` and `_to_delete/` came back the same way.**
+
+**The trap that hid the build: there were TWO clones of one repo.** `vacation/` looked finished
+and in sync; `vacation-kp.github.io/` was the working copy that actually held Staff 162, and both
+pointed at `github.com/anesthesia-kp/vacation`. The first read of the tree said "clean" because
+it read the wrong one. **There is now exactly one clone, named `vacation-kp.github.io`** — the
+name every document and `status.mjs` expects, and the name `RA-2.command` needs to reach the
+`d49cd15` fixture. During the rebuild it was briefly called `vacation`, which would have made
+`status.mjs` silently print `?` for every auction build.
+
+**A clone does not restore a gitignored file.** `tests/package.json` and `package-lock.json` are
+in that repo's `.gitignore`. A fresh clone therefore has no dependency manifest, `npm install`
+does nothing, and `test-rules-emulator.mjs` skips — quietly reporting *"firestore.rules is NOT
+covered by this run"* rather than failing. Both were restored by hand. **Whenever a repo is
+re-cloned, check its `.gitignore` for local-only files that no clone will bring back.**
+
+**What was pushed.** `10bd4a2` — Staff 162, the RA-4/H-2 and H-3 work: a 10-second
+`_awaitWrite` deadline on every write the bid dialog waits for, the save-lock safety timer raised
+to 15s so it outlives that deadline, and *"couldn't confirm"* rather than an asserted failure,
+because a deadline is not a refusal. CRNA restamped 162. Then `f4f7556` in the tests repo —
+the 162 suite and the RA-4 report, both now tracked.
+
+**Verification, because a rebuild deserves more than a green tick.** The 162 suite was run
+against the rescued build (**38/38**) and then against the pushed build 161 taken from the
+explicit SHA `2cd6a55`, where it **failed 21 assertions** exactly as its own `--pre` honesty
+mode demands. The full battery then gave **49 suites / 1,916 assertions, zero skips** — the same
+number the 21 Aug session had already recorded for this tree. Two independent machines, the same
+count: that is what says the reconstruction is byte-correct rather than merely plausible.
+
+**The rules suite was rebuilt from nothing on the new machine.** Node, then the Xcode
+command-line tools for `git`, then `RA-2.command` did the rest — `npm install`, the 64MB
+Firestore emulator jar, and the run: **59/59 on the current rules**, matching the historical
+figure. Worth recording for the next fresh machine: the cloud session **cannot** substitute —
+`storage.googleapis.com` is not on its allowlist, exactly as `test-rules-emulator.mjs` says in
+its own header comment.
+
+**The rule this session earns, and the owner has not yet ruled on it.** *"Filed" should mean
+pushed.* Every previous handoff used "filed" to mean "written and staged for a push", and on
+21 Aug START-HERE said **STAFF 162 IS FILED AND AWAITING A PUSH**. That sentence was true and
+almost fatal. A file git has never seen is not filed — it is one hardware failure from gone.
+Proposed for a §: nothing may be described as filed until it is on origin.
+
+---
+
 ## 21 Aug 2026 — §77 lands as admin 298; the pre-commit check earned its keep
 
 **Where the session started.** The RA-3 wave (staff 161 / admin 297 / rules) was already

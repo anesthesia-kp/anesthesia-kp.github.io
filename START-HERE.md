@@ -1,21 +1,27 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (late evening) — the §84/§85 AUDIT HAS RUN and the owner has RULED (§86): seven findings go, three are skipped as trade-offs, two are left alone. **STAFF 162 IS FILED AND AWAITING A PUSH**; the admin build and the rules change follow. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
-**Everything is pushed and live: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 /
-staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 21 Aug evening on
-the pushed bytes: **48 suites / 1,878 assertions, zero skips** (recorded as 1,881 at the close of
-the previous session — same suites, same result, worth reconciling once).
+**LAST REVISED: 22 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). The §86 queue is ruled and its remaining work is UNSTARTED: ONE admin build and ONE rules change. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
+**Everything is pushed and live: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 /
+staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 22 Aug on the
+rebuilt tree: **49 suites / 1,916 assertions, zero skips** — the identical count this file already
+recorded for the same tree on 21 Aug, which is the strongest single piece of evidence that the
+rebuild is byte-correct. (Pre-162 baseline 1,878 holds and 162's own suite is exactly 38.
+**The 1,881 recorded two sessions ago is still unreconciled** — chase it as a miscount, not a
+missing suite.) Rules suite re-run on the new machine: **RA-2 59/59 on the current rules**.
 
-**THE QUEUE HEAD IS A RULING, NOT A BUILD — read `TODO.md` §1, then the private report.**
-The audit ordered on 21 Aug is DONE: ten blind lenses, twelve adversarial skeptics (two on every
-CRITICAL and HIGH), 27 raised → 6 refuted → 7 demoted → **14 stand, no CRITICAL surviving two
-skeptics**. §85 forbids a finding licensing neighbouring tidy-ups, so the owner picks which of the
-fourteen are worth a build and in what order. Two of them cost nothing to settle and need no code.
+**THE QUEUE HEAD IS NOW TWO BUILDS — read `TODO.md` §1, then the private report.**
+The audit ordered on 21 Aug is DONE and RULED (§86): ten blind lenses, twelve adversarial
+skeptics (two on every CRITICAL and HIGH), 27 raised → 6 refuted → 7 demoted → **14 stood, no
+CRITICAL surviving two skeptics**. H-2 and H-3 shipped as staff 162. What is left is **ONE admin
+build** (H-1 · M-1 · M-3 · M-6 · M-7) and **ONE rules change** (M-9 + M-4's code half), plus the
+owner's own one-document data fix for M-4. §85 still forbids a finding licensing neighbouring
+tidy-ups: build these shapes and nothing adjacent.
 **Do not describe any of them by reproduction in these repos — they are PUBLIC (§3).**
 Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
 and cannot be delegated.
 
-(Session account: HANDOFF 21 Aug. Structure rewritten 17 Aug to one copy of every rule; revised
+(Session account: HANDOFF 22 Aug — the machine loss and the rebuild; before it, HANDOFF 21 Aug.
+Structure rewritten 17 Aug to one copy of every rule; revised
 19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the
 cost gate, App Check enforced on both projects; 20 Aug — the A-AUDIT wave and the rules emulator
 suite; 21 Aug — §77 froze the projection, §79 blocked decisions during open bidding, and §80–§84
@@ -52,12 +58,33 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (rewritten 21 Aug 2026 at the close of the §77/§79 session).**
+> 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 / staff 36.**
+> **LIVE NOW: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 / staff 36.**
 > **All four repos clean and in sync. NOTHING is pending a push.**
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
 > the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
+>
+> **⚠️ READ THIS FIRST IF YOU ARE A FRESH SESSION: the working tree you are looking at was
+> rebuilt on 22 Aug 2026.** The machine every previous session ran on is dead. Nothing was
+> lost, but three things about the tree are NEW and a session that assumes otherwise will
+> waste an hour:
+> 1. **The auction working copy is `vacation-kp.github.io`, cloned from `anesthesia-kp/vacation`.**
+>    On the old Mac there were TWO clones of that one repo — a `vacation/` that looked finished and
+>    a `vacation-kp.github.io/` that held the real uncommitted work. **There is now exactly one.**
+>    If you ever see both again, the second one is where the work is.
+> 2. **`tests/package.json` and `package-lock.json` are GITIGNORED** (see that repo's `.gitignore`)
+>    — so a fresh clone does NOT restore them and the rules-emulator suite silently cannot run.
+>    They were restored by hand on 22 Aug. Same trap for any other local-only file.
+> 3. **Repos must never live under iCloud with "Optimize Mac Storage" ON.** That setting evicts
+>    local file contents and leaves placeholders; git then reports a healthy repo as corrupt,
+>    empty, or "not a git repository". It cost most of 22 Aug. The setting is now OFF; the repos
+>    are still in `~/Documents/GitHub`, which is only safe while it stays off.
+>
+> **THE LESSON THAT NEARLY COST THE MOST: `test-staff-162.mjs` and the RA-4 report were
+> UNTRACKED.** Both existed only on the dead machine's disk — not in any commit, so not on
+> GitHub, so not recoverable from it. They were retrieved from iCloud's Recently Deleted with
+> hours to spare. **"Filed" must mean pushed. A file git has never seen is not filed.**
 >
 > **THAT AUDIT HAS RUN, AND ITS RESULT IS THE QUEUE HEAD.** Ordered 21 Aug — owner: *"I want the
 > next session to audit only for bugs that could directly harm the vacation auction… only serious
@@ -82,6 +109,15 @@ phase in flight) before doing anything.
 > record, H-5 how much of a completed phase is public, M-8 outsider reads vs a billed read);
 > M-2, M-5 and the whole appendix left alone and NOT to be re-raised; the other seven GO.
 >
+> **WHAT OF THAT RULING IS DONE (verified against the bytes on 22 Aug, not from notes):**
+> **H-2 and H-3 SHIPPED** as staff 162 and are pushed. **Everything else is untouched** —
+> `versions.json` still reads admin **299**, and `firestore.rules` still carries the M-4
+> comparison in five places including `isListedAdmin()`. What remains is exactly two builds:
+> **ONE admin build** (H-1 · M-1 · M-3 · M-6 · M-7) and **ONE rules change** (M-9, and now M-4's
+> code half — see the warning below). Note for whoever reconciles it: the triage table in
+> `TODO.md` labels this group "7 findings, 3 builds" but lists eight; the shapes above are what
+> the code actually shows.
+>
 > **⚠️ AND THE OWNER FOUND ONE HIMSELF, which is where the real urgency is.** He checked the live
 > login e-mails: *"there are a couple lower cases. i thought we made this case insensitive."*
 > Every PAGE lowercases both sides — but `firestore.rules` lowercases only the INCOMING address
@@ -91,6 +127,11 @@ phase in flight) before doing anything.
 > re-saving alone is short-circuited to "no change" and writes nothing). The CODE fix is in the
 > rules build. `isListedAdmin()` has the same comparison against the raw admin list, so a
 > mixed-case address there locks that admin out entirely.
+>
+> **STATUS 22 Aug: the CODE fix is still undone, and it is now TESTABLE.** The rules-emulator
+> suite was rebuilt on the new machine and runs — **RA-2 59/59 on the current rules**. Until
+> 22 Aug `firestore.rules` was the one file in the project with no executable coverage at all;
+> it now has some. **Do not change the rules without running RA-2 before and after.**
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
 > 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
