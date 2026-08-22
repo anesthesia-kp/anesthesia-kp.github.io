@@ -2065,3 +2065,48 @@ forbids is the one he named — a real finding becoming a cascade of small ones 
 No "consider also" section, no ranked backlog of minor items, no re-litigation of the 10 MEDIUM
 or the LOW/NIT tail. An appendix line for a non-qualifying item is the ONLY place small stuff may
 appear, and it carries no recommendation.
+
+
+## §86 — RA-4 triage ruled: seven go, three skipped as trade-offs, two left alone — 21 Aug 2026 (evening)
+
+Owner, on Claude's triage of the fourteen RA-4 findings, verbatim: **"skip the 3 that are maybes,
+leave alone anything that can be left alone. go on the others."**
+
+**SKIPPED — the three that are trade-offs rather than repairs.** Not refuted, not forgotten;
+decisions the owner has chosen not to take now.
+- **H-4** — what a restore should do to the "already mailed" record. Clearing it chooses
+  duplicate mail over no mail.
+- **H-5** — how much of a completed phase belongs in the world-readable published archive.
+  Stripping the raw bid values is the cheap version, and it is still a real build.
+- **M-8** — outsider read access versus a billed read on the most-delivered document. The rules'
+  own comment says tightening it is a one-word change, and names the cost.
+
+**LEFT ALONE, by the same ruling:** M-2 (needs two Google accounts on one browser profile),
+M-5 (needs a crash mid-send, and the result is duplicate identical mail, not a wrong outcome),
+and the whole RA-4 appendix. Listed, unworked, and NOT to be re-raised as urgent.
+
+**GO — the seven:** H-1 (the five missed consumers of the frozen projection), H-2 and H-3 (a bid
+that does not save must say so), M-1 (a decided row still carrying a live destructive button),
+M-3 (the admin gate that misreports every read failure as "not authorized"), M-6 (the missing
+owner check on the KP address field), M-7 (the unused relay fallback — a deletion), M-9 (the
+readout that is world-readable with no reader that needs it).
+
+**AND ONE THE OWNER FOUND HIMSELF, which outranks the queue as owner-found items always do.**
+He looked at the live login-e-mail data and reported: *"there are a couple lower cases. i thought
+we made this case insensitive."* He is half right, and the half he is wrong about is the
+dangerous half: **every PAGE lowercases both sides, so sign-in works and the Users table looks
+perfect — but `firestore.rules` lowercases only the INCOMING address and compares it to the
+stored value exactly as typed.** A stored `Jane.Doe@...` therefore signs in fine, reads the whole
+board, and has every bid write refused. That moves RA-4's M-4 from latent to LIVE.
+
+Two remedies, deliberately split:
+- **The DATA is the owner's** — Claude never writes production Firebase. In the Users page,
+  **Clear the address first, then re-save it.** Re-saving alone does nothing: the page compares
+  the lowercased input against a lowercased copy of the stored value, decides "no change", and
+  writes nothing. That short-circuit is why it can look as though this was already fixed.
+- **The CODE is Claude's** — make the rule genuinely case-insensitive so it can never matter
+  again, and stop the one path that can put a bad value back.
+
+**Flagged in the same breath:** `isListedAdmin()` carries the identical comparison against the
+raw `adminAccess` list, so a mixed-case address there locks that admin out of the admin site
+completely. That one is data, not code — worth a look while the Users page is open.

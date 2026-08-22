@@ -76,6 +76,41 @@ Suites on disk: auction **48** (`tests/test-*.mjs`) · schedule **27**
 >
 > **What was REFUTED is recorded in the report too**, so a later session does not re-raise it.
 
+## 🟡 CLAUDE'S TRIAGE OF THE 14 — A PROPOSAL, NOT A RULING (21 Aug evening)
+
+> Recorded so it is not lost if the chat is. **The owner has ruled on NONE of this.** Shapes only —
+> these repos are public. Detail is in `tests/docs/RA-4-2026-08-21.md`.
+>
+> **OWNER RULING, 21 Aug (evening):** *"skip the 3 that are maybes, leave alone anything that
+> can be left alone. go on the others."* So H-4, H-5 and M-8 are NOT being built; M-2, M-5 and
+> the appendix are left alone; the other seven are GO. Recorded in DECISIONS §86.
+>
+> **SHIPPED SO FAR: staff 162 — H-3 and H-2.** Filed, battery green (49 suites / 1,916), honesty
+> EXECUTED and failing on the pushed 161. See `vacation-kp.github.io/BUILD-LOG.md`.
+>
+> **FIX — small, proven pattern, low risk (7 findings, 3 builds):**
+> · ONE admin build: the five missed consumers of the projection (H-1) · the un-badged decided row
+>   that carries a live destructive button (M-1) · the admin gate that misreports every read
+>   failure as "not authorized" (M-3) · the missing owner check on one address field (M-6) · the
+>   unused relay fallback that should simply be deleted (M-7).
+> · ONE staff build: make a failed or refused bid VISIBLE (H-3, and H-2's silent half). Two
+>   findings, one theme, one file — NOT a licence to sweep the file (§85).
+> · ONE rules change, console-published first: the readout that is world-readable with no reader
+>   that needs it (M-9).
+>
+> **NEEDS AN OWNER RULING — these are trade-offs, not defects:**
+> · H-4 — what should a restore do to the "already mailed" record? Duplicate mail vs. no mail.
+> · H-5 — how much of a completed phase should be public? Outcomes only, or the bid numbers too?
+> · M-8 — outsider read access vs. a billed read on the most-read document (the rules' own comment
+>   says tightening it is a one-word change, and names the cost).
+>
+> **FREE — no build:** M-4, look at one live document. If it is clean, the finding dies.
+>
+> **CLAUDE RECOMMENDS LEAVING ALONE:** M-2 (needs two Google accounts on one browser profile) and
+> M-5 (needs a crash mid-send; the result is duplicate identical mail, not a wrong outcome), plus
+> the whole appendix. Listed, unworked, not re-raised.
+
+
 ## ✅ DONE 21 Aug (evening) — the §84/§85 audit itself
 - [x] **RA-4 · narrow-scope audit of the whole vacation auction.** Charter: DECISIONS §84 as
       sharpened by **§85** (no can of worms; whole vacation project, emphasis on recent updates).

@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 21 Aug 2026 (evening) — the §84/§85 AUDIT HAS RUN. 14 findings stand (5 HIGH, 9 MEDIUM); NOTHING IS BUILT and nothing should be until the owner rules. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
+**LAST REVISED: 21 Aug 2026 (late evening) — the §84/§85 AUDIT HAS RUN and the owner has RULED (§86): seven findings go, three are skipped as trade-offs, two are left alone. **STAFF 162 IS FILED AND AWAITING A PUSH**; the admin build and the rules change follow. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
 **Everything is pushed and live: auction staff 161 / admin 299 / mobile 18 · schedule admin 76 /
 staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 21 Aug evening on
 the pushed bytes: **48 suites / 1,878 assertions, zero skips** (recorded as 1,881 at the close of
@@ -74,9 +74,23 @@ phase in flight) before doing anything.
 > in a DOM harness. Three of the five HIGH findings rest on what those two OBSERVED, and one of
 > them reproduces the owner's own §82(d) worst case verbatim in consumers nobody repointed.
 >
-> **Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`. Nothing is built, and nothing should be
-> until the owner rules which findings are worth a build** — §85 forbids one finding licensing its
-> neighbours. What was REFUTED is recorded there too, so nobody re-raises it.
+> **Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.** What was REFUTED is recorded there too,
+> so nobody re-raises it.
+>
+> **THE OWNER RULED THE SAME EVENING — §86.** *"skip the 3 that are maybes, leave alone anything
+> that can be left alone. go on the others."* Three trade-offs skipped (H-4 the restore/mail
+> record, H-5 how much of a completed phase is public, M-8 outsider reads vs a billed read);
+> M-2, M-5 and the whole appendix left alone and NOT to be re-raised; the other seven GO.
+>
+> **⚠️ AND THE OWNER FOUND ONE HIMSELF, which is where the real urgency is.** He checked the live
+> login e-mails: *"there are a couple lower cases. i thought we made this case insensitive."*
+> Every PAGE lowercases both sides — but `firestore.rules` lowercases only the INCOMING address
+> and compares the stored value exactly as typed. So a mixed-case stored address signs in fine,
+> reads the whole board, and has **every bid write refused**. RA-4's M-4 is therefore LIVE, not
+> latent. **The DATA fix is the owner's** (Users page: Clear the address FIRST, then re-save —
+> re-saving alone is short-circuited to "no change" and writes nothing). The CODE fix is in the
+> rules build. `isListedAdmin()` has the same comparison against the raw admin list, so a
+> mixed-case address there locks that admin out entirely.
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
 > 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
