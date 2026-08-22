@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 22 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). The §86 queue is ruled and its remaining work is UNSTARTED: ONE admin build and ONE rules change. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
+**LAST REVISED: 22 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). **§87 NARROWS §86 TO TWO ITEMS: build H-1 and M-1, IGNORE the rest.** M-4 is SETTLED as latent — the owner read the live documents and found no capitals; nothing is broken and no data fix is owed. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
 **Everything is pushed and live: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 /
 staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 22 Aug on the
 rebuilt tree: **49 suites / 1,916 assertions, zero skips** — the identical count this file already
@@ -10,13 +10,17 @@ rebuild is byte-correct. (Pre-162 baseline 1,878 holds and 162's own suite is ex
 missing suite.) Rules suite rebuilt and re-run on the new machine: **RA-2 59/59 on the current
 rules, and 7 of 7 new gates FAIL on the pre-RA-3 rules** — the historical figures exactly.
 
-**THE QUEUE HEAD IS NOW TWO BUILDS — read `TODO.md` §1, then the private report.**
+**THE QUEUE HEAD IS H-1 AND M-1 — NOTHING ELSE. Read `DECISIONS.md` §87 first, then `TODO.md`
+§1, then the private report.** §87 (22 Aug) narrowed §86 on the owner's instruction — *"i only
+want to do 100% necessary fixes at this point"*, then *"ignore other items"*. **M-3, M-6, M-7, M-9
+and M-4 are OFF THE QUEUE.** Do not build them and do not re-raise them as urgent.
 The audit ordered on 21 Aug is DONE and RULED (§86): ten blind lenses, twelve adversarial
 skeptics (two on every CRITICAL and HIGH), 27 raised → 6 refuted → 7 demoted → **14 stood, no
-CRITICAL surviving two skeptics**. H-2 and H-3 shipped as staff 162. What is left is **ONE admin
-build** (H-1 · M-1 · M-3 · M-6 · M-7) and **ONE rules change** (M-9 + M-4's code half), plus the
-owner's own one-document data fix for M-4. §85 still forbids a finding licensing neighbouring
-tidy-ups: build these shapes and nothing adjacent.
+CRITICAL surviving two skeptics**. H-2 and H-3 shipped as staff 162. What is left, after §87, is **ONE admin build carrying exactly TWO findings: H-1 and M-1.**
+There is no rules change and no data fix. §85 still forbids a finding licensing neighbouring
+tidy-ups, and §87 tightens that further: these two shapes and nothing else.
+**H-1 carries §82(d)'s standard** — run both engines over thousands of week states and compare;
+a comment asserting "same number" is not evidence.
 **Do not describe any of them by reproduction in these repos — they are PUBLIC (§3).**
 Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
 and cannot be delegated.
@@ -119,15 +123,28 @@ phase in flight) before doing anything.
 > `TODO.md` labels this group "7 findings, 3 builds" but lists eight; the shapes above are what
 > the code actually shows.
 >
-> **⚠️ AND THE OWNER FOUND ONE HIMSELF, which is where the real urgency is.** He checked the live
-> login e-mails: *"there are a couple lower cases. i thought we made this case insensitive."*
-> Every PAGE lowercases both sides — but `firestore.rules` lowercases only the INCOMING address
-> and compares the stored value exactly as typed. So a mixed-case stored address signs in fine,
-> reads the whole board, and has **every bid write refused**. RA-4's M-4 is therefore LIVE, not
-> latent. **The DATA fix is the owner's** (Users page: Clear the address FIRST, then re-save —
-> re-saving alone is short-circuited to "no change" and writes nothing). The CODE fix is in the
-> rules build. `isListedAdmin()` has the same comparison against the raw admin list, so a
-> mixed-case address there locks that admin out entirely.
+> **M-4 — RAISED BY THE OWNER, THEN SETTLED BY HIM. IT IS LATENT, NOT LIVE.** On 21 Aug he
+> looked at the live login e-mails and said *"there are a couple lower cases. i thought we made
+> this case insensitive."* The shape is real: every PAGE lowercases both sides, but
+> `firestore.rules` lowercases only the INCOMING address and compares the stored value exactly as
+> typed — so a mixed-case stored address signs in fine, reads the whole board, and has **every
+> bid write refused**, while `isListedAdmin()` would lock that admin out entirely.
+>
+> **ON 22 Aug THE OWNER READ THE LIVE DOCUMENTS AND FOUND NO CAPITALS** in any of the four the
+> rules actually compare against: `vacations/loginEmails`, `vacations/adminAccess`,
+> `vacations/emailToUser` (keyed BY address) and `dailysched/adminAccess`. **So no bidder and no
+> admin is affected today, and no data fix is owed.** RA-4's original verdict — latent — stands;
+> the 21 Aug promotion to LIVE was based on the rendered page, not the documents.
+> **NOT separately verified: space-padding**, which RA-4 named alongside capitalisation and which
+> is invisible in the console. Treat it as unlikely, not excluded.
+>
+> **The hardening is still ruled GO (§86) — it is now defence in depth, not a repair.** Two
+> constraints found on 22 Aug that make it less trivial than "one rules edit":
+> · Rules cannot lowercase the stored side of a list — there is no map operation. The candidate
+>   trick is `data.emails.join(',').lower().split(',')`; **prove it with RA-2, do not assume it.**
+> · `emailToUser` is a MAP KEYED BY ADDRESS. You can lower a set of keys to test membership but
+>   you cannot fetch the value for a lowered key, so `myInitials()` cannot be fixed in rules at
+>   all. Padding has the same problem. **Those two can only ever be fixed in the data.**
 >
 > **STATUS 22 Aug: the CODE fix is still undone, and it is now TESTABLE.** The rules-emulator
 > suite was rebuilt from nothing on the new machine and BOTH halves run — **59/59 on the current

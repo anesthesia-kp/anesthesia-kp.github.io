@@ -70,6 +70,39 @@ figure. Worth recording for the next fresh machine: the cloud session **cannot**
 `storage.googleapis.com` is not on its allowlist, exactly as `test-rules-emulator.mjs` says in
 its own header comment.
 
+**M-4 was settled the same night, and settled DOWNWARD.** On 21 Aug the owner glanced at the
+live login e-mails, said *"there are a couple lower cases"*, and M-4 was promoted from latent to
+LIVE on the strength of it. On 22 Aug he read the four documents the rules actually compare
+against — `vacations/loginEmails`, `vacations/adminAccess`, `vacations/emailToUser` and
+`dailysched/adminAccess` — and found **no capitals in any of them**. So nothing is broken for any
+bidder or admin, and no data fix is owed. The lesson is RA-4's own wording, which said *look at
+the live document*: the first reading was of a rendered page, and a rendered page is not the data.
+Space-padding, which RA-4 named in the same breath, was not separately checked and is invisible in
+the console — unlikely, not excluded.
+
+Two constraints surfaced while scoping the fix, and they make it less trivial than "one rules
+edit". **Rules cannot lowercase the stored side of a list** — there is no map operation; the
+candidate is `data.emails.join(',').lower().split(',')` and it must be PROVEN with RA-2, not
+assumed. And **`emailToUser` is a map keyed by address**: membership can be tested against lowered
+keys, but the value for a lowered key cannot be fetched, so `myInitials()` is unfixable in rules.
+That half, and padding, can only ever be fixed in the data.
+
+**THE SESSION ENDED WITH A NARROWING — §87.** With the rules suite green and the queue in front
+of him, the owner declined to build at midnight and cut §86 down: *"i only want to do 100%
+necessary fixes at this point"*, then *"ignore other items"*. **Only H-1 and M-1 survive.** M-3,
+M-6, M-7, M-9 and M-4 are off the queue — not refuted, judged unnecessary. Two of those were
+settled with evidence rather than opinion on the same night: M-4 by reading the four live
+documents (no capitals, nothing broken, no data fix owed) and M-9 by grepping every page for
+`fteMap` (its listener moved behind sign-in at build 152, so nothing reads it before sign-in and
+nothing changes if it is never fixed).
+
+**Nothing was built on 22 Aug beyond the recovery itself, and that was deliberate.** Claude
+declined the admin build twice and said why: H-1 changes capacity arithmetic on a live auction,
+§82(d) is the precedent for a change to that machinery looking right and being wrong, and the
+standard it set — both engines over thousands of week states, compared — is not a midnight job.
+The owner agreed and handed off. Recorded because the restraint is the decision: the day's
+temptation, after recovering everything, was to keep going.
+
 **The rule this session earns, and the owner has not yet ruled on it.** *"Filed" should mean
 pushed.* Every previous handoff used "filed" to mean "written and staged for a push", and on
 21 Aug START-HERE said **STAFF 162 IS FILED AND AWAITING A PUSH**. That sentence was true and

@@ -2110,3 +2110,39 @@ Two remedies, deliberately split:
 **Flagged in the same breath:** `isListedAdmin()` carries the identical comparison against the
 raw `adminAccess` list, so a mixed-case address there locks that admin out of the admin site
 completely. That one is data, not code — worth a look while the Users page is open.
+
+## §87 — §86 NARROWED TO TWO: only H-1 and M-1 are to be built — 22 Aug 2026
+
+Owner, at the close of the machine-loss session, verbatim: **"i only want to do 100% necessary
+fixes at this point"** and then, on the remainder, **"ignore other items"**.
+
+**BUILD — the two that could actually harm the auction:**
+- **H-1** — the five consumers of the frozen projection that build 298 did not repoint. Same
+  defect class as §82(d), which the owner caught himself: a capacity-3 week reported 0.2
+  remaining when every bidder on it had been denied. Wrong capacity arithmetic changes who gets
+  weeks. **§82(d)'s standard applies: run both engines over thousands of week states and compare.
+  A comment asserting "same number" is not evidence.**
+- **M-1** — on Draws & Reviews an already-approved person is rendered again as an un-badged draw
+  row still carrying a live ✕ Deny, and the confirm never mentions the existing approval. One
+  click silently destroys an approval.
+
+**IGNORE — off the queue by this ruling.** Not refuted, not forgotten; judged not necessary.
+Do NOT build them, and do NOT re-raise them as urgent. They return only if the owner asks.
+- **M-3** — the admin gate reporting every read failure as "not authorized". Diagnostics, not
+  harm. (Noted only so nobody re-discovers it: it is the failure the owner would meet during the
+  sign-in push, on the one page that cannot report it.)
+- **M-6** and **M-7** — the mail-address owner check, and the unused relay fallback.
+- **M-9** — `fteMap` world-readable. Verified 22 Aug: its listener moved behind sign-in at build
+  152, so nothing reads it before sign-in and nothing changes if it is never fixed. A privacy
+  tidy-up, not a defect.
+- **M-4** — **SETTLED, not deferred.** The owner read all four documents the rules compare
+  against — `vacations/loginEmails`, `vacations/adminAccess`, `vacations/emailToUser`,
+  `dailysched/adminAccess` — and found no capitals in any of them. Nothing is broken, no data fix
+  is owed, and §86's promotion of M-4 to LIVE is hereby withdrawn: it is latent, as RA-4 first
+  said. Space-padding was not separately checked and is invisible in the console — unlikely, not
+  excluded. Two limits found while scoping the fix, recorded so no one re-scopes it from scratch:
+  rules cannot lowercase the stored side of a list without the unproven
+  `join(',').lower().split(',')` trick, and `emailToUser` — a map keyed by address — cannot be
+  fixed in rules at all.
+
+The three §86 skips (H-4, H-5, M-8) and the two left alone (M-2, M-5) are unchanged and remain so.
