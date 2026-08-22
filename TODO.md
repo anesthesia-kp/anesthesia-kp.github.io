@@ -980,6 +980,24 @@ close mechanically.
 PAUSED except the approved M3 build above. Battery: 14 suites (~1,075 assertions — 1,074
 appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
+## Found live, 22 Aug 2026 — the pre-sign-in badge says "Bidding open" when it is closed (LOGIN-1)
+
+- [ ] **LOGIN-1 · The first thing a bidder sees can be false for the whole gap between phases.**
+      **OBSERVED, not inferred:** with Phase 1 started and bidding closed, the sign-in screen read
+      **"PHASE 1 · BIDDING OPEN"** while the board behind it read *"Bidding is closed — no more
+      changes can be made."* When the owner then Reset the auction entirely, the same badge
+      flipped to **"BIDDING CLOSED"** — which demonstrates the mechanism rather than a one-off.
+      **Cause:** the badge calls `biddingOpen()`, which is only
+      `currentPhase>1 || phasesData.phase1Started===true` — it consults NEITHER
+      `timerData.biddingClosed` NOR timer expiry. The board uses `isAuctionClosed()`, which
+      checks both. Two surfaces, two different definitions of "open".
+      **When it bites:** every interval between a phase's timer running out and the admin
+      beginning the next phase — four-plus times per auction, on the page everyone lands on
+      first. A bidder reads "bidding open", signs in, and finds it shut.
+      **Fix shape — NOT built, needs a ruling (§85/§87).** Do **NOT** change `biddingOpen()`: it
+      has **12 callers** on the staff page and is the wrong blast radius. Change
+      `updateSigninPhase()` only, so the badge asks the same question the board asks.
+
 ## Owner request, 22 Aug 2026 — decision-list sort order (SORT-1) — NOT BUILT · 1 of 3 questions ruled
 
 - [ ] **SORT-1 · Sort the decision lists by projection, then bid strength, then name.** Owner,
@@ -1013,14 +1031,22 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       already carried as `proj` on the Approvals/Denials entries, invariant by construction) or
       the frozen one (`computeApprovals(false)`). Pick the key that a sweep PROVES does not move
       when a decision is written; a comment claiming it cannot move is not evidence.
-      **STILL OPEN — do not build before these two are answered:**
-      1. **Do DRAW and REVIEW merge into ONE tier?** He wrote them as one. Today draw outranks
-         review. Merging means a review holding a 2 sorts above a draw holding a 7. Defensible,
-         but they mean different things (tied vs over-cap).
-      2. **The by-USER views.** Both panels have a by-week and a by-user table. In the by-user
-         view the third key today is the WEEK, not the name — correct, since every row is the
-         same person. Assumption unless told otherwise: "third sort alphabetically" applies to
-         the by-week views, and the by-user views keep week as the tiebreak.
+      **RULED 22 Aug — questions 2 and 3 answered, so SORT-1 is fully specified.**
+      · **DRAW and REVIEW are ONE tier.** Owner: *"they never occur together."* **Verified in the
+        engine, not taken on trust:** the per-week group loop sets `settled=true` at the FIRST
+        group that does not fit and skips every later group, so exactly one of `draws`/`reviews`
+        can be populated for a week — plus a belt-and-braces `for(const u of draws)
+        reviews.delete(u)`. His premise is structurally guaranteed, not just true today.
+        **One caveat, per week only:** in the by-USER view a person can hold a draw on one week
+        and a review on another, so merged tiers DO change ordering there. Accepted.
+      · **Third key.** Confirmed: alphabetical in the by-WEEK views; the by-USER views keep WEEK
+        as the tiebreak.
+      **THE REPORT IS A THIRD SURFACE, and it is already wrong in the same way.** `bids.sort`
+      keys on `bwOutcomeRank(outcome)` — result-first (`approved`=0, `denied`=5) — even though
+      every row already carries a separate `projected` value. With no decisions made it collapses
+      to the projection, which is why it LOOKS right; it re-sorts the moment decisions start. Its
+      2nd/3rd keys (`a.score-b.score||a.user.localeCompare`) are already exactly what is wanted,
+      so the change there is to sort on `projected`.
 
 ## Owner request, 18 Aug 2026 — verbatim
 
