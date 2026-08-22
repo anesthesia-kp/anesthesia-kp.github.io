@@ -768,8 +768,7 @@ sequenced post-audit because the lowerings lens is auditing this exact accountin
       "fix."
 
 
-- [x] **B2 · THE M3 BUILD — BUILT 18 Aug 2026 as build 270 / staff 140 — AWAITING OWNER
-      PUSH.** Scope shipped = the frozen scope below PLUS one owner-ruled addition (18 Aug,
+- [x] **B2 · THE M3 BUILD — BUILT 18 Aug 2026 as build 270 / staff 140 — SINCE PUSHED AND LIVE.** Scope shipped = the frozen scope below PLUS one owner-ruled addition (18 Aug,
       DECISIONS §58): the already-sent checks (results ledgers + mail-queue sentTo skips,
       both sites) are CASE-BLIND, so a pre-270 mixed-case ledger entry can never cause a
       duplicate results e-mail on a retry. CRNA site restamped (mechanical: CRNA = stamp(MD),
@@ -793,7 +792,7 @@ sequenced post-audit because the lowerings lens is auditing this exact accountin
       **TWO stored with uppercase: CB and HR** (full addresses given to the owner in chat —
       not recorded here, repo is public). Any Phase-3 duplicate-e-mail question traces to
       those two. Harmless under 270+ (read side lower-cases); stored case left as stored.
-- [x] **B4 · BUILT 18 Aug 2026 as build 271 (with V7) — AWAITING OWNER PUSH.** Report added
+- [x] **B4 · BUILT 18 Aug 2026 as build 271 (with V7) — SINCE PUSHED AND LIVE.** Report added
       beneath the User summary section; `_capacityWeekRows` counts approved winners only
       (completed phases + announced P4 rounds + current-phase approvals — never live bids);
       definition stated in the card, the report header and the xlsx band. Gates:
@@ -835,7 +834,7 @@ All UX-PLAN §8 questions answered; sequence approved. Each its own gated build:
    hides itself when no demand is set; Compact caps at three family blocks with a `+n`;
    choice remembered. NEW `tests/sched/build69-test.mjs` 35/35, deliberately non-Playwright
    so it RUNS in the battery; honesty fails 19/20 on 68; both batteries + isolation green.
-   **Awaiting owner push.**) · ~~**S5b** flipped shifts-as-rows view~~ **— DONE, build 70**
+   **Since pushed and live.**) · ~~**S5b** flipped shifts-as-rows view~~ **— DONE, build 70**
    (View switch beside Density; one row per shift in catalog order with its family swatch;
    shortfall rings that stack with the weekend/today tints; density applies to both views;
    choice remembered. **Read-only by design** — a shift-view cell holds several people so no
@@ -957,7 +956,7 @@ close mechanically.
       stamper transform + guard clause together, then restamp) or keep the CRNA site
       schedule-free. Do not let a future MD-page edit resurrect them by accident — the
       guard makes that impossible without a deliberate stamper change.
-- [x] **C7 · BUILT 18 Aug 2026 in build 274/141 (with V1+V2+V5+V3 — owner order: "do C7 bundle and V3 as next build"; V5 added by owner choice) — AWAITING OWNER PUSH.** MD labels on both pages (stamper now SWAPS MD→CRNA); hardcoded roster removed from both MD pages (`let names=[]`). Gates: `tests/test-c7-timer-bundle.mjs` 53/53 · honesty vs 273/140 fails · battery 18 suites/1,244 green. Original text:** ~~the M3
+- [x] **C7 · BUILT 18 Aug 2026 in build 274/141 (with V1+V2+V5+V3 — owner order: "do C7 bundle and V3 as next build"; V5 added by owner choice) — SINCE PUSHED AND LIVE.** MD labels on both pages (stamper now SWAPS MD→CRNA); hardcoded roster removed from both MD pages (`let names=[]`). Gates: `tests/test-c7-timer-bundle.mjs` 53/53 · honesty vs 273/140 fails · battery 18 suites/1,244 green. Original text:** ~~the M3
       e-mail fix~~ (shipped separately as build 270, 18 Aug — see §1 B2) · the "MD" site
       label (deferred from the CRNA labels
       ruling) · **remove the hardcoded starting roster from both MD pages** (serves
@@ -981,10 +980,51 @@ close mechanically.
 PAUSED except the approved M3 build above. Battery: 14 suites (~1,075 assertions — 1,074
 appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
+## Owner request, 22 Aug 2026 — decision-list sort order (SORT-1) — NOT BUILT · 1 of 3 questions ruled
+
+- [ ] **SORT-1 · Sort the decision lists by projection, then bid strength, then name.** Owner,
+      verbatim: *"In admin approve/deny and draws/reviews, I think the order of users should be
+      sorted primarily by projection of win, then draw/review, then lose. secondary sort by
+      their bid # strong to weak and third sort alphabetically."*
+      **Assessment: it makes sense and it is cheap.** Today both panels sort by outcome tier and
+      then ALPHABETICALLY — bid strength is not a key at all, so on a contested week the person
+      with the strongest claim can sit anywhere in the list. Strength ordering puts the list in
+      the order the decision is actually made. It also removes an inconsistency already on the
+      page: the "Other bids on this week" context rows below the decision rows are ALREADY
+      sorted strongest-first (`allWkBidders.sort((x,y)=>x.score-y.score)`), so the two halves of
+      the same card disagree about ordering today.
+      **No new ranking logic** — `pScore()` already defines strength exactly as the bidders' deck
+      states it (1/2/3 → 0 · 1/2 → 1 · single n → n+1 · NP → 99; LOWER IS STRONGER). Presentation
+      only: no writes, no engine, four comparator call sites (`renderAppDenials` week + user
+      views, `renderDrawsReviews` week + user views).
+      **Checked so it is not assumed:** the randomizer wheel takes its members from the draw rows
+      in display order, so this changes the ORDER OF THE SLICES but not the odds — `spinWheel`
+      picks a uniformly random index, which slice order cannot bias.
+      **RULED BY THE OWNER, 22 Aug 2026 (question 1 answered), verbatim:** *"users should not
+      re-sort after being approved/denied. projection should drive the primary sort, not the
+      result."* So `outcomeRank`'s approved=0 / denied=5 tiers are GONE from these lists: a
+      decided person keeps their projected position and wears their decision badge in place
+      (which build 300's M-1 fix makes coherent — one row per person). **His reason is the
+      stronger one and overrides Claude's "keep it a worklist" proposal:** a list that
+      re-orders under the cursor mid-session is the same hazard class as a stale confirm —
+      click Deny on the third row, the list jumps, and the next click lands on someone else.
+      **MUST BE MEASURED BEFORE BUILDING, not assumed (§82d standard):** which projection is
+      actually invariant under an approve/deny click — the NATURAL one (`computeApprovals(true)`,
+      already carried as `proj` on the Approvals/Denials entries, invariant by construction) or
+      the frozen one (`computeApprovals(false)`). Pick the key that a sweep PROVES does not move
+      when a decision is written; a comment claiming it cannot move is not evidence.
+      **STILL OPEN — do not build before these two are answered:**
+      1. **Do DRAW and REVIEW merge into ONE tier?** He wrote them as one. Today draw outranks
+         review. Merging means a review holding a 2 sorts above a draw holding a 7. Defensible,
+         but they mean different things (tied vs over-cap).
+      2. **The by-USER views.** Both panels have a by-week and a by-user table. In the by-user
+         view the third key today is the WEEK, not the name — correct, since every row is the
+         same person. Assumption unless told otherwise: "third sort alphabetically" applies to
+         the by-week views, and the by-user views keep week as the tiebreak.
+
 ## Owner request, 18 Aug 2026 — verbatim
 
-- [x] **V7 · REVISED TWICE SAME DAY → V7c, BUILT 18 Aug 2026 as build 273 — AWAITING OWNER
-      PUSH.** Owner feedback on 272 (verbatim): *"prior phase results button must stay where
+- [x] **V7 · REVISED TWICE SAME DAY → V7c, BUILT 18 Aug 2026 as build 273 — SINCE PUSHED AND LIVE.** Owner feedback on 272 (verbatim): *"prior phase results button must stay where
       it is. next decision just to the right of that. Also, need a new method for that
       button to move. it jumps down to the next decision the moment i make a decision and
       then i can't use it to scroll there, which is the entire point. i think it should
@@ -1117,18 +1157,18 @@ OPEN-RESIDUALS.*
 
 | id | what | status | neutralised by |
 |---|---|---|---|
-| **M3** | the two sites disagree on a mixed-case e-mail address | **FIX BUILT 18 Aug (build 270/140, §1 B2) — awaiting owner push.** Was: confirmed exposed 17 Aug (owner checked: some KP addresses have uppercase); reproduced 16 Aug by executing both sites' real functions | closed by 270 once pushed: read side lower-cases, saves normalise, sent-ledgers case-blind. Stored mixed case stays as stored (harmless). B3 still open |
+| **M3** | the two sites disagree on a mixed-case e-mail address | **FIX BUILT 18 Aug (build 270/140, §1 B2) — SINCE PUSHED AND LIVE.** Was: confirmed exposed 17 Aug (owner checked: some KP addresses have uppercase); reproduced 16 Aug by executing both sites' real functions | closed by 270 once pushed: read side lower-cases, saves normalise, sent-ledgers case-blind. Stored mixed case stays as stored (harmless). B3 still open |
 | **M1** | results e-mails can double-send if two admins press Send inside a slow >2-min window | **ACCEPTED for launch, 18 Aug 2026** (owner order: finish the vacation builds; owner July ruling stood: *"better to leave it alone than create new problems"*) | **one admin runs the auction** — complete. Unverified: 269's server-truth ledger reads may narrow it; do not assume |
 | **L2** | mail-queue claim is claim/settle/re-check, not a transaction | **ACCEPTED for launch, 18 Aug 2026**; worst case one duplicate alert from a lagging background tab | nothing needed |
 | **L3** | a bid queued on an offline device can replay into a freshly reset auction, stale phase tag, no error | **ACCEPTED for launch, 18 Aug 2026** — the code fix touches the launch lifecycle | **after Reset: Global Lock ON until Begin Phase 1**; glance at the board before going live |
 | **L4** | an earlier phase's unsent results can become unsendable | **ACCEPTED for launch, 18 Aug 2026** — narrowed in 245 (auto-targets an earlier unsent phase) | send or rehearsal-skip each phase's results before beginning the next |
 | **L1** | `welcomeLog` write rule unconfined | **RE-CHECKED 18 Aug 2026: ALREADY FIXED** — the shipped rules carry the [L-8] registered-user gate + [L1 · APPEND-ONLY containment] (writes touch only 'sent'; old keys must survive). Console parity verified 18 Aug (§3 S4 note). Pinned by `test-l1-l5-close.mjs` | the forge-half (pre-seeding one key) is the documented, accepted low-impact residual — rules cannot tie a key to its caller |
 | **L5** | `mobile.html` redirect mangles one query shape | **RE-CHECKED + CLOSED 18 Aug 2026 (mobile 18)** — the reported leading-& shape was already fixed in the shipped page; the last degenerate boundary (a flag value merely starting with "1" clipped mid-value) closed by anchoring the strip regex. Every shape executed in `test-l1-l5-close.mjs`; honesty fails on mobile 17 | — |
-| **TR-1** | **Timer Rules editor: the line you edit is not the line that changes.** Owner-reported 19 Aug 2026. The editor renders line *i* from a **days-sorted** stage array and the save re-sorts, so changing an "After N days" value moves that rule to a different line — the admin sees his number land somewhere he did not type it | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** Both redundant sorts removed; `getTimerRules` keeps the engine's sort (pinned: exactly ONE day-sort left in the page). Reproduced first by executing the real `renderTimerRules` + `buildTimerRulesFromDOM` from the pushed 275 page | nothing — the data saved is faithful, only the row position moves, so it is confusing rather than corrupting **on its own**; TR-2 is the consequence |
-| **TR-2** | **The reset ladder can be saved non-monotonic, with no warning.** Because of TR-1 the admin easily lands a shorter reset *before* a longer one; nothing validates that days ascend and hours descend, and duplicate day values silently kill the earlier rule (last match wins in `timerResetHours`) | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** `_trValidate` blocks Save with a plain-English reason unless the switched-on steps ascend in days and shorten in hours. Engine consequence had been executed against the real `timerResetHours`: a ladder that should tighten instead *lengthened* mid-round, and `timerRulesEmailText` printed the same bad ladder to every bidder | nothing — needs an editor-side validation + a fix for TR-1 |
-| **TR-3** | **Fewer than 5 saved stages ⇒ invented stages become real.** If `adminSettings.timerRules.stages` holds fewer than 5 entries (legacy config, restore, hand edit), the editor fills the empty lines from a hardcoded positional default and displays them as if configured; the next save of **any** field in the block writes those invented, enabled stages into the live rules | **FIX BUILT 19 Aug (build 276) — awaiting owner push.** An unset line now renders switched OFF and saves as `enabled:false`, which `getTimerRules` drops, so nothing the admin never set can reach the engine | nothing — check the stored config before trusting the editor after any restore |
-| **CL-1** | **The admin Change Log renders system admin actions as if they were bids.** Owner-reported 19 Aug 2026 with a screenshot. `adminLog` writes non-bid, system-level actions into the same `changes` log as bid edits, using `'ALL'` as filler for both the user and the week; the renderer assumes every entry is a bid, so the row reads "Admin <raw-type> bid for ALL on Wk 0 · undefined undefined NaN". Seven action types are affected, including remove-user, delete-all-users and restore-full — the entries the audit trail exists for | **FIX BUILT 19 Aug (build 277 / staff 143) — awaiting owner push.** System entries get their own sentence, pill, filter option and no week column; recognised by SHAPE as well as by the new `scope:'system'` stamp, so the three rows already in the live log render correctly with no migration | nothing — the STORED data is correct, so no history is lost; it is the display that is untrue. The staff site has no Change Log, so this half is admin-only |
-| **CL-2** | **Those same system entries are counted as bid activity — on BOTH sites.** They pass the `changeEvents24h` filter (which only excludes approve/deny/revoke), so they inflate the admin Popcornometer and the bid-activity chart's "N changes over Xh", and on the STAFF site they inflate every bidder's "N changes in last 24h" chip and appear in its popover as a meaningless row | **FIX BUILT 19 Aug (build 277 / staff 143) — awaiting owner push.** Excluded from the activity feeds on BOTH pages (admin Popcornometer + bid chart, staff 24h chip/popover + 48h notifications) | nothing — wrong numbers on screen, no bid affected |
+| **TR-1** | **Timer Rules editor: the line you edit is not the line that changes.** Owner-reported 19 Aug 2026. The editor renders line *i* from a **days-sorted** stage array and the save re-sorts, so changing an "After N days" value moves that rule to a different line — the admin sees his number land somewhere he did not type it | **FIX BUILT 19 Aug (build 276) — SINCE PUSHED AND LIVE.** Both redundant sorts removed; `getTimerRules` keeps the engine's sort (pinned: exactly ONE day-sort left in the page). Reproduced first by executing the real `renderTimerRules` + `buildTimerRulesFromDOM` from the pushed 275 page | nothing — the data saved is faithful, only the row position moves, so it is confusing rather than corrupting **on its own**; TR-2 is the consequence |
+| **TR-2** | **The reset ladder can be saved non-monotonic, with no warning.** Because of TR-1 the admin easily lands a shorter reset *before* a longer one; nothing validates that days ascend and hours descend, and duplicate day values silently kill the earlier rule (last match wins in `timerResetHours`) | **FIX BUILT 19 Aug (build 276) — SINCE PUSHED AND LIVE.** `_trValidate` blocks Save with a plain-English reason unless the switched-on steps ascend in days and shorten in hours. Engine consequence had been executed against the real `timerResetHours`: a ladder that should tighten instead *lengthened* mid-round, and `timerRulesEmailText` printed the same bad ladder to every bidder | nothing — needs an editor-side validation + a fix for TR-1 |
+| **TR-3** | **Fewer than 5 saved stages ⇒ invented stages become real.** If `adminSettings.timerRules.stages` holds fewer than 5 entries (legacy config, restore, hand edit), the editor fills the empty lines from a hardcoded positional default and displays them as if configured; the next save of **any** field in the block writes those invented, enabled stages into the live rules | **FIX BUILT 19 Aug (build 276) — SINCE PUSHED AND LIVE.** An unset line now renders switched OFF and saves as `enabled:false`, which `getTimerRules` drops, so nothing the admin never set can reach the engine | nothing — check the stored config before trusting the editor after any restore |
+| **CL-1** | **The admin Change Log renders system admin actions as if they were bids.** Owner-reported 19 Aug 2026 with a screenshot. `adminLog` writes non-bid, system-level actions into the same `changes` log as bid edits, using `'ALL'` as filler for both the user and the week; the renderer assumes every entry is a bid, so the row reads "Admin <raw-type> bid for ALL on Wk 0 · undefined undefined NaN". Seven action types are affected, including remove-user, delete-all-users and restore-full — the entries the audit trail exists for | **FIX BUILT 19 Aug (build 277 / staff 143) — SINCE PUSHED AND LIVE.** System entries get their own sentence, pill, filter option and no week column; recognised by SHAPE as well as by the new `scope:'system'` stamp, so the three rows already in the live log render correctly with no migration | nothing — the STORED data is correct, so no history is lost; it is the display that is untrue. The staff site has no Change Log, so this half is admin-only |
+| **CL-2** | **Those same system entries are counted as bid activity — on BOTH sites.** They pass the `changeEvents24h` filter (which only excludes approve/deny/revoke), so they inflate the admin Popcornometer and the bid-activity chart's "N changes over Xh", and on the STAFF site they inflate every bidder's "N changes in last 24h" chip and appear in its popover as a meaningless row | **FIX BUILT 19 Aug (build 277 / staff 143) — SINCE PUSHED AND LIVE.** Excluded from the activity feeds on BOTH pages (admin Popcornometer + bid chart, staff 24h chip/popover + 48h notifications) | nothing — wrong numbers on screen, no bid affected |
 | **FB-1** | **Firestore daily read quota — RESOLVED by moving to pay-as-you-go (owner, 19 Aug 2026; DECISIONS §61). No code change.** Owner question, 19 Aug 2026. Modelled from the code, NOT measured: every staff client holds ~20 live listeners, and a listener costs one document read per change delivered — so ONE bid, which writes ~4 documents every client listens to (bids · changes · bidTimes · timer), costs roughly **4 × (connected clients)** reads. At ~60 doctors that is ~240 reads per bid action; a few hundred bid actions in a busy day crosses the free tier's 50,000 reads/day. **CORRECTION, same session:** Claude first said the log is "never trimmed". That was WRONG — `completePhase` archives the log and then writes `{log:[],resetAt:…}`, and Reset Auction does the same, so growth is bounded to ONE PHASE, not the whole auction. What remains true: within a phase the log is append-only, and the WHOLE document is re-sent to every listener on every append, so EGRESS grows with log size × clients × changes | **WATCH ITEM, not a defect — 19 Aug 2026. MEASURED: the live rehearsal peaked at 15,000 reads/day against the free tier's 50,000 — roughly 3.3× headroom, with the real group on the real site.** That supersedes Claude's code-derived estimate, which put a deadline day near the cap; the model was pessimistic about how many clients sit connected at once. **OWNER'S NUMBERS, 19 Aug 2026: 35 participants, and "roughly 400 bid actions on a busy
 day."** Multiplier verified against the code rather than estimated — one staff bid writes
 **3 documents always** (`schedule` · `changes` · `bidTimes`) **plus up to 2 conditionally**
@@ -1954,7 +1994,7 @@ Built 17 Aug 2026. Items marked **ASK** need the owner's answer; nothing here wa
 - [ ] Rehearsal debrief: anything the group tripped over goes in this file the same day.
 
 **The pre-launch build window (between phases / after rehearsal)**
-- [x] **The M3 build** — BUILT 18 Aug as 270/140, awaiting owner push (§1 B2 has the full
+- [x] **The M3 build** — BUILT 18 Aug as 270/140, since pushed and live (§1 B2 has the full
       gate record: 43/43 new suite, honesty vs 269/139, battery 16/1,144 green).
 - [x] **L1 and L5 re-check — DONE 18 Aug 2026.** L1 found already fixed in the shipped
       rules (append-only containment; console parity verified same day); L5's last
