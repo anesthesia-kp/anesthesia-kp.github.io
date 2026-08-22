@@ -7,7 +7,8 @@ rebuilt tree: **49 suites / 1,916 assertions, zero skips** — the identical cou
 recorded for the same tree on 21 Aug, which is the strongest single piece of evidence that the
 rebuild is byte-correct. (Pre-162 baseline 1,878 holds and 162's own suite is exactly 38.
 **The 1,881 recorded two sessions ago is still unreconciled** — chase it as a miscount, not a
-missing suite.) Rules suite re-run on the new machine: **RA-2 59/59 on the current rules**.
+missing suite.) Rules suite rebuilt and re-run on the new machine: **RA-2 59/59 on the current
+rules, and 7 of 7 new gates FAIL on the pre-RA-3 rules** — the historical figures exactly.
 
 **THE QUEUE HEAD IS NOW TWO BUILDS — read `TODO.md` §1, then the private report.**
 The audit ordered on 21 Aug is DONE and RULED (§86): ten blind lenses, twelve adversarial
@@ -129,9 +130,10 @@ phase in flight) before doing anything.
 > mixed-case address there locks that admin out entirely.
 >
 > **STATUS 22 Aug: the CODE fix is still undone, and it is now TESTABLE.** The rules-emulator
-> suite was rebuilt on the new machine and runs — **RA-2 59/59 on the current rules**. Until
-> 22 Aug `firestore.rules` was the one file in the project with no executable coverage at all;
-> it now has some. **Do not change the rules without running RA-2 before and after.**
+> suite was rebuilt from nothing on the new machine and BOTH halves run — **59/59 on the current
+> rules, 7 of 7 new gates FAILING on the pre-RA-3 rules**. For most of 22 Aug `firestore.rules`
+> was the one file in the project with no executable coverage at all.
+> **Do not change the rules without running RA-2 before and after.**
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
 > 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
@@ -151,7 +153,8 @@ phase in flight) before doing anything.
 > readable by anyone with no sign-in: `changesArchive` (the whole approve/deny trail of every
 > completed phase, public from Complete Phase — which runs BEFORE results are e-mailed) and
 > `welcomeLog` (every participant's e-mail address in a trivially reversible encoding). Proven
-> on the owner's Mac: **59/59 current, and 7 of 7 new gates fail on the pre-fix rules** (re-run 21 Aug, after the console publish and the push).
+> on the owner's Mac: **59/59 current, and 7 of 7 new gates fail on the pre-fix rules** (re-run
+> 22 Aug on the NEW machine after the rebuild — the same numbers as 21 Aug).
 >
 > **WHAT THE RA-3 DAY PRODUCED** (detail: HANDOFF + BUILD-LOG): a whole-project re-audit — ten
 > blind lenses, an adversarial skeptic per finding, a second skeptic on every CRITICAL/HIGH;
@@ -416,6 +419,15 @@ honesty block cleanly when the baseline file is absent — and a skip prints tid
 checks silently became skips. **Read the honesty line every time: it must say FAILED with a
 non-zero exit.** If it says "skipped", regenerate the fixture from its SHA and re-run before
 reporting anything.
+
+**⚠️ COMMAND-LINE GIT IS NOT INSTALLED ON THE NEW MAC (22 Aug 2026).** GitHub Desktop carries its
+own private copy, so pushes work — but `git` in Terminal does not, and both `status.mjs` and
+`RA-2.command` shell out to it. `RA-2.command` step 4 therefore reports *"could not read the old
+rules from git"* and skips the honesty check — which by the rule above is a FAILED GATE, not a
+pass. **Workaround used on 22 Aug:** extract the fixture from the explicit SHA elsewhere and pass
+it in — `PRE_RULES=<file> node test-rules-emulator.mjs` from `tests/`. **Real fix:**
+`xcode-select --install`, then `xcode-select -p` must print `/Library/Developer/CommandLineTools`.
+Do this before trusting any gate that reads history.
 
 **Running the batteries when file staging is blocked:** the device has node (`/usr/bin/node`,
 v22) and the repos are mounted, so run the suites there with `device_bash` directly — no
