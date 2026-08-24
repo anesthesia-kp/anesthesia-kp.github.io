@@ -2210,3 +2210,36 @@ real extracted code. Report: `tests/docs/RA-5-2026-08-24.md` (PRIVATE).
 **What this means for the next session: the code is not the risk any more.** The three remaining
 items are all the owner's own — real-bidder sign-ins, launch, and switching the two mail toggles
 on. A session that goes looking for more code work is working against this ruling.
+
+## §90 — THE SCHEDULE'S PRIORITY IS FUNCTION, NOT POLISH — 24 Aug 2026
+
+Owner, verbatim: **"Part of the reason is that the schedule build is still early in its life. i
+haven't done much testing of it myself and i'm certain it's a long way from being usable. the key
+is getting it functional and build the base features."**
+
+**THE RULING: base features first. Stop working the defect list.**
+
+This is the schedule's counterpart to §89, and it points the opposite way for a reason. The
+auction is weeks from a live election with 35 people depending on it, so there the bar is "only
+what would derail it". The schedule has **no users at all yet** — the owner has not meaningfully
+tested it himself. Polishing a prototype nobody has used is effort spent on the wrong axis: the
+defects that matter cannot be known until the features exist and someone drives them.
+
+**WHAT THIS PROMOTES — the approved sequence (18 Aug) is now the queue, in order:**
+S5c (filter bar) · **S6 the DAY BOARD, becoming the admin landing page** · S7 (catalog
+read-first rows) · Stage 4 (categories + subgroups) · Stage 5 (the rules engine — the goal).
+
+**WHAT THIS DEMOTES — parked, not forgotten, and NOT to be picked up without the owner asking:**
+- **Defect 3 · swap atomicity.** Structural, and it only bites once swaps are used in earnest.
+  **It stays on the list because it is a real data-integrity gap — but a feature nobody uses
+  cannot corrupt anything.** Revisit before the schedule carries real swaps.
+- **Defects 17 and 18 · mobile.** The admin page has no responsive rule at all. That matters at
+  ROLLOUT, and rollout is months away; the layout it must be responsive to does not exist yet.
+- **Defects 5's tail, 7's tail, 20–23 hardcoding, 25–29 dead code** — housekeeping. Several were
+  closed in 78–80 already; the rest wait.
+
+**WHAT IS NOT DEMOTED, and the distinction matters:** anything that can DESTROY DATA still gets
+fixed the moment it is found, prototype or not. That is why `saveBaseline` (77) and the FTE
+loaded-gate (79) were built rather than parked — a wiped baseline is not recoverable, and "we
+were going to rewrite that screen anyway" is no comfort to the person whose data went. **Base
+features first; data loss still jumps the queue.**

@@ -9,6 +9,55 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (§90 + CONTEXT) — the schedule's queue turns to features, and an honest stop
+
+**§90 is recorded: base features first, stop working the defect list.** The owner's reasoning is
+sound and worth keeping in his words — the schedule has no users, he has barely tested it, and
+the defects that matter cannot be known until the features exist and someone drives them. TODO §1
+now carries the ordered feature queue and the parked list. The one carve-out: **anything that can
+DESTROY DATA still jumps the queue**, which is why 77's `saveBaseline` guard and 79's FTE gate
+were built rather than parked.
+
+> ⚠️ **CONTEXT CHECK, VOLUNTEERED — the owner asked to be told before rot sets in, and the honest
+> answer is: the FIRST tell is showing, and this is the right place to hand over.**
+>
+> The tell in START-HERE's list is *small mechanical slips*, and there have been five today, all
+> in the last third of the session:
+> · three assertions written against PROSE instead of code (`!/passcodesData/`, `!/passcodes/`,
+>   `!/prompt\(/`) — each failed on a page that was perfectly correct;
+> · one tautological assertion (`ok(… || true)`), which cannot fail and proves nothing;
+> · one exit code read through `| tail`, which reported 0 for a run that exited 1;
+> · one search window too small (4k) to reach the line it was asserting on, 8.7k in;
+> · one extractor anchored on `function` against an `async function`.
+>
+> **Every single one was caught by a gate, not by me.** That is the system working exactly as
+> designed — and it is also precisely the signal the rule says to volunteer rather than quietly
+> compensate for. The later tells (asserting things about code without re-reading it, re-deriving
+> settled questions, losing the thread) are NOT present: the rulings, the queue and the two-build
+> blast-radius split all held.
+>
+> **The recommendation is specific, not general.** Small, well-bounded work is still safe here.
+> **S6 — the Day Board becoming the admin landing page — is not**: it is the largest build of the
+> day, on the biggest file in the project, and it needs fresh reading of the grid, the catalog,
+> the day documents and the contact fields. Starting it at this depth is how a session produces
+> something that looks right and is not. **Hand S6 to a fresh session.**
+>
+> **The five files carry everything needed to do that.** §90 is in DECISIONS; the ordered feature
+> queue and the parked list are in TODO §1; builds 77–80 each have a BUILD-LOG row naming their
+> gates and their honesty SHAs; nothing is uncommitted; the auction is untouched and verified at
+> 304/164/18 with the isolation guard green.
+
+**WHAT A FRESH SESSION SHOULD KNOW ABOUT S6 BEFORE STARTING.** It was approved 18 Aug ("build and
+yes") as *who's on today/now, per site, contacts* — and it BECOMES THE ADMIN LANDING PAGE, which
+means it changes the first thing the owner sees, so it is not a bolt-on panel. Two things to
+settle before writing code: what "contacts" means (the only per-person data today is a display
+name, a KP e-mail, a login e-mail and an FTE — **there is no phone number field anywhere**), and
+what "now" means for a site whose shifts cross midnight (`crossesMidnight()` exists and the
+catalog carries real times, so this is answerable, not guesswork). **Ask the owner about
+contacts; do not invent a field (§22).**
+
+---
+
 ## 24 Aug 2026 (BUILD 80 · staff 37) — the request lifecycle stops being a one-way door
 
 **Grouped by subsystem, as the owner asked.** Defects 15 and 16 are the same thing seen from two
