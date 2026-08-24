@@ -9,6 +9,57 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (BUILD 80 · staff 37) — the request lifecycle stops being a one-way door
+
+**Grouped by subsystem, as the owner asked.** Defects 15 and 16 are the same thing seen from two
+ends: the person who asked for something could neither take it back nor find out why it was
+refused. Both touch requests, claims and swaps; neither goes near the roster. Defect 3's swap
+atomicity was deliberately NOT grouped in — it is a structural change and gets its own build.
+
+**§ defect 15 — WITHDRAW.** A submitted request could only ever be decided by an admin. In
+practice people ask for a day off and then no longer need it, and the only route was to message
+the admin and hope.
+
+> 🔒 **THE GUARD RUNS ON FRESH DATA INSIDE THE TRANSACTION, NEVER ON THE RENDERED ROW.** By the
+> time the click lands, an admin may already have decided it — and **a withdrawal must never undo
+> a decision.** Refused if the item is not yours, or no longer pending. The suite asserts that
+> race explicitly rather than trusting it.
+
+**Deliberate scope on swaps: only while `pending_target`.** Once the other side has accepted, the
+swap is `pending_admin` and retracting it unilaterally would undo someone else's agreement, so
+that case is not offered at all. A 3-way reads its initiator from `participants[0]`.
+
+**§ defect 16 — A DENIAL CARRIES A REASON.** Deny wrote a bare status; the requester saw a flat
+"❌ denied" and had to come and ask. **The machinery already existed on the APPROVE path** — an
+override reason, captured and audited — and had simply never been wired to deny. Two design
+choices worth recording:
+· **An inline optional field, not a modal.** A blocking `prompt()` would stall the 21 Playwright
+  suites that drive this page, and forcing a reason would slow an admin working a queue. Empty
+  behaves exactly as before.
+· **Read BEFORE the transaction.** The row re-renders the moment the status changes, so reading
+  the input afterwards would find an element that no longer exists and silently record nothing.
+  That ordering is the load-bearing part of the change, and the suite pins it by index.
+
+Also surfaced: the machine-written `autoDenied` reason for a lost open-shift claim race has been
+stored since build 68 and shown to nobody. It now displays. And a withdrawn SWAP joins the
+admin's decided list — it never reaches admin, so without that it would vanish from every view
+rather than be recorded.
+
+**GATES.** New `build80-test.mjs` **26/26**, executing the real handlers and **capturing what
+they hand to the transaction — stubbing `txUpdateItem` to "just succeed" would have proved the
+button exists and nothing about whether it is safe.** Honesty vs the pushed admin 79 / staff 36
+from the explicit SHA `3e816d1`: **1 passed, 23 FAILED, exit 1.** Schedule battery **all 32
+suites green, ZERO skipped**; isolation 27/27; full auction battery per §2 **54 suites / 2,049
+assertions, zero skips**; `node --check` clean on both pages.
+
+> 🪞 **THIRD TIME THIS SESSION I WROTE AN ASSERTION AGAINST PROSE.** `!/prompt\(/` failed on a
+> page that calls no prompt at all — because the comment explaining *why* prompt was avoided
+> contains the word. A second assertion used too small a search window and reported a FAIL on
+> correct code. **The fix this time is in the file, not in a resolution:** the suite now strips
+> comments before any textual assertion. Twice was carelessness; three times is a missing tool.
+
+---
+
 ## 24 Aug 2026 (BUILD 79) — the Users page, alone: KP-address normalisation and the FTE gate
 
 **Kept as its own build deliberately.** The Users page is the single sanctioned exception to the
