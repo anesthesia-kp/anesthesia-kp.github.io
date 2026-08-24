@@ -9,6 +9,56 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (CLOSE) — FAST-1 shipped dead, was fixed as admin 304, and the queue is empty
+
+**Everything built across 22–24 Aug is now PUSHED AND LIVE.** `versions.json`, fetched
+cache-busted twice from the session: **admin 304 · index 164 · mobile 18**, and disk agrees.
+Battery re-run on the pushed tree, on the device: **54 suites / 2,050 assertions, zero skips**;
+the CRNA stamp test passed on the FIRST run, which is the proof that `crna/` is in sync.
+
+**THE SESSION'S REAL LESSON — a suite passed over a defect because its stub was more convenient
+than the truth.** FAST-1 (the "stop asking me for the rest of this session" mode for batch
+approvals) shipped inside admin **303** and was **dead on arrival**. The owner found it in one
+sentence: *"i cannot use the feature."*
+
+- **Cause.** The skip is offered only when a decision carries no warning. One input to that
+  predicate is `readinessWarnHtml()`, and that function **always returns a non-empty string** —
+  it wraps its content in a `readinessWarnBox` div even when it has nothing to say. So `!!_rdy`
+  was true for every decision, every decision read as *warned*, the offer never rendered, and
+  nothing could ever be skipped. The feature was inert in 100% of cases.
+- **Why 52 assertions did not catch it.** The suite's stub for `readinessWarnHtml()` returned
+  `''` when there was nothing to warn about. That is what a reasonable person would write, and it
+  is wrong in exactly the dimension the bug lived in. **Stub the SHAPE of the real function, not
+  the convenience.** A stub that cannot reproduce the production return value is not a test of
+  production.
+- **The fix (admin 304, `1c5a72a`).** Test the box's TEXT, not its existence:
+  `const _rdyWarns = _rdy.replace(/<[^>]*>/g,'').trim().length > 0;` — applied at all three
+  handlers (`confirmApprove`, `adApprove`, `adDeny`). Stub corrected to mirror the wrapper; a
+  regression section added. Honesty check against the shipped 303 at explicit SHA `52c9c2d`:
+  **17 of 52 fail there, exit 1.**
+- **And a second-order trap:** the fix's own comment quoted the literal `id="readinessWarnBox"`
+  three times, which broke `test-delta-fixes` — a guard that counts that attribute expecting
+  exactly one. The comment was reworded. **The guard was not weakened.** A guard that a comment
+  can trip is doing its job.
+
+**A prior answer that was worse than useless.** Asked whether FAST-1 was live, Claude answered
+"it's live" because the code was in the pushed bytes. The bytes being present says nothing about
+the feature being reachable. **"Shipped" is not "usable" — the only honest answer to "is it live"
+is one that describes the code path a user's click actually takes.**
+
+**Also shipped 24 Aug:** staff **164** + admin **303** (`04e00bf`) — Memorial Day and July 4th sit
+inside the summer window but showed only their holiday label; they now carry the sun as well.
+`summerAlso(meta)` at all three render sites. **The floor was never affected** — it derives from
+the date window per `[153 · AUD-C1]`. Only the marker was missing.
+
+**State at close.** All four repos clean and in sync with origin, no locks. **The queue is empty.**
+What remains is the owner's own: real-bidder sign-ins (the old "16 of 37" predates the roster
+update to 35 and must be recounted), the launch sequence, and M-4's data half (clear the address
+FIRST, then re-save — re-saving alone short-circuits to "no change"). **Outbid-alert and welcome
+e-mails are both still switched OFF.**
+
+---
+
 ## 24 Aug 2026 (LATER) — the deck's screenshots, and where files actually live
 
 **Admin 301 pushed and live. Then the deck: rev 3 added the FTE cards, rev 4 replaced four

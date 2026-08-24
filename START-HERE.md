@@ -1,34 +1,55 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 24 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). **§87 NARROWS §86 TO TWO ITEMS: build H-1 and M-1, IGNORE the rest.** M-4 is SETTLED as latent — the owner read the live documents and found no capitals; nothing is broken and no data fix is owed. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
-**Everything is pushed and live: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 /
-staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 22 Aug on the
-rebuilt tree: **49 suites / 1,916 assertions, zero skips** — the identical count this file already
-recorded for the same tree on 21 Aug, which is the strongest single piece of evidence that the
-rebuild is byte-correct. (Pre-162 baseline 1,878 holds and 162's own suite is exactly 38.
-**The 1,881 recorded two sessions ago is still unreconciled** — chase it as a miscount, not a
-missing suite.) Rules suite rebuilt and re-run on the new machine: **RA-2 59/59 on the current
-rules, and 7 of 7 new gates FAIL on the pre-RA-3 rules** — the historical figures exactly.
+**LAST REVISED: 24 Aug 2026 (CLOSE OF SESSION) — THE QUEUE IS EMPTY AND EVERYTHING IS PUSHED AND LIVE.**
 
-**H-1 AND M-1 SHIPPED AS ADMIN 300 ON 22 Aug AND ARE PUSHED AND LIVE — so §87 IS COMPLETE AND
-THE QUEUE IS EMPTY.** Live verified twice: admin **300**, staff 162, mobile 18. Nothing in the
-repos is outstanding; the only open item is the owner's own (real-bidder sign-ins).
-**THE QUEUE HEAD WAS H-1 AND M-1 — NOTHING ELSE. Read `DECISIONS.md` §87 first, then `TODO.md`
-§1, then the private report.** §87 (22 Aug) narrowed §86 on the owner's instruction — *"i only
-want to do 100% necessary fixes at this point"*, then *"ignore other items"*. **M-3, M-6, M-7, M-9
-and M-4 are OFF THE QUEUE.** Do not build them and do not re-raise them as urgent.
-The audit ordered on 21 Aug is DONE and RULED (§86): ten blind lenses, twelve adversarial
-skeptics (two on every CRITICAL and HIGH), 27 raised → 6 refuted → 7 demoted → **14 stood, no
-CRITICAL surviving two skeptics**. H-2 and H-3 shipped as staff 162. What is left, after §87, is **ONE admin build carrying exactly TWO findings: H-1 and M-1.**
-There is no rules change and no data fix. §85 still forbids a finding licensing neighbouring
-tidy-ups, and §87 tightens that further: these two shapes and nothing else.
-**H-1 carries §82(d)'s standard** — run both engines over thousands of week states and compare;
-a comment asserting "same number" is not evidence.
-**Do not describe any of them by reproduction in these repos — they are PUBLIC (§3).**
-Also ⭐ real-bidder sign-ins (16 of 37 have never signed in) remain the owner's own top item
-and cannot be delegated.
+**LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
+schedule admin 76 / staff 36.** Disk agrees. All four repos clean and in sync with origin, no
+locks. Auction battery re-run on the pushed tree, on the device, 24 Aug: **54 suites / 2,050
+assertions, zero skips**, with the CRNA stamp test passing on the FIRST run — which is what
+proves `crna/` is in sync with the MD pages. (Schedule was not touched this session and its
+battery was not re-run; its last recorded state is **27/27 in-cloud, zero skips**.)
 
-(Session account: HANDOFF 22 Aug — the machine loss and the rebuild; before it, HANDOFF 21 Aug.
+**SHIPPED 22–24 Aug, in order:** admin **300** — H-1 (seven capacity readouts moved off the frozen
+projection onto `weekLedger`) and M-1 (one row per person per week, wearing its decision), `719566c`
+· staff **163** — LOGIN-1, the sign-in badge now asks the same question the board asks, `f2fcec4`
+· admin **301** — SORT-1, six decision lists on one comparator (projection → bid strength → name),
+`87b6cae`, ruled in **DECISIONS §88** · staff **164** + admin **303** — the sun marker on a named
+holiday inside the summer window, `04e00bf` · admin **304** — the FAST-1 predicate fix, `1c5a72a`.
+
+**⚠️ READ THIS BEFORE TRUSTING ANY "IT SHIPPED" CLAIM.** FAST-1 went out inside admin 303 and was
+**dead on arrival** — inert in 100% of cases — and Claude had already told the owner it was "live"
+because the code was in the pushed bytes. **The bytes being present says nothing about the feature
+being reachable.** The predicate tested `readinessWarnHtml()` for truthiness, and that function
+always returns a non-empty wrapper div, so every decision read as *warned*. **The 52-assertion
+suite passed over it because the stub returned `''` when there was nothing to warn about — more
+convenient than the real function, and wrong in exactly the dimension that mattered.** Two rules
+come out of it, and they are binding: **stub the SHAPE of the real function, never the
+convenience**, and **the only honest answer to "is it live" describes the code path a user's click
+actually takes.** Fixed in 304; full account in HANDOFF (24 Aug CLOSE).
+
+**NOTHING IN THE REPOS IS OUTSTANDING.** What is left is the owner's own, and cannot be delegated:
+· ⭐ **real-bidder sign-ins** (his item, *"will do this week"*) — the old **"16 of 37"** figure
+predates the roster update to **35** (*"35 is correct"*) and must be RECOUNTED before it is quoted
+· **launch** — and **outbid-alert and welcome e-mails are BOTH still switched OFF**
+· **M-4's data half** — Users page: **clear the address FIRST, then re-save**; re-saving alone
+short-circuits to "no change" and writes nothing.
+
+**DO NOT PICK THESE UP.** BULK-1 — per-week bulk approve/deny — is **DECLINED** (owner, 24 Aug:
+*"No, I don't want that"*); his *"I want both options"* meant the existing phase-wide bulk plus
+individual clicking made fast, which is what FAST-1 is. M-3, M-6, M-7, M-9 and M-4 are **off the
+queue by §87** (*"i only want to do 100% necessary fixes at this point"*, then *"ignore other
+items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The walkthrough deck is
+**closed at rev 5** (*"Deck looks good, no more changes at this time"*), and filing it into
+`tests/docs/` was dropped by the owner (*"forget this, i don't care"*). Do not re-raise any of them.
+
+**The owner's stated plan for the next session:** a brief final audit looking for **CRITICAL or
+HIGH bugs only — only items that would truly derail a live election** — or a return to the
+**schedule** site. Read `DECISIONS.md` (§87, §88 last), then `TODO.md` §1, then the private report
+`tests/docs/RA-4-2026-08-21.md`. **Do not describe any defect by reproduction in these repos — they
+are PUBLIC (§3).**
+
+(Session account: HANDOFF 24 Aug CLOSE — FAST-1's dead-on-arrival ship and the stub lesson;
+before it HANDOFF 24 Aug LATER and 24 Aug; HANDOFF 22 Aug — the machine loss and the rebuild; before it, HANDOFF 21 Aug.
 Structure rewritten 17 Aug to one copy of every rule; revised
 19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the
 cost gate, App Check enforced on both projects; 20 Aug — the A-AUDIT wave and the rules emulator
@@ -59,6 +80,11 @@ were ruled. Older narrative lives in HANDOFF, not here.)
 > for delivery only.** This matters most for the files a machine reads — rules, suites, build
 > artifacts — not for documents the owner already has copies of. "Filed" means committed and
 > pushed, not delivered.
+> **UPDATE, 24 Aug (close):** all four `.pptx` files in `tests/docs/` now show in `git ls-files`,
+> so they DID reach git and nothing was lost — rev 4 under a commit reading
+> `Create 2027-…-rev4.pptx`, which looks like a GitHub.com upload rather than a Desktop commit.
+> That narrows the blindness to the BRIDGE's view of the tree; it says nothing about whether the
+> Mac would have staged them unaided. **Keep the rule.**
 >
 > The failure that wasted the time: seeing a `/tmp` path, assuming macOS because Chrome runs there,
 > checking `device_bash` (which correctly said "no such directory"), and concluding "unreachable"
@@ -94,8 +120,10 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 / staff 36.**
-> **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (24 Aug close): auction staff 164 / admin 304 / mobile 18 · schedule admin 76 /
+> staff 36.** **All four repos clean and in sync. NOTHING is pending a push.**
+> *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
+> paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
 > the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
 >
@@ -144,6 +172,9 @@ phase in flight) before doing anything.
 > M-2, M-5 and the whole appendix left alone and NOT to be re-raised; the other seven GO.
 >
 > **WHAT OF THAT RULING IS DONE (verified against the bytes on 22 Aug, not from notes):**
+> **[HISTORY — this paragraph describes 22 Aug. H-1 and M-1 shipped as admin 300 that same day,
+> and four more builds have shipped since; see the top of this file. The rules change never
+> happened and is OFF the queue by §87.]**
 > **H-2 and H-3 SHIPPED** as staff 162 and are pushed. **Everything else is untouched** —
 > `versions.json` still reads admin **299**, and `firestore.rules` still carries the M-4
 > comparison in five places including `isListedAdmin()`. What remains is exactly two builds:

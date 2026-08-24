@@ -85,7 +85,10 @@ async function live(url) {
 }
 const liveV = await live('https://anesthesia-kp.github.io/vacation/versions.json');
 const liveS = await live('https://anesthesia-kp.github.io/schedule/versions.json');
-const cmp = (livej, diskj) => livej === null ? 'live: unreachable (offline?)'
+// A null here means THIS MACHINE could not fetch, which on the owner's device is the
+// normal case (the bridge VM has no outbound network). That is not a failed live check
+// and must not read like one — say so plainly, and check live from the session instead.
+const cmp = (livej, diskj) => livej === null ? 'not checked from here (no network) — fetch live separately'
   : JSON.stringify(livej) === JSON.stringify(diskj) ? 'live MATCHES disk'
   : `⚠️ LIVE DIFFERS FROM DISK — live says ${JSON.stringify(livej)} (just pushed? fetch again before trusting)`;
 
