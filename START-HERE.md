@@ -54,9 +54,11 @@ were ruled. Older narrative lives in HANDOFF, not here.)
 > ⚠️ **AND A SECOND, UNSOLVED ONE (24 Aug):** files delivered with `device_commit_files` land on
 > disk but **git over the bridge does not list them as untracked** — so they are silently never
 > staged. A file written by `device_bash` in the same folder IS seen. Cause unknown; possibly a
-> mount artifact that does not affect git on the Mac itself. **Until it is understood: after any
-> `device_commit_files`, tell the owner to confirm the file appears in GitHub Desktop.** "Filed"
-> means committed and pushed, not delivered.
+> mount artifact that does not affect git on the Mac itself. **The rule until it is understood:
+> anything that must end up in a COMMIT gets written with `device_bash`; `device_commit_files` is
+> for delivery only.** This matters most for the files a machine reads — rules, suites, build
+> artifacts — not for documents the owner already has copies of. "Filed" means committed and
+> pushed, not delivered.
 >
 > The failure that wasted the time: seeing a `/tmp` path, assuming macOS because Chrome runs there,
 > checking `device_bash` (which correctly said "no such directory"), and concluding "unreachable"

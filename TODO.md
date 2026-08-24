@@ -1075,9 +1075,13 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       **Popcornometer in full frenzy** (105 changes/24h) · slide 17 has a live board block · slide 21
       has the locked-weeks panel · and slide 31 gained **31.2 FTEs bidding** and **5.8 weeks per
       FTE** (21 full-time + 14 part-time = 31.2 across 35 people; 181 ÷ 31.2 = 5.8).
-      **STILL OUTSTANDING:** the timer and bid-chip crops on slide 16, and the bid-dialog shots on
-      slides 18–20 — these need bid INTERACTIONS, which Claude will not perform on the owner's
-      behalf. Capture them in the next rehearsal, or the owner takes them himself.
+      **CLOSED BY THE OWNER, 24 Aug: "Deck looks good, no more changes at this time."** Current
+      version is **rev 5** (slides 1, 4, 7, 9, 13, 14, 16, 17 all reworked on his review). The only
+      images never replaced are the ones needing bid INTERACTIONS — the chip crop and the bid
+      dialogs. Not outstanding work; reopen only if he asks.
+      **AND THE OWNER DROPPED THE FILING QUESTION: "forget this, mark it off, i don't care."** The
+      deck is NOT committed to `tests/docs/` beyond rev 4, deliberately. He has copies in the chat,
+      on his disk and in the outputs column, and judged that sufficient. **Do not re-raise it.**
       **Mechanics are recorded in HANDOFF (24 Aug, later entry)** — media map, aspect-ratio resizing,
       the card-backgrounds-do-not-move trap, and where screenshots actually land.
       Re-check the slides 15–21 wording against the current UI too, and decide whether the newer
@@ -1085,7 +1089,7 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
 
 ## Owner request, 22–24 Aug 2026 — FAST-1, a "stop asking" mode for batch decisions — NOT BUILT
 
-- [ ] **FAST-1 · Skip the confirm dialog for the rest of the session, for approvals/denials only.**
+- [x] **FAST-1 · BUILT AS ADMIN 302, 24 Aug 2026 — filed, not pushed.** All three owner rulings built.
       Owner's problem: a decision session can be hundreds of clicks. **His three rulings:** skip only
       when the dialog has **NO warning** to show · available in **both** rehearsal and live ·
       **entering fast mode is itself confirmed**, by a dialog stating what it does and does not do.

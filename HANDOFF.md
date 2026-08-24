@@ -54,11 +54,17 @@ Touching the `.pptx` files did not make git notice them.
 `add`/`commit` over the bridge (stranded `index.lock`). It is possible this is an artifact of the
 device VM's mount and that git on the owner's own Mac sees them normally — **UNVERIFIED**.
 
-**ACTION FOR THE OWNER:** open GitHub Desktop on the `tests` repo and look for four files in
-`docs/` — `…-2026-08-19.pptx`, `…-2026-08-22.pptx`, `…-2026-08-22-rev2.pptx`, `…-rev4.pptx`. If
-they appear, commit them. If they do NOT appear, the decks exist in exactly one place again —
-which is the precise failure that nearly lost this deck on 22 Aug. **Do not assume a file is
-filed because Claude said it was delivered; "filed" still means committed and pushed.**
+**RULED 24 Aug: "forget this, mark it off, i don't care."** The deck is not committed and will not
+be; do not re-raise it. The RULE below survives the ruling because it is not about the deck — it is
+about any file a machine must read. **The owner was asked to check GitHub Desktop; that chore is
+withdrawn.**
+
+**The DECK is not the worry** — the owner said so directly, and he is right: it exists in the chat,
+on his disk, and in the outputs column. **The worry is the mechanism.** The same silent drop would
+apply to anything delivered this way — a `firestore.rules` file, a new suite, a build artifact —
+and those are the cases where "on disk but invisible to git" causes real damage. **So the rule is
+about the METHOD, not this file: prefer `device_bash` for anything that must end up in a commit,
+and treat `device_commit_files` as delivery only.** "Filed" still means committed and pushed.
 
 **Still not replaced:** the timer and bid-chip crops on slide 16 and the bid-dialog shots on
 slides 18–20 — those need bid interactions Claude will not perform on the owner's behalf. DECK-2
