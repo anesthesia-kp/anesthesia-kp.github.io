@@ -9,6 +9,67 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (BUILD 77) — the baseline can no longer be erased by a click; a dead roster writer is gone
+
+**Schedule admin 77. Staff unchanged. Owner: "go with your recs."** Two changes, one theme:
+a destructive write that could fire against an empty screen, and a roster writer no click could
+reach.
+
+**1 · `saveBaseline` — the fix is a GUARD, and NOT `{merge:true}`.** This is worth stating because
+merge was the obvious fix and it is the WRONG one. The write REPLACES `dailysched/callBaseline`
+deliberately: the table is the full source of truth and a blank box means zero, so merging would
+make it impossible to blank a value. The actual defect was that `renderBaseline()` emits **no
+inputs at all** when the roster is empty or the catalog holds no call shifts — while the Save
+button stays live. One click during a slow, empty or permission-denied load wrote an empty map
+and destroyed every baseline: **the one input that cannot be recomputed from the schedule.**
+Build 77 counts the boxes it expects **using the same id derivation the writer uses** (so the
+check can never disagree with what the writer would find) and refuses the whole write if even one
+is missing — a partial table is never saved over a complete document. Unchanged since admin 30.
+
+**2 · `window.saveSchedUser` DELETED (defect 26).** No call site since July 2026, yet one of the
+**six sanctioned handlers** in `tests/sched/isolation-test.mjs` — the cardinal-rule allowlist for
+writing the roster the LIVE auction reads — still carrying real roster writes, the [47] duplicate
+guard and the [48] loaded-gate on unreachable code. **The sanctioned set is now FIVE and equals
+the reachable write surface, which makes the guard STRICTER, not looser.** A tombstone in the page
+records what went and why.
+
+**THREE TEST PINS MOVED WITH IT, AND NONE IS A WEAKENING — this was checked before touching them,
+not asserted afterwards.** The isolation allowlist shrinks (fewer sanctioned names = stricter).
+`build75-test`'s sibling COUNT goes 3→2, while the assertion that actually proves build 75 — the
+gate inside `addSchedUser` itself — is untouched two lines below it. And `test-audit-fixes`'s pin
+on the deleted function is removed: **the other three roster writers keep their pins, and one of
+them is EXECUTED rather than pattern-matched**, so the [47] guard's coverage is unchanged.
+
+**GATES.** New `tests/sched/build77-test.mjs`, **23/23**, executing the real extracted
+`saveBaseline`. **The stub is shaped like the real render** — a box exists only where the table
+actually drew one — because a stub that always returns a box would have hidden this defect
+completely. That is [304 · FAST-1]'s lesson applied deliberately rather than remembered.
+Honesty `--pre` against the pushed **76**, fixture from the EXPLICIT SHA `6d31b3e`: **9 of 23
+FAIL, exit 1.** A real failure, and the exit code was read directly rather than through a pipe —
+`| tail` had reported 0 on the first attempt, which is the same class of lie as today's other
+three.
+
+> 🧪 **FOR THE FIRST TIME, A SCHEDULE BUILD WAS GATED BY THE 21 PLAYWRIGHT SUITES INSTEAD OF
+> WATCHING THEM SKIP: all 28 schedule suites green, ZERO skipped.** They normally skip on the
+> owner's Mac (no chromium) and hard-fail in the cloud (chromium present, `playwright` module
+> absent — the mis-gate recorded this morning). Both were fixed for this run by installing
+> `playwright` in the cloud container and bridging the browser-build version gap by hand
+> (`chromium_headless_shell-1234` → the preinstalled `-1194` binary). **This is a per-session
+> workaround, not a repair** — the skip gate in `sched/run-all.mjs` still tests for a binary
+> rather than the module, and that item is still awaiting the owner's ruling.
+
+Full auction battery re-run per §2: **54 suites / 2,049 assertions, zero skips** — 2,050 minus
+exactly the one pin removed above, reconciling to the digit. Isolation guard green.
+`node --check` clean on all three inline blocks. No rules change, no new Firestore reads or
+writes, staff bytes untouched.
+
+**Deliberately NOT done, and why.** Defect 7's remaining tail — two admins editing baselines at
+the same moment still last-writer-wins — was left alone. Fixing it properly means per-field
+`deleteField()` sentinels under a merge, which is a bigger change than the destructive path
+needed, and §85's containment rule says a real finding does not license the wider change.
+
+---
+
 ## 24 Aug 2026 (SCHEDULE) — the schedule list was eight builds stale; reconciled from the code
 
 **The owner turned to the schedule and said he believed there were several outstanding items.
