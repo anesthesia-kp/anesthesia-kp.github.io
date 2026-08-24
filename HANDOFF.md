@@ -9,6 +9,81 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (SCHEDULE) — the schedule list was eight builds stale; reconciled from the code
+
+**The owner turned to the schedule and said he believed there were several outstanding items.
+There were — but not the ones the list named.** TODO §3 had been carried unchanged since 17 Aug
+and was describing **build 63/28 while the site is at 76/36**. Rather than propose a build off a
+stale document, the list was rebuilt from the shipping bytes: three independent readers, every
+recorded status checked against code, git history used to date changes. **Where the record and
+the code disagreed, the code won.**
+
+**No schedule code was changed. Nothing was built.** The auction was not touched — §1's
+constraint held throughout.
+
+**WHAT GOT SHORTER (good news, and the reason reconciling first was right).**
+· **Defect 8 is CLOSED** — the item recorded as "requests, swaps and openShifts are still single
+`{list:[…]}` documents and will not survive daily use by 60 people". All three became per-item
+subcollections in admin 68 / staff 30; the legacy documents are read-only merge inputs and a grep
+for every write form across both pages returns **zero** hits against them.
+· **Defect 28 CLOSED** (passcodes gone from staff 35; admin never referenced it).
+· **Defect 29 HALF closed** — `namesLoaded` became load-bearing in build 66 (it gates the end of
+boot mode); `schedFteLoaded` is still set and never read.
+· **Defect 23 CHANGED SHAPE** — a shift's `role` now drives the catalog filter, so it is not
+purely decorative, but it is still read by nothing that affects scheduling.
+
+**THE THREE THAT ARE NOT DOCUMENTATION — all awaiting the owner's ruling, none built.**
+
+**1 · `saveBaseline` can erase every call-fairness baseline in ONE CLICK.** It full-document
+overwrites `dailysched/callBaseline` with a map built by reading the DOM — one input per user per
+call shift, `if(!el) continue`. `renderBaseline` returns early with **no inputs at all** when the
+roster is empty or the catalog has no call shifts, **and the Save button is always live and
+unguarded**. One click during a slow, empty or permission-denied roster load writes `{_asOf:…}`
+and destroys every baseline. **That document is the ONE input that cannot be recomputed from the
+schedule** — it exists precisely to record call worked *before* the system. Fix is two small
+things: refuse Save when the grid rendered no inputs, and `{merge:true}`. Unchanged since admin
+build 30.
+
+> ⚠️ **2 · A GATE LIES, AND IT IS THE THIRD ONE TODAY.** `sched/run-all.mjs` decides whether to
+> skip its 21 Playwright suites by testing for a **chromium binary**, not for the **`playwright`
+> module** — and `playwright` is not in `tests/package.json`. On a machine with the binary and no
+> module, all 21 RUN and hard-fail `ERR_MODULE_NOT_FOUND`, and the battery says "21 of 27
+> failed". On the owner's Mac they skip cleanly. **So the BUILD-LOG rows reading "27/27 with ZERO
+> skipped" and "N green + 21 skipped" are the same battery on two different machines, and the
+> exit code alone cannot tell you which.** Gate on the module, not the binary. Today's other two:
+> FAST-1's convenience stub (see the CLOSE entry) and `pgrep -f` matching its own polling shell
+> (see RA-5). **Same disease every time: the gate reported on something other than what it
+> claimed to measure.**
+
+**3 · Builds 71–74 and staff 31–35 have no suite in the schedule battery at all.** Their only
+executable gate is `tests/test-appcheck-login.mjs`, which sits at the tests root and is swept up
+by the **auction** battery — contradicting the separation `tests/sched/README.md` rests on.
+
+**AND ONE THAT SHOULD BE SETTLED BEFORE ANYTHING IS BUILT ON IT.** `saveSchedUser` has had no
+call site since commit `1e2f2cc` (July 2026) — yet it is one of the **six SANCTIONED handlers**
+in `tests/sched/isolation-test.mjs`, the cardinal-rule allowlist for writing the live auction
+roster. It still carries real roster writes plus the build-47 duplicate guard and the build-48
+loaded-gate, all maintained on unreachable code. **One sixth of the allowlist is dead, so the
+guard over-states the real write surface.** S-hygiene's `_normKpEmail` port would otherwise write
+a fourth call site into a dead function.
+
+**SMALLER CORRECTIONS WORTH NOT RE-DISCOVERING.** The mobile defect's recorded wording conflates
+the two pages: the staff page's 9px grid **is** its small-screen override and dates to the first
+commit, while **the admin page has no responsive rule of any kind**. Builds 69/70 do not help and
+69 slightly hurts — Compact fixes row height, not the horizontal axis that actually breaks, and it
+moves labels into `title=` tooltips, which do not exist on touch. Defect 16 is closer to done than
+it looks: the **approve** path already captures an override reason and writes it to the audit log;
+deny was simply never wired to the same machinery. And whoever ports the auction's
+`requiredBuilds` ratchet must give it its own key namespace — the schedule's `PAGE` values are
+`'index'` and `'admin'`, the same keys the auction ratchets, so a naive port would have schedule
+admin 76 compare itself against the auction's admin build and reload-gate forever.
+
+**Filed this session:** `schedule/BUILD-LOG.md`'s three false *pending push* rows now carry real
+SHAs (`6d31b3e` for 76/36, `dc6b8cc` for 75, tests `1d9e8da` for PW-1) — the same rot the auction
+BUILD-LOG had cleared in `1a8805d`. TODO §3 rewritten; a §1 pointer added for the three rulings.
+
+---
+
 ## 24 Aug 2026 (RA-5) — the final audit ran and found nothing; §89 closes security work
 
 **The session did two things: regenerated a stale STATUS block, and ran RA-5.**
