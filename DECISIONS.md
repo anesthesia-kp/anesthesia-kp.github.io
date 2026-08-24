@@ -2402,3 +2402,83 @@ guess §22 forbids.
 extending the paste parser touches a path that WRITES shifts in bulk. They ship separately, as 78
 and 79 did, so that if either misbehaves it is obvious which one.
 
+---
+
+## §96 — STAGE 4 WAS ALREADY SPECIFIED. FOUR QUESTIONS WERE ASKED THAT §53a AND §53b HAD ANSWERED — 24 Aug 2026
+
+**This entry exists to record a mistake, because the mistake is more useful than the answers.**
+
+Claude put four questions to the owner about Stage 4, presented as open. **Three of them had been
+answered by him on 16 August, in this file, in the two entries written specifically to close
+them.** He answered the fourth and then re-answered one of the others from scratch. The record:
+
+| asked today | already ruled |
+|---|---|
+| how many subgroups may a person be in? | **§53a·2 and §53b** — *"0 or more"*, twice |
+| may a person cross categories? | **§53b** — *"MDs and CRNAs can only stay in that subgroup"* |
+| if a shift names two, is it any-one or all? | **§53a·1** — *"A shift may require any one OR all of them"* → **a PER-SHIFT setting, both modes exist**, and a global switch is explicitly the wrong build |
+| what happens to the eligibility ticks? | **§53b·1** — **option C**, chosen by him in his own words (*"I choose C, thank you for that"*), with options A and B rejected and the reasons recorded so it is not relitigated |
+
+**THE BINDING RULE THIS PRODUCES — and it is an extension of one that already existed:**
+START-HERE §3 says *"A fact lives in ONE of these. Before writing a rule or status anywhere, grep
+for it."* **That now covers ASKING, not only writing: grep `DECISIONS.md` before putting any
+question to the owner.** His attention is the scarcest thing in this project. Spending it on a
+question he has already answered is worse than merely wasteful — a re-asked question invites a
+different answer, and two contradictory rulings on one point is exactly the drift this file exists
+to prevent. The cost was real today: the same four minutes bought one genuinely new decision
+(§97) and three restatements.
+
+**A SECOND FAILURE, SEPARATE AND WORTH ITS OWN LINE.** One question used the word *"ticks"* — a
+word this project invented and never defined for him. His reply was *"what are ticks?"*, and the
+half-answer around it (*"certainly filter the grid"*) could not be used, because *"grid"* means the
+SCHEDULE grid everywhere else here. **Never ask the owner a question containing a word the project
+invented; define it in his terms in the same breath.** He is not a coder and has said so. A
+question he cannot parse does not come back wrong — it comes back answering something else, which
+looks like agreement.
+
+**WHAT IS THEREFORE TRUE: Stage 4 needed ONE decision, not four.** Everything else was settled on
+16–17 August by §53, §53a, §53b and §56. The one thing genuinely new is §97.
+
+---
+
+## §97 — THE STAGE 4 VOCABULARY: A GROUP CONTAINS TWO SUBGROUPS — 24 Aug 2026
+
+Owner, verbatim: **"Yes, we should call it Group with 2 subgroups"** — confirming, and naming, the
+structure he had described a moment earlier: *"MDs can only below MD subs and CRNAs in CRNA subs,
+but both of those subgroups should really be 'sub' subgroups since an MD sub and CRNA sub
+technically would make up the actual OB subgroup. I think we will need that distinction."*
+
+**THE STRUCTURE, in his words, and these are now the project's terms — use no others:**
+
+- A **GROUP** is the real unit and the thing people name: *OB*, *Pediatric*, *ICU*. It spans both
+  categories.
+- A group contains exactly **TWO SUBGROUPS**: its **MD subgroup** and its **CRNA subgroup**.
+- A person joins a **group**; their category (MD or CRNA) decides which of the two subgroups they
+  land in. A person is never asked which subgroup — that would be a second way to say what their
+  category already says (§19).
+- Nobody crosses: an MD is only ever in MD subgroups (§53b, restated by him today).
+
+**WHY THE DISTINCTION EARNS ITS KEEP, since he asked for it specifically:** a shift already
+carries `role` = MD, CRNA or **Both** (§42). A shift that says *OB* + *MD* wants the MD subgroup;
+*OB* + *Both* wants either. **Without the two-level shape, "OB" would have to be two unrelated
+lists that merely look alike**, and every question about OB — who is in it, is it covered, is it
+short — would have to be asked twice and added up by hand.
+
+**THE INITIAL GROUPS ARE THE SHIFT FAMILIES** (§96 C, his words: *"start with the shift families
+for now, but create a way to add additional sub groups"*) — the §94 order: Call · AP · Weekday
+daytime · OB · Richmond · Pediatric · PCV · ICU · Admin. **Seeded, not chained:** whether a group
+stays tied to its family afterwards is NOT settled and must not be assumed. The editor must let
+him add groups that are not families.
+
+**CONFIRMED AGAIN, unprompted, the same day** — owner: *"Groups and subgroups will absolutely
+drive the shift eligibility and 'ticks'"*. That is §53b option C in his own words a second time,
+eight days apart, which is as strong as this record gets. **Eligibility comes FROM group
+membership; the per-person-per-shift grid survives only as the list of deliberate exceptions.**
+Do not re-open it, and do not ask him about it again.
+
+**WHAT STAGE 4 NOW HAS, COMPLETE:** a category on each person (§53), zero or more group
+memberships per person (§53a), no crossing (§53b), a group's two subgroups (§97), a per-shift
+group requirement with an any-one-or-all mode (§53a·1), subgroups granting eligibility with the
+old tick grid demoted to an exception list (§53b·1), and a one-way, confirmed, audited cutover
+switch to flip authority when he is ready (§56). **Nothing about Stage 4 is open. It can be
+built.**
