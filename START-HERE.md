@@ -1,6 +1,7 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 24 Aug 2026 (CLOSE OF SESSION) — THE QUEUE IS EMPTY AND EVERYTHING IS PUSHED AND LIVE.**
+**LAST REVISED: 24 Aug 2026 (RA-5) — THE FINAL AUDIT RAN AND FOUND NOTHING. THE QUEUE IS EMPTY,
+EVERYTHING IS PUSHED AND LIVE, AND BY §89 THE CODE IS NO LONGER THE RISK.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
 schedule admin 76 / staff 36.** Disk agrees. All four repos clean and in sync with origin, no
@@ -42,13 +43,31 @@ items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The w
 **closed at rev 5** (*"Deck looks good, no more changes at this time"*), and filing it into
 `tests/docs/` was dropped by the owner (*"forget this, i don't care"*). Do not re-raise any of them.
 
-**The owner's stated plan for the next session:** a brief final audit looking for **CRITICAL or
-HIGH bugs only — only items that would truly derail a live election** — or a return to the
-**schedule** site. Read `DECISIONS.md` (§87, §88 last), then `TODO.md` §1, then the private report
-`tests/docs/RA-4-2026-08-21.md`. **Do not describe any defect by reproduction in these repos — they
-are PUBLIC (§3).**
+**THAT FINAL AUDIT HAS RUN. RA-5, 24 Aug: ZERO CRITICAL, ZERO HIGH — NOTHING FOUND.**
+Ruled by **§89**, the owner's last narrowing: *"CRITICAL/HIGH only — things that would truly
+derail a live election… No more security improvements, no other items that would be nice, only
+100% absolutely necessary fixes."* Seven blind lenses on the pushed bytes, one HIGH raised and
+**refuted by execution**, four lenses proving their conclusions by RUNNING the real extracted
+code. Battery green alongside it: **54 suites / 2,050 assertions, exit 0, zero skips.**
+**NO CODE WAS CHANGED and nothing is proposed.** Report is PRIVATE:
+`tests/docs/RA-5-2026-08-24.md`.
 
-(Session account: HANDOFF 24 Aug CLOSE — FAST-1's dead-on-arrival ship and the stub lesson;
+Two results worth carrying: the **FAST-1 fix in 304 is genuinely live** (three lenses ran the
+predicate rather than trusting the commit), and **switching on outbid-alert and welcome mail will
+NOT fire a backlog** — neither generator keeps a "last notified" state, so there is nothing to
+replay. Worst case is two mails per physician at their next individual sign-in.
+
+**SO: THE REMAINING RISK IS NOT IN THE CODE.** It is the owner's three items — real-bidder
+sign-ins, launch, and the two mail toggles. **§89 is binding: a session that goes looking for more
+code work is working against it.** The honest answer to "what should we do next" is now the
+schedule site, or nothing.
+
+Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
+`tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
+reproduction in these repos — they are PUBLIC (§3).**
+
+(Session account: HANDOFF 24 Aug RA-5 — the final audit, and the pgrep gate that lied;
+before it HANDOFF 24 Aug CLOSE — FAST-1's dead-on-arrival ship and the stub lesson;
 before it HANDOFF 24 Aug LATER and 24 Aug; HANDOFF 22 Aug — the machine loss and the rebuild; before it, HANDOFF 21 Aug.
 Structure rewritten 17 Aug to one copy of every rule; revised
 19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the

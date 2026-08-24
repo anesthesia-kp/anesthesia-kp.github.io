@@ -33,6 +33,41 @@ Suites on disk: auction **54** (`tests/test-*.mjs`) · schedule **27**
 
 # 1 · THE QUEUE — work, in order
 
+## ✅ QUEUE STILL EMPTY — RA-5, the final audit, ran 24 Aug and found NOTHING
+
+> **Zero CRITICAL. Zero HIGH.** Run under **DECISIONS §89** — the owner's final narrowing:
+> *"CRITICAL/HIGH only… No more security improvements, no other items that would be nice, only
+> 100% absolutely necessary fixes."* Report is PRIVATE: **`tests/docs/RA-5-2026-08-24.md`**.
+>
+> Seven blind lenses on the pushed `1a8805d` (staff 164 / admin 304 / mobile 18, live verified
+> cache-busted twice). One HIGH raised and **refuted by execution**; four lenses proved their
+> conclusions by RUNNING the real extracted code, not by reading it. Detail: HANDOFF 24 Aug (RA-5).
+> **Battery green alongside it: 54 suites / 2,050 assertions, exit 0, ZERO skips** — run
+> in-cloud against a clone md5-verified against the device tree (the device dropped mid-run;
+> the cloud recipe is in HANDOFF).
+>
+> **NOTHING WAS BUILT AND NOTHING IS PROPOSED.** No code changed this session. The only repo
+> changes are paperwork: this file, DECISIONS §89, HANDOFF, START-HERE, and the RA-5 report.
+>
+> **Two results worth acting on, both good news:**
+> · The **FAST-1 fix in 304 is genuinely live** — confirmed by three lenses running the predicate,
+>   not by trusting the commit.
+> · **Switching on outbid alerts and welcome mail will NOT fire a backlog.** Neither generator
+>   keeps a "last notified" state, so there is nothing to replay. Worst case is two mails per
+>   physician at their next individual sign-in. This was the specific launch risk worth checking.
+>
+> **Below the floor, recorded so nobody re-discovers it as new:** fast-mode decision writes are
+> fire-and-forget, so a *rejected* write shows no error toast. Four lenses found it independently
+> and all four dropped it — Complete Phase refuses while any bid is undecided, so a lost decision
+> blocks completion by name instead of reaching the archive or the mail. **Not a build.**
+>
+> **What is left is the owner's, and unchanged:** real-bidder sign-ins (recount from the roster of
+> **35**, not the stale "16 of 37") · launch · the two mail toggles · M-4's data half. **§89 says
+> the code is no longer the risk. A session that goes looking for more code work is working
+> against that ruling.**
+
+### The 24 Aug close, kept for the record
+
 ## ✅ QUEUE EMPTY — 24 Aug 2026. EVERYTHING BUILT THIS SESSION IS PUSHED AND LIVE.
 
 > **Live, verified cache-busted TWICE from the session (the device VM has no network, so the

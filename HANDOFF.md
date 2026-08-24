@@ -9,6 +9,90 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (RA-5) — the final audit ran and found nothing; §89 closes security work
+
+**The session did two things: regenerated a stale STATUS block, and ran RA-5.**
+
+**RA-5 — the final pre-launch audit, under the new §89.** Owner's scope, verbatim: *"CRITICAL/HIGH
+only — things that would truly derail a live election… No more security improvements, no other
+items that would be nice, only 100% absolutely necessary fixes."*
+
+**RESULT: nothing. Zero CRITICAL, zero HIGH.** Report is PRIVATE at
+`tests/docs/RA-5-2026-08-24.md`. Tree audited: the pushed `1a8805d` — staff 164 / admin 304 /
+mobile 18, verified against live `versions.json` cache-busted twice.
+
+**Method.** Seven blind lenses (engine fairness · decision writes · bidder sign-in and bidding ·
+mail · the 300–304 and 163–164 diffs · stuck-auction states · the human walkthrough), each given
+the same written scope floor, the same do-not-re-raise list, and the FAST-1 lesson. **Each was
+told in writing that zero findings was the expected and acceptable answer** — deliberately, to
+remove the pressure to manufacture one. Then two adversarial skeptics on the single candidate,
+both defaulting to REFUTED.
+
+**Four of the seven proved their conclusions by EXECUTION, not by reading.** 17,836 randomised
+week states with zero disagreement between the admin engine and the staff twin · 16,894 states
+re-deriving NE-1…NE-5 from first principles, zero violations · 6,882 reachable approve-clicks
+with the over-cap warning never missed · the FAST-1 predicate run in both states.
+
+**The one candidate, and how it died.** A lens raised HIGH: a returning bidder whose device
+cannot read Firestore gets a sign-in card with no button and no message, because the App Check
+explanation sits behind the button that was just hidden. **Refuted by execution in a jsdom
+harness loading the verbatim markup:** the auth handler fires on page LOAD for a restored session
+— no click — and its no-initials branch un-hides the picker and writes the message into it. And
+the decisive point: sign-in resolution reads the roster from Firestore, so a user whose reads are
+refused cannot sign in *or bid* whether the button shows or not. **The delta was the error
+message, not access.**
+
+A second skeptic then hunted the worse version — a bidder who reads Firestore fine but still
+cannot act. Every divergence it constructed (on the roster but no login address and the reverse;
+removed mid-session; re-added; duplicate address; typo'd address) lands on a visible, honest,
+actionable message, and the duplicate-address path fails CLOSED with a loud admin alarm.
+
+**Two facts worth carrying forward.** The FAST-1 fix in 304 is genuinely live — three lenses
+confirmed it by running the predicate, not by trusting the commit. And **switching on outbid
+alerts and welcome mail will NOT fire a backlog**: neither generator keeps any "last notified"
+state, so there is nothing to replay. Worst case is two mails per physician at their next
+individual sign-in. That was the specific launch risk worth checking.
+
+**Below the floor, recorded so it is not re-discovered as new:** fast-mode decision writes are
+fire-and-forget — the write promise goes to an inline `onclick` that discards it, so a *rejected*
+write shows no error toast. Four lenses found this independently and all four dropped it. It does
+not qualify because the ordinary failure (wifi drop) leaves the write pending rather than
+rejected and is equally silent in the normal path; the success toast is also absent, so the admin
+gets a signal; and **Complete Phase refuses while any bid is undecided**, so a lost decision
+blocks completion by name instead of reaching the archive or the mail.
+
+> ⚠️ **A GATE LIED AGAIN, in the same shape as FAST-1 — and this time it was a monitoring
+> command, not shipped code.** The battery was launched with `setsid nohup` on the device and
+> polled with `pgrep -f run-all.mjs`. When the device dropped off the bridge the node process
+> died with it, but `pgrep` kept answering RUNNING — because the pattern matched the polling
+> shell's OWN command line. The log had been frozen for an hour. **`pgrep -f <pattern>` matches
+> the process running the pgrep. Check the log's mtime against `date`, not the process table.**
+> Same lesson as 20 Aug's handler audit that always printed 1: when a gate reports success,
+> check that it actually ran.
+
+**THE BATTERY IS GREEN ON THE AUDITED BYTES — 54 suites / 2,050 assertions, exit 0, ZERO skips**,
+reconciling exactly with the count recorded earlier on 24 Aug. It had to be run IN THE CLOUD after
+the device dropped; see the recipe below.
+
+> 🧪 **HOW TO RUN THE AUCTION BATTERY IN THE CLOUD — the two things that make it work.**
+> Both repos are PUBLIC, so the cloud can clone them directly; only `tests` is private and has to
+> be tarred (minus `node_modules`) and staged. Then:
+> 1. **`REPO_ROOT` is NOT enough.** Several suites ignore it and hard-code `join(_here,'..')`, so
+>    the tests folder must physically SIT BESIDE the repos: `<root>/tests`, `<root>/vacation-kp.
+>    github.io`, `<root>/schedule`. Set `REPO_ROOT=<root>` as well, for the suites that do read it.
+> 2. **`schedule` must be present and `--unshallow`ed.** Three auction suites read the schedule
+>    admin page (this is the cross-site coupling START-HERE warns about), and the honesty suites
+>    run `git show <sha>:<file>` against explicit SHAs in BOTH repos — a `--depth 1` clone makes
+>    every one of those a FAILED gate, correctly.
+> md5-verify the clone against the device tree before believing the run. Five files: both
+> `index.html`s, `admin/index.html`, `crna/index.html`, `mobile.html`, `firestore.rules`.
+
+**Housekeeping note for whoever reconciles the record:** the auction repo's newest commit
+`1a8805d` (audit docs out of the public repo, BUILD-LOG unrotted) is not described anywhere in
+START-HERE. It changed no served bytes and no build number.
+
+---
+
 ## 24 Aug 2026 (CLOSE) — FAST-1 shipped dead, was fixed as admin 304, and the queue is empty
 
 **Everything built across 22–24 Aug is now PUSHED AND LIVE.** `versions.json`, fetched

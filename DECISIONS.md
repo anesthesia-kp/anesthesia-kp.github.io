@@ -2185,3 +2185,28 @@ decision is written. §77 removed everything the flag used to switch, so `ignore
 Either key is safe; the builds use the one already computed at each call site.
 
 Shipped as admin **301**.
+
+## §89 — THE FINAL AUDIT SCOPE: only what would derail a live election — 24 Aug 2026
+
+Owner, opening the session, verbatim: **"CRITICAL/HIGH only — things that would truly derail a
+live election. The key is here is that I don't want to start chasing small problems. This project
+must be completed soon and I am only looking for items that will truly derail me. No more security
+improvements, no other items that would be nice, only 100% absolutely necessary fixes."**
+
+This does not replace §84/§85 — it is those two, narrowed once more and made final. Two things
+change:
+
+1. **SECURITY WORK IS CLOSED.** §84's harm 5 (exposure) survives only for something LIVE, CERTAIN
+   and SEVERE — bid values or decisions readable during an OPEN phase. Hardening, defence in
+   depth and "could be tightened" are out, including anything RA-3/RA-4 left on the table.
+2. **"NICE" IS OUT, EXPLICITLY.** Not merely cosmetic items — anything whose justification is
+   improvement rather than necessity. The test is now: *would this, left alone, derail a live
+   election?* If the answer needs a paragraph, it is No.
+
+**RA-5 ran under this ruling and found NOTHING. Zero CRITICAL, zero HIGH.** Seven blind lenses,
+one HIGH raised and refuted by execution, four lenses proving their conclusions by running the
+real extracted code. Report: `tests/docs/RA-5-2026-08-24.md` (PRIVATE).
+
+**What this means for the next session: the code is not the risk any more.** The three remaining
+items are all the owner's own — real-bidder sign-ins, launch, and switching the two mail toggles
+on. A session that goes looking for more code work is working against this ruling.
