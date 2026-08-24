@@ -62,6 +62,80 @@ that window — **does START-HERE SAY a build is filed and waiting, and name it?
 everything is pushed, requires that "FILED, NOT YET PUSHED" line to be GONE. Stale in either
 direction is caught. It fired on this very session, was answered by adding the line, and cleared.
 
+## 24 Aug 2026 (S5c · S7 · §95) — four builds, and the shape of a conversation that went right
+
+**Builds 84–87, all filed together.** BUILD-LOG carries what each one does. What belongs here is
+how they came about, because the sequence is the useful part.
+
+**S5c and S7 were approved off the queue** (*"go with S5c and s7"*). S7's read-first rows removed
+something nobody had listed as a feature: the tab-straight-down-the-list pass that **build 55
+exists to protect**. That was noticed while re-basing build55-test, and it became a QUESTION to
+the owner rather than a decision by Claude — and the answer, §95, was *both*: read-first stays the
+default, and a Batch mode puts the dense page back on demand. **A test suite is what surfaced a
+product question. That is the second time in one day the batteries earned their keep as design
+review, not just as regression cover.**
+
+**Then the paste request — and the right answer was "it already exists".** He asked to add a group
+of shifts from a pasted list; paste-a-list has been on that page since **build 56**, with a
+preview, update-existing, per-row rejections and duplicate detection. Rebuilding it would have
+been a day of work to arrive where the page already was. **What was actually missing was three
+columns** — family, role, capacity — so build 87 is a parser change and nothing else. **Check
+whether it exists before building it; the answer here was in `build56-test.mjs`'s one-line
+description.**
+
+> ⚠️ **THE BATTERY FOUND A REAL DEFECT IN 86 BEFORE IT SHIPPED, and it is the kind reading could
+> not have found.** Clicking ✎ on a second row, or switching modes, did NOTHING while a field
+> still had focus: the [55] mid-edit guard defers re-rendering the list, and the new handlers
+> honoured it. The guard exists so a SNAPSHOT cannot destroy what you are typing — **the admin's
+> own click is the opposite case, and asking for the list to change IS the request.** Fixed with
+> `catUserAction()` on all four deliberate actions. It surfaced because `build55-test` DRIVES the
+> page in a browser rather than reading it, which is exactly why the 21 Playwright suites are
+> worth the trouble of running in the cloud.
+
+**Three suites had to be re-based, and none of them were weakened.** `build54` and `build55` now
+open a row before asking about controls that only exist in an open row; `build62`'s selectors
+moved to `.catlabel` (the problem badges are chips too, and the first selector read *"no site"* as
+a shift name); `build62`'s family-order assertion changed from A–Z to the owner's order (§94).
+**Every one of those changes is a change to what is TRUE, not a change to what is asserted.** When
+a suite has to be edited to pass, that distinction is the whole game.
+
+**Gates at close: schedule 39 suites / 1,113 assertions, ZERO skipped. Isolation 27/27. Auction 54
+suites / 2,050 assertions, zero skips, on bytes no auction build touched (§92).**
+
+---
+
+## 24 Aug 2026 (§94) — the family order stops being inferred, and the push landed mid-build
+
+**Build 83.** The owner named the order himself — call, AP, weekday daytime, OB, Richmond,
+pediatric, PCV, ICU, admin, unassigned — for the day board AND the Shift Families page. Build 82
+had INFERRED it (call family first from `kind`, rest alphabetical). Detail is in BUILD-LOG's 83
+row. Three things are worth carrying beyond it:
+
+**1 · A NAMED ORDER BEATS AN INFERRED ONE, and the inference must be REMOVED, not left dormant.**
+`hasCall` is gone from the page and a test asserts it never comes back. A dormant second ordering
+rule is exactly the shape of the build-78 defect, where auto-populate and the coverage report each
+held their own idea of what a day needed.
+
+**2 · RANK AND MATCHING ARE DIFFERENT ORDERS, deliberately.** His list is the rank. Matching is
+tried most-specific-first, so "Richmond Daytime" lands under Richmond and not under weekday
+daytime — the generic words are matched last. If a future session adds a family keyword, add it in
+specificity order, not at the end of the list.
+
+**3 · A FAMILY HE NEVER NAMED gets a predictable place, not a guess (§22)**: alphabetical, after
+his ten, before Unassigned. The department can invent families this code has never heard of.
+
+> ⚠️ **THE PUSH LANDED IN THE MIDDLE OF THE NEXT BUILD, and the record has to say so.**
+> The owner pushed while 83 was being written, so `e260f4f` (schedule), `0832ebf` (tests) and
+> `ae11548` (docs) all carry **83's bytes under a subject that says "82"**. Both builds are real
+> and both are described in BUILD-LOG; the mismatch is logged in its "message names the wrong
+> build" section and **not rewritten** — the standing ruling is that rewriting pushed history is a
+> bigger risk than an inaccurate label.
+> **The general lesson: while the owner is actively pushing, a filed build is not a stable thing
+> to name in a commit message.** Do not assume the message you wrote is the message that shipped —
+> read the pushed commit and check the BUILD number in its bytes, which is what caught this.
+
+---
+
 ## 24 Aug 2026 (§93) — the owner rejects the Day Board, and the rebuild that came out of it
 
 **HE WAS RIGHT, AND THE FAILURE IS WORTH NAMING PRECISELY.** Admin 81 satisfied every line of the

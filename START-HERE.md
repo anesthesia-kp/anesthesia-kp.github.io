@@ -1,18 +1,27 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 24 Aug 2026 (S6) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT A
-SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
-nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, with S6 (the Day Board) in build.**
+**LAST REVISED: 24 Aug 2026 (S5c/S7) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
+nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue. S6 shipped and was then rebuilt twice
+by the owner's own rulings (§93 clutter, §94 the family order); S5c and S7 are approved and next.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 81 / staff 37.**
-**FILED, NOT YET PUSHED: schedule admin 82** — the Day Board REBUILT under §93 after the owner
-rejected 81's version as cluttered. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
-locks. Auction battery re-run on the pushed tree, on the device, 24 Aug: **54 suites / 2,050
-assertions, zero skips**, with the CRNA stamp test passing on the FIRST run — which is what
-proves `crna/` is in sync with the MD pages. (Schedule has SINCE shipped admin **77 · 78 · 79 · 80** and staff **37** under §90 — all pushed
-and live. Its battery's last recorded state is **28/28 in-cloud, zero skips**; on the Mac it skips
-loudly, which is correct and is not a pass.)
+schedule admin 83 / staff 37.**
+**FILED, NOT YET PUSHED: schedule admin 84 · 85 · 86 · 87** — S5c (grid filter bar), S7 (read-first
+catalog rows), and §95's two halves (both editing modes, and a paste that lands shifts fully
+configured). All four gated; see BUILD-LOG. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
+locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 assertions, zero
+skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
+RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
+
+> ⚠️ **THE DAY BOARD TOOK THREE BUILDS, AND THE REASON IS THE MOST USEFUL THING IN THIS FILE.**
+> 81 was built from the brief and was **rejected on sight** — *"not a useful addition in it's
+> current form… I want to very easily be able to see who IS working and care less about who
+> isn't. I want clean and organized, not cluttered"* (§93). 82 rebuilt it as ONE sheet, and the
+> ordering inside it was INFERRED; he replaced the inference with his own named order within the
+> hour (§94). **What went wrong in 81 was not the code — every gate was green — it was that
+> nobody asked what the screen was FOR before building it.** The research he then demanded took
+> twenty minutes and changed the design completely. **Do that first, next time.**
 
 **SHIPPED 22–24 Aug, in order:** admin **300** — H-1 (seven capacity readouts moved off the frozen
 projection onto `weekLedger`) and M-1 (one row per person per week, wearing its decision), `719566c`
@@ -148,7 +157,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 81 /
+> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 83 /
 > staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*

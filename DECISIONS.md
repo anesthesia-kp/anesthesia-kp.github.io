@@ -2366,3 +2366,39 @@ never heard of, and they appear in a predictable place.
 82 called that bucket "Other" and the Families page put it FIRST as a drop target; both now follow
 his word and his position.
 
+---
+
+## §95 — BOTH WAYS OF EDITING THE CATALOG: ONE AT A TIME, AND IN BULK — 24 Aug 2026
+
+Owner, verbatim, in three messages: **"I need a way to do both edit 1 at a time and big batch
+edits"** · **"Ideally, I'd also be able to add a group of shifts from a copy paste list that can
+read the data."** · **"Then I could enter a block of shifts with times all at once"**
+
+Asked in answer to a direct question: S7's read-first rows removed the tab-down-92-shifts pass,
+and he was asked whether that mattered. It does.
+
+**THE RULING, three parts:**
+1. **READ-FIRST STAYS THE DEFAULT** (§93's standard — clean, not cluttered). One quiet line per
+   shift; the ✎ opens one row.
+2. **AND THERE IS A DENSE MODE FOR A BIG PASS.** A switch on the Shift Catalog puts every row
+   into its editor at once — the pre-85 page, on demand — so a whole-catalog sweep is one
+   uninterrupted tab-through again. Remembered like the grid's view and density toggles.
+   **Neither mode is "the" mode: the page must do both, and the choice is his, per sitting.**
+3. **PASTING A BLOCK OF SHIFTS MUST LAND THEM FULLY CONFIGURED.**
+
+**⚠️ PART 3 IS MOSTLY ALREADY BUILT, AND THAT MATTERS FOR HOW IT IS ANSWERED.** Paste-a-list has
+existed since **build 56**: a textarea on the Shift Catalog ("Paste a list of shifts"), tab- or
+comma-separated, a header row dropped if present, a **preview before anything is written**, an
+"update shifts that already exist" option, per-row rejection reasons, and duplicate detection
+inside the pasted block. **Do not rebuild it.**
+
+**What it actually reads today is `label · start · end · site` — and nothing else.** Family, role
+and capacity are not parsed at all, which is why a pasted block still needs a second pass by hand.
+That gap — not the feature — is what §95 part 3 asks for. Demand rules stay OUT of the paste: they
+are a structured multi-rule editor, and inventing a text syntax for them is exactly the kind of
+guess §22 forbids.
+
+**BLAST RADIUS, and why this is two builds and not one:** the dense-mode switch is pure rendering;
+extending the paste parser touches a path that WRITES shifts in bulk. They ship separately, as 78
+and 79 did, so that if either misbehaves it is obvious which one.
+
