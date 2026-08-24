@@ -2243,3 +2243,31 @@ fixed the moment it is found, prototype or not. That is why `saveBaseline` (77) 
 loaded-gate (79) were built rather than parked — a wiped baseline is not recoverable, and "we
 were going to rewrite that screen anyway" is no comfort to the person whose data went. **Base
 features first; data loss still jumps the queue.**
+
+## §91 — NO PHONE NUMBER FIELD FOR NOW; IF EVER, IT IS PER PERSON — 24 Aug 2026
+
+Owner, verbatim: **"don't need phone number now. it would have to be per person if we build it."**
+
+Asked while scoping **S6, the Day Board** (*who's on today/now, per site, contacts*), because the
+word "contacts" had no field behind it: there is **no phone, pager, mobile or extension field
+anywhere in either schedule page** — verified by grep, not assumed. The only per-person data is a
+display name, a KP e-mail, a login e-mail and an FTE.
+
+**THE RULING, two parts:**
+1. **Not now.** S6 is built WITHOUT a contact number. It shows who is on, per site, with the
+   names and the KP e-mail already held. Do not invent a field (§22).
+2. **If it is ever built, it is PER PERSON** — not the per-shift role number (call pager / unit
+   extension) that was proposed as the cheaper alternative. That option is closed; do not
+   re-propose it as a shortcut.
+
+**WHAT WHOEVER BUILDS IT LATER MUST KNOW, recorded now while it is understood:**
+- It goes in **`dailysched/*`, NEVER the shared roster.** Same reasoning that keeps FTE
+  deliberately separate (§2): the auction must not gain a personal-phone field, and the Users
+  page's sanctioned-writer surface must not grow.
+- A personal number **cannot be world-readable**, so it needs a `firestore.rules` change — and
+  the rules live in the AUCTION repo, so that is an auction deploy with auction discipline
+  (console publish BEFORE dependent client code pushes, RA-2 before and after).
+- **It is NOT required for the calendar feed (§54).** An `.ics` feed is a URL the doctor
+  subscribes to; the per-doctor secret link IS the identity mechanism. The feed carries date,
+  time, title and location and never needs a phone number. The two were briefly conflated when
+  this was asked; they are unrelated.
