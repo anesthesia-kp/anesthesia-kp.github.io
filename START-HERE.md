@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 22 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). **§87 NARROWS §86 TO TWO ITEMS: build H-1 and M-1, IGNORE the rest.** M-4 is SETTLED as latent — the owner read the live documents and found no capitals; nothing is broken and no data fix is owed. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
+**LAST REVISED: 24 Aug 2026 — THE OWNER'S MAC DIED AND THE WHOLE WORKING TREE WAS REBUILT FROM GitHub. Staff 162 is PUSHED (`10bd4a2`); the RA-4 report and its suite are PUSHED (`f4f7556`). **§87 NARROWS §86 TO TWO ITEMS: build H-1 and M-1, IGNORE the rest.** M-4 is SETTLED as latent — the owner read the live documents and found no capitals; nothing is broken and no data fix is owed. Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.**
 **Everything is pushed and live: auction staff 162 / admin 299 / mobile 18 · schedule admin 76 /
 staff 36.** All four repos clean and in sync, no locks. Auction battery re-run 22 Aug on the
 rebuilt tree: **49 suites / 1,916 assertions, zero skips** — the identical count this file already
@@ -38,6 +38,30 @@ were ruled. Older narrative lives in HANDOFF, not here.)
 > ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
 > reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
 > own age is worse than no date at all — a fresh session trusts it.
+
+> 🗂️ **THREE FILESYSTEMS, AND SCREENSHOTS LAND IN THE ONE YOU WOULD NOT GUESS (24 Aug 2026).**
+> This cost the owner twenty minutes of hunting through Finder for files that were never on his
+> Mac. There are THREE separate filesystems in a cloud session, not two:
+>   1. **The CLOUD container** — the `Bash` tool. Where deliverables are built. **AND where
+>      Chrome-control screenshots land: `save_to_disk:true` writes to `/tmp/claude-chrome-
+>      screenshots-<id>/` IN THE CLOUD**, not on the Mac, even though Chrome itself runs on the Mac.
+>   2. **The device VM** — `device_bash`. Mounts ONLY `~/Documents/GitHub`. Its `/tmp` is its own
+>      and is NOT the Mac's.
+>   3. **macOS proper** — not directly reachable by any tool.
+> **So the screenshot workflow needs NO transfer at all:** take it with
+> `mcp__claude-in-chrome__computer` (`save_to_disk:true`), then open it straight from `/tmp/...`
+> in the cloud with PIL and drop it into the deck. **Do NOT ask the owner to drag files anywhere.**
+> ⚠️ **AND A SECOND, UNSOLVED ONE (24 Aug):** files delivered with `device_commit_files` land on
+> disk but **git over the bridge does not list them as untracked** — so they are silently never
+> staged. A file written by `device_bash` in the same folder IS seen. Cause unknown; possibly a
+> mount artifact that does not affect git on the Mac itself. **Until it is understood: after any
+> `device_commit_files`, tell the owner to confirm the file appears in GitHub Desktop.** "Filed"
+> means committed and pushed, not delivered.
+>
+> The failure that wasted the time: seeing a `/tmp` path, assuming macOS because Chrome runs there,
+> checking `device_bash` (which correctly said "no such directory"), and concluding "unreachable"
+> — without checking the third filesystem. **When a file seems unreachable, check ALL THREE before
+> asking the owner to move anything.**
 
 The five files that govern everything:
 

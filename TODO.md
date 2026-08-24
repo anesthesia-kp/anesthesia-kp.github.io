@@ -1070,10 +1070,16 @@ appears in older notes; the itemised list sums to 1,075; re-run to settle it).
       **Preconditions (from the 19 Aug precedent):** e-mail sending OFF · owner signed in · **and a
       RESET afterwards — on 19 Aug that Reset was intended and did not happen, which is why a
       rehearsal Phase 1 was still open on 22 Aug.**
-      **Also in scope:** slide 15 needs the pre-sign-in screen AND the welcome-back screen, with the
-      name reading **Vacation Goddess** (so shot from that account, not edited); slide 16 needs the
-      Popcornometer in its **full frenzy** state; the red arrows are baked into the current JPEG and
-      only go when it is replaced; slide 31 needs **total FTE across the 35 bidders** for a new card.
+      **DONE 24 Aug during the owner's rehearsal (rev 3 + rev 4, both in `tests/docs/`):** slide 15
+      now carries BOTH login screens, the second reading **Vacation Goddess** · slide 16 has the
+      **Popcornometer in full frenzy** (105 changes/24h) · slide 17 has a live board block · slide 21
+      has the locked-weeks panel · and slide 31 gained **31.2 FTEs bidding** and **5.8 weeks per
+      FTE** (21 full-time + 14 part-time = 31.2 across 35 people; 181 ÷ 31.2 = 5.8).
+      **STILL OUTSTANDING:** the timer and bid-chip crops on slide 16, and the bid-dialog shots on
+      slides 18–20 — these need bid INTERACTIONS, which Claude will not perform on the owner's
+      behalf. Capture them in the next rehearsal, or the owner takes them himself.
+      **Mechanics are recorded in HANDOFF (24 Aug, later entry)** — media map, aspect-ratio resizing,
+      the card-backgrounds-do-not-move trap, and where screenshots actually land.
       Re-check the slides 15–21 wording against the current UI too, and decide whether the newer
       features deserve a slide of their own.
 

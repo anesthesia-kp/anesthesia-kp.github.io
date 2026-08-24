@@ -9,6 +9,63 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (LATER) — the deck's screenshots, and where files actually live
+
+**Admin 301 pushed and live. Then the deck: rev 3 added the FTE cards, rev 4 replaced four
+screenshots with captures taken during the owner's rehearsal.** Both filed in `tests/docs/`.
+
+**THE LESSON THE OWNER ASKED TO BE WRITTEN DOWN — three filesystems, not two.** Chrome-control
+screenshots taken with `save_to_disk:true` land in **the CLOUD container's** `/tmp/claude-chrome-
+screenshots-<id>/`, even though Chrome runs on the owner's Mac. Claude read that path, assumed
+macOS, checked `device_bash` (whose VM has its own `/tmp` and correctly reported nothing), declared
+the files unreachable, and sent the owner hunting through Finder — three separate times, proposing
+a new mechanism each time. The files had been in Claude's own workspace from the first capture.
+**The owner solved it by saying "you took the screenshots with chrome control and put the ppt
+together with them" — i.e. it had worked before, so the premise was wrong.** The rule now in
+START-HERE: when a file seems unreachable, check ALL THREE filesystems before asking the owner to
+move anything. The screenshot path needs no transfer at all.
+
+**WHAT THE REHEARSAL CAPTURES GOT** (all taken at staff 163, Phase 2 open, rehearsal mode ON):
+the sign-in screen with no remembered account · the welcome-back screen reading **Vacation
+Goddess** · the **Popcornometer in full frenzy** (105 changes/24h — only obtainable on a busy
+board) · a November board block with live bids and FTE readouts · the locked-weeks panel · and a
+Week 44 tile showing a combined bid and all four outcome badges at once.
+
+**DECK EDITING MECHANICS, so the next session does not rediscover them:**
+- Media map: `image1.jpg` = slide 15 login · `image3.jpg` = slide 16 Popcornometer ·
+  `image5.jpg` = slide 17 board · `image11.jpg` = slide 21 locked weeks. Replacing the file
+  in place keeps the rels and content-types untouched — **convert PNG captures to JPEG** and
+  reuse the existing filename rather than adding parts.
+- **Always resize the `<a:ext>` to the NEW image's aspect ratio**, or PowerPoint stretches it.
+- **Card backgrounds do NOT move when you move their text.** This bit twice in one session —
+  slide 33's rows and slide 31's stat cards both had text re-laid onto stale white cards.
+  Re-space the `roundRect` and the text together, and **look at the render** before shipping.
+- Capture artifacts: the extension bakes red click markers into the image. Crop them out.
+
+**⚠️ UNRESOLVED, AND IT MATTERS — THE DECKS MAY NOT BE IN GIT AT ALL.** Every `.pptx` filed into
+`tests/docs/` this session was delivered with `device_commit_files`. The files are on disk (`ls`
+shows all four), they are NOT ignored (`check-ignore` says so), and they are NOT tracked
+(`ls-files` does not list them) — **yet git over the bridge reports the tree CLEAN and lists no
+untracked files.** A control test proves it is specific to the delivery method: a probe file
+written by `device_bash` in the same folder showed up as `?? docs/_probe.txt` immediately.
+Touching the `.pptx` files did not make git notice them.
+
+**Claude could not fix it from here**, because staging is a git WRITE and §4 forbids
+`add`/`commit` over the bridge (stranded `index.lock`). It is possible this is an artifact of the
+device VM's mount and that git on the owner's own Mac sees them normally — **UNVERIFIED**.
+
+**ACTION FOR THE OWNER:** open GitHub Desktop on the `tests` repo and look for four files in
+`docs/` — `…-2026-08-19.pptx`, `…-2026-08-22.pptx`, `…-2026-08-22-rev2.pptx`, `…-rev4.pptx`. If
+they appear, commit them. If they do NOT appear, the decks exist in exactly one place again —
+which is the precise failure that nearly lost this deck on 22 Aug. **Do not assume a file is
+filed because Claude said it was delivered; "filed" still means committed and pushed.**
+
+**Still not replaced:** the timer and bid-chip crops on slide 16 and the bid-dialog shots on
+slides 18–20 — those need bid interactions Claude will not perform on the owner's behalf. DECK-2
+still carries them.
+
+---
+
 ## 24 Aug 2026 — §88 sort order built as admin 301, and a lesson about conceding
 
 **Admin 301 ships SORT-1 on the owner's ruling "Always sort by projection."** Detail in BUILD-LOG
