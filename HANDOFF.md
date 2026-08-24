@@ -9,6 +9,89 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (BUILD 78) — auto-populate asks the demand rules; the coverage gap closes
+
+**Owner: "please group what you can and let me know when decisions are needed."** Grouped into
+two builds along ONE line: **78 is read/compute paths only and writes no roster; 79 will be the
+Users page, alone.** That page is the single sanctioned exception to the cardinal rule, and
+lumping it in with grid work would mean that if something went wrong, nobody could say which
+change did it. Two builds, two blast radii — that was the whole reason for the split.
+
+**§ defect 5 — the one that would have produced nonsense schedules.** `autoPopulate` and
+`autoPopulateYear` used the static per-shift `capacity` for EVERY day of the month and never
+called `demandOn()`, which the coverage report has read since build 58. A weekdays-only shift was
+filled on Saturdays; a shift with NO demand rules — **§9's "not being asked for at all", which is
+not the same as "nobody needed"** — still had somebody assigned every single day, and then turned
+up in the `unfillable` warnings for slots nobody had ever requested. **The filler and the report
+were working from two different definitions of a day's need, and only one of them was the
+owner's.**
+
+> ⚠️ **A PRODUCT DECISION WAS MADE HERE, AND THE OWNER SHOULD SEE IT.** If NOT ONE shift carries
+> demand rules, build 78 keeps the old `capacity` behaviour. Honouring demand unconditionally
+> would make auto-populate silently do nothing on a catalog nobody has configured yet — a
+> baffling regression for a department mid-setup. The condition is the same `shiftsWithDemand`
+> count `coverageRows()` uses for `demanded`, so the two cannot drift apart. **If he would rather
+> it always honour demand and do nothing until rules exist, it is a one-line change.**
+
+Both confirm dialogs now state which of the two behaviours will run — §84's carve-out, wording
+that causes a wrong action is a defect, and "fills every shift in the catalog" was *true* and was
+the bug. Both completion alerts NAME the shift-days skipped as not-asked-for, so "complete — 12
+assignments" can never read as a fault. Same reasoning as [59]'s named skipped months.
+
+**§ defect 13.** `renderStatsYear` had no in-flight guard: `statsYearLoadedFor` is set only after
+the 12-month `Promise.all` resolves, so a second click — or any of the ~9 listeners calling
+`renderAll()` while the panel is open — started another twelve reads. The existing staleness check
+catches a fetch for a DIFFERENT year and **structurally cannot see a duplicate of the same one**.
+Now one at a time, released in a `finally`. A deliberate Refresh clears the marker, so an action
+the admin asked for beats the guard while accidental re-entry does not.
+
+**§ defect 25.** `dailysched/callTotals` and its listener deleted — a legacy counter superseded by
+`windowShiftCounts()`, still subscribed on every page load, feeding a variable with zero read
+sites. One fewer Firestore read per admin page load; the document itself untouched.
+
+**§ item 3 — the coverage gap is closed.** `tests/sched/appcheck-signin-test.mjs`, 28 assertions,
+for builds 71–74 / staff 31–35, which shipped with no suite in this battery at all. **It pins the
+REVERSAL honestly:** build 72's rule that un-hid the reCAPTCHA badge must be ABSENT (§66 undid it)
+and the attribution Google requires once the badge is hidden must be PRESENT with both links —
+the suite refuses to let those two drift apart, because one without the other breaks Google's
+terms. Honesty from the explicit SHA `2c97296`: 24 of 28 fail on admin 70 / staff 30.
+
+> 🪞 **THREE OF MY OWN ASSERTIONS WERE WRONG BEFORE THEY WERE RIGHT, and the pattern is the same
+> one this project keeps finding in shipped code.** Two tested PROSE rather than CODE — a
+> tombstone comment names the very variable it removed, so `!/passcodesData/` failed on a
+> perfectly correct page. A third was a tautology: `ok(… || true, …)`, which cannot fail and
+> therefore proves nothing — a FAST-1 in miniature, written by the person who had just written
+> the FAST-1 lesson into the brief. **An assertion that cannot fail is not a weak test, it is a
+> false one.** All three were rewritten to test the code.
+
+**GATES.** New `build78-test.mjs` **26/26**, both defects proved by EXECUTION: defect 5 by running
+the real `demandOn`/`autoTargetFor` chain over weekday, weekend, holiday, explicit-zero,
+stacked-rule and no-rules-anywhere cases; defect 13 by calling `renderStatsYear` three times
+concurrently and counting **12 reads, not 36**. Honesty vs the pushed 77 from the explicit SHA
+`a796d02`: **0 passed, 16 FAILED, exit 1** — and the suite was changed mid-build to report a
+missing build-78 function as a legible FAILURE instead of throwing, **because a crash and a real
+regression are indistinguishable from an exit code**. Schedule battery green, isolation 27/27,
+`node --check` clean, staff bytes unchanged, no rules change.
+
+> ✅ **CLOSED — the owner re-authenticated and the full battery ran: 54 suites / 2,049
+> assertions, zero skips, exit 0.** The schedule battery was also run in full in the cloud:
+> **all 30 suites green with ZERO skipped**, browser suites included. Build 78 is fully gated.
+> The account of how it stood open is kept below, because the handling is the point.
+>
+> ⛔ *(as it stood)* **THE AUCTION BATTERY IS ONLY PARTLY RE-RUN, AND THAT IS AN OPEN GATE.** §2 requires the full
+> auction battery after a schedule build. Staging to the cloud failed with
+> `session_stale_relogin` — the owner's desktop sign-in went stale — and the COST GATE says stop
+> and name the cheap fix rather than grind a workaround, so that is what was done. What WAS run,
+> directly on the device: the three auction suites that actually read the schedule admin page —
+> `test-appcheck-login` 84/84, `test-audit-fixes` 338/338, `test-delta-fixes` 93/93, all green.
+> **The coupling is proven; the other 51 suites are not re-run.** Do not record build 78 as fully
+> gated until they are.
+
+Also unrotted while in the file: build **64**'s row still read *"in working tree, awaiting owner
+push"* — it shipped 17 Aug as `13db983`.
+
+---
+
 ## 24 Aug 2026 (BUILD 77) — the baseline can no longer be erased by a click; a dead roster writer is gone
 
 **Schedule admin 77. Staff unchanged. Owner: "go with your recs."** Two changes, one theme:
