@@ -2146,3 +2146,42 @@ Do NOT build them, and do NOT re-raise them as urgent. They return only if the o
   fixed in rules at all.
 
 The three §86 skips (H-4, H-5, M-8) and the two left alone (M-2, M-5) are unchanged and remain so.
+
+## §88 — ALWAYS SORT BY PROJECTION. A decision never drives position — 24 Aug 2026
+
+Owner, verbatim: **"Always sort by projection."**
+
+**THE RULE, binding on every list of bidders in the admin site:**
+1. **projection** — win, then draw/review (ONE tier), then lose;
+2. **bid strength**, strongest first (`pScore`: 1/2/3 → 0 · 1/2 → 1 · single n → n+1 · NP → 99);
+3. **name** — except in by-USER views, where the third key stays the WEEK.
+
+Approved and denied are shown by BADGE, in place. They never move a row.
+
+**HOW HE GOT THERE, in his own observations.** First: *"approving someone who was projected to lose
+moves them up the report list."* Second, after Claude had conceded the opposite: *"even complete
+phases have users re-order incorrectly."* The two look different and are one defect — position was
+keyed on the DECISION, so mid-phase the list moved under the cursor, and in a completed phase (where
+every row is approved or denied) bid strength only ever broke ties inside those two blocks, burying
+a strong denied bid beneath a weak approved one.
+
+**CLAUDE WAS WRONG TWICE HERE, and the record should say so.** It first claimed the report shared
+the panels' defect; when the owner said closed phases do not re-order, it conceded that closed-phase
+result-ordering was "arguably right" — reasoning its way into agreement instead of holding the
+distinction between *unstable* and *mis-ordered*. The owner's second observation is what separated
+them. **Lesson: a concession made from someone else's description is worth no more than the claim it
+replaced. Read the code.**
+
+**Draw and review are one tier** on the owner's reasoning — *"they never occur together"* — which
+Claude verified in the engine rather than accepting: the per-week group loop sets `settled` at the
+first group that does not fit and skips every later group, so exactly one of `draws`/`reviews` can
+be populated for a week. The guarantee is PER WEEK; in a by-user view one person may hold a draw on
+one week and a review on another, and merged tiers do reorder there. Accepted.
+
+**Measured before building, per §82(d), and it answers a question the owner asked directly** — are
+the natural and frozen projections ever different, or is it only the code? Over 6,000 week states
+`computeApprovals(true)` and `computeApprovals(false)` are **identical**, and neither moves when a
+decision is written. §77 removed everything the flag used to switch, so `ignoreAdmin` is vestigial.
+Either key is safe; the builds use the one already computed at each call site.
+
+Shipped as admin **301**.

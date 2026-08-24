@@ -9,6 +9,55 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 — §88 sort order built as admin 301, and a lesson about conceding
+
+**Admin 301 ships SORT-1 on the owner's ruling "Always sort by projection."** Detail in BUILD-LOG
+and DECISIONS §88; what belongs here is how the finding was nearly lost.
+
+**Claude claimed the by-week report shared the panels' defect. The owner said closed phases do not
+re-order and that Claude was wrong. Claude then conceded — reasoning its way to "closed-phase
+result-ordering is arguably right."** That concession was wrong, and it was wrong in a specific,
+repeatable way: it accepted the owner's *description* of the symptom (nothing moves) and never
+tested the *other* property (the order is incorrect while standing still). Two turns later the owner
+supplied the missing observation — *"even complete phases have users re-order incorrectly"* — and
+the whole thing resolved into one defect with two faces: position was keyed on the DECISION, which
+mid-phase moves rows under the cursor and post-phase buries a strong denied bid under a weak
+approved one.
+
+**The lesson, worth more than the build:** a concession made from someone else's description is
+worth no more than the claim it replaced. Both sides were arguing from memory and from how output
+looked. The rule that already exists for this — *when in doubt during the day, run it, don't recall
+it* — applies to Claude's agreements as well as its assertions. Claude changed position twice on
+this before reading any code.
+
+**What reading it actually found.** Six sort sites, not the three assumed: both Approvals/Denials
+views, both Draws & Reviews views, the by-week report, and the context rows under a week card, which
+sorted by strength alone and so disagreed with the rows directly above them. Two more surfaces were
+checked and left alone — `exportUserSummary` already complied, and the best-bids table carries no
+outcomes. **And one real gap:** the panel held no projection at all for past-phase rows, so those
+sorted by NAME — the completed-phase case the owner reported. It now rebuilds the projection from
+the phase snapshot, the same source the report already used.
+
+**A question the owner asked, answered by measurement rather than opinion:** are the natural and
+frozen projections ever different, or only different in code? Over 6,000 week states they are
+**identical**, and neither moves when a decision is written — §77 removed everything `ignoreAdmin`
+used to switch. The flag is vestigial. Recorded because it also means every render currently runs
+the engine twice for two answers that always match.
+
+**The honesty check reproduces the owner's own observation.** Deny a projected winner and approve a
+projected loser: the pushed 300 renders DEV → BEN → CAI → ANN; 301 renders ANN → BEN → CAI → DEV.
+17 of 23 assertions fail on 300, exit 1.
+
+**Also filed this session, held in the cloud while the owner's Mac was offline:** DECK-2 (recapture
+the deck's screenshots during a rehearsal, and cover the features shipped since build 149), FAST-1
+(a "stop asking" mode for batch decisions, fully specified, not built), and BULK-1 recorded as
+DECLINED so it is not re-proposed. The deck itself went through a full owner review: 38 slides to
+31, all light-blue eyebrow labels and numbered circles removed, seven section dividers deleted, and
+two factual errors fixed against the live settings — there is no summer floor, and the timer runs in
+affects-others mode.
+
+---
+
 ## 22 Aug 2026 (LATER) — §87's two findings built as admin 300
 
 **Owner: "go ahead with h1 and m1."** So exactly those two, and nothing adjacent (§85/§87).
