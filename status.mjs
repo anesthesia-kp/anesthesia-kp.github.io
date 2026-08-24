@@ -84,10 +84,17 @@ const schedSuites = countSuites(join(REPOS.tests, 'sched'), /-test\.mjs$/);
 // Testability: SH_PATH=<file> points the gate at another copy (e.g. the previous version,
 // to prove the gate FAILS on it) and suppresses the write to TODO.md.
 let _pending = null;
-// A build FILED into the working tree, or committed and not yet pushed, means versions.json
-// on disk is ahead of the served site. Cached because dirty()/sync() shell out to git.
+// Is a BUILD filed but not yet live? The question is deliberately narrow: does `versions.json`
+// differ from what origin holds — either edited in the working tree or committed and unpushed.
+// `git diff origin/main` covers both. It must NOT be "is the tree dirty": an uncommitted
+// BUILD-LOG or TODO edit is paperwork, not a filed build, and treating it as one made this
+// gate cry wolf the first time it was used in anger (24 Aug). versions.json IS the record of
+// what the site serves, so it is the only file worth asking about.
 function pendingPush() {
-  if (_pending === null) _pending = [REPOS.auction, REPOS.schedule].some(r => dirty(r) !== 'clean' || sync(r) !== 'in sync with origin');
+  if (_pending === null) _pending = [REPOS.auction, REPOS.schedule].some(r => {
+    const out = git(r, 'diff --name-only origin/main -- versions.json');
+    return out !== '(git unavailable)' && out.trim() !== '';
+  });
   return _pending;
 }
 const shPath = process.env.SH_PATH || join(here, 'START-HERE.md');

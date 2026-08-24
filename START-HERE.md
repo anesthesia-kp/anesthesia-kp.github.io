@@ -5,9 +5,9 @@ SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty an
 nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, with S6 (the Day Board) in build.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 80 / staff 37.**
-**FILED, NOT YET PUSHED: schedule admin 81** — S6, the Day Board (see BUILD-LOG). Everything
-else on disk agrees with live. All four repos clean and in sync with origin, no
+schedule admin 81 / staff 37.**
+**FILED, NOT YET PUSHED: schedule admin 82** — the Day Board REBUILT under §93 after the owner
+rejected 81's version as cluttered. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, on the device, 24 Aug: **54 suites / 2,050
 assertions, zero skips**, with the CRNA stamp test passing on the FIRST run — which is what
 proves `crna/` is in sync with the MD pages. (Schedule has SINCE shipped admin **77 · 78 · 79 · 80** and staff **37** under §90 — all pushed
@@ -64,9 +64,12 @@ replay. Worst case is two mails per physician at their next individual sign-in.
 **SO: THE REMAINING RISK IS NOT IN THE CODE.** It is the owner's three items — real-bidder
 sign-ins, launch, and the two mail toggles. **§89 AND §92 are binding: the auction code is closed, and
 a session that goes looking for auction code work is working against both.** Work now means the
-SCHEDULE, in §90's order. **S6, the Day Board, is BUILT and filed as admin 81** — gates green,
-awaiting the owner's push. Next in §90's order: **S5c** (filter bar — name/text + coverage only),
-then **S7**, then Stage 4, then Stage 5.
+SCHEDULE, in §90's order. **S6, the Day Board, shipped as admin 81 and was REJECTED BY THE OWNER
+the same day — read §93 before touching it.** It is rebuilt as **admin 82**, filed and gated: one
+assignment sheet, call family first, absence reduced to a number, the five cards reduced to one
+line. §93 is a standing DESIGN rule, not a one-off fix: *who is working is the page; who is not is
+a number, not a list; clean beats complete; the standard is at-a-glance.* Next in §90's order: **S5c** (filter bar — name/text + coverage
+only; the role/site half stays blocked until Stage 4), then **S7**, then Stage 4, then Stage 5.
 
 Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
 `tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
@@ -145,7 +148,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 80 /
+> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 81 /
 > staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*

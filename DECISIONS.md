@@ -2305,3 +2305,64 @@ this ruling addresses is not a session finding a bug — it is a session decidin
 a small auction edit is obviously fine. It is not obviously fine. The auction is live to 35
 physicians and weeks from launch; the schedule has no users at all. That asymmetry is the whole
 reason the two sites share a chat.
+
+---
+
+## §93 — THE DAY BOARD IS REJECTED IN ITS FIRST FORM: WHO IS WORKING, CLEANLY — 24 Aug 2026
+
+Owner, verbatim, on admin 81: **"The day board is not a useful addition in it's current form. I
+know shifts aren't assigned and that's part of it. But I want to very easily be able to see who
+IS working and care less about who isn't. I want clean and organized, not cluttered. Do better
+research into what intiial login screen would be useful for anesthesiua scheduling sites and
+improve this."**
+
+**THE RULING, and it is a design rule, not a one-off fix:**
+1. **WHO IS WORKING IS THE PAGE.** It is not one card among several. Anything that is not a
+   person who is working today is secondary, and most of it does not belong on this screen.
+2. **WHO IS NOT WORKING IS NOT INTERESTING.** The "not on anything today" strip was clutter by
+   this ruling. Absence may be worth a number; it is not worth a list.
+3. **CLEAN AND ORGANIZED BEATS COMPLETE.** Every element earns its place or comes off. A screen
+   that shows everything shows nothing — the first version put five statistics, two strips, four
+   footnotes and a shortfall count around the one thing he actually asked for.
+4. **THE STANDARD IS "AT A GLANCE".** He must be able to answer *who is working* without reading.
+
+**HE ALSO NAMED THE CONFOUND HIMSELF: the schedule has no assignments in it yet**, so the board
+renders mostly empty and that is the data, not the code. It does NOT excuse the design — a board
+that is unreadable when full is not saved by being empty now. But it does mean **the empty state
+is a first-class design problem here**, not an afterthought.
+
+**AND IT IS AN INSTRUCTION TO RESEARCH FIRST.** The first version was built from the brief and
+from what the code could support, and never asked what a daily anesthesia board is actually FOR.
+That research is owed before the rebuild, and what it finds is recorded with it.
+
+---
+
+## §94 — THE SHIFT FAMILY ORDER, NAMED BY THE OWNER — 24 Aug 2026
+
+Owner, verbatim: **"One list by shift families. Call at top, then AP, then weekday daytime, then
+ob, then richmond, then pediatric, then PCV, then ICU, then admin, then unassigned. Also re do
+shift families section to this order."**
+
+**THE ORDER, and it is his, not a heuristic:**
+`Call · AP · Weekday daytime · OB · Richmond · Pediatric · PCV · ICU · Admin · Unassigned`
+
+**WHERE IT APPLIES:** the Day Board's sections, AND the Shift Families page — he asked for both in
+the same sentence. One comparator serves both, so the two pages can never drift apart.
+
+**WHAT THIS REPLACES.** Build 82 ordered families by putting whichever family held `kind:'call'`
+shifts first and the rest alphabetically. That was a reasonable guess and it is now superseded:
+**a named order beats an inferred one.** Do not re-introduce the inference.
+
+**HOW A FAMILY IS MATCHED TO A POSITION.** By its LABEL, case-insensitively, against the words he
+used (with the obvious synonyms — AP also matches "acute pain", pediatric also matches "peds",
+ICU also matches "critical care"). Matching is tried MOST SPECIFIC FIRST, so a family called
+"Richmond Daytime" lands under Richmond rather than under weekday daytime.
+
+**A FAMILY HE DID NOT NAME sorts alphabetically AFTER the ten and BEFORE Unassigned.** It is not
+dropped, not hidden, and not guessed at (§22) — the department can add families this list has
+never heard of, and they appear in a predictable place.
+
+**"Unassigned" is the catch-all for a shift with no family at all, and it is ALWAYS LAST.** Build
+82 called that bucket "Other" and the Families page put it FIRST as a drop target; both now follow
+his word and his position.
+

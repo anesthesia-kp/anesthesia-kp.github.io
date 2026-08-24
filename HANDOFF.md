@@ -62,6 +62,68 @@ that window — **does START-HERE SAY a build is filed and waiting, and name it?
 everything is pushed, requires that "FILED, NOT YET PUSHED" line to be GONE. Stale in either
 direction is caught. It fired on this very session, was answered by adding the line, and cleared.
 
+## 24 Aug 2026 (§93) — the owner rejects the Day Board, and the rebuild that came out of it
+
+**HE WAS RIGHT, AND THE FAILURE IS WORTH NAMING PRECISELY.** Admin 81 satisfied every line of the
+S6 brief and still missed the point. The brief said *who's on today/now, per site, contacts*, so
+the board showed sites as columns, a summary sentence with three statistics, a shortfall count, a
+strip of who was on vacation, a strip of who was on NOTHING, and four footnotes. His answer:
+*"not a useful addition in it's current form… I want to very easily be able to see who IS working
+and care less about who isn't. I want clean and organized, not cluttered."* That is **§93**, and
+it is a standing design rule, not a bug report.
+
+**THE PROCESS LESSON, which is the transferable one.** The build was gated to the hilt — 58
+executed assertions, honesty check, zero skips — and every one of those gates was measuring
+whether the code did what I decided it should do. **Not one of them could tell me the design was
+wrong.** Two cheap things would have caught it before he ever saw it: *research what this kind of
+screen is for* before building it, and *look at the rendered page* before handing it over. Neither
+had been done. Both were done for 82.
+
+**WHAT THE RESEARCH ACTUALLY SAID** (sources in the chat, and the conclusions matter more than the
+links): the durable artefact in an anesthesia department is the **daily assignment sheet** — an
+ordered list where the PEOPLE are the payload and the shift is the label, not a dashboard of
+counts. *Who is on call* is the question such a board is asked more than any other, so call
+belongs at the top. ASRA's call-schedule guidance frames visibility itself as the thing that earns
+a group's acceptance of a schedule — which argues for a page that can be READ at a glance rather
+than interpreted. And commercial products (QGenda, Amion, AnesthesiaGo) present the day as a grid
+or list of assignments; none of them opens on statistics.
+
+**WHAT 82 IS.** One table. Families as sections in the catalog's own colours, **call family first
+— decided by the catalog's `kind`, never by guessing at family names** — then alphabetical, with
+the catch-all last. Inside a family: start time, untimed at the bottom, then catalog order, then
+name. TIME · WHO · SHIFT · SITE, and the SITE column only appears when a shift actually has one.
+**ON NOW is the only badge**, plus *on now · since yesterday* for the overnight case. Absence is a
+COUNT behind a drawer. The five dashboard cards became one line of six numbers that open one
+drawer at a time — **with every element id preserved, so `renderDash()` was not edited at all.**
+That last decision is worth keeping as a habit: a layout change that also rewrites a working
+renderer is two changes wearing one build number.
+
+**THE SUITE FOUND A REAL BUG, which is the argument for executing rather than reading.**
+`bdRowSort` compared `Number(a.order)` with `Number(b.order)`; two shifts with no `order` both
+give `NaN`, and **`NaN !== NaN` is true**, so it took the order branch, returned 0, and never fell
+through to the name — leaving those rows in whatever order the object happened to yield. An
+assertion written to say "a shift with NO order set does not throw the sort" caught it. Fixed here.
+
+**AND IT WAS LOOKED AT.** The real CSS and the real `renderBoard` were driven in a real browser
+over sample data (obviously-fake names — §22), screenshotted at midday and again at **02:10**,
+which is how the overnight row was confirmed by eye rather than only by assertion. Three things
+were changed because of what the picture showed and nothing else: the dotted underline under
+every name (thirty of them made the sheet look like a page of links), the green ON-NOW rule
+clipping the first digit of the time, and the *later* pill that at 02:10 appeared on every single
+row. **Keep the harness habit: `renderBoard` is extractable, so a screenshot costs one script.**
+
+> ⚠️ **THE BRIDGE DROPPED MID-BUILD, and the recovery is the interesting part.** A `device_bash`
+> patch returned "device not connected" — leaving it UNKNOWN whether it had applied. Because every
+> patch in this project asserts `count(old)==1` before substituting, re-running it was safe: it
+> would have failed loudly rather than double-applying. Work continued in the cloud clone, and
+> when the bridge returned the device was found to be at the pre-patch md5, the same patches were
+> re-run there, and **all three files were md5-compared device-to-cloud before anything was
+> reported green.** The batteries had run on the cloud bytes; identical md5s are what make that
+> claim honest. **Write patches that refuse to apply twice, and md5 both sides after any
+> interruption.**
+
+---
+
 ## 24 Aug 2026 (S6) — the Day Board ships as admin 81, and two gate traps worth keeping
 
 **S6 IS BUILT.** Detail lives in `schedule/BUILD-LOG.md`'s build-81 row and is not repeated here.
@@ -98,6 +160,21 @@ battery **33 suites, 909 assertions, ZERO skipped** (in-cloud, browser suites RU
 > that did not change, not as the honesty gate for an auction build.** Say that out loud in any
 > report rather than quoting "2,050 assertions, zero skips" as if it covered the auction's own
 > honesty checks.
+
+**AFTER THE PUSH — the new gate earned its keep twice in ten minutes, and was corrected once.**
+Builds 81 pushed as `8084190` (schedule), `e64b110` (tests), `1d88370` (this repo); live
+`versions.json` reads **admin 81 / staff 37**, fetched cache-busted twice.
+- The moment the push landed, `status.mjs` exited **3** with three problems: both of START-HERE's
+  live lines still said schedule admin 80, and its "FILED, NOT YET PUSHED" line was now a lie.
+  That is exactly the drift that has bitten this project repeatedly, caught by a machine within a
+  minute of it happening rather than by the owner days later.
+- **Then it cried wolf, and the rule was narrowed.** `pendingPush()` first asked "is either site
+  repo dirty?", so editing BUILD-LOG and TODO — pure paperwork — read as *a build is filed*. It
+  now asks only whether **`versions.json` differs from `origin/main`** (`git diff --name-only
+  origin/main -- versions.json`), which covers both an uncommitted edit and a committed-unpushed
+  one and is the single file that records what the site serves. **A gate that fires on the wrong
+  thing gets ignored, and an ignored gate is worse than none** — the same reasoning as the
+  always-prints-1 handler audit and the exits-0-having-tested-nothing button sweep.
 
 
 ---
