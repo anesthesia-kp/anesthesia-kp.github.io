@@ -1,14 +1,18 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 24 Aug 2026 (RA-5) — THE FINAL AUDIT RAN AND FOUND NOTHING. THE QUEUE IS EMPTY,
-EVERYTHING IS PUSHED AND LIVE, AND BY §89 THE CODE IS NO LONGER THE RISK.**
+**LAST REVISED: 24 Aug 2026 (S6) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT A
+SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
+nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, with S6 (the Day Board) in build.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 76 / staff 36.** Disk agrees. All four repos clean and in sync with origin, no
+schedule admin 80 / staff 37.**
+**FILED, NOT YET PUSHED: schedule admin 81** — S6, the Day Board (see BUILD-LOG). Everything
+else on disk agrees with live. All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, on the device, 24 Aug: **54 suites / 2,050
 assertions, zero skips**, with the CRNA stamp test passing on the FIRST run — which is what
-proves `crna/` is in sync with the MD pages. (Schedule was not touched this session and its
-battery was not re-run; its last recorded state is **27/27 in-cloud, zero skips**.)
+proves `crna/` is in sync with the MD pages. (Schedule has SINCE shipped admin **77 · 78 · 79 · 80** and staff **37** under §90 — all pushed
+and live. Its battery's last recorded state is **28/28 in-cloud, zero skips**; on the Mac it skips
+loudly, which is correct and is not a pass.)
 
 **SHIPPED 22–24 Aug, in order:** admin **300** — H-1 (seven capacity readouts moved off the frozen
 projection onto `weekLedger`) and M-1 (one row per person per week, wearing its decision), `719566c`
@@ -58,9 +62,11 @@ NOT fire a backlog** — neither generator keeps a "last notified" state, so the
 replay. Worst case is two mails per physician at their next individual sign-in.
 
 **SO: THE REMAINING RISK IS NOT IN THE CODE.** It is the owner's three items — real-bidder
-sign-ins, launch, and the two mail toggles. **§89 is binding: a session that goes looking for more
-code work is working against it.** The honest answer to "what should we do next" is now the
-schedule site, or nothing.
+sign-ins, launch, and the two mail toggles. **§89 AND §92 are binding: the auction code is closed, and
+a session that goes looking for auction code work is working against both.** Work now means the
+SCHEDULE, in §90's order. **S6, the Day Board, is BUILT and filed as admin 81** — gates green,
+awaiting the owner's push. Next in §90's order: **S5c** (filter bar — name/text + coverage only),
+then **S7**, then Stage 4, then Stage 5.
 
 Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
 `tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
@@ -139,8 +145,8 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (24 Aug close): auction staff 164 / admin 304 / mobile 18 · schedule admin 76 /
-> staff 36.** **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 80 /
+> staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
@@ -345,6 +351,13 @@ What they genuinely share — why a change to one can break the other:
    at entry in BOTH admin sites and fail CLOSED in the map. Passcodes are retired forever.
 6. **Never present invented data as the owner's** (§22). This repo set is PUBLIC — describe
    defects by shape, never by reproduction. Plain language always; the owner is not a coder.
+7. ⛔ **THE AUCTION CODE IS OFF LIMITS — owner ruling §92, 24 Aug 2026.** No change to anything
+   the vacation auction serves (`vacation-kp.github.io/**` — the staff, admin, mobile and `crna/`
+   pages, `versions.json`, and `firestore.rules`, which lives in that repo) without a SPECIFIC
+   decision from the owner FOR THAT CHANGE. A general "go" on other work is not that decision, and
+   neither is a finding, however good. READING it is always allowed and still required: the
+   isolation guard and the full auction battery run after schedule builds exactly as before. If
+   something auction-side looks wrong, RAISE it and stop.
 
 **The paperwork — at these moments, these files, EVERY time**
 
@@ -355,6 +368,7 @@ What they genuinely share — why a change to one can break the other:
 | the owner pushes | run `node status.mjs` in this repo — it regenerates the STATUS block in `TODO.md` from `versions.json`, git and the suite counts. Derived facts are never hand-typed |
 | a batch completes | tick it in `TODO.md` §1 |
 | session end | `HANDOFF.md` if anything session-specific matters · status regenerated · stale-lock check (below) — the repos are the memory, not the chat |
+| **THIS file is edited** | **bump `LAST REVISED` IN THE SAME TURN, and re-run `node status.mjs`.** Since 24 Aug that script is the ENFORCER, not a reminder: it reads this file's `LAST REVISED` date and every build number the LIVE line quotes, compares them against git and `versions.json`, writes the verdict into `TODO.md`'s STATUS block, and **exits non-zero when they disagree**. A stale START-HERE is now a failed gate, like a skipped honesty check |
 
 **Commit summaries** — one per build PER REPO touched. **HARD CAP, owner ruling 19 Aug 2026:
 a subject line plus AT MOST 4 short lines — about 50 words. If it is longer, it is wrong.**

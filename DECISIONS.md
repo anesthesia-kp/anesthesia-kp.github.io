@@ -2271,3 +2271,37 @@ display name, a KP e-mail, a login e-mail and an FTE.
   subscribes to; the per-doctor secret link IS the identity mechanism. The feed carries date,
   time, title and location and never needs a phone number. The two were briefly conflated when
   this was asked; they are unrelated.
+
+---
+
+## §92 — THE VACATION AUCTION CODE IS OFF LIMITS WITHOUT A SPECIFIC DECISION — 24 Aug 2026
+
+Owner, verbatim: **"are you aware that the vacation site code is off limits without specific
+decision from me?"**
+
+Asked at the start of the S6 session, after Claude had proposed a paperwork-only START-HERE
+update and S6. **The honest answer was no — not as a stated rule.** It was strongly IMPLIED by
+§1 (the auction cannot be corrupted this close to launch), §87 ("only 100% necessary fixes"),
+§89 (CRITICAL/HIGH only, and RA-5 then found nothing) and by the standing "smallest change →
+explicit go" discipline. But nowhere did any file SAY it, and an implication is not a rule a
+fresh session can be held to. It says it now.
+
+**THE RULING.** No change to anything the vacation auction serves without a SPECIFIC decision
+from the owner FOR THAT CHANGE. That covers `vacation-kp.github.io/**` — the staff, admin and
+mobile pages, `crna/`, `versions.json` — and **`firestore.rules`, which lives in that repo and
+is an auction deploy no matter which site motivated the edit** (§2).
+
+**What is NOT a specific decision:** a general "go" on other work · a green audit finding,
+however good · "while we're in here" · a defect the session believes is obviously worth fixing.
+The correct move for all four is the same: **RAISE IT AND STOP.**
+
+**What is still required, unchanged:** READING the auction code, and running its gates. The
+isolation guard (`tests/sched/isolation-test.mjs`) and the FULL auction battery still run after
+schedule builds, exactly as §2 requires — three schedule builds have broken the auction suites
+before. Running a test is not changing code.
+
+**Why this is recorded rather than assumed:** §89 already closed the audit queue, so the risk
+this ruling addresses is not a session finding a bug — it is a session deciding, mid-task, that
+a small auction edit is obviously fine. It is not obviously fine. The auction is live to 35
+physicians and weeks from launch; the schedule has no users at all. That asymmetry is the whole
+reason the two sites share a chat.

@@ -9,6 +9,99 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (S6 SESSION) — §92 closes the auction code, and START-HERE stops being able to rot
+
+**Two things landed before any S6 code was written.**
+
+**1 · §92 — the auction code is off limits without a specific decision.** The owner asked
+whether Claude was aware of it. The honest answer was **no, not as a stated rule** — it was
+implied by §1, §87 and §89 and by "smallest change → explicit go", but no file said it. Implied
+is not binding. It is now DECISIONS §92 and START-HERE §3 rule 7. Reading the auction code and
+running its gates is unchanged and still required.
+
+**2 · THE START-HERE FRESHNESS GATE — the owner asked for something that prevents a stale
+START-HERE, and this is where it actually lives.** He said "build something into handoff". It is
+recorded here, but the ENFORCEMENT is in `status.mjs`, deliberately — **a rule written into a
+narrative file is just more prose, and prose is what rotted.** The failure being fixed: the
+START-HERE he pasted this morning claimed schedule admin 76 / staff 36 when 80 / 37 had shipped
+and TODO.md was correct. Four builds of drift, in the ONE document a fresh session is handed.
+
+**What the gate does.** `node status.mjs` — already the "run after every push" step — now reads
+START-HERE before writing the STATUS block, and checks two things:
+- **A · every build number START-HERE quotes as LIVE**, against `versions.json` — both claims,
+  the header `LIVE, verified cache-busted TWICE` line and the `WHERE TO START` / `LIVE NOW` line.
+  It reads them through a flattener that strips `>` markers and line wrapping, so re-wrapping the
+  paragraph does not blind it.
+- **B · its `LAST REVISED` date**, against when the file was actually last changed — git if git
+  is there (uncommitted edit ⇒ it must say today; otherwise the last commit date), and file mtime
+  if not. **The mtime path is DEGRADED and says so in its own output**: a fresh clone stamps every
+  file with the clone time and would false-alarm. It is never silent about which path it used.
+
+**It fails loudly.** The STATUS block is still written (so the rest of the run is not lost), the
+problems are listed inside it AND on stderr, and the process **exits 3**. A stale START-HERE is
+now a failed gate in the same sense as a skipped honesty check.
+
+**It was proven in BOTH directions, on real bytes, not asserted.** `SH_PATH=<file>` points the
+gate at another copy and suppresses the write. Against the previous START-HERE extracted from the
+explicit SHA `3a2efc1`, it exits **3** and names all four wrong numbers (header line: schedule
+admin 76 vs 80, staff 36 vs 37; LIVE NOW line: the same two). Against the corrected file it exits
+**0**. The `SH_PATH` hook exists for exactly that check, and mirrors the `PRE_*` convention the
+suites already use.
+
+**What it does NOT do, said plainly so nobody over-trusts it.** It cannot tell whether START-HERE's
+PROSE is true — only whether its numbers and its date are. A paragraph that still describes a
+closed queue as open will pass. The date check is the only thing standing behind the prose, which
+is why the "bump the date in the same turn" rule stays, now with a machine that notices when it
+was not.
+
+**3 · FILED IS NOT LIVE — the gate had to learn it, and the lesson generalises.** The first version
+compared START-HERE's *"LIVE, verified cache-busted TWICE"* line against `versions.json` on disk.
+That is wrong for the whole window between Claude filing a build and the owner pushing it: disk is
+AHEAD of the served site, so a perfectly true line fails. The gate now asks the better question in
+that window — **does START-HERE SAY a build is filed and waiting, and name it?** — and, once
+everything is pushed, requires that "FILED, NOT YET PUSHED" line to be GONE. Stale in either
+direction is caught. It fired on this very session, was answered by adding the line, and cleared.
+
+## 24 Aug 2026 (S6) — the Day Board ships as admin 81, and two gate traps worth keeping
+
+**S6 IS BUILT.** Detail lives in `schedule/BUILD-LOG.md`'s build-81 row and is not repeated here.
+The two things a future session most needs are the DECISIONS, both written into the code rather
+than into prose: **a shift belongs to the day it STARTS** (so at 02:00 the person on duty is on
+yesterday's overnight shift — the board reads the previous day for exactly this, and a board that
+did not would show an empty hospital at the hour it matters most), and **a shift with no times is
+never placed on a clock.** Cost was the other design driver: no extra Firestore listener at all
+while the grid is on this month, and one document per day — never a month listing — when it is
+not. Gates: new suite **58/58**, honesty `--pre` vs `64888af` **19 FAILED / exit 1**, schedule
+battery **33 suites, 909 assertions, ZERO skipped** (in-cloud, browser suites RUN), isolation
+**27/27**, full auction battery **54 suites / 2,050 assertions, zero skips, zero failures**.
+
+> ⚠️ **TRAP 1, AND IT COST THE MOST: `device_stage_files` WRITES INTO THE PATH AN HONESTY FIXTURE
+> LIVES AT.** `tests/test-audit-fixes.mjs` reads its pre-fix SCHEDULE baseline from a HARDCODED
+> path with no env override — and that path is
+> `/mnt/user-data/uploads/GitHub/schedule/admin/index.html`, which is exactly where staging a
+> device file lands. Staging the CURRENT admin page to look at it in the cloud therefore replaced
+> the baseline with the build under test, and the honesty check compared build 81 to itself and
+> reported **a failure that looked precisely like a regression in the live auction's battery.**
+> START-HERE §6 warns about feeding a suite its own bytes; this is that warning with a new cause —
+> nobody *chose* to overwrite the fixture, the staging path collided with it. **Before trusting a
+> failure in `test-audit-fixes.mjs`, check what is sitting at that uploads path.** The fix was the
+> real pre-fix bytes from an explicit SHA: schedule admin **46**, `898535a` (the commit before
+> `849204f`, which closed the duplicate-login CRITICAL). The suite then passes 339/339.
+>
+> ⚠️ **TRAP 2: ONE `PREFIX_SRC` CANNOT SATISFY EVERY HONESTY BLOCK IN THAT SUITE.** Supplying an
+> auction baseline as well — build **224**, the commit before the auction's twin fix — turned five
+> unrelated honesty checks (D1–D5, the dialog fixes) RED, because each was written against ITS
+> own immediately-previous build, not against one shared ancestor. **When no auction build has
+> changed, leave the auction baseline absent** — those blocks then skip, which is what every green
+> run before this one did. Recorded because a skip is normally a failed gate (§6) and this is the
+> narrow, legitimate exception: **the auction battery was run here as a REGRESSION gate on bytes
+> that did not change, not as the honesty gate for an auction build.** Say that out loud in any
+> report rather than quoting "2,050 assertions, zero skips" as if it covered the auction's own
+> honesty checks.
+
+
+---
+
 ## 24 Aug 2026 (§90 + CONTEXT) — the schedule's queue turns to features, and an honest stop
 
 **§90 is recorded: base features first, stop working the defect list.** The owner's reasoning is
