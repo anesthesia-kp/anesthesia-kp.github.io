@@ -9,6 +9,63 @@ here and keep the copy there — that duplication is the disease this merge cure
 
 ---
 
+## 24 Aug 2026 (BUILD 79) — the Users page, alone: KP-address normalisation and the FTE gate
+
+**Kept as its own build deliberately.** The Users page is the single sanctioned exception to the
+cardinal rule — the one place the schedule writes the roster the LIVE auction reads. Build 78
+carried the grid work so that if anything here misbehaves, nobody has to guess which change did
+it. Two builds, two blast radii; that was the entire reason for the split.
+
+**§ S-hygiene — the divergence was MASKED, not absent, which is why it survived this long.** The
+LOGIN (Google) address has been trimmed and lower-cased at every writer since [47], because
+`firestore.rules` matches it case-sensitively. The KP address — which shares `vacations/emails`
+with the auction and is read back by BOTH sites — had `.trim()` and nothing else, **not even an
+"@" check**. The auction has normalised it since its own build 270 AND lower-cases at read time,
+so a mixed-case address written from here looked fine on the auction side while the stored
+document quietly disagreed with what the auction believed it contained.
+
+> 🔗 **THE HELPER IS BYTE-FOR-BYTE IDENTICAL TO THE AUCTION'S, AND THE SUITE PROVES IT BY
+> COMPARING THE EXTRACTED FUNCTION BODIES — not by a comment claiming so.** That identity is the
+> whole point: two sites writing one document must agree on what that document may contain, and
+> a "slightly improved" copy on this side would be exactly the divergence this build closes.
+> Scope unchanged from the owner's 17 Aug ruling — trim, lower-case, refuse five unarguable
+> shapes, **NO domain policy** — and that freeze is pinned by two assertions that guard the SCOPE
+> rather than the code: a gmail address must still pass, and an apostrophe/plus address must not
+> be refused merely for looking unusual.
+
+Wired at all three live writers, each degrading the way that field deserves. `addSchedUser` still
+ADDS the person and refuses the address out loud — failing a whole add over a secondary e-mail
+would be worse than the thing it prevents, and that is the auction's own precedent.
+`saveSchedField('em')` refuses rather than storing. `saveAllSchedUsers` fails the BATCH, exactly
+as a bad login e-mail or a bad FTE always has: the KP address was the one field on that page with
+no validation at all, so a typo saved silently. **There is no fourth call site — `saveSchedUser`
+was deleted in 77, which is precisely why that deletion was settled first.**
+
+**§ defect 29 — a flag that existed for the job and was never asked.** `schedFteLoaded` had been
+SET since the FTE listener was written and READ by nothing, while `saveAllSchedUsers` turns a
+blank FTE box into `deleteField()`. Before that snapshot arrives every box is blank, so **one
+click on Save All in the cold-load window would have wiped every FTE in `dailysched/fteMap`.**
+The [48] shape exactly. It now gates both FTE writers alongside its three siblings.
+
+**GATES.** New `build79-test.mjs` **30/30**, executing the real extracted `_normKpEmail`. Honesty
+vs the pushed 78 from the explicit SHA `e141d13`: **11 of 20 FAIL, exit 1** — 20 rather than 30
+because the executed block reports one legible failure when the helper is absent instead of
+throwing, the same fix build 78's suite needed. **Schedule battery all 31 suites green with ZERO
+skipped** (browser suites RUN). **Isolation guard 27/27 — re-proved deliberately, because this
+build touches roster writers.** Full auction battery per §2: **54 suites / 2,049 assertions, zero
+skips.** `node --check` clean, staff bytes unchanged, no rules change.
+
+**THE DEFECT-5 FALLBACK WAS RULED, BY CLAUDE, AT THE OWNER'S REQUEST** (*"you decide what's
+best"*). **Decision: KEEP the fallback.** A catalog with no demand rules anywhere is the normal
+STARTING state, not an error; a button that silently does nothing there reads as broken, and
+"nothing happened" is the hardest failure for a non-programmer to diagnose. The failure it would
+prevent is not a wrong-data failure — with no rules at all there is no correct answer to violate.
+And it is self-extinguishing: the moment ONE demand rule exists anywhere, demand governs every
+shift and the un-ruled ones are skipped per §9. The dialog states which behaviour will run, so
+neither path can mislead. **The real fix is setting demand rules, not changing this line.**
+
+---
+
 ## 24 Aug 2026 (BUILD 78) — auto-populate asks the demand rules; the coverage gap closes
 
 **Owner: "please group what you can and let me know when decisions are needed."** Grouped into
