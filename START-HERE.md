@@ -8,12 +8,10 @@ with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what 
 The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 89 / staff 37.**
-**FILED, NOT YET PUSHED: schedule admin 90** — the Groups page's controls were DEAD in 88 (an
-inline-handler quote that closed its own attribute); the owner found it, 90 fixes it, and
-`groups-test.mjs` now clicks every control in a browser so it cannot come back. See BUILD-LOG.
-**`firestore.rules` is PUBLISHED (§100) but its repo copy is uncommitted** — the console has the
-change and git does not. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
+schedule admin 90 / staff 37.** Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
+(§100) with its repo copy now committed. **RA-2 executed it: 66/66 on the live rules, and 10 of 10
+new-gate assertions FAILED on the old ones** — the owner ran it, which is how that battery works
+(§6). All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 assertions, zero
 skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
 RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
@@ -161,7 +159,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (24 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 87 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 90 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
@@ -553,9 +551,13 @@ reporting anything.
 > the device VM. The jar exists only on macOS proper, which neither sandbox can see (the
 > three-filesystems trap again). So `RA-2.command`, built for him, is the only way it runs.
 > **Do not report the rules as untested when the answer is to ask him to double-click it.**
-> The honesty half needs a pre-change fixture and `RA-2.command` gets it from git, which is not
-> installed on the Mac — so SAVE A COPY of the rules before editing them and hand him:
-> `PRE_RULES=<that copy> node test-rules-emulator.mjs` from `tests/`.
+> The honesty half needs a pre-change fixture. `RA-2.command` gets it from git — and **on 25 Aug
+> that worked**, despite the 22 Aug note below saying command-line git is missing. Do not assume
+> either way: the wrapper tries git and falls through if it fails. **Still save a copy of the
+> rules before editing them** and hand him `PRE_RULES=<that copy> node test-rules-emulator.mjs`
+> as the fallback — and note the wrapper's built-in fixture is pinned to `d49cd15` (20 Aug), a
+> WIDER baseline than one change, so older gates fail there too. That is not a fault; it just
+> means a one-change comparison needs the explicit `PRE_RULES`.
 
 **⚠️ COMMAND-LINE GIT IS NOT INSTALLED ON THE NEW MAC (22 Aug 2026).** GitHub Desktop carries its
 own private copy, so pushes work — but `git` in Terminal does not, and both `status.mjs` and

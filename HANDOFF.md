@@ -62,6 +62,42 @@ that window — **does START-HERE SAY a build is filed and waiting, and name it?
 everything is pushed, requires that "FILED, NOT YET PUSHED" line to be GONE. Stale in either
 direction is caught. It fired on this very session, was answered by adding the line, and cleared.
 
+## 25 Aug 2026 (§100 + build 90) — the rules landed, and the owner found a page that was dead
+
+**§100 published to BOTH consoles and executed.** RA-2: **66/66 on the live rules**, and the
+honesty run **failed 10 of 10 new-gate assertions** on the old ones, the three §100 gates among
+them, each reporting *"Expected request to fail, but it succeeded."* Before the change a
+registered bidder could have rewritten who works what. Detail and two corrections it forced —
+git DOES work on the Mac after all, and the wrapper's fixture is pinned wider than one change —
+are in DECISIONS §100.
+
+> ⚠️ **BUILD 88 SHIPPED A PAGE WHERE NOTHING WORKED, AND THE BATTERY SAID IT WAS FINE.**
+> Owner: *"I see the Groups tab, but I'm unable to edit or make changes."* Every control on that
+> page built its handler with `JSON.stringify(u)` → `"AR"` **with double quotes** → dropped into
+> `onclick="…"`, closing the attribute. Every click threw `Unexpected end of input`.
+>
+> **`build88-test` passed. It executes the FUNCTIONS, and every function was correct.** Nothing
+> had ever CLICKED anything on that page. This is FAST-1 (admin 303) exactly: bytes present,
+> feature unreachable, suite green over the top of it.
+>
+> **THE RULE THIS PRODUCES, and it is not "write more tests":** a build that adds a page or a
+> control ships with something that DRIVES it — a browser suite that clicks, or at minimum the
+> render harness. Executed-function coverage proves the logic; it says nothing about whether a
+> human can reach it. **Ask of every new build: what would still pass if the whole page were
+> inert?** If the answer is "everything", the gate is the wrong shape.
+>
+> Fixed as build 90 with one helper (`jsArg`), and `groups-test.mjs` now clicks every control and
+> checks the store after each. A source lint catches the anti-pattern statically. **A second,
+> cruder lint was written and removed the same hour** — it flagged legitimate assignment handlers,
+> and a lint with false positives is a lint that gets ignored.
+
+**Where the day ended.** Live: auction 304/164/18 · schedule **admin 90 / staff 37**. Rules
+published to both consoles and committed. All four repos clean, no locks. Stage 4 is complete —
+groups, subgroups, the eligibility rebuild, and the rules that protect them. **Stage 5, the rules
+engine, is what is left.**
+
+---
+
 ## 25 Aug 2026 (CLOSE) — two builds made in the cloud while the laptop was off, and applied byte-exactly
 
 **Builds 88 and 89 were written, tested and fully gated with no access to the owner's machine.**

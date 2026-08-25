@@ -2690,3 +2690,37 @@ byte-identical to what it had before.
    **Until that runs, the three new gates are asserted but not executed** — which by §6's own
    standard is a skipped gate, not a pass.
 
+### RA-2 RUN — 25 Aug 2026, by the owner. §100 IS CLOSED.
+
+**Current rules: 66 passed, 0 failed.** **Honesty run: 10 of 10 new-gate assertions FAILED on the
+old rules**, including all three §100 gates — *"a registered bidder may NOT write
+dailysched/groups / groupMembers / categories"* — each reported *"Expected request to fail, but it
+succeeded."* on the pre-change ruleset. **That is the proof: before the change a registered bidder
+COULD have rewritten who works what, and now cannot.** The three admin-can-still-write assertions
+passed in both runs, so the fix locks the door without walling out the person who needs it.
+
+**AND THE LIVE CHECK PASSED — owner, 25 Aug: *"sign into vacay works"*.** That is the one piece of
+verification no battery could supply: RA-2 executes the rules in an emulator, and the auction
+suites test code, but only a real sign-in against the DEPLOYED ruleset proves the publish did not
+disturb the live site. **§100 is now closed end to end: reviewed, published to both consoles,
+executed in the emulator with a failing honesty baseline, and confirmed live.**
+
+**Two observations from that run, recorded because both correct something written earlier today:**
+
+1. **`RA-2.command` got its honesty fixture from GIT and it worked** — `/tmp/rules-pre-d49cd15.rules`,
+   extracted by `git -C ../vacation-kp.github.io show d49cd15:firestore.rules`. START-HERE has said
+   since 22 Aug that command-line git is not installed on the Mac; **on this machine, today, it
+   ran.** The `rules-before.txt` fallback prepared for this session was therefore not needed. Do
+   not assume either way — the wrapper tries git and falls through if it fails, which is the right
+   shape regardless.
+   **Note the fixture is `d49cd15` (the pre-RA-3 rules, 20 Aug), NOT the rules as they stood
+   immediately before §100.** That is a wider baseline than this change alone, which is why seven
+   older RA-3 gates also failed there. It does not weaken the proof for §100's three: those three
+   documents were absent from `isSchedAdminOnlyDoc()` in every version before this edit, so their
+   failure is attributable to this change and nothing else. **A future rules change should point
+   the fixture at its own immediate predecessor** if it wants a clean one-change comparison.
+
+2. **The Mac is now on Node v24.19.0**, and npm warned `EBADENGINE` for `superstatic@9.2.0`, which
+   wants 18/20/22. Harmless this run — the emulator started and the suite executed — but it is the
+   kind of thing that turns into a broken `npm install` later. Recorded, not acted on.
+
