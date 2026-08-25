@@ -75,8 +75,12 @@ actually takes.** Fixed in 304; the full account is in `_archive/anesthesia/supe
 25 Aug). The old **"16 of 37"** figure predates the roster update to **35** and must be RECOUNTED,
 not repeated. **The success test is NOT "signed in" — see `TODO.md` §1**
 · **launch** — and **outbid-alert and welcome e-mails are BOTH still switched OFF**
-· **M-4's data half** — Users page: **clear the address FIRST, then re-save**; re-saving alone
-short-circuits to "no change" and writes nothing.
+· **M-4 is SETTLED by §87 — NO data fix is owed** (he read all four documents on 22 Aug and found
+no capitals). Method only, if one ever appears: Users page, **clear the address FIRST, then
+re-save** — re-saving alone short-circuits to "no change" and writes nothing.
+· ⚠️ **SPACE-PADDING is M-4's one unchecked half and it is INVISIBLE in the console** — a stored
+address with a leading or trailing space is refused by the rules exactly as a capital is.
+**Check it on 27 Aug while the console is already open: `TODO.md` §1.**
 
 **DO NOT PICK THESE UP.** BULK-1 — per-week bulk approve/deny — is **DECLINED** (owner, 24 Aug:
 *"No, I don't want that"*); his *"I want both options"* meant the existing phase-wide bulk plus
@@ -664,6 +668,14 @@ losing the thread. Volunteer it, do not quietly compensate; offer a fresh sessio
 sure the five files carry everything first. The gate that does not bend: every build still
 ships with its suite, executed honesty check, and byte-verified file — tiredness is a
 reason to hand over, never to lower the bar.
+
+**⚠️ THE CONTEXT SET POINTS ARE NUMBERS NOW — §106. Read the gauge, do not estimate it.**
+Cloud container only: the last `usage` block in
+`/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
+`input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context.
+**Under 80,000 a build may start · 110,000 opens the close · 130,000 is a hard stop.**
+Auto-compaction fires at 80% of the window. Over the bridge the gauge is unreadable: say UNKNOWN,
+never assume room. Full table and the reasoning: `DECISIONS.md` §106.
 
 **⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
 25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two

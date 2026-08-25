@@ -2943,3 +2943,98 @@ checks the other five renders are alive.
 **Related, same family:** [303 · FAST-1] shipped bytes that were unreachable; [88] shipped a page
 whose every click threw. All three passed their suites. The common thread is a gate that measured
 the thing the author was thinking about and nothing around it.
+
+
+## §106 — THE FOUR GOVERNING FILES ARE THE PRODUCT, AND CONTEXT IS A MEASURED BUDGET — 25 Aug 2026
+
+**Owner, verbatim, in full:**
+
+> *"I also want to use this session for a serious housekeeping session. The files that drive all
+> my work are my decisions, todo, handoff, and starthere. My primary goal right now is to ensure
+> those are continuously in the best shape possible because everything stems from them. I don't
+> want completed work or archived work to get in the way, so part of the process must be self
+> cleaning those files. I also want all sessions to be better aware of the context history
+> getting too long. My goal is to avoid 100% of conversation compactions. Before starting any
+> build, there must be a check to confirm there is an allowable amount of context rot to get the
+> build done. Notify me if you don't pass that test and then recommend updating the above files
+> for a new session. I want there to be a defined closing process for each session that ensures
+> a complete handoff for the new session without loss of information."*
+
+**FOUR STANDING REQUIREMENTS. They rank above feature work, because every session's quality is
+downstream of them.**
+
+**1 · THE FOUR FILES ARE MAINTAINED CONTINUOUSLY, NOT PERIODICALLY.** `START-HERE.md`,
+`TODO.md`, `HANDOFF.md`, `DECISIONS.md`. Completed and archived work must not get in the way of
+what is live. The machinery already exists — `HANDOFF.md`'s MAINTAINING section (rules 1-3) and
+`TODO.md` §1's standing rule — and it is hereby extended to `START-HERE.md`, which had no size
+discipline of its own and is **the one file he pastes into every session**.
+
+**2 · A PRE-BUILD CONTEXT GATE.** Before starting any build, confirm there is enough context
+left to FINISH it — the build, its suite, its honesty check, the paperwork and the close. If the
+gate fails: **tell him, do not start, and recommend a fresh session** with the four files brought
+up to date first. Not starting is the cheap outcome; a build abandoned at 90% is not.
+
+**3 · THE GOAL IS ZERO UNPLANNED COMPACTIONS** (his words were "zero compactions"; refined the
+same day when he asked whether that was too strict — it is, as an absolute, and the distinction
+is what makes the rule workable). **A compaction is only harmful when it arrives mid-flight**,
+because it converts the chat into a précis while work depends on it. A session CLOSED at the set
+points loses nothing: the checklist has already put everything on disk, so the next session reads
+files rather than a summary. **So the rule is not "never compact" — it is "never be compacted by
+surprise."** Not "handle compactions well" — avoid the unplanned kind entirely. A
+compaction converts the session into somebody's précis and every fact then has to be re-grounded
+off disk (25 Aug proved it: the summary was right about intent and wrong about state).
+
+**4 · A DEFINED CLOSING PROCESS.** The checklist at the top of `HANDOFF.md` is that process and
+stays. What §106 adds: it must be reached **deliberately, with context to spare**, and it must
+leave a fresh session able to continue with **no information lost**.
+
+### THE GAUGE — measured this session, so the gate is a NUMBER and not a feeling
+
+**A session can read its own context size exactly.** In the cloud container the live transcript
+is `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl`, and every assistant entry
+carries a `usage` block. The last entry's
+**`input_tokens` + `cache_creation_input_tokens` + `cache_read_input_tokens` IS the current
+context**, to the token. Auto-compaction fires at **`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=80`** — 80%
+of the window.
+
+**Measured 25 Aug, this session: 138,070 tokens.** The window size is NOT exposed anywhere in the
+environment; on the standard 200k window the trip point is 160,000, which puts that reading at
+**86% of the way to a compaction** — after re-grounding, one small doc edit and no build at all.
+**That single number is the finding: this project's re-grounding ritual alone spends most of a
+session's budget, which is exactly why the four files must stay lean.**
+
+**CALIBRATE IT, DO NOT ASSUME IT.** The window is confirmed the first time a compaction is
+observed: the reading immediately before it, divided by 0.80, IS the window. Until then 200k is
+an assumption and must be labelled one.
+
+**These numbers are unavailable on the device VM** — the transcript lives in the CLOUD container
+only (the three-filesystems trap again). A session working only over the bridge cannot read its
+own gauge and must say so rather than guess.
+
+### THE SET POINTS — owner ruling, 25 Aug 2026: *"change the stopping point to some different set point that will keep things safe."*
+
+**Stop well short of the wall, not at it.** Provisional on a 200k window (trip 160,000); when the
+window is calibrated, re-express as percentages of it and keep the same shape.
+
+| reading | state | what it means |
+|---|---|---|
+| under **80,000** | 🟢 GREEN | a build may START — this is the only window in which one begins |
+| 80,000–110,000 | 🟡 AMBER | finish what is open. No new build, no new investigation |
+| **110,000** | 🟠 CLOSE | open the closing checklist NOW, while there is room to finish it |
+| **130,000** | 🔴 HARD STOP | hand over, whatever state the work is in. 30,000 of margin left, on purpose |
+
+**THE ARITHMETIC HE SPOTTED, and it is the whole argument for shrinking the files:**
+re-grounding this project — the pasted `START-HERE.md`, `TODO.md`, the STATUS check, the fetches
+— cost roughly **130k on 25 Aug, which lands past the HARD STOP before a line is written.**
+**So a build is IMPOSSIBLE under these set points until the files shrink.** That is not the gate
+being too strict; it is the gate reporting a condition that was always true and previously
+invisible. G2 is therefore not optional.
+
+**THE STRUCTURAL FIX, and it is bigger than trimming: SUBAGENTS READ, THE SESSION DECIDES.**
+A subagent has its own context window. A pass that must read all four files whole — an archive
+sweep, an audit, a survey — is delegated, and only its CONCLUSION comes back into the session.
+Reading a 1,600-line file to decide what to cut should never again be paid for out of the
+context that has to survive the rest of the day.
+
+**Design of the gate itself is NOT ruled here.** It was scoped under a total build freeze and is
+in `TODO.md` §1 awaiting his approval.
