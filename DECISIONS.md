@@ -1558,7 +1558,9 @@ the attribution plus both links are PRESENT, on all six pages. A future edit tha
 attribution without restoring the badge fails the battery rather than shipping a quiet terms
 violation. The CSS comment left in each page says the same thing at the point of temptation.
 
-**KNOWN GAP, ACCEPTED FOR NOW AND TRACKED AS `TODO.md` FB-6.** The security box lives inside the
+**KNOWN GAP, ACCEPTED FOR NOW AND TRACKED AS `TODO.md` FB-6.** *(Status note added 25 Aug 2026:
+FB-6 was BUILT as 284/149 + 74/34 on 19 Aug, and its `TODO.md` entry was archived 25 Aug to*
+`_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`*. The ruling below is unchanged.)* The security box lives inside the
 sign-in PICKER panel, and "Remember me on this device" is checked by default — so returning
 users see the WELCOME BACK panel and do not see the box, or therefore the attribution. This
 predates the change (the old note had the same placement) but it now carries a compliance
@@ -1595,6 +1597,8 @@ audit sees the final security posture, timer included); S5c waits until after.
 Addendum, 20 Aug 2026 — owner: *"I want a new session for my audit."* The audit runs in a
 FRESH session, per the original 18 Aug order. Its first task is PW-1 (TODO): the schedule
 Playwright harness must gain the firebase-app-check stub before the in-cloud baseline can run.
+*(Status note added 25 Aug 2026: PW-1 was fixed 20 Aug and its `TODO.md` entry archived to*
+`_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`*.)*
 
 ## §68 · A-AUDIT scope narrowed — walkthrough is MD-only (owner, 20 Aug 2026)
 
@@ -2734,3 +2738,41 @@ executed in the emulator with a failing honesty baseline, and confirmed live.**
    wants 18/20/22. Harmless this run — the emulator started and the suite executed — but it is the
    kind of thing that turns into a broken `npm install` later. Recorded, not acted on.
 
+
+---
+
+## §101 — HANDOFF ARCHIVES BY RELEVANCE, NOT BY AGE. §60's 14-DAY RULE IS REPLACED — 25 Aug 2026
+
+Owner, verbatim: **"14 days doesn't seem reasonable. i want to remove items no longer needed
+rather than remove by time."**
+
+**WHAT THIS REPLACES.** The standing rule he set on 24 Aug had three parts. Part ③ said
+*"`HANDOFF.md` ages its DATED ENTRIES out at 14 days."* **That part, and only that part, is
+superseded.** Part ① (shipped work leaves `TODO.md` as it enters `BUILD-LOG.md`, same turn) and
+part ② / rule 3 (the 2,000-line tripwire on either file) **both stand unchanged**, as does the
+exemption of this register and the uncertainty-keeps-it clause.
+
+**THE RULE NOW.** An entry leaves `HANDOFF.md` when it is no longer needed. It stays while it
+carries something a future session would ACT on — a trap or lesson still true of the code, tools
+or machines as they are today; an unresolved question, accepted risk or unworked-around limit;
+or the reasoning behind something still in force. It goes when it is a build narrative
+`BUILD-LOG.md` already records, when its lesson has been promoted into `START-HERE.md` §3 or into
+this file, or when it describes a machine, tool, file or code path that no longer exists.
+
+**THE TEST, in one question: if a fresh session never read this entry, would it do anything
+wrong?** Yes keeps it. No archives it. Full wording lives in `HANDOFF.md`'s MAINTAINING section —
+this entry is the ruling, not the second copy of the procedure.
+
+**WHY HE IS RIGHT, and the evidence came from the pass itself.** The 25 Aug archive pass applied
+the 14-day rule and it reached only FOUR sections, because at 200–400 lines per session a
+fortnight of sessions is roughly the whole file. Age was spending judgement and buying nothing.
+And age is the wrong axis on its own terms: a three-week-old trap that still bites is worth more
+than yesterday's build narrative. **The numeric trigger survives — rule 3's 2,000-line tripwire
+still says WHEN to look; relevance now decides WHAT goes.** So §62's principle (a number, because
+drift that depends on judgement is drift nobody notices) is not weakened: the trigger stayed
+mechanical and only the test became judgement, with uncertainty still keeping the item.
+
+**THE PART WORTH CARRYING FORWARD: promote the lesson, then archive the story.** An entry that
+cannot be archived because its lesson lives nowhere else is not a reason to keep the entry — it
+is a sign the lesson was never filed. This turns the archive pass from tidying into the thing
+that forces hard-won lessons out of narrative and into the files a fresh session actually reads.

@@ -101,7 +101,16 @@ const shPath = process.env.SH_PATH || join(here, 'START-HERE.md');
 const shStale = [];
 let shDate = '(no LAST REVISED line)';
 let shDateHow = 'git';
-const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+// The owner's calendar is the one that matters: he types the LAST REVISED date and he
+// reads it. Git records a commit date in the committer's local zone; node's new Date()
+// follows whatever box it runs on (UTC in a cloud session). Before these were pinned to
+// one zone the gate compared two different clocks, and cried STALE for seven hours out
+// of every twenty-four — any session working past 5pm Pacific. A gate that fails when
+// nothing is wrong gets ignored, which is the same disease as a gate that passes when
+// something is.
+const OWNER_TZ = 'America/Los_Angeles';
+const dayIn = d => new Intl.DateTimeFormat('en-CA', { timeZone: OWNER_TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+const dayAfter = s => { const t = new Date(s + 'T12:00:00Z'); t.setUTCDate(t.getUTCDate() + 1); return t.toISOString().slice(0, 10); };
 try {
   const raw = readFileSync(shPath, 'utf8');
   // Normalise blockquote markers and line wrapping away, so a claim that wraps across
@@ -168,6 +177,12 @@ try {
   }
 
   // --- B. its LAST REVISED date -------------------------------------------
+  // The question this half actually asks is "does this document under-report its own
+  // age?" — that is the failure that mis-briefs a fresh session, and the owner caught it
+  // himself reading 17 Aug on 19 Aug. It is NOT "do two machines agree on today's date".
+  // A session labels the file with its own UTC day while git records the owner's Pacific
+  // day, so the stated day is legitimately allowed to be the actual day OR the one after
+  // it. Older than the last change is the real staleness. More than a day ahead is a typo.
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const dm = raw.match(/LAST REVISED:\s*(\d{1,2})\s+([A-Za-z]{3})[a-z]*\s+(\d{4})/);
   if (!dm) {
@@ -179,17 +194,22 @@ try {
     const changed = process.env.SH_PATH ? '(git unavailable)' : git(here, 'status --short -- START-HERE.md');
     let actual;
     if (changed === '(git unavailable)') {
-      shDateHow = 'file mtime (git unavailable — DEGRADED: a fresh clone can false-alarm here)';
-      actual = ymd(new Date(statSync(shPath).mtime));
+      shDateHow = `file mtime in ${OWNER_TZ} (git unavailable — DEGRADED: a fresh clone can false-alarm here)`;
+      actual = dayIn(statSync(shPath).mtime);
     } else if (changed.trim()) {
-      shDateHow = 'git (edited, not yet committed — so it must say today)';
-      actual = ymd(new Date());
+      shDateHow = `git, read in ${OWNER_TZ} (edited, not yet committed — so it must say today or tomorrow)`;
+      actual = dayIn(new Date());
     } else {
-      shDateHow = 'git (date of the last commit touching it)';
-      actual = git(here, 'log -1 --format=%cs -- START-HERE.md');
+      shDateHow = `git, read in ${OWNER_TZ} (date of the last commit touching it)`;
+      const ct = git(here, 'log -1 --format=%ct -- START-HERE.md');
+      actual = /^\d+$/.test(ct) ? dayIn(new Date(Number(ct) * 1000)) : '(git unavailable)';
     }
-    if (/^\d{4}-\d{2}-\d{2}$/.test(actual) && actual !== stated)
-      shStale.push(`START-HERE says LAST REVISED ${shDate}, but it was last changed ${actual} — by ${shDateHow}. Bump the date in the SAME TURN as the edit.`);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(actual) && /^\d{4}-\d{2}-\d{2}$/.test(stated)) {
+      if (stated < actual)
+        shStale.push(`START-HERE says LAST REVISED ${shDate}, but it was last changed ${actual} — by ${shDateHow}. It is under-reporting its own age: bump the date in the SAME TURN as the edit.`);
+      else if (stated > dayAfter(actual))
+        shStale.push(`START-HERE says LAST REVISED ${shDate}, which is more than a day AHEAD of when it was last changed (${actual}, by ${shDateHow}). That is a typo, not a fresh document.`);
+    }
   }
 } catch (e) {
   shStale.push('could not read START-HERE.md: ' + e.message);

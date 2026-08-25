@@ -2,26 +2,24 @@
 
 **LAST REVISED: 25 Aug 2026 (STAGE 4) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
-nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, which is now COMPLETE through Stage 4:
-S5c · S6 (rebuilt twice by his own rulings, §93 and §94) · S7 · §95 · and Stage 4 as builds 88–89,
-with §98 retiring the tick grid outright, and **builds 92–93 completing S5c and executing §43**
-(the fairness pool now lives on the GROUP). **Stage 5, the rules engine, is all that is left.**
+nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
+own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
+outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
+GROUP). STAGE 5, THE RULES ENGINE, IS THE ONLY THING LEFT — AND THE OWNER PUT IT ON HOLD ON
+25 Aug: *"hold for now."* DO NOT START IT. His plan for it is parked verbatim in `TODO.md` §1 so it
+need not be re-derived. SO THERE IS NO BUILD WORK QUEUED, ON EITHER SITE. What advances the project
+now is the owner driving 84–93 himself — which is §90's own reasoning: the defects that matter
+cannot be known until someone uses the features.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 93 / staff 37.**
-
-> ⚠️ **The schedule's 93 is verified against `origin/main` and the pushed commit `cb52344`, NOT
-> against the CDN.** Neither sandbox has egress to `*.github.io` (both fetches returned HTTP 000
-> on 25 Aug), so the two cache-busted fetches §4 asks for **could not be run from here**. The
-> auction figures are unchanged and were verified live on 24 Aug. **Confirm 93 in a browser and
-> delete this note** — §4's rule stands, and the honest thing while it cannot run is to say so
-> rather than let "verified cache-busted TWICE" quietly cover a check nobody performed. Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
-(§100) with its repo copy now committed. **RA-2 executed it: 66/66 on the live rules, and 10 of 10
-new-gate assertions FAILED on the old ones** — the owner ran it, which is how that battery works
-(§6). All four repos clean and in sync with origin, no
+schedule admin 93 / staff 37** — all five checked on 25 Aug against the SERVED site (via
+`WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
+is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
+it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
+ran it, which is how that battery works (§6). All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 assertions, zero
 skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
 RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
@@ -51,7 +49,7 @@ suite passed over it because the stub returned `''` when there was nothing to wa
 convenient than the real function, and wrong in exactly the dimension that mattered.** Two rules
 come out of it, and they are binding: **stub the SHAPE of the real function, never the
 convenience**, and **the only honest answer to "is it live" describes the code path a user's click
-actually takes.** Fixed in 304; full account in HANDOFF (24 Aug CLOSE).
+actually takes.** Fixed in 304; the full account is in `_archive/anesthesia/superseded-docs/HANDOFF-archived-2026-08-25.md` (24 Aug CLOSE), archived under §101.
 
 **NOTHING IN THE REPOS IS OUTSTANDING.** What is left is the owner's own, and cannot be delegated:
 · ⭐ **real-bidder sign-ins** (his item, *"will do this week"*) — the old **"16 of 37"** figure
@@ -96,10 +94,13 @@ Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the pr
 `tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
 reproduction in these repos — they are PUBLIC (§3).**
 
-(Session account: HANDOFF 24 Aug RA-5 — the final audit, and the pgrep gate that lied;
-before it HANDOFF 24 Aug CLOSE — FAST-1's dead-on-arrival ship and the stub lesson;
-before it HANDOFF 24 Aug LATER and 24 Aug; HANDOFF 22 Aug — the machine loss and the rebuild; before it, HANDOFF 21 Aug.
-Structure rewritten 17 Aug to one copy of every rule; revised
+(Session account: **`HANDOFF.md` now holds only what a fresh session would go wrong without**
+— owner ruling §101, 25 Aug 2026. Every dated narrative from 18–25 Aug was archived to
+`_archive/anesthesia/superseded-docs/HANDOFF-archived-2026-08-25.md` once its lessons had been
+promoted into §3 and §6 of this file. So the stories behind rules 8–16 below — RA-5 and the pgrep
+gate that lied, FAST-1 shipping dead, build 88's page where nothing worked, the machine loss and
+the rebuild, the stale clone that invented an emergency — are all in that one archive file, dated
+and greppable. Structure rewritten 17 Aug to one copy of every rule; revised
 19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the
 cost gate, App Check enforced on both projects; 20 Aug — the A-AUDIT wave and the rules emulator
 suite; 21 Aug — §77 froze the projection, §79 blocked decisions during open bidding, and §80–§84
@@ -227,9 +228,10 @@ phase in flight) before doing anything.
 > `versions.json` still reads admin **299**, and `firestore.rules` still carries the M-4
 > comparison in five places including `isListedAdmin()`. What remains is exactly two builds:
 > **ONE admin build** (H-1 · M-1 · M-3 · M-6 · M-7) and **ONE rules change** (M-9, and now M-4's
-> code half — see the warning below). Note for whoever reconciles it: the triage table in
-> `TODO.md` labels this group "7 findings, 3 builds" but lists eight; the shapes above are what
-> the code actually shows.
+> code half — see the warning below). Note for whoever reconciles it: the RA-4 triage table
+> labelled this group "7 findings, 3 builds" but listed eight; the shapes above are what the code
+> actually showed. That table was archived 25 Aug 2026 to
+> `_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`.
 >
 > **M-4 — RAISED BY THE OWNER, THEN SETTLED BY HIM. IT IS LATENT, NOT LIVE.** On 21 Aug he
 > looked at the live login e-mails and said *"there are a couple lower cases. i thought we made
@@ -281,7 +283,7 @@ phase in flight) before doing anything.
 > on the owner's Mac: **59/59 current, and 7 of 7 new gates fail on the pre-fix rules** (re-run
 > 22 Aug on the NEW machine after the rebuild — the same numbers as 21 Aug).
 >
-> **WHAT THE RA-3 DAY PRODUCED** (detail: HANDOFF + BUILD-LOG): a whole-project re-audit — ten
+> **WHAT THE RA-3 DAY PRODUCED** (detail: BUILD-LOG, and the §101 archive): a whole-project re-audit — ten
 > blind lenses, an adversarial skeptic per finding, a second skeptic on every CRITICAL/HIGH;
 > 28 agents, **45 raised → 8 refuted → 39 stood**. Reports are PRIVATE, in `tests/docs/`
 > (`RA-3-FINAL-2026-08-20.md` supersedes the interim; keep both). Then five builds: staff
@@ -337,6 +339,11 @@ What they genuinely share — why a change to one can break the other:
   `saveAllSchedUsers`, `removeSchedUser`, `syncEmailToUserFromLogin`.
 - **FTE is SEPARATE** — `dailysched/fteMap` and the auction's FTE are different numbers for
   the same person, deliberately. Never sync, never fall back.
+- **COST IS A SECURITY INPUT IN THE RULES, not a separate concern.** A rules
+  document-access is BILLED on every evaluation, so a stronger predicate on a hot document is a
+  permanent per-delivery charge — which is why the bid document is gated by `isVerifiedAccount`
+  and not by the stricter `isRegisteredUser`, with the accepted residual written down. Price a
+  predicate before strengthening it.
 - **`firestore.rules` lives in the AUCTION repo** and contains the `dailysched` block. Any
   rules change is an auction deploy: gate it with auction discipline, publish in the
   Firebase console, and the console publish must land BEFORE dependent client code pushes.
@@ -381,6 +388,59 @@ What they genuinely share — why a change to one can break the other:
    neither is a finding, however good. READING it is always allowed and still required: the
    isolation guard and the full auction battery run after schedule builds exactly as before. If
    something auction-side looks wrong, RAISE it and stop.
+
+**Eight rules the gates themselves taught, each one paid for.** Promoted out of `HANDOFF.md`
+25 Aug 2026 under §101 — every one is a mistake this project actually made, usually twice.
+
+8. **A GATE CAN LIE IN BOTH DIRECTIONS, and the second is the one that gets it ignored.** The
+   known half: when a gate reports SUCCESS, check it actually ran (the handler audit that always
+   printed 1; the button sweep that exited 0 having tested nothing; `pgrep -f run-all.mjs`
+   reporting RUNNING for an hour after the process died, because **the pattern matched the
+   polling shell's own command line** — check the log's mtime against `date`, never the process
+   table). The other half: **a gate that fires on the wrong thing gets ignored, and an ignored
+   gate is worse than none** — `pendingPush()` read paperwork edits as a filed build; the
+   staleness gate compared two clocks in different timezones. Fix the aim, do not lower the bar.
+9. **ASK OF EVERY BUILD THAT ADDS A PAGE OR A CONTROL: what would still pass if the whole thing
+   were INERT?** If the answer is "everything", the gate is the wrong shape. Executed-function
+   coverage proves the logic and says NOTHING about whether a human can reach it. Build 88
+   shipped a Groups page where every click threw, with a green suite over the top; FAST-1 shipped
+   dead the same way. **Such a build ships with something that DRIVES it** — a browser suite that
+   clicks, or at minimum the render harness.
+10. **TEST THE CODE, NOT THE PROSE — and an assertion that cannot fail is not a weak test, it is
+    a false one.** Three assertions in one day failed on perfectly correct pages because a
+    tombstone COMMENT named the very thing they forbade; another read `ok(… || true)`. Strip
+    comments before any textual assertion, and make the search window reach the line.
+11. **READ AN EXIT CODE DIRECTLY. NEVER THROUGH A PIPE.** `… | tail` reports tail's status:
+    it said 0 for a run that exited 1, twice. Same family: make a MISSING function report a
+    legible FAILURE rather than throw — a crash and a real regression look identical from an
+    exit code.
+12. **WHEN A SUITE MUST BE EDITED TO PASS, ask which you are changing: what is TRUE, or what is
+    ASSERTED.** That distinction is the whole game. Repoint an assertion whose target moved;
+    replace one whose premise the build deliberately changed with an INVARIANCE the previous
+    build fails. Never stub the new behaviour — three suites were nearly given a stub that
+    restated the very defect being fixed, which would have written it in as the definition.
+13. **THE PASTED GOVERNING DOCUMENT IS A SNAPSHOT; THE DISK COPY IS THE DOCUMENT.** A START-HERE
+    pasted into chat was one ruling out of date and would have shipped five findings instead of
+    two. Same rule as §4's fetch-before-you-judge: **read from disk, and fetch before reading.**
+14. **A CONCESSION IS WORTH NO MORE THAN THE CLAIM IT REPLACED.** Claude conceded a real defect
+    because the owner DESCRIBED the symptom differently, and was wrong — both sides arguing from
+    memory. *Run it, don't recall it* governs Claude's agreements as much as its assertions.
+    And before building anything — or asking him anything — **check whether the code already
+    answers it.** A day's rebuild was nearly spent on a paste-a-list feature that had shipped in
+    build 56, and a design question about open-vs-sealed bidding was already settled by a board
+    that paints every bid. **Check, then ask.** Where Claude does change its own position on
+    evidence, say so and date it rather than quietly drifting.
+16. **AN ASSERTION THAT PINS A COUNT OR A QUOTED STRING DECAYS INTO A NO-OP AS THE CODE MOVES.
+    Assert the INVARIANT.** `test-crna-stamp` pinned a phrase inside curly quotes that a later
+    ruling deleted, so it passed by testing for text that existed nowhere and would have kept
+    passing with the auth domain sitting in the page unquoted. `test-delta-fixes` pinned
+    "exactly three" tracked listeners — a form that PASSES when someone adds an untracked one,
+    which is the exact leak it exists to prevent. Both were re-anchored and both came out
+    STRICTER than what they replaced.
+15. **WRITE PATCHES THAT REFUSE TO APPLY TWICE** — assert `count(old)==1` before substituting, so
+    an interrupted bridge call is safe to re-run rather than unknown. Then **md5 both sides after
+    any interruption.** And when shipping whole files instead: **verified base → ship the file;
+    unverified base → ship the patch**, because a patch refuses where a whole file corrupts.
 
 **The paperwork — at these moments, these files, EVERY time**
 
@@ -489,6 +549,13 @@ assuming. Record every move in `_archive/README.md`. Housekeeping is its own com
 2. Verify live builds: fetch both sites' `versions.json` cache-busted. **If a fetch
    disagrees with disk right after a push, fetch AGAIN before believing it** — the CDN has
    served a pre-push copy under a cache-buster within minutes of a push.
+   **USE `WebFetch`, NOT `curl` (25 Aug 2026).** Neither sandbox has egress to
+   `*.github.io` — `curl` and node's `fetch()` both return HTTP 000, which is how a session
+   came to write "the two cache-busted fetches could not be run from here" into this file.
+   `WebFetch` proxies through Anthropic and reaches the served site fine. Two calls per site
+   with DIFFERENT cache-busters — it caches 15 minutes per URL, so the same URL twice is one
+   fetch, not two. `status.mjs`'s live column still reads "no network": that is its own
+   `fetch()` failing, not a fault, and it is exactly why this step exists separately.
 3. `git --no-optional-locks status --short --branch` on all four repos. Assume every build
    number you did not personally verify minutes ago is stale — the owner pushes
    mid-session, and has twice been the one to catch Claude quoting stale state.
@@ -500,6 +567,10 @@ assuming. Record every move in `_archive/README.md`. Housekeeping is its own com
    but never committed before the next one was written over it, that intermediate build has
    NO fixture and never will — baseline against the last PUSHED build and say so.
 4. Stale-lock check: `find <repo>/.git -maxdepth 2 -name '*.lock'` — all four repos.
+   **A `git fetch` over the bridge STRANDS `objects/maintenance.lock` in every repo it
+   touches (25 Aug).** Git creates the lock, then cannot unlink it, and says so in a warning
+   line that is easy to read straight past. So check for locks AFTER fetching as well as
+   before, and `mv` any you made to `_to_delete/`.
 5. Report the state in a few lines. Then work. **When in doubt during the day: run it,
    don't recall it.** Files too — an hour once went to a "failing test" that was a stale
    in-session copy; read from disk, md5 both sides when it matters.
@@ -512,6 +583,13 @@ DESPITE every command using `--no-optional-locks`** — the flag reduces the ris
 not remove it. So check for locks at session START and session END. Clearing one: `rm`
 fails over the bridge; `mv` it to `_to_delete/` (or the owner runs `rm -f` in his own
 Terminal). The bridge also cannot delete anything, ever — always `mv`.
+
+**⚠️ `tests` CANNOT BE FETCHED OVER THE BRIDGE AT ALL (25 Aug).** It is the one PRIVATE
+repo, its remote is HTTPS, and the device VM holds no credentials — `git fetch` there dies
+with `could not read Username for 'https://github.com'`. The other three are public and
+fetch anonymously. So the closing checklist's step 0 structurally CANNOT complete for the
+repo that holds the audit reports and the suites. Judge `tests` from `git log` and disk,
+and say that is what you did rather than reporting a fetch you did not get.
 
 **⚠️ SAY SO WHEN CONTEXT IS DEGRADING** (owner ruling, 16 Aug). The tells, in order: small
 mechanical slips → **asserting things about code without re-reading it** (the dangerous
@@ -545,6 +623,38 @@ is not. Historical bytes come from read-only git:
 cleanly when the baseline is absent; feeding it current bytes is the only dishonest option.
 Schedule suites take `PRE_ADMIN=`/`PRE_STAFF=`; auction suites `PREFIX_SRC=`;
 `test-audit-fixes.mjs` has a HARDCODED schedule baseline path, no env override.
+
+> ⚠️ **AND THAT HARDCODED PATH IS EXACTLY WHERE `device_stage_files` LANDS.** It reads its
+> pre-fix schedule baseline from `/mnt/user-data/uploads/GitHub/schedule/admin/index.html`.
+> Staging the CURRENT admin page to look at it in the cloud therefore OVERWRITES the fixture,
+> and the honesty check then compares a build to itself and reports what looks precisely like a
+> regression in the live auction's battery. Nobody chooses this; the staging path collides with
+> it. **Before believing a failure in `test-audit-fixes.mjs`, look at what is sitting at that
+> uploads path.**
+
+> ⚠️ **ONE `PREFIX_SRC` CANNOT SATISFY EVERY HONESTY BLOCK IN THAT SUITE**, and this is the ONE
+> legitimate skip. Each block was written against ITS own immediately-previous build, not
+> against a shared ancestor, so supplying a single auction baseline turns five unrelated blocks
+> red. **When no auction build changed, leave the auction baseline ABSENT** — those blocks then
+> skip, correctly, because the auction battery is running as a REGRESSION gate on unchanged
+> bytes and not as any auction build's honesty gate. **Say that out loud in the report** rather
+> than quoting "2,050 assertions, zero skips" as though it covered the auction's own honesty.
+
+> 🧪 **RUNNING THE BATTERIES IN THE CLOUD — the things that actually make it work**, so nobody
+> rediscovers them. Both site repos are PUBLIC and can be cloned straight into the container;
+> only `tests` is private, so tar it (minus `node_modules`) and stage it. Then:
+> · **`REPO_ROOT` is NOT enough** — several suites ignore it and hard-code `join(_here,'..')`,
+>   so `tests/` must physically SIT BESIDE the repos: `<root>/tests`, `<root>/vacation-kp.github.io`,
+>   `<root>/schedule`. Set `REPO_ROOT=<root>` as well, for the suites that do read it.
+> · **`schedule` must be present and `--unshallow`ed.** Three auction suites read the schedule
+>   admin page (§2's coupling), and the honesty suites run `git show <sha>:<file>` against
+>   explicit SHAs in BOTH repos — a `--depth 1` clone makes every one of those a FAILED gate.
+> · **The schedule battery additionally needs** the `fake/` firebase shims, `schedule/versions.json`,
+>   the auction admin page, and `NODE_PATH` pointing at the global `node_modules`.
+> · **md5-verify the clone against the device tree before believing the run** — both
+>   `index.html`s, `admin/index.html`, `crna/index.html`, `mobile.html`, `firestore.rules`.
+> · A playwright/chromium version mismatch in the sandbox is **fixable, not a reason to skip**:
+>   symlink the installed browser build into the expected path and all 21 browser suites run.
 
 **⚠️ A SKIPPED HONESTY CHECK IS A FAILED GATE, NOT A PASS (19 Aug).** Suites skip their
 honesty block cleanly when the baseline file is absent — and a skip prints tidily and exits
