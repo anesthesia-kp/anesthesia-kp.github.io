@@ -286,6 +286,24 @@ server-clock timer, biddingClosed gate, append-only changes, admin-only decision
 
 # PART B — VACATION AUCTION
 
+
+### LIVE STATE THE OWNER OWNS — kept here as REFERENCE, not as a reminder (25 Aug 2026)
+
+**He asked for these off the queue** — *"I know the launch checklist, I don't need reminders"* and,
+of the sign-in test, *"I'll mention it if it becomes a problem, stop reminding me."* **They are
+recorded here so a fresh session knows the state and does not ask him again. Do NOT surface them
+as work, and do not re-add them to `TODO.md`.** The full LAUNCH CHECKLIST and the sign-in section
+are in `_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`, intact.
+
+· **Outbid-alert and welcome e-mails are BOTH switched OFF.** Verified by RA-5: switching them on
+  fires **no backlog** — neither generator keeps a "last notified" state, so there is nothing to
+  replay. Worst case is two mails per physician at their next individual sign-in.
+· **Launch has not happened.** It is his, on his timing.
+· **35 participating anesthesiologists** (owner, 19 Aug). Older docs saying ~60 meant the roster
+  size, not the number bidding.
+· **Real-bidder sign-ins** were being tested. Any count predating the roster update to 35 is
+  stale and must be recounted, never repeated.
+
 **LIVE. Build numbers live in `TODO.md`'s STATUS block, which is generated** — the ones typed
 here read 269/139/17 until 25 Aug 2026, thirty-five auction builds out of date. The cardinal rule
 in `START-HERE.md` exists to protect this site.

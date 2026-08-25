@@ -29,6 +29,10 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
+**FILED, NOT YET PUSHED: schedule admin 99** — the collapse sweep (six sections), its
+49-assertion suite `tests/sched/build99-test.mjs`, and the BUILD-LOG row. Delete this line once
+it is pushed.
+
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
 schedule admin 98 / staff 37** — all five checked on 25 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
@@ -45,13 +49,11 @@ RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
 100% of cases, with a green 52-assertion suite over it, and was reported to the owner as live.
 Fixed in 304. Its two rules are §3 rules 9 and 10; the full account is in the §101 archive.
 
-**NOTHING IN THE REPOS IS OUTSTANDING.** What is left is the owner's own, and cannot be delegated:
-· ⭐ **real-bidder sign-ins — SCHEDULED THURSDAY 27 AUG 2026**, inside another test (owner,
-25 Aug). The old **"16 of 37"** figure predates the roster update to **35** and must be RECOUNTED,
-not repeated. **The success test is NOT "signed in" — see `TODO.md` §1**
-· **launch** — and **outbid-alert and welcome e-mails are BOTH still switched OFF**
-· **M-4 is SETTLED by §87 — no data fix is owed.** Its one unchecked half, SPACE-PADDING, is
-an owner check for 27 Aug: `TODO.md` §1 has the method, and why there is no code fix for it.
+**NOTHING IN THE REPOS IS OUTSTANDING.** What remains is the owner's own and he tracks it
+himself — **launch and the sign-in test are OFF the list at his instruction, 25 Aug: do not
+re-add them and do not remind him.** Their live state is `HANDOFF.md` PART B, as reference.
+One genuine open check: **M-4 is settled by §87, but its SPACE-PADDING half was never verified**
+— `TODO.md` §1 has the method and why there is no code fix for it.
 
 **DO NOT PICK THESE UP.** BULK-1 — per-week bulk approve/deny — is **DECLINED** (owner, 24 Aug:
 *"No, I don't want that"*); his *"I want both options"* meant the existing phase-wide bulk plus
