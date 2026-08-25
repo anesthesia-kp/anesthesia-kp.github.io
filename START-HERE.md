@@ -4,16 +4,21 @@
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, which is now COMPLETE through Stage 4:
 S5c · S6 (rebuilt twice by his own rulings, §93 and §94) · S7 · §95 · and Stage 4 as builds 88–89,
-with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what is left.**
-The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
-
-**FILED, NOT YET PUSHED: schedule admin 93** (builds 92 and 93 ride in one set of bytes — 92 is
-the grid's category/group filters, 93 is §43 moving the fairness pool onto the group). It is on
-disk and NOT on origin/main, so the live line below does NOT cover it. Push it, bring the live
-line to 93, and delete this paragraph. Rows for both are in `schedule/BUILD-LOG.md`.
+with §98 retiring the tick grid outright, and **builds 92–93 completing S5c and executing §43**
+(the fairness pool now lives on the GROUP). **Stage 5, the rules engine, is all that is left.**
+Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
+`git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
+led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 91 / staff 37.** Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
+schedule admin 93 / staff 37.**
+
+> ⚠️ **The schedule's 93 is verified against `origin/main` and the pushed commit `cb52344`, NOT
+> against the CDN.** Neither sandbox has egress to `*.github.io` (both fetches returned HTTP 000
+> on 25 Aug), so the two cache-busted fetches §4 asks for **could not be run from here**. The
+> auction figures are unchanged and were verified live on 24 Aug. **Confirm 93 in a browser and
+> delete this note** — §4's rule stands, and the honest thing while it cannot run is to say so
+> rather than let "verified cache-busted TWICE" quietly cover a check nobody performed. Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
 (§100) with its repo copy now committed. **RA-2 executed it: 66/66 on the live rules, and 10 of 10
 new-gate assertions FAILED on the old ones** — the owner ran it, which is how that battery works
 (§6). All four repos clean and in sync with origin, no
@@ -164,7 +169,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 91 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 93 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
