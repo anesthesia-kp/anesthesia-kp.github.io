@@ -13,14 +13,18 @@ predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
 per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
 
-**FILED, NOT YET PUSHED: schedule admin 94 and 95** — 94 stops a dialog being taller than the window;
-95 makes editing a shift open a CARD instead of a strip of inputs. Kept as two builds, two blast radii.
+**Builds 94 and 95 are PUSHED** (`be06fcc`) — 94 stops a dialog being taller than the window, 95 makes
+editing a shift open a CARD instead of a strip of inputs.
+
+**FILED, NOT YET PUSHED: schedule admin 96** — collapse by default (§104): four closed bars on the
+catalog, Shifts opens to families and a family to its shifts, and the two stacked column headers
+become one.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 93 / staff 37** — all five checked on 25 Aug against the SERVED site (via
+schedule admin 95 / staff 37** — all five checked on 25 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
@@ -176,7 +180,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 93 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
+> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 95 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned

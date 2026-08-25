@@ -2871,3 +2871,42 @@ real risk and zero benefit to him; renaming the identifiers is churn across a la
 same nothing. **A future session must not "finish the job" by renaming them** — it would be a
 migration wearing a tidy-up's clothes. If the drift between code and UI ever becomes confusing,
 the fix is a comment at each definition, not a rename.
+
+---
+
+## §104 — COLLAPSE BY DEFAULT. THE OPEN/CLOSED MODEL, RULED — 25 Aug 2026
+
+The owner raised clutter three times in one afternoon while trying to use the schedule, then gave
+the brief and, asked the one question that would have been expensive to get wrong, ruled on it.
+
+**THE TEST HE GAVE, which is the rule and not a list:** *"anything that's used occasionally should
+be collapsed by default."* Named explicitly: **Add a shift** and **Holidays**. Everything else is
+Claude's judgement (*"use some of your own judgement"*) — but every answer must be defensible by
+that one question: **how often does he need to READ this, versus CHANGE it?** Read-often stays
+open; set-once-and-forget collapses.
+
+**THE STATE MODEL, ruled 25 Aug:** *"shifts can stay open with option to manually collapse. but on
+page re-load, should start collpased."*
+
+1. **Every section starts COLLAPSED.**
+2. **State lives in MEMORY ONLY** — no `localStorage`, no Firestore. A page reload is therefore the
+   reset, exactly as he asked, and it costs nothing to implement and nothing to read.
+3. **A section he opens STAYS open** — including across navigation to another section and back —
+   until he collapses it himself or reloads.
+4. **ONE EXCEPTION, and it is his own earlier instruction:** individual SHIFT ROWS on Shift
+   Eligibility reset to collapsed when he navigates away (*"it then stays open until closed
+   intentionally or when page navigates to other section"*). The difference is scale — dozens of
+   rows can accumulate open, where there are only a handful of sections.
+
+**THE CATALOG GETS THREE LEVELS**, in his words: the whole Shifts card collapsed → expands to a
+list of FAMILIES → a family expands to its shifts. **The reason he gave matters more than the
+shape:** *"a scroller within a scroller can be hard to use."* So the fix is FEWER THINGS VISIBLE,
+which removes the need for the inner scroller — not a taller inner box.
+
+⚠️ **DO NOT ADD A SECOND COLLAPSE MECHANISM.** The catalog has had collapsible family bands since
+S3 (`catCollapsedFams`). The gap is that their default is OPEN and the unit is too coarse — that
+is a defaults-and-granularity change, not a new feature (§3 rule 14: check whether it exists).
+
+**A COLLAPSED SECTION MUST STILL SAY WHAT IS INSIDE IT** (a count, a summary line). §93's standard
+is at-a-glance; a row of unlabelled closed bars would trade clutter for a guessing game, which is
+the same failure wearing the opposite coat.
