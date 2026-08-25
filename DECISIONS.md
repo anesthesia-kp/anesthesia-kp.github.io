@@ -2482,3 +2482,149 @@ group requirement with an any-one-or-all mode (§53a·1), subgroups granting eli
 old tick grid demoted to an exception list (§53b·1), and a one-way, confirmed, audited cutover
 switch to flip authority when he is ready (§56). **Nothing about Stage 4 is open. It can be
 built.**
+
+---
+
+## §98 — THE ELIGIBILITY REBUILD. FOUR EARLIER RULINGS ARE SUPERSEDED — 24 Aug 2026
+
+Owner, verbatim, in one message:
+
+> *"The current ticks should be forgotten, they mean nothing. I don't have a use for that
+> eligibility grid since I need and we are building a much smarter, cleaner, more useful version.
+> The eligibility grid should essentially become an interactive board that can filter and sort. It
+> will never be useful to have the option to view 3,000 ticks at once. Add to the handoff that the
+> schedule site is in early build phase and is not being used at all and won't be for some time.
+> Change from before is that every user must have at least 1 group. I need the ability to specify
+> shifts are filled by group, subgroup, individuals. I need the ability to add/remove individuals
+> from shift eligibility regardless of group/sub. Basically a group or sub override option."*
+
+### 1 · THE EXISTING TICKS ARE DEAD DATA. **Supersedes §53b·1 and §56.**
+
+`dailysched/eligibility` is **not** migrated, **not** re-interpreted, and **not** consulted. It is
+not deleted either — nothing in this project is (§3) — but it stops being an input, permanently.
+
+**§53b chose option C: subgroups grant, and the old grid survives as an exception list.** That is
+now superseded on its factual premise. Option C existed to protect real eligibility decisions that
+someone had made deliberately. He has now said those ticks *"mean nothing"* — so there is nothing
+to protect, and re-interpreting 3,000 meaningless ticks into exceptions would manufacture data
+rather than preserve it. **The exception mechanism §53b wanted still exists — see item 4 — but it
+starts EMPTY.**
+
+**§56's cutover switch was built for the same premise** and is very likely unnecessary now: it
+exists so authority never changes under people's feet, and there are no people (item 2). **Claude
+has NOT dropped it unilaterally — it is his ruling, and dropping it is proposed and awaiting his
+word.**
+
+### 2 · THE SCHEDULE SITE IS IN EARLY BUILD AND HAS NO USERS. Recorded at his explicit request.
+
+*"the schedule site is in early build phase and is not being used at all and won't be for some
+time."* He asked for this in HANDOFF; it is here too because it CHANGES WHAT IS SAFE. A data-model
+change with no users is cheap: no migration, no compatibility window, no flag day. This is the
+window in which restructuring is nearly free, and it will close.
+
+**It does not loosen one thing: the cardinal rule.** The auction is live to 35 physicians all
+year, the two sites share one roster and one Firestore bill, and §92 keeps the auction's code shut.
+"The schedule has no users" is never a reason to touch anything the auction reads.
+
+### 3 · EVERY USER MUST HAVE AT LEAST ONE GROUP. **Supersedes §53a·2 and §96·A.**
+
+*"every user must have at least 1 group."* Both earlier entries recorded "zero or more" — twice,
+in his own words at the time. It is now **one or more**.
+
+⚠️ **Every user is at zero today**, so this cannot be enforced by refusing to save. It is a state
+to surface loudly and drive to zero, not a lock that makes the Users page unusable. **How strictly
+it is enforced at the moment of adding a person is NOT settled — asked, not assumed (§22).**
+
+### 4 · A SHIFT IS FILLED BY GROUPS, SUBGROUPS, AND INDIVIDUALS — WITH OVERRIDES BOTH WAYS.
+
+*"I need the ability to specify shifts are filled by group, subgroup, individuals. I need the
+ability to add/remove individuals from shift eligibility regardless of group/sub. Basically a
+group or sub override option."*
+
+Four things a shift can carry, and they compose:
+
+| | what it says |
+|---|---|
+| **group** | the whole group qualifies — both its MD and CRNA subgroups |
+| **subgroup** | only one side of a group qualifies — OB's MD side, say, and not its CRNA side |
+| **individual — allow** | this person qualifies **regardless** of any group they are or are not in |
+| **individual — block** | this person does **not** qualify, even though a group of theirs does |
+
+**Block beats allow beats group.** An individual entry is an override, and an override that could
+be silently outvoted by a group would not be one.
+
+This REPLACES build 89's shape, in which a shift named groups and the shift's own MD/CRNA/Both
+marking implied the side. That was a reasonable reading of §53a and it is now too coarse: he wants
+to name a side explicitly, and to name a person.
+
+### 5 · THE ELIGIBILITY PAGE BECOMES A BOARD, NOT A GRID.
+
+*"an interactive board that can filter and sort. It will never be useful to have the option to
+view 3,000 ticks at once."* The person × shift matrix is not to be rebuilt, not even as an
+optional view. **"Never" is his word.** Whatever replaces it answers questions — who can work
+this, what can this person work, who is this shift short of — by filtering and sorting, and it
+never asks anyone to read a wall of checkboxes.
+
+Note the deliberate difference from §95: the Shift **Catalog** got both a read-first mode and a
+dense batch mode because he asked for both. The Shift **Eligibility** page gets no dense mode at
+all, because he has ruled the dense view useless here. Do not copy the catalog's pattern across.
+
+
+---
+
+## §99 — HOW THE SCHEDULE IS BUILT: FEATURES FIRST, BUT NEVER ROUGH — 24 Aug 2026
+
+Owner, verbatim: **"the key to schedule site is currently to build features and functions now.
+Fine tuning will come later. Ensure builds are good and solid and ask questions and make recs. I
+want the builds clean and highly functional and intuitive."**
+
+Asked whether this was already recorded. **It was half-recorded, and the missing half is the
+half that protects him**, so it is written out in full here.
+
+### 1 · WHAT §90 ALREADY SAID, and still says
+Base features first; stop working the defect list. The defects that matter cannot be known until
+the features exist and somebody drives them. Unchanged.
+
+### 2 · WHAT §90 DID NOT SAY, AND THIS DOES: THE ENGINEERING BAR NEVER MOVES
+
+*"Ensure builds are good and solid."* **"Early build, no users, features first" is not licence to
+ship rough work.** Those are two different axes and a future session could easily collapse them:
+
+| axis | where it stands |
+|---|---|
+| **product polish** — spacing, edge cases, the defect list | **deferred by §90.** Fine tuning comes later. |
+| **engineering quality** — executed tests, honesty checks, guards, no silent failure | **NOT deferred. Never deferred.** |
+
+Every gate in START-HERE §3 applies to a schedule build exactly as it applies to an auction one:
+tests that EXECUTE real extracted code, an honesty check proving they fail on the previous build,
+the isolation guard, the full auction battery, `node --check`, byte verification. **A build that
+skips a gate because "the schedule has no users" is not moving fast — it is spending the one
+window in which mistakes are cheap on making them undetectable.**
+
+### 3 · ASK, AND RECOMMEND
+
+*"ask questions and make recs."* START-HERE §3.1 already says stop and ask when unsure, and push
+back on bad ideas. This adds the third, and it is the one Claude has been weakest at: **come with
+options and a recommendation, not a blank question.** Where there is a defensible default, say
+what it is and why, then let him choose. A question with no recommendation attached hands the work
+back to him, which is the opposite of the point.
+
+**And the standing companion rule (§96): grep `DECISIONS.md` before asking anything.** Three of
+four questions put to him about Stage 4 had already been answered by him a week earlier. His
+attention is the scarcest resource in this project.
+
+### 4 · THE STANDARD FOR EVERY SCREEN: CLEAN, HIGHLY FUNCTIONAL, INTUITIVE
+
+*"I want the builds clean and highly functional and intuitive."* §93 said this about the day
+board; it is now the standard for **everything**. Specifically, and each of these has already been
+paid for once:
+
+- **Clean** — a screen is a quiet reading surface first. Controls appear on the row you are
+  editing, not on all ninety-two. The day board (§93) and the first cut of the eligibility board
+  both failed this and were rebuilt before he ever saw the second one.
+- **Highly functional** — it must answer the question the screen exists for, in one look. Counts
+  and stat tiles are not answers.
+- **Intuitive** — no invented vocabulary. If a word only exists inside this project (§96's
+  *"ticks"*), it does not appear in a UI or in a question to him.
+
+---

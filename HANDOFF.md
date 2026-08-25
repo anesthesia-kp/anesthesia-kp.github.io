@@ -62,6 +62,67 @@ that window — **does START-HERE SAY a build is filed and waiting, and name it?
 everything is pushed, requires that "FILED, NOT YET PUSHED" line to be GONE. Stale in either
 direction is caught. It fired on this very session, was answered by adding the line, and cleared.
 
+## 25 Aug 2026 (CLOSE) — two builds made in the cloud while the laptop was off, and applied byte-exactly
+
+**Builds 88 and 89 were written, tested and fully gated with no access to the owner's machine.**
+It worked, and the method is worth keeping because this will happen again.
+
+**How.** The cloud container already held a byte-identical copy of the working tree (staged
+earlier in the session, md5 `00b67e59…` for build 87). Everything was built there: the page, the
+suites, the full 42-suite battery WITH the 21 Playwright suites that skip on the Mac, and the
+auction battery. When the bridge came back, the precondition was checked first — the Mac's
+`admin/index.html` still md5'd to the build-87 value, proving nothing had moved under the work —
+and the finished files were copied in. The result md5'd to the value recorded before transfer.
+**Precondition checked, result verified, both by md5 rather than by assumption.**
+
+**Files were shipped WHOLE rather than as replayable patch scripts, and that was a change of
+mind mid-session.** Patch scripts were the first plan and they are better when the base is
+uncertain, because they refuse rather than corrupt. But fifteen anchored edits across two builds
+is more surface to get wrong than one file plus a known-good precondition md5, and several late
+fixes had gone in by hand and were no longer in any script. **When the base is verified, ship the
+file. When it is not, ship the patch.**
+
+**What that window cost, honestly:** two builds' worth of work sat only in an ephemeral container
+and in chat attachments for several hours, and §98 and §99 existed nowhere else. That is the same
+shape as the 22 Aug near-loss. It was survivable because everything was also sent to the chat as
+files — but the rule stands: **filed means pushed**, and neither a container nor a conversation is
+filed.
+
+**Gates on the owner's disk after applying:** isolation **29/29** · build88 **36/36** · build89
+**48/48** · both honesty checks FAILED against the pushed 83 (`e260f4f`) with exit 1, as they must
+· the non-Playwright battery **21/21**. The other 21 suites skip on the Mac for want of the
+`playwright` module — a coverage hole on THAT run, not on the build: the full 42/42, 1,245
+assertions, ran in-cloud on bytes proven identical by md5 on both sides.
+
+---
+
+## 24 Aug 2026 (§98 · §99) — the tick grid is retired, and the two axes are separated
+
+**§98 and §99 are in DECISIONS.** What belongs here is the single fact he asked to be recorded in
+this file, and it is the one that changes what is safe to do:
+
+> **THE SCHEDULE SITE IS IN EARLY BUILD AND HAS NO USERS.** Owner, 24 Aug 2026: *"the schedule
+> site is in early build phase and is not being used at all and won't be for some time."*
+>
+> This changes what is safe. A data-model change with no users is cheap: no migration, no
+> compatibility window, no flag day. It is why §98 could retire the tick grid outright instead of
+> converting it, and why Stage 4's cutover switch could be dropped. **This window is when
+> restructuring is nearly free, and it will close.**
+>
+> It loosens exactly nothing about quality (§99·2) and nothing about the cardinal rule. The
+> auction is live to 35 physicians all year, the two sites share one roster and one Firestore
+> bill, and §92 keeps the auction's code shut. "The schedule has no users" is never a reason to
+> touch anything the auction reads.
+
+**And the distinction §99 draws, because a fresh session will otherwise collapse it.** §90 defers
+POLISH — spacing, edge cases, the defect list. It does not defer QUALITY. Executed tests, honesty
+checks that fail on the previous build, the isolation guard, the full auction battery, byte
+verification: every one of those applies to a schedule build exactly as it applies to an auction
+one. **"No users yet" is the reason mistakes are cheap right now, which is precisely why it must
+not become the reason they go undetected.**
+
+---
+
 ## 24 Aug 2026 (S5c · S7 · §95) — four builds, and the shape of a conversation that went right
 
 **Builds 84–87, all filed together.** BUILD-LOG carries what each one does. What belongs here is

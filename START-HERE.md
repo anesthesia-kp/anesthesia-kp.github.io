@@ -1,15 +1,17 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 24 Aug 2026 (S5c/S7) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 25 Aug 2026 (STAGE 4) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
-nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue. S6 shipped and was then rebuilt twice
-by the owner's own rulings (§93 clutter, §94 the family order); S5c and S7 are approved and next.**
+nothing. WORK NOW MEANS THE SCHEDULE — §90's feature queue, which is now COMPLETE through Stage 4:
+S5c · S6 (rebuilt twice by his own rulings, §93 and §94) · S7 · §95 · and Stage 4 as builds 88–89,
+with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what is left.**
+The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 83 / staff 37.**
-**FILED, NOT YET PUSHED: schedule admin 84 · 85 · 86 · 87** — S5c (grid filter bar), S7 (read-first
-catalog rows), and §95's two halves (both editing modes, and a paste that lands shifts fully
-configured). All four gated; see BUILD-LOG. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
+schedule admin 87 / staff 37.**
+**FILED, NOT YET PUSHED: schedule admin 88 · 89** — Stage 4: groups with their two subgroups, and
+§98's eligibility rebuild (the tick grid retired, the page now a board). Both gated; see BUILD-LOG.
+Everything else on disk agrees with live. All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 assertions, zero
 skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
 RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
@@ -157,8 +159,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (24 Aug, S6 session): auction staff 164 / admin 304 / mobile 18 · schedule admin 83 /
-> staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (24 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 87 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
