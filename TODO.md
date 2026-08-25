@@ -314,6 +314,48 @@ _(the only document the owner pastes; this gate exits non-zero when it drifts)_
 > should almost certainly ABSORB `capacity` rather than sit beside it. That is a migration, and
 > the schedule having no users is why it is cheap this week (§99).
 
+## 🔴 OWNER REVIEW, SECOND BATCH — CLUTTER, COLLAPSING, AND THE WORD "DEMAND". 25 Aug 2026.
+
+> **Recorded the turn they were said**, while he kept driving the site. **His words, verbatim:**
+>
+> *"The pages are generally feeling too cluttered and I think the answer is collapsable features.
+> an example is the daily scheduling tab - I don't need to see a list of all MDs and CRNAs that
+> will be assigned once and never looked at again. collapse that. same for each group, that
+> shoud collpase unless i'm adding someone. If I have 10-20 groups 3eventually, the page would
+> scroll forever and be cluttered. I don;t like using the word demand - present new options.
+> maybe rules? maybe something else? The shift eligibility is difficyult to view - organise this
+> better."*
+>
+> **FOUR ITEMS, AND THE FIRST THREE ARE ONE THEME.**
+>
+> **C1 · COLLAPSE BY DEFAULT, EVERYWHERE — this is §93 arriving as a general rule.** He is
+> describing the same failure the Day Board was rejected for: a page that shows everything
+> instead of the one thing he came for. *"Clean beats complete"* was a design rule for one
+> screen; he is now asking for it as a property of the whole admin. **The load-bearing detail is
+> his reason, not his instruction:** a list that is "assigned once and never looked at again"
+> should not cost permanent screen space. That is the test to apply to every panel — **how often
+> does he need to READ this, versus how often does he need to CHANGE it?** Read-often stays open;
+> set-once-and-forget collapses.
+>
+> **C2 · GROUPS COLLAPSE UNLESS HE IS ADDING SOMEONE**, and his reasoning is a forecast worth
+> keeping: *"If I have 10-20 groups eventually, the page would scroll forever."* Today there are
+> nine. **This is the same card-layout complaint he deferred on 25 Aug** (*"will have to change
+> that layout, but fine for now"*) arriving from the other direction — that item is no longer
+> deferred, it is part of this.
+>
+> **C3 · SHIFT ELIGIBILITY IS HARD TO VIEW — reorganise.** No shape given. **§93 says research
+> what the screen is FOR before rebuilding it**, and this page has already been rebuilt once
+> (§98 retired the 3,000-tick grid). Do NOT redesign it off this one sentence; look at it, put a
+> shape to him, then build.
+>
+> **C4 · THE WORD "DEMAND" IS OUT.** *"I don't like using the word demand - present new options.
+> maybe rules? maybe something else?"* Options and a recommendation are in the session report;
+> **⚠️ "rules" is the one to avoid** — Stage 5 IS the rules engine, the auction already has Timer
+> Rules, and reusing it here would put two unrelated meanings on one word, which is §81's
+> *never say "winner" without saying which* and the pool-versus-group collision all over again.
+> **AWAITING HIS PICK. Nothing is renamed until he chooses**, and when he does it is a
+> page-wide rename in its own build, with a grep across both pages, the suites and the docs.
+
 ## ✅ QUEUE STILL EMPTY — RA-5, the final audit, ran 24 Aug and found NOTHING
 
 > **Zero CRITICAL. Zero HIGH.** Run under **DECISIONS §89** — the owner's final narrowing:
