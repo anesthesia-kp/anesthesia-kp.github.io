@@ -3003,6 +3003,16 @@ environment; on the standard 200k window the trip point is 160,000, which puts t
 **That single number is the finding: this project's re-grounding ritual alone spends most of a
 session's budget, which is exactly why the four files must stay lean.**
 
+⚠️ **THE 200k ASSUMPTION IS ALREADY FALSIFIED — measured 25 Aug, same session: the reading
+reached 167,243 with NO compaction.** The window is therefore larger than 200k, the 160,000 trip
+point is wrong, and every number in the table above is a placeholder that is too tight rather
+than too loose. **The shape of the rule stands; the numbers do not.** First job of the calibration
+work: find the real window (the reading immediately before an observed compaction ÷ 0.80), then
+re-express the set points as PERCENTAGES of it — 40% start, 55% amber, 65% close, 70% hard stop —
+so they never need re-deriving again. **Until then, report the raw reading and say the threshold
+is uncalibrated.** This is also the gate proving its own worth: an unmeasured assumption stated
+as a number lasted less than an hour.
+
 **CALIBRATE IT, DO NOT ASSUME IT.** The window is confirmed the first time a compaction is
 observed: the reading immediately before it, divided by 0.80, IS the window. Until then 200k is
 an assumption and must be labelled one.
@@ -3011,30 +3021,62 @@ an assumption and must be labelled one.
 only (the three-filesystems trap again). A session working only over the bridge cannot read its
 own gauge and must say so rather than guess.
 
-### THE SET POINTS — owner ruling, 25 Aug 2026: *"change the stopping point to some different set point that will keep things safe."*
+### THE SET POINTS — ruled 25 Aug 2026, then CORRECTED BY THE OWNER THE SAME HOUR
 
-**Stop well short of the wall, not at it.** Provisional on a 200k window (trip 160,000); when the
-window is calibrated, re-express as percentages of it and keep the same shape.
+**The first version of this table gave absolute numbers — 80k start, 110k close, 130k hard stop.
+THE OWNER OVERRULED THEM AND WAS RIGHT.** His argument, and it is better than the one it replaced:
+*"I think we are still being too strict. I've had successful sessions with longer start files and
+multiple builds."* Two things killed the placeholders inside an hour: **his lived experience**,
+and **a reading of 167,243 with no compaction** — proof the 200k window they were derived from
+does not exist. Numbers invented from an unverified assumption are not caution, they are noise
+wearing caution's clothes, and they would have stopped work that has demonstrably been fine.
+
+**THE SET POINTS ARE PERCENTAGES OF THE WINDOW. Auto-compaction fires at 80% of it.**
 
 | reading | state | what it means |
 |---|---|---|
-| under **80,000** | 🟢 GREEN | a build may START — this is the only window in which one begins |
-| 80,000–110,000 | 🟡 AMBER | finish what is open. No new build, no new investigation |
-| **110,000** | 🟠 CLOSE | open the closing checklist NOW, while there is room to finish it |
-| **130,000** | 🔴 HARD STOP | hand over, whatever state the work is in. 30,000 of margin left, on purpose |
+| under **55%** | 🟢 GREEN | start anything — a build, an audit, a pass |
+| **55–70%** | 🟡 AMBER | finish the build in hand. Do not start another |
+| **70%** | 🟠 CLOSE | open the closing checklist — 10 points of room before the wall |
+| **75%** | 🔴 HARD STOP | hand over |
+| 80% | ⛔ | auto-compaction, which this table exists to make unreachable |
 
-**THE ARITHMETIC HE SPOTTED, and it is the whole argument for shrinking the files:**
-re-grounding this project — the pasted `START-HERE.md`, `TODO.md`, the STATUS check, the fetches
-— cost roughly **130k on 25 Aug, which lands past the HARD STOP before a line is written.**
-**So a build is IMPOSSIBLE under these set points until the files shrink.** That is not the gate
-being too strict; it is the gate reporting a condition that was always true and previously
-invisible. G2 is therefore not optional.
+**UNTIL THE WINDOW IS MEASURED THERE IS NO PERCENTAGE, SO THERE IS NO GATE — and the honest
+substitute is to REPORT, NOT TO BLOCK.** State the raw reading at each build boundary and say the
+threshold is uncalibrated. **A number he can see beats a threshold nobody has verified**, and the
+25 Aug compaction was not caused by a threshold being too loose — it was caused by nobody
+measuring anything at all. Measuring was the fix; the numbers were never the fix.
+
+**WHAT THE WINDOW IS KNOWN TO BE: larger than 251,000** (201,050 ÷ 0.80, measured 25 Aug at the
+end of a session that did a full re-grounding, six doc edits and an archive pass with no
+compaction — an earlier reading in the same session gave a floor of 209,000). That is a floor from
+one observation, not the answer. Calibrate properly at the first observed compaction — the
+reading immediately before it ÷ 0.80 — and write the figure here.
 
 **THE STRUCTURAL FIX, and it is bigger than trimming: SUBAGENTS READ, THE SESSION DECIDES.**
 A subagent has its own context window. A pass that must read all four files whole — an archive
 sweep, an audit, a survey — is delegated, and only its CONCLUSION comes back into the session.
 Reading a 1,600-line file to decide what to cut should never again be paid for out of the
 context that has to survive the rest of the day.
+
+**BUT IT IS NOT AN "ALWAYS", AND THE REASON IS A RULE THIS PROJECT ALREADY PAID FOR.**
+**A subagent's report is a PRÉCIS — the same second-hand thing a compaction summary is**, and it
+fails the same way: accurate about intent, unreliable about state (25 Aug). Delegating does not
+make a summary trustworthy; it just makes it cheaper.
+
+**SO THE SPLIT IS BY TASK, not by size:**
+· **DELEGATE** surveying, locating, counting, auditing, "which of these 40 sections are shipped" —
+  work whose answer is a LIST and whose value survives being summarised. Require line numbers and
+  a verdict per item, and CAP the report (a subagent returning 600 lines has moved the problem,
+  not solved it).
+· **NEVER DELEGATE** the edit itself, or any claim the session will act on as fact. The session
+  re-reads those exact lines off disk and edits them (§0 rule 3, §3 rule 15). A subagent's
+  finding is a POINTER to verify, never a substitute for reading.
+· **The governing files are never edited by a subagent.** Everything stems from them; unreviewed
+  changes there are the one failure with no cheap recovery.
+
+**What it actually buys: VOLUME, not fidelity.** It keeps the session's context small enough to
+still be sharp at the close. It does nothing about the risk of acting on something nobody read.
 
 **Design of the gate itself is NOT ruled here.** It was scoped under a total build freeze and is
 in `TODO.md` §1 awaiting his approval.

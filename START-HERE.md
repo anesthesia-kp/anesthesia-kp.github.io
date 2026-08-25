@@ -13,8 +13,6 @@ predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
 per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
 
-**Builds 94 and 95 are PUSHED** (`be06fcc`) — 94 stops a dialog being taller than the window, 95 makes
-editing a shift open a CARD instead of a strip of inputs.
 
 # ⛔ BUILDING IS STOPPED — OWNER ORDER, 25 Aug 2026: *"stop building entirely."*
 
@@ -43,21 +41,7 @@ locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 as
 skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
 RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
 
-> ⚠️ **THE DAY BOARD TOOK THREE BUILDS, AND THE REASON IS THE MOST USEFUL THING IN THIS FILE.**
-> 81 was built from the brief and was **rejected on sight** — *"not a useful addition in it's
-> current form… I want to very easily be able to see who IS working and care less about who
-> isn't. I want clean and organized, not cluttered"* (§93). 82 rebuilt it as ONE sheet, and the
-> ordering inside it was INFERRED; he replaced the inference with his own named order within the
-> hour (§94). **What went wrong in 81 was not the code — every gate was green — it was that
-> nobody asked what the screen was FOR before building it.** The research he then demanded took
-> twenty minutes and changed the design completely. **Do that first, next time.**
 
-**SHIPPED 22–24 Aug, in order:** admin **300** — H-1 (seven capacity readouts moved off the frozen
-projection onto `weekLedger`) and M-1 (one row per person per week, wearing its decision), `719566c`
-· staff **163** — LOGIN-1, the sign-in badge now asks the same question the board asks, `f2fcec4`
-· admin **301** — SORT-1, six decision lists on one comparator (projection → bid strength → name),
-`87b6cae`, ruled in **DECISIONS §88** · staff **164** + admin **303** — the sun marker on a named
-holiday inside the summer window, `04e00bf` · admin **304** — the FAST-1 predicate fix, `1c5a72a`.
 
 **⚠️ READ THIS BEFORE TRUSTING ANY "IT SHIPPED" CLAIM.** FAST-1 went out inside admin 303 and was
 **dead on arrival** — inert in 100% of cases — and Claude had already told the owner it was "live"
@@ -90,45 +74,11 @@ items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The w
 **closed at rev 5** (*"Deck looks good, no more changes at this time"*), and filing it into
 `tests/docs/` was dropped by the owner (*"forget this, i don't care"*). Do not re-raise any of them.
 
-**THAT FINAL AUDIT HAS RUN. RA-5, 24 Aug: ZERO CRITICAL, ZERO HIGH — NOTHING FOUND.**
-Ruled by **§89**, the owner's last narrowing: *"CRITICAL/HIGH only — things that would truly
-derail a live election… No more security improvements, no other items that would be nice, only
-100% absolutely necessary fixes."* Seven blind lenses on the pushed bytes, one HIGH raised and
-**refuted by execution**, four lenses proving their conclusions by RUNNING the real extracted
-code. Battery green alongside it: **54 suites / 2,050 assertions, exit 0, zero skips.**
-**NO CODE WAS CHANGED and nothing is proposed.** Report is PRIVATE:
-`tests/docs/RA-5-2026-08-24.md`.
-
-Two results worth carrying: the **FAST-1 fix in 304 is genuinely live** (three lenses ran the
-predicate rather than trusting the commit), and **switching on outbid-alert and welcome mail will
-NOT fire a backlog** — neither generator keeps a "last notified" state, so there is nothing to
-replay. Worst case is two mails per physician at their next individual sign-in.
-
-**SO: THE REMAINING RISK IS NOT IN THE CODE.** It is the owner's three items — real-bidder
-sign-ins, launch, and the two mail toggles. **§89 AND §92 are binding: the auction code is closed, and
-a session that goes looking for auction code work is working against both.** Work now means the
-SCHEDULE, in §90's order. **S6, the Day Board, shipped as admin 81 and was REJECTED BY THE OWNER
-the same day — read §93 before touching it.** It is rebuilt as **admin 82**, filed and gated: one
-assignment sheet, call family first, absence reduced to a number, the five cards reduced to one
-line. §93 is a standing DESIGN rule, not a one-off fix: *who is working is the page; who is not is
-a number, not a list; clean beats complete; the standard is at-a-glance.* Next in §90's order: **S5c** (filter bar — name/text + coverage
-only; the role/site half stays blocked until Stage 4), then **S7**, then Stage 4, then Stage 5.
 
 Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
 `tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
 reproduction in these repos — they are PUBLIC (§3).**
 
-(Session account: **`HANDOFF.md` now holds only what a fresh session would go wrong without**
-— owner ruling §101, 25 Aug 2026. Every dated narrative from 18–25 Aug was archived to
-`_archive/anesthesia/superseded-docs/HANDOFF-archived-2026-08-25.md` once its lessons had been
-promoted into §3 and §6 of this file. So the stories behind rules 8–16 below — RA-5 and the pgrep
-gate that lied, FAST-1 shipping dead, build 88's page where nothing worked, the machine loss and
-the rebuild, the stale clone that invented an emergency — are all in that one archive file, dated
-and greppable. Structure rewritten 17 Aug to one copy of every rule; revised
-19 Aug — the commit-length cap, the explicit-SHA fixture rule, the skipped-honesty rule, the
-cost gate, App Check enforced on both projects; 20 Aug — the A-AUDIT wave and the rules emulator
-suite; 21 Aug — §77 froze the projection, §79 blocked decisions during open bidding, and §80–§84
-were ruled. Older narrative lives in HANDOFF, not here.)
 
 > ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
 > reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
@@ -154,16 +104,7 @@ were ruled. Older narrative lives in HANDOFF, not here.)
 > for delivery only.** This matters most for the files a machine reads — rules, suites, build
 > artifacts — not for documents the owner already has copies of. "Filed" means committed and
 > pushed, not delivered.
-> **UPDATE, 24 Aug (close):** all four `.pptx` files in `tests/docs/` now show in `git ls-files`,
-> so they DID reach git and nothing was lost — rev 4 under a commit reading
-> `Create 2027-…-rev4.pptx`, which looks like a GitHub.com upload rather than a Desktop commit.
-> That narrows the blindness to the BRIDGE's view of the tree; it says nothing about whether the
-> Mac would have staged them unaided. **Keep the rule.**
 >
-> The failure that wasted the time: seeing a `/tmp` path, assuming macOS because Chrome runs there,
-> checking `device_bash` (which correctly said "no such directory"), and concluding "unreachable"
-> — without checking the third filesystem. **When a file seems unreachable, check ALL THREE before
-> asking the owner to move anything.**
 
 The five files that govern everything:
 
@@ -241,20 +182,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 98 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
-> *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
-> paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
-> Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
-> the PREVIOUS build and the second returned the truth. That is the CDN, not a fault.
 >
-> **⚠️ READ THIS FIRST IF YOU ARE A FRESH SESSION: the working tree you are looking at was
-> rebuilt on 22 Aug 2026.** The machine every previous session ran on is dead. Nothing was
-> lost, but three things about the tree are NEW and a session that assumes otherwise will
-> waste an hour:
-> 1. **The auction working copy is `vacation-kp.github.io`, cloned from `anesthesia-kp/vacation`.**
->    On the old Mac there were TWO clones of that one repo — a `vacation/` that looked finished and
->    a `vacation-kp.github.io/` that held the real uncommitted work. **There is now exactly one.**
->    If you ever see both again, the second one is where the work is.
 > 2. **`tests/package.json` and `package-lock.json` are GITIGNORED** (see that repo's `.gitignore`)
 >    — so a fresh clone does NOT restore them and the rules-emulator suite silently cannot run.
 >    They were restored by hand on 22 Aug. Same trap for any other local-only file.
@@ -263,46 +191,8 @@ phase in flight) before doing anything.
 >    empty, or "not a git repository". It cost most of 22 Aug. The setting is now OFF; the repos
 >    are still in `~/Documents/GitHub`, which is only safe while it stays off.
 >
-> **THE LESSON THAT NEARLY COST THE MOST: `test-staff-162.mjs` and the RA-4 report were
-> UNTRACKED.** Both existed only on the dead machine's disk — not in any commit, so not on
-> GitHub, so not recoverable from it. They were retrieved from iCloud's Recently Deleted with
-> hours to spare. **"Filed" must mean pushed. A file git has never seen is not filed.**
 >
-> **THAT AUDIT HAS RUN, AND ITS RESULT IS THE QUEUE HEAD.** Ordered 21 Aug — owner: *"I want the
-> next session to audit only for bugs that could directly harm the vacation auction… only serious
-> problems"* — and sharpened the same evening by **§85**: *"I don't want to open a can of worms
-> that leads to small changes that never end"*, whole vacation project, emphasis on recent updates.
-> **DECISIONS §84 + §85 are the charter. Both stay binding for whatever gets built next.**
 >
-> **RA-4, 21 Aug evening.** Batteries green on the pushed bytes first (48 suites / 1,878
-> assertions, zero skips). Ten blind lenses → 27 candidates → twelve adversarial skeptics, two on
-> every CRITICAL and HIGH, all told to default to REFUTED. **27 raised → 6 refuted → 7 demoted
-> below the scope floor → 14 stand: 5 HIGH, 9 MEDIUM. No CRITICAL survived two skeptics.**
-> Two skeptics worked EMPIRICALLY rather than by re-reading — one ran the real engine functions
-> over ~9,000 week states, one ran the real Firebase client offline and drove the real dialog code
-> in a DOM harness. Three of the five HIGH findings rest on what those two OBSERVED, and one of
-> them reproduces the owner's own §82(d) worst case verbatim in consumers nobody repointed.
->
-> **Report is PRIVATE: `tests/docs/RA-4-2026-08-21.md`.** What was REFUTED is recorded there too,
-> so nobody re-raises it.
->
-> **THE OWNER RULED THE SAME EVENING — §86.** *"skip the 3 that are maybes, leave alone anything
-> that can be left alone. go on the others."* Three trade-offs skipped (H-4 the restore/mail
-> record, H-5 how much of a completed phase is public, M-8 outsider reads vs a billed read);
-> M-2, M-5 and the whole appendix left alone and NOT to be re-raised; the other seven GO.
->
-> **WHAT OF THAT RULING IS DONE (verified against the bytes on 22 Aug, not from notes):**
-> **[HISTORY — this paragraph describes 22 Aug. H-1 and M-1 shipped as admin 300 that same day,
-> and four more builds have shipped since; see the top of this file. The rules change never
-> happened and is OFF the queue by §87.]**
-> **H-2 and H-3 SHIPPED** as staff 162 and are pushed. **Everything else is untouched** —
-> `versions.json` still reads admin **299**, and `firestore.rules` still carries the M-4
-> comparison in five places including `isListedAdmin()`. What remains is exactly two builds:
-> **ONE admin build** (H-1 · M-1 · M-3 · M-6 · M-7) and **ONE rules change** (M-9, and now M-4's
-> code half — see the warning below). Note for whoever reconciles it: the RA-4 triage table
-> labelled this group "7 findings, 3 builds" but listed eight; the shapes above are what the code
-> actually showed. That table was archived 25 Aug 2026 to
-> `_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`.
 >
 > **M-4 — RAISED BY THE OWNER, THEN SETTLED BY HIM. IT IS LATENT, NOT LIVE.** On 21 Aug he
 > looked at the live login e-mails and said *"there are a couple lower cases. i thought we made
@@ -327,19 +217,12 @@ phase in flight) before doing anything.
 >   you cannot fetch the value for a lowered key, so `myInitials()` cannot be fixed in rules at
 >   all. Padding has the same problem. **Those two can only ever be fixed in the data.**
 >
-> **STATUS 22 Aug: the CODE fix is still undone, and it is now TESTABLE.** The rules-emulator
-> suite was rebuilt from nothing on the new machine and BOTH halves run — **59/59 on the current
-> rules, 7 of 7 new gates FAILING on the pre-RA-3 rules**. For most of 22 Aug `firestore.rules`
-> was the one file in the project with no executable coverage at all.
-> **Do not change the rules without running RA-2 before and after.**
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
 > 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
 > bare word "winner" (§81), and a thin commit subject is acceptable because the BUILD-LOG row is
 > the real summary (§83).
 >
-> **⭐ THE OWNER'S OWN TOP ITEM: real-bidder sign-ins.** *(Superseded 25 Aug — it is SCHEDULED for
-> Thursday 27 Aug 2026, and the count that stood here was stale. One copy only, in `TODO.md` §1.)*
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
@@ -353,33 +236,10 @@ phase in flight) before doing anything.
 > on the owner's Mac: **59/59 current, and 7 of 7 new gates fail on the pre-fix rules** (re-run
 > 22 Aug on the NEW machine after the rebuild — the same numbers as 21 Aug).
 >
-> **WHAT THE RA-3 DAY PRODUCED** (detail: BUILD-LOG, and the §101 archive): a whole-project re-audit — ten
-> blind lenses, an adversarial skeptic per finding, a second skeptic on every CRITICAL/HIGH;
-> 28 agents, **45 raised → 8 refuted → 39 stood**. Reports are PRIVATE, in `tests/docs/`
-> (`RA-3-FINAL-2026-08-20.md` supersedes the interim; keep both). Then five builds: staff
-> 159 · 160 · 161, admin 297, the rules, and the sweep harness. Rulings **§75–§78**
-> (schedule deferred · fix data exposure only when cheap · **§77 projections never change** ·
-> repo visibility closed for now + the closed-phase pop-up removed).
 >
-> **§77 AND §79 ARE DONE — that paragraph is history now.** They shipped as admin 298 and 299 on
-> 21 Aug and are live. The NE-1 question they raised was answered by the owner as §80, and the
-> acceptance conditions are §82. Kept here only so a fresh session does not go looking for parked
-> work at `_to_delete/xfer/s77b/`: there is none.
 >
-> **AFTER THAT, THE OWNER'S STANDING DECISION (21 Aug): NO MORE SMALL ITEMS.** He judged the
-> chase endless and is right. The remaining list is 10 MEDIUM and the LOW/NIT tail; 10 LOW/NIT
-> were dropped outright as incapable of troubling the live auction. The next audit is to look
-> ONLY for auction-derailing events that could cause real and genuine harm.
 >
-> **⭐ THE OWNER'S OWN TOP ITEM: real-bidder sign-ins.** *(Superseded 25 Aug — scheduled for
-> Thursday 27 Aug 2026. One copy only, in `TODO.md` §1.)*
 >
-> **Reality check for a fresh session.** The pattern held again: the owner found, in one
-> sentence, the mirror image of the CRITICAL the agents found — the same machinery that could
-> promote a weaker bid could also ERASE bidders from a week with room. Every owner-found item
-> outranks the queue. And two of tonight's fixes were to GATES, not features: a handler audit
-> that always printed 1, and a button sweep that exited 0 having tested nothing. **When a gate
-> reports success, check that it actually ran.**
 
 
 ## 2 · THE TWO SITES, AND WHAT THEY SHARE
@@ -431,7 +291,9 @@ What they genuinely share — why a change to one can break the other:
 
 **The change itself**
 1. Smallest change → explicit "go" → only that change. Never rewrite whole files. When
-   unsure, STOP and ask. Do not agree with bad ideas — push back. **This rule is §0 rules 1–4
+   unsure, STOP and ask. Do not agree with bad ideas — push back. **And every owner-found item outranks
+   the queue** — he has more than once found, in one sentence, the mirror image of what a
+   seven-agent audit found. **This rule is §0 rules 1–4
    applied to a single change; §0 is the governing statement and this is its specific form.**
 2. Read → edit → `node --check` every inline script → run the suites. Extractor gotchas: no
    default-param braces (`opts={}`) and no stray `{` in comments inside extracted functions.
@@ -673,9 +535,11 @@ reason to hand over, never to lower the bar.
 Cloud container only: the last `usage` block in
 `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
 `input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context.
-**Under 80,000 a build may start · 110,000 opens the close · 130,000 is a hard stop.**
-Auto-compaction fires at 80% of the window. Over the bridge the gauge is unreadable: say UNKNOWN,
-never assume room. Full table and the reasoning: `DECISIONS.md` §106.
+Auto-compaction fires at **80%** of the window. Set points are PERCENTAGES of it: **under 55%
+start anything · 70% opens the close · 75% hard stop.** **The window size is NOT known** (it is
+above 209,000; absolute numbers were tried and overruled) — so until it is measured, **REPORT the
+raw reading at each build boundary and say it is uncalibrated. Do not block on a guess.**
+Over the bridge the gauge is unreadable: say UNKNOWN, never assume room. Full table and the reasoning: `DECISIONS.md` §106.
 
 **⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
 25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two

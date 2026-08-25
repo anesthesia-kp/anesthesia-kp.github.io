@@ -133,9 +133,11 @@ try {
     { name: 'the header LIVE line',
       re: /LIVE, verified cache-busted TWICE: auction admin (\d+) . staff \(index\) (\d+) . mobile (\d+) . schedule admin (\d+) \/ staff (\d+)/,
       order: ['auction admin', 'auction staff', 'auction mobile', 'schedule admin', 'schedule staff'] },
-    { name: 'the WHERE TO START "LIVE NOW" line',
-      re: /LIVE NOW[^:]*: auction staff (\d+) \/ admin (\d+) \/ mobile (\d+) . schedule admin (\d+) \/ staff (\d+)/,
-      order: ['auction staff', 'auction admin', 'auction mobile', 'schedule admin', 'schedule staff'] },
+    // The WHERE TO START "LIVE NOW" line was a SECOND copy of the header line above it and was
+    // archived in the §106 housekeeping pass, 25 Aug 2026. Its check is gone with it: the header
+    // line is checked, so nothing is now unguarded. Do not restore this without restoring a
+    // second live line to guard — two copies of the build numbers is the rot this file exists
+    // to catch.
   ];
   // What START-HERE's two live lines actually claim for a given thing — used both by the
   // filed-vs-live check above and by the comparison below.
