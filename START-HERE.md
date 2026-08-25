@@ -16,9 +16,9 @@ per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 doe
 **Builds 94 and 95 are PUSHED** (`be06fcc`) — 94 stops a dialog being taller than the window, 95 makes
 editing a shift open a CARD instead of a strip of inputs.
 
-**FILED, NOT YET PUSHED: schedule admin 96** — collapse by default (§104): four closed bars on the
-catalog, Shifts opens to families and a family to its shifts, and the two stacked column headers
-become one.
+**FILED, NOT YET PUSHED: schedule admin 97 and 98** — 97 makes an eligibility row one line until
+you open it and fixes a 96 regression that killed five renders on the catalog page; 98 makes a group
+card its header until you open it.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**

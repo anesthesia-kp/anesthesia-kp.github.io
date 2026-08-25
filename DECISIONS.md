@@ -2910,3 +2910,36 @@ is a defaults-and-granularity change, not a new feature (§3 rule 14: check whet
 **A COLLAPSED SECTION MUST STILL SAY WHAT IS INSIDE IT** (a count, a summary line). §93's standard
 is at-a-glance; a row of unlabelled closed bars would trade clutter for a guessing game, which is
 the same failure wearing the opposite coat.
+
+---
+
+## §105 — AN EARLY RETURN ADDED FOR ONE PANEL OWNS EVERY LINE AFTER IT — 25 Aug 2026
+
+Not a ruling of the owner's; a rule earned by a defect he found, recorded here because it is the
+kind of mistake that will otherwise be made again by whoever adds the next collapsible thing.
+
+**WHAT HAPPENED.** Build 96 made the catalog's Shifts section collapsed by default (§104) and, to
+avoid building ninety rows into a hidden box, added `if(!sectOpen.shifts){ el.innerHTML=''; return; }`
+near the top of `renderCatalog`. That function does not only render the shift list. Everything
+below that line died with it whenever the section was shut — **which is the default**:
+
+· the catalog summary · the family dropdown · the **site** dropdown · the **holidays list and its
+Remove buttons** · the open demand dialog · the copy-an-existing-shift picker.
+
+**Five of the six had nothing to do with the shift list at all.** The batteries were green: 47
+suites, 1,509 assertions, zero skips. Not one of them opened the catalog page with the section
+CLOSED and asked whether the rest of the page still worked, because until that build there was no
+closed state to ask about.
+
+**THE RULE: skip the WORK, never the REST of the function.**
+`el.innerHTML = sectOpen.shifts ? catRowsHtml(list, famHead) : '';`
+
+**AND THE TESTING RULE THAT GOES WITH IT, which is the transferable half:** when a build introduces
+a new STATE — collapsed, locked, empty, offline — the gate must exercise the rest of the feature
+IN that state. A suite that only ever runs in the state the developer was looking at will pass over
+exactly this. Build 97 carries a six-assertion block that loads the catalog with Shifts closed and
+checks the other five renders are alive.
+
+**Related, same family:** [303 · FAST-1] shipped bytes that were unreachable; [88] shipped a page
+whose every click threw. All three passed their suites. The common thread is a gate that measured
+the thing the author was thinking about and nothing around it.
