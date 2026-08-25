@@ -8,10 +8,12 @@ with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what 
 The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 87 / staff 37.**
-**FILED, NOT YET PUSHED: schedule admin 88 · 89** — Stage 4: groups with their two subgroups, and
-§98's eligibility rebuild (the tick grid retired, the page now a board). Both gated; see BUILD-LOG.
-Everything else on disk agrees with live. All four repos clean and in sync with origin, no
+schedule admin 89 / staff 37.**
+**FILED, NOT YET PUSHED: schedule admin 90** — the Groups page's controls were DEAD in 88 (an
+inline-handler quote that closed its own attribute); the owner found it, 90 fixes it, and
+`groups-test.mjs` now clicks every control in a browser so it cannot come back. See BUILD-LOG.
+**`firestore.rules` is PUBLISHED (§100) but its repo copy is uncommitted** — the console has the
+change and git does not. Everything else on disk agrees with live. All four repos clean and in sync with origin, no
 locks. Auction battery re-run on the pushed tree, 24 Aug: **54 suites / 2,050 assertions, zero
 skips**. Schedule battery: **35 suites / 995 assertions, zero skipped** (in-cloud, browser suites
 RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
@@ -542,6 +544,18 @@ honesty block cleanly when the baseline file is absent — and a skip prints tid
 checks silently became skips. **Read the honesty line every time: it must say FAILED with a
 non-zero exit.** If it says "skipped", regenerate the fixture from its SHA and re-run before
 reporting anything.
+
+> ⚙️ **RA-2 IS THE ONE BATTERY THE OWNER RUNS, AND HE HAS SAID SO (25 Aug 2026).** His words:
+> *"I can run RA2, you built a system for me."* §6 says the batteries are Claude's job and that
+> he does not run them — **RA-2 is the standing exception, and the reason is mechanical, not
+> preference.** The Firestore emulator is a Java jar fetched from `storage.googleapis.com`, and
+> **that host is blocked by the egress allowlist in BOTH sandboxes** — the cloud container and
+> the device VM. The jar exists only on macOS proper, which neither sandbox can see (the
+> three-filesystems trap again). So `RA-2.command`, built for him, is the only way it runs.
+> **Do not report the rules as untested when the answer is to ask him to double-click it.**
+> The honesty half needs a pre-change fixture and `RA-2.command` gets it from git, which is not
+> installed on the Mac — so SAVE A COPY of the rules before editing them and hand him:
+> `PRE_RULES=<that copy> node test-rules-emulator.mjs` from `tests/`.
 
 **⚠️ COMMAND-LINE GIT IS NOT INSTALLED ON THE NEW MAC (22 Aug 2026).** GitHub Desktop carries its
 own private copy, so pushes work — but `git` in Terminal does not, and both `status.mjs` and

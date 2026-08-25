@@ -2628,3 +2628,65 @@ paid for once:
   *"ticks"*), it does not appear in a UI or in a question to him.
 
 ---
+
+---
+
+## §100 — THE STAGE 4 RULES CHANGE IS APPROVED. THIS IS THE §92 DECISION — 25 Aug 2026
+
+Owner: **"yes, let's do it"**, answering a specific proposal with the risk stated.
+
+**§92 closed the auction's code without a specific decision from him. This is that decision, and
+its scope is exactly one edit:** add `groups`, `groupMembers` and `categories` to
+`isSchedAdminOnlyDoc()` in `firestore.rules`, so those three documents can be written only by a
+Daily Schedule admin. **Nothing else in that file changes. The approval does not extend to any
+other rules edit, and does not reopen the auction's code.**
+
+**WHY IT IS NEEDED.** Those three documents were created by build 88. They fall through the
+`dailysched/{docId}` catch-all, which allows ANY registered user to write a document not named on
+the admin-only list. Group membership now decides who may work what (§98), so a bidder could
+otherwise rewrite the schedule's eligibility.
+
+**THE RISK, AS PUT TO HIM, AND WHY IT IS SMALL.** `isSchedAdminOnlyDoc()` is referenced in four
+places, all inside the two `dailysched` match blocks — **zero references in any `vacations/*`
+rule**, verified by grep, not assumed. The auction's staff page touches no `dailysched` document;
+the auction admin touches exactly one, `adminAccess`, which is already on the list and is not
+being changed. The three new documents are new: no auction code has ever heard of them.
+
+**THE REAL RISK IS THE PUBLISH, NOT THE EDIT — and it is procedural.** A rules publish replaces
+the ENTIRE ruleset for the whole project, both sites, atomically. The repo copy was last committed
+**21 Aug (`6bbb4af`)**, so if anyone has edited rules in the console since, pasting the repo file
+would silently revert those edits with no error at all.
+
+**THEREFORE, THE ORDER IS BINDING AND THE FIRST STEP IS HIS:**
+1. **He compares the console's live rules against the repo copy BEFORE pasting anything.** If they
+   differ, stop and reconcile; do not publish.
+2. RA-2 runs against the CURRENT rules first, with the new gates, which must **FAIL** there.
+3. RA-2 runs against the new rules; everything passes.
+4. He publishes. The console validates before publishing — on any error, publish NOTHING and say so.
+5. Full auction battery afterwards, plus a live read, to prove the auction is untouched.
+
+**Timing was part of the decision:** no phase is in flight and the election is weeks away, which
+makes this about as cheap as a rules change will ever be. The same edit during open bidding would
+be a different conversation.
+
+### PUBLISHED — 25 Aug 2026, BOTH consoles
+
+Owner: *"rules pushed… to both projects."* Published to **`vacation-25e8e` AND `crna-vacation`**,
+which is the established practice for this file and not an improvisation — HANDOFF records the
+same two-console publish on 20 Aug. **One rules file, two projects.** The repo copy md5s to
+`e5f130f9bea0b0a4f3dbd87e88f6e9dc`, identical to the ⚙️ file handed to him.
+
+**On the CRNA project the entire `dailysched` section matches nothing** — there is no schedule in
+that project — so the change is inert there. Everything the CRNA auction actually uses is
+byte-identical to what it had before.
+
+**⚠️ TWO THINGS THIS RULING IS NOT FINISHED WITHOUT, and neither is code:**
+1. **The repo copy is still UNCOMMITTED.** The consoles have the change; git does not. A fresh
+   session reading the repo would believe the old rules are live. Commit it.
+2. **RA-2 has not been run against it.** The emulator jar is blocked by the egress allowlist in
+   BOTH sandboxes, so that run is the owner's — see START-HERE §6. The pre-change fixture is
+   saved at `_to_delete/fx/rules-before.txt` so the honesty half works without command-line git:
+   `PRE_RULES=../_to_delete/fx/rules-before.txt node test-rules-emulator.mjs` from `tests/`.
+   **Until that runs, the three new gates are asserted but not executed** — which by §6's own
+   standard is a skipped gate, not a pass.
+
