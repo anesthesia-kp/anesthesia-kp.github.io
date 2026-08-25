@@ -5,9 +5,212 @@ the current state of both sites. This file is the per-site detail behind it.
 
 Nothing here restates a rule from `START-HERE.md`. If you find something that does, delete it
 here and keep the copy there — that duplication is the disease this merge cured.
+---
 
+# ⭐ CLOSING A SESSION — the handoff checklist. Owner order, 25 Aug 2026.
+
+*"Let's add to the handoff a set of instructions for the handoff that ensure everything is
+updated and the chat is reviewed for important items."*
+
+**This is a PROCEDURE, not a set of rules — the rules live in `START-HERE.md` and are not
+restated here.** Work it top to bottom before saying a session is finished, and say in the
+chat which steps ran. A step that was skipped is reported as skipped, never left silent.
+
+**Run it at every handoff point, not only at the end** — before a compaction, before a long
+gap, before "what's next?", and whenever the owner is about to walk away. A session that ends
+without this ends in whatever half-state it happened to be in.
 
 ---
+
+### 0 · `git fetch` EVERY repo FIRST — before reading anything to decide what is recorded
+
+**A clone is not the project; `origin/main` is.** On 25 Aug the cloud clone was 8 commits behind,
+had never been fetched, and Claude "discovered" that eight rulings, an owner instruction and a
+gate fix were all missing. Every one of them was already committed and pushed. Committing the
+reconstructions would have deleted 991 lines of the owner's own words.
+
+**Absence in a working copy is evidence of NOTHING.** Fetch first, then grep — and when a file
+seems to be missing something it should have, check `git log`/`git show origin/main:<file>`
+before concluding it was never written.
+
+### 1 · Review THE CHAT for things that must outlive it
+
+This is the step that gets skipped, and it is the reason this checklist exists. **A session
+is deleted; a file is not.** Re-read the conversation from its start (or from the compaction
+summary plus everything after it) and pull out every item below. For each, decide its ONE home
+(§ "a fact has ONE home"), write it there in this turn, and quote the owner verbatim where he
+gave a ruling.
+
+| what to look for | where it goes |
+|---|---|
+| **"that should be remembered" / "remember this" / "don't do that again"** — the owner saying something explicitly | the file that owns that subject, **in the same turn he says it** |
+| A **ruling** — he chose between options, or overruled a recommendation | `DECISIONS.md`, numbered, including the argument he overruled and why |
+| A **correction to how the work is done** (a preference, a boundary, a thing he does or does not do) | `START-HERE.md`, in the section that already covers it |
+| A **correction of an existing rule** — anything that makes a sentence already in a file WRONG | edit that sentence. **Do not add a second, newer sentence beside it** — two answers is the rot |
+| A **defect he found** that is not being fixed now | `TODO.md` |
+| **What shipped**, and what the gates said | `BUILD-LOG.md`, one row per build |
+| A **lesson from something that went wrong this session** | `HANDOFF.md` (here), dated |
+
+⚠️ **Believing it was written down is not the same as it being written down.** On 24 Aug the
+owner said *"I can run RA2, you built a system for me"* and *"that should be remembered"*. A
+later session believed that was recorded in `START-HERE.md` §6; it was not, and §6 went on
+stating the opposite blanket rule for a full day. **GREP FOR IT. Open the file and confirm the
+sentence is on disk before reporting it as recorded.**
+
+⚠️ **After a compaction, treat the summary as second-hand.** Everything before the compaction
+reaches you as somebody's précis, not as the source. Re-ground the specific facts you are about
+to act on by reading them off disk — `DECISIONS.md`, the code, `git show` — rather than
+trusting the summary's paraphrase of them.
+
+### 2 · Make the state files true
+
+- **`node status.mjs`** from this repo. **It must exit 0.** It is the gate, not a report: it
+  checks every build number `START-HERE.md` calls LIVE against **`origin/main`** (what the site
+  is actually serving), checks that anything filed-but-unpushed is named, and checks the
+  LAST REVISED date against git. If it cannot reach `origin/main` it says so LOUDLY — in that
+  state, `git fetch` first and believe no build number until you have.
+- **`START-HERE.md`** — the LIVE line, the `FILED, NOT YET PUSHED:` line, and LAST REVISED,
+  bumped in the SAME turn as the edit. Delete the FILED line once it is pushed.
+- **`BUILD-LOG.md`** — a row for every build, written at the same time as the code, in the
+  repo the build belongs to.
+- **`TODO.md`** — anything raised and not done. `status.mjs` rewrites its STATUS block; the
+  rest is hand-kept. ⚠️ **And REMOVE from it anything whose `BUILD-LOG.md` row you just wrote,
+  in this same turn** (standing rule, 25 Aug 2026). A fact lives in one of the three files —
+  outstanding here, shipped in `BUILD-LOG.md`, settled in `DECISIONS.md`. The moment something
+  ships, `TODO.md` is no longer its home. One deletion per build; skipping it is how that file
+  grew to 2,600 lines and became something people skim instead of read.
+
+### 3 · Prove the code
+
+- Batteries run, with the numbers quoted from the RUN and never from memory or from a doc.
+- **Every honesty check must say FAILED with a non-zero exit.** A skip is a failed gate.
+- Name the baseline by its **explicit SHA**, and say so.
+- `node --check` on every page touched.
+- The **isolation guard** (the cardinal rule) re-run after anything that touches a writer.
+- Say how many suites RAN and how many were SKIPPED. "All green" beside 22 skips is a lie.
+
+### 4 · Account for every file
+
+- `git status` in **all four** repos. Name every uncommitted file and say why it is uncommitted
+  — a modified file nobody mentions is the one that gets lost.
+- Anything the owner must push: **deliver the actual file** and give its md5. Do not describe a
+  change and leave him to find it.
+- `tests/` is **not a git clone in the cloud sandbox** — its files only exist there because they
+  were staged. Anything edited there must be sent back explicitly or it dies with the session.
+- If the cloud clone is BEHIND origin, say so. It is a fine place to build from a delivered
+  whole file; it is **not** a safe base for a patch script.
+
+### 5 · Hand over
+
+State, in the chat: what shipped, what the gates said, what is pending a push, what was recorded
+and where, and what is recommended but deliberately NOT built. Then stop and wait (§7).
+
+---
+
+# 🧹 MAINTAINING THIS FILE AND `TODO.md` — archiving is CONTINUOUS, not a spring clean
+
+**Owner order, 25 Aug 2026: build the archiving into both files so the process is maintained.**
+These two files grow every session and nothing ever left them, so by 25 Aug this file was ~2,300
+lines and `TODO.md` ~2,600. **A file long enough to skim is a file that stops being read**, and
+outstanding work then goes missing in plain sight — which is the opposite of what both exist for.
+
+**The trigger is numeric ON PURPOSE**, for the same reason §62 made the commit cap a number:
+drift that depends on judgement is drift nobody notices. Three rules, all mechanical:
+
+**1 · `TODO.md` — shipped work leaves as it enters `BUILD-LOG.md`, in the SAME TURN.**
+A fact lives in ONE of the three files — outstanding in `TODO.md`, shipped in `BUILD-LOG.md`,
+settled in `DECISIONS.md`. The moment something ships, `TODO.md` is not its home. One deletion
+per build. This is step 2 of the checklist above and it is where the rule is enforced.
+
+**2 · THIS FILE — when you add a dated entry, archive every dated entry older than 14 days.**
+Move them to `_archive/`, dated, in one file. **Never delete.** This file then holds roughly the
+last fortnight of narrative plus its permanent sections, and stays readable end to end.
+
+> ⛔ **NEVER ARCHIVED, whatever their age:** the closing checklist above · this section · PART A
+> (shared), PART B (auction), PART C (schedule) and PART D (rescued records) · ARCHITECTURE ·
+> DEPLOY FLOW · anything describing how the system WORKS rather than what happened on a day.
+> Those are reference, not narrative. Only the **dated session entries** age out.
+
+**3 · THE TRIPWIRE — if either file passes 2,000 lines, the archive pass is DUE**, and it is
+taken before the next feature build rather than "when there's time". Measure it, do not estimate:
+`wc -l TODO.md HANDOFF.md`. `TODO.md` carries the full pass procedure and its acceptance
+criteria in its §1 queue.
+
+⚠️ **`DECISIONS.md` IS EXEMPT AND MUST NOT BE TRIMMED.** It is a register: it should only ever
+grow, every entry stays live forever, and a ruling from July governs exactly as much as one from
+today. Length there is correctness, not rot. Do not "tidy" it.
+
+**The judgement call, and it only goes one way:** if you cannot say whether an item is shipped,
+outstanding, parked or a standing rule, **it stays**. Uncertainty keeps it. Archiving something
+still owed is far worse than a file that is fifty lines longer than it needed to be.
+
+---
+
+
+## 25 Aug 2026 (BUILDS 92-93) — two builds, and A STALE CLONE THAT INVENTED AN EMERGENCY
+
+**Shipped (filed, awaiting push): schedule admin 92 and 93.** Rows in `schedule/BUILD-LOG.md`.
+92 = the month grid filters by MD/CRNA and by group (S5c's other half, unblocked by Stage 4).
+93 = §43's migration: the fairness pool moves onto the GROUP, the per-person switch becomes the
+override. Gates: **44 schedule suites / 1,286 assertions, ZERO skipped** — the browser suites RAN
+(a playwright/chromium version mismatch in the sandbox was resolved rather than skipped past),
+isolation 29/29, **auction battery 54 suites / 2,050** on unchanged auction bytes, honesty
+FAILED against pushed build 91 (SHA `dc29760`) as it must.
+
+**Three defects in 93 were found by the gates and not by reading**, and the third is the one
+worth remembering: `runReport` had no loaded-gate on group data, so a report run in the
+cold-load window would have counted per diem into the pool and printed a wrong expected figure
+for every doctor, silently. That is the build-79 defect-29 shape exactly. The second was found
+only by CLICKING the new toggle in a browser — the group card's override list never repainted,
+which is §43·2's one required screen. Build 88's lesson holds: executing a function proves
+nothing about whether anything is wired to it.
+
+### ⚠️ THE SESSION'S REAL LESSON: a stale clone let Claude "discover" work that already existed
+
+Asked to check that everything was recorded, Claude grepped the cloud clone of this repo and
+reported three alarming findings: that **§92–§99 were missing from `DECISIONS.md`**, that the
+owner's *"I can run RA2"* instruction had never been written into §6, and that `status.mjs` had
+a flaw letting the gate pass only on a false LIVE line. It then **rewrote all three from
+scratch** and presented the reconstructions as fixes.
+
+**All three were already recorded, committed and pushed** — in commits `3096ce5`, `04928bd`,
+`ca81566` and `70865ee`, made earlier the same session. The cloud clone was **8 commits behind
+origin and had never been fetched.** There is a §100; Claude asserted there was not.
+
+**It was caught only because the owner said "nothing in github".** No gate caught it. Had those
+files been committed, they would have deleted **991 lines** across five files and replaced the
+owner's real rulings with paraphrases of them. `schedule/BUILD-LOG.md` in the same clone was
+missing rows 84–91 and would have taken those with it.
+
+**THE RULE THIS PRODUCES, and it belongs in step 1 of the checklist at the top of this file:**
+**`git fetch` EVERY repo before reading ANY file to decide what is or is not recorded.** A clone
+is not the project; `origin/main` is. Absence in a working copy is evidence of nothing. This is
+the §4 re-grounding ritual applied to the filesystem rather than to the chat — and the failure
+mode is worse than being out of date, because a stale clone does not look stale. It looks like a
+gap, and a gap invites you to fill it.
+
+**Compounding cause, worth naming separately:** the session had been compacted, so its own
+earlier work reached it as a summary. The summary said those things were recorded. Claude
+grepped a stale clone, found nothing, and concluded the summary was wrong — when the summary was
+right and the clone was wrong. **Two unreliable sources agreeing to disagree is not evidence.**
+Fetch, then read.
+
+*(Genuinely new from this session, and all that should be pushed: builds 92–93, their suites, the
+BUILD-LOG rows, the closing checklist and archiving rules at the top of this file, the §43 BUILT
+marker, and START-HERE's FILED line. The `status.mjs` rewrite was discarded — the committed
+version already does the job, by a different and equally sound design.)*
+
+### Also recorded
+
+- **Doc sizes, measured 25 Aug:** `START-HERE.md` ~11k tokens · `HANDOFF.md` ~41k ·
+  `TODO.md` ~53k · `DECISIONS.md` ~38k. The architecture is right (one small pasted entry
+  document, large references GREPPED and never read whole) and size did NOT cause this session's
+  context pressure — conversation length did. But `TODO.md` carries shipped work that belongs in
+  `BUILD-LOG.md`, which is why the archive pass is queued and the standing rule now exists.
+- **The playwright/chromium mismatch in the cloud sandbox is fixable, not a reason to skip** —
+  symlinking the installed build into the expected path let all 21 browser suites run.
+- **`tests/` is not a git clone in the cloud sandbox.** Its files are there only because they
+  were staged, and anything edited there must be written back or it dies with the session.
 
 ## 24 Aug 2026 (S6 SESSION) — §92 closes the auction code, and START-HERE stops being able to rot
 

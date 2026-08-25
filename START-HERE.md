@@ -7,6 +7,11 @@ S5c · S6 (rebuilt twice by his own rulings, §93 and §94) · S7 · §95 · and
 with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what is left.**
 The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
 
+**FILED, NOT YET PUSHED: schedule admin 93** (builds 92 and 93 ride in one set of bytes — 92 is
+the grid's category/group filters, 93 is §43 moving the fairness pool onto the group). It is on
+disk and NOT on origin/main, so the live line below does NOT cover it. Push it, bring the live
+line to 93, and delete this paragraph. Rows for both are in `schedule/BUILD-LOG.md`.
+
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
 schedule admin 91 / staff 37.** Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
 (§100) with its repo copy now committed. **RA-2 executed it: 66/66 on the live rules, and 10 of 10

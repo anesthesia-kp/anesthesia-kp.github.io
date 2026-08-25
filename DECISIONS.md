@@ -659,6 +659,16 @@ Consequence for stage 5: role is a legitimate rule target (*"everyone · a role 
 
 ## 43 · The fairness pool — the group sets it, a person can override — 16 Aug 2026
 
+> ✅ **BUILT — schedule admin 93, 25 Aug 2026.** The flag lives on the group document
+> (`fairness:false`, stored only when false); **exclusion wins** where a person is in several
+> groups, the same shape as §98's block-beats-allow; a person's own value is stored **only when
+> it disagrees** with their groups, so everyone else keeps following the group when it changes.
+> **Nothing already stored changed meaning**, so there was no migration step — the old document
+> held exclusions only and absent meant "counts"; absent now means "follow your groups", and a
+> group counts by default. **All three visibility conditions below are built and each is a test
+> assertion** — the ruling says it "only holds if the visibility above is actually built", so
+> they are gates, not polish. Full detail in `schedule/BUILD-LOG.md`, build 93.
+
 The question: whose numbers go into the group average a report compares someone against?
 §26 already ruled that per diem and locums are out of it. This settles *where that is set*.
 
