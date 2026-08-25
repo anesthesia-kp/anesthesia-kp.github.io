@@ -535,11 +535,11 @@ reason to hand over, never to lower the bar.
 Cloud container only: the last `usage` block in
 `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
 `input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context.
-Auto-compaction fires at **80%** of the window. Set points are PERCENTAGES of it: **under 55%
-start anything · 70% opens the close · 75% hard stop.** **The window size is NOT known** (it is
-above 209,000; absolute numbers were tried and overruled) — so until it is measured, **REPORT the
-raw reading at each build boundary and say it is uncalibrated. Do not block on a guess.**
-Over the bridge the gauge is unreadable: say UNKNOWN, never assume room. Full table and the reasoning: `DECISIONS.md` §106.
+Auto-compaction fires at **80%** of a window whose size is NOT known (floor: above 251,000).
+**So there is no threshold: REPORT the reading at each build boundary, say it is uncalibrated,
+and let him call it.** Absolute numbers were tried twice and overruled twice — §106.
+**The real defence is filing everything as it is said, not the gauge**; then a compaction costs
+almost nothing. Over the bridge the gauge is unreadable: say UNKNOWN, never assume room. Full table and the reasoning: `DECISIONS.md` §106.
 
 **⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
 25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two

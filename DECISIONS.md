@@ -3031,27 +3031,39 @@ and **a reading of 167,243 with no compaction** — proof the 200k window they w
 does not exist. Numbers invented from an unverified assumption are not caution, they are noise
 wearing caution's clothes, and they would have stopped work that has demonstrably been fine.
 
-**THE SET POINTS ARE PERCENTAGES OF THE WINDOW. Auto-compaction fires at 80% of it.**
+**CORRECTED A SECOND TIME, SAME SESSION.** The percentages that replaced the absolute numbers
+were pinned to a window nobody had measured — a guess in a different costume. His reading of it:
+*"I still think this session feels fresh. We are probably being too limiting still."* He was
+right twice in one hour, and the reason is worth writing down: **each version of this rule
+invented a limit and then defended it, when the only honest position was that the limit is
+unknown.**
 
-| reading | state | what it means |
-|---|---|---|
-| under **55%** | 🟢 GREEN | start anything — a build, an audit, a pass |
-| **55–70%** | 🟡 AMBER | finish the build in hand. Do not start another |
-| **70%** | 🟠 CLOSE | open the closing checklist — 10 points of room before the wall |
-| **75%** | 🔴 HARD STOP | hand over |
-| 80% | ⛔ | auto-compaction, which this table exists to make unreachable |
+### WHAT THE RULE IS NOW — three parts, and only one of them is a number
 
-**UNTIL THE WINDOW IS MEASURED THERE IS NO PERCENTAGE, SO THERE IS NO GATE — and the honest
-substitute is to REPORT, NOT TO BLOCK.** State the raw reading at each build boundary and say the
-threshold is uncalibrated. **A number he can see beats a threshold nobody has verified**, and the
-25 Aug compaction was not caused by a threshold being too loose — it was caused by nobody
-measuring anything at all. Measuring was the fix; the numbers were never the fix.
+**① THE REAL DEFENCE IS NOT THE GATE, IT IS CONTINUOUS FILING — and it was already the rule.**
+A ruling goes to `DECISIONS.md` in the turn it is said; shipped work leaves `TODO.md` as its
+`BUILD-LOG.md` row is written. **If that discipline holds, a compaction costs almost nothing** —
+everything the session knows is already on disk, and the next session reads files rather than a
+précis. The 25 Aug compaction hurt because state was live in the chat, not because a number was
+exceeded. **A gate is the backstop for a discipline failure; it is not the defence.**
 
-**WHAT THE WINDOW IS KNOWN TO BE: larger than 251,000** (201,050 ÷ 0.80, measured 25 Aug at the
-end of a session that did a full re-grounding, six doc edits and an archive pass with no
-compaction — an earlier reading in the same session gave a floor of 209,000). That is a floor from
-one observation, not the answer. Calibrate properly at the first observed compaction — the
-reading immediately before it ÷ 0.80 — and write the figure here.
+**② REPORT, DO NOT BLOCK.** State the reading at each build boundary and say the window is
+uncalibrated. The owner calls it. A threshold nobody has verified must never stop work he has
+done successfully many times.
+
+**③ THE ONE NUMBER: the high-water floor, which only ever rises.** Every session records its
+highest reading here. **Known floor: the window is above 251,000** (201,050 ÷ 0.80, measured
+25 Aug at the end of a session that did a full re-grounding, six document edits, an archive pass
+and two subagent surveys, with no compaction). The true figure is settled the first time a
+compaction is actually observed — that reading ÷ 0.80 — and not before.
+
+⚠️ **AND THE ONE THING HIS TEST CANNOT SEE.** "Feels fresh" is judged on the prose, and the prose
+stays fluent long after the reliability goes. §4's oldest warning is exactly this: **a claim about
+code that was not re-read sounds precisely as confident as a verified one.** This session
+produced a live example — a trip point of 160,000 stated as a fact, derived from an assumption,
+falsified within the hour. So the tells that matter are behavioural, not stylistic: asserting
+without re-reading, re-deriving something already settled, losing the thread. **Those are
+reported the moment they appear, whatever the reading says.**
 
 **THE STRUCTURAL FIX, and it is bigger than trimming: SUBAGENTS READ, THE SESSION DECIDES.**
 A subagent has its own context window. A pass that must read all four files whole — an archive
