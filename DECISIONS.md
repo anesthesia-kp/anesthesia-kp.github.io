@@ -2960,7 +2960,9 @@ information."*
 **① THE FOUR FILES STAY LEAN, CONTINUOUSLY.** Shipped work leaves `TODO.md` as its `BUILD-LOG.md`
 row is written; an entry leaves `HANDOFF.md` when a fresh session would no longer do anything
 wrong without it; `START-HERE.md` is the file he PASTES, so every line in it is a tax on every
-session forever. Procedure and tripwires: `HANDOFF.md`, the MAINTAINING section.
+session forever — **it has its own tripwire at 700 lines** (ruled 25 Aug, lower than the other
+two for that reason), **and a rule not needed in months moves to `START-HERE-ARCHIVE.md` rather
+than staying in the paste.** Procedure and tripwires: `HANDOFF.md`, the MAINTAINING section.
 **`DECISIONS.md` is exempt — a register only grows.**
 
 **② HE JUDGES CONTEXT. CLAUDE REPORTS THE READING.** *"I can usually tell when there is rot."*
@@ -3006,3 +3008,23 @@ we are still being too strict. I've had successful sessions with longer start fi
 builds."* **Percentages of the window** (55/70/75) — overruled: *"I still think this session feels
 fresh."* Both were limits invented from an unmeasured assumption and then defended.
 **The lesson is the one that generalises: state the measurement, not a verdict dressed as one.**
+
+## §107 — SCHEDULE BUILDING RESUMES. THE AUCTION DOES NOT — 25 Aug 2026
+
+Owner, closing out the housekeeping session: **"Then we proceed with schedule builds."**
+
+**The total stop of 25 Aug (*"stop building entirely"*) is LIFTED FOR THE SCHEDULE.** Three
+things it does not do, written down because a lifted freeze is exactly when they get assumed away:
+
+**① §92 IS UNTOUCHED — the auction code stays closed.** No change to anything
+`vacation-kp.github.io` serves — staff, admin, mobile, `crna/`, `versions.json`, or
+`firestore.rules` — without a specific decision from him FOR THAT CHANGE. Reading it is still
+required: the isolation guard and the full auction battery run after schedule builds as before.
+
+**② §0 RULE 2 IS UNTOUCHED.** A queue item is not a "go". Each build is planned, shown, and waits
+for his word. He lifted a stop; he did not hand over the order of work, and he never has.
+
+**③ THE ORDER IS ALREADY ARGUED in `TODO.md` §1, and it is not Claude's to re-rank.** The
+collapse work leads it on evidence — he raised clutter three separate times, in three different
+wordings, while trying to use the site — ahead of §102's pools. Stage 5 stays on hold.
+

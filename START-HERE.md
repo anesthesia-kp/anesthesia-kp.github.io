@@ -14,16 +14,14 @@ the largest of them (SHIFT POOLS: a combined staffing total across a named set o
 per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
 
 
-# ⛔ BUILDING IS STOPPED — OWNER ORDER, 25 Aug 2026: *"stop building entirely."*
+# ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
 
-**NO CODE CHANGES TO EITHER SITE.** Not the schedule, not the auction (which §92 already closed).
-The queues below describe what is APPROVED and SCOPED, not what to start. A queue item is not a
-"go" — §0 rule 2 is: plan, then wait for his explicit approval. **This order is lifted only by the
-owner, in words, for the specific work.** Nothing in this file, `TODO.md` or `DECISIONS.md` lifts
-it, however ready an item looks.
-
-Build 99 was scoped and never started; its scope is parked in `TODO.md` so it need not be
-re-derived. Reading, auditing, running the batteries and updating documents all remain in scope.
+**THE TOTAL STOP OF 25 Aug IS LIFTED FOR THE SCHEDULE ONLY.** Two things it does NOT touch:
+**⛔ the AUCTION stays closed by §92** — no change to anything `vacation-kp.github.io` serves,
+including `firestore.rules`, without a specific decision from the owner for that change; and
+**§0 rule 2 still governs every build** — a queue item is not a "go". Plan it, show him, WAIT.
+He lifted a total stop; he did not hand over the order of work, and he never has.
+Reading, auditing and running the batteries were in scope throughout and remain so.
 
 **Builds 94–98 are all PUSHED.** The schedule admin now opens collapsed everywhere the owner asked
 (§104): the catalog is four closed bars, an eligibility row is one line, a group card is its header.
@@ -370,7 +368,7 @@ What they genuinely share — why a change to one can break the other:
 | the owner pushes | run `node status.mjs` in this repo — it regenerates the STATUS block in `TODO.md` from `versions.json`, git and the suite counts. Derived facts are never hand-typed |
 | a batch completes | tick it in `TODO.md` §1 |
 | session end | `HANDOFF.md` if anything session-specific matters · status regenerated · stale-lock check (below) — the repos are the memory, not the chat |
-| **THIS file is edited** | **bump `LAST REVISED` IN THE SAME TURN, and re-run `node status.mjs`.** Since 24 Aug that script is the ENFORCER, not a reminder: it reads this file's `LAST REVISED` date and every build number the LIVE line quotes, compares them against git and `versions.json`, writes the verdict into `TODO.md`'s STATUS block, and **exits non-zero when they disagree**. A stale START-HERE is now a failed gate, like a skipped honesty check |
+| **THIS file is edited** | **bump `LAST REVISED` IN THE SAME TURN, and re-run `node status.mjs`.** **This file's own tripwire is 700 lines** — lower than `TODO.md`'s and `HANDOFF.md`'s because it is the one file the owner PASTES; over it, a rule not needed in months moves to `START-HERE-ARCHIVE.md`. Since 24 Aug that script is the ENFORCER, not a reminder: it reads this file's `LAST REVISED` date and every build number the LIVE line quotes, compares them against git and `versions.json`, writes the verdict into `TODO.md`'s STATUS block, and **exits non-zero when they disagree**. A stale START-HERE is now a failed gate, like a skipped honesty check |
 
 **Commit summaries** — one per build PER REPO touched. **HARD CAP, owner ruling 19 Aug 2026:
 a subject line plus AT MOST 4 short lines — about 50 words. If it is longer, it is wrong.**

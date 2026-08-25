@@ -159,6 +159,13 @@ Move it to `_archive/`, dated, in one file. **Never delete.**
 > on a day. Those are reference, not narrative. Only the **dated session entries** are ever
 > archived.
 
+**3a · `START-HERE.md` HAS A TRIPWIRE OF ITS OWN: 700 LINES** (owner ruling, 25 Aug 2026).
+It is lower than the other two on purpose — it is the ONE file he PASTES into every session, so
+every line in it is a tax on every session forever, where a line in `TODO.md` is read only when
+someone goes looking. **And the rule that keeps it there: a working rule that has not been needed
+in months moves to `START-HERE-ARCHIVE.md` rather than staying in the paste.** Same test as
+everything else — if a fresh session never read it, would it do anything wrong?
+
 **3 · THE TRIPWIRE — if either file passes 2,000 lines, the archive pass is DUE**, and it is
 taken before the next feature build rather than "when there's time". Measure it, do not estimate:
 `wc -l TODO.md HANDOFF.md`. `TODO.md` carries the full pass procedure and its acceptance
