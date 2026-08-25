@@ -2776,3 +2776,69 @@ mechanical and only the test became judgement, with uncertainty still keeping th
 cannot be archived because its lesson lives nowhere else is not a reason to keep the entry — it
 is a sign the lesson was never filed. This turns the archive pass from tidying into the thing
 that forces hard-won lessons out of narrative and into the files a fresh session actually reads.
+
+---
+
+## §102 — SHIFT POOLS: A COMBINED TOTAL ACROSS A NAMED SET OF SHIFTS — 25 Aug 2026
+
+The owner drove the shift catalog himself under §90 and produced six items. Five of them are UI
+(recorded in `TODO.md` §1); this is the sixth, and it turned out to be the largest thing on the
+schedule's list since Stage 4.
+
+**THE REQUIREMENT, verbatim:** *"i need option to specify a range of staffing needs, basically 0-1
+or 5-6 or whatever"* — then, the same turn, the reason: *"i'll need an option to specify certain
+shifts that together have a set total # of people. I need a range for the shifts because some days
+there will be more D shifts and other days more D10 shifts, but generally the total combined of
+these shifts is set at a certain number. This could be a different set of rules at the top for
+broader guiding rules that always apply."*
+
+**THE READING THAT MATTERS: the per-shift range is the SYMPTOM; the combined total is the RULE.**
+D and D10 flex against each other precisely because their SUM is fixed. Ranges built alone would
+leave the actual constraint unexpressed and would likely be rebuilt to serve it.
+
+**RULED, verbatim, same turn:**
+
+1. *"auto-pop fills to min"* — **auto-populate targets the MINIMUM.** Over-filling costs a person
+   a day off; the empty slot above min is a gap somebody may claim, not a hole to plug.
+2. *"max should be indicator, not hard ceiling"* — **MAX NEVER REFUSES AN ASSIGNMENT.** It informs.
+   This is deliberate and must not be "improved" into a guard later without a new ruling.
+3. *"at min below max okay"* — **at-min-below-max is an ACCEPTABLE state, not a shortfall.**
+   Coverage therefore needs a THIRD reading (*covered · could take more*), not a binary. Every
+   consumer of `demandOn()` that today asks "short or not" has to learn the third answer.
+4. *"I like pool of shifts"* — **the name is POOL.** A pool is a set of SHIFTS. **It is NOT a
+   `group`**, which since Stage 4 means a set of PEOPLE (`groups` / `groupMembers`, an MD subgroup
+   and a CRNA subgroup, deciding who MAY WORK). Two things called a group — one deciding who may
+   work and one deciding how many bodies a day needs — is §81's *never say "winner" without saying
+   which* failure waiting to happen. **The word `pool` is reserved for shifts from here on.**
+5. *"new named set"* — **a pool is its own named set, NOT the existing `family`.** Families were
+   considered: shifts already carry one (§94's named order) and D/D10 would likely share one, so it
+   was free. Rejected because a family would total EVERY shift in it whether the owner wants that
+   or not, while a named set gives exact control and lets a shift belong to more than one pool.
+   The cost is setup, and he accepted it.
+
+**SCOPE — "ok to go with 5" IS APPROVAL OF THE POOL FEATURE, NOT OF STAGE 5.** The question of
+whether this should BE the Stage 5 slice (in place of Minimum rest) was asked and not answered, so
+the §90 hold on Stage 5 STANDS. This is built as demand/coverage work under §90. It will very
+likely become the foundation the rules engine reuses — a rule that targets a SET and is evaluated
+PER DAY is exactly Stage 5's shape — but the engine, the Rules page, the conflict report and the
+warn-and-override path are NOT authorised here. **If this build starts growing into them, stop and
+ask.**
+
+**TWO FURTHER RULINGS, 25 Aug, on the design put to him:**
+
+6. **AUTO-POPULATE SATISFIES THE PER-SHIFT MINIMUMS ONLY — it does NOT try to reach a pool's
+   total.** Owner: *"good for initial build."* So with D and D10 each min 2 and a pool total of 8,
+   auto-populate places 4 and leaves 4 unplaced. **That is correct, not a shortfall:** the system
+   guarantees the floor and the owner allocates the flex, because the split between D and D10 is a
+   per-day judgement. **Note his words — "for initial build."** He has NOT ruled that it should
+   stay this way forever; an option to have auto-populate distribute the remainder is a legitimate
+   later request, and is a different build.
+7. **A POOL OVER OR UNDER ITS TOTAL IS AN INDICATOR, NEVER A REFUSAL** (owner: *"agree"*), the
+   same as ruling 2. It shows; it does not block.
+
+**THE `capacity` TRAP, to be settled by the design and not rediscovered.** A per-shift `capacity`
+field already exists and its own tooltip reads *"How many people can hold this shift on the same
+day"* — a maximum in everything but use (today it is read only as the auto-populate fallback when
+no demand rule exists anywhere). Leaving it beside a new per-shift max would put TWO fields in the
+page meaning the most people a shift can take, which is the build-78 defect shape exactly: two
+holders of one definition, drifting. The design must say which one survives.

@@ -7,9 +7,13 @@ own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §9
 outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
 GROUP). STAGE 5, THE RULES ENGINE, IS THE ONLY THING LEFT — AND THE OWNER PUT IT ON HOLD ON
 25 Aug: *"hold for now."* DO NOT START IT. His plan for it is parked verbatim in `TODO.md` §1 so it
-need not be re-derived. SO THERE IS NO BUILD WORK QUEUED, ON EITHER SITE. What advances the project
-now is the owner driving 84–93 himself — which is §90's own reasoning: the defects that matter
-cannot be known until someone uses the features.
+need not be re-derived. **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
+the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
+predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
+the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
+per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
+
+**FILED, NOT YET PUSHED: schedule admin 94** — the modal can no longer be taller than the window.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
@@ -52,8 +56,9 @@ convenience**, and **the only honest answer to "is it live" describes the code p
 actually takes.** Fixed in 304; the full account is in `_archive/anesthesia/superseded-docs/HANDOFF-archived-2026-08-25.md` (24 Aug CLOSE), archived under §101.
 
 **NOTHING IN THE REPOS IS OUTSTANDING.** What is left is the owner's own, and cannot be delegated:
-· ⭐ **real-bidder sign-ins** (his item, *"will do this week"*) — the old **"16 of 37"** figure
-predates the roster update to **35** (*"35 is correct"*) and must be RECOUNTED before it is quoted
+· ⭐ **real-bidder sign-ins — SCHEDULED THURSDAY 27 AUG 2026**, inside another test (owner,
+25 Aug). The old **"16 of 37"** figure predates the roster update to **35** and must be RECOUNTED,
+not repeated. **The success test is NOT "signed in" — see `TODO.md` §1**
 · **launch** — and **outbid-alert and welcome e-mails are BOTH still switched OFF**
 · **M-4's data half** — Users page: **clear the address FIRST, then re-save**; re-saving alone
 short-circuits to "no change" and writes nothing.
@@ -267,9 +272,8 @@ phase in flight) before doing anything.
 > bare word "winner" (§81), and a thin commit subject is acceptable because the BUILD-LOG row is
 > the real summary (§83).
 >
-> **⭐ THE OWNER'S OWN TOP ITEM, unchanged and still undone: real-bidder sign-ins** (16 of 37 have
-> never signed in). App Check is ENFORCED and has been tested by nobody but him. No audit can do
-> this, and the window closes at go-live.
+> **⭐ THE OWNER'S OWN TOP ITEM: real-bidder sign-ins.** *(Superseded 25 Aug — it is SCHEDULED for
+> Thursday 27 Aug 2026, and the count that stood here was stale. One copy only, in `TODO.md` §1.)*
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
@@ -301,9 +305,8 @@ phase in flight) before doing anything.
 > were dropped outright as incapable of troubling the live auction. The next audit is to look
 > ONLY for auction-derailing events that could cause real and genuine harm.
 >
-> **⭐ THE OWNER'S OWN TOP ITEM, unchanged: real-bidder sign-ins** (16 of 37 never signed in).
-> App Check is enforced and has never been tested by anyone but him. No audit can do this, and
-> the window closes at go-live.
+> **⭐ THE OWNER'S OWN TOP ITEM: real-bidder sign-ins.** *(Superseded 25 Aug — scheduled for
+> Thursday 27 Aug 2026. One copy only, in `TODO.md` §1.)*
 >
 > **Reality check for a fresh session.** The pattern held again: the owner found, in one
 > sentence, the mirror image of the CRITICAL the agents found — the same machinery that could
