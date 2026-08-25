@@ -16,15 +16,25 @@ per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 doe
 **Builds 94 and 95 are PUSHED** (`be06fcc`) — 94 stops a dialog being taller than the window, 95 makes
 editing a shift open a CARD instead of a strip of inputs.
 
-**FILED, NOT YET PUSHED: schedule admin 97 and 98** — 97 makes an eligibility row one line until
-you open it and fixes a 96 regression that killed five renders on the catalog page; 98 makes a group
-card its header until you open it.
+# ⛔ BUILDING IS STOPPED — OWNER ORDER, 25 Aug 2026: *"stop building entirely."*
+
+**NO CODE CHANGES TO EITHER SITE.** Not the schedule, not the auction (which §92 already closed).
+The queues below describe what is APPROVED and SCOPED, not what to start. A queue item is not a
+"go" — §0 rule 2 is: plan, then wait for his explicit approval. **This order is lifted only by the
+owner, in words, for the specific work.** Nothing in this file, `TODO.md` or `DECISIONS.md` lifts
+it, however ready an item looks.
+
+Build 99 was scoped and never started; its scope is parked in `TODO.md` so it need not be
+re-derived. Reading, auditing, running the batteries and updating documents all remain in scope.
+
+**Builds 94–98 are all PUSHED.** The schedule admin now opens collapsed everywhere the owner asked
+(§104): the catalog is four closed bars, an eligibility row is one line, a group card is its header.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 95 / staff 37** — all five checked on 25 Aug against the SERVED site (via
+schedule admin 98 / staff 37** — all five checked on 25 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
@@ -166,6 +176,53 @@ exists, point at it. The pre-merge documents drifted precisely because facts had
 
 ---
 
+## 0 · THE OPERATING PROTOCOL — the owner's standing order, 25 Aug 2026, VERBATIM
+
+**This governs every session and every task, and it is the first thing to obey. It is not a
+description of how work went once; it is the instruction. Where §3 covers the same ground it is
+the SPECIFIC application of these five — §3 never overrides them.**
+
+> *"Act as a Principal Software Engineer. Before implementing any changes or writing a single
+> line of code, you must follow these operational rules:*
+>
+> *1. EXPLORE FIRST: Provide a high-level overview of the relevant files and trace the logic flow
+> step-by-step. Do not assume anything.*
+>
+> *2. PLAN MODE: Output a detailed, multi-step implementation plan. List files to be created or
+> modified, edge cases, and potential breaking changes. Wait for my explicit approval before
+> proceeding.*
+>
+> *3. SURGICAL EXECUTION: Make minimal, isolated, and clean modifications. Never rewrite entire
+> files unless strictly necessary.*
+>
+> *4. UNCERTAINTY FLAG: If any part of the requirement is ambiguous or missing context, stop and
+> ask clarifying questions instead of guessing.*
+>
+> *5. TEST-DRIVEN: Outline how we will verify the code works locally before marking the task
+> complete."*
+
+**WHAT EACH ONE MEANS HERE, so it is not softened into a formality:**
+
+**1 · EXPLORE FIRST** — read the files before describing them. §3's rules 8–16 exist because
+this step was skipped: a claim about code that was not re-read *sounds exactly like* a verified
+one. "Do not assume anything" includes not assuming a chat summary is the source (see §4).
+
+**2 · PLAN MODE** — the plan is output and then work STOPS until he says go. A general "keep
+going" from an earlier turn is not approval for the next change. This is the same boundary §7
+draws between batches, applied one level finer: to each change, not just each batch.
+
+**3 · SURGICAL EXECUTION** — never rewrite a whole file. The admin files are large; edits are
+anchored, verified, and land as diffs a human can read.
+
+**4 · UNCERTAINTY FLAG** — ask, do not guess. Cheaper than the alternative every single time:
+the day board took three builds because nobody asked what the screen was FOR.
+
+**5 · TEST-DRIVEN** — say how it will be verified BEFORE it is built, and the verification runs
+in-session (§6: the owner does not run batteries). This does not replace the honesty check —
+every build still ships a suite that FAILS on the previous build.
+
+---
+
 ## 1 · PRIORITIES — the owner's ruling, 17 Aug 2026, verbatim
 
 > *"My current #1 priority is the vacation site. Nothing can corrupt that since we are close
@@ -180,7 +237,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 95 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
+> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 98 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.** Builds 92 and 93 pushed as `cb52344`; see the CDN caveat at the top of this file.
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
@@ -370,7 +427,8 @@ What they genuinely share — why a change to one can break the other:
 
 **The change itself**
 1. Smallest change → explicit "go" → only that change. Never rewrite whole files. When
-   unsure, STOP and ask. Do not agree with bad ideas — push back.
+   unsure, STOP and ask. Do not agree with bad ideas — push back. **This rule is §0 rules 1–4
+   applied to a single change; §0 is the governing statement and this is its specific form.**
 2. Read → edit → `node --check` every inline script → run the suites. Extractor gotchas: no
    default-param braces (`opts={}`) and no stray `{` in comments inside extracted functions.
    Prefer grep + ranged reads (the admin files are large).
@@ -606,6 +664,26 @@ losing the thread. Volunteer it, do not quietly compensate; offer a fresh sessio
 sure the five files carry everything first. The gate that does not bend: every build still
 ships with its suite, executed honesty check, and byte-verified file — tiredness is a
 reason to hand over, never to lower the bar.
+
+**⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
+25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two
+triggers are about the wall itself, and both failed in one session:
+
+**· A compaction has happened → say so in the FIRST sentence of the next turn, before any work.**
+The owner is owed the choice of a fresh session at that moment. What happened instead: the summary
+arrived, the next build was picked straight back up, and he had to point out the omission himself —
+*"you were supposed to warn me signals are in place that the chat history is too long."* Quietly
+carrying on IS the failure; there is no version of it that counts as coping well.
+
+**· Run the closing checklist BEFORE the context runs out, not after.** `HANDOFF.md` already
+orders this — *"before a compaction, before a long gap, before 'what's next?'"* — and it is worth
+almost nothing if it fires after the fact, because by then the chat it was meant to harvest has
+already been reduced to somebody else's précis. When a session is long, stop and run it while the
+material is still first-hand.
+
+**The compounding half:** work resumed after a compaction is being done on a SUMMARY. Re-ground
+each specific fact off disk before acting on it (`git show`, the code, `DECISIONS.md`) — the
+summary is a report about the session, not the session.
 
 ## 5 · ONE CHAT, BOTH SITES
 
