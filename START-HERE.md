@@ -8,7 +8,7 @@ with §98 retiring the tick grid outright. **Stage 5, the rules engine, is what 
 The dates in this file crossed midnight during the 24–25 Aug session; the freshness gate caught it.**
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 90 / staff 37.** Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
+schedule admin 91 / staff 37.** Disk agrees, and `firestore.rules` is PUBLISHED to BOTH consoles
 (§100) with its repo copy now committed. **RA-2 executed it: 66/66 on the live rules, and 10 of 10
 new-gate assertions FAILED on the old ones** — the owner ran it, which is how that battery works
 (§6). All four repos clean and in sync with origin, no
@@ -159,7 +159,7 @@ phase in flight) before doing anything.
 
 > 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
 >
-> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 90 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
+> **LIVE NOW (25 Aug): auction staff 164 / admin 304 / mobile 18 · schedule admin 91 / staff 37.** **All four repos clean and in sync. NOTHING is pending a push.**
 > *(The "staff 162 / admin 299" that stood here was the 22 Aug state — five builds ago. If any
 > paragraph below still quotes 299 or 162 as current, it is history; the line above is the state.)*
 > Verify before believing: `versions.json`, cache-busted, TWICE — on 21 Aug a first fetch returned
