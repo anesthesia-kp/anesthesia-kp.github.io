@@ -2945,150 +2945,64 @@ whose every click threw. All three passed their suites. The common thread is a g
 the thing the author was thinking about and nothing around it.
 
 
-## §106 — THE FOUR GOVERNING FILES ARE THE PRODUCT, AND CONTEXT IS A MEASURED BUDGET — 25 Aug 2026
+## §106 — THE FOUR GOVERNING FILES, AND WHO JUDGES CONTEXT — 25 Aug 2026
 
-**Owner, verbatim, in full:**
+**Owner, verbatim:** *"The files that drive all my work are my decisions, todo, handoff, and
+starthere. My primary goal right now is to ensure those are continuously in the best shape
+possible because everything stems from them. I don't want completed work or archived work to get
+in the way, so part of the process must be self cleaning those files… I also want all sessions to
+be better aware of the context history getting too long… I want there to be a defined closing
+process for each session that ensures a complete handoff for the new session without loss of
+information."*
 
-> *"I also want to use this session for a serious housekeeping session. The files that drive all
-> my work are my decisions, todo, handoff, and starthere. My primary goal right now is to ensure
-> those are continuously in the best shape possible because everything stems from them. I don't
-> want completed work or archived work to get in the way, so part of the process must be self
-> cleaning those files. I also want all sessions to be better aware of the context history
-> getting too long. My goal is to avoid 100% of conversation compactions. Before starting any
-> build, there must be a check to confirm there is an allowable amount of context rot to get the
-> build done. Notify me if you don't pass that test and then recommend updating the above files
-> for a new session. I want there to be a defined closing process for each session that ensures
-> a complete handoff for the new session without loss of information."*
+**THE RULE, in four lines.** It got long before it got short; see the withdrawn drafts at the end.
 
-**FOUR STANDING REQUIREMENTS. They rank above feature work, because every session's quality is
-downstream of them.**
+**① THE FOUR FILES STAY LEAN, CONTINUOUSLY.** Shipped work leaves `TODO.md` as its `BUILD-LOG.md`
+row is written; an entry leaves `HANDOFF.md` when a fresh session would no longer do anything
+wrong without it; `START-HERE.md` is the file he PASTES, so every line in it is a tax on every
+session forever. Procedure and tripwires: `HANDOFF.md`, the MAINTAINING section.
+**`DECISIONS.md` is exempt — a register only grows.**
 
-**1 · THE FOUR FILES ARE MAINTAINED CONTINUOUSLY, NOT PERIODICALLY.** `START-HERE.md`,
-`TODO.md`, `HANDOFF.md`, `DECISIONS.md`. Completed and archived work must not get in the way of
-what is live. The machinery already exists — `HANDOFF.md`'s MAINTAINING section (rules 1-3) and
-`TODO.md` §1's standing rule — and it is hereby extended to `START-HERE.md`, which had no size
-discipline of its own and is **the one file he pastes into every session**.
+**② HE JUDGES CONTEXT. CLAUDE REPORTS THE READING.** *"I can usually tell when there is rot."*
+He can, and this session proved it: **every threshold Claude invented was wrong, and every one of
+his three corrections was right.** So there is NO threshold, no traffic light, no gate. At a
+build boundary Claude states the reading and that the window is uncalibrated. He calls it.
 
-**2 · A PRE-BUILD CONTEXT GATE.** Before starting any build, confirm there is enough context
-left to FINISH it — the build, its suite, its honesty check, the paperwork and the close. If the
-gate fails: **tell him, do not start, and recommend a fresh session** with the four files brought
-up to date first. Not starting is the cheap outcome; a build abandoned at 90% is not.
+**③ THE ONE THING HE CANNOT SEE, CLAUDE VOLUNTEERS.** His test is the output, and the prose stays
+fluent long after the reliability goes — §4's oldest warning is that a claim about code that was
+not re-read sounds exactly as confident as a verified one. So the BEHAVIOURAL tells get reported
+the moment they appear, whatever the reading says: asserting without re-reading, re-deriving
+something already settled, losing the thread. **And a compaction is announced in the first
+sentence of the next turn.**
 
-**3 · THE GOAL IS ZERO UNPLANNED COMPACTIONS** (his words were "zero compactions"; refined the
-same day when he asked whether that was too strict — it is, as an absolute, and the distinction
-is what makes the rule workable). **A compaction is only harmful when it arrives mid-flight**,
-because it converts the chat into a précis while work depends on it. A session CLOSED at the set
-points loses nothing: the checklist has already put everything on disk, so the next session reads
-files rather than a summary. **So the rule is not "never compact" — it is "never be compacted by
-surprise."** Not "handle compactions well" — avoid the unplanned kind entirely. A
-compaction converts the session into somebody's précis and every fact then has to be re-grounded
-off disk (25 Aug proved it: the summary was right about intent and wrong about state).
+**④ SUBAGENTS READ, THE SESSION DECIDES.** A subagent has its own context window, so reading is
+nearly free and only judgement is expensive — a million-token audit is forty windows, never one.
+Delegate surveying, locating, counting. **Never delegate the edit, or any claim acted on as
+fact** — a subagent's report is a précis, the same second-hand thing a compaction summary is, so
+it is a POINTER TO VERIFY. The session re-reads those exact lines off disk before touching them.
+**The four governing files are never edited by a subagent.**
 
-**4 · A DEFINED CLOSING PROCESS.** The checklist at the top of `HANDOFF.md` is that process and
-stays. What §106 adds: it must be reached **deliberately, with context to spare**, and it must
-leave a fresh session able to continue with **no information lost**.
+**AND THE REAL DEFENCE IS NONE OF THE ABOVE: it is filing as you go**, which was always the rule.
+A ruling reaches `DECISIONS.md` in the turn it is said. If that holds, a compaction costs almost
+nothing, because the next session reads files rather than a précis. The 25 Aug compaction hurt
+because state was live in the chat — not because a number was exceeded.
 
-### THE GAUGE — measured this session, so the gate is a NUMBER and not a feeling
+### THE GAUGE — a number, for reporting, not for blocking
 
-**A session can read its own context size exactly.** In the cloud container the live transcript
-is `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl`, and every assistant entry
-carries a `usage` block. The last entry's
-**`input_tokens` + `cache_creation_input_tokens` + `cache_read_input_tokens` IS the current
-context**, to the token. Auto-compaction fires at **`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=80`** — 80%
-of the window.
+Cloud container only: the last `usage` block in
+`/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
+**`input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context**, to the
+token. Auto-compaction fires at **`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=80`** — 80% of a window whose
+size the environment does not expose. **Measured floor: the window is above 288,000** (230,540 ÷
+0.80, at the end of a session that did a full re-grounding, six document edits, an archive pass
+and three subagent surveys with no compaction). The true figure is settled the first time a
+compaction is observed — that reading ÷ 0.80 — and not before. **On the device VM the gauge is
+unreadable: say UNKNOWN, never assume room.**
 
-**Measured 25 Aug, this session: 138,070 tokens.** The window size is NOT exposed anywhere in the
-environment; on the standard 200k window the trip point is 160,000, which puts that reading at
-**86% of the way to a compaction** — after re-grounding, one small doc edit and no build at all.
-**That single number is the finding: this project's re-grounding ritual alone spends most of a
-session's budget, which is exactly why the four files must stay lean.**
+### WITHDRAWN, KEPT SO NOBODY RE-DERIVES THEM
 
-⚠️ **THE 200k ASSUMPTION IS ALREADY FALSIFIED — measured 25 Aug, same session: the reading
-reached 167,243 with NO compaction.** The window is therefore larger than 200k, the 160,000 trip
-point is wrong, and every number in the table above is a placeholder that is too tight rather
-than too loose. **The shape of the rule stands; the numbers do not.** First job of the calibration
-work: find the real window (the reading immediately before an observed compaction ÷ 0.80), then
-re-express the set points as PERCENTAGES of it — 40% start, 55% amber, 65% close, 70% hard stop —
-so they never need re-deriving again. **Until then, report the raw reading and say the threshold
-is uncalibrated.** This is also the gate proving its own worth: an unmeasured assumption stated
-as a number lasted less than an hour.
-
-**CALIBRATE IT, DO NOT ASSUME IT.** The window is confirmed the first time a compaction is
-observed: the reading immediately before it, divided by 0.80, IS the window. Until then 200k is
-an assumption and must be labelled one.
-
-**These numbers are unavailable on the device VM** — the transcript lives in the CLOUD container
-only (the three-filesystems trap again). A session working only over the bridge cannot read its
-own gauge and must say so rather than guess.
-
-### THE SET POINTS — ruled 25 Aug 2026, then CORRECTED BY THE OWNER THE SAME HOUR
-
-**The first version of this table gave absolute numbers — 80k start, 110k close, 130k hard stop.
-THE OWNER OVERRULED THEM AND WAS RIGHT.** His argument, and it is better than the one it replaced:
-*"I think we are still being too strict. I've had successful sessions with longer start files and
-multiple builds."* Two things killed the placeholders inside an hour: **his lived experience**,
-and **a reading of 167,243 with no compaction** — proof the 200k window they were derived from
-does not exist. Numbers invented from an unverified assumption are not caution, they are noise
-wearing caution's clothes, and they would have stopped work that has demonstrably been fine.
-
-**CORRECTED A SECOND TIME, SAME SESSION.** The percentages that replaced the absolute numbers
-were pinned to a window nobody had measured — a guess in a different costume. His reading of it:
-*"I still think this session feels fresh. We are probably being too limiting still."* He was
-right twice in one hour, and the reason is worth writing down: **each version of this rule
-invented a limit and then defended it, when the only honest position was that the limit is
-unknown.**
-
-### WHAT THE RULE IS NOW — three parts, and only one of them is a number
-
-**① THE REAL DEFENCE IS NOT THE GATE, IT IS CONTINUOUS FILING — and it was already the rule.**
-A ruling goes to `DECISIONS.md` in the turn it is said; shipped work leaves `TODO.md` as its
-`BUILD-LOG.md` row is written. **If that discipline holds, a compaction costs almost nothing** —
-everything the session knows is already on disk, and the next session reads files rather than a
-précis. The 25 Aug compaction hurt because state was live in the chat, not because a number was
-exceeded. **A gate is the backstop for a discipline failure; it is not the defence.**
-
-**② REPORT, DO NOT BLOCK.** State the reading at each build boundary and say the window is
-uncalibrated. The owner calls it. A threshold nobody has verified must never stop work he has
-done successfully many times.
-
-**③ THE ONE NUMBER: the high-water floor, which only ever rises.** Every session records its
-highest reading here. **Known floor: the window is above 251,000** (201,050 ÷ 0.80, measured
-25 Aug at the end of a session that did a full re-grounding, six document edits, an archive pass
-and two subagent surveys, with no compaction). The true figure is settled the first time a
-compaction is actually observed — that reading ÷ 0.80 — and not before.
-
-⚠️ **AND THE ONE THING HIS TEST CANNOT SEE.** "Feels fresh" is judged on the prose, and the prose
-stays fluent long after the reliability goes. §4's oldest warning is exactly this: **a claim about
-code that was not re-read sounds precisely as confident as a verified one.** This session
-produced a live example — a trip point of 160,000 stated as a fact, derived from an assumption,
-falsified within the hour. So the tells that matter are behavioural, not stylistic: asserting
-without re-reading, re-deriving something already settled, losing the thread. **Those are
-reported the moment they appear, whatever the reading says.**
-
-**THE STRUCTURAL FIX, and it is bigger than trimming: SUBAGENTS READ, THE SESSION DECIDES.**
-A subagent has its own context window. A pass that must read all four files whole — an archive
-sweep, an audit, a survey — is delegated, and only its CONCLUSION comes back into the session.
-Reading a 1,600-line file to decide what to cut should never again be paid for out of the
-context that has to survive the rest of the day.
-
-**BUT IT IS NOT AN "ALWAYS", AND THE REASON IS A RULE THIS PROJECT ALREADY PAID FOR.**
-**A subagent's report is a PRÉCIS — the same second-hand thing a compaction summary is**, and it
-fails the same way: accurate about intent, unreliable about state (25 Aug). Delegating does not
-make a summary trustworthy; it just makes it cheaper.
-
-**SO THE SPLIT IS BY TASK, not by size:**
-· **DELEGATE** surveying, locating, counting, auditing, "which of these 40 sections are shipped" —
-  work whose answer is a LIST and whose value survives being summarised. Require line numbers and
-  a verdict per item, and CAP the report (a subagent returning 600 lines has moved the problem,
-  not solved it).
-· **NEVER DELEGATE** the edit itself, or any claim the session will act on as fact. The session
-  re-reads those exact lines off disk and edits them (§0 rule 3, §3 rule 15). A subagent's
-  finding is a POINTER to verify, never a substitute for reading.
-· **The governing files are never edited by a subagent.** Everything stems from them; unreviewed
-  changes there are the one failure with no cheap recovery.
-
-**What it actually buys: VOLUME, not fidelity.** It keeps the session's context small enough to
-still be sharp at the close. It does nothing about the risk of acting on something nobody read.
-
-**Design of the gate itself is NOT ruled here.** It was scoped under a total build freeze and is
-in `TODO.md` §1 awaiting his approval.
+Two drafts died the same day. **Absolute tokens** (80k start / 130k stop) — overruled: *"I think
+we are still being too strict. I've had successful sessions with longer start files and multiple
+builds."* **Percentages of the window** (55/70/75) — overruled: *"I still think this session feels
+fresh."* Both were limits invented from an unmeasured assumption and then defended.
+**The lesson is the one that generalises: state the measurement, not a verdict dressed as one.**

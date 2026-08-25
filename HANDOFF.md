@@ -175,44 +175,6 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 ---
 
 
-## 25 Aug 2026 (LATE) — THE COMPACTION THAT WAS NOT ANNOUNCED. Two rules, both already written.
-
-**No code shipped. This entry exists because the failure was procedural, and the procedure was
-already on paper — which makes it the more useful kind of lesson.**
-
-**WHAT HAPPENED.** The session hit the context wall and auto-compacted. The next turn opened by
-picking build 99 straight back up off the summary. The owner caught it: *"you were supposed to
-warn me signals are in place that the chat history is too long, you made a mistake that is in the
-handoff to explicitly follow."* He then stopped building entirely.
-
-**THE TWO RULES BROKEN, both quoted from the files that were open:**
-
-**1 · `START-HERE.md` §4** — *"⚠️ SAY SO WHEN CONTEXT IS DEGRADING… Volunteer it, do not quietly
-compensate; offer a fresh session."* A compaction is not a subtle tell; it is the wall itself.
-§4 has been amended with the two triggers this exposed.
-
-**2 · This file, step 0's preamble** — *"Run it at every handoff point, not only at the end —
-**before a compaction**, before a long gap."* The checklist fired after the fact, which is close
-to worthless: by then the chat it exists to harvest has already been reduced to a précis.
-
-**THE THIRD FAILURE, and the one that would have done real damage.** Step 1 of this checklist
-says *"after a compaction, treat the summary as second-hand."* Build 99 was resumed on the
-summary's word. When the files were finally read off disk, two of its claims did not survive:
-the cloud clone was a commit behind and carried a §105 that was already in `origin`, and the
-`START-HERE` LIVE-line update the summary reported as done was sitting UNCOMMITTED on the
-owner's device — true on disk, absent from `origin/main`. **Neither was a disaster, and that is
-the point: the summary was accurate about intent and wrong about state, which is exactly the
-failure mode that is invisible until something is built on top of it.**
-
-**WHAT IT COST, honestly:** nothing on disk. Build 99 never wrote a byte. The cost was the
-owner's attention — he had to enforce a rule that was written down precisely so he would not
-have to. **That is the expensive part, and it does not show up in a diff.**
-
-**THE STANDING ORDER THAT CAME OUT OF IT** is now `START-HERE.md` §0 — his five operational
-rules, verbatim, at the very top of the file that gets pasted: explore before claiming, plan and
-WAIT for approval, surgical edits, flag uncertainty instead of guessing, state the verification
-before building. §0 outranks the rest of that file.
-
 ---
 
 ## 25 Aug 2026 (ARCHIVE PASS) — the tripwire pass ran, and a gate that had been lying for a week
@@ -243,82 +205,12 @@ branch, and did the exact reverse on the git branch — which is the bug, stated
 is** — people stop reading both. Worth remembering the next time a green tick is the thing being
 checked.
 
-**THE ARCHIVE PASS.** Ordered by `TODO.md` §1, owner-approved, taken in a fresh session that had
-done nothing else, as the instruction required. `TODO.md` **2,794 → 1,301 lines** (~51k → ~23k
-tokens), clearing its own 2,000-line tripwire; `HANDOFF.md` 2,766 → 2,562; `DECISIONS.md`
-untouched, because a register only ever grows. Thirty whole sections and thirteen partial regions
-moved, all to `_archive/anesthesia/superseded-docs/`, dated and greppable. Nothing deleted.
 
-**One test decided every move: was it SHIPPED, with its real record already in a `BUILD-LOG.md` or
-in `DECISIONS.md`?** Where a section mixed shipped and outstanding, only the shipped half moved
-and the reason is recorded beside it in the archive. Rule ④ was applied as written — V6, C6, C8,
-the `phases` growth watch, the whole LAUNCH CHECKLIST, the four ACCEPTED-for-launch residuals, the
-declined items and every standing rule all stayed.
 
-**The clearest evidence the pass was overdue was the headings, not the length.** One still read
-*"THREE THINGS NEED A RULING"* above text saying all three were done. One still called builds
-88–89 *"filed and awaiting a push"* weeks after they shipped. One still said the repo copy of
-`firestore.rules` was uncommitted and RA-2 unrun — both of which the owner had since done himself.
-§3's state line still read *admin 76 / staff 36*, seventeen builds out of date, and PART B of this
-file still read *269 / 139 / 17*, thirty-five. Those were corrected in place, not archived.
 
-**Cross-references were re-pointed BEFORE the move**, in `TODO.md`, `HANDOFF.md`, `DECISIONS.md`
-and `START-HERE.md`. **One was left dangling on purpose:** the build-270 row of
-`vacation-kp.github.io/BUILD-LOG.md` still says `TODO §1 B2`. That file is in the auction repo and
-**§92 closes it without a specific decision** — a cosmetic pointer in a log is not a reason to
-open a closed repo. It is recorded in `TODO.md` §1 for whenever an auction change is authorised.
 
-**THE 14-DAY RULE WILL NOT SHRINK THIS FILE, and that is arithmetic.** *(SUPERSEDED the same
-day: the owner replaced the age test with a relevance test — DECISIONS §101, and rule 2 of the
-MAINTAINING section above. The paragraph is kept because it is the evidence that produced the
-ruling.)* `HANDOFF.md` lost only four
-sections because everything else in it is from 16–25 Aug. At roughly 200–400 lines per session,
-fourteen days of sessions is about 2,500 lines — which is where the file already sits. The age
-rule will hold it at about this size forever; it will not reduce it. If that matters, the fix is a
-LINE tripwire like `TODO.md`'s — but that changes the owner's own standing rule and nobody should
-make that change unasked.
 
-**Also settled this session, and both belong to §4:**
-· **The live check CAN be run from a cloud session — use `WebFetch`, not `curl`.** Neither sandbox
-  has egress to `*.github.io` (HTTP 000), which is why a previous session wrote "could not be run
-  from here" into `START-HERE.md`. `WebFetch` proxies through Anthropic and reaches the served site.
-  All five build numbers were confirmed against the CDN, twice, with different cache-busters, and
-  that caveat block is now deleted. **Schedule admin 93 is live, not merely pushed.**
-· **`git fetch` over the bridge strands `objects/maintenance.lock` in every repo it touches** — git
-  makes the lock and cannot unlink it, warning in a line that is easy to read past. Three were
-  stranded and moved to `_to_delete/`. Check for locks AFTER fetching, not only before.
-· **`tests` cannot be fetched over the bridge at all** — it is the one private repo, the remote is
-  HTTPS and the device VM has no credentials. Step 0 of the checklist below structurally cannot
-  complete for it; judge it from `git log` and disk, and say so.
 
-**THEN THE OWNER REPLACED THE RULE, AND THE SECOND PASS IS THE ONE THAT BIT.** §101: *"14 days
-doesn't seem reasonable. i want to remove items no longer needed rather than remove by time."*
-Under the relevance test — **if a fresh session never read this entry, would it do anything
-wrong?** — this file went **2,766 → 590 lines** (~45k → ~9k tokens). Fifty sections moved. The
-2,000-line tripwire that governs it is now cleared with room rather than permanently straddled.
-
-**Nothing moved until its lesson had been promoted, which is §101's own habit and turned out to
-be the substance of the work rather than a formality.** Sixteen promotions: nine working rules
-into `START-HERE.md` §3, four operational notes into §6, a rules-cost note into §2, the
-`requiredBuilds` key-namespace trap into this file's PART C (reference, never archived), and §101
-itself into `DECISIONS.md`. **`START-HERE.md` therefore GREW, 603 → 713 lines** — which is the
-trade the ruling is for: roughly 9k tokens of narrative became 2k tokens of rule, in the one
-document that actually gets pasted into a fresh session. A lesson sitting in a session write-up
-nobody opens is not filed; it is stored.
-
-**The rules that came out of the narrative, so their value is visible rather than asserted:**
-gates lie in BOTH directions and the false-alarm half is what gets them ignored · ask of any build
-that adds a control *what would still pass if the whole page were inert* · test the code, not the
-prose, and an assertion that cannot fail is a false one · read an exit code directly, never
-through a pipe · when a suite must be edited to pass, name which you are changing — what is TRUE
-or what is ASSERTED · the pasted governing document is a snapshot, the disk copy is the document ·
-a concession is worth no more than the claim it replaced · write patches that refuse to apply
-twice · assert the invariant, not a count or a quoted string.
-
-**What deliberately stayed:** the checklist above, the MAINTAINING section, PART A–D headers,
-ARCHITECTURE, DEPLOY FLOW, PART B's pending BACKLOG and its known-accepted list, PART C's traps,
-the design-artefacts table, PART D's rescued records — and, lifted out of the RA-3 narrative
-rather than archived with it, the still-open button-sweep item and RA-3's do-not-quote notes.
 
 > ⚠️ **AND THE PASS CAUGHT ITSELF IN A LIE, which is worth more than the tidying.** Three bullets
 > were cut in place and replaced with a note reading *"archived with the narrative"* — they were

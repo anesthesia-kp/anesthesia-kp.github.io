@@ -43,28 +43,17 @@ RUN; on the Mac 21 of them SKIP, which is a coverage hole and not a pass).
 
 
 
-**⚠️ READ THIS BEFORE TRUSTING ANY "IT SHIPPED" CLAIM.** FAST-1 went out inside admin 303 and was
-**dead on arrival** — inert in 100% of cases — and Claude had already told the owner it was "live"
-because the code was in the pushed bytes. **The bytes being present says nothing about the feature
-being reachable.** The predicate tested `readinessWarnHtml()` for truthiness, and that function
-always returns a non-empty wrapper div, so every decision read as *warned*. **The 52-assertion
-suite passed over it because the stub returned `''` when there was nothing to warn about — more
-convenient than the real function, and wrong in exactly the dimension that mattered.** Two rules
-come out of it, and they are binding: **stub the SHAPE of the real function, never the
-convenience**, and **the only honest answer to "is it live" describes the code path a user's click
-actually takes.** Fixed in 304; the full account is in `_archive/anesthesia/superseded-docs/HANDOFF-archived-2026-08-25.md` (24 Aug CLOSE), archived under §101.
+**⚠️ "THE BYTES ARE PUSHED" IS NOT "IT IS LIVE".** FAST-1 shipped inside admin 303 inert in
+100% of cases, with a green 52-assertion suite over it, and was reported to the owner as live.
+Fixed in 304. Its two rules are §3 rules 9 and 10; the full account is in the §101 archive.
 
 **NOTHING IN THE REPOS IS OUTSTANDING.** What is left is the owner's own, and cannot be delegated:
 · ⭐ **real-bidder sign-ins — SCHEDULED THURSDAY 27 AUG 2026**, inside another test (owner,
 25 Aug). The old **"16 of 37"** figure predates the roster update to **35** and must be RECOUNTED,
 not repeated. **The success test is NOT "signed in" — see `TODO.md` §1**
 · **launch** — and **outbid-alert and welcome e-mails are BOTH still switched OFF**
-· **M-4 is SETTLED by §87 — NO data fix is owed** (he read all four documents on 22 Aug and found
-no capitals). Method only, if one ever appears: Users page, **clear the address FIRST, then
-re-save** — re-saving alone short-circuits to "no change" and writes nothing.
-· ⚠️ **SPACE-PADDING is M-4's one unchecked half and it is INVISIBLE in the console** — a stored
-address with a leading or trailing space is refused by the rules exactly as a capital is.
-**Check it on 27 Aug while the console is already open: `TODO.md` §1.**
+· **M-4 is SETTLED by §87 — no data fix is owed.** Its one unchecked half, SPACE-PADDING, is
+an owner check for 27 Aug: `TODO.md` §1 has the method, and why there is no code fix for it.
 
 **DO NOT PICK THESE UP.** BULK-1 — per-week bulk approve/deny — is **DECLINED** (owner, 24 Aug:
 *"No, I don't want that"*); his *"I want both options"* meant the existing phase-wide bulk plus
@@ -79,10 +68,6 @@ Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the pr
 `tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
 reproduction in these repos — they are PUBLIC (§3).**
 
-
-> ⚠️ **BUMP THAT DATE WHENEVER YOU EDIT THIS FILE, in the same turn.** The owner caught it
-> reading "17 Aug" on 19 Aug after a day of edits. A governing document that misreports its
-> own age is worse than no date at all — a fresh session trusts it.
 
 > 🗂️ **THREE FILESYSTEMS, AND SCREENSHOTS LAND IN THE ONE YOU WOULD NOT GUESS (24 Aug 2026).**
 > This cost the owner twenty minutes of hunting through Finder for files that were never on his
@@ -113,7 +98,7 @@ The five files that govern everything:
 | **this file** | how we work — every binding rule, once |
 | `TODO.md` (this repo) | what is outstanding, both sites — queue at top, STATUS block first |
 | `HANDOFF.md` (this repo) | what happened, in detail, both sites |
-| `DECISIONS.md` (this repo) | what the owner has ruled — **BOTH sites**, despite its legacy title (§1–§63 + the buried-rulings index). **§60 = every ruling of the 19 Aug session verbatim** (his standing instruction: never depend on chat history) · **§61** Firestore pay-as-you-go · **§62** the commit-summary length cap · **§63** the pre-launch security ruling (App Check across all six pages, staged enforcement, privacy after) |
+| `DECISIONS.md` (this repo) | what the owner has ruled — **BOTH sites**, despite its legacy title. §1–§106 plus the buried-rulings index. Never trimmed: a July ruling governs as much as today's |
 | `schedule/BUILD-LOG.md` | what shipped, when, in which commit |
 
 A fact lives in ONE of these. Before writing a rule or status anywhere, grep for it; if it
@@ -342,6 +327,8 @@ What they genuinely share — why a change to one can break the other:
     a false one.** Three assertions in one day failed on perfectly correct pages because a
     tombstone COMMENT named the very thing they forbade; another read `ok(… || true)`. Strip
     comments before any textual assertion, and make the search window reach the line.
+    **And stub the SHAPE of the real function, never the convenience** — FAST-1's suite
+    passed because its stub returned `''` where the real function always returns a wrapper div.
 11. **READ AN EXIT CODE DIRECTLY. NEVER THROUGH A PIPE.** `… | tail` reports tail's status:
     it said 0 for a run that exited 1, twice. Same family: make a MISSING function report a
     legible FAILURE rather than throw — a crash and a real regression look identical from an
@@ -362,6 +349,10 @@ What they genuinely share — why a change to one can break the other:
     build 56, and a design question about open-vs-sealed bidding was already settled by a board
     that paints every bid. **Check, then ask.** Where Claude does change its own position on
     evidence, say so and date it rather than quietly drifting.
+15. **WRITE PATCHES THAT REFUSE TO APPLY TWICE** — assert `count(old)==1` before substituting, so
+    an interrupted bridge call is safe to re-run rather than unknown. Then **md5 both sides after
+    any interruption.** And when shipping whole files instead: **verified base → ship the file;
+    unverified base → ship the patch**, because a patch refuses where a whole file corrupts.
 16. **AN ASSERTION THAT PINS A COUNT OR A QUOTED STRING DECAYS INTO A NO-OP AS THE CODE MOVES.
     Assert the INVARIANT.** `test-crna-stamp` pinned a phrase inside curly quotes that a later
     ruling deleted, so it passed by testing for text that existed nowhere and would have kept
@@ -369,10 +360,6 @@ What they genuinely share — why a change to one can break the other:
     "exactly three" tracked listeners — a form that PASSES when someone adds an untracked one,
     which is the exact leak it exists to prevent. Both were re-anchored and both came out
     STRICTER than what they replaced.
-15. **WRITE PATCHES THAT REFUSE TO APPLY TWICE** — assert `count(old)==1` before substituting, so
-    an interrupted bridge call is safe to re-run rather than unknown. Then **md5 both sides after
-    any interruption.** And when shipping whole files instead: **verified base → ship the file;
-    unverified base → ship the patch**, because a patch refuses where a whole file corrupts.
 
 **The paperwork — at these moments, these files, EVERY time**
 
@@ -531,15 +518,12 @@ sure the five files carry everything first. The gate that does not bend: every b
 ships with its suite, executed honesty check, and byte-verified file — tiredness is a
 reason to hand over, never to lower the bar.
 
-**⚠️ THE CONTEXT SET POINTS ARE NUMBERS NOW — §106. Read the gauge, do not estimate it.**
-Cloud container only: the last `usage` block in
-`/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
-`input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context.
-Auto-compaction fires at **80%** of a window whose size is NOT known (floor: above 251,000).
-**So there is no threshold: REPORT the reading at each build boundary, say it is uncalibrated,
-and let him call it.** Absolute numbers were tried twice and overruled twice — §106.
-**The real defence is filing everything as it is said, not the gauge**; then a compaction costs
-almost nothing. Over the bridge the gauge is unreadable: say UNKNOWN, never assume room. Full table and the reasoning: `DECISIONS.md` §106.
+**⚠️ CONTEXT: REPORT THE READING, NEVER BLOCK ON IT — §106.** The owner judges rot; Claude
+states the number. Cloud only: the last `usage` block in
+`/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl`, summing `input_tokens +
+cache_creation + cache_read`. Compaction fires at 80% of a window that is NOT exposed (floor:
+above 288,000). Over the bridge it is unreadable — say UNKNOWN. **Thresholds were invented twice
+and overruled twice; do not invent a third.**
 
 **⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
 25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two
