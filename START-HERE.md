@@ -13,7 +13,8 @@ predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
 per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
 
-**FILED, NOT YET PUSHED: schedule admin 94** — the modal can no longer be taller than the window.
+**FILED, NOT YET PUSHED: schedule admin 94 and 95** — 94 stops a dialog being taller than the window;
+95 makes editing a shift open a CARD instead of a strip of inputs. Kept as two builds, two blast radii.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**

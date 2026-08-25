@@ -2842,3 +2842,32 @@ day"* — a maximum in everything but use (today it is read only as the auto-pop
 no demand rule exists anywhere). Leaving it beside a new per-shift max would put TWO fields in the
 page meaning the most people a shift can take, which is the build-78 defect shape exactly: two
 holders of one definition, drifting. The design must say which one survives.
+
+---
+
+## §103 — THE WORD IS "STAFFING". "DEMAND" IS RETIRED FROM THE UI — 25 Aug 2026
+
+Owner, 25 Aug: *"I don;t like using the word demand - present new options. maybe rules? maybe
+something else?"* — then, on the options put to him: **"I lik staffing."**
+
+**RULED: the user-facing word is STAFFING.** Section heading *Staffing*; the badge that read
+*no demand* becomes *no staffing set*; the buttons become *Set staffing* / *Edit staffing (n)*;
+an individual line is a *staffing rule*.
+
+**"RULES" WAS HIS OWN FIRST SUGGESTION AND WAS ARGUED AGAINST, WITH REASONS.** Stage 5 IS the
+rules engine, and the auction already has Timer Rules. Putting a third, unrelated meaning on the
+bare word would be §81's *never say "winner" without saying which* for the third time in one week
+— after pool-versus-group (§102) and projected-versus-decided (§81). **The word "rules" stays
+reserved for Stage 5.** *Staffing rule* is fine because it is qualified.
+
+Also considered and rejected: **Coverage** (a page of that name already exists), **Requirements**
+(one letter from *Requests*, which sits beside it in the same nav), **Headcount** (jargon),
+**Needs** (works in a sentence, awkward as a heading).
+
+⚠️ **THE RENAME IS OF WHAT HE SEES, NOT OF WHAT THE CODE CALLS THINGS — and that split is
+deliberate.** `demandOn()`, `demandRules()`, `demandModal` and, above all, the stored Firestore
+field `shifts.<id>.demand` keep their names. Renaming the stored field is a DATA MIGRATION with
+real risk and zero benefit to him; renaming the identifiers is churn across a large file for the
+same nothing. **A future session must not "finish the job" by renaming them** — it would be a
+migration wearing a tidy-up's clothes. If the drift between code and UI ever becomes confusing,
+the fix is a comment at each definition, not a rename.
