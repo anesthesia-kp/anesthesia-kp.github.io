@@ -24,19 +24,21 @@ per-item "go". Every other gate stands. Outside that session it governs every bu
 a queue item is not a "go", and he has never handed over the order of work.
 Reading, auditing and running the batteries were in scope throughout and remain so.
 
-**Builds 94–98 are all PUSHED.** The schedule admin now opens collapsed everywhere the owner asked
+**Builds 94–107 are all PUSHED** — Stage 5's rules frame (105), the *Not more than* cap type
+(106) and printable sheets (107) went live on 26 Aug. The schedule admin now opens collapsed everywhere the owner asked
 (§104): the catalog is four closed bars, an eligibility row is one line, a group card is its header.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 105 · 106 · 107** — Stage 5's rules frame with
-Minimum rest, the *Not more than* cap type, and printable sheets. Plus `build105/106/107-test.mjs`,
-their registration, and six suites whose section-bar selectors were made exact.
+**FILED, NOT YET PUSHED: schedule admin 108 · 109** — overnight call ACROSS YEARS with a sealed
+per-year archive, and his four 26-Aug changes (§113): the dropdown reads as a dropdown, and the
+printable sheet is Shift · Staff · Notes at ¼ · ¼ · ½ with no times and a week as seven daily
+sheets. Plus `build108/109-test.mjs`, their registration, and two suites repointed.
 Delete this line once pushed.
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 104 / staff 37** — all five checked on 26 Aug against the SERVED site (via
+schedule admin 107 / staff 37** — all five checked on 26 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
@@ -343,7 +345,12 @@ What they genuinely share — why a change to one can break the other:
 11. **READ AN EXIT CODE DIRECTLY. NEVER THROUGH A PIPE.** `… | tail` reports tail's status:
     it said 0 for a run that exited 1, twice. Same family: make a MISSING function report a
     legible FAILURE rather than throw — a crash and a real regression look identical from an
-    exit code.
+    exit code. **AND IT IS NOT ONLY FUNCTIONS — this cost two debug cycles on 26 Aug.** The
+    honesty run is where absence lives, so ANYTHING that may be missing on the baseline must be
+    handled: a DOM element (`getElementById(x).classList` on a control the old build never had),
+    and — the one that is easy to miss — **the assertion MESSAGE itself**, where
+    `(probe||[]).map(...)` throws because the probe came back as the string `'__missing__'`
+    rather than an array. Guard the message, not just the condition.
 12. **WHEN A SUITE MUST BE EDITED TO PASS, ask which you are changing: what is TRUE, or what is
     ASSERTED.** That distinction is the whole game. Repoint an assertion whose target moved;
     replace one whose premise the build deliberately changed with an INVARIANCE the previous

@@ -3254,3 +3254,30 @@ not forgotten, and it is the largest single thing left in Stage 5.**
 that lives only in a chat becomes a bug report three weeks later, argued from memory by both
 sides — which §3 rule 14 records as a thing that has already happened here. A disclosed limit is
 only disclosed while it is written down.
+
+## §113 — FOUR CHANGES HE ASKED FOR WHILE 108 WAS BUILDING — 26 Aug 2026
+
+Sent mid-build, verbatim and unedited: **"Add to this build or the next one that the dropdown
+menu control is needs to become more visible. Drop the the times on the printable daily/weekly
+sheets. Have those sheets be 3 columns: shifts, Staff, Notes. Shifts should be 1/4 of the width,
+Staff also 1/4. And notes 1/2."** All four shipped as build 109.
+
+**① "THE DROPDOWN MENU CONTROL" WAS AMBIGUOUS AND WAS RESOLVED BY READING THE CODE, NOT BY
+GUESSING (§3 rule 14: check, then ask).** There is no hamburger or collapsing menu on the page.
+What there is: `.sel` and `.inp` sharing ONE style rule, so all 19 `<select>` controls were
+pixel-identical to text inputs, distinguished only by the platform caret — which is nearly
+invisible at that border weight. That is the one thing on the page matching his words, so that
+is what was changed. **If he meant something else, this is the sentence to correct.**
+
+**② TIMES LEAVE THE PAPER, NOT THE PRODUCT.** Shift times are still edited in the catalog, still
+shown on screen, and still read by the Minimum rest rule type. Only the printed sheet drops them.
+Recorded because "drop the times" could later be misread as a licence to remove the field.
+
+**③ THE COLUMNS ARE HIS, INCLUDING THE WIDTHS: Shift ¼ · Staff ¼ · Notes ½.** Notes is empty by
+design — it is space to write on, which is why it gets half the sheet.
+
+**④ WHAT HE DID NOT SPECIFY, DECIDED AND FLAGGED: what a WEEK looks like now.** A three-column
+sheet cannot also be a seven-column grid, so the weekly option became **seven daily sheets**
+rather than one grid — which is the reading that makes a Notes column mean anything. The page
+break moved onto a per-site wrapper, because breaking per day turns one week into twenty-one
+pages. **His to overturn if he meant the grid to survive.**
