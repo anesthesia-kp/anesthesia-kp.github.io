@@ -1,13 +1,12 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 25 Aug 2026 (STAGE 4) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 26 Aug 2026 (STAGE 5) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
 outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
-GROUP). STAGE 5, THE RULES ENGINE, IS THE ONLY THING LEFT — AND THE OWNER PUT IT ON HOLD ON
-25 Aug: *"hold for now."* DO NOT START IT. His plan for it is parked verbatim in `TODO.md` §1 so it
-need not be re-derived. **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
+GROUP). STAGE 5, THE RULES ENGINE, IS UNHELD AND IN BUILD — owner, 26 Aug: *"Go with stage 5"* (§110).
+His plan for it is in `TODO.md` §1 and is being FOLLOWED, not re-derived. **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
 the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
 predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
@@ -19,8 +18,10 @@ per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 doe
 **THE TOTAL STOP OF 25 Aug IS LIFTED FOR THE SCHEDULE ONLY.** Two things it does NOT touch:
 **⛔ the AUCTION stays closed by §92** — no change to anything `vacation-kp.github.io` serves,
 including `firestore.rules`, without a specific decision from the owner for that change; and
-**§0 rule 2 still governs every build** — a queue item is not a "go". Plan it, show him, WAIT.
-He lifted a total stop; he did not hand over the order of work, and he never has.
+**§0 rule 2 is RELAXED FOR THE 26 Aug SESSION ONLY, at his explicit request** (§110 — *"as
+little prompting from me as possible"*): plans are stated and executed without waiting for a
+per-item "go". Every other gate stands. Outside that session it governs every build again —
+a queue item is not a "go", and he has never handed over the order of work.
 Reading, auditing and running the batteries were in scope throughout and remain so.
 
 **Builds 94–98 are all PUSHED.** The schedule admin now opens collapsed everywhere the owner asked
@@ -29,12 +30,13 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 104** — [103b] the third coverage reading and `max`
-absorbing `capacity`. Plus `build104-test.mjs`, its registration, and four suites repointed.
+**FILED, NOT YET PUSHED: schedule admin 105 · 106 · 107** — Stage 5's rules frame with
+Minimum rest, the *Not more than* cap type, and printable sheets. Plus `build105/106/107-test.mjs`,
+their registration, and six suites whose section-bar selectors were made exact.
 Delete this line once pushed.
 
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 103 / staff 37** — all five checked on 25 Aug against the SERVED site (via
+schedule admin 104 / staff 37** — all five checked on 26 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner

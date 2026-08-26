@@ -3137,3 +3137,120 @@ pretend to solve constraints it cannot. The split proposed to him, and not yet r
 at-min-below-max is acceptable, so coverage needs a third reading · the per-shift range must
 ABSORB the existing `capacity` field rather than sit beside it (§108 ⑤).
 
+## §110 — STAGE 5 IS UNHELD, AND PER-ITEM APPROVAL IS RELAXED FOR ONE SESSION — 26 Aug 2026
+
+Owner, opening the session, verbatim and unedited:
+
+> *"Go with stage 5 and continue as you can with any of the other items that fold into it. I
+> would like to clear this list of outstanding items in this session with as little prompting
+> from me as possible. I am trying to wrap up this first complete build of the schedule site."*
+
+**① THE HOLD ON STAGE 5 IS LIFTED.** His 25 Aug *"hold for now"* is spent. The rules engine is
+in build, following the plan already parked in `TODO.md` §1 — one thin vertical slice, **Minimum
+rest**, end to end — which is not re-derived because he asked for it not to be.
+
+**② §0 RULE 2 IS RELAXED, FOR THIS SESSION ONLY, AND HE IS THE ONE WHO RELAXED IT.** The standing
+order is plan → show → WAIT, per change (§107 ②). *"As little prompting from me as possible"* is
+an explicit instruction to stop waiting, so plans are stated in the chat and executed in the same
+turn. **This does not survive the session.** The next session plans and waits again, and nothing
+here is precedent for assuming a general "go" — that assumption is the exact thing §107 ② was
+written to stop.
+
+**③ WHAT IS NOT RELAXED, AND THIS IS THE HALF THAT MATTERS.** He relaxed the *approval* gate. He
+did not touch a single *quality* gate, and reading it that way would be the worst possible
+misreading of a request to go faster:
+
+· **§92 stands — the auction code stays closed.** He said "schedule site". Nothing in
+  `vacation-kp.github.io` moves, `firestore.rules` included. If schedule work needs a rules
+  change, it stops and he is asked, exactly as before.
+· **Every build still ships a suite that EXECUTES real extracted code, plus an honesty check
+  that FAILS on the previous build** (§3 rule 3), and the new suite is registered in
+  `sched/run-all.mjs` in the same turn it is written.
+· **Every build still ships something that DRIVES it** (§3 rule 9) — a page of controls with a
+  green suite over the top and every click throwing is what build 88 and FAST-1 both did.
+· **Surgical edits only** (§0 rule 3). "Go faster" is not "rewrite the file".
+· **The paperwork still lands in the same turn** — `BUILD-LOG.md` row, `COMMIT-MESSAGE.txt`,
+  the combined `COMMIT-MESSAGES.txt` to outputs, `TODO.md` status.
+
+**④ AND HE STILL GETS ASKED WHEN THE ANSWER IS GENUINELY HIS.** §0 rule 4 is a quality gate, not
+an approval gate. *"As little prompting as possible"* means do not ask what the code or the
+register already answers (§3 rule 14: **check, then ask**) — it does not mean guess at a design
+question he has never ruled on. Those are batched into ONE interruption at the top of the
+session rather than dribbled out one at a time.
+
+**⑤ "THIS FIRST COMPLETE BUILD" NAMES THE FINISH LINE.** The target is the schedule site whole
+enough to be driven end to end, not a longer feature list. Where an item on the wind-down list
+turns out to be bigger than the session, it is reported as unfinished with what is left — never
+half-built and reported as done.
+
+## §111 — RULES CARRY THREE SEVERITIES, AND MONTHLY CAPS ARE A RULE TYPE — 26 Aug 2026
+
+Two questions Stage 5 could not be built without. Both were flagged as must-ask in `TODO.md`
+and in `design/RULES.md`; both are now answered.
+
+**① SEVERITY: THREE LEVELS, AS DESIGNED.** Owner chose *Serious / Warn / Note* over a flat
+single level and over a two-level cut. `design/RULES.md`'s table is therefore the spec and is
+built as written:
+
+| severity | in the report | at the moment of the change |
+|---|---|---|
+| **Serious** | top, red | a confirmation that names the rule and requires a deliberate yes |
+| **Warn** | middle, amber | named in the ordinary confirmation |
+| **Note** | bottom, grey | listed, not raised |
+
+**SEVERITY IS NEVER A VETO, AND THAT IS NOT NEGOTIABLE BY THE SEVERITY FIELD.** §4 governs:
+*"Safety checks warn and let you override. Nothing is hard-blocked."* Serious buys a louder
+confirmation and the top of the report. It does not buy a refusal, and a later build that makes
+Serious block is reversing a ruling, not tightening one.
+
+**The argument for three, which is the reason it was recommended:** the report is the artefact
+people will actually live in, and a report where every row shouts equally is a report you learn
+to scroll past. Severity is what keeps a forty-row month readable. The cost is one dropdown when
+a rule is created.
+
+**② PER-PERSON CAPS ARE IN SCOPE, AS A RULE TYPE.** §21 deferred them — *"NOT wanted yet —
+shift demand only, revisit once the Rules section exists"* — and named this exact moment as
+where to revisit. Owner: build it. It lands as the **Not more than** type — *no more than N of
+tag X per week or per month* — which is where `design/RULES.md` already put it.
+
+**⚠️ IT POINTS AT A TAG, NEVER AT `kind`.** §25 retired `kind:'day'|'call'` as the basis for
+rules, fairness and reports. §27 is the reason and it is a real shift, not a hypothetical: **Eye
+Call** is named "call", runs 07:30–15:30, and belongs to no overnight-call tag at all. A cap
+written against `kind` would count it as call and be wrong on the first month it ran.
+
+**③ THE ORDER, AND WHY IT IS TWO BUILDS RATHER THAN ONE.** Minimum rest ships first and alone,
+because it is the slice that forces every architectural decision into the open — the rule frame,
+the target model, the checker, the report. Caps then go on top of a frame that is already
+proven, and if caps break something the frame is not a suspect. Both types in one build would
+make any regression impossible to attribute, which is the same reasoning build 52 used when it
+refused to change storage and policy in one go.
+
+## §112 — THE THREE 26 Aug CHOICES: THE WIDENING STANDS, THE TWO LIMITS ARE ACCEPTED — 26 Aug 2026
+
+Three things were put to him as HIS call rather than Claude's, after builds 105–107 were filed.
+His answer, verbatim and in full: **"1 - good.  2 - ok, 3 - ok"**.
+
+**① THE 107 WIDENING STANDS.** His original spec said *"a weekly option for Richmond"*. Build 107
+offers the weekly option for **every site**, because sites are DATA (`siteList()`, seeded
+Oakland/Richmond by §18) and a site name baked into a control breaks the day one is renamed.
+Claude flagged it as a widening rather than shipping it quietly; he approved it. **The print page
+does not special-case any site, and a future build must not add one back.**
+
+**② THE WEEKLY-CAP LIMIT IS ACCEPTED AS IT STANDS.** A *Not more than … per week* rule counts a
+month's first week from the 1st when the 1st is not a Sunday, because the checker is handed ONE
+month. **It says so on screen**; it does not silently under-count. He accepted that rather than
+paying for the fix now. **The fix, if it is ever wanted, is reading the adjacent month in the
+checker — it is not a change to the rule shape.** Recorded so nobody "discovers" it later as a
+defect: it is a known, disclosed, accepted limit.
+
+**③ QUOTAS AS CONSTRAINTS STAYS OPEN, KNOWINGLY.** §109 established that two quotas over one
+shift on one day both hold, which makes a quota a CONSTRAINT rather than a number — and that
+constraint-solving across several quotas at once, with a conflict report and warn-and-override,
+is the fuller Stage 5 work. Quotas still **report only**, and auto-populate still targets each
+shift's own minimum. He acknowledged this rather than pulling it forward. **It is outstanding,
+not forgotten, and it is the largest single thing left in Stage 5.**
+
+**WHY THIS IS FILED AT ALL, given two of the three answers were "ok".** An accepted limitation
+that lives only in a chat becomes a bug report three weeks later, argued from memory by both
+sides — which §3 rule 14 records as a thing that has already happened here. A disclosed limit is
+only disclosed while it is written down.
