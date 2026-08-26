@@ -184,6 +184,45 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 25–26 Aug 2026 — SIX BUILDS, AND EVERY ONE FOUND A GATE THAT WAS NOT LOOKING
+
+**Shipped live: 99 · 100 · 101 · 102 · 103. Filed and awaiting a push: 104.** Per-build detail is
+in `schedule/BUILD-LOG.md`. This entry is the pattern, which is the part a fresh session would
+otherwise repeat.
+
+**THE PATTERN.** Six builds, six instruments that were wrong:
+· **99** — `toggleSect` ends in `else renderCatalog()`, so an unregistered key redraws an
+  unrelated page. Found by a BEHAVIOURAL probe (plant a marker, toggle elsewhere, see if it
+  survived), never by reading the source.
+· **100** — a `/*` inside a LINE comment had opened a block comment **347,322 characters long**,
+  so `build80-test`'s stripper was testing ~30% of the page and its `prompt()` gate never fired
+  while a real blocking `prompt()` sat in the group rename.
+· **101** — `sched/run-all.mjs` keeps a HAND-WRITTEN suite list, and builds 99, 100 and 101's
+  suites were none of them in it. The battery reported *"49 suites, all green"* over three suites
+  it had never heard of. The runner now **exits 2 and names them** if any suite on disk is
+  unregistered.
+· **103 and 104** — the extractor gotcha, twice: `build78`, then `build69`/`build70`, all extract
+  a function and eval it alone, and all broke the moment that function grew a dependency.
+
+⚠️ **AND CLAUDE ADDED TWO OF HIS OWN, which are the ones worth reading.**
+**① A false claim, filed.** He reported that two red suites failed identically on three earlier
+builds and wrote **"proven by execution"** on it, into `BUILD-LOG.md`. The bisect had never run:
+those suites read `SCHED_ROOT` and he was passing `ADMIN=`. **The input was ignored rather than
+rejected, so every run returned the same number — which is exactly what a clean result looks
+like.** A subagent re-running it properly is what caught it. Now §3 rule 8's third kind.
+**② A near-miss in 104.** Fixing the extractor break by extracting the REAL `staffingOn` bypassed
+the fixture map `build69`/`build70` drive everything from, silently turning every day into "not
+asked for". The right fix was to stub it **in the SHAPE of the real function** beside the
+`demandOn` stub those suites always had — §3 rule 10's FAST-1 lesson, arriving from a new angle.
+
+**THE THING TO CARRY: the code was fine and the instruments were not.** Every one of these was
+found by RUNNING something, or by a second reader re-running it with different inputs. When a
+gate agrees with you, ask what it would have said if it were broken.
+
+**ON CONTEXT.** This session ran past **580,000 tokens with no compaction**, having started the
+day with Claude asserting a 160,000-token ceiling as fact. The thresholds were invented twice and
+overruled twice by the owner, and §106 now records what the number does and does not measure.
+
 ## 25 Aug 2026 (LATE) — THREE BUILDS, AND EVERY ONE OF THEM FOUND A LYING GATE
 
 **Shipped: admin 99 (collapse sweep), 100 (group rename, stripper), 101 (§103 "Staffing").**
