@@ -184,6 +184,34 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 25 Aug 2026 (LATE) — THREE BUILDS, AND EVERY ONE OF THEM FOUND A LYING GATE
+
+**Shipped: admin 99 (collapse sweep), 100 (group rename, stripper), 101 (§103 "Staffing").**
+99 is live; 100 and 101 are filed and awaiting a push. Detail is in `schedule/BUILD-LOG.md`;
+this entry exists for the pattern, which is the part a fresh session would otherwise repeat.
+
+**THE PATTERN: every one of the three builds was gated green by something that was not looking.**
+· **99** — `toggleSect` ends in `else renderCatalog()`, so an unregistered key re-draws an
+  unrelated page. Caught by a BEHAVIOURAL probe (plant a marker, toggle elsewhere, see if it
+  survived), not by reading the source.
+· **100** — a `/*` inside a line comment had been blanking 70% of the page before `build80-test`
+  read it, so its `prompt()` gate never fired while a real blocking `prompt()` sat in the code.
+· **101** — `sched/run-all.mjs` keeps a HAND-WRITTEN suite list, and builds 99, 100 and 101's
+  suites were none of them in it. The battery said *"49 suites, all green"* over three suites it
+  had never heard of.
+
+⚠️ **AND CLAUDE ADDED A FOURTH, WHICH IS THE ONE WORTH READING.** It reported that two red suites
+failed identically on three earlier builds, wrote **"proven by execution"** on it, and filed that
+into `BUILD-LOG.md`. The bisect had never run: those suites read `SCHED_ROOT`, and `ADMIN=` was
+being passed. **The input was ignored rather than rejected, so every run returned the same number
+— which is exactly what a clean result looks like.** A subagent re-running it properly is what
+caught it. Corrected in the row and in `TODO.md`. The general form is now §3 rule 8's third kind.
+
+**What that says about the day: the code was fine and the instruments were not.** Three of the
+four were found only because something ran the thing rather than reading it, and the fourth was
+found only because a second pair of eyes re-ran it with different inputs. **Run it, don't recall
+it — and when a gate agrees with you, ask what it would have said if it were broken.**
+
 ## 25 Aug 2026 (ARCHIVE PASS) — the tripwire pass ran, and a gate that had been lying for a week
 
 **No code shipped. Docs and one tooling fix.** Owner asleep for most of it, on a clear "do all
@@ -376,6 +404,28 @@ permanently; the refuted items in §3 above.
 ---
 
 # PART C — DAILY SCHEDULE
+
+
+### TRAP — TWO WAYS A GATE READ SOMETHING OTHER THAN WHAT YOU THOUGHT (25 Aug 2026)
+
+Both were found in one evening, both had been live for weeks, and both printed clean numbers.
+
+**① `SCHED_ROOT`, not `ADMIN`.** Most schedule suites take their page from `SCHED_ROOT`;
+`build99-test` and `build100-test` take theirs from `ADMIN`. Passing the wrong one is **ignored,
+not rejected** — the suite silently tests the working tree and returns the same number for every
+input, which reads exactly like a clean bisect. It produced a confident, false "proven by
+execution" claim that reached `BUILD-LOG.md` before a re-run caught it. **Before believing any
+bisect, change the input and check the OUTPUT changed.**
+
+**③ A SUITE THAT IS NOT IN `sched/run-all.mjs` NEVER RUNS.** The list is hand-kept, and builds
+99, 100 and 101's suites were all missing from it — written, passed by hand, then silent, while
+the battery reported a confident total that did not include them. **Register it in the same turn
+you write it**, and when a battery total looks unchanged after adding a suite, that is the tell.
+
+**② A `/*` inside a line comment.** `admin/index.html` has three (`// … dailysched/*, …`). Any
+comment-stripper that removes block comments first will open a block there and delete everything
+to the next real `*/` — measured at 347,322 characters. The page is valid JavaScript; the
+stripper was the bug. **Strip line comments first, then block comments, and assert what survived.**
 
 **Build numbers live in `TODO.md`'s STATUS block, which is generated** — the ones typed here
 read 63/28 until 25 Aug 2026, thirty admin builds out of date. In active development.

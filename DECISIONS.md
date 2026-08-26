@@ -2984,10 +2984,58 @@ fact** — a subagent's report is a précis, the same second-hand thing a compac
 it is a POINTER TO VERIFY. The session re-reads those exact lines off disk before touching them.
 **The four governing files are never edited by a subagent.**
 
+**⭐ DELEGATE TO FIND, AND TO REFUTE; NEVER TO CONCLUDE** — added 25 Aug on the owner's question,
+*"does having sub agents do the reading help with both session integrity and token use or just
+token use?"* **The honest answer: mostly token use. The integrity gain is real but it comes from
+INDEPENDENCE, not from delegation.** A subagent has no stake in the hypothesis it is checking.
+That day one was sent to re-run a bisect Claude had already written *"proven by execution"* on
+and filed into `BUILD-LOG.md`; it came back and refuted him. **That is not a token saving — it is
+the only reason a false claim did not stand.** Being a separate context is what made disagreement
+possible.
+
+**So, standing practice: send a skeptic after Claude's OWN conclusions as a matter of course**,
+not only when something smells wrong — the adversarial shape RA-4 and RA-5 used on findings,
+turned on the session's own claims. Record for the day it is doubted: six surveys ran that day,
+none returned a wrong fact, and the one wrong identifier that reached a suite was Claude's own,
+invented while writing the patch, which failed loudly when run.
+
+**The cost is unchanged: a subagent's report is a précis** — structurally the same second-hand
+thing a compaction summary is. Every returned line number, identifier and quotation is a POINTER
+TO VERIFY off disk before it is acted on.
+
 **AND THE REAL DEFENCE IS NONE OF THE ABOVE: it is filing as you go**, which was always the rule.
 A ruling reaches `DECISIONS.md` in the turn it is said. If that holds, a compaction costs almost
 nothing, because the next session reads files rather than a précis. The 25 Aug compaction hurt
 because state was live in the chat — not because a number was exceeded.
+
+### WHAT THE NUMBER IS NOT — corrected 25 Aug, on the owner's challenge
+
+He asked whether token usage actually gauges context rot. **It does not.** Three different things
+get called "tokens" and only one fills the window:
+
+**① CONTEXT SIZE** — the prompt sent each request: system prompt + the whole conversation + every
+tool result. **Only this causes a compaction**, and it is what the gauge below measures, exactly.
+**② TOTAL SPEND** — every request billed, including output and thinking, and the growing context
+re-sent each turn. **Subagents cost spend and add NOTHING to context** — which is why they are the
+lever. **③ ROT** — degradation of reasoning quality.
+
+**MODEL CHOICE MOVES ① AND ② DIFFERENTLY.** A more verbose model spends far more per turn, and
+because its output is appended to the conversation, context also grows FASTER — the wall arrives
+after fewer builds. But spend and context size are different numbers and must never be quoted for
+each other: a session can burn enormous spend with a small context, and the reverse.
+
+**AND SIZE IS A POOR PROXY FOR ROT, which is the part to internalise.** Size measures distance to
+the wall. Quality degrades on things size cannot see:
+· **What is IN the context, not how much.** That session's own context held three withdrawn
+  versions of the same threshold rule — rot-producing content at any size.
+· **Contradiction and supersession.** Where a fact exists in two versions, the odds of citing the
+  stale one rise. That is exactly how the *"proven by execution"* claim happened.
+· **Distance from the evidence.** A fact read 200k ago and never re-verified is riskier than one
+  read 10k ago, at ANY total size.
+· **A compaction** is a step change in rot with no change in size at all.
+
+**So: gauge the WALL with the number, and gauge ROT by behaviour** — §4's tells, plus one question
+that beats any token count: **when did I last re-read the thing I am about to assert?**
 
 ### THE GAUGE — a number, for reporting, not for blocking
 
@@ -2995,11 +3043,13 @@ Cloud container only: the last `usage` block in
 `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl` —
 **`input_tokens + cache_creation_input_tokens + cache_read_input_tokens` IS the context**, to the
 token. Auto-compaction fires at **`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=80`** — 80% of a window whose
-size the environment does not expose. **Measured floor: the window is above 288,000** (230,540 ÷
-0.80, at the end of a session that did a full re-grounding, six document edits, an archive pass
-and three subagent surveys with no compaction). The true figure is settled the first time a
-compaction is observed — that reading ÷ 0.80 — and not before. **On the device VM the gauge is
-unreadable: say UNKNOWN, never assume room.**
+size the environment does not expose. **Measured floor: the window is above 553,000** (442,834 ÷ 0.80, measured at the close of
+25 Aug after a full re-grounding, three builds shipped with their suites, both batteries run
+several times over, five subagent surveys and an archive pass across four documents — with no
+compaction at any point). Earlier floors from the same session were 209,000, then 251,000, then
+288,000; **every one of them was quoted while it was already wrong.** The honest reading is that
+this session never found the ceiling, so the number below is a FLOOR and nothing else. The true
+figure is settled the first time a compaction is observed — that reading ÷ 0.80 — and not before.
 
 ### WITHDRAWN, KEPT SO NOBODY RE-DERIVES THEM
 

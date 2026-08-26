@@ -29,6 +29,11 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
+**FILED, NOT YET PUSHED: schedule admin 100 and 101** — 100: the group rename becomes an inline
+row and `build80-test`'s comment-stripper is fixed. 101: §103, the word he sees is STAFFING.
+Suites `build100-test.mjs` and `build101-test.mjs`, five repointed suites, and the three
+previously-unregistered suites added to `sched/run-all.mjs`. Delete this line once pushed.
+
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
 schedule admin 99 / staff 37** — all five checked on 25 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
@@ -312,7 +317,11 @@ What they genuinely share — why a change to one can break the other:
    polling shell's own command line** — check the log's mtime against `date`, never the process
    table). The other half: **a gate that fires on the wrong thing gets ignored, and an ignored
    gate is worse than none** — `pendingPush()` read paperwork edits as a filed build; the
-   staleness gate compared two clocks in different timezones. Fix the aim, do not lower the bar.
+   staleness gate compared two clocks in different timezones. **And a third kind, found 25 Aug:
+   an input that is IGNORED rather than rejected** — passing `ADMIN=` to a suite that reads
+   `SCHED_ROOT` silently re-tests the working tree, so a bisect returns the same number for every
+   build and looks like a clean result. **Before believing a bisect, change the input and check
+   the output changed.** Fix the aim, do not lower the bar.
 9. **ASK OF EVERY BUILD THAT ADDS A PAGE OR A CONTROL: what would still pass if the whole thing
    were INERT?** If the answer is "everything", the gate is the wrong shape. Executed-function
    coverage proves the logic and says NOTHING about whether a human can reach it. Build 88
@@ -320,7 +329,12 @@ What they genuinely share — why a change to one can break the other:
    dead the same way. **Such a build ships with something that DRIVES it** — a browser suite that
    clicks, or at minimum the render harness.
 10. **TEST THE CODE, NOT THE PROSE — and an assertion that cannot fail is not a weak test, it is
-    a false one.** Three assertions in one day failed on perfectly correct pages because a
+    a false one.** **AND PROVE THE STRIPPER KEPT THE CODE.** A `/*` inside a LINE comment (the
+    schedule admin has three, e.g. `// … dailysched/*, …`) opens a block comment that runs to the
+    next real `*/` — measured at **347,322 characters, ~70% of the file** — so a stripper that
+    removes block comments FIRST silently deletes most of what it is about to test. Strip line
+    comments first, then block comments, and assert what survived: known code landmarks present,
+    and the stripped length still a sane fraction of the original. Three assertions in one day failed on perfectly correct pages because a
     tombstone COMMENT named the very thing they forbade; another read `ok(… || true)`. Strip
     comments before any textual assertion, and make the search window reach the line.
     **And stub the SHAPE of the real function, never the convenience** — FAST-1's suite
