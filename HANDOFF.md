@@ -422,6 +422,15 @@ bisect, change the input and check the OUTPUT changed.**
 the battery reported a confident total that did not include them. **Register it in the same turn
 you write it**, and when a battery total looks unchanged after adding a suite, that is the tell.
 
+**⚠ AND ONE STANDING RULE IS NOW IN DOUBT, IN A GOOD WAY (25 Aug).** The rule says anything
+that must be COMMITTED is written with `device_bash`, because `device_commit_files` files were
+once invisible to git over the bridge. **That has now failed to reproduce twice**: the four
+`.pptx` files on 24 Aug, and `tests/sched/build102-test.mjs` today — delivered with
+`device_commit_files`, md5-identical to the cloud copy, and listed by `git status` as `??`
+immediately afterwards. Two clean observations is not a proof, but the rule was written *"until
+it is understood"* and it is now the expensive option for a large file. **Worth the owner's word
+before relaxing it; until then, keep verifying md5 AND `git status` after any such transfer.**
+
 **② A `/*` inside a line comment.** `admin/index.html` has three (`// … dailysched/*, …`). Any
 comment-stripper that removes block comments first will open a block there and delete everything
 to the next real `*/` — measured at 347,322 characters. The page is valid JavaScript; the

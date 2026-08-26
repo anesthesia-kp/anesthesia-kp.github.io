@@ -3078,3 +3078,62 @@ for his word. He lifted a stop; he did not hand over the order of work, and he n
 collapse work leads it on evidence — he raised clutter three separate times, in three different
 wordings, while trying to use the site — ahead of §102's pools. Stage 5 stays on hold.
 
+## §108 — THE NAME IS **QUOTA**, AND IT IS ITS OWN SET — 25 Aug 2026
+
+Owner, ruling the question §102 left open: **"Let's go with quota and this will be its own
+separate set for times when a variety shifts contribute to the same quota for a day."**
+
+**① THE WORD IS "QUOTA".** A quota is a named set of SHIFTS that share one combined staffing
+total for a day. Chosen because every neighbouring word was already taken — checked in the code,
+not recalled: **group** is a set of PEOPLE (§97), **pool** is the FAIRNESS pool (§26/§43, 71
+occurrences), **block** is the eligibility block list, **family** is the colour/ordering grouping.
+⚠️ **"Shift pool" is RETIRED as a term** — Claude used it loosely for two days, including in
+§102's own heading. Where it appears in older notes it means this.
+
+**② IT IS ITS OWN SET — NOT hung on `family`.** His reason is the one family cannot serve: **a
+variety of shifts contribute to the same quota**, and a shift carries exactly one `family`, which
+also drives its colour and ordering. So a family-based quota would always follow the colours and
+could never span them. A quota is a separate named thing with its own membership.
+
+**③ WHAT THIS DECIDES, and what it deliberately does not.** Settled: the word, and that quota
+membership is independent of family. **STILL OPEN, and it must be asked before the data shape is
+fixed: may ONE shift belong to TWO quotas?** The storage is nearly free either way; the ENGINE is
+not — if a shift sits in two quotas, auto-populate and the coverage readout need a rule for which
+total governs. **Do not guess at it (§22).**
+
+**④ ALREADY RULED AND UNCHANGED (§102):** auto-populate fills to **MIN** · **MAX is an indicator,
+never a refusal** · **at-min-below-max is an acceptable state**, so coverage needs a third reading
+(*covered · could take more*), not a binary.
+
+**⑤ THE TRAP THAT SURVIVES THIS RULING.** A per-shift `capacity` field already exists and its own
+tooltip reads *"How many people can hold this shift on the same day"* — a maximum in all but name,
+read today only as the auto-populate fallback. A separate per-shift max beside it would be **two
+fields meaning the same thing**, which is the build-78 defect shape exactly. **The range should
+absorb `capacity` rather than sit next to it.** That is a migration, and the schedule having no
+users is why it is cheap this week (§99).
+
+## §109 — A SHIFT MAY SIT IN TWO QUOTAS — 25 Aug 2026
+
+Owner, answering the question §108 left open: **"A shift could sit in 2 quotas as you suggested."**
+
+**So quota membership is MANY-TO-MANY.** A shift belongs to any number of quotas; a quota holds
+any number of shifts. This is the answer that costs nothing in storage and changes the ENGINE.
+
+**⚠️ AND IT CHANGES WHAT A QUOTA *IS*, which is the part to get right before code.** With overlap
+allowed, two quotas can apply to the same shift on the same day — and the honest reading of his
+own framing (*"broader guiding rules that always apply"*) is that they do not COMPETE, they both
+hold. **A quota stops being a number attached to a set and becomes a CONSTRAINT.** Several
+constraints over the same day is the shape of Stage 5, the rules engine, which he has on hold.
+
+**That does not mean quotas wait for Stage 5** — but it does mean the first build must not
+pretend to solve constraints it cannot. The split proposed to him, and not yet ruled:
+· **Quotas as READOUTS first** — the set, its daily total, and a per-quota report of met / short /
+  could-take-more. Auto-populate keeps targeting each shift's own MIN and does NOT try to satisfy
+  several quotas at once. Consistent with §102's *"MAX is an indicator, never a refusal."*
+· **True multi-constraint filling waits for Stage 5**, where a conflict report and a
+  warn-and-override path already have to exist.
+
+**Unchanged and still binding:** auto-populate fills to MIN · MAX indicates, never refuses ·
+at-min-below-max is acceptable, so coverage needs a third reading · the per-shift range must
+ABSORB the existing `capacity` field rather than sit beside it (§108 ⑤).
+
