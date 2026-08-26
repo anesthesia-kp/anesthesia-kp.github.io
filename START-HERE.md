@@ -29,11 +29,8 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 102** — QUOTAS (§108/§109): the page, the document,
-the readout, plus `tests/sched/build102-test.mjs` and its registration. Delete once pushed.
-
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 101 / staff 37** — all five checked on 25 Aug against the SERVED site (via
+schedule admin 102 / staff 37** — all five checked on 25 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
