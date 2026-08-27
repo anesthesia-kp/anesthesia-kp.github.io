@@ -24,22 +24,24 @@ per-item "go". Every other gate stands. Outside that session it governs every bu
 a queue item is not a "go", and he has never handed over the order of work.
 Reading, auditing and running the batteries were in scope throughout and remain so.
 
-**Builds 94–110 are all PUSHED.** Stage 5's rules frame (105), the *Not more than* cap type (106),
-printable sheets (107), overnight call across years (108), his dropdown-and-sheet changes (109)
-and the calendar feed's admin half (110) all went live on 26 Aug. **⚠ `41ca7be` carries build 110
-under a subject naming 108-109** — recorded in `BUILD-LOG.md`, not rewritten. The schedule admin now opens collapsed everywhere the owner asked
+**Builds 94–111 are all PUSHED, and the 26 Aug wind-down list is CLOSED.** Stage 5's rules frame
+(105), the *Not more than* cap type (106), printable sheets (107), overnight call across years
+(108), his dropdown-and-sheet changes (109), the calendar feed's admin half (110) and the collapse
+control (111) all went live on 26 Aug. **⚠ `41ca7be` carries build 110 under a subject naming
+108-109** — recorded in `BUILD-LOG.md`, not rewritten.
+**WHAT IS LEFT OF THE SCHEDULE IS STAGE 5'S REMAINDER, NOT LOOSE ENDS:** quotas as CONSTRAINTS
+rather than readouts (§109, the largest single piece), the five unbuilt rule types in
+`design/RULES.md`, and the warn-at-the-moment-of-change path — plus the calendar feed's
+auto-refresh, **parked by him on 26 Aug** with its design in `TODO.md`. **The feed cannot be
+released until `dailysched/feedTokens` is admin-only in `firestore.rules` (§92 — his decision) and
+the endpoint in `schedule/functions/` is deployed. §54's release gate is also still shut.** The schedule admin now opens collapsed everywhere the owner asked
 (§104): the catalog is four closed bars, an eligibility row is one line, a group card is its header.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 111** — the collapse control now says “▸ Show” / “▾ Hide” like the vacation site (§115), per-item cards keep the bare arrow,
-and static bars are labelled at BOOT rather than only after a first click. Plus
-`build111-test.mjs`, its registration, and `build96`/`build99` re-anchored off the exact glyph.
-Delete this line once pushed.
-
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 110 / staff 37** — all five checked on 26 Aug against the SERVED site (via
+schedule admin 111 / staff 37** — all five checked on 26 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
