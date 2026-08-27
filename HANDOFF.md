@@ -187,8 +187,8 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 ## 26 Aug 2026 (EVENING) — THE PIVOT BACK TO THE AUCTION, ONE OWNER-FOUND DEFECT, AND THE DECK
 
 **Shipped (filed, awaiting his push): auction admin 305 (TM-1, §117).** Rulings §116 and §117.
-Per-build detail is the `BUILD-LOG.md` row; the deck work lives nowhere in the repos by his
-24 Aug instruction — the current copy (34 slides) is the one delivered in the chat.
+Per-build detail is the `BUILD-LOG.md` row. The deck (34 slides) is filed as
+`tests/docs/VacationAuctionWalkthrough.pptx` — one current copy, private repo, by his ruling that evening.
 
 **THE DEFECT, and why the owner found it and no battery did.** Mode 2 (affects-others only) was
 gated on the staff page since 154/274 and never on the admin page — build 289 added the admin

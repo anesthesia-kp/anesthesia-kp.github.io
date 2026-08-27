@@ -42,11 +42,8 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: auction admin 305 (TM-1, §117)** — admin bid entry now obeys the Timer Reset Mode; the
-simulator is left alone by his choice. Plus `test-admin-305-timer-mode.mjs`, `test-admin-timer-289` re-anchored,
-and the CRNA twin restamped. Delete this line once pushed.
-**LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
-schedule admin 111 / staff 37** — all five checked on 26 Aug against the SERVED site (via
+**LIVE, verified cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 ·
+schedule admin 111 / staff 37** — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
@@ -72,8 +69,8 @@ One genuine open check: **M-4 is settled by §87, but its SPACE-PADDING half was
 individual clicking made fast, which is what FAST-1 is. M-3, M-6, M-7, M-9 and M-4 are **off the
 queue by §87** (*"i only want to do 100% necessary fixes at this point"*, then *"ignore other
 items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The walkthrough deck is
-**REOPENED by §116 (26 Aug evening) — his own edited copy is the base**; before that it was closed at rev 5, and filing it into
-`tests/docs/` was dropped by the owner (*"forget this, i don't care"*). Do not re-raise any of them.
+**REOPENED by §116 (26 Aug evening) and now FILED: the single current copy is `tests/docs/VacationAuctionWalkthrough.pptx`**
+(owner, same evening: *"keep the single, most recent ppt file"* — private repo, never the public Pages repo); older revisions are in `_archive/tests/walkthrough-deck/`. Do not re-raise any of them.
 
 
 Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
