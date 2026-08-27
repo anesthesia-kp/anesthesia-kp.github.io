@@ -3281,3 +3281,72 @@ sheet cannot also be a seven-column grid, so the weekly option became **seven da
 rather than one grid — which is the reading that makes a Notes column mean anything. The page
 break moved onto a per-site wrapper, because breaking per day turns one week into twenty-one
 pages. **His to overturn if he meant the grid to survive.**
+
+## §114 — THE CALENDAR FEED IS APPROVED, AND VACATION IS PER DAY — 26 Aug 2026
+
+**① THE GO.** Claude recommended building it with the finished `.ics` text stored per doctor and
+the hosted endpoint reduced to a token lookup. Owner: **"i'm ok with this, proceed with what you
+can."** Built as 110.
+
+**② CLAUDE WAS WRONG ABOUT THE COST, AND HE CHALLENGED IT.** His words: *"i'm ok with some
+additional cost. firestore seems generally quite cheap."* He was right. Checked against published
+pricing rather than recalled: **$0.03 per 100,000 reads, 50,000 free per day** — even the naive
+per-request shape is about fifty cents a month. **Leading with cost was a bad call and it is
+recorded as one.** The real objections were always the security surface and the deploy path.
+
+**③ WHY THE ENDPOINT IS EMPTY, AND WHAT MUST NEVER BE ADDED TO IT.** The argument for putting any
+public endpoint on the project that runs the live auction is not "the code is careful" — it is
+"there is nothing in it to get wrong". It names one document path, holds no schedule logic and
+performs no query. **The moment it reads the schedule, or accepts a second path, or takes a
+parameter that selects a document, it becomes a general-purpose Firestore reader with admin
+credentials on a public URL.** Anything clever belongs in the admin page, where it is tested.
+**This is a standing constraint on that file, not a note about its first version.**
+
+**④ VACATION IS ONE EVENT PER DAY. OWNER RULING, OVERTURNING CLAUDE'S DESIGN.** His words:
+**"vacation should be independent days, not 1 7-day block because sometimes docs trade single
+days of vacation."**
+
+Claude built the merged version first, arguing seven "Vacation" entries in a week read worse than
+one. That was wrong twice over, and the second reason is the harder one: **a merged block's UID
+must be keyed to the RUN's start date**, so trading one day out of the middle changes the run
+boundaries, changes the UIDs, and leaves the old block sitting in the doctor's calendar as an
+orphan that nothing will ever replace. Per-day events are keyed to their own date, so a traded
+day simply stops being sent. **The suite proves it: give one day away and every surviving UID is
+byte-identical.** Do not re-merge them for tidiness.
+
+**⑤ WHAT IS STILL HIS, AND NEITHER IS WORKED AROUND.** `dailysched/feedTokens` must become
+admin-only in `firestore.rules` before any doctor is told — the dailysched catch-all currently
+lets any signed-in user read it, and a readable link list means any doctor can read any other
+doctor's calendar. That file is closed by §92. And the endpoint is not deployed. §54's own
+release gate is unchanged and still shut.
+
+## §115 — NO MORE SECTIONS COLLAPSE. THE CONTROL GETS THE WORK INSTEAD — 26 Aug 2026
+
+Owner, closing the last item on his own wind-down list: **"No need to collapse anymore sections.
+Just style the collapse/expand like the vacation site to be more visible."**
+
+**① THE THREE EXCEPTIONS ARE ACCEPTED, AND THE SWEEP IS OVER.** §104's collapse-by-default was
+applied everywhere it was cheap; **Reports**, the **Simulator's Fill/Wipe** and **Stats** keep the
+exemptions build 99 recorded, with their reasons. **§104 is not repealed — it stops acquiring new
+ground.** A later build does not get to collapse something new by citing it.
+
+**② THE COMPLAINT WAS THE CONTROL, NOT THE COVERAGE, and that is worth understanding.** Claude had
+been treating "which sections collapse" as the open question. It was not. The control itself was a
+**10px `--t3` arrow nine pixels wide**, on the thing he presses more than anything else on the
+page — and the auction admin had solved it already, in its `.chev`: **"▸ Show" / "▾ Hide"**.
+**An arrow tells you the STATE; a word tells you what pressing it will DO.** Shipped as 111.
+
+**③ A PER-ITEM CARD KEEPS THE BARE ARROW.** One quota, one rule, one group — the disclosure sits
+beside a NAME there, and "Show" once per card is noise. The keys already distinguish them
+(`qta:`, `rul:`, `grp:`), so no markup changed.
+
+**④ AND THE BUG THE CHANGE EXPOSED.** Static section bars were relabelled by `sectApply` only on a
+TOGGLE, so each showed the raw markup arrow until its first click. **The moment a label is most
+useful is before you have pressed it.** A boot sweep fixes it, and it is the kind of defect that
+only surfaces when somebody changes what the label says.
+
+**⑤ WHERE THIS LEAVES THE SCHEDULE.** The wind-down list he wrote on 26 Aug is now closed: Stage 5's
+frame and two rule types, printable sheets, overnight call across years, the calendar feed's admin
+half, and this. What remains is **Stage 5's real remainder** — quotas as constraints (§109), the
+five unbuilt rule types, and the warn-at-the-moment-of-change path — plus the calendar feed's
+**auto-refresh, parked by his instruction the same day** for a later session.
