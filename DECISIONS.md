@@ -3350,3 +3350,41 @@ frame and two rule types, printable sheets, overnight call across years, the cal
 half, and this. What remains is **Stage 5's real remainder** — quotas as constraints (§109), the
 five unbuilt rule types, and the warn-at-the-moment-of-change path — plus the calendar feed's
 **auto-refresh, parked by his instruction the same day** for a later session.
+
+## §116 — THE VACATION SITE COMES FIRST AGAIN; THE SCHEDULE GOES ON THE BACK BURNER — 26 Aug 2026 (evening)
+
+Owner, opening the evening session: **"I want to move back to some work on the vacation site and
+put scheduling on the back burner. don't lose track of scheduling updates still needed. I want to
+make some updates to my powerpoint that you helped me make."**
+
+**① THE ORDER OF WORK IS HIS, AND IT HAS CHANGED.** Stage 5 was UNHELD on the morning of 26 Aug
+(§110) and is now on the back burner the same evening. Not on hold in §110's sense — nothing is
+forbidden — but it is not where the sessions go. **What is left of it stays exactly where it is:**
+`TODO.md` §1's Stage 5 remainder (quotas as constraints §109, the five unbuilt rule types, the
+warn-at-the-moment-of-change path, the feed's parked auto-refresh). His instruction is that the
+list is NOT lost, and the record is the list, not the chat.
+
+**② THIS DOES NOT LIFT §92.** "Work on the vacation site" is a direction, not a decision for any
+one change. Every change to anything `vacation-kp.github.io` serves still needs his specific
+decision for that change — and §0 rule 2's relaxation was for the 26 Aug daytime session only.
+
+**③ THE WALKTHROUGH DECK IS REOPENED.** §87's "closed at rev 5" is superseded: he has edited the
+deck himself since and is bringing that copy in. **His copy is the base** — nothing is built from
+the rev4 in `tests/docs/` or from memory of rev 5.
+
+## §117 — ADMIN BID ENTRY OBEYS THE TIMER RESET MODE; THE SIMULATOR DOES NOT — 26 Aug 2026 (evening)
+
+Owner-found, testing mode 2: *"I entered some selections from admin site for users and the timer
+would reset even when the bids didn't affect others"* — while the same bids from the staff site
+behaved in both directions. The code agreed (TM-1): the staff page gates every reset through the
+mode; the admin page's build-289 reset never read it.
+
+**① THE DECISION: *"proceed with build."*** Admin 305: `_adminBidTimerReset` takes the before-picture
+the alerts already build and applies the staff predicate — mode 1 always; mode 3 on any new bid,
+else only if another user's projected outcome changed; mode 2 only on that change. The three
+build-289 guards (timer on · not expired · not in the opening window) stand unchanged. This is the
+specific §92 decision for that change and for nothing else.
+
+**② THE SIMULATOR IS LEFT ALONE — his words: *"leave simulator alone, that won't matter in the real
+auction."*** Its batch reset keeps the classic behaviour in every mode. Not a defect to re-raise.
+

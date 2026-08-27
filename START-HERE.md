@@ -1,16 +1,18 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 26 Aug 2026 (STAGE 5) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 26 Aug 2026 evening (VACATION SITE FIRST, §116) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
 outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
-GROUP). STAGE 5, THE RULES ENGINE, IS UNHELD AND IN BUILD — owner, 26 Aug: *"Go with stage 5"* (§110).
-His plan for it is in `TODO.md` §1 and is being FOLLOWED, not re-derived. **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
+GROUP). STAGE 5, THE RULES ENGINE, WAS UNHELD (§110) AND THEN PUT ON THE BACK BURNER THE SAME
+EVENING — owner: *"put scheduling on the back burner. don't lose track of scheduling updates still
+needed"* (§116). Its remainder stays in `TODO.md` §1 and is not picked up unasked. **The VACATION
+SITE is where sessions go now — and §92 still closes its code: one specific decision per change.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
 the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
 predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
-per-shift min/max ranges underneath it)**. Stage 5 remains on hold and §102 does NOT lift it.
+per-shift min/max ranges underneath it)**.
 
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
@@ -40,6 +42,9 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
+**FILED, NOT YET PUSHED: auction admin 305 (TM-1, §117)** — admin bid entry now obeys the Timer Reset Mode; the
+simulator is left alone by his choice. Plus `test-admin-305-timer-mode.mjs`, `test-admin-timer-289` re-anchored,
+and the CRNA twin restamped. Delete this line once pushed.
 **LIVE, verified cache-busted TWICE: auction admin 304 · staff (index) 164 · mobile 18 ·
 schedule admin 111 / staff 37** — all five checked on 26 Aug against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
@@ -67,7 +72,7 @@ One genuine open check: **M-4 is settled by §87, but its SPACE-PADDING half was
 individual clicking made fast, which is what FAST-1 is. M-3, M-6, M-7, M-9 and M-4 are **off the
 queue by §87** (*"i only want to do 100% necessary fixes at this point"*, then *"ignore other
 items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The walkthrough deck is
-**closed at rev 5** (*"Deck looks good, no more changes at this time"*), and filing it into
+**REOPENED by §116 (26 Aug evening) — his own edited copy is the base**; before that it was closed at rev 5, and filing it into
 `tests/docs/` was dropped by the owner (*"forget this, i don't care"*). Do not re-raise any of them.
 
 

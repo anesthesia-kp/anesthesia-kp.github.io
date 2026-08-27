@@ -184,6 +184,39 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 26 Aug 2026 (EVENING) — THE PIVOT BACK TO THE AUCTION, ONE OWNER-FOUND DEFECT, AND THE DECK
+
+**Shipped (filed, awaiting his push): auction admin 305 (TM-1, §117).** Rulings §116 and §117.
+Per-build detail is the `BUILD-LOG.md` row; the deck work lives nowhere in the repos by his
+24 Aug instruction — the current copy (34 slides) is the one delivered in the chat.
+
+**THE DEFECT, and why the owner found it and no battery did.** Mode 2 (affects-others only) was
+gated on the staff page since 154/274 and never on the admin page — build 289 added the admin
+reset AFTER the modes existed and wired only the classic guards. Every suite that touched it
+stubbed `_adminBidTimerReset: () => {}`, and test-admin-timer-289 asserted only that the reset
+FIRES. Nothing asserted that it must sometimes NOT fire. **A guard with only positive cases is
+half a guard.** The 305 suite has both halves, and runs the real projection engine under them.
+
+**Three small things that cost time, so they are written down:**
+· **A `//` comment appended inside an argument list swallows the closing bracket.** The 289
+  re-anchor was first written that way and produced a SyntaxError; the comment goes on its own
+  line above the call.
+· **A background process over the bridge dies when the `device_bash` call returns.** `nohup … &
+  disown` survived only when the same call also slept. The auction battery runs in ~25 s, which
+  fits the 45 s call limit — **run it in the foreground** and read the exit code directly.
+· **`test-crna-stamp` regenerates `crna/` IN PLACE as its check.** After an admin build its first
+  run goes red on the drift assertion and leaves the restamped files on disk; the second run is
+  green. That red is the stamper doing its job, and the restamped `crna/admin/index.html` +
+  `crna/versions.json` are part of the build to push — not a regression to chase.
+
+**Deck notes for whoever touches it next:** python-pptx re-serialises every part on save (bytes
+change, meaning does not — verified by C14N) and drops the `jpg` content-type Default; the
+fix is one line in `[Content_Types].xml`. The cover art on slide 1 is a parody built from a
+640-px source with a traced silhouette; `make_cover.py` in the session workspace rebuilds it,
+but that script is NOT in any repo. The FTE numbers on slides 26–27 and 7 come from the table
+he photographed on 26 Aug (6/5/4 FTE; 235 FTE-weeks in Phases 1–3; +1 FTE on 34 weeks in
+Phase 4, shown in amber and excluded from the totals by his instruction).
+
 ## 25–26 Aug 2026 — SIX BUILDS, AND EVERY ONE FOUND A GATE THAT WAS NOT LOOKING
 
 **Shipped live: 99 · 100 · 101 · 102 · 103. Filed and awaiting a push: 104.** Per-build detail is
