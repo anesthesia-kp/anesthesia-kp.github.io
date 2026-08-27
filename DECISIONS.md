@@ -3388,3 +3388,26 @@ specific §92 decision for that change and for nothing else.
 **② THE SIMULATOR IS LEFT ALONE — his words: *"leave simulator alone, that won't matter in the real
 auction."*** Its batch reset keeps the classic behaviour in every mode. Not a defect to re-raise.
 
+## §118 — THE TWO CRNA SITES ARE SUSPENDED: 404 ON THE AIR, NOTHING LOST — 26 Aug 2026 (evening)
+
+Owner: **"I want to temporarily suspend the links on the landing page for the 2 CRNA sites and i
+don't want them visible to anyone, not even me for me. I would also like those 2 sites to 404 for
+the time being since we are not going to use them for a bit… mark it down so that it's known
+these sites exist, but are inactive."** Then: **"Bare 404 is what I want."** and **"Just remember
+the site addresses in case I need them again."**
+
+**① WHAT IS DONE.** `crna/` is removed from the auction repo, so GitHub Pages serves its plain 404
+for both addresses — no custom page, by his choice. The two cards are gone from the landing page.
+`crna-config.json` carries `"suspended": true`; while it does, `crna-stamp.mjs` refuses to write
+and `test-crna-stamp.mjs` enforces ABSENCE (three files gone, stamper refusing, no landing link)
+instead of drift. `test-appcheck-login.mjs` skips its CRNA rows aloud. The CRNA Firebase project
+(`crna-vacation`), its rules, data and App Check are untouched.
+
+**② THE ADDRESSES, so they are never lost:** `https://anesthesia-kp.github.io/vacation/crna/`
+(staff) and `https://anesthesia-kp.github.io/vacation/crna/admin/` (admin). Firebase project
+`crna-vacation`. Revival recipe: `TODO.md`, CRNA-SUSPENDED.
+
+**③ WHY A FLAG AND NOT JUST A DELETE.** The CRNA pages are generated, and the guard that keeps
+them honest runs the generator in place — a bare delete would have been undone by the next
+battery run. The flag turns the same guard into the thing that keeps them absent.
+

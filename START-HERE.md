@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 26 Aug 2026 evening (VACATION SITE FIRST, §116) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 27 Aug 2026 (VACATION SITE FIRST §116 · CRNA SUSPENDED §118) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -243,7 +243,8 @@ phase in flight) before doing anything.
 **ONE Firebase project holds both** (`vacation-25e8e`): `vacations/*` belongs to the auction,
 `dailysched/*` to the schedule. **That means ONE Firestore quota and ONE bill across both
 sites** — verified in the code 19 Aug 2026. The CRNA auction is a SEPARATE project
-(`crna-vacation`) with its own allowance. The schedule contributes nothing today, but it
+(`crna-vacation`) with its own allowance — **SUSPENDED 26 Aug 2026 (§118): its two sites 404 and
+`crna/` is absent by design; addresses and the revival recipe are in `TODO.md` CRNA-SUSPENDED.** The schedule contributes nothing today, but it
 carries 19–25 listeners per page and would run every working day all year, so once it goes
 live it plausibly becomes the LARGER consumer — redo the arithmetic before that, not after
 (`TODO.md` FB-3). The plan is moving to pay-as-you-go (DECISIONS §61, on the launch
