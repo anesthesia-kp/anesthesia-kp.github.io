@@ -184,6 +184,51 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 28 Aug 2026 — STAGE 5 FINISHED IN ONE SESSION: SIX BUILDS (112–117), ALL FILED, NONE PUSHED
+
+**Rulings §119 (the schedule comes back; scope = Stage 5 only, cheap types first) and §120 (the
+session runs on Claude's decisions, each recorded; §92 untouched).** Owner, mid-session: *"make
+good decisions for what a complex physician staffing website needs to do. We can fix problems
+later"* and *"Let's power through and finish the build that's left."* Per-build detail is in
+`schedule/BUILD-LOG.md`; the decisions are listed under §120. The deck is done and many users
+signed in successfully on 28 Aug (PART B).
+
+**THE SHAPE OF THE SESSION, for whoever picks it up.** The whole build ran IN THE CLOUD: the two
+public repos cloned, `tests` tarred from the Mac and staged, md5-verified against the device tree,
+playwright installed in `tests/` and the chromium build symlinked into the expected path — so all
+browser suites RAN. **Then the bridge to the Mac dropped mid-session and did not come back**, so
+from build 113 on every file exists in the cloud workspace and in the delivered zip, and the Mac
+holds only build 112 (applied and md5-verified before the drop). **The zip is the delivery; the
+Mac is behind.** Unpack it per §3's zip route — `unzip -p`, never `unzip -o` — and md5-verify
+every file against the manifest inside it before trusting the tree. The admin page is shipped as
+a WHOLE FILE (the base on the Mac is the pushed 111 plus the verified 112 patch; the six patch
+scripts are in the zip too, and each refuses to apply twice).
+
+**THINGS THE GATES CAUGHT THIS SESSION, each one a rule already in START-HERE:**
+· The runner's own unregistered-suite guard fired the moment a suite sat on disk unregistered.
+· My own new suites pinned exact counts (`length===4`) and exact build numbers — §3 rule 16's
+  decay, the same one I had just re-anchored in `build106`. All three re-anchored to invariants.
+· Two honesty runs CRASHED on the baseline instead of failing legibly (§3 rule 11): a picker the
+  old build never had, and an assertion MESSAGE that threw. Both guarded.
+· Two batteries overlapped on one port (EADDRINUSE) because `pgrep` matched its own shell — §3
+  rule 8's exact trap; the log's mtime, not the process table, said the first had died. Re-run
+  cleanly before any number was recorded.
+· A 400-char truncation in a suite's writes reader hid a correct write; the test was wrong.
+· A design finding from a suite: quota A's top-up tipped quota B over and then reported B as a
+  conflict — correct and unhelpful; the filler now prefers a shift that tips nothing.
+· A frame defect from 106: the card header said "not checking anything" for ANY note. Fixed.
+
+**BATTERIES (cloud, browser suites running):** schedule 63/2,192 on 112 · 65/2,280 on 114 ·
+67/2,354 on 116 · 68 suites on 117 (number in the 117 row) — all zero failed, zero skipped.
+Auction battery on unchanged auction bytes: 55 suites / 2,020 assertions / exit 0 after 112 and
+again after 117 (no auction baseline supplied — §6's legitimate skip). Isolation guard green.
+
+**NOT DONE, DELIBERATELY:** `node status.mjs` was not run (it reads the Mac tree, which is
+behind); the `maintenance.lock` check after this session's fetch was done at the start (three
+moved to `_to_delete/locks-2026-08-28/`); `tests/README.md` is still stale.
+
+---
+
 ## 26 Aug 2026 (EVENING) — THE PIVOT BACK TO THE AUCTION, ONE OWNER-FOUND DEFECT, AND THE DECK
 
 **Shipped, PUSHED and VERIFIED LIVE: auction admin 305 (TM-1, §117), and the CRNA suspension
@@ -414,7 +459,8 @@ are in `_archive/anesthesia/superseded-docs/TODO-archived-2026-08-25.md`, intact
 · **35 participating anesthesiologists** (owner, 19 Aug). Older docs saying ~60 meant the roster
   size, not the number bidding.
 · **Real-bidder sign-ins** were being tested. Any count predating the roster update to 35 is
-  stale and must be recounted, never repeated.
+  stale and must be recounted, never repeated. **28 Aug 2026, owner: *"Many users logged in
+  successfully today."*** No number given; do not invent one. Still not a queue item.
 
 **LIVE. Build numbers live in `TODO.md`'s STATUS block, which is generated** — the ones typed
 here read 269/139/17 until 25 Aug 2026, thirty-five auction builds out of date. The cardinal rule

@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 27 Aug 2026 (VACATION SITE FIRST §116 · CRNA SUSPENDED §118) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 28 Aug 2026 (STAGE 5 COMPLETE §119/§120 — schedule admin 112–117 FILED, NOT YET PUSHED) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -42,6 +42,7 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
+**FILED, NOT YET PUSHED: schedule admin 112–117 (Stage 5 complete — §119/§120, rows in `schedule/BUILD-LOG.md`), plus their suites in `tests` and the docs in this repo; the LIVE line below does not cover them.**
 **LIVE, verified cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 ·
 schedule admin 111 / staff 37** — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`

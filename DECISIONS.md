@@ -3411,3 +3411,68 @@ instead of drift. `test-appcheck-login.mjs` skips its CRNA rows aloud. The CRNA 
 them honest runs the generator in place — a bare delete would have been undone by the next
 battery run. The flag turns the same guard into the thing that keeps them absent.
 
+## §119 — THE SCHEDULE COMES OFF THE BACK BURNER: FINISH WHAT IS LEFT — 28 Aug 2026
+
+Owner, after closing the deck (*"Done with the ppt"*): **"I would like to move back to the
+schedule site. Let's finish what's left there."**
+
+**① §116's direction is reversed; nothing else in it moves.** Sessions go to the schedule again.
+"What's left" is the list `TODO.md` §1 already carries — Stage 5's remainder (quotas as
+constraints §109, the unbuilt rule types in `design/RULES.md`, the warn-at-the-moment-of-change
+path), [103b], and the calendar feed's outstanding decisions — not a new list derived in chat.
+
+**② §92 stands.** The auction code stays closed; the auction battery still re-runs after every
+schedule build. **③ §0 rule 2 is NOT relaxed** — the 26 Aug daytime relaxation was for that
+session only. Each build is planned, then waits for his go, and he sets the order.
+
+**④ SCOPE AND ORDER, ruled the same turn.** "What's left" is **Stage 5 only** — the five unbuilt
+rule types in `design/RULES.md`, the warn-at-the-moment-of-change path, quotas as constraints
+(§109), and the two small gaps (the weekly cap's first week; the every-site weekly print option,
+his to narrow). The roadmap's later stages (draft/publish, phone view, alerts, uniform
+confirmations, swap atomicity) are NOT in this scope; they stay in `TODO.md` §3 as before.
+**Order: the cheap rule types first** — Not on vacation, One site per day, Post-tag cooldown,
+then Not together — then warn-at-change, then Fairness balance, then quotas as constraints.
+Each is its own gated build; a general go on the order is not a go on any one build.
+
+## §120 — "KEEP GOING WITH EVERYTHING YOU CAN DO" — the 28 Aug session runs on Claude's decisions — 28 Aug 2026
+
+Owner, after the build-112 plan asked one question: **"I don't have a lot of time to work on this
+site and I want to complete the schedule build work. Keep going with everything you can do, I
+authorize you to make decisions to improve the site as long as it doesn't disturb the vacation
+site."**
+
+**① §0 rule 2 is RELAXED FOR THIS SESSION, as §110 relaxed it on 26 Aug** — plans are stated
+and executed without a per-build go, and design questions that would otherwise stop for him are
+decided by Claude and RECORDED here, one line each, so he can reverse any of them. No quality
+gate moves: every build still ships its suite, its honesty check, its battery runs and its row.
+**② §92 STANDS IN FULL.** "Doesn't disturb the vacation site" is the boundary: no byte the
+auction serves changes, and the auction battery plus the isolation guard run after every build.
+**③ Scope is §119 ④** — Stage 5's remainder — not the later roadmap stages.
+
+**DECISIONS TAKEN UNDER THIS AUTHORITY (appended as they are made):**
+· **One site per day is a RULE TYPE the admin creates once**, not an always-on check — consistent
+  with §11 and it gives him the severity knob. `design/RULES.md`'s "universal" is superseded.
+· **The vacation predicate is ONE helper** shared by `assignmentWarnings` and the new rule (§19).
+· **The every-site weekly print option stays** — he did not narrow it when asked.
+· Owner, mid-session: **"make good decisions for what a complex physician staffing website needs
+  to do. We can fix problems later."** — the standard for the decisions above and below is the
+  needs of a real physician staffing operation, not the narrowest reading of a note.
+· **Post-tag cooldown counts its window from the day the trigger STARTS** (a 24-hour call on
+  Monday makes Tuesday day one) and offers "any shift at all" as the default thing to avoid.
+· **§7's approved-pairs list is a RULE INSTANCE (`Only approved pairs`)** holding the tick list
+  as its one parameter, beside a blunt `Not together`. An empty list reports every two-shift
+  day and says why.
+· **Warn-at-change reports the DIFFERENCE** between the month as it stands and with the change
+  applied; on a month not open (approval paths hold one day) the spanning rules say so rather
+  than reading the month — the read is a later cost decision (§2).
+· **Fairness balance calls `buildModel`** (§29's maths) and reports UNDER as well as over.
+· **The filler treats a ceiling as its own target** (for a person it stays an indicator, §108)
+  and prefers a shift that does not tip another quota over its total.
+· **A rule with a note is no longer labelled "not checking anything"** — the header reads
+  ran/considered (a 106 defect, fixed in 116).
+· **NOT done, recorded as left:** the weekly cap's first week and the cooldown's last days
+  still see one month (the checker is handed one); reading the adjacent month is a read-cost
+  decision for him. The every-site weekly print option stays.
+
+**RESULT, same session: Stage 5 is COMPLETE as designed** — builds 112–117, all seven rule
+types in `design/RULES.md`, the warn-at-change path, and quotas as constraints.
