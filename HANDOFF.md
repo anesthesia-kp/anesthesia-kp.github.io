@@ -186,9 +186,21 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ## 26 Aug 2026 (EVENING) — THE PIVOT BACK TO THE AUCTION, ONE OWNER-FOUND DEFECT, AND THE DECK
 
-**Shipped (filed, awaiting his push): auction admin 305 (TM-1, §117).** Rulings §116 and §117.
-Per-build detail is the `BUILD-LOG.md` row. The deck (34 slides) is filed as
-`tests/docs/VacationAuctionWalkthrough.pptx` — one current copy, private repo, by his ruling that evening.
+**Shipped, PUSHED and VERIFIED LIVE: auction admin 305 (TM-1, §117), and the CRNA suspension
+(§118 — both CRNA addresses now 404, landing cards gone).** Rulings §116–§118. Per-build detail
+is in `BUILD-LOG.md`. The deck (now 35 slides) is `tests/docs/VacationAuctionWalkthrough.pptx` —
+one current copy, private repo, by his ruling that evening.
+
+**THREE LATE-SESSION FACTS a fresh session needs, all owner-stated 26–27 Aug:**
+· **The real auction runs TIMER MODE 2** (resets only when a bid affects others) — his words:
+  *"With the real auction, we are going to use the mode currently set, resets only when affects
+  others."* That is why TM-1 mattered and why 305's suite pins mode 2 hardest.
+· **The live supply is reconfigured: THREE high-demand weeks** (Thanksgiving, Christmas,
+  New Year's at 6 FTE with the 5-or-better floor); Ski Week and the 2 Spring Break weeks keep
+  6 FTE but open in Phase 2 with no floor; Summer 5/30–9/5 at 5; every other week 4. Verified on
+  the SERVED site 27 Aug; the deck's slides 6–10, 19 and 28–29 were rebuilt to match, with fresh
+  screenshots (Week 47, his bid). Read the board, not this paragraph, for current numbers.
+· **The Phase 4 extra FTE is a MANUAL step he owns** — see TODO.md, PHASE-4 EXTRA FTE.
 
 **THE DEFECT, and why the owner found it and no battery did.** Mode 2 (affects-others only) was
 gated on the staff page since 154/274 and never on the admin page — build 289 added the admin
