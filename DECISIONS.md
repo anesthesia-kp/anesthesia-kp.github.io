@@ -3596,3 +3596,16 @@ schedule builds 127+, one gated build each (E-1 with E-11/N-5; E-2; E-7; R-1/R-2
 Stage 5 (`firestore.rules`) — each needs his specific go, §92 unchanged. Every build still ships its
 suite, an honesty check FAILING on the previous build, and both batteries.
 
+## §126 — "GO WITH ALL ITEMS THAT YOU CAN" — the 29 Aug session runs on Claude's order — 29 Aug 2026
+
+Owner, at session open: **"Please go with all items that you can. i grant you authority to press ahead
+with the needed fixes in your recommended order."** Read as §125 read §110: §0 rule 2 is relaxed for
+THIS session — plans are stated and executed without a per-item go, in RA-6's remaining order:
+**Stage 3** (N-9 first, then the blank-day labelling D-3/D-2/N-17/V-17/V-21) → the schedule-only half of
+Stage 4 (B-3/B-4 — one vacation function for both pages, a visible banner when the data is denied) →
+Tier 2/3 and the visual items Claude judges necessary. **"All items that you CAN" is read with §92 and
+§125 intact:** B-2 and B-7 (the sanctioned roster writers) and Stage 5 (`firestore.rules`) are still
+held for his specific go, one each — Claude prepares the plan and the rules text and asks, rather than
+treating this sentence as that decision. Every build still ships its suite, an honesty check FAILING on
+the previous build, and both batteries.
+

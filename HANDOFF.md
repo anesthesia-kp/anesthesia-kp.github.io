@@ -184,6 +184,51 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 29 Aug 2026 (DAY) — §126: "GO WITH ALL ITEMS THAT YOU CAN" — SIX BUILDS, STAGE 3 AND HALF OF STAGE 4, ALL FILED, NONE PUSHED
+
+**The ruling, at session open:** *"Please go with all items that you can. i grant you authority to
+press ahead with the needed fixes in your recommended order."* Filed as **§126** the same turn, read
+the way §125 read §110 — no per-item go this session — and read with §92 and §125 intact: **B-2, B-7
+and the rules are NOT in this wave**; their plans are in `TODO.md` §1 waiting for his specific go.
+
+**What shipped, in RA-6's order** (rows in `schedule/BUILD-LOG.md`, the wave summary at
+`tests/docs/RA-6-builds/build134-137-summary.md`): **staff 44** — Stage 3, N-9 first (the staff
+month reader fails closed; a denied listener shows *Couldn't load*), then the blank-day states
+(*Not published* / *Couldn't load* / *Nothing scheduled*, per day, on both panels, in the legend).
+**Admin 134 / staff 45** — B-3/B-4: ONE `vacationDaysFrom` on both pages, the admin reads Phase-4
+rounds at last, and a schedule-only admin gets a banner instead of a console line. **Admin 135** —
+E-3 (rest check sees every overlap) and E-4/N-4 (the ceiling for THIS day, not day 0 of the month).
+**Admin 136** — the change feed: D-15 (diff local to the call), D-4/N-10 (`clearCell` inside the
+transaction), D-5 (the year run emits). **Admin 137** — D-11 (DRAFT on the printed sheet), E-15
+(vacation map memoised by listener-object identity), E-6 (fairness fires at the moment of change;
+the engine skips pool rules and says so). **Staff 46** — S-1 (the admin's eligibility checker,
+byte-identical), S-8 (Quick View re-asks its months once a minute), N-14 (retractions audited).
+
+**Every build:** its own browser-driven suite, an honesty run FAILING on an explicit baseline (all six
+red, exit 1 — three of them reproduce the audit's exact wrong sentence), and the batteries: schedule
+84/84 on the untouched tree, then the final tree (see the closing report), auction as a regression
+gate on unchanged bytes. Six older suites re-anchored to invariants (build121, ra-fixes-36-76,
+build134's own; then staff29, build80 and build120, which the final battery turned up) — rule 12,
+never a stub.
+
+**Traps this session:**
+- **The battery reads the tree at each suite's start.** A patch applied to the clone while a run was
+  in flight made `build121` red mid-run — not a defect, a moved string; but it is the reason the
+  final battery ran on a frozen tree.
+- **The fake's listener switches were overwritten at module load** (`window.__denyListenPath = null`
+  after the init script had set it) — the N-9 sections passed vacuously on the first run. Caught by
+  the honesty run, which is where absence lives; fixed with a guarded init.
+- **Eleven `versions.json matches var BUILD` reds** on the 134/45 battery: the clone's
+  `versions.json` had not been bumped with the page. Rule 4, and the gate doing its job.
+- **The Mac's bridge dropped repeatedly** during the session (five reconnects), and was down at
+  filing time — so the docs repo was cloned to the cloud and edited there; every file in this wave
+  goes to the Mac as a patch script (count==1 anchors) or a zip, md5-verified, when the bridge is back.
+- **S-8's first test was wrong, not the page:** pinning the clock to 23:59 on the 31st put April
+  inside the seven-day window at FIRST render, so the baseline passed. The defect needs the window to
+  reach April only AFTER load — the 25th. Rule 8: change the input and check the output changed.
+
+---
+
 ## 28 Aug 2026 (NIGHT) — RA-6: THE AUDIT OF THE 118–126 WAVE, AND THREE TRAPS ON THE WAY
 
 **01:45 — 131–133 / 41–43 PUSHED AND VERIFIED LIVE (133/43, two cache-busters). SESSION CLOSED
