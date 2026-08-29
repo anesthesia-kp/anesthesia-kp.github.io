@@ -234,8 +234,9 @@ once `gridViolIndex` landed beside `mutateCell`; exact counts; unguarded baselin
 10, 11 and 16 apply to suites written that morning exactly as to old ones.
 **By the evening the Mac holds everything — 112–126 and staff 38–40 — verified file by file
 against the bundles' manifests** (the bridge dropped six times during the day; each bundle was
-unpacked the moment it held). `node status.mjs` exits clean; START-HERE names what is filed and
-not pushed. **Nothing in the cloud is ahead of the Mac.**
+unpacked the moment it held). **He pushed that night; admin 126 / staff 40 were verified SERVED
+(two cache-busters), the auction's 305/164/18 unchanged; `node status.mjs` exits 0 and START-HERE's
+LIVE line names 126 / 40. Nothing in the cloud is ahead of the Mac.**
 
 **WHAT A FRESH SESSION SHOULD KNOW IS LEFT (all in `TODO.md`):** uniform confirmations (40 raw
 `confirm(`, cosmetic); the staff phone view beyond its existing small-screen rule; e-mail alerts
@@ -244,9 +245,8 @@ deploy path); rules-level enforcement of the draft gate and the change feed (§9
 multi-year equity from §90's list. The engine's month filler cannot see the last day of the
 previous month for the post-call day (§121 ④ — his "no").
 
-**NOT DONE, DELIBERATELY:** `node status.mjs` was not run (it reads the Mac tree, which is
-behind); the `maintenance.lock` check after this session's fetch was done at the start (three
-moved to `_to_delete/locks-2026-08-28/`); `tests/README.md` is still stale.
+**NOT DONE, DELIBERATELY:** the `maintenance.lock` check after this session's fetch was done at
+the start (three moved to `_to_delete/locks-2026-08-28/`); `tests/README.md` is still stale.
 
 ---
 

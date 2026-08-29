@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 28 Aug 2026 (evening — §119–§123; schedule admin 118–126 / staff 38–40 FILED, NOT YET PUSHED) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 28 Aug 2026 (night — §119–§123; schedule admin 126 / staff 40 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -42,9 +42,8 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 118–126 and staff 38–40 (§121 built-in switches · §122 the collapse control · §123 the Engine page, Simulator gone · §5 draft/published months · §6 the change feed · defect 3 closed · §90 grid marks · §41 request types, and the engine honouring approved requests — rows in `schedule/BUILD-LOG.md`), plus their suites in `tests` and the docs in this repo; the LIVE line below does not cover them.**
 **LIVE, verified cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 ·
-schedule admin 117 / staff 37** (117 verified served after his 28 Aug push) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+schedule admin 126 / staff 40** (verified served after his 28 Aug night push; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
