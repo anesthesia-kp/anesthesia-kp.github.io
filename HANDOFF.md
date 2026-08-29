@@ -186,6 +186,15 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ## 28 Aug 2026 (NIGHT) — RA-6: THE AUDIT OF THE 118–126 WAVE, AND THREE TRAPS ON THE WAY
 
+**01:45 — 131–133 / 41–43 PUSHED AND VERIFIED LIVE (133/43, two cache-busters). SESSION CLOSED
+by the owner ("will start fresh"), checklist run: fetch (three `maintenance.lock`s stranded again,
+moved to `_to_delete/locks-2026-08-29/`), chat reviewed (§124, §125 on disk — grepped), state files
+true, `status.mjs` exit 0, all four repos clean and in sync, no locks. Context at close ~313k tokens;
+no compaction occurred. **Lesson worth keeping:** past ~290k the session stayed reliable by putting
+every build in a sub-agent with a tight brief and verifying only exit codes and md5s in the main
+context — five builds and an audit shipped that way with no detected slip. Auction live builds at
+close: admin 305 / staff 164 / mobile 18, unchanged all session.**
+
 **29 Aug, 00:40–01:30 — 127–130 PUSHED AND VERIFIED LIVE (130/40, two cache-busters); STAGE 2 BUILT.**
 The cloud clone was reset to the pushed `3810e83` so 131's honesty baseline is an explicit SHA; 132 and
 133 baseline on md5-named snapshots of 131 and 132 (no intermediate commits). Three builds by three

@@ -1,14 +1,15 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 29 Aug 2026 (01:30 — §124/§125. FILED, NOT YET PUSHED: schedule admin 131–133 / staff 41–43 + tests. LIVE: schedule admin 130 / staff 40) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 29 Aug 2026 (01:50 — session closed; §124/§125; schedule admin 133 / staff 43 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
 outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
-GROUP). STAGE 5, THE RULES ENGINE, WAS UNHELD (§110) AND THEN PUT ON THE BACK BURNER THE SAME
-EVENING — owner: *"put scheduling on the back burner. don't lose track of scheduling updates still
-needed"* (§116). Its remainder stays in `TODO.md` §1 and is not picked up unasked. **The VACATION
-SITE is where sessions go now — and §92 still closes its code: one specific decision per change.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
+GROUP). STAGE 5 IS COMPLETE (112–117, §119/§120) and the 118–126 wave followed the same night. **THEN
+CAME RA-6 (§124): the audit of that wave, verified adversarially, at `tests/docs/RA-6-2026-08-28.md`
+— and §125: its order is Claude's. Stages 0–2 shipped as admin 127–133 / staff 41–43. SESSIONS GO TO
+THE SCHEDULE, AT RA-6's STAGE 3 (`TODO.md` §1); Stages 4 and 5 of it wait for his go, one each; §92
+still closes the auction code: one specific decision per change.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
 the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
 predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
@@ -43,7 +44,7 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 ·
-schedule admin 130 / staff 40** (verified served after his 29 Aug 00:40 push of 127–130 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+schedule admin 133 / staff 43** (verified served after his 29 Aug 01:45 push of 131–133 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
