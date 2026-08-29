@@ -223,6 +223,13 @@ never a stub.
 - **The Mac's bridge dropped repeatedly** during the session (five reconnects), and was down at
   filing time — so the docs repo was cloned to the cloud and edited there; every file in this wave
   goes to the Mac as a patch script (count==1 anchors) or a zip, md5-verified, when the bridge is back.
+**Then §127, at his review:** *"schedule can only populate vacations approved once admin has sent the
+e-mail results"* — which overruled the build-134 decision within hours. Admin 138: the admin reads the
+released view and no longer reads `vacations/approvals`; `build134-test` re-anchored by ruling, and
+so were sixteen older suites that had seeded a vacation week through the live document (they now
+seed an e-mailed completed phase — same week, same people, announced). Session
+closed at his request ("complete this session and i'll start fresh").
+
 - **S-8's first test was wrong, not the page:** pinning the clock to 23:59 on the 31st put April
   inside the seven-day window at FIRST render, so the baseline passed. The defect needs the window to
   reach April only AFTER load — the 25th. Rule 8: change the input and check the output changed.

@@ -3609,3 +3609,14 @@ held for his specific go, one each — Claude prepares the plan and the rules te
 treating this sentence as that decision. Every build still ships its suite, an honesty check FAILING on
 the previous build, and both batteries.
 
+## §127 — ONLY ANNOUNCED VACATION REACHES THE SCHEDULE — 29 Aug 2026
+
+Owner, reviewing the day's builds: **"schedule can only populate vacations approved once admin has sent
+the e-mail results."** So a week is vacation, on EITHER schedule page, only once the auction has
+announced it: a completed phase once its results were e-mailed (or a later phase completed), a
+Phase-4 round once its results were e-mailed. A decision that is made but not yet e-mailed — a
+completed phase awaiting its send, a closed round awaiting its send, anything in the live approvals
+document — is not vacation to the schedule, for the admin as much as for staff. **This overrules
+Claude's build-134 decision** (the admin saw every decided week); shipped as admin 138, and the
+admin page no longer reads `vacations/approvals` at all.
+
