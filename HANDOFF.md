@@ -186,6 +186,14 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ## 28 Aug 2026 (NIGHT) — RA-6: THE AUDIT OF THE 118–126 WAVE, AND THREE TRAPS ON THE WAY
 
+**29 Aug, 00:40–01:30 — 127–130 PUSHED AND VERIFIED LIVE (130/40, two cache-busters); STAGE 2 BUILT.**
+The cloud clone was reset to the pushed `3810e83` so 131's honesty baseline is an explicit SHA; 132 and
+133 baseline on md5-named snapshots of 131 and 132 (no intermediate commits). Three builds by three
+sub-agents in sequence, each verified from the exit code before the next started. Two findings turned
+out to be *not* what the report said: V-3's run-together catalog header was an undefined CSS class, not
+markup, and the staff grid's overflow was the column-flex `.content` sizing to max-content, not the
+wrapper. The link dropped twice more; the Stage 2 zip waited in the chat outputs until it came back.
+
 **LATER THE SAME NIGHT — §125: "you decide best order and start please."** Stage 0 and builds 127–130
 shipped in the cloud clone, each by a sub-agent with a tight brief, each verified by Claude from the exit
 code (rule 11) before filing; transferred by zip and md5-verified on the Mac (the link dropped four times

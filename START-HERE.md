@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 29 Aug 2026 (00:30 — §124 RA-6 filed; §125. FILED, NOT YET PUSHED: schedule admin 127–130 + tests. LIVE: schedule admin 126 / staff 40) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 29 Aug 2026 (01:30 — §124/§125. FILED, NOT YET PUSHED: schedule admin 131–133 / staff 41–43 + tests. LIVE: schedule admin 130 / staff 40) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -43,7 +43,7 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **LIVE, verified cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 ·
-schedule admin 126 / staff 40** (verified served after his 28 Aug night push; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+schedule admin 130 / staff 40** (verified served after his 29 Aug 00:40 push of 127–130 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
