@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 28 Aug 2026 (night — §119–§123; schedule admin 126 / staff 40 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 29 Aug 2026 (00:30 — §124 RA-6 filed; §125. FILED, NOT YET PUSHED: schedule admin 127–130 + tests. LIVE: schedule admin 126 / staff 40) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -74,7 +74,7 @@ items"*); H-4, H-5, M-8 stay skipped and M-2, M-5 were left alone by §86. The w
 
 
 Read `DECISIONS.md` (§87, §88, **§89 last**), then `TODO.md` §1, then the private reports
-`tests/docs/RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
+**`tests/docs/RA-6-2026-08-28.md` (current — §124; its Tier 1 is the queue)**, then `RA-5-2026-08-24.md` and `RA-4-2026-08-21.md`. **Do not describe any defect by
 reproduction in these repos — they are PUBLIC (§3).**
 
 

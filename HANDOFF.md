@@ -184,6 +184,41 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 28 Aug 2026 (NIGHT) — RA-6: THE AUDIT OF THE 118–126 WAVE, AND THREE TRAPS ON THE WAY
+
+**LATER THE SAME NIGHT — §125: "you decide best order and start please."** Stage 0 and builds 127–130
+shipped in the cloud clone, each by a sub-agent with a tight brief, each verified by Claude from the exit
+code (rule 11) before filing; transferred by zip and md5-verified on the Mac (the link dropped four times
+in the session; the zip in the chat outputs is the fallback delivery). One sub-agent decision was
+REVERSED by Claude before filing: 127 first wrote a planned shift beside `off:true`; the admin's later
+decision now beats the stale plan (skipped and reported). Two suites were re-anchored under rule 12
+(build127 by 129; build123 by 130 — its 2-way had asserted a one-way gift as correct). Honesty
+baselines: 126 = `c73fbde`; 127/128/129 = `/tmp/admin-12N.html` snapshots taken in the cloud between
+builds (no intermediate commits exist, so those three baselines live only in the cloud session — the
+suites carry their md5s in BUILD-LOG). Not pushed at the time of writing.
+
+**Ruling §124.** After the §4 ritual (first schedule fetch returned a stale 111/37 from the CDN;
+the second returned 126/40 — the exact trap §4 names), the owner accepted the recommendation to audit
+before building and asked for a visual review with the standard *clean, organized, intuitive*. Method:
+five subsystem auditors → five independent verifiers, each EXECUTING findings against the real page in
+the suites' fake-Firebase rig → a headless screenshot pass with seeded data (62 shots) → a live-site
+pass through his Chrome (39 shots, read-only). Report and evidence: `tests/docs/RA-6-2026-08-28.md`,
+`tests/docs/RA-6-shots/` (headless harness `seed.mjs`/`shoot.mjs` is reusable). Queue: `TODO.md` §1.
+
+**Three traps, all recorded so nobody pays twice.** (1) The first cloud schedule battery printed
+"all 22 passed · 55 skipped" and EXITED 0 — `playwright` was resolvable from a global install for a
+one-line `import()` check but not from the suites; `npm i playwright` in `tests/` fixed it and the
+re-run was 77/77 with zero skips. The runner should fail hard on a missing browser dependency
+(RA-6 N-19). (2) The Mac dropped off the bridge twice mid-session (Chrome extension and desktop
+bridge together); the visual pass was done headless first and on the live site once he reconnected —
+no time was spent retrying. (3) Context reached ~291k tokens after the five verifications returned;
+every report was already written to disk by its agent, and the Chrome pass and the report assembly
+were delegated to sub-agents so nothing was lost to a compaction.
+
+**Paperwork gates:** `git fetch` over the bridge stranded `maintenance.lock` in all three public repos
+again, moved to `_to_delete/locks-2026-08-28/`. `status.mjs` re-run. `tests` judged from `git log` and
+disk (cannot be fetched over the bridge). Nothing in any repo was changed except the new docs.
+
 ## 28 Aug 2026 — STAGE 5 FINISHED IN ONE SESSION: SIX BUILDS (112–117), ALL FILED, NONE PUSHED
 
 **Rulings §119 (the schedule comes back; scope = Stage 5 only, cheap types first) and §120 (the

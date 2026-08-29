@@ -3568,3 +3568,31 @@ decision is still listed under §120, one line each, reversible.
   admin on the queue row; the four built-in choices stand while the list is empty.
 · **The engine reads APPROVED requests only (126)** — avoid excludes, work and available come first,
   a person who asked for another shift is left free for it, and a rule still beats a request.
+
+## §124 — THE POST-WAVE AUDIT: RA-6, MULTI-AGENT, ADVERSARIAL, WITH A VISUAL REVIEW — 28 Aug 2026 (night)
+
+Owner, on Claude's recommendation to audit builds 118–126 before building more: **"I like it. I expect
+there will be many problems and a good audit is important. include a review of the visual
+presentations across the entire site. The goal is clean, organized, and intuitive. Present ideas for
+improvements that get me there. Ensure functionality. I expect you will find a lot."** He asked whether
+it would be one Claude or several and whether it included an adversarial Claude; the answer was
+several by subsystem, with a separate verifier per report, and he said **"Go."**
+
+**① THE SHAPE OF AN AUDIT, FROM NOW ON:** subsystem auditors → an independent adversarial verifier
+per report, executing findings against the real page in the fake-Firebase rig → a visual pass. A
+finding unverified is not a finding. **② THE VISUAL STANDARD IS HIS THREE WORDS — clean, organized,
+intuitive** — and improvement ideas are PRESENTED to him, never applied unasked. **③ RA-6 is filed at
+`tests/docs/RA-6-2026-08-28.md`** with its evidence under `tests/docs/RA-6-shots/`. Its Tier 1 is the
+queue in `TODO.md` §1; nothing in it is picked up without his go (§0 rule 2 governs again), and every
+rules item in it is his §92 decision.
+
+## §125 — THE RA-6 ORDER IS CLAUDE'S, AND THE SESSION RUNS ON IT — 28 Aug 2026 (night)
+
+Owner, on the report: **"you decide best order and start please."** So: §0 rule 2 is relaxed for this
+session the way §110 relaxed it — plans are stated and executed without a per-item go. The order:
+**Stage 0** (the isolation guard and the runner — `tests` only, no shipped code) → **Stage 1** as
+schedule builds 127+, one gated build each (E-1 with E-11/N-5; E-2; E-7; R-1/R-2) → **Stage 2**.
+**NOT under this ruling:** Stage 4 (schedule code that writes auction roster data — B-2, B-7) and
+Stage 5 (`firestore.rules`) — each needs his specific go, §92 unchanged. Every build still ships its
+suite, an honesty check FAILING on the previous build, and both batteries.
+
