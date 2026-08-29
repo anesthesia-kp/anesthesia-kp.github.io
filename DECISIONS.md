@@ -3476,3 +3476,95 @@ auction serves changes, and the auction battery plus the isolation guard run aft
 
 **RESULT, same session: Stage 5 is COMPLETE as designed** — builds 112–117, all seven rule
 types in `design/RULES.md`, the warn-at-change path, and quotas as constraints.
+
+## §121 — THE §120 DECISIONS REVIEWED: two changed, the rest accepted — 28 Aug 2026
+
+Owner, after pushing 112–117 and reading the list: **"change 1 to something i can turn on/off and
+check for site clashes. 2-ok, 3-good, 4- any shift going past midnight should be such that person
+isn't given another shift on the post-call day. i want admin to be able to override this with a
+confirmation dialogue when necessary, but the engine shouldn't create it. 6- good for now. 7-good.
+8- good. 9-good. 10-good. for 6/10-no"**
+
+**① ONE SITE PER DAY becomes a BUILT-IN CHECK WITH A SWITCH**, not a rule he has to create: on by
+default, can be turned off, and while on it checks every person for site clashes — in the monthly
+report and at the moment of a change. §120's first decision is reversed.
+**② THE POST-CALL DAY IS BUILT IN, FROM THE CLOCK, NOT FROM A TAG.** Any shift that crosses
+midnight makes the next calendar day a post-call day for that person: **the engine (auto-populate)
+never places a shift there**, and **an admin may, through the confirmation dialog, with the override
+recorded** — §4 unchanged. Also a switch, on by default. The tag-based *After a shift, avoid…* rule
+type stays for anything beyond this.
+**③ ACCEPTED AS DECIDED:** the one vacation predicate (2), the every-site weekly print option (3),
+warn-at-change as the difference with the one-day honesty on unopened months (6, "good for now"),
+fairness via `buildModel` reporting under as well as over (7), the filler's ceiling-as-target and
+tip-over preference (8), the header fix (9), the one-month checker (10).
+**④ NO READING OF ADJACENT MONTHS** — his "for 6/10 — no". The checker and the approval paths stay
+one-month; the record of the gap stands. The year filler already holds the previous month in memory
+and may use it for the post-call day; the month filler cannot see the last day of the month before,
+and says so.
+
+## §122 — THE COLLAPSE CONTROL, AGAIN: IDENTICAL TO THE VACATION SITE, AND VISIBLE — 28 Aug 2026
+
+Owner: **"you also never fixed the problem with the expand/collapse arrows. I want them to be
+identical to the vacay site and they need to be more visible. too hard to see currently."**
+
+Build 111 (§115) styled the SECTION bars as Show/Hide pills and deliberately left the per-item
+cards (a quota, a rule, a group) with the bare arrow. **That is not what he asked for.** Ruling:
+**every collapse control on the schedule admin — section bars AND per-item cards — is the vacation
+admin's control, copied not approximated** (the `.chev` "▸ Show" / "▾ Hide"), and it must be
+visibly legible. Owner-found; outranks the queue (§3 rule 1). Build 119.
+
+## §123 — THE SIMULATOR GOES; THE ENGINE GETS ITS OWN SECTION — 28 Aug 2026
+
+Owner: **"I also want to get rid of the simulator, I don't need it. What I will need is a mechanism
+to make the engine run and populate the staffing grid. This is a big part of the site and how all
+shifts will be assigned. There must be a way for admin to assign shifts 1 at a time or multiple at a
+time as well. The engine must follow all rules that are set. I want it to be clean and intuitive and
+it will need it's own section in the sidebar."**
+
+**① THE SIMULATOR PAGE IS RETIRED** — rehearsal mode, its banner and its Fill/Wipe framing (§45's
+"testing tool" is over). Clear Month keeps a home and its confirmation (§3/§5).
+**② A NEW SIDEBAR SECTION — the ENGINE** — is how shifts get assigned: run it for a month (or a
+range), see what it will do before it writes, and let it populate the staffing grid.
+**③ THE ENGINE FOLLOWS EVERY RULE THAT IS SET** — the built-ins and every admin-made rule, not only
+staffing minimums, quotas and the post-call day. A placement that would break a rule is not made by
+the engine; what it could not place is reported with the rule that stopped it. §4 unchanged: an admin
+may still place anything, with the confirmation and the override recorded.
+**④ MANUAL ASSIGNMENT LIVES THERE TOO** — one shift to one person, or several at once, from the
+same section, through the same checker.
+**⑤ "Clean and intuitive"** is the bar for the screen; the reasoning (what the engine will do and
+why it declined) is shown, not buried. Build 120, after the collapse control (119).
+**⑥ WHERE IT LIVES — owner, same turn: "This new feature and sim replacement can be filed under
+Admin. Admin section should be moved up to be between users and setup."** So the engine is a page
+in the ADMIN group of the sidebar, and the Admin group moves up to sit between Users and Setup.
+
+**§120 ⑦ — EXTENDED FOR THE DAY (owner, 28 Aug, leaving): "i'll be gone all day. keep going with
+everything that you can. i approve you making some decisions yourself in order to keep building.
+ensure that all decisions are done with the goal of an intuitive, clean, functional physician
+scheduling site."** The §120 authority runs through the day; the standard is his sentence. Every
+decision is still listed under §120, one line each, reversible.
+
+**§120 — DECISIONS APPENDED DURING BUILDS 118–120:**
+· **Any severity stops the ENGINE.** Severity is how loudly a person is warned; it is not permission
+  for a machine to break a rule he set. A Note-level rule still stops the engine.
+· **The engine previews before it writes** (Preview → Apply) — a second press, never a blind run;
+  a plan for another month is refused.
+· **The 1st of the month is unguarded for the post-call day in the month filler** (§121 ④ — no
+  reading of adjacent months); the year filler guards it from its own cache. Said, not hidden.
+· **Assign by hand is capped at two months per batch** and reads a day outside the open month once.
+· **The Rules page's "no rules yet" hint speaks of rules of his own** above the built-in cards.
+· **Draft/published is ONE field on the month document, and ABSENT MEANS PUBLISHED** (build 121 /
+  staff 38, §5) — no migration, nothing disappears from staff on deploy. The staff gate is in the
+  page; enforcing it in `firestore.rules` is an auction deploy and his call (§92).
+· **Publishing names the standing rule violations and does not clear them** — a report, not a gate.
+· **The change feed is fed from `mutateCell`, the one assignment writer** (build 122 / staff 39,
+  §6), plus the engine, publish and clear. Only published months emit. The staff query is filtered
+  to the person; a rules-level read restriction on `dailysched/changes` is an auction deploy (§92).
+· **In-grid marks (124) read the same `checkMonth` as the report** — one checker, two views;
+  marks follow rule changes; a report row goes to its day on the grid.
+· **A swap commits in ONE transaction (123)** — status and every leg, or nothing; a failed commit
+  is a toast and the swap stays pending.
+· **Request types (125 / staff 40) follow `design/REQUEST-TYPES.md` to the letter** — the standard
+  list is 26 (Use PTO if off is a modifier); a work request over several shifts is resolved by the
+  admin on the queue row; the four built-in choices stand while the list is empty.
+· **The engine reads APPROVED requests only (126)** — avoid excludes, work and available come first,
+  a person who asked for another shift is left free for it, and a rule still beats a request.

@@ -223,6 +223,27 @@ scripts are in the zip too, and each refuses to apply twice).
 Auction battery on unchanged auction bytes: 55 suites / 2,020 assertions / exit 0 after 112 and
 again after 117 (no auction baseline supplied — §6's legitimate skip). Isolation guard green.
 
+**THE AFTERNOON, under §120 ⑦ (he left for the day):** builds 118–124 and staff 38–39 — §121's
+built-in switches, §122's collapse control, §123's Engine page (Simulator gone, Admin group moved
+up), §5's draft/published months, §6's change feed, defect 3 closed, §90's in-grid marks. Every
+build: suite, honesty check failing on the previous build, full battery. Nine older suites were
+re-anchored by ruling (53, 60, 69, 70, 78, 98, 101, 105, 111, 117, the isolation guard's positive
+control) — each one a premise the rulings changed, never a stub of the new behaviour. **Seven of
+my own new suites had to be tightened the same day** (a 3,000-char grab window that over-reached
+once `gridViolIndex` landed beside `mutateCell`; exact counts; unguarded baselines) — §3 rules
+10, 11 and 16 apply to suites written that morning exactly as to old ones.
+**By the evening the Mac holds everything — 112–126 and staff 38–40 — verified file by file
+against the bundles' manifests** (the bridge dropped six times during the day; each bundle was
+unpacked the moment it held). `node status.mjs` exits clean; START-HERE names what is filed and
+not pushed. **Nothing in the cloud is ahead of the Mac.**
+
+**WHAT A FRESH SESSION SHOULD KNOW IS LEFT (all in `TODO.md`):** uniform confirmations (40 raw
+`confirm(`, cosmetic); the staff phone view beyond its existing small-screen rule; e-mail alerts
+(shares the auction's EmailJS quota — his decision); the calendar feed's two decisions (§92 and a
+deploy path); rules-level enforcement of the draft gate and the change feed (§92); holiday
+multi-year equity from §90's list. The engine's month filler cannot see the last day of the
+previous month for the post-call day (§121 ④ — his "no").
+
 **NOT DONE, DELIBERATELY:** `node status.mjs` was not run (it reads the Mac tree, which is
 behind); the `maintenance.lock` check after this session's fetch was done at the start (three
 moved to `_to_delete/locks-2026-08-28/`); `tests/README.md` is still stale.
