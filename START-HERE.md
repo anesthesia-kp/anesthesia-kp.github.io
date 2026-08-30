@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 30 Aug 2026, evening (§131/§132 — the rest of RA-6 and half the §7b menu, admin 142–146 / staff 49 FILED NOT PUSHED; 141 / 48 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 30 Aug 2026, late (§131–§135 — the rest of RA-6 and the §7b menu; 142–146 / 49 LIVE, 147 / 50 FILED NOT PUSHED) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -51,8 +51,8 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 142, 143, 144, 145, 146 / staff 49 (30 Aug evening, §131/§132) — `schedule` and `tests` (and this repo) await his push; nothing auction-side changed.** THE STAGE 5 RULES ARE PUBLISHED (30 Aug ~03:20 UTC, after RA-2: 136/136, honesty 46 of 46 red on `5994a1e`). **LIVE, verified
-cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 · schedule admin 141 / staff 48** (verified served 30 Aug 03:15 UTC after his push `f561a43` — §128–§130; 139–141 / 47–48 carry B-2, B-7, the page half of Stage 5, S-3's client half and D-6; 134–138 / 44–46 — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+**FILED, NOT YET PUSHED: schedule admin 147 / staff 50 (30 Aug late, §134/§135 — the in-page dialog, the phone day list, nothing to swipe); `schedule` and `tests` (and this repo) await his push; nothing auction-side changed.** 142–146 / 49 were pushed 30 Aug (`ac725ac`) and verified served twice. THE STAGE 5 RULES ARE PUBLISHED (30 Aug ~03:20 UTC, after RA-2: 136/136, honesty 46 of 46 red on `5994a1e`). **LIVE, verified
+cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 · schedule admin 146 / staff 49** (verified served 30 Aug ~06:30 UTC after his push `ac725ac` — §131–§133; 142–146 / 49 carry the rest of RA-6's Tier 2/3, every visual defect and half the §7b menu; 139–141 / 47–48 — §128–§130; 139–141 / 47–48 carry B-2, B-7, the page half of Stage 5, S-3's client half and D-6; 134–138 / 44–46 — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner

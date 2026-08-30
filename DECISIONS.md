@@ -3697,3 +3697,23 @@ Shown the before/after of admin 146 (five groups: *Run the month · Decide · Lo
 Records*), owner: **"I like the grouping, but I want less goofy titles."** The grouping is kept; the
 headings become plain nouns — **Schedule · Approvals · Reporting · Setup · Records** — folded into the
 still-unpushed 146. A heading names a thing, not an instruction to the reader.
+
+## §134 — "CONTINUE WITH WHAT YOU CAN"; THE PHONE LAYOUT IS THE SAME PAGE, LIKE THE VACATION SITE — 30 Aug 2026 (late)
+
+Owner, after the push of 142–146 / 49 and the list of what RA-6 still held: **"continue with what you
+can."** Read as §131/§132 continuing — the unbuilt §7b items in Claude's order (in-page dialogs, then the
+phone layout). Then, asked of the phone layout: **"Does the phone formatting use the same code and just
+format correctly for phones? that's what i want, like the vacation site."** Ruling: **one page, one set
+of code and data, reflowed by style rules for a narrow screen — never a second mobile page.** The
+staff site already works this way (its `@media (max-width:700px)` block); the Full Schedule's
+day-per-row phone view is built as another such rule on the same page.
+
+## §135 — ON THE PHONE, NOTHING YOU HAVE TO SWIPE SIDEWAYS TO READ — 30 Aug 2026 (late)
+
+Owner, seeing the phone screenshot: **"on the phone, there needs to be text where you need to swipe
+left/right to read"** — then, correcting himself: **"I mean no text where you need to swipe."** Ruling:
+on a narrow screen every panel of the staff site fits the width — nothing scrolls sideways and no text
+sits off the right edge. Measured at 390 px on every tab: the one thing left that did was the tab strip
+itself (725 px of tabs, "Changes" off the edge); it wraps now. Pinned by `staff50-test` on every panel.
+Then: **"going to sleep. finish this build and then prepare to hand off all other tasks for a new
+session."**

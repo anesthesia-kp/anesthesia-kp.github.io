@@ -184,6 +184,29 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 30 Aug 2026 (LATE) — §133/§134: THE HEADINGS, THE IN-PAGE DIALOG, THE PHONE DAY LIST
+
+He pushed 142–146 / 49 (`ac725ac`; verified served twice), kept the sidebar grouping but wanted *"less
+goofy titles"* (§133 — Schedule · Approvals · Reporting · Setup · Records, folded into 146 before the
+push), then *"continue with what you can"* and, of the phone layout, *"the same code and just format
+correctly for phones… like the vacation site"* (§134). **Admin 147:** Apply, Publish and Add-the-standard-
+types ask through the page's own dialog (`schedConfirm` → a promise); Publish lists the standing
+violations, Apply the over-ceiling days, Add the types; Escape/backdrop write nothing. Six suites that
+auto-accepted the native confirm now press the page's OK (build120/121/122/127/128/129), and 129's
+"asks nothing" also checks the page dialog did not open. **Staff 50:** the Full Schedule under 600 px is
+one day per row, built in the same loop from the same cells, chosen by a style rule — a phone
+screenshot went to him, and his answer became §135 (*"no text where you need to swipe"*): every panel was
+measured at 390 px; the tab strip was the last sideways scroller and now wraps. Both filed, not pushed;
+he went to sleep on *"finish this build and then prepare to hand off all other tasks for a new session"* —
+the hand-off list is at the top of `TODO.md` §1. **Traps:** a `page.evaluate` that AWAITS a handler which
+now awaits a dialog hangs for ever — fire the handler without awaiting, read the dialog, press OK; the
+honesty run must `press()` a button that may not exist rather than `click()` it (a 30 s timeout crash
+looks nothing like a red assertion); and **two copies of the docs repo diverged** — edits made on the Mac
+after a push while the cloud copy carried later edits — resolved by staging the Mac's copies down and
+re-applying. One copy is the truth at a time; say which.
+
+---
+
 ## 30 Aug 2026 (EVENING) — §131/§132: THE REST OF RA-6 AND HALF THE §7b MENU, SIX BUILDS, ALL FILED, NONE PUSHED
 
 **The rulings:** *"continue with the audit's findings… move ahead with all of those that you can fold
