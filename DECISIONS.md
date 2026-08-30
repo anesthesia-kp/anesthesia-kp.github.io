@@ -3717,3 +3717,17 @@ sits off the right edge. Measured at 390 px on every tab: the one thing left tha
 itself (725 px of tabs, "Changes" off the edge); it wraps now. Pinned by `staff50-test` on every panel.
 Then: **"going to sleep. finish this build and then prepare to hand off all other tasks for a new
 session."**
+
+## §136 — THE CALENDAR FEED GOES LIVE: A RULES DEPLOY FOR ITS TWO DOCUMENTS' READS — 30 Aug 2026 (afternoon)
+
+Asked what finishing the schedule site would take, and told the calendar feed needed three things — a
+rules change under §92, a Cloud Functions deploy from his Terminal, and a three-row check in a browser —
+owner: **"proceed"**, then **"rules and calendar"**, then, shown the exact two-line diff, **"go."** This
+is the SPECIFIC §92 decision for that change and no other. Ruling: in the `dailysched` block only,
+`dailysched/feedTokens` becomes readable by the schedule admin alone and `dailysched/feeds/items/*` by
+no client at all (the endpoint reads it with server credentials); every other read is unchanged and the
+`vacations` block is byte-identical (md5-checked). Found on the way: the Stage 5 rules had already made
+both documents admin-only to WRITE, so `functions/DEPLOY.md`'s "not optional" item was half stale.
+Verification is his: `RA-2.command` (fixture `28bae0c`, a one-change baseline). Then the deploy steps in
+`schedule/functions/DEPLOY.md`, then the three-row check. **§54's release gate stays SHUT** — no doctor
+is told until he says so — and the token question (who may regenerate one) is still his to rule.
