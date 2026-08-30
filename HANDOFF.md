@@ -184,6 +184,54 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 30 Aug 2026 (EVENING) — §131/§132: THE REST OF RA-6 AND HALF THE §7b MENU, SIX BUILDS, ALL FILED, NONE PUSHED
+
+**The rulings:** *"continue with the audit's findings… move ahead with all of those that you can fold
+into this session. I authorize you to make decisions on my behalf as long as they are with the goal of
+optimizing the schedule site"* (§131 — §0 rule 2 relaxed for the session, §92 untouched); asked whether
+the §7b visual ideas were decided (they were not — §124 ② and §130 kept them as proposals), heard the
+menu with a recommendation and four larger items flagged as his call, and said *"go as you think best,
+thanks"* (§132). Both filed in `DECISIONS.md` in the turn they were said.
+
+**Method:** every item was DISK-CHECKED against 141/48 before anything was built (an agent read the
+code and cited the deciding line for each of ~45 findings — five were already closed, one partial).
+The repos were cloned into the cloud and `tests/` staged as a tarball beside them; the battery ran
+against a SNAPSHOT copy of the tree (`/tmp/snaprun.sh`) so building could continue while it ran — the
+first run was contaminated by an edit landing mid-run (four `versions.json matches var BUILD` failures
+that were not failures), which is why the snapshot exists.
+
+**What shipped** (rows in `schedule/BUILD-LOG.md`): **admin 142** engine/rules tidy-ups (E-5, E-9,
+E-10, E-12, E-13, E-14, N-15, N-16) · **143** requests, swaps and the change feed (R-6, R-9, R-10,
+R-11, R-12, D-9, D-10, D-13 — the fake learned `serverTimestamp()`) · **144** B-8, B-9, N-20 and the
+visual defects V-5, V-6, V-8, V-10, V-15, V-18 · **145** V-7, V-12, V-13, V-20 plus §7b "one collapse
+control" (the two `<details>` folds are the site's bar, shut) and "one place for holidays" (a link
+from Rules; the list stays where he built it) · **146** §7b the sidebar regrouped (*Run the month ·
+Decide · Look at it · Set it up · Records*; a before/after picture sent to him) · **staff 49** twelve
+staff items (D-12, D-13, D-14, S-5/B-13, B-14, S-11, S-13, S-14/B-10, R-7, R-8, R-13/S-15, V-7's
+staff half). Every decision Claude made on his behalf is listed in `TODO.md` §1 for his review.
+
+**Gates:** each build's suite green in a browser with an honesty run FAILING on its explicit
+predecessor (142 on 141 `af1c5f6e…`: 10 red · 143 on 142: 15 · 144 on 143: 19 · 145 on 144: 21 ·
+146 on 145: 7 · staff 49 on 48 `f136e70f…`: 28). Twelve older suites re-anchored to their invariants,
+never stubbed. The final battery numbers are in the closing report below the traps.
+
+**Traps this session:**
+- **A battery run against the working tree is contaminated by the next edit.** Snapshot the tree and
+  run against the copy; `versions.json`-vs-`var BUILD` assertions catch exactly this and look like
+  four regressions.
+- **Two suites on one port fight** — the snapshot battery and a hand run of the same suite. `PORT=`
+  the hand run.
+- **`pkill -P <old run>` while a new run is starting took a Chromium with it** — one suite reported
+  "Target page closed" and was re-run alone. Never kill processes while a battery is warming up.
+- **The 142 fixture was never saved before 143 was written over it** — rebuilt by re-applying the
+  142 patch to 141 (deterministic, count==1 replacements), md5 recorded in the BUILD-LOG row. Save
+  the fixture in the same breath as the bump.
+- **The bridge to the Mac flapped all evening** (the remote-devices server connected and dropped
+  five times). Everything was built in the cloud clones; the transfer to the Mac is the last step
+  and is md5-verified per file.
+
+---
+
 ## 29 Aug 2026 (AFTERNOON) — §128–§130: B-2, B-7 AND THE STAGE 5 RULES, FILED; HIS TWO STEPS WAIT
 
 **The rulings, in order:** *"go as you think best and group what you can to keep working"* (§128 —

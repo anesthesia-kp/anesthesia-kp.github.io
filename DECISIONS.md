@@ -3663,3 +3663,37 @@ not override — the §7b items stay proposals.
 tests, `28bae0c` rules, `6e2e53b` docs), schedule 141 / 48 were verified served twice, he ran RA-2
 (current rules 136/136; honesty 46 of 46 Stage 5 gates red on `5994a1e`), then published the rules in
 the console. The auction served 305 / 164 / 18 before and after — untouched.
+
+## §131 — "MOVE AHEAD WITH ALL OF THOSE THAT YOU CAN" — THE REST OF RA-6 RUNS ON CLAUDE'S ORDER; THE VISUAL MENU IS OPENED — 30 Aug 2026 (evening)
+
+Owner, opening the session: **"I'd like to continue with the audit's findings. Please move ahead with
+all of those that you can fold into this session. I authorize you to make decisions on my behalf as
+long as they are with the goal of optimizing the schedule site. I would very much like to work on
+ideas on cleaning up the site and making it more visually appealing and clean. Are those ideas
+already decided?"** Read as §126/§128 read: §0 rule 2 is relaxed for THIS session — RA-6's remaining
+Tier 2/3 code items on the SCHEDULE ship in Claude's order, each small decision written into
+`TODO.md`'s "decisions to review". What it does NOT change: §92 (the auction code, `firestore.rules`
+included, stays closed — "optimizing the schedule site" is the scope, not a licence); he does every
+push; every build ships its suite, an honesty check FAILING on the previous build, and both
+batteries. **The §7b visual proposals were NOT decided** (§124 ②, §130): they are a menu, and his
+sentence opens it — Claude presents the menu with a recommendation and builds what he picks; the
+V-* DEFECTS (as opposed to proposals) are audit findings and fall under the general go.
+
+## §132 — "GO AS YOU THINK BEST, THANKS" — THE VISUAL MENU IS CLAUDE'S TO ORDER TOO — 30 Aug 2026 (evening)
+
+Claude presented the §7b menu with a recommendation (freeze the name column and date header; one
+collapse behaviour and retire the yellow banners; holidays to the Rules side; Reports prose from the
+live catalog) and flagged four larger items as his call (regrouping the admin navigation; a setup
+checklist on the landing page; in-page confirmation dialogs; a phone layout for the staff Full
+Schedule), pushing back on one ("what a plan would do to existing assignments"). Owner: **"go as you
+think best, thanks."** Read as: the visual proposals join §131's grant — Claude orders them and builds
+what it judges serves "clean, organized, intuitive", defects first, then the recommended four, then the
+larger items as the session allows, each written into `TODO.md`'s "decisions to review". §92 unchanged;
+he does every push; every build gated as before.
+
+## §133 — THE SIDEBAR GROUPING STAYS; THE HEADINGS ARE PLAIN NOUNS — 30 Aug 2026 (late)
+
+Shown the before/after of admin 146 (five groups: *Run the month · Decide · Look at it · Set it up ·
+Records*), owner: **"I like the grouping, but I want less goofy titles."** The grouping is kept; the
+headings become plain nouns — **Schedule · Approvals · Reporting · Setup · Records** — folded into the
+still-unpushed 146. A heading names a thing, not an instruction to the reader.

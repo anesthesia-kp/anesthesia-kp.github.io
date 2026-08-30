@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 30 Aug 2026 (§128–§130 executed; admin 141 / staff 48 LIVE, Stage 5 rules PUBLISHED) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 30 Aug 2026, evening (§131/§132 — the rest of RA-6 and half the §7b menu, admin 142–146 / staff 49 FILED NOT PUSHED; 141 / 48 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -10,9 +10,14 @@ CAME RA-6 (§124): the audit of that wave, verified adversarially, at `tests/doc
 — and §125: its order is Claude's. Stages 0–2 shipped as admin 127–133 / staff 41–43. **§126 (29 Aug):
 *"go with all items that you can"* — Stage 3, the schedule-only half of Stage 4 and the Tier 2 items
 Claude judged necessary shipped as admin 134–137 / staff 44–46, then §127 (only ANNOUNCED vacation
-reaches the schedule) as admin 138 — all FILED NOT PUSHED. WHAT IS LEFT OF
-RA-6 WAITS FOR HIS SPECIFIC GO, ONE EACH: B-2, B-7 (roster writers) and Stage 5 (the rules) —
-`TODO.md` §1 has each plan; §92 still closes the auction code: one specific decision per change.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
+reaches the schedule) as admin 138; then §128–§130 shipped B-2, B-7, the page half of Stage 5, S-3's
+client half and D-6 as 139–141 / 47–48, and the Stage 5 rules were PUBLISHED 30 Aug. **§131/§132 (30 Aug
+evening): *"move ahead with all of those that you can… I authorize you to make decisions on my behalf"*
+and *"go as you think best"* — the remaining Tier 2/3 items, every visual DEFECT and half the §7b menu
+(one collapse control, holidays findable from Rules, the sidebar regrouped) shipped as admin 142–146 /
+staff 49, ALL FILED NOT PUSHED; the decisions Claude made are listed in `TODO.md` §1 for his review.
+What is left of RA-6 is `TODO.md` §1 (D-7 needs a console index; the setup-checklist landing page,
+in-page dialogs and the phone layout are unbuilt §7b items). §92 still closes the auction code.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
 the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
 predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
@@ -46,7 +51,7 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**NOTHING FILED-NOT-PUSHED. THE STAGE 5 RULES ARE PUBLISHED (30 Aug ~03:20 UTC, after RA-2: 136/136, honesty 46 of 46 red on `5994a1e`).** **LIVE, verified
+**FILED, NOT YET PUSHED: schedule admin 142, 143, 144, 145, 146 / staff 49 (30 Aug evening, §131/§132) — `schedule` and `tests` (and this repo) await his push; nothing auction-side changed.** THE STAGE 5 RULES ARE PUBLISHED (30 Aug ~03:20 UTC, after RA-2: 136/136, honesty 46 of 46 red on `5994a1e`). **LIVE, verified
 cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 · schedule admin 141 / staff 48** (verified served 30 Aug 03:15 UTC after his push `f561a43` — §128–§130; 139–141 / 47–48 carry B-2, B-7, the page half of Stage 5, S-3's client half and D-6; 134–138 / 44–46 — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
