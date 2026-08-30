@@ -246,7 +246,9 @@ trap: a detached `sh -c 'sleep …; node run-all.mjs'` inherited a `tests/sched`
 schedule battery under the auction log's name — check `/proc/<pid>/cwd` before trusting a log's
 name, and `cd` inside the detached command.
 
-**What he does when back:** `TODO.md` §1 — (1) push all four repos, verify schedule 141/48 served;
+**DONE on his return (30 Aug ~03:20 UTC):** pushed (one re-push after a GitHub Desktop glitch), 141/48 verified served twice, RA-2 136/136 with 46 of 46 Stage 5 gates red on the old rules, rules published. The auction served 305/164/18 throughout.
+
+**For the record, the steps were:** `TODO.md` §1 — (1) push all four repos, verify schedule 141/48 served;
 (2) double-click `tests/RA-2.command`, then paste `firestore-rules.txt` into the console. Until (2) the
 old rules stay in force and both pages work under either file.
 

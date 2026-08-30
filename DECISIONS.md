@@ -3658,3 +3658,8 @@ with `COMMIT-MESSAGES.txt` and the rules file in the outputs column; the auction
 §92 (a general "auction isn't disturbed" is the constraint, not a licence); and §124's rule that
 visual proposals are PRESENTED, never applied unasked, is a specific ruling that a general grant does
 not override — the §7b items stay proposals.
+
+**§129 — EXECUTED, 30 Aug 2026 ~03:20 UTC.** He pushed all four repos (`f561a43` schedule, `994c173`
+tests, `28bae0c` rules, `6e2e53b` docs), schedule 141 / 48 were verified served twice, he ran RA-2
+(current rules 136/136; honesty 46 of 46 Stage 5 gates red on `5994a1e`), then published the rules in
+the console. The auction served 305 / 164 / 18 before and after — untouched.
