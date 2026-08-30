@@ -184,6 +184,74 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 29 Aug 2026 (AFTERNOON) — §128–§130: B-2, B-7 AND THE STAGE 5 RULES, FILED; HIS TWO STEPS WAIT
+
+**The rulings, in order:** *"go as you think best and group what you can to keep working"* (§128 —
+the go for B-2/B-7, not for the rules); *"We can do a firerules deploy as long as it's very low risk
+to the auction site"* (§129 — the §92 decision, read as a design constraint: only the `dailysched`
+block changes); *"i'll be gone for a while. keep going with what you can… rules okay if safe"* (§130).
+The session opened on a stale snapshot: the pasted START-HERE said 134–138 were filed-not-pushed; disk
+said he had pushed them at 13:36 PDT, and both served sites agreed (§3 rule 13 — disk beats the paste).
+
+**What shipped** (rows in `schedule/BUILD-LOG.md`): **admin 139** — B-2 (Save-all refuses a stale grid,
+writes only changed fields), N-20/N-21 (the count moves with the rows; a visible stale notice), B-7
+(Remove clears this site's data only and points at the auction admin; a departed-users sweep; the
+isolation guard's sanctioned set is FOUR). **Admin 140 / staff 47** — the page half of Stage 5: no
+`dailysched` listener before Google sign-in on either page; the claim re-apply no longer creates a
+decided document. **`firestore.rules` Stage 5** — filed in the auction repo, `vacations` block
+byte-identical (prefix 34,304 bytes and suffix compared equal); `dailysched` reads need a verified
+sign-in, writes are an allow-list (own request, own/party swap, one audit line), decisions admin-only.
+**RA-2** — assertions extended (generational tallies; the Stage 5 gates all FAIL on `5994a1e`);
+`RA-2.command` now takes its honesty fixture from `5994a1e`, the one-change baseline.
+
+**Decisions Claude made for his review** (all in `TODO.md` §1): B-7 as a refusal-with-link rather
+than a copy of the auction's ten-document cleanup; reads at `isVerifiedAccount` (the auction's own
+bar), not per-person; staff can no longer act on pre-build-30 legacy request/swap items.
+
+**Gates:** `build139-test` 34/34, honesty 22 red on 138; `staff47-test` 22/22, honesty 11 red on
+46/139; isolation guard 36/36 and red three ways on 138; schedule battery **93 of 93 suites EXECUTED
+in the cloud, 0 failed** on the frozen 140/47 tree (the first pass turned up one archive pin in
+`staff30`, re-anchored); auction battery **55/55, 2,019 assertions, exit 0** (regression gate,
+auction baseline absent by design; the rules-emulator suite skips loudly here — it is his RA-2).
+Four older suites re-anchored: build64, build79 (its 2,600-char window had stopped reaching the
+line), build89, staff30.
+
+**Traps this session:**
+- **Playwright is not on the Mac VM and ESM ignores `NODE_PATH`** — symlink the global module into
+  `tests/node_modules` or every browser suite is a silent skip (the RA-6 trap, again).
+- **`pkill -f chrome` from inside the tool shell killed the shell itself** (exit 144) and the battery
+  with it. Detach long runs with `setsid nohup … & disown` and read the log's mtime, never the process table.
+- **The bridge dropped for ~10 minutes right after he left** — a heredoc "did not respond within 190s"
+  and did NOT land. Everything written before it was intact (md5-checked). The docs repo was cloned to
+  the cloud and the edits kept as count==1 patch scripts (`~/kp/patches/`) until the bridge returned.
+- **`device_bash` has an argument-size limit (E2BIG)** — a 60-line assertions block had to go over in
+  two heredocs.
+
+**Then, unattended (§130): staff 48** — S-3's client half: the staff page subscribes only to its own
+requests (`where user == me`) and the swaps it is party to (three single-field slices merged), so no
+colleague's note reaches another browser; no composite index, nothing to create in the console.
+`staff48-test` 18/18, honesty 11 red on 47. The fake now throws on an unknown `where` operator instead
+of returning true. `staff47-test`'s listener count was a pin — re-anchored.
+
+**Last build of the session, at his instruction ("make this the last build here"): admin 141** —
+RA-6 D-6: a draft month contributes no shifts to a calendar feed and carries one transparent
+"Schedule not yet published" marker across its days; the feed document records the drafts; the
+Feeds page names the real release blocker (the Stage 5 rules published, not "lock the token list").
+`build141-test` 17/17, honesty 10 red on 140 (the baseline's feed carries the draft shift).
+`build110-test` re-anchored. START-HERE's stale "five unbuilt rule types" paragraph corrected —
+Stage 5 has been complete since 112–117. **Final batteries on the frozen 141/48 tree: schedule 95 of
+95 suites EXECUTED in the cloud, 2,528 assertions, 0 failed, exit 0; auction 55/55, 2,020 assertions,
+exit 0 (regression gate on unchanged auction bytes, auction baseline absent by design).** One more
+trap: a detached `sh -c 'sleep …; node run-all.mjs'` inherited a `tests/sched` cwd and re-ran the
+schedule battery under the auction log's name — check `/proc/<pid>/cwd` before trusting a log's
+name, and `cd` inside the detached command.
+
+**What he does when back:** `TODO.md` §1 — (1) push all four repos, verify schedule 141/48 served;
+(2) double-click `tests/RA-2.command`, then paste `firestore-rules.txt` into the console. Until (2) the
+old rules stay in force and both pages work under either file.
+
+---
+
 ## 29 Aug 2026 (DAY) — §126: "GO WITH ALL ITEMS THAT YOU CAN" — SIX BUILDS, STAGE 3 AND HALF OF STAGE 4, ALL FILED, NONE PUSHED
 
 **The ruling, at session open:** *"Please go with all items that you can. i grant you authority to

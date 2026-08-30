@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 29 Aug 2026 (day session closed — §126/§127; admin 134–138 / staff 44–46 FILED, NOT PUSHED; 133 / 43 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 29 Aug 2026 (afternoon session, §128–§130; admin 139–141 / staff 47–48 + Stage 5 rules FILED NOT PUSHED; 138 / 46 LIVE) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -35,20 +35,22 @@ Reading, auditing and running the batteries were in scope throughout and remain 
 (108), his dropdown-and-sheet changes (109), the calendar feed's admin half (110) and the collapse
 control (111) all went live on 26 Aug. **⚠ `41ca7be` carries build 110 under a subject naming
 108-109** — recorded in `BUILD-LOG.md`, not rewritten.
-**WHAT IS LEFT OF THE SCHEDULE IS STAGE 5'S REMAINDER, NOT LOOSE ENDS:** quotas as CONSTRAINTS
-rather than readouts (§109, the largest single piece), the five unbuilt rule types in
-`design/RULES.md`, and the warn-at-the-moment-of-change path — plus the calendar feed's
-auto-refresh, **parked by him on 26 Aug** with its design in `TODO.md`. **The feed cannot be
-released until `dailysched/feedTokens` is admin-only in `firestore.rules` (§92 — his decision) and
-the endpoint in `schedule/functions/` is deployed. §54's release gate is also still shut.** The schedule admin now opens collapsed everywhere the owner asked
+**STAGE 5 IS COMPLETE (112–117, 28 Aug): all seven rule types, warn at the moment of change, quotas
+as constraints in auto-populate — the sentence that stood here listing them as unbuilt was a stale
+snapshot (§3 rule 13). What is left of the schedule is in `TODO.md` §1: RA-6's Tier 2/3 and §7b
+proposals (his to pick), D-7 (needs a console-created index), and the calendar feed's auto-refresh,
+parked by him on 26 Aug.** **The feed cannot be released until the Stage 5 rules are PUBLISHED
+(filed 29 Aug under §129, awaiting his RA-2 run and console paste) and the endpoint in
+`schedule/functions/` is deployed. §54's release gate is also still shut.** The schedule admin now opens collapsed everywhere the owner asked
 (§104): the catalog is four closed bars, an eligibility row is one line, a group card is its header.
 Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session — its step 0,
 `git fetch` every repo before judging what is recorded, exists because on 25 Aug a stale clone
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
-**FILED, NOT YET PUSHED: schedule admin 134–138 / staff 44–46 (29 Aug day) — seven builds in the working tree, each with
-its suite and a red honesty run; `COMMIT-MESSAGES.txt` is in the outputs column.** **LIVE, verified
-cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 · schedule admin 133 / staff 43** (verified served after his 29 Aug 01:45 push of 131–133 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+**FILED, NOT YET PUSHED: schedule admin 139–141 / staff 47–48 (29 Aug afternoon, §128–§130), the Stage 5 `firestore.rules`
+(auction repo, `dailysched` block only), RA-2 extended — `COMMIT-MESSAGES.txt` and `firestore-rules.txt` are in the outputs
+column; `TODO.md` §1 has his two ordered steps (push the pages, THEN RA-2 and the console paste).** **LIVE, verified
+cache-busted TWICE: auction admin 305 · staff (index) 164 · mobile 18 · schedule admin 138 / staff 46** (verified served 29 Aug 20:40 UTC after that push — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner

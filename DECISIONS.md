@@ -3620,3 +3620,41 @@ document — is not vacation to the schedule, for the admin as much as for staff
 Claude's build-134 decision** (the admin saw every decided week); shipped as admin 138, and the
 admin page no longer reads `vacations/approvals` at all.
 
+## §128 — "GO AS YOU THINK BEST AND GROUP WHAT YOU CAN TO KEEP WORKING" — 29 Aug 2026 (afternoon)
+
+Owner, in a fresh session after pushing the 29 Aug wave himself (live 13:36 PDT), having just read
+Claude's list of what was still held — B-2, B-7, Stage 5: **"go as you think best and group what you
+can to keep working. thanks."** Read as §126 read §110: §0 rule 2 is relaxed for THIS session, and
+because the sentence answers a list that named B-2 and B-7 specifically, it IS the go for those two —
+the sanctioned roster writers in the schedule admin (§1's exception), grouped where they share a
+build. **It is NOT the §92 decision for Stage 5:** `firestore.rules` is served by the auction repo,
+and §92 says a general go is never that decision. Claude prepares the rules text and the RA-2 plan
+and asks. Every build still ships its suite, an honesty check FAILING on the previous build, and
+both batteries; the isolation guard learns B-7's new write path in the same build.
+
+## §129 — THE STAGE 5 RULES DEPLOY IS GO, "AS LONG AS IT'S VERY LOW RISK TO THE AUCTION SITE" — 29 Aug 2026 (afternoon)
+
+Owner, mid-session, unprompted: **"We can do a firerules deploy as long as it's very low risk to the
+auction site."** This is the §92 decision for Stage 5 (`firestore.rules`) — one deploy, with a
+condition that Claude reads as a DESIGN CONSTRAINT, not a mood: **the change may touch only the
+`dailysched` block. Not one byte of the `vacations` block changes**, and the diff proves it. The
+schedule's staff page already fails closed (staff 44, N-9), so tightening `dailysched` reads cannot
+open a draft. The gates: RA-2 on the new rules must pass in full, its new `dailysched` assertions
+must FAIL on the current rules (`PRE_RULES=` the saved copy), and every existing `vacations`
+assertion must be untouched in count and outcome. **He runs RA-2** (§6 exception). If the rules
+cannot be changed that cleanly — if a `vacations` line must move for any reason — Claude stops and
+says so rather than reading this sentence as cover. The console publish lands BEFORE any dependent
+schedule code pushes (§2).
+
+## §130 — "I'LL BE GONE FOR A WHILE. KEEP GOING WITH WHAT YOU CAN." — 29 Aug 2026 (afternoon, unattended)
+
+Owner, leaving: **"i'll be gone for a while. keep going with what you can. i'm ok with you making some
+decisions as long as auction isn't disturbed. rules okay if safe."** Read as: §128 continues through
+the unattended stretch — Claude picks the order and makes the small decisions, each one written into
+`TODO.md`'s "decisions to review" for him; §129 stands, with "safe" meaning what §129 already says
+(only the `dailysched` block changes, RA-2 proves it, the pages go live first). What it does NOT
+change: he does every push and every console paste, so "keep going" ends at a filed working tree
+with `COMMIT-MESSAGES.txt` and the rules file in the outputs column; the auction code stays closed by
+§92 (a general "auction isn't disturbed" is the constraint, not a licence); and §124's rule that
+visual proposals are PRESENTED, never applied unasked, is a specific ruling that a general grant does
+not override — the §7b items stay proposals.
