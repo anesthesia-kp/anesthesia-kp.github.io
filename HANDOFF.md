@@ -184,6 +184,39 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 30 Aug 2026 (AFTERNOON, next session) — §136/§137: THE CALENDAR FEED GOES LIVE; ADMIN 148
+
+**He opened with the pasted START-HERE one push behind** (147 / 50 were already served — §3 rule 13 again); the
+ritual found it, the paperwork was brought current, three `maintenance.lock`s from the fetch went to `_to_delete/`.
+His goal for the day: *"finish all outstanding work with the schedule site."* Told plainly what was his (index, request
+types, a functions deploy) and what was mine.
+
+**The feed, end to end, in one afternoon.** §136: the two-line rules diff (feedTokens admin-read, feeds/items readable
+by nobody) shown, his "go", filed with four RA-2 gates on a `28bae0c` fixture. **He pasted the rules BEFORE running
+RA-2** ("forgot ra2") — same bytes, so the verdict still covered them: 146/146, honesty 4 of 4 red. Then the deploy: his
+first try hit `EACCES` on a global npm install (fixed: the `npx` route, no sudo), ran the deploy line from `~` (no
+`firebase.json` — it did not exist; added), then landed on Node 20 which Google retires 30 Oct 2026 — runtime moved to
+22 the same turn and redeployed. Both the `cloudfunctions.net` and the `run.app` address answer; `FEED_URL_BASE` stays.
+The three-row check: his own link returned a 522-byte calendar (after *Rebuild every feed* — Create alone mints no
+calendar, which is what led to 148), a valid-shape token with nothing behind it and `/abc` both gave the same 404.
+`functions/node_modules/` was NOT ignored (239 packages nearly offered to GitHub Desktop) — ignored now.
+
+**§137, from his questions, verbatim:** *"why create each docs 1 at a time?"* → one button; *"I will need a way to send
+all feeds to each user's phone, probably using gmail"* → both the e-mail AND the staff-site link, both queued; *"it needs
+an obvious name… i'm worried now i'll confuse this testing schedule with my real work schedule on my phone"* → the
+calendar is `KP Anesthesia — <Name>`, `TEST · ` in front while the gate is shut. Admin 148 carries the first and third and
+makes the gate a stored switch so the e-mail build can read it.
+
+**Traps this session.** The device bridge FLAPPED for ~40 minutes; every patch asserts `count(old)==1` so nothing landed
+half-way, and the whole battery ran in the cloud (104/104 executed — on the Mac 82 would skip). The runner's 5-minute
+kill and the `page.evaluate` that awaits a function waiting on a dialog: fire it, do not await it. `build148` caught a
+real bug before filing (a `+` bound to one ternary branch). `status.mjs` wants the literal phrase "FILED, NOT YET PUSHED".
+
+**Left for him:** push `schedule`, `tests`, this repo; the two §137 builds (e-mail send; staff-site link, whose rules
+half is a §92 diff to show him); the setup-checklist page; D-7's index; S-7; his call on the plan-diff and B-15.
+
+---
+
 ## 30 Aug 2026 (LATE) — §133/§134: THE HEADINGS, THE IN-PAGE DIALOG, THE PHONE DAY LIST
 
 He pushed 142–146 / 49 (`ac725ac`; verified served twice), kept the sidebar grouping but wanted *"less

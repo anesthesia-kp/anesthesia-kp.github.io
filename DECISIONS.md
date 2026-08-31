@@ -3731,3 +3731,43 @@ both documents admin-only to WRITE, so `functions/DEPLOY.md`'s "not optional" it
 Verification is his: `RA-2.command` (fixture `28bae0c`, a one-change baseline). Then the deploy steps in
 `schedule/functions/DEPLOY.md`, then the three-row check. **§54's release gate stays SHUT** — no doctor
 is told until he says so — and the token question (who may regenerate one) is still his to rule.
+
+## §137 — DELIVERING THE FEED: BOTH BY E-MAIL AND ON THE STAFF SITE; THE CALENDAR NEEDS AN OBVIOUS NAME — 30 Aug 2026 (afternoon)
+
+After the feed was verified end to end (§136), owner: **"I will need a way to send all feeds to each user's
+phone, probably using gmail"** — then, shown the two shapes (an e-mail per doctor through EmailJS with a
+tap-to-subscribe link; the staff site showing each signed-in doctor their own link, which needs a §92 rules
+change), **"I think we do both of these."** Ruling: both are built; the e-mail send stays behind §54's release
+gate. Then, having subscribed himself: **"I don't know what the calendar is called. it needs an obvious name.
+i'm worried now i'll confuse this testing schedule with my real work schedule on my phone."** Ruling: the
+calendar carries an obvious name of its own on every phone, distinct from anything else he has. Neither is
+built yet; the rules half of the staff-site link is a separate §92 decision when its diff is shown.
+
+## §138 — THE CALENDAR IS NAMED "KP ANESTHESIA SCHEDULE" — 30 Aug 2026 (afternoon)
+
+Shown 148's `KP Anesthesia — <Name>`, owner: **"KP Anesthesia Schedule is a good name. Can name be locked so it can
+always be found?"** Ruling: the calendar's name is exactly **KP Anesthesia Schedule** (`TEST · ` in front while §54's
+gate is shut). On "locked", the honest answer given: a feed SUGGESTS its name and a calendar app reads it when the
+person subscribes, so every doctor sees it from the start — but nothing stops a person renaming it on their own phone,
+and Apple's Calendar does not rename an existing subscription when the feed's name changes later. **Correction, dated
+30 Aug:** 148's dialog said subscribed phones "pick the new name up at their next refresh" — not reliable; since nobody
+but him is subscribed while the gate is shut, doctors subscribe fresh after it opens and he re-adds his own. Folded
+into 148 before its push.
+
+## §139 — THE LINK E-MAIL CARRIES PERFECT PHONE INSTRUCTIONS, iPHONE AND ANDROID — 30 Aug 2026 (afternoon)
+
+Having subscribed on his own iPhone (Settings → Calendar → Accounts → Add Account → Other → Add Subscribed Calendar
+worked; a Mac subscription had not reached the phone), owner: **"When we send an e-mail to users with this, we will
+need perfect instructions for both iphones and androids that work flawlessly."** Ruling for the §137 e-mail build: the
+message carries step-by-step instructions for iPhone and for Android, each verified on a real device before the gate
+opens. Recorded with it, so nobody promises what a platform cannot do: iPhone can subscribe from a tapped `webcal://`
+link; Android's Google Calendar app has NO subscribe-by-address on the phone — it is done once on calendar.google.com
+(Other calendars → From URL) and then appears on the phone, and Google refreshes such feeds on its own schedule
+(hours, not minutes). The instructions say so rather than pretending otherwise.
+
+## §140 — UNPARK THE AUTO-REFRESH, WITH THE TIMESTAMP; THEN THE E-MAIL — 30 Aug 2026 (afternoon)
+
+Comparing with QGenda ("autosync from qgenda" with a date/time in each event's notes), owner: **"unpark the
+auto-refresh and then do email."** Ruling: the calendar feeds keep themselves fresh — the 26 Aug parking (feeds rebuilt
+only on a click) is lifted — and each event carries "Auto-sync from KP Anesthesia Schedule · <date time>" in its notes;
+that build comes first, the §137 e-mail (with §139's instructions) after it. Order of work is his; §92 unchanged.
