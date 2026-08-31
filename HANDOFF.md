@@ -1088,3 +1088,11 @@ nowhere.*
 - **Raising a cap auto-raises later phases' caps.**
 
 ---
+
+## 31 Aug 2026 — the §142 batch (admin 151 / staff 51 / PUSH-ALL), and two session-specific notes
+Shipped and verified per BUILD-LOG; rulings §141–§143. Worth keeping: (1) with `device_stage_files`
+blocked by a stale sign-in, the current build reached the cloud by RE-APPLYING the same
+count-guarded python substitutions to a fresh clone — md5 then proved byte-identity, no transfer
+needed. (2) In-cloud, ESM suites ignore NODE_PATH — symlink the global node_modules to
+`<root>/tests/node_modules`; and the full schedule battery (108 suites, browser suites RUN) takes
+>10 min — run it with nohup in the background and read the log, never in a foreground call.
