@@ -3831,3 +3831,27 @@ What was actually established, and what a next session must not have to rediscov
   is UNVERIFIED because the connection died on that click. First job next session: verify and report it.
 · Claude's share of the blame is recorded plainly in HANDOFF — two wrong diagnoses before testing, and a
   screenshot-free working mode that left him unable to see the work.
+
+## §146 — THE AUCTION-BOARD QUEUE IS CLOSED; NOTHING FROM IT IS RE-RAISED — 31 Aug 2026
+
+Shown the state of the board and the aborted rehearsal at the start of a fresh session, the owner ruled:
+**"ignore all of these outstanding items, starting fresh"**, then **"mark them as complete without
+suggesting we come back to them."**
+
+Claude pushed back on the word *complete* and he accepted the correction: the rehearsal never ran and the
+board was never verified, so a document reading "complete" beside "Rehearsal Mode must be OFF before launch"
+would be taken by a later session as done. The items are therefore **CLOSED**, at his instruction, rather
+than completed. He said go.
+
+Ruling: the 🔴 block that stood at the top of `TODO.md` §1 — verifying whether Phase 1 was begun, the
+Rehearsal Mode question, the abandoned Chrome rehearsal, the e-mail-switch finding and the smaller findings
+from that run — is CLOSED. **Do not re-raise any of it, do not list it as outstanding, and do not suggest
+returning to it.** This is the same principle as his 25 Aug ruling that launch and the sign-in test are his
+own and are not to be put back on any list.
+
+What survives, as record rather than as work:
+· §145 and `HANDOFF.md` keep the full account of the aborted run, including the e-mail-switch finding.
+· `TODO.md` keeps one line of live state — Rehearsal Mode was ON when the board was last seen — because that
+  is a fact about the site, not a task. It carries no action and no suggestion.
+· §146 touches nothing else. The calendar-feed section, the RA-6 remainder and the held schedule pile are
+  unaffected and stay exactly as they are under §143.

@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the Chrome rehearsal ABANDONED and the auction board EMPTY + UNVERIFIED, §145 — see READ FIRST below; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -24,24 +24,12 @@ the largest of them (SHIFT POOLS: a combined staffing total across a named set o
 per-shift min/max ranges underneath it)**.
 
 
-# 🔴 READ FIRST — THE AUCTION BOARD IS EMPTY AND IN AN UNVERIFIED STATE (31 Aug 2026, §145)
-The Chrome-driven rehearsal he asked for was ABANDONED mid-flight after four extension disconnections
-(*"forget it, this a waste of my tine"*). **He reset the board himself, so it holds no bids.** Three things
-before anything else — the detail is at the very top of `TODO.md` §1:
-**① Whether Phase 1 was BEGUN is UNVERIFIED** — the click landed, the connection died before the result
-could be read. Check it and tell him. **② REHEARSAL MODE IS ON and must be OFF before any real launch
-(NE-10)** — reset leaves it armed by design, and nobody has claimed arming it. **③ His pre-rehearsal data is
-in the two cloud backups stamped *31 Aug · Phase 1 · 5 bids*.**
-**⚠️ AND THE FINDING THAT MATTERS MOST: the two e-mail switches do NOT gate admin-initiated sends.**
-`Outbid alert e-mails` is checked only where alerts are QUEUED; `Welcome e-mails` only in `welcomeOnce()`.
-Every admin blast — Send Phase Results, Send Round Results, Send Reminders, the whitelist ask — reaches
-`emailjs.send` through `adminSendEmail()`, which checks NO switch; the queue flusher checks none either.
-**"E-mails are toggled off" is NOT a safe basis for a rehearsal.** Only `⏭ Skip sending (testing)`, which
-exists only while Rehearsal Mode is ON, completes a phase without mailing. Not a live bug — every send is
-still a deliberate confirmed act, NE-13 holds — but it is his decision whether the switches should also gate
-the blasts, and §92 governs.
-**The rehearsal is UNRUN and stays his final pre-launch check. Do not restart it unasked**, and not at all
-until the disconnections are understood — the evidence, and Claude's own errors, are in `HANDOFF.md`.
+# ⬛ THE AUCTION-BOARD QUEUE IS CLOSED — owner ruling, 31 Aug 2026 (§146)
+The aborted Chrome rehearsal, the unverified board state and the findings from that run are **CLOSED at his
+instruction** — closed, not completed. **Do not re-raise any of it, list it as outstanding, or suggest
+returning to it.** The full account stays in `DECISIONS.md` §145/§146 and `HANDOFF.md`. One fact, carrying no
+action: Rehearsal Mode was ON when the board was last seen, 31 Aug. The auction has no queued work.
+
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
 
