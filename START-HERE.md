@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command filed; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED on its first run, §144; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -658,14 +658,12 @@ reporting anything.
 > WIDER baseline than one change, so older gates fail there too. That is not a fault; it just
 > means a one-change comparison needs the explicit `PRE_RULES`.
 
-**⚠️ COMMAND-LINE GIT IS NOT INSTALLED ON THE NEW MAC (22 Aug 2026).** GitHub Desktop carries its
-own private copy, so pushes work — but `git` in Terminal does not, and both `status.mjs` and
-`RA-2.command` shell out to it. `RA-2.command` step 4 therefore reports *"could not read the old
-rules from git"* and skips the honesty check — which by the rule above is a FAILED GATE, not a
-pass. **Workaround used on 22 Aug:** extract the fixture from the explicit SHA elsewhere and pass
-it in — `PRE_RULES=<file> node test-rules-emulator.mjs` from `tests/`. **Real fix:**
-`xcode-select --install`, then `xcode-select -p` must print `/Library/Developer/CommandLineTools`.
-Do this before trusting any gate that reads history.
+**⚠️ COMMAND-LINE GIT: INSTALLED, AND READS FINE — corrected 31 Aug 2026.** The 22 Aug note here
+said it was missing. A PUSH-ALL run on 31 Aug proved otherwise: Terminal `git` ran and committed, so
+`status.mjs` and `RA-2.command` may shell out to it and the git-fixture route works (as it already
+did on 25 Aug). What Terminal git CANNOT do is PUSH — the remotes are HTTPS with no saved sign-in —
+and fixing that was DECLINED (§144). If a gate that reads history ever fails anyway, the fallback is
+still `PRE_RULES=<file> node test-rules-emulator.mjs` from `tests/`.
 
 **Running the batteries when file staging is blocked:** the device has node (`/usr/bin/node`,
 v22) and the repos are mounted, so run the suites there with `device_bash` directly — no

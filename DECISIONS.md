@@ -3797,3 +3797,14 @@ Mid-batch, owner: **"after that, all remaining schedule items will be held and i
 auction site."** Ruling: once the §142 batch lands, every remaining schedule item (S-7, B-15, §137 A recheck,
 §137 B, the rest of TODO §1's schedule pile) is HELD — not picked up unasked, however good — and the next work is
 auction-side, driven by him. §92 still requires his specific go for each auction change.
+
+## §144 — PUSH-ALL IS DROPPED — 31 Aug 2026
+
+First run, same day it was built (§142). Terminal git IS installed on the Mac — the 22 Aug note saying otherwise is
+wrong, and the commit succeeded (`58833f4`, anesthesia). The PUSH failed: all four remotes are HTTPS and Terminal
+git has no saved GitHub sign-in, so it prompted for a password GitHub no longer accepts. GitHub Desktop is
+unaffected — it carries its own sign-in Terminal git cannot see. Offered the two fixes (the osxkeychain helper
+first, a personal access token as the fallback), owner: **"forget this, i don't want to pursue this anymore."**
+Ruling: PUSH-ALL is DROPPED. `tests/PUSH-ALL.command` stays on disk unused; do not fix it, do not re-propose it,
+and do not raise the credential setup again. Pushing stays as it always was — GitHub Desktop, every repo, by him.
+The §142 go for PUSH-ALL is spent; its other two items (setup checklist, D-7) shipped and are unaffected.
