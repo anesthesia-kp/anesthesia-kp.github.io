@@ -3771,3 +3771,29 @@ Comparing with QGenda ("autosync from qgenda" with a date/time in each event's n
 auto-refresh and then do email."** Ruling: the calendar feeds keep themselves fresh — the 26 Aug parking (feeds rebuilt
 only on a click) is lifted — and each event carries "Auto-sync from KP Anesthesia Schedule · <date time>" in its notes;
 that build comes first, the §137 e-mail (with §139's instructions) after it. Order of work is his; §92 unchanged.
+
+## §141 — THE CALENDAR-FEED E-MAIL AND THE STAFF-SITE LINK ARE PARKED — 31 Aug 2026
+
+Told build 150 was live and offered §137 B as the next build, owner: **"e-mail will need some work down the road.
+not for now though. add to todo to recheck this"** — and, of the staff-site link half, **"add this to todo, for a
+later date."** Ruling: the §137 A e-mail flow (shipped as admin 150) is not sent and not worked further now; it sits
+on the TODO to RECHECK down the road, with the EmailJS subject-line check folded into that recheck. §137 B (each
+doctor's own link on the staff site) stays ruled but waits for a later date of his choosing — no longer the queue's
+next item. §54's gate stays shut; §92 unchanged.
+
+## §142 — PUSH-ALL (AUCTION INCLUDED), THE SETUP CHECKLIST, AND D-7 ARE GO — 31 Aug 2026
+
+Shown the parked pile with details, owner: **"go with push-all. include auction repo. fix setup-checklist landing
+page as you describe. d-7 - go. s-7 and b-15 add to todo for later."** Rulings: PUSH-ALL.command is built WITH the
+auction repo included — Claude's shape: the auction never rides along with a plain "y"; it always gets its own
+separate typed confirmation inside the script, because pushing it deploys the live site (§92's spirit, §3 rule 5's
+guards). The setup checklist ships as proposed (checklist replaces the coverage chip while most of the catalog has
+no staffing rules). D-7 ships with a fallback so the page works before he creates the composite index in the
+console. S-7 and B-15 stay on the TODO for later.
+
+## §143 — AFTER THIS BATCH THE SCHEDULE IS HELD; BACK TO THE AUCTION — 31 Aug 2026
+
+Mid-batch, owner: **"after that, all remaining schedule items will be held and i will move back to some work with
+auction site."** Ruling: once the §142 batch lands, every remaining schedule item (S-7, B-15, §137 A recheck,
+§137 B, the rest of TODO §1's schedule pile) is HELD — not picked up unasked, however good — and the next work is
+auction-side, driven by him. §92 still requires his specific go for each auction change.
