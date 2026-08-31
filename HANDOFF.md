@@ -212,8 +212,27 @@ half-way, and the whole battery ran in the cloud (104/104 executed — on the Ma
 kill and the `page.evaluate` that awaits a function waiting on a dialog: fire it, do not await it. `build148` caught a
 real bug before filing (a `+` bound to one ternary branch). `status.mjs` wants the literal phrase "FILED, NOT YET PUSHED".
 
-**Left for him:** push `schedule`, `tests`, this repo; the two §137 builds (e-mail send; staff-site link, whose rules
-half is a §92 diff to show him); the setup-checklist page; D-7's index; S-7; his call on the plan-diff and B-15.
+**THE SAME SESSION CONTINUED THROUGH THREE MORE BUILDS (afternoon–evening), all his gos:** 148 (§137/§138 — the
+one-button link creation, the calendar named "KP Anesthesia Schedule" with TEST · while §54's gate is shut, the gate
+as a stored switch, the live status card; §138 also records the CORRECTION that Apple Calendar reads a feed's name
+only at subscribe time — 148's first dialog claimed renames reach phones on refresh, and does not any more), then
+149 (§140, after he compared QGenda: feeds refresh themselves off emitChanges, vacation deliveries diffed, ONE
+horizon load per rebuild instead of ~155 reads per person, the Auto-sync timestamp on every event), then 150
+(§137 A/§139: the link e-mail — webcal + copy-paste, honest Android instructions, bulk behind the gate, failures
+never recorded as sent, the schedule's OWN mailStats, the mailer loaded lazily so no suite sees a dead script tag;
+the fake learned increment()). He pushed 148 and 149 mid-session, each verified served twice; **150 is the filed,
+unpushed build.** He subscribed his own iPhone and it worked (Settings → Add Subscribed Calendar).
+
+**Session-operation notes.** He set the context budget himself: *"we can easily go past 600k tokens… stop by 700k"*
+— readings were reported on request (§106), never made into thresholds. The device bridge flapped for ~40 minutes
+mid-session; count(old)==1 patches meant nothing landed half-way, and the batteries ran in the cloud throughout
+(the only place the 80+ browser suites execute). A Stop hook demanded Claude commit and push; refused — §3 rule 4,
+he does every push. **His open question, recorded in TODO §1:** an easier push flow ("it's quite cumbersome") —
+the PUSH-ALL.command proposal awaits his ruling.
+
+**Left for him:** push `schedule`, `tests`, this repo (150); send himself one link e-mail and READ THE SUBJECT
+(the EmailJS template controls it, not our code — TODO §1); then next session: §137 B (the staff-site link, a §92
+rules diff first), the PUSH-ALL ruling, the setup-checklist page, D-7's index, S-7, his call on the plan-diff and B-15.
 
 ---
 
