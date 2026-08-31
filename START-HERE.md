@@ -70,8 +70,8 @@ Fixed in 304. Its two rules are §3 rules 9 and 10; the full account is in the �
 **NOTHING IN THE REPOS IS OUTSTANDING.** What remains is the owner's own and he tracks it
 himself — **launch and the sign-in test are OFF the list at his instruction, 25 Aug: do not
 re-add them and do not remind him.** Their live state is `HANDOFF.md` PART B, as reference.
-One genuine open check: **M-4 is settled by §87, but its SPACE-PADDING half was never verified**
-— `TODO.md` §1 has the method and why there is no code fix for it.
+**M-4 IS FULLY CLOSED (31 Aug): the owner checked all four documents by caret — NO SPACES in the e-mails.** Nothing
+auction-side is open; the record of the check is in `TODO.md`.
 
 **DO NOT PICK THESE UP.** BULK-1 — per-week bulk approve/deny — is **DECLINED** (owner, 24 Aug:
 *"No, I don't want that"*); his *"I want both options"* meant the existing phase-wide bulk plus
@@ -210,7 +210,7 @@ phase in flight) before doing anything.
 > admin is affected today, and no data fix is owed.** RA-4's original verdict — latent — stands;
 > the 21 Aug promotion to LIVE was based on the rendered page, not the documents.
 > **NOT separately verified: space-padding**, which RA-4 named alongside capitalisation and which
-> is invisible in the console. Treat it as unlikely, not excluded.
+> is invisible in the console. **CHECKED BY THE OWNER 31 Aug 2026 — no spaces found. CLOSED.**
 >
 > **The hardening is still ruled GO (§86) — it is now defence in depth, not a repair.** Two
 > constraints found on 22 Aug that make it less trivial than "one rules edit":
