@@ -3808,3 +3808,26 @@ first, a personal access token as the fallback), owner: **"forget this, i don't 
 Ruling: PUSH-ALL is DROPPED. `tests/PUSH-ALL.command` stays on disk unused; do not fix it, do not re-propose it,
 and do not raise the credential setup again. Pushing stays as it always was — GitHub Desktop, every repo, by him.
 The §142 go for PUSH-ALL is spent; its other two items (setup checklist, D-7) shipped and are unaffected.
+
+## §145 — THE CHROME-DRIVEN REHEARSAL IS ABANDONED — 31 Aug 2026
+
+Owner asked for a complete test auction driven through Chrome control: reset, Phases 1–4 with three Phase-4
+rounds (R1 Apr/May/Jun, R2 Jul/Aug/Sep, R3 Oct/Nov/Dec), 2 bids/user in P1, 4 in P2, 1 in P3 and each P4
+round, auto-approve/deny, every button exercised, never-events checked, no e-mail to any user, no settings
+changed. He answered the opening questions (dry-run the send dialog then Skip sending; cap P2 at the
+configured allowance; never press Delete All Users / Full Restore / delete a backup; skip anything that
+would cause trouble and record what was skipped), ran the pre-flight, signed in, and confirmed the CLOSING
+reset was his. After four Chrome-extension disconnections he stopped it: **"forget it, this a waste of my
+tine"**, then **"prepare handoff, i need a new session."**
+
+Ruling: the live Chrome rehearsal is ABANDONED for this session. It is NOT declined as an idea — it remains
+his final pre-launch check and he may ask for it again. Do not restart it unasked, and do not restart it at
+all until the disconnection problem is understood (see HANDOFF).
+
+What was actually established, and what a next session must not have to rediscover:
+· The pre-flight PASSED on live build 305 (see HANDOFF for the recipe and result).
+· **The two e-mail toggles do NOT gate admin-initiated sends** — a defect-class finding, recorded in TODO.
+· The board was RESET (by him, typing RESET) and is empty; Rehearsal Mode is ON; whether Phase 1 was begun
+  is UNVERIFIED because the connection died on that click. First job next session: verify and report it.
+· Claude's share of the blame is recorded plainly in HANDOFF — two wrong diagnoses before testing, and a
+  screenshot-free working mode that left him unable to see the work.

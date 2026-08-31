@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED on its first run, §144; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the Chrome rehearsal ABANDONED and the auction board EMPTY + UNVERIFIED, §145 — see READ FIRST below; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -23,6 +23,25 @@ predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
 per-shift min/max ranges underneath it)**.
 
+
+# 🔴 READ FIRST — THE AUCTION BOARD IS EMPTY AND IN AN UNVERIFIED STATE (31 Aug 2026, §145)
+The Chrome-driven rehearsal he asked for was ABANDONED mid-flight after four extension disconnections
+(*"forget it, this a waste of my tine"*). **He reset the board himself, so it holds no bids.** Three things
+before anything else — the detail is at the very top of `TODO.md` §1:
+**① Whether Phase 1 was BEGUN is UNVERIFIED** — the click landed, the connection died before the result
+could be read. Check it and tell him. **② REHEARSAL MODE IS ON and must be OFF before any real launch
+(NE-10)** — reset leaves it armed by design, and nobody has claimed arming it. **③ His pre-rehearsal data is
+in the two cloud backups stamped *31 Aug · Phase 1 · 5 bids*.**
+**⚠️ AND THE FINDING THAT MATTERS MOST: the two e-mail switches do NOT gate admin-initiated sends.**
+`Outbid alert e-mails` is checked only where alerts are QUEUED; `Welcome e-mails` only in `welcomeOnce()`.
+Every admin blast — Send Phase Results, Send Round Results, Send Reminders, the whitelist ask — reaches
+`emailjs.send` through `adminSendEmail()`, which checks NO switch; the queue flusher checks none either.
+**"E-mails are toggled off" is NOT a safe basis for a rehearsal.** Only `⏭ Skip sending (testing)`, which
+exists only while Rehearsal Mode is ON, completes a phase without mailing. Not a live bug — every send is
+still a deliberate confirmed act, NE-13 holds — but it is his decision whether the switches should also gate
+the blasts, and §92 governs.
+**The rehearsal is UNRUN and stays his final pre-launch check. Do not restart it unasked**, and not at all
+until the disconnections are understood — the evidence, and Claude's own errors, are in `HANDOFF.md`.
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
 
@@ -195,30 +214,6 @@ phase in flight) before doing anything.
 >    are still in `~/Documents/GitHub`, which is only safe while it stays off.
 >
 >
->
->
-> **M-4 — RAISED BY THE OWNER, THEN SETTLED BY HIM. IT IS LATENT, NOT LIVE.** On 21 Aug he
-> looked at the live login e-mails and said *"there are a couple lower cases. i thought we made
-> this case insensitive."* The shape is real: every PAGE lowercases both sides, but
-> `firestore.rules` lowercases only the INCOMING address and compares the stored value exactly as
-> typed — so a mixed-case stored address signs in fine, reads the whole board, and has **every
-> bid write refused**, while `isListedAdmin()` would lock that admin out entirely.
->
-> **ON 22 Aug THE OWNER READ THE LIVE DOCUMENTS AND FOUND NO CAPITALS** in any of the four the
-> rules actually compare against: `vacations/loginEmails`, `vacations/adminAccess`,
-> `vacations/emailToUser` (keyed BY address) and `dailysched/adminAccess`. **So no bidder and no
-> admin is affected today, and no data fix is owed.** RA-4's original verdict — latent — stands;
-> the 21 Aug promotion to LIVE was based on the rendered page, not the documents.
-> **NOT separately verified: space-padding**, which RA-4 named alongside capitalisation and which
-> is invisible in the console. **CHECKED BY THE OWNER 31 Aug 2026 — no spaces found. CLOSED.**
->
-> **The hardening is still ruled GO (§86) — it is now defence in depth, not a repair.** Two
-> constraints found on 22 Aug that make it less trivial than "one rules edit":
-> · Rules cannot lowercase the stored side of a list — there is no map operation. The candidate
->   trick is `data.emails.join(',').lower().split(',')`; **prove it with RA-2, do not assume it.**
-> · `emailToUser` is a MAP KEYED BY ADDRESS. You can lower a set of keys to test membership but
->   you cannot fetch the value for a lowered key, so `myInitials()` cannot be fixed in rules at
->   all. Padding has the same problem. **Those two can only ever be fixed in the data.**
 >
 >
 > **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
