@@ -486,7 +486,10 @@ sibling folders). True machine junk → `_to_delete/`. **Nothing is ever deleted
 moving anything: grep the WHOLE GitHub folder; if unsure, it stays. Never move what the
 live site serves — the junk-looking hash-named files are LIVE REDIRECTS (`0c0fd0a8….html`,
 `2nd-admin-page-234asld.html`, `a5696c46….html`); open and read the `<title>` before
-assuming. Record every move in `_archive/README.md`. Housekeeping is its own commit.
+assuming. Record every move in `_archive/README.md`. Housekeeping is its own commit. **The PROCEDURE — the three
+destinations, the test that picks between them, and who may delete — is HANDOFF's closing-checklist
+step 4a; `node status.mjs` now measures `_to_delete/` into the STATUS block so a growing pile is
+visible after every push (owner order, 31 Aug 2026).**
 `.gitignore` does not apply to files git already tracks — verify with
 `git --no-optional-locks -C <repo> check-ignore -v <file>`; silence means NOT ignored.
 

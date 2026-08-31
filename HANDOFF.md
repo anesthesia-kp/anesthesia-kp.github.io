@@ -100,6 +100,47 @@ trusting the summary's paraphrase of them.
 - If the cloud clone is BEHIND origin, say so. It is a fine place to build from a delivered
   whole file; it is **not** a safe base for a patch script.
 
+### 4a · Take the rubbish out — the housekeeping step (owner order, 31 Aug 2026)
+
+*"the files in my github folder are piling up with older files that i don't need or use… can you
+ensure it happens automatically going forward?"* On 31 Aug `_to_delete/` had reached **151 MB across
+403 entries** — spent transfer zips, old build snapshots and about forty empty lock folders — because
+it is the owner's job to empty it and nothing ever reminded him. It is now empty. Keep it that way.
+
+**The three destinations, and the one-line test for each.** This is the whole filing system:
+
+| where | what goes there | who empties it |
+|---|---|---|
+| the repo itself | anything LIVE or in flight | nobody — it is the project |
+| `_archive/<area>/<category>/` | superseded but real: old audit reports, retired suites, prior revisions of a document, session records. Areas are `vacation`, `schedule`, `tests`, `anesthesia` — **use those four, never invent a sibling** | **NOBODY — `_archive` is KEPT FOREVER.** "Nothing is ever deleted" means archived, not erased |
+| `_to_delete/` | true machine junk with no historical value: spent transfer zips and tarballs, stranded `.lock` files, empty directories, probe and scratch files, `firestore-debug.log`, `.DS_Store` | **the owner, and it should be empty at every handoff** |
+
+**The test that decides between the last two:** *would anyone ever want to read this again?*
+Yes → `_archive/`. No, it is a byproduct of moving bytes around → `_to_delete/`.
+**Genuinely unsure → `_archive/`.** It costs a few kilobytes to be wrong in that direction and
+costs the owner his history to be wrong in the other.
+
+**Before anything leaves a repo:** grep the WHOLE GitHub folder for its name. If a document is the
+only copy of something — a ruling, a finding, a decision — its CONTENT must already be in
+`DECISIONS.md` / `TODO.md` / `HANDOFF.md` / `BUILD-LOG.md` before the file moves anywhere. On 31 Aug
+three files in `_to_delete/xfer/` turned out to be sole copies (`RULINGS-98-99.md`,
+`todo-section3.md`, `card95.txt`) and were pulled back into `_archive/anesthesia/session-docs/`
+rather than deleted. **Never move what the live site serves** — the hash-named HTML files are LIVE
+REDIRECTS; open one and read its `<title>` before touching it.
+
+**How this is now automatic — three layers, because a rule alone already failed once:**
+1. **`node status.mjs` measures `_to_delete/` and `_archive/` and writes a 🧹 line into the STATUS
+   block at the top of `TODO.md`.** That runs after every push, so the pile is now visible in the
+   first thing anyone reads. Over 50 MB it says so in bold. It only ever REPORTS — it deletes nothing.
+2. **This step.** Every handoff: read that 🧹 line, file anything loose, and if `_to_delete/` is not
+   empty, tell him in the handover with the size.
+3. **The deletion itself needs him or a permission grant.** The device bridge cannot delete by
+   default; `device_request_delete_permission` puts a prompt on his Mac and a person must answer it.
+   So Claude may ASK to empty `_to_delete/`, and may never quietly do it. If he declines or is away,
+   say the folder is full and move on — never delete around the refusal, and never touch `_archive/`.
+
+**Housekeeping is its own commit** (START-HERE §3) and every move is recorded in `_archive/README.md`.
+
 ### 5 · Hand over
 
 State, in the chat: what shipped, what the gates said, what is pending a push, what was recorded
