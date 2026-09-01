@@ -1577,3 +1577,37 @@ plus a proof the stripper kept the code, because this build's comment quotes the
 
 **The standing lesson from F2, in one line:** D7 fixed one of two consumers of the same dropdown. When a
 defect is fixed, find every consumer of the same input — not every screen with a similar name.
+
+## SESSION — 1 Sep 2026 (close) · the mail path, and the sweep stopped on purpose
+
+**He ended the sweep with the right question:** *"how much more of this do we have? i don't want to
+endlessly chase things that might be fine."* The answer existed only because §158 had counted: 28
+flagged, 9 fixed, 2 clean, 4 by design, 1 worth checking, 12 not. **That is the value of the inventory,
+and it is worth more than any single defect it found** — before it, "how much more" had no answer.
+
+He chose the mail path and then to stop (§160). **The mail path was the right one, and it found three
+chained defects — G1, G2, G3, all UNBUILT and needing his go.** A physician whose bid a round already
+denied can be e-mailed *"your projection changed from UNDER REVIEW to WIN"*, and it is reachable
+because `adminAddSelection` has no completed-phase gate at all (driven: five writes, no refusal).
+
+### The pattern under D8, E1 and now G1 — say it as a rule about the WEEK
+The archived-round guard on the other write handlers protects **the bid being acted on, never the
+bystanders on the same week.** Three separate findings have now lived in that one gap. Whoever fixes G1
+should state the rule that way rather than adding a fourth per-handler guard.
+
+### Two disciplines that paid for themselves today, both recorded because they nearly did not
+**· A stub INVENTED a finding** (`bidMatchesPhaseFilter`), and **a false gate survived into a suite**
+(the F3 assertions tested a helper that was already correct, so they passed on the old build). The
+honesty run caught the second. Both are the same lesson from opposite ends: **the thing you did not
+write is the thing to check.**
+**· The first mail fixture proved nothing** — it was built so the bidder won in both states, so no mail
+was due and the run looked clean. A probe that cannot distinguish the two answers is not evidence. The
+second fixture gave every scope a different right answer, and that is when it spoke.
+
+### Housekeeping done at close
+`TODO.md` crossed its **2,000-line tripwire** (2,013). The three shipped-and-live write-ups from this
+session (315, 316, 317) were moved to `_archive/anesthesia/todo-sections/2026-09-01-shipped-315-317.md`
+under the standing rule — a fact lives in ONE file, and all three have BUILD-LOG rows and DECISIONS
+entries. **1,887 lines now. ⚠️ The older shipped sections (306–314, RA-7) are STILL in `TODO.md` and a
+full archive pass is DUE before the next feature build** — deliberately left for a fresh session rather
+than run at the tail end of a long one.

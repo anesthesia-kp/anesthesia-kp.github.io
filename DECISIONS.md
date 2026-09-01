@@ -4284,3 +4284,71 @@ tombstone trap in its exact recorded form. The originals are kept, relabelled `[
 
 **Nine flagged surfaces from §158 remain classified but NOT driven** — including the outbid-mail path.
 They are recorded in `TODO.md` §1 as unchecked, which is not the same as clean.
+
+## §160 — THE MAIL PATH, THEN STOP: THE INVENTORY IS CLOSED — 1 Sep 2026
+
+**His words: *"Agree, do mail. then stop and prepare close session docs."*** — after asking the question
+that ended the sweep: *"how much more of this do we have? i don't want to endlessly chase things that
+might be fine."*
+
+**He was right to ask, and the answer was a number rather than a feeling**, which is the only reason
+stopping here is a decision instead of fatigue. 28 surfaces flagged, 9 fixed, 2 clean, 4 by design,
+1 worth checking, 12 deliberately left. That list is in `TODO.md` §1 by name, with the reason.
+
+**THE MAIL PATH WAS THE RIGHT ONE TO CHECK, and it found three chained defects (G1, G2, G3), NOT BUILT.**
+The mailer compares the LIVE engine before and after a change, so a bystander whose bid a round already
+DENIED is told **"your projection changed from UNDER REVIEW to WIN"** — over-promising, to a real
+address, about a decision that is final. It is reachable because `adminAddSelection` has no
+completed-phase gate at all: driven on a finished Phase 4, it wrote five times and refused nothing.
+
+**THE PATTERN WORTH CARRYING FORWARD:** the archived-round guard on the other three write handlers
+protects **the bid being acted on, never the bystanders on the same week.** Every one of D8, E1 and now
+G1 lives in that gap. A future fix should be stated as a rule about the WEEK, not about the row.
+
+**THE STOPPING RULE, so a fresh session does not restart this:** the twelve unchecked surfaces are
+recorded by name with the reason (none can reach a person; ten only read, paint or warn). **Unchecked is
+not clean — but it is also not a reason to reopen the sweep.** If one surfaces in real use it is a normal
+finding, already on the list.
+
+**Nothing auction-side was changed by this audit.** §92 stands: G1–G3 need his specific go.
+
+## §161 — G1, G2, G3 BUILT (318), AND A SEVERITY CALL CORRECTED TWICE — 1 Sep 2026
+
+**His go: *"you actually convinced that we should do all 3. It is possible, but unlikely admin would do
+what you described. Just ensure these builds don't break anything else."*** Then, unprompted, *"go with
+all 3."* **The second sentence is the governing constraint on this build and the suite reflects it —
+most of its assertions are about what must NOT change.**
+
+**HE ASKED TWO QUESTIONS FIRST, AND BOTH DESERVED CHECKING RATHER THAN ANSWERING:**
+
+**1. *"Is this related to eliminating the Draw category?"* — NO, and it was verified, not reasoned.**
+Build **305**, before §147, reads `const po=getOutcome(wk,user,prevAp), no=getOutcome(wk,user,newAp)`
+against the same live engine. Identical defect, pre-merge. What §147 changed was the WORDING (DRAW →
+UNDER REVIEW) and, by collapsing draw↔review transitions, it made these e-mails **less** frequent. The
+merge neither caused this nor worsened it.
+
+**2. *"I haven't noticed any problems with e-mails"* — expected, and it does not settle it.** But his
+push-back was right on the merits and produced a better answer than the one it challenged.
+
+**THE SEVERITY CALL WAS CORRECTED TWICE, IN OPPOSITE DIRECTIONS. Both corrections came from checking.**
+· First write-up: G1 is the serious one. · **Corrected down** on his push-back: the staff site is
+already right (build 133 drops a round-decided week from the live list the moment results go out), so
+no result changes and the bad information lives in one e-mail — G1 ranked last of three. · **Corrected
+back up** when the fix shape was being designed: G1 is reachable **MID-AUCTION** — round 1 announced,
+round 2 open, phase not complete — where it needs only routine between-rounds admin activity, not the
+odd post-completion action the middle position assumed. **The lesson is not "be more careful"; it is
+that all three positions came from running something, and the two that moved were the ones argued from
+reachability rather than driven.**
+
+**THE PATTERN, NOW NAMED IN THE CODE:** every round guard before this one protects **the bid being
+ACTED ON**. G1 is the first that protects the **BYSTANDERS on the same week** — which is where D8, E1
+and G1 all lived. State future fixes in this family as a rule about the WEEK.
+
+**G3 IS DEAD CODE AND IS RECORDED AS SUCH.** `confirmAdminEdit` has no invoker — verified by grep, not
+taken from the comment that says so. It is guarded anyway, and named in `test-p4-rounds`'s handler list,
+precisely because whoever re-wires it will not remember that it never had guards.
+
+**§3 r16 EARNED AGAIN, SELF-INFLICTED, IN THIS BUILD.** The first draft of the G3 assertion pinned the
+identifier's occurrence COUNT at two — and the comment written in the same build made it three, so a
+correct build failed its own test. Re-anchored to the invariant. That is twice in one day that a pinned
+count went red for a build that made the code better.
