@@ -4161,3 +4161,44 @@ raised-cap invariance on each rather than a pinned value (§3 r16). Honesty on t
 and the every-button sweep run on BOTH builds — identical at 603/137/126 apart from three backup ids
 carrying the run's own clock. **Said plainly: the sweep proves no regression and nothing about the
 fixes; its fixture has no completed phase, so no archive pass fires inside it.**
+
+## §156 — E1: THE EDIT SELECTIONS LOCK AND THE GUARD THAT WAS MISSING (316) — 1 Sep 2026
+
+**His go: *"go"***, on the E1 finding as raised. Before it, *"keep going"* with the queue empty —
+read as **not** a §92 go (a general "keep going" never is, §0 rule 2), so that turn was reading and
+executing only. The audit produced the finding; the finding got its own go. That order is the point.
+
+**TWO OF THE THREE UNSWEPT SURFACES WERE CLEAN, and are recorded as clean rather than as silence.**
+The **capacity report** builds its winners as a Set unioned across every completed phase,
+`p4RoundWinnersOn` and the live approvals, and carries no projection at all — so D1/D5's duplicate
+class cannot occur there. Driven on the two-round fixture: the week won in Round 1 reports taken 1,
+the week whose bid Round 2 denied reports taken 0. The **staff page** tests `biddingOpen()` and
+`isAuctionClosed()` on every write path, at the moment of action. Neither needed anything.
+
+**E1, on the third surface.** On a completed Phase 4 whose results were sent, a bid a round DENIED is
+still in the live schedule. Its Edit Selections row offered two controls that disagreed with each
+other: **Remove refused** (292's guard) and wrote nothing; **the priority dropdown beside it wrote six
+times with no refusal.** The guard was on six handlers and absent from that one, and the row was never
+marked historical because the test was `bidPh < cur` — **the same test D3 and D6 were about.**
+
+**The measured consequence, and its honest limit.** A round denial binds only while the exact denied
+bid is on the schedule (259, deliberately value-aware). So the write detached the bid from the round
+that decided it — driven, the lookup went from *round 2* to *nothing*. **The archive was never
+corrupted. What broke was the live schedule's link to it.** Said that way round because the stronger
+claim would have been wrong.
+
+**A NEAR-MISS WORTH THE RECORD.** Reading the render alone, the **Remove button** looked like the
+defect — a delete offered on a finished auction. Reading the handler, it refuses correctly. The
+finding only survived because both controls were DRIVEN. §3 rule 5 in its exact form: dialogs are
+paint, guards at the moment of action are the enforcement — and it cuts both ways, because it is also
+the reason not to report a paint-level observation as a data risk.
+
+**THE FIX: three parts, on 292's precedent** (which fixed a row lock and a handler guard in one
+build): 312's D3 rule for the row, the round's archive for the outcome pill, and the seventh copy of
+the guard. **The gate that matters is the INVARIANCE** — an open phase must stay fully editable; a
+lock that locks everything would pass every other assertion in the suite.
+
+**§3 r12 + r16 — an existing suite re-anchored, and STRICTER.** `test-p4-rounds.mjs` pinned the
+*number* of refusal sites, so a seventh turned it red for making the guarantee stronger. Worse, a
+count stays green when a NEW unguarded handler appears — **which is exactly how E1 survived four
+consecutive builds of round fixes.** It now checks all seven handlers by name.

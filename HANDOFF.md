@@ -1508,3 +1508,33 @@ line per new suite. **Do not build this unasked.**
 Until it is ruled on, the honest statement of the situation is: **`tests` commit subjects will keep
 being lost whenever a build adds exactly one suite file**, and the real message lives in that repo's
 `COMMIT-MESSAGE.txt`. Recorded, not rewritten — the history stands, as it did in August.
+
+## SESSION — 1 Sep 2026 (later still) · the audit that followed the empty queue, and E1 as 316
+
+With the auction queue empty he said **"keep going."** That is not a §92 go, so the turn was spent
+**reading and executing, not building** — the two surfaces the round sweep never reached. Two were
+clean. The third was E1, he gave it its own go, and it shipped as 316.
+
+**The habit worth keeping from this:** an empty queue is not the end of the work, and "keep going"
+against an empty queue is best answered with the audit that needs no permission rather than with a
+question or with a change nobody authorised.
+
+### Three process notes, each of which nearly cost something
+
+**· The render lied in the safe direction, and reading it alone would have produced a wrong report.**
+The Remove button looked like the finding. It refuses. The dropdown beside it did not. Driving both
+is what separated them — §3 rule 5 read in the direction it is usually *not* used.
+
+**· `PREFIX_SRC` was IGNORED, not rejected — §3 rule 8's third kind, hit live.** Checking whether the
+re-anchored `test-p4-rounds` assertion was a real gate, `PREFIX_SRC=/tmp/vac315/... node
+test-p4-rounds.mjs` printed a PASS. That looked like proof the assertion was weak. It was not: that
+suite reads `adminSrc` from the **working tree**, and `PREFIX_SRC` only feeds its honesty blocks. The
+answer came from running the check against the 315 bytes directly, which reports `adminChangePriority`
+unguarded. **Change the input, check the output changed** — the rule already says it, and it still
+took a second to notice.
+
+**· A pinned COUNT went red for a build that made the code stronger.** `test-p4-rounds` asserted
+"exactly 5 + exactly 1" refusal sites; a seventh broke it. That is rule 16's decay verbatim. The
+important half is the other direction: **a count would have stayed green if someone added a new
+UNGUARDED handler — which is precisely how E1 lived through 312, 313, 314 and 315**, four builds whose
+whole subject was rounds. Re-anchored to the seven handlers by name.
