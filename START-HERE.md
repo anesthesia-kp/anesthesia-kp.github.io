@@ -526,9 +526,11 @@ reason to hand over, never to lower the bar.
 **⚠️ CONTEXT: REPORT THE READING, NEVER BLOCK ON IT — §106.** The owner judges rot; Claude
 states the number. Cloud only: the last `usage` block in
 `/root/.claude/projects/-home-claude/$CLAUDE_CODE_SESSION_ID.jsonl`, summing `input_tokens +
-cache_creation + cache_read`. Compaction fires at 80% of a window that is NOT exposed (floor:
-above 288,000). Over the bridge it is unreadable — say UNKNOWN. **Thresholds were invented twice
-and overruled twice; do not invent a third.**
+cache_creation + cache_read`. Compaction fires at 80% of a window that is NOT exposed. **The owner's measured floor, 1 Sep 2026: his
+sessions have NEVER compacted below 600,000 tokens** (*"we can keep going"*); his own working budget is
+*"stop by 700k"* (30 Aug). So a reading under 600,000 is NOT a reason to suggest a fresh session. Over the bridge it is unreadable — say UNKNOWN. **Thresholds were invented twice
+and overruled twice — and a THIRD time on 1 Sep ("past where a compaction can fire" at 300k, overruled
+within the minute). Report the number. Do not invent a fourth.**
 
 **⚠️ AND SAY SO WHEN IT HAS ALREADY DEGRADED — a COMPACTION is the loudest tell there is, and on
 25 Aug it was missed.** The paragraph above lists the tells that come BEFORE the wall; these two
