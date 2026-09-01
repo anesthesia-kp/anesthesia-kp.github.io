@@ -3957,3 +3957,45 @@ and it lets the stray-"Draw" gate assert over the whole file instead of carving 
 **Recorded, not acted on (§147's audit cap):** in `renderAppDenials`, a HISTORICAL row's projection pill can
 read "proj: LOSE" for someone who was winning — `projPill`'s map has no `winning` key, and the snapshot branch
 sets `proj='winning'`. Pre-existing on 305, unrelated to the merge, unchanged by it.
+
+## §149 — THE RECORD OF BIDDING MUST BE COMPLETE AND TRUE: TWO DEFECTS, ONE BUILD (307) — 1 Sep 2026
+
+**His finding, verbatim: *"there's an issue where the reports are showing a different history than User's
+previous phase history does. It seems like reports are dropping many of the Denied bids altogether. These
+reports must reflect every single bid that was placed by every user in each phase because this is what tracks
+the record of bidding if we need to look back on something."*** Then, on the Approvals/Denials screen:
+***"Also, this doesn't look right"*** — every historical row reading `proj: LOSE`.
+
+**His go, verbatim: *"Go, here."*** This is the specific §92 decision authorising admin 307.
+
+**His ruling that shaped the fix: *"A phase cannot close with undecided bids."*** Verified enforced at both
+gates. The build therefore ASSERTS it rather than rendering a third row type.
+
+**DEFECT A — every historical projection read LOSE.** The snapshot branch emitted `winning`/`losing`;
+`projPill` keys on `win`/`lose`, and any miss fell into `m.lose`. So **"proj: WIN" was unreachable for every
+historical row on both 305 and 306** — every past winner was shown as projected to lose. Fixed on both sides:
+the caller emits the canonical tokens, and `projPill` accepts the `-ing` spellings so no future caller can
+reintroduce the silent fallback.
+
+**DEFECT B — the All-Phases report dropped every scrubbed bid.** §71's boundary scrub deletes a finished
+phase's non-winning entries from the LIVE schedule; `bidsByWeekModel` read that live doc for scope `all`, so
+those bids were invisible — and the "N bids · N approved" header counted the surviving rows, so the
+denominator lied too. §71's own comment had promised *"the Reports … read the archives"*; Edit Selections was
+fixed for that in 295, the reports never were. **Nothing was ever lost** — both `completedPhases[N]` and
+`p4Rounds[N]` archive the full pre-scrub `schedule`, `approvals`, `denials` and `projections`.
+
+**THE DESIGN CHOICE, and Claude took the low-risk side deliberately.** Rather than restructure the model's
+source — a refactor of the live auction's most important reporting function — the fix APPENDS the rows the
+live pass cannot see: entries in an archive that are a new bid for that phase and absent from the live
+schedule. It cannot change any row that renders today; it can only add missing ones. Proven: `current` and
+`phN` are byte-identical before and after, `all` gains exactly the scrubbed bid.
+
+**A legacy archive holding decisions but no stored schedule** emits its rows with the bid value shown as an
+explicit dash — the value is unrecoverable but the fact of the bid and its result are not, and silently
+omitting it is the very failure being repaired.
+
+**Recorded against Claude:** defect A was first raised, hours earlier, under §147's audit cap as one line
+calling it *"cosmetic, on a history view."* Seeing the actual screen, that was an understatement — it was every
+winning row on the main look-back surface. Claude said so and corrected it. The lesson is the one §3 rule 14
+already states: a defect described from code is a hypothesis about what a human sees, and one screenshot
+outranks it.

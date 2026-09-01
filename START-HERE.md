@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 1 Sep 2026 (306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 1 Sep 2026 (admin 307 FILED NOT PUSHED — §149, the record-of-bidding fixes; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -29,6 +29,15 @@ The aborted Chrome rehearsal, the unverified board state and the findings from t
 instruction** — closed, not completed. **Do not re-raise any of it, list it as outstanding, or suggest
 returning to it.** The full account stays in `DECISIONS.md` §145/§146 and `HANDOFF.md`. One fact, carrying no
 action: Rehearsal Mode was ON when the board was last seen, 31 Aug. The auction has no queued work.
+
+# 🟡 FILED, NOT YET PUSHED: auction admin 307 (§149 — the two record-of-bidding defects)
+**The LIVE line below says admin 306 and that is still true — do not read it as covering 307.** His finding:
+the reports dropped every bid §71's boundary scrub retired from the live schedule (so denied bids from closed
+phases vanished from the All-Phases report, and its "N bids" header counted the survivors), and every
+historical row on Approvals/Denials read `proj: LOSE` because two functions spelled the same projection two
+ways. Both fixed in 307; staff untouched at 165. The fix APPENDS to the report model rather than restructuring
+it, so `current` and `phN` are provably unchanged. Gates, the undo and what the screenshots could NOT show are
+in `TODO.md` §1; the account is `DECISIONS.md` §149 and the BUILD-LOG row.
 
 # ✅ DRAW IS MERGED INTO UNDER REVIEW — LIVE 1 Sep 2026 (§147/§148), admin 306 / staff 165
 **PUSHED by him (`df9b460`) and verified served twice, cache-busted, ~04:20 UTC.** One helper, `uiOutcome`, identical on both
