@@ -3999,3 +3999,34 @@ calling it *"cosmetic, on a history view."* Seeing the actual screen, that was a
 winning row on the main look-back surface. Claude said so and corrected it. The lesson is the one §3 rule 14
 already states: a defect described from code is a hypothesis about what a human sees, and one screenshot
 outranks it.
+
+## §150 — THE LOOK-BACK SCREEN, TOO: APPROVALS/DENIALS SHOWS THE RECORD (308) — 1 Sep 2026
+
+**§149 fixed the reports. It did not fix the screen beside them, and he found that within minutes.** His
+messages, in order: ***"This is still useless"*** · ***"what's the point of filtering past phases if the data
+doesn't appear?"*** · ***"Closed phases there show projections and not results. What's the point?"*** ·
+***"That page is mostly used for current phase. But if Admin uses it to look back, it should show useful
+results like the reports"*** · ***"Filter needs to look back at whatever admin selects"***. His go: **"B"**.
+
+**SAME ROOT AS §149, ONE FUNCTION OVER.** `renderAppDenials` opens `for(const u in scheduleData)` — the LIVE
+schedule, which §71's boundary scrub empties of every non-winning bid from a finished phase. So looking back
+at a closed phase showed the survivors (the winners) and **not one denial** — on a page named
+Approvals/Denials. **And a second defect on the same screen:** `outcome` was already read from the phase
+archive, but the `approved`/`denied` FLAGS that decide whether the solid ✓/✕ chip renders were still asking
+the LIVE decision docs, which a closed phase no longer answers for. So historical rows showed a PROJECTION and
+no result — exactly what he said. Both fixed: the archive pass adds the missing rows for whatever phase is
+selected, and a historical row derives its result flags from the archive, as the archived-round branch always
+had.
+
+**"B" NEEDED NO CODE, AND CLAUDE SAID SO RATHER THAN BUILDING IT.** He chose the page defaulting to the
+current phase. `populatePhaseFilter` already does exactly that on a fresh load — it only stays on "All phases"
+because it remembers the last choice within a session. Checking before building saved a change that would have
+altered nothing (§3 rule 14).
+
+**TWO THINGS CLAUDE GOT WRONG IN THIS EXCHANGE, both said at the time.** (1) §149 was declared done without
+checking whether any OTHER surface read the same scrubbed source; it did. The sweep afterwards found all 19
+readers of the live schedule and confirmed `renderAppDenials` was the only remaining live user-facing one —
+that sweep should have come BEFORE calling §149 finished. (2) Claude offered him an A/B choice in which B
+defeated the feature's purpose, then read his *"what's the point of filtering…"* as rejecting B when it was
+aimed at the bug. He then chose B. Misreading a terse answer is cheap to fix and was; offering a bad option is
+the part worth not repeating.
