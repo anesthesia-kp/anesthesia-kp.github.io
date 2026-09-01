@@ -225,6 +225,62 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 1 Sep 2026 (LATER, same session) — §149/§150: THE RECORD OF BIDDING. ADMIN 307 THEN 308, BOTH LIVE AS 308.
+
+**He went looking at the live site right after the merge shipped and found two defects in an hour — both in the
+surfaces that ARE the record of bidding.** Neither was caused by the merge; both had been there a long time.
+
+**HOW HE FOUND THEM IS THE LESSON.** He compared two screens that should have agreed — a user's staff-side
+**My Phase History** against that same user's **admin User Summary report** — and they didn't. Two denied bids
+were in one and not the other, and the report's header said "7 bids" when he had placed nine. **A cross-check
+between two surfaces that read the same underlying truth is worth more than any amount of reading one of them.**
+
+**§149 (307) — the reports dropped retired bids, and every historical projection read LOSE.** §71's boundary
+scrub deletes a finished phase's non-winners from the LIVE schedule; `bidsByWeekModel` read that live doc for
+scope `all`, so those bids were invisible and the row count lied. §71's own comment had promised *"the Reports
+… read the archives"* — Edit Selections got that in 295, the reports never did. Separately, the snapshot branch
+emitted `winning`/`losing` while `projPill` keys on `win`/`lose`, and every miss fell into `m.lose`, so
+**"proj: WIN" was unreachable for any historical row on 305 and 306.**
+
+**§150 (308) — and then the same defect on the screen beside it.** Claude declared §149 done without checking
+whether anything ELSE read the scrubbed source. `renderAppDenials` did. He found it within minutes:
+*"This is still useless."* Same fix, one function over, plus a second defect on that screen — the
+`approved`/`denied` flags gating the ✓/✕ chip still asked the LIVE decision docs, so historical rows showed a
+projection and no result at all.
+
+**THE PROCESS FAILURE, WRITTEN DOWN SO IT IS NOT REPEATED: fix the CLASS, not the instance.** After §150,
+a sweep of all 19 readers of `scheduleData` took one command and proved `renderAppDenials` was the last live
+user-facing one. **That sweep should have run before §149 was called finished, not after §150 was forced.**
+The sweep is `grep -n "for(const u in scheduleData)\|Object.keys(scheduleData)"` plus an awk to name the
+enclosing function — the other 17 are engine, gates and counters that correctly read live.
+
+**THREE MORE THINGS CLAUDE GOT WRONG, all corrected in-session and all worth inheriting.**
+· The projection pill was first raised as *"cosmetic, on a history view"* under §147's audit cap. One
+  screenshot showed it was every winning row on the main look-back surface. **A defect described from code is
+  a hypothesis about what a human sees.**
+· An A/B choice was offered him in which B defeated the feature's purpose; his reply was then misread as
+  rejecting B when it was aimed at the bug. He chose B.
+· `node status.mjs > /tmp/st.txt` was refused (the path was not writable) and `tail` then printed a STALE file
+  from earlier in the session, which read as the entire build having been reverted. **Read an exit code and an
+  output directly — §3 rule 11 covers pipes; this was the redirect version of the same trap.**
+
+**WHAT "B" TURNED OUT TO BE: nothing.** He asked for the page to default to the current phase.
+`populatePhaseFilter` already did, on a fresh load — it only remembered his last pick within a session.
+Checked before building (§3 rule 14) and reported as a non-change.
+
+**GATES.** `test-307-record-of-bidding.mjs` 29/29 (honesty 18 of 29 red on 306) · `test-308-lookback-screen.mjs`
+15/15 (honesty 10 of 15 red on 306) · auction battery 58 suites / 2,152 assertions · isolation 36/36 · the
+every-button sweep run on 308 vs 307 and 307 vs 306, identical every time.
+**307 was superseded before it was ever committed, so it has no fixture and never will (§4) — both suites
+baseline on the last PUSHED build, 306 (`df9b460`), and say so in their own headers.**
+
+**⚠ THE LIMIT ON THE SWEEP, stated in both builds and still true:** `tests/sweep/site/fake/seed.js` has
+`completedPhases: {}`, so no archive path fires inside it. The sweep proves NO REGRESSION and proves NOTHING
+about either fix. **Adding a completed phase with a denied bid to that seed is the highest-value unbuilt thing
+in this area** — it would give every future look-back change a browser-level gate instead of a unit-level one.
+
+**LIVE AND VERIFIED: admin 308, pushed by him (`408112d`), served twice cache-busted ~06:20 UTC. Staff 165.**
+
 ## 1 Sep 2026 — §147 BUILT: ADMIN 306 / STAFF 165. FILED, NOT PUSHED.
 
 **He gave the go with one condition, verbatim: *"be thorough so there are no stray instances of draw being
