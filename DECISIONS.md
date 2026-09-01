@@ -4071,3 +4071,29 @@ and the dropdown pretended it held one. Built as he described, with two groups u
   begins, it always starts with p4r1."* **He was right.** Beginning Phase 4 always sets `p4Round=1`;
   the `_roundsMode` flag Claude had read as a mode switch is really only "has any round been archived
   yet". The qualifier was withdrawn.
+
+
+## §153 — THE PHASE-4 ROUND ROWS: FOUR OWNER-FOUND DEFECTS (312, 313) — 1 Sep 2026
+
+**He found all four in one screenshot**, taken on a rehearsal that had completed all four phases
+including three rounds in P4 — minutes after a focused adversarial audit of that very screen had
+reported it clean. **RA-7's fixture had no rounds, and RA-7's own report named a round fixture as
+the biggest gap it was leaving open.** The audit's Q4 answer ("no double-counting") should have been
+scoped to phases out loud rather than reported flat; that is recorded as the miss it was.
+
+**His go: *"pushed. keep going."*** — read as the §92 decision for D1–D4, stated as an inference at
+the time so he could stop it.
+
+**What he saw, in his words:** *"some of the phase labels in p4 don't show a round. I am given the
+option to revoke decisions despite p4 being closed."*
+
+**And the correction that settled the design.** Claude said Phase 4 could run without rounds; he
+pushed back — *"how can p4 run without rounds? when p4 begins, it always starts with p4r1. then
+round 2, 3, and so on."* **He was right.** `_commitBeginPhase` always sets `p4Round=1` when Phase 4
+begins; the `_roundsMode` flag Claude had read as a mode switch is only "has any round been archived
+yet". So **every P4 bid belongs to a round and a bare P4 label is always wrong** — which is what made
+D1's fix unconditional rather than defensive, and what exposed D4.
+
+**Built as 312** (D1 duplicate rows · D2 every round row reading `proj: LOSE` · D3 Revoke still
+offered on a completed Phase 4) **and 313** (D4, the round-boundary gate that could be skipped by
+never completing a round). Nothing else on the page was touched.
