@@ -34,3 +34,30 @@ The full original text follows.
 >   all. Padding has the same problem. **Those two can only ever be fixed in the data.**
 >
 >
+
+
+## Retired from START-HERE, 1 Sep 2026 — the 22 Aug "where to start" scaffolding
+Moved to keep START-HERE under its own 700-line tripwire (§3). Both facts still hold and are
+recorded here rather than deleted: `tests/package.json` is gitignored so a fresh clone cannot run
+the rules-emulator suite, and the repos must never sit under iCloud with "Optimize Mac Storage" on.
+
+> 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
+>
+>
+> 2. **`tests/package.json` and `package-lock.json` are GITIGNORED** (see that repo's `.gitignore`)
+>    — so a fresh clone does NOT restore them and the rules-emulator suite silently cannot run.
+>    They were restored by hand on 22 Aug. Same trap for any other local-only file.
+> 3. **Repos must never live under iCloud with "Optimize Mac Storage" ON.** That setting evicts
+>    local file contents and leaves placeholders; git then reports a healthy repo as corrupt,
+>    empty, or "not a git repository". It cost most of 22 Aug. The setting is now OFF; the repos
+>    are still in `~/Documents/GitHub`, which is only safe while it stays off.
+>
+>
+>
+>
+> **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
+> 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
+> bare word "winner" (§81), and a thin commit subject is acceptable because the BUILD-LOG row is
+> the real summary (§83).
+>
+>

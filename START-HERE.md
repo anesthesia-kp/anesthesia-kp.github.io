@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 1 Sep 2026 (admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 1 Sep 2026 (admin 309-311 FILED NOT PUSHED — RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; FOUR NEW OWNER-FOUND DEFECTS D1-D4 in the Phase-4 round rows are UNBUILT and await his go (TODO §1); admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -23,6 +23,14 @@ predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 
 the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
 per-shift min/max ranges underneath it)**.
 
+
+# ⏳ FILED, NOT YET PUSHED: auction admin **309 · 310 · 311** (§151/§152 — RA-7's audit fixes)
+**The LIVE line below says admin 308 and that is still true — it does NOT cover 309–311.** Three
+builds sit on disk, gated: battery 62 suites / 2,205 assertions, isolation 36/36, all three honesty
+runs red on the pushed 308, both sweeps clean with the default unchanged at 603/137/126. So
+`versions.json` on disk reads 311 while the served site reads 308 — expected until he pushes.
+**Four OWNER-FOUND defects in the Phase-4 round rows (D1–D4) are UNBUILT and need his specific go;
+`TODO.md` §1 leads with them.**
 
 # ⬛ THE AUCTION-BOARD QUEUE IS CLOSED — owner ruling, 31 Aug 2026 (§146)
 The aborted Chrome rehearsal, the unverified board state and the findings from that run are **CLOSED at his
@@ -211,26 +219,6 @@ auction, it does not ship. If the auction needs attention — a phase, a send, a
 schedule work stops. Check `TODO.md` §1 for the current standing constraint (e.g. a rehearsal
 phase in flight) before doing anything.
 
-> 🟢 **WHERE TO START (rewritten 22 Aug 2026, after the machine loss and the rebuild).**
->
->
-> 2. **`tests/package.json` and `package-lock.json` are GITIGNORED** (see that repo's `.gitignore`)
->    — so a fresh clone does NOT restore them and the rules-emulator suite silently cannot run.
->    They were restored by hand on 22 Aug. Same trap for any other local-only file.
-> 3. **Repos must never live under iCloud with "Optimize Mac Storage" ON.** That setting evicts
->    local file contents and leaves placeholders; git then reports a healthy repo as corrupt,
->    empty, or "not a git repository". It cost most of 22 Aug. The setting is now OFF; the repos
->    are still in `~/Documents/GitHub`, which is only safe while it stays off.
->
->
->
->
-> **THE FOUR FACTS THAT GOVERN EVERYTHING** are unchanged and still below. Two additions from
-> 21 Aug: the projected list and the decided list are DIFFERENT THINGS and must never share the
-> bare word "winner" (§81), and a thin commit subject is acceptable because the BUILD-LOG row is
-> the real summary (§83).
->
->
 > **THE FOUR FACTS THAT GOVERN EVERYTHING.**
 > **(1) Weeks from go-live.** The no-live-auction window is still open and still closes.
 > **(2) Blaze pay-as-you-go** — failure mode is a bill, not an outage.

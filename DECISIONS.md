@@ -4030,3 +4030,44 @@ that sweep should have come BEFORE calling §149 finished. (2) Claude offered hi
 defeated the feature's purpose, then read his *"what's the point of filtering…"* as rejecting B when it was
 aimed at the bug. He then chose B. Misreading a terse answer is cheap to fix and was; offering a bad option is
 the part worth not repeating.
+
+
+## §151 — A CLOSED PHASE SHOWS THE PROJECTION THAT WAS RECORDED (309) — 1 Sep 2026
+
+**The question put to him, in one sentence:** for a phase that is already closed, which projection is
+the true one — the one recorded when it closed, or a fresh recalculation under today's settings?
+
+**His answer: the recorded one.** Chosen from four options, and he declined to bundle it with the
+filter redesign, so 309 ships alone.
+
+**Why it mattered enough to ask.** The reports already read the recorded value; the Approvals/Denials
+screen recomputed it live from today's caps, FTE and threshold. Those agree only until a cap moves —
+and `TODO.md` PHASE-4 EXTRA FTE has him raising the cap on 34 weeks by hand between Phases 3 and 4.
+The defect was scheduled to fire on his own planned workflow.
+
+**He also settled a related worry himself:** *"I don't use any old archives at all. Everything so far
+has just been testing. Not live yet."* So the pre-build-295 fallback path is unreachable in practice.
+It is kept as cheap insurance, not because anything will exercise it.
+
+## §152 — GO ON THE REST OF THE AUDIT'S FINDINGS (310, 311, and a tests-only gate) — 1 Sep 2026
+
+**His words: *"Also go on other items f1-f8 that need doing."*** Read as the §92 decision for each of
+those changes, and the phrase *that need doing* honoured literally: **F-3 needed nothing** (it is the
+recorded cost of his own option-A ruling, not a defect) and **F-5 had already been withdrawn** by the
+audit itself. So the work was F-1, F-2, F-4, F-5b, F-6, F-7 and F-8.
+
+**F-7 became HIS design, not the audit's.** Shown the finding, he proposed the fix: *"Should it say
+filter instead of outcome and then be able to filter by outcome - approved/denied OR by projection -
+win/lose/underreview?"* That is better than what had been planned — the audit was going to patch the
+mismatch; he saw that the concept was wrong, because the screen holds two different kinds of answer
+and the dropdown pretended it held one. Built as he described, with two groups under one control.
+
+**Two corrections Claude made against itself during this work, recorded rather than smoothed over:**
+· The first cut of F-5b's guard checked only `completedPhases` and would have refused a legitimate
+  advance whose archive was still staged. The battery caught it. The guard now accepts published or
+  staged. **The suite was right and the code was wrong; the code changed.**
+· Asked whether a Phase-4 label must always carry a round, Claude first agreed *with a qualifier* —
+  that Phase 4 could run without rounds. He pushed back: *"how can p4 run without rounds? when p4
+  begins, it always starts with p4r1."* **He was right.** Beginning Phase 4 always sets `p4Round=1`;
+  the `_roundsMode` flag Claude had read as a mode switch is really only "has any round been archived
+  yet". The qualifier was withdrawn.
