@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 31 Aug 2026 (151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 1 Sep 2026 (§147 BUILT as admin 306 / staff 165, FILED NOT PUSHED — the LIVE line below is still true; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -30,13 +30,16 @@ instruction** — closed, not completed. **Do not re-raise any of it, list it as
 returning to it.** The full account stays in `DECISIONS.md` §145/§146 and `HANDOFF.md`. One fact, carrying no
 action: Rehearsal Mode was ON when the board was last seen, 31 Aug. The auction has no queued work.
 
-# 🟢 NEXT SESSION BUILDS THIS — DRAW MERGES INTO UNDER REVIEW (§147, the §92 go IS given)
-**Every decision is ruled and NOTHING is edited — 305 / 164 stand.** The full site-by-site inventory (~19
-staff, ~32 admin), the shape of the change, the wording, the verification plan and the restore pair's
-location are in `TODO.md` §1. **Do not re-derive them and do not re-open the decisions.** Two things a
-fresh session must not rediscover: the per-bid alert e-mail DOES name the outcome, and the bid timer shares
-its comparison function with that mailer — so his ruling governs both: *"Change in projected outcome still
-drives the timer and the e-mails."* §147's audit is capped to this change only.
+# ✅ DRAW IS MERGED INTO UNDER REVIEW — BUILT 1 Sep 2026 (§147/§148). FILED, NOT PUSHED.
+**FILED, NOT YET PUSHED: auction admin 306 and staff 165 (the §147 merge).** The live site still serves
+305 / 164 — do not read the LIVE line below as covering them. One helper, `uiOutcome`, identical on both
+pages, with every DISPLAY routed through it; the internal `draws`/`reviews` sets, `getOutcome`, `projRank`
+and all three copies of the allocator are untouched, and nothing is stored in a new shape. **The ONE
+behavioural change (§147 option A): a tie forming or dissolving now sends no alert e-mail and resets no
+clock** — both the timer predicate and the mailer compare the MERGED label, on both pages. The gates, the
+Claude decisions he may want reverted, and two findings raised-but-not-acted-on are in `TODO.md` §1; the
+full account is the BUILD-LOG row. His §148 answers: admin keeps the word "tie"; the approve/deny dialog
+note stays tie-only. Push order does not matter — no rules change, nothing schedule-side, no console step.
 
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*

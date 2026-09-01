@@ -3922,3 +3922,38 @@ targeted audit.
 Recorded for the record: Claude's earlier claim in this session that e-mails never name the outcome was
 WRONG and was corrected — the per-bid alert prints *"changed from DRAW to REVIEW"*. Removing that
 meaningless alert is now one of the merge's benefits, and mishandling it is its main trap.
+
+## §148 — THE THREE MERGE QUESTIONS, ANSWERED WHILE 306/165 WAS BEING BUILT — 1 Sep 2026
+
+Claude stopped mid-build and asked three questions §147 did not settle. All three are admin-only surfaces;
+none of them touches the staff site or any e-mail.
+
+· **The word "tie" survives on ADMIN screens. Owner: "2 - yes."** A few admin sentences describe a mechanism
+  that genuinely differs for a tie and for a single over-cap bid (the auto-approve help text in two places,
+  the FTE-overage setting, the "N tied" count on the wheel button, the auto-approve log lines). Those now read
+  "ties" where they read "draws". This is not a second vocabulary: §147 already put **Ties (2+) / Single** in
+  the panel filter, so "tie" was already the sanctioned admin word. **"Draw" appears nowhere on either site.**
+
+· **The approve/deny dialog note stays TIE-ONLY. Owner: "3 - yes."** "User was in a DRAW — they will be
+  notified when phase results are sent" becomes "User was in a tie — …" and fires in exactly the cases it
+  fired in before. The alternative (showing it for every under-review person) would have been a SECOND
+  behavioural change, and §147 says the timer/e-mail is the only one.
+
+· **The dashboard's Weekly Summary table — asked, then overtaken by a finding.** Claude offered three shapes
+  (two columns relabelled / one merged column / one column with ties marked), recommended the first, then
+  **changed its own recommendation to the third on reflection** and said so: two columns wearing the same
+  words is the old table with new labels, not a merge. Before the owner had to choose, the question dissolved —
+  see the finding below. Built as the third shape.
+
+**THE FINDING THAT DISSOLVED IT (raised in one line under §147's scope cap, NOT acted on):** the owner could
+not find the table because **it is never displayed.** `#dashUsersWrap` and `#dashWeeklyWrap` are hard-coded
+`display:none` and nothing anywhere switches them on; `#dashPhaseFilter` does not exist in the page at all;
+and `window.exportDashboard` — the Excel/CSV/PDF export of that same table — has no caller. So the per-user
+week cards, their legend, the Weekly Summary table and its export are all computed on every dashboard refresh
+and shown to nobody. `renderOverview()` still runs and still does the work. **Whether to switch them on or
+delete them is the owner's, another day.** They were merged anyway in 306: six lines, no user-visible effect,
+and it lets the stray-"Draw" gate assert over the whole file instead of carving out an exception.
+
+**Recorded, not acted on (§147's audit cap):** in `renderAppDenials`, a HISTORICAL row's projection pill can
+read "proj: LOSE" for someone who was winning — `projPill`'s map has no `winning` key, and the snapshot branch
+sets `proj='winning'`. Pre-existing on 305, unrelated to the merge, unchanged by it.

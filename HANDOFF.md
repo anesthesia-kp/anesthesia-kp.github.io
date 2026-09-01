@@ -225,6 +225,69 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 1 Sep 2026 — §147 BUILT: ADMIN 306 / STAFF 165. FILED, NOT PUSHED.
+
+**He gave the go with one condition, verbatim: *"be thorough so there are no stray instances of draw being
+used somewhere you forgot to look. check all reports, all functions to ensure consistency."*** That shaped the
+whole session, and it was the right instruction — the exploration found more than the plan had.
+
+**THE INVENTORY IN `TODO.md` §1 WAS INCOMPLETE BY 14 ADMIN SITES.** All user-facing, all real: the sidebar nav
+entry, the panel's blue phase banner, the "Need at least 2 users in draw" toast, the FTE-Overage settings help,
+the Weekly Summary table's own legend AND its two columns, the Next-Decision button tooltip, the delete-user
+checklist, the Struggling Users chip and section heading, the Complete-Phase note, "Draw, Review, and Lose bids
+are not affected", the revoke dialog's "(draw, review, win, or lose)", the auto-approve log lines, and the
+"(N in draw)" count on the spin button. **Plus two the inventory could not have known about:** the FTE
+Availability page's own description, and `exportDashboard` — a whole Excel/CSV/PDF export with separate `Draws`
+and `Under Review` columns. **The lesson is not "the plan was sloppy" — it is that a plan built by reading is a
+hypothesis, and the first job of the build is to test it against the file.**
+
+**AND THE OPPOSITE SURPRISE, which is the reason the approach worked:** the inventory listed eight Excel-export
+sites to edit (`resultStyle`/`projStyle`/`resTxt` ×4 each). **None of them needed a single edit.** Every export
+path — xlsx, CSV and PDF, on both reports — already funnels through `bwOutcomeLabel`, `bwOutcomeColor` and
+`PROJ_LABEL`. Fixing those three fixed all eight. That is what routing every DISPLAY through one helper buys:
+the sites you did not find are fixed anyway.
+
+**THE ONE TRAP INSIDE THAT.** `PROJ_LABEL` looked like it should lose its `draw` key. It must NOT: `projTxt` is
+`p=>p?(PROJ_LABEL[p]||p.toUpperCase()):'—'`, so a missing key falls back to `p.toUpperCase()` and puts **DRAW**
+straight back into every export. Both keys are kept, both mapped to the merged word. Same shape as the
+Approvals/Denials Outcome dropdown: dropping the DRAW `<option>` without also merging the FILTER comparison
+(`uiOutcome(e.outcome)===uiOutcome(outcomeFilter)`) would have made "UNDER REVIEW" hide every tied user.
+
+**HE ANSWERED THREE QUESTIONS MID-BUILD (§148)** — admin keeps the word "tie"; the approve/deny dialog note
+stays tie-only. The third, about the dashboard's Weekly Summary table, **dissolved into a finding:** he could
+not find the table because it is never displayed. `#dashUsersWrap` and `#dashWeeklyWrap` are hard-coded
+`display:none`, nothing switches them on, `#dashPhaseFilter` is not in the page, and `window.exportDashboard`
+has no caller. Merged anyway (six lines, no visible effect) so the stray-"Draw" gate can assert over the whole
+file. **Claude also changed its own recommendation mid-conversation and said so** (§3 rule 14): two columns
+wearing the same words is the old table with new labels, not a merge.
+
+**GATES.** New suite `tests/test-306-165-under-review.mjs` 88/88, carrying the stray-"Draw" gate (every
+surviving `draw` classified against an allowlist of internal identifiers, over comment-stripped source with a
+stripper self-check) and the amber gate. **Honesty: 64 of 88 RED on the pushed 305/164, exit 1**, fixtures from
+the explicit SHAs `420df42` and `04e00bf`, never `HEAD~n`. Auction battery 56 suites / 2,107 assertions.
+**Schedule battery 108 of 108 EXECUTED** — the first run in a while where every browser suite actually ran.
+Isolation 36/36. Seven older suites re-anchored, never stubbed.
+
+**THE VERIFICATION THAT SETTLED IT, and it is worth repeating on any behavioural change:** the sandboxed
+every-button sweep was run TWICE — once on this build, once on the pushed 305/164 — and the two runs are
+identical in every number except one. The same 260-click admin walk sent **7 alert e-mails on 305 and 6 on
+306**. Option A, observed rather than argued. The baseline run also reproduced the lone `unlocated=1` on
+staff/confirm, which is how that was shown to be pre-existing instead of guessed at.
+
+**⚠ A TRAP THAT COST TEN RED HONESTY CHECKS — the auction twin of §6's schedule-baseline note.** Five auction
+suites default their honesty baseline to `/mnt/user-data/uploads/GitHub/vacation-kp.github.io/admin/index.html`
+— **exactly where `device_stage_files` drops the CURRENT build.** Staging the working tree to run the battery
+in the cloud therefore made those blocks compare 306 against itself and go red, which looks precisely like a
+regression. Move the staged copy aside, or set `PREFIX_SRC`, and they skip correctly.
+
+**Two other things worth keeping.** Staging was refused mid-session with `session_stale_relogin`; per §6's cost
+gate the owner was told the 30-second fix INSTEAD of starting the chunked-transfer grind, and he re-signed in.
+And **command-line `git` and `npm` both work in the device VM** — but Playwright's browser download does not
+(blocked host), which is why the schedule browser suites can only run in the cloud.
+
+**LEFT FOR HIM:** push three repos (order does not matter — no rules change, nothing schedule-side, no console
+step). The undo is `_archive/vacation/restore-build-305/`, still md5-identical to the pre-build files.
+
 ## 31 Aug 2026 (EVENING, fresh session) — §146 CLOSED THE BOARD QUEUE; §147 DESIGNED THE DRAW/UNDER-REVIEW MERGE. NO CODE WAS EDITED.
 
 **What this session produced: two rulings and a build that is fully specified but NOT started.** The auction
