@@ -1644,3 +1644,13 @@ multi-file commit — no Summary-box trap); the auction and schedule repos are u
 pushed on either site. His rulings on the RA-8 queue are the next step; §164 item 5: *"i don't need an answer until
 audit is complete"* — it is complete.
 
+**Addendum (same session, later).** §167: his three answers (no e-mail on a raise; the confirm on a cut below approved;
+the "3-bid limit" was Claude's error — a fixture default, his setting is `maxBidsCumulative` 6 through Phase 2, none
+after — withdrawn and recorded). §168: his go on ALL groups A–F including his P4 comments and rules text. A Plan agent
+drafted the three-build plan (`tests/docs/RA-8/PLAN.md`, every anchor grep-verified unique on 318/165, baseline SHAs
+`dd36c3b` / `df9b460`); it was presented and the session STOPPED there for his go (§0 rule 2). Also corrected: the
+context-threshold rule in START-HERE §4 — his sessions never compact below 600k; Claude invented a third threshold at
+300k and was overruled within the minute. If this session compacts before the go: everything above is on disk; the
+cloud workspace (`/home/claude/ra8/`) holds the clones, the 305 baseline, the tests tarball and the probes, and is
+rebuilt in ten minutes from START-HERE §6 if lost.
+

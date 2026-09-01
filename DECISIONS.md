@@ -4482,3 +4482,28 @@ the rule with a gap guard; and two medium items — the per-round timer stamp on
 by construction); whether lowering below approved gets the one-line confirm; and whether the 3-bid limit is per phase
 or per round (today cumulative: a user who won three weeks in round 1 cannot bid in round 2). He has not yet ruled.
 
+## §167 — HIS THREE ANSWERS TO RA-8'S DECISIONS: NO E-MAIL ON A CAPACITY RAISE; THE CONFIRM ON A CUT BELOW APPROVED; AND A CORRECTION — 1 Sep 2026 (late evening)
+
+**His words: *"1 - no e-mail. 2 - I want the confirm. 3 - where did you get this? that's not what I have set. I have it
+set to limit of 6 through P2 and none after that."***
+
+1. **D-a RULED: a capacity RAISE sends no e-mail.** Today's behaviour (silent by construction) is the intended one.
+2. **D-b RULED: lowering capacity below the approved total gets a CONFIRM dialog** that states it is happening (the
+   two-line shape in `saveOneSlot` before `openConfirm`, using `weekLedger(wk).approvedFte`) — not a block.
+3. **D-c WITHDRAWN — Claude was wrong.** The bid limit is `adminSettings.maxBidsCumulative`, a per-phase cumulative cap
+   with "none" allowed; **his live setting is 6 through Phase 2 and none after.** The audit's "3 bids max" was a fixture
+   default carried into the report as if it were his rule. No cap applies in Phase 4, so the round-2 concern does not
+   exist. Corrected in the report and here; the memory line "3 bids max per user per phase" is retired.
+
+## §168 — THE GO ON RA-8: ALL GROUPS A–F, HIS P4 COMMENTS AND HIS RULES TEXT INCLUDED — 1 Sep 2026 (late evening)
+
+**His words: *"Do all fixes, group A-F. Also don't forget all my comments above about P4 problems and my rules
+updates."*** This is his specific §92 decision for every item in `TODO.md` §1's RA-8 queue: Group A (the one-line gates
+R-4 · P-4 · P-5, the labels R-2 · P-6, the Approve dialog M-1 · M-2, the confirm on cutting below approved (§167), and his
+rules text O-3 · O-4), Group B (the Phases panel: P-3), Group C (the no-bidders rule and reminder e-mail: P-1, with the
+gap guard), Group D (each round opens with the window on its own clock: P-2 / O-1, both pages), Group E (a round's
+capacity frozen in its archive: R-1), and Group F (R-3 — the admin views treat a completed current phase as closed; the
+staff half cannot be fixed without reading admin-only staged data, so the operating rule "cut capacity after Send
+Results" stays for the staff page). §164 governs the shape: narrow, each build backed out on its own; §0 rule 2 governs
+the order: the plan is presented and his go on it precedes code.
+
