@@ -1483,3 +1483,28 @@ an assertion that cannot fail is not a weak test, it is a false one.** Replaced 
 that actually matters (the only projected winner anywhere is the one the recording names), which is
 strictly stronger than what it replaced. Recorded because it was written by the same session that
 quotes rule 10 in its own plan.
+
+### The single-file commit ate another message — the WARNING is not a fix (1 Sep 2026, after the 315 push)
+
+315 pushed clean and was verified served twice (`89f9bda`, auction admin **315** live ~17:19 UTC;
+schedule unchanged at 151/51). Two of the three commit messages landed whole. **The third did not.**
+
+`tests` was a ONE-FILE commit, so GitHub Desktop pre-filled the Summary, and `ad9179d` reads
+**`Create test-315-recorded-projections.mjs`** with an **empty body** — not merely a replaced subject,
+the *whole message gone*. The written message survives only in `tests/COMMIT-MESSAGE.txt`.
+
+**This is the third time in one day, and the second time AFTER the rule was written.** The handover
+said, in bold, that `tests` was a single-file commit and that the Summary box had to be cleared first.
+It still happened. **So the mitigation — "say so in the handover" — does not work, and repeating it
+harder will not make it work.** A rule that depends on catching a pre-filled box at the moment of
+pasting is a rule that fails at the rate people miss pre-filled boxes.
+
+**PROPOSED, NOT BUILT, and it needs his go.** Make a `tests` commit structurally incapable of being
+single-file: keep a one-line-per-suite index in `tests/README.md` (or a small `SUITES.md`) that every
+new suite appends a row to. Two files change, Desktop pre-fills nothing, and the index is independently
+useful — `sched/run-all.mjs`'s hand-kept list has its own rot problem recorded in TODO. Cost is one
+line per new suite. **Do not build this unasked.**
+
+Until it is ruled on, the honest statement of the situation is: **`tests` commit subjects will keep
+being lost whenever a build adds exactly one suite file**, and the real message lives in that repo's
+`COMMIT-MESSAGE.txt`. Recorded, not rewritten — the history stands, as it did in August.
