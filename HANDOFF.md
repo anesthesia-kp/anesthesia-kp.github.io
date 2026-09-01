@@ -1611,3 +1611,36 @@ under the standing rule — a fact lives in ONE file, and all three have BUILD-L
 entries. **1,887 lines now. ⚠️ The older shipped sections (306–314, RA-7) are STILL in `TODO.md` and a
 full archive pass is DUE before the next feature build** — deliberately left for a fresh session rather
 than run at the tail end of a long one.
+
+## SESSION — 1 Sep 2026 (late evening, fresh session) · the archive pass, then RA-8. NOTHING BUILT.
+
+**What happened, in order.** §4 ritual clean (318/165/18 · 151/51 live, all repos in sync). He chose the archive pass
+(TODO 1,902 → 1,587 with the new queue; START-HERE 687 → 667; the week's shipped write-ups in
+`_archive/anesthesia/todo-sections/2026-09-01-shipped-306-318.md`) and MANDATED RA-8 (§162), then widened it three times
+while it ran — §163 (rounds are phases), §165 (O-1…O-4, *"don't lose track of any of them"*) — and set the standing
+order for everything after it (§164: narrow, safe, winding down). He asked whether to build the §163 fix first; Claude
+argued audit-first (one build closing the class beats two chasing it) and he agreed.
+
+**How RA-8 ran, so it can be repeated.** Cloud container; both public repos cloned and md5-verified against the Mac on the
+five served files; `tests` staged as a tarball; baseline 305/164 from `git show 420df42:`. A shared brief
+(`tests/docs/RA-8/PREAMBLE.md`) carried the domain, the house harness and the finding format. Eight lanes in parallel
+(engine · merge · Under Review page · reports · capacity · diff review · battery+sweeps · rounds-as-phases), a ninth for
+the timer when O-1/O-2 arrived, then **four adversarial verifiers with their own probes and their own fixtures**, told
+to break the findings AND the clean verdicts. Every finding driven on 305 too. ~3.6M subagent tokens.
+
+**Three things the verifiers earned their keep on:** (1) verifier C found R-4 (add/approve on a completed ROUND vanishes
+at Start Round) inside the 30 "correct-as-phase" sites lane 7 had passed; (2) verifier B established WHEN a phase archive
+becomes readable (admin tabs at once via the local merge; staff only after Send Results) — which decides whether R-3's
+fix has data, and turned "users see nothing" into "users see Losing until Send Results"; (3) verifier D reconciled the
+battery's 2,321 vs BUILD-LOG's 2,322 to one named assertion instead of a shrug.
+
+**Traps hit, for the next session.** `md5` does not exist in the device VM — it is Linux: `md5sum`. A `&&` chain that
+starts with a failing command silently skips the unzip loop that follows (good — nothing half-written — but read the
+output). Per-file `unzip -p` for 338 files was fine; verify with ONE combined hash of the sorted per-file md5 list on both
+sides rather than 338 lines of output. `rsync` is not in the cloud container; use `cp -r` and prune.
+
+**State at close.** Four repos: `anesthesia-kp.github.io` has four modified docs; `tests` has the RA-8 files (338 new,
+multi-file commit — no Summary-box trap); the auction and schedule repos are untouched and clean. Nothing filed but not
+pushed on either site. His rulings on the RA-8 queue are the next step; §164 item 5: *"i don't need an answer until
+audit is complete"* — it is complete.
+

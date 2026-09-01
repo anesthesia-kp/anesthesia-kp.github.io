@@ -4352,3 +4352,133 @@ precisely because whoever re-wires it will not remember that it never had guards
 identifier's occurrence COUNT at two — and the comment written in the same build made it three, so a
 correct build failed its own test. Re-anchored to the invariant. That is twice in one day that a pinned
 count went red for a build that made the code better.
+
+## §162 — RA-8 MANDATED: A THOROUGH AUDIT OF THE WEEK'S AUCTION BUILDS, AND TWO CAPACITY REQUIREMENTS — 1 Sep 2026 (evening)
+
+Offered three options with the auction queue empty (the archive pass · a capped regression audit of 312–318 ·
+stop), he chose the first two and widened the second well past what was offered. **His words, verbatim:**
+
+> *"Do 1. For the audit, I definitely want this. Include everything that has been built with the vacation site
+> in the last week. Do a thorough audit looking for items that would break the auction. I am not after small
+> details that are unlikely to matter. Ensure the merge of Draw and Review is thorough and no items remain
+> behind. Site must be consistent on this. Ensure the engine is behaving correctly since there have been some
+> changes. Ensure the Under review page on admin is working correctly. There have been many problems with the
+> reports. Reports will be instrumental in keeping a record of the auction as we progress and in case there's
+> a problem. I need them to be 100% accurate. I would like you to also check something that could happen in
+> phase 4. If admin changes the FTE available and adds a week, does that break anything? Capacity might be
+> increased for certain weeks and I want to ensure this doesn't make any reports break or the engine. It must
+> be seamless to add that capacity at some point during the auction. On the same note, it's possible we could
+> reduce capacity if we have someone out on FMLA or something. I understand reducing is trickier and I would
+> only reduce capacity between phases for remaining capacity, not reduce it below what's already been approved.
+> Need that to work as well."*
+
+**WHAT THIS RULES:**
+1. **RA-8's scope is every auction build of the last week — 306 through 318 (§147–§161) — read-only under
+   §92**, looking for what would BREAK THE AUCTION. **His cap, again: not small details unlikely to matter.**
+   Five named targets: (a) the Draw→Under Review merge complete and CONSISTENT across the whole site, nothing
+   left behind; (b) the engine correct after the week's changes; (c) the admin Under Review page working;
+   (d) the reports **100% accurate** — *"instrumental in keeping a record of the auction as we progress and in
+   case there's a problem"*; (e) capacity changes, below.
+2. **CAPACITY MAY GO UP AT ANY POINT DURING THE AUCTION, Phase 4 included, and it must be SEAMLESS** — the
+   engine and every report must absorb an admin raising a week's FTE without breaking. (This is the workflow
+   PHASE-4 EXTRA FTE already describes, generalised: *"at some point during the auction"*, not only between
+   Phases 3 and 4.)
+3. **CAPACITY MAY GO DOWN, with two limits he set himself:** only BETWEEN phases, and only the REMAINING
+   capacity — *"not reduce it below what's already been approved"*. The case he has in mind is someone out on
+   FMLA. That must work too. **Whether the code refuses a reduction below the approved total, or merely
+   assumes the admin will not do it, is one of the questions RA-8 must answer** — he said *"I understand
+   reducing is trickier"*, which is a statement of expectation, not a waiver.
+4. A finding earns a go, not a fix — §92 stands; the audit reports, he decides.
+
+## §163 — A PHASE-4 ROUND GETS THE SAME TREATMENT AS A PHASE, EVERYWHERE — 1 Sep 2026 (evening)
+
+Owner-found, on the admin Phases panel, while RA-8 was being planned. **His words, verbatim:**
+
+> *"Phase 4 rounds are not being treated the same as phases and each round is supposed to get the same
+> treatment as a phase. that means each round needs to show up here in phase history. Also the users without
+> bids line needs to specify which round. I am concerned this behavior could mean there is something bigger
+> here, so ensure there is not other concerning behavior related to this find."*
+
+**WHAT THIS RULES:** (1) **the principle** — a Phase-4 round is a phase for every purpose the site has: history,
+counts, labels, e-mails, records. This generalises §152 (*"every P4 bid belongs to a round"*) from labels to
+behaviour. (2) Two named defects, UNBUILT, awaiting his go under §92: the Phases panel's **Phase history**
+lists only `completedPhases` and never a round; the **"N users without bids in Phase 4"** line names no round.
+(3) **RA-8 gains a lane:** every surface that decides something by "the current phase" must be checked for
+whether, in Phase 4, it should mean "the current round" — his concern that *"there is something bigger here"*
+is treated as a hypothesis to drive, not a worry to reassure. **Confirmed in code before this was written:**
+the without-bids count (`renderNoBidders`) tests `getUserBidPhaseAdmin(u,wk)===cur`, so in round 2 anyone
+still carrying a round-1 bid counts as having bid — and the reminder e-mail is documented (H-9) as sharing
+that exact rule. Whether that reaches a person is for the audit to drive.
+
+## §164 — RA-8'S THREE ANSWERS, AND THE STANDING ORDER FOR WHAT FOLLOWS IT: SAFE, NARROW, WINDING DOWN — 1 Sep 2026 (evening)
+
+**His words, verbatim:** *"I read that as adding capacity to a week - correct. okay to allow admin to reduce
+capacity below what's approved, it's unlikely and maybe not worth the build. perhaps a confirmation dialogue
+stating that's happening to keep it simple? If it's just as easy to block it with an explanation why, that also
+works. The key is no dangerous builds this late in the game. Narrow builds that are safe are still ok. baseline
+of 305 good. Again, we are close to go-live and I want things to be safe and to wind down this high effort work."*
+
+**WHAT THIS RULES:**
+1. **"Adds a week" = adding capacity to an existing week** (raising its FTE), never adding a calendar week.
+2. **Reducing capacity below the approved total is ALLOWED to remain possible.** If anything is built for it,
+   it is the smallest thing: a confirm dialog that says it is happening, or — only if it is just as easy — a
+   refusal with a plain explanation. Not a feature; possibly nothing at all.
+3. **RA-8's baseline is build 305** (staff 164); scope 306–318 plus staff 165.
+4. **THE STANDING ORDER FOR EVERYTHING AFTER RA-8: no dangerous builds this close to go-live. Narrow, safe
+   builds remain acceptable. The high-effort work is WINDING DOWN.** Every RA-8 finding is to be presented with
+   that test applied first — is the fix narrow and safe? — and a finding whose fix is not is reported as a risk
+   to carry, not as work to do.
+5. **Order (his go, same evening): *"go with audit. build later. i don't need an answer until audit is
+   complete."*** Offered build-first for the §163 defects, Claude argued for audit-first (one narrow build
+   closing the class beats two chasing it; the reminder-mail hypothesis must be driven before it is built;
+   the audit's target should hold still) and he agreed. RA-8 runs to completion before anything is built.
+
+## §165 — THE OWNER'S RUNNING LIST OF FINDINGS DURING RA-8: rounds open with the window, timer rules editable, two rules-text changes — 1 Sep 2026 (evening)
+
+**His instruction, verbatim: *"I am going to keep listing my findings, don't lose track of any of them."*** The
+list lives in `TODO.md` §1 under **OWNER FINDINGS, 1 Sep (evening)**, numbered O-1 onward; every item stays
+there until it is built or he closes it. Rulings in this batch, verbatim:
+
+- **O-1** — *"It seems that p4r1 opens with the 5 day window, but i need each round to open with the 5 day
+  window. Again, each round of phase 4 must operate as an independent phase essentially. this additional
+  finding makes it much more likely that there are more items like this that need to be found."* (RA-8 lane 7
+  had independently driven the same thing: Start Round 2 arms the LAST timer stage — 3 h — because the phase
+  clock is not restarted for a round; Begin Phase arms the opening window.) **Ruling: a round opens exactly as
+  a phase opens.** This extends §163.
+- **O-2** — *"I also want to be sure that i can change the timer rules between phases and rounds as needed."*
+  **Ruling: the timer rules (stages, opening window, quiet hours, reset mode) must be editable between phases
+  AND between rounds, and the edit must take effect for the next window.** RA-8 is to drive whether that is
+  true today.
+- **O-3** — *"do we list anywhere in the rules/reminders that losing bids are returned when a phase completes?
+  Could go below this rule: Each number can only be used once… Also, change above existing rule to: 'Each
+  number can only be used once, numbers from weeks that were approved in earlier phases are unavailable to be
+  used again'. That's more accurate."* **Checked: the site's rules text says nothing about losing bids being
+  returned** — the behaviour exists (the boundary scrub returns the numbers; a code comment calls it "phase
+  parity") but is undocumented. **Ruling: (a) reword the existing rule as quoted; (b) add, directly below
+  it, a rule saying that bids which did not win are returned when a phase completes (his wording to be
+  confirmed at build time).** Two copies of the rules exist on the staff page (the Rules panel ~570 and the
+  printed list ~4066) — both change together.
+- **O-4** — *"Also add a new rule about Under review just below the existing one: Under Review includes times
+  when your combined bid with other users exceeds the FTE cap."* **Ruling: add exactly that sentence below
+  the Under Review rule**, both copies (~586 and ~4081).
+
+O-3 and O-4 are text-only changes to the staff page — narrow and safe under §164 — and are his specific §92
+decisions for those changes. Per his order in §164 item 5, nothing is built until RA-8 is complete.
+
+## §166 — RA-8 IS FILED: NOTHING BREAKS THE AUCTION; THE RECORD AND THE ROUNDS-AS-PHASES CLASS ARE WHAT REMAINS — 1 Sep 2026 (late evening)
+
+Report: `tests/docs/RA-8-2026-09-01.md`; lane and verifier reports and every probe under `tests/docs/RA-8/`. Eight
+lanes plus a timer lane, four adversarial verifiers, baseline 305; **nothing built (§92)**. The verdict, for the
+record: no wrong winner, lost bid, false e-mail or unrefused result-altering write was found; the engine is byte-identical
+to 305 and passed 13,000 random states across three copies with zero divergence; the week's builds broke nothing in an
+open phase; the merge is complete except one dialog; the Under Review page works; every report reconciles row-for-row
+against a ground-truth ledger. What remains is (Tier 1) four record defects — round-scope capacity headers, bare P4 on
+open-round bids, the live re-projection between Complete Phase and Send Results, and an admin add/approve on a completed
+round that Start Round wipes — and (Tier 2) the rounds-as-phases class he predicted: nine surfaces, including the
+reminder e-mail omitting round-1 winners and the timer arming a round at its last 3-hour stage (his O-1). **All
+pre-existing on 305.** The report proposes ONE build, rated under §164 (safe one-liners and labels; render-only;
+the rule with a gap guard; and two medium items — the per-round timer stamp on both pages, and freezing round capacity).
+**Three decisions are his, not defects:** whether a capacity raise should e-mail the people it helps (today it is silent
+by construction); whether lowering below approved gets the one-line confirm; and whether the 3-bid limit is per phase
+or per round (today cumulative: a user who won three weeks in round 1 cannot bid in round 2). He has not yet ruled.
+

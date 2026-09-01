@@ -1,27 +1,7 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 1 Sep 2026 (admin 318 LIVE — §161, G1/G2/G3, the announced-decision mail guard, his go *"go with all 3"*, PUSHED (`dd36c3b`) and verified served twice; 317 before it — §159, the inventory's three dashboard findings, his go *"go on all"*, PUSHED (`b884e27`) and verified served twice; 316 before it — §156, E1, the Edit Selections lock and its missing guard, his go *"go"*, PUSHED (`b295714`) and verified served twice; 315 before it; 314 before it — §154, D5/D6/D7, three more round surfaces, PUSHED and verified served twice; 313 before it — §153, his four owner-found Phase-4 round defects, PUSHED by him (`e4d0572`) and verified served twice; 311 before it (`fad145e`) carried §151/§152, RA-7's audit fixes; RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; admin 315 LIVE — §155, D8 + F-9b, the last two projection-source defects, his go *"go with both"*, PUSHED (`89f9bda`) and verified served twice; WITH IT THE AUCTION QUEUE IS EMPTY; admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
-A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
-nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
-own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
-outright, and builds 92–93 completing S5c and executing §43 (the fairness pool now lives on the
-GROUP). STAGE 5 IS COMPLETE (112–117, §119/§120) and the 118–126 wave followed the same night. **THEN
-CAME RA-6 (§124): the audit of that wave, verified adversarially, at `tests/docs/RA-6-2026-08-28.md`
-— and §125: its order is Claude's. Stages 0–2 shipped as admin 127–133 / staff 41–43. **§126 (29 Aug):
-*"go with all items that you can"* — Stage 3, the schedule-only half of Stage 4 and the Tier 2 items
-Claude judged necessary shipped as admin 134–137 / staff 44–46, then §127 (only ANNOUNCED vacation
-reaches the schedule) as admin 138; then §128–§130 shipped B-2, B-7, the page half of Stage 5, S-3's
-client half and D-6 as 139–141 / 47–48, and the Stage 5 rules were PUBLISHED 30 Aug. **§131/§132 (30 Aug
-evening): *"move ahead with all of those that you can… I authorize you to make decisions on my behalf"*
-and *"go as you think best"* — the remaining Tier 2/3 items, every visual DEFECT and half the §7b menu
-(one collapse control, holidays findable from Rules, the sidebar regrouped) shipped as admin 142–146 /
-staff 49, since PUSHED (`ac725ac`); the decisions Claude made are listed in `TODO.md` §1 for his review.
-What is left of RA-6 is `TODO.md` §1 (D-7 needs a console index; the setup-checklist landing page,
-in-page dialogs and the phone layout are unbuilt §7b items). §92 still closes the auction code.** **The AUCTION has no queued work at all.** On the SCHEDULE the owner drove
-the shift catalog himself on 25 Aug and produced six items — §90's reasoning arriving exactly as
-predicted. One shipped as admin 94; the rest are in `TODO.md` §1, with **§102 ruling the shape of
-the largest of them (SHIFT POOLS: a combined staffing total across a named set of shifts, with
-per-shift min/max ranges underneath it)**.
+**LAST REVISED: 1 Sep 2026 (evening) — the item-1 archive pass; auction admin 306–318 ALL LIVE (§147–§161) and the auction queue EMPTY; **RA-8 IS FILED (§166, `tests/docs/RA-8-2026-09-01.md`): nothing breaks the auction; four record defects and the rounds-as-phases class (§163/§165) await his rulings — the queue is `TODO.md` §1. His running list of findings (O-1…O-4) is there too. §164 governs every build that follows: narrow and safe, winding down.** What shipped this week is one line per build in `TODO.md` §1, the gates are in `vacation-kp.github.io/BUILD-LOG.md`, the rulings in `DECISIONS.md`. The history paragraph that stood here (every build from 88 to 318 in one breath) is in `START-HERE-ARCHIVE.md`.
+**THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE.** The SCHEDULE is PARKED by his ruling (§143, §157 — *"keep schedule parked"*): §90's queue is complete through Stage 5 (112–117), RA-6's remainder and his shift-catalog items are in `TODO.md` §1 (§102 rules the shape of SHIFT POOLS: a combined staffing total across a named set of shifts, with per-shift min/max ranges underneath it).
 
 
 # ⬛ THE AUCTION-BOARD QUEUE IS CLOSED — owner ruling, 31 Aug 2026 (§146)
