@@ -1441,3 +1441,45 @@ Recorded, not rewritten — the history stands, as it did in August.
 - **He does not use any old archives** — everything so far is testing, nothing live — so the
   pre-build-295 fallback paths are unreachable in practice (§151).
 - **Phase 4 always opens on Round 1.** His correction; Claude had it wrong. §152/§153.
+
+## SESSION — 1 Sep 2026 (later) · D8 and F-9b as admin 315 (§155)
+
+He opened with **"go with both"** on the two items the re-grounding report put in front of him, then
+**"go"** on the plan. Both are filed, not pushed.
+
+**They were one defect wearing two names.** D8 and F-9b sit in the SAME function a few lines apart —
+`bidsByWeekModel`, which feeds the reports and all three export paths. Build 309 had already written
+the correct rule for the Approvals/Denials screen (`_adSnapProj`: trust a phase's recording WHOLE,
+never per week). Nobody carried it across. **The lesson is the one this project keeps paying for: a
+rule applied to one surface is not a rule.** 309, 312 (D2), 314 (D5) and now 315 are four builds
+fixing the same idea on four screens — each found separately, none found by the fix before it.
+
+**The measurement that made F-9b concrete.** Argued in the abstract it sounds theoretical. Driven on
+the pushed 314 at a raised cap — his own Phase-4 EXTRA FTE workflow — a closed phase whose recording
+names ONE winner reported FIVE, one of them a bid that phase had DENIED. That is the whole case, and
+it took a fixture, not a paragraph.
+
+### The sweep had to move to the cloud, and the recipe gained two steps
+The Mac's device VM has **no Playwright browser and no egress to download one** (`npx playwright
+install chromium` dies with a download failure — the allowlist). So the every-button sweep ran in the
+cloud container against a fresh clone of both public repos plus a staged `tests.tgz`, per §6.
+
+**Two things §6 does not yet say, both of which cost a cycle:**
+- The cloud's Chromium is build **1194**; the pinned Playwright wants **1234**, and it wants
+  `chrome-linux64/`, not `chrome-linux/`. A writable `PLAYWRIGHT_BROWSERS_PATH` with symlinks fixes it.
+- **The driver launches the HEADLESS SHELL, not chrome** — a second, differently-named binary
+  (`chrome_headless_shell-<v>/chrome-headless-shell-linux64/chrome-headless-shell`, where the 1194
+  build calls it `headless_shell`). Symlinking only `chromium-*` gets you an abort on all four passes.
+
+**The sweep behaved well and deserves the note:** all four passes aborted on the missing binary and it
+printed **"SWEEP FAILED — this run does NOT count as coverage"** with a non-zero exit, rather than
+reporting zero errors over zero clicks. That is §3 rule 8's good direction, and it is rarer than the
+bad one.
+
+### One near-miss, Claude's, caught before the honesty run
+The first draft of the 315 suite contained `ok(!Object.values(raised).some(v => v === 'winning' &&
+false) && …)` — a clause that can never be true, so half that assertion was decoration. **§3 rule 10:
+an assertion that cannot fail is not a weak test, it is a false one.** Replaced with the invariant
+that actually matters (the only projected winner anywhere is the one the recording names), which is
+strictly stronger than what it replaced. Recorded because it was written by the same session that
+quotes rule 10 in its own plan.

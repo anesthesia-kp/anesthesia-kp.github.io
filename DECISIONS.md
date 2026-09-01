@@ -4117,3 +4117,47 @@ announced.
 **Filed, not built (D8):** a round-decided bid still sitting in the live schedule takes its projection
 from the live engine rather than from its round's archive — the F-9 family again, in the report's live
 pass. Raised rather than folded in, because the go was for D5–D7.
+
+## §155 — THE LAST TWO PROJECTION-SOURCE DEFECTS: D8 AND F-9b (315) — 1 Sep 2026
+
+**His go, verbatim: *"go with both"*** — given when the session's opening report put D8 and F-9b in
+front of him as the only two items still needing a specific §92 decision. That is the decision for
+those two changes and for nothing else; §92 still closes the auction code.
+
+**And a second go on the approach, before a line was written**, per §0 rule 2: the plan named the
+file, the three call sites, the edge cases, the one judgment call and how each fix would be verified.
+He answered **"go"**. Recorded because §0 rule 2 is the gate that was actually honoured here — the
+§92 go authorised the WORK, the second go authorised the SHAPE.
+
+**They were one mistake, in one function, three lines apart.** `bidsByWeekModel` — the model behind
+the reports and the Excel/CSV/PDF exports — asked the wrong source for the projection of a bid
+belonging to a closed phase or round. Build 309 had already taught the Approvals/Denials screen the
+right rule; the reports never learned it, so the two screens could answer differently about the same
+closed phase. **That divergence is exactly what F-9 existed to close, and it was only half closed.**
+
+- **D8** — the archived-round branch read its RESULT from the round's archive and its PROJECTION from
+  the LIVE engine. A bid decided in a completed round is still in the live schedule whenever no later
+  round retires it, and the last round never does. Measured on 314: a bid its round recorded as
+  *under review* printed as *winning*.
+- **F-9b** — the closed-phase branch and the archive pass looked the recording up ONE WEEK AT A TIME
+  and recomputed under today's caps whenever a week was absent. `serializeProjections` omits exactly
+  the weeks that had no winner, tie or review, so *absent* means *nobody won* — not *no record*.
+  **PHASE-4 EXTRA FTE has him raising 34 weeks by +1 between Phases 3 and 4, so it fires on his own
+  planned workflow.** Measured on 314 at a raised cap: a closed phase whose recording names ONE
+  winner reported FIVE, one of them a bid that phase had DENIED.
+
+**THE JUDGMENT CALL, PUT TO HIM AND APPROVED.** In one unreachable case — a round archive holding no
+recorded projections — the reports said *losing* where the screen recomputes. The fix makes the
+reports match the screen. It touches nothing reachable: every archive since build 295 records
+projections, and he has stated (1 Sep) that none of his archives predate that. Flagged in the plan
+rather than slipped in, with the offer to leave it alone; he said go.
+
+**What cannot happen as a result:** the change can only make a projection MORE conservative. It never
+removes a recorded win from anyone, and it never touches a RESULT — only the projection beside it.
+
+**Gates:** new `tests/test-315-recorded-projections.mjs`, 16 assertions over two real archives, with a
+raised-cap invariance on each rather than a pinned value (§3 r16). Honesty on the pushed 314 (SHA
+`3060a91`) **7 of 16 RED, exit 1**. Auction battery **65 suites / 2,257 assertions**, isolation 36/36,
+and the every-button sweep run on BOTH builds — identical at 603/137/126 apart from three backup ids
+carrying the run's own clock. **Said plainly: the sweep proves no regression and nothing about the
+fixes; its fixture has no completed phase, so no archive pass fires inside it.**

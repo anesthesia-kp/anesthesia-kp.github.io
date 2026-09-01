@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 1 Sep 2026 (admin 314 LIVE — §154, D5/D6/D7, three more round surfaces, PUSHED and verified served twice; 313 before it — §153, his four owner-found Phase-4 round defects, PUSHED by him (`e4d0572`) and verified served twice; 311 before it (`fad145e`) carried §151/§152, RA-7's audit fixes; RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; FOUR NEW OWNER-FOUND DEFECTS D1-D4 in the Phase-4 round rows are UNBUILT and await his go (TODO §1); admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 1 Sep 2026 (admin 314 LIVE — §154, D5/D6/D7, three more round surfaces, PUSHED and verified served twice; 313 before it — §153, his four owner-found Phase-4 round defects, PUSHED by him (`e4d0572`) and verified served twice; 311 before it (`fad145e`) carried §151/§152, RA-7's audit fixes; RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; FILED, NOT YET PUSHED: admin 315 — §155, D8 + F-9b, the last two projection-source defects, his go *"go with both"*; with it the AUCTION QUEUE IS EMPTY (remove this clause and move 315 to the live line once he has pushed and it is verified served twice); admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -625,7 +625,12 @@ Schedule suites take `PRE_ADMIN=`/`PRE_STAFF=`; auction suites `PREFIX_SRC=`;
 > · **md5-verify the clone against the device tree before believing the run** — both
 >   `index.html`s, `admin/index.html`, `crna/index.html`, `mobile.html`, `firestore.rules`.
 > · A playwright/chromium version mismatch in the sandbox is **fixable, not a reason to skip**:
->   symlink the installed browser build into the expected path and all 21 browser suites run.
+>   symlink the installed browser build into the expected path and all 21 browser suites run. Point
+>   `PLAYWRIGHT_BROWSERS_PATH` at a WRITABLE dir of symlinks — `/opt` is not writable — and note the
+>   dir name changed (`chrome-linux` → `chrome-linux64`). **The sweep driver launches the HEADLESS
+>   SHELL, a SECOND binary under its own `chromium_headless_shell-<v>/` tree and named differently
+>   (`headless_shell` vs the expected `chrome-headless-shell`) — symlink both or all four passes abort.**
+>   The Mac cannot run the sweep at all: no browser and no egress to fetch one (1 Sep 2026).
 
 **⚠️ A SKIPPED HONESTY CHECK IS A FAILED GATE, NOT A PASS (19 Aug).** Suites skip their
 honesty block cleanly when the baseline file is absent — and a skip prints tidily and exits
