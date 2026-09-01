@@ -61,3 +61,33 @@ the rules-emulator suite, and the repos must never sit under iCloud with "Optimi
 > the real summary (§83).
 >
 >
+
+
+## Retired from START-HERE, 1 Sep 2026 — the 306 and 308 news blocks
+
+Both describe builds superseded four times over the same day (309–314). Their full account lives in
+`DECISIONS.md` §147–§150 and the `BUILD-LOG.md` rows; kept here only so nothing is deleted, and moved
+to hold START-HERE under its own 700-line tripwire (§3).
+
+# ✅ THE RECORD OF BIDDING IS FIXED AND LIVE — auction admin 308 (§149 + §150), 1 Sep 2026
+**The LIVE line below says admin 306 and that is still true — do not read it as covering 307.** His finding:
+the reports dropped every bid §71's boundary scrub retired from the live schedule (so denied bids from closed
+phases vanished from the All-Phases report, and its "N bids" header counted the survivors), and every
+historical row on Approvals/Denials read `proj: LOSE` because two functions spelled the same projection two
+ways. Then he found the SAME defect on the Approvals/Denials screen — a closed phase showed only its surviving
+winners, and their projections instead of their results (§150). All of it is in 308; 307 was superseded before
+it was ever committed, so its honesty baseline is the last PUSHED build, 306. Staff untouched at 165. The fix APPENDS to the report model rather than restructuring
+it, so `current` and `phN` are provably unchanged. Gates, the undo and what the screenshots could NOT show are
+in `TODO.md` §1; the account is `DECISIONS.md` §149 and the BUILD-LOG row.
+
+# ✅ DRAW IS MERGED INTO UNDER REVIEW — LIVE 1 Sep 2026 (§147/§148), admin 306 / staff 165
+**PUSHED by him (`df9b460`) and verified served twice, cache-busted, ~04:20 UTC.** One helper, `uiOutcome`, identical on both
+pages, with every DISPLAY routed through it; the internal `draws`/`reviews` sets, `getOutcome`, `projRank`
+and all three copies of the allocator are untouched, and nothing is stored in a new shape. **The ONE
+behavioural change (§147 option A): a tie forming or dissolving now sends no alert e-mail and resets no
+clock** — both the timer predicate and the mailer compare the MERGED label, on both pages. The gates, the
+Claude decisions he may want reverted, and two findings raised-but-not-acted-on are in `TODO.md` §1; the
+full account is the BUILD-LOG row. His §148 answers: admin keeps the word "tie"; the approve/deny dialog
+note stays tie-only. Push order does not matter — no rules change, nothing schedule-side, no console step.
+
+

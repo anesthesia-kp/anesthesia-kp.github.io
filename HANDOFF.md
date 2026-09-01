@@ -1352,3 +1352,75 @@ first.**
 
 **Environment note:** this session's own safety classifier twice blocked the reset steps as destructive.
 Both cleared on retry. Expect it around Reset/Delete flows; do not fight it — say so and let him decide.
+
+---
+
+# 📓 SESSION RECORD — 1 Sep 2026. RA-7, then eight owner-found defects. Builds 309–314.
+
+**What shipped:** 309–311 (RA-7's own findings, §151/§152), 312–313 (his D1–D4, §153), 314 (D5–D7,
+§154). All pushed by him and verified served twice. Battery grew 58 → 64 suites, 2,151 → 2,240
+assertions. Detail is in the BUILD-LOG rows; this is only what the session itself taught.
+
+### ⚠️ THE LESSON OF THE DAY: an audit's confidence is bounded by its fixture
+
+RA-7 audited the Approvals/Denials screen, answered "no double-counting" to its own question 4, and
+reported it clean. **The owner found four defects on that exact screen within the hour** — and then a
+sweep with the right fixture found three more, on three further surfaces. Seven defects on ground an
+audit had just walked over.
+
+The cause was not carelessness in the reading. **RA-7's fixture had no Phase-4 rounds, and RA-7's own
+report NAMED a round fixture as the biggest gap it was leaving open** — then reported the flat answer
+anyway. The finding should have read *"no double-counting **for phases**; rounds untested"*.
+
+**The rule this earns: a negative finding is only as wide as the fixture that produced it, and the
+scope belongs IN the sentence, not in a caveat further down the page.** "No X" with an untested case
+is not a cautious claim, it is a wrong one.
+
+### ⚠️ AND THE INSTANCE/CLASS FAILURE REPEATED, HERE, HAVING JUST CRITICISED IT
+
+RA-7's F-1 criticised §149 for fixing an instance rather than a class. Build 312 then fixed D1's
+duplicate defect **on one screen** — and D5 turned out to be the identical defect in the report, one
+surface over, found by the very next sweep. **The same mistake, in the same session, by the session
+that had named it.** When a defect is a shape rather than a line, the fix is not done until every
+surface with that shape has been checked — and "which other code has this shape?" is a grep, not a
+judgement call.
+
+### ⚠️ A FAILED REDIRECT LEAVES THE OLD LOG, AND `tail` THEN REPORTS SOMEBODY ELSE'S RUN AS YOURS
+
+`node status.mjs > /tmp/st.log 2>&1` failed with **Permission denied** — `/tmp/st.log` existed from an
+earlier session and was not writable. The command chain carried on, `tail` read the *31 Aug* file, and
+the output looked like a completely normal status run: auction 305/164, START-HERE "31 Aug", suites
+55. Every number stale, all of it presented as current. It was caught only because those numbers were
+recognisably old.
+
+This is §3 rule 8's family — a gate that lies — with a new mechanism. **Write logs somewhere you own
+(`$HOME`), and check the log's mtime against `date` before believing it.** The existing rule already
+says to check mtime for a hung process; the same medicine cures this.
+
+### ⚠️ WHEN AN EXISTING SUITE BREAKS ON YOUR CHANGE, CONSIDER THAT IT IS RIGHT
+
+F-5b's first cut guarded the phase advance on `completedPhases` alone. Four suites went red.
+`test-admin-295-db1` was modelling the real mechanism correctly: at that moment the finished phase's
+snapshot may still be in `phaseStaging`, about to be published by that very batch. **The suite was
+right and the guard was wrong; the guard changed.** §3 rule 12 asks which is changing, what is TRUE
+or what is ASSERTED — this is the case where the answer is "the code", and it is easy to miss when
+you wrote the code an hour ago.
+
+### ⚠️ A FIXTURE CAN FLATTER THE CODE
+
+The first draft of the D5 fixture gave the phase-4 roll-up a full, correct `projections` map — and
+three assertions then PASSED on the broken build. The real field is written by `serializeProjections()`
+reading the **live** schedule at completion, which the round boundaries have already emptied, which is
+precisely why every P4 row in his screenshot read LOSE. **Model what the code actually writes, not
+what makes the test easy.** Two false-pass assertions were also caught and fixed the same day: a bare
+`indexOf` ordering comparison that passed on the old build because `-1 < anything`, and a guard that
+passed vacuously while its sandbox was crashing.
+
+### Owner-facing facts settled today
+- **The bridge drops were macOS sleep** — his own diagnosis. Mains covered by Settings; battery needs
+  Amphetamine (installed) or `caffeinate -di`. Recorded in START-HERE §4.
+- **GitHub Desktop silently replaces the commit subject on any SINGLE-FILE commit.** He spotted the
+  symptom. Four commits in the history prove it. Recorded in START-HERE §3.
+- **He does not use any old archives** — everything so far is testing, nothing live — so the
+  pre-build-295 fallback paths are unreachable in practice (§151).
+- **Phase 4 always opens on Round 1.** His correction; Claude had it wrong. §152/§153.

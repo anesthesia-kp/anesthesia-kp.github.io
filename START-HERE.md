@@ -1,6 +1,6 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 
-**LAST REVISED: 1 Sep 2026 (admin 314 FILED NOT PUSHED — §154, D5/D6/D7, three more round surfaces; admin 313 LIVE — §153, his four owner-found Phase-4 round defects, PUSHED by him (`e4d0572`) and verified served twice; 311 before it (`fad145e`) carried §151/§152, RA-7's audit fixes; RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; FOUR NEW OWNER-FOUND DEFECTS D1-D4 in the Phase-4 round rows are UNBUILT and await his go (TODO §1); admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
+**LAST REVISED: 1 Sep 2026 (admin 314 LIVE — §154, D5/D6/D7, three more round surfaces, PUSHED and verified served twice; 313 before it — §153, his four owner-found Phase-4 round defects, PUSHED by him (`e4d0572`) and verified served twice; 311 before it (`fad145e`) carried §151/§152, RA-7's audit fixes; RA-7's audit fixes, §151/§152: the recorded projection, the Result/Projection filter split, the open-bidding warning scoped, two silent fallbacks, the timer/mailer contract, and a guard on the destructive phase boundary; FOUR NEW OWNER-FOUND DEFECTS D1-D4 in the Phase-4 round rows are UNBUILT and await his go (TODO §1); admin 308 LIVE — §149/§150, the record-of-bidding fixes, PUSHED and verified served twice; 306 / 165 LIVE — §147/§148, Draw merged into Under Review, PUSHED by him and verified served twice; 151 / 51 LIVE — §142: the setup checklist + D-7's change-feed cap, PUSHED by him and verified served twice; tests/PUSH-ALL.command DROPPED, §144; the auction-board queue CLOSED by §146 — not re-raised; the feed live end to end under §136–§140) — THE AUCTION CODE IS CLOSED BY §92: NO CHANGE TO IT WITHOUT
 A SPECIFIC DECISION FROM THE OWNER, FOR THAT CHANGE. The auction queue is empty and RA-5 found
 nothing. §90's schedule feature queue is COMPLETE through Stage 4: S5c · S6 (rebuilt twice by his
 own rulings, §93 and §94) · S7 · §95 · Stage 4 as builds 88–89, with §98 retiring the tick grid
@@ -24,38 +24,11 @@ the largest of them (SHIFT POOLS: a combined staffing total across a named set o
 per-shift min/max ranges underneath it)**.
 
 
-# ⏳ FILED, NOT YET PUSHED: auction admin **314** (§154 — three more round surfaces)
-**The LIVE line below says admin 313 and that is still true — it does NOT cover 314.** Gated: new
-suite 19/19, honesty 12 of 19 red on the pushed 313, battery 64 suites / 2,240 assertions, isolation
-36/36, both sweeps clean. `versions.json` on disk reads 314 while the served site reads 313.
-
 # ⬛ THE AUCTION-BOARD QUEUE IS CLOSED — owner ruling, 31 Aug 2026 (§146)
 The aborted Chrome rehearsal, the unverified board state and the findings from that run are **CLOSED at his
 instruction** — closed, not completed. **Do not re-raise any of it, list it as outstanding, or suggest
 returning to it.** The full account stays in `DECISIONS.md` §145/§146 and `HANDOFF.md`. One fact, carrying no
 action: Rehearsal Mode was ON when the board was last seen, 31 Aug. The auction has no queued work.
-
-# ✅ THE RECORD OF BIDDING IS FIXED AND LIVE — auction admin 308 (§149 + §150), 1 Sep 2026
-**The LIVE line below says admin 306 and that is still true — do not read it as covering 307.** His finding:
-the reports dropped every bid §71's boundary scrub retired from the live schedule (so denied bids from closed
-phases vanished from the All-Phases report, and its "N bids" header counted the survivors), and every
-historical row on Approvals/Denials read `proj: LOSE` because two functions spelled the same projection two
-ways. Then he found the SAME defect on the Approvals/Denials screen — a closed phase showed only its surviving
-winners, and their projections instead of their results (§150). All of it is in 308; 307 was superseded before
-it was ever committed, so its honesty baseline is the last PUSHED build, 306. Staff untouched at 165. The fix APPENDS to the report model rather than restructuring
-it, so `current` and `phN` are provably unchanged. Gates, the undo and what the screenshots could NOT show are
-in `TODO.md` §1; the account is `DECISIONS.md` §149 and the BUILD-LOG row.
-
-# ✅ DRAW IS MERGED INTO UNDER REVIEW — LIVE 1 Sep 2026 (§147/§148), admin 306 / staff 165
-**PUSHED by him (`df9b460`) and verified served twice, cache-busted, ~04:20 UTC.** One helper, `uiOutcome`, identical on both
-pages, with every DISPLAY routed through it; the internal `draws`/`reviews` sets, `getOutcome`, `projRank`
-and all three copies of the allocator are untouched, and nothing is stored in a new shape. **The ONE
-behavioural change (§147 option A): a tie forming or dissolving now sends no alert e-mail and resets no
-clock** — both the timer predicate and the mailer compare the MERGED label, on both pages. The gates, the
-Claude decisions he may want reverted, and two findings raised-but-not-acted-on are in `TODO.md` §1; the
-full account is the BUILD-LOG row. His §148 answers: admin keeps the word "tie"; the approve/deny dialog
-note stays tie-only. Push order does not matter — no rules change, nothing schedule-side, no console step.
-
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
 
@@ -85,7 +58,7 @@ Read the CLOSING CHECKLIST at the top of `HANDOFF.md` before ending any session 
 led to eight rulings being "rediscovered" and nearly overwritten with paraphrases.**
 
 **THE CALENDAR FEED IS LIVE AND VERIFIED END TO END (30 Aug afternoon): §136 rules published (RA-2 146/146, honesty 4 of 4 red on `28bae0c`), endpoint deployed on Node 22 at the expected address, three-row check passed. 148, 149 and 150 were ALL PUSHED by him and verified served twice each (150 verified 31 Aug ~02:30 UTC, `f5b8138`). Schedule admin 150 (§137 A/§139 — the link e-mail: webcal + copy-paste address, honest phone instructions, bulk send behind §54's gate, failures never recorded as sent, the schedule's own mail meter, lazy mailer) with `build150-test` in `tests` (the fake learned `increment()`). Nothing auction-side changed. ⚠ Before the first real send: the SUBJECT lives in the EmailJS template — he sends himself one and reads it (TODO §1). §54's release gate is SHUT. PARKED by §141 (31 Aug): the e-mail flow needs work down the road — recheck before any real send; the staff-site link (§137 B) waits for a later date.** Schedule admin 147 / staff 50 (§134/§135 — the in-page dialog, the phone day list, nothing to swipe) were pushed by him (`90af11e`) and verified served twice, cache-busted, 30 Aug ~14:10 UTC; nothing auction-side changed.** 142–146 / 49 were pushed 30 Aug (`ac725ac`) and verified served twice. THE STAGE 5 RULES ARE PUBLISHED (30 Aug ~03:20 UTC, after RA-2: 136/136, honesty 46 of 46 red on `5994a1e`). **LIVE, verified
-cache-busted TWICE: auction admin 313 · staff (index) 165 · mobile 18 · schedule admin 151 / staff 51** (308 — §149/§150, the record of bidding — verified served 1 Sep ~06:20 UTC after his push, `408112d`; 306 / 165 — §147/§148, the Draw/Under Review merge — `df9b460`; 151 / 51 verified served 31 Aug ~05:15 UTC after his push — §142, the setup checklist + D-7; 148–150 — §136–§140, the calendar-feed wave, `f5b8138`; 147 / 50 — §134/§135, `90af11e`; 142–146 / 49 — §131–§133; 142–146 / 49 carry the rest of RA-6's Tier 2/3, every visual defect and half the §7b menu; 139–141 / 47–48 — §128–§130; 139–141 / 47–48 carry B-2, B-7, the page half of Stage 5, S-3's client half and D-6; 134–138 / 44–46 — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
+cache-busted TWICE: auction admin 314 · staff (index) 165 · mobile 18 · schedule admin 151 / staff 51** (308 — §149/§150, the record of bidding — verified served 1 Sep ~06:20 UTC after his push, `408112d`; 306 / 165 — §147/§148, the Draw/Under Review merge — `df9b460`; 151 / 51 verified served 31 Aug ~05:15 UTC after his push — §142, the setup checklist + D-7; 148–150 — §136–§140, the calendar-feed wave, `f5b8138`; 147 / 50 — §134/§135, `90af11e`; 142–146 / 49 — §131–§133; 142–146 / 49 carry the rest of RA-6's Tier 2/3, every visual defect and half the §7b menu; 139–141 / 47–48 — §128–§130; 139–141 / 47–48 carry B-2, B-7, the page half of Stage 5, S-3's client half and D-6; 134–138 / 44–46 — §126/§127; 134–138 / 44–46 carry Stage 3, B-3/B-4 and §127; 131–133 / 41–43 — §125; 118–126 · staff 38–40 carry §121–§123, §5, §6, defect 3, §90 grid marks, §41 request types) — all five checked on 26 Aug (admin 305 that evening, after his push) against the SERVED site (via
 `WebFetch`, see §4 step 2), not merely against disk. Disk agrees, and `firestore.rules`
 is PUBLISHED to BOTH consoles (§100) with its repo copy now committed (`5994a1e`). **RA-2 executed
 it: 66/66 on the live rules, and 10 of 10 new-gate assertions FAILED on the old ones** — the owner
@@ -418,6 +391,16 @@ rewritten). Also delivered: `<repo>/COMMIT-MESSAGE.txt` on disk per repo
 once, which is how messages got lost), and the BUILD-LOG row. Copy from the combined
 outputs file or COMMIT-MESSAGE.txt, never from a source or test file. Any revision to
 any message = the WHOLE combined file re-sent to outputs in the same turn.
+> ⚠️ **THE OTHER WAY SUBJECTS GET LOST — owner-found, 1 Sep 2026, and it had been happening silently
+> for weeks.** He asked why GitHub Desktop pre-fills a summary for `tests` but not the others. **It
+> pre-fills whenever a commit contains EXACTLY ONE changed file** — "Create <file>" / "Update <file>"
+> — and a pre-filled Summary box is not replaced by pasting into the Description. So a one-file
+> commit silently ships Desktop's auto-text instead of the written message. **Verified in the
+> history:** `Create test-313-p4-round-rows.mjs` and `Create test-314-round-surfaces.mjs` in `tests`,
+> `Update BUILD-LOG.md` in `schedule`, `Update TODO.md` here — every one a single-file commit whose
+> real message survives only in `COMMIT-MESSAGE.txt`. Multi-file commits in the same repos kept
+> theirs. **So: when a repo's change is ONE file, say so in the handover and tell him to CLEAR the
+> Summary box before pasting.**
 
 > ⛔ **THE OUTPUTS COLUMN IS THE DELIVERABLE, NOT A COURTESY. Owner ruling, 17 Aug 2026:**
 > *"ALWAYS ALWAYS ALWAYS send them to the output so i can easily copy."*
@@ -518,6 +501,16 @@ visible after every push (owner order, 31 Aug 2026).**
 5. Report the state in a few lines. Then work. **When in doubt during the day: run it,
    don't recall it.** Files too — an hour once went to a "failing test" that was a stale
    in-session copy; read from disk, md5 both sides when it matters.
+
+**⚠️ WHY THE BRIDGE DROPS (settled 1 Sep 2026).** The Mac going to sleep — he identified it himself
+(*"it happens when i walk away from computer"*), and it cost four interruptions in one session.
+Settings → Battery → Options → *"Prevent automatic sleeping on power adapter when the display is
+off"* covers mains only; **macOS offers no battery equivalent**, so he installed Amphetamine for
+that. `caffeinate -di` is the no-install fallback and works on battery (`-s` is AC-only). **Closing
+the lid disconnects whatever is set.** When a bridge call fails: retry ONCE, then stop and say so —
+and if the failed call may have WRITTEN something, check before repeating it. On 1 Sep a
+`device_commit_files` returned a relay error but had in fact landed; a blind retry would have
+unzipped over a half-written file.
 
 **⚠️ GIT OVER THE DEVICE BRIDGE — read-only, always `--no-optional-locks`, and even that is
 not a guarantee.** The bridge cannot unlink files, so an interrupted git write strands
