@@ -4097,3 +4097,23 @@ D1's fix unconditional rather than defensive, and what exposed D4.
 **Built as 312** (D1 duplicate rows · D2 every round row reading `proj: LOSE` · D3 Revoke still
 offered on a completed Phase 4) **and 313** (D4, the round-boundary gate that could be skipped by
 never completing a round). Nothing else on the page was touched.
+
+
+## §154 — SWEEP THE REST OF THE ROUND SURFACES (314) — 1 Sep 2026
+
+**Asked what was next, he chose the sweep** over fixing the one known remaining audit item: point the
+new Phase-4-rounds fixture at every other surface that touches rounds. Then, shown three confirmed
+defects, **"Go on all three."**
+
+**The reasoning offered, and why it held.** RA-7 declared the Approvals/Denials screen clean and he
+found four defects in it within the hour — not bad luck, but the fact that nothing had ever exercised
+the rounds paths. The first sweep with a fixture that does found three more (D5, D6, D7), each
+confirmed by executing the real function rather than by reading it.
+
+**D6 is the one that mattered most:** the Under Review page had no completed-phase gate at all, and
+its ✕ Cancel button deletes a bid. It was reachable after the auction had ended and its results were
+announced.
+
+**Filed, not built (D8):** a round-decided bid still sitting in the live schedule takes its projection
+from the live engine rather than from its round's archive — the F-9 family again, in the report's live
+pass. Raised rather than folded in, because the go was for D5–D7.
