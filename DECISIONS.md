@@ -4202,3 +4202,85 @@ lock that locks everything would pass every other assertion in the suite.
 *number* of refusal sites, so a seventh turned it red for making the guarantee stronger. Worse, a
 count stays green when a NEW unguarded handler appears — **which is exactly how E1 survived four
 consecutive builds of round fixes.** It now checks all seven handlers by name.
+
+## §157 — THE SUITES INDEX IS DECLINED; THE SCHEDULE STAYS PARKED — 1 Sep 2026
+
+**His words: *"ignore suites index, don't care about that. keep schedule parked."*** Both are settled.
+
+**THE SUITES INDEX IS DEAD. DO NOT RE-PROPOSE IT.** It was Claude's own idea (a one-line-per-suite file
+so a `tests` commit can never be single-file, and GitHub Desktop can never pre-fill over the written
+message), raised twice and backed by a clean controlled comparison on the 316 push. **He does not want
+it. That ends it** — the evidence being good is not a reason to raise it a third time. Same standing as
+BULK-1 and the auction-board queue: closed, not deferred.
+
+**The consequence he is accepting, stated once here so nobody re-litigates it:** a `tests` commit that
+adds exactly one suite file will keep losing its written message to Desktop's auto-text. The real
+message survives in `tests/COMMIT-MESSAGE.txt` either way, which is the part that matters. Note it in a
+handover if it comes up; do not propose a fix.
+
+**The schedule stays PARKED** where §143 left it — S-7, B-15, the §137 e-mail recheck and staff-site
+link, and the schedule's own sender address. Not picked up unasked.
+
+**He also emptied `_to_delete/`** (his own housekeeping, on the standing measurement in the STATUS block).
+
+**What he DID choose: the surface inventory (§158).**
+
+## §158 — THE SURFACE INVENTORY: STOP FINDING THIS FAMILY ONE SCREEN AT A TIME — 1 Sep 2026
+
+**His choice: *"go with the inventory"***, picked over two alternatives when the auction queue emptied.
+Read-only by its nature, so it needed no §92 go; its findings do.
+
+**WHY IT WAS WORTH DOING, in one line:** builds 312, 313, 314, 315 and 316 each fixed the same idea on a
+different screen. Five builds, five separate discoveries, none of them found by the fix before it. That
+is not bad luck — it is what happens when a family of defects is chased by symptom.
+
+**THE METHOD IS THE DELIVERABLE.** 154 surfaces that read phase/round/decision state, marked against the
+four known shapes, cross-checked against one discriminator (does it ask which round decided this?), and
+the survivors driven rather than read. The full account is in `TODO.md` §1.
+
+**IT FOUND THREE, ALL ON THE ADMIN DASHBOARD** — the most-looked-at screen, and the one surface with the
+full risk profile and no round awareness whatsoever: a round-DENIED bid grouped under **Win**, a round
+scope silently showing the live view, and an export labelled "Phase 4 (current)" over Round N's data.
+
+**F2 is D7 a second time, and that is the finding behind the findings.** D7 fixed `buildDashboardRows`,
+which feeds the dashboard's export. `renderOverview` draws the dashboard on screen. **They read the same
+dropdown.** One was fixed. **The rule this earns: when a defect is fixed, find every consumer of the
+same input before calling it closed** — not every screen with a similar name.
+
+**AND A NEAR-MISS THAT IS THE REASON TO WRITE PROBES CAREFULLY.** The first run of the dashboard probe
+stubbed `bidMatchesPhaseFilter` — the very function that decides which bids a filter shows — and
+reported that the per-user cards ignored the round filter. **That was the stub, not the code.** With the
+real function in place the filter is honoured and the outcome is the defect. §3 rule 10, in the
+direction that manufactures a false finding rather than hiding a real one.
+
+**Nine flagged surfaces were classified but NOT driven, and are recorded as unchecked, not clean.**
+
+## §159 — THE INVENTORY'S THREE FINDINGS, BUILT (317) — 1 Sep 2026
+
+**His go: *"go on all"***, on F1, F2 and F3 as raised by §158's inventory. Read as covering the minor
+export-filename item raised in the same breath; said out loud in the handover so he could say otherwise.
+
+**These were found by method, not by symptom, and that is the difference worth keeping.** Builds
+312–316 each fixed this family on a screen someone happened to look at. §158 enumerated instead, and the
+dashboard — the most-looked-at screen in the admin — turned out to be the one surface carrying the full
+risk profile with no round awareness whatsoever.
+
+**F2 IS D7 A SECOND TIME, AND IT IS THE REAL LESSON.** D7 (build 314) fixed `buildDashboardRows`, which
+feeds the dashboard's EXPORT. `renderOverview` draws the dashboard on SCREEN. **They read the same
+dropdown.** One was fixed and nobody looked for the other. **The rule this earns, and it is narrow enough
+to keep: when a defect is fixed, find every consumer of the same INPUT before calling it closed — not
+every screen with a similar name.**
+
+**A FALSE GATE IN CLAUDE'S OWN SUITE, CAUGHT BY THE HONESTY RUN.** The first draft's F3 assertions tested
+`bwScopeLabel` — which was always round-aware — rather than what `exportDashboard` does with it, so all
+three passed on the OLD build. The honesty run is what exposed it: a fix-test that stays green on the
+build it is supposed to fail is not a weak test, it is a false one (§3 r10). Replaced with an assertion
+over `exportDashboard`'s comment-stripped source, carrying its own proof that the stripper kept the code
+— necessary because this build's comment quotes the very string being forbidden, which is rule 10's
+tombstone trap in its exact recorded form. The originals are kept, relabelled `[control]`.
+
+**Also fixed, raised as minor in the same handover:** the two report exports built their FILENAME from a
+`^phN` match, so every round export downloaded as `phase4` and overwrote the last. One shared helper now.
+
+**Nine flagged surfaces from §158 remain classified but NOT driven** — including the outbid-mail path.
+They are recorded in `TODO.md` §1 as unchecked, which is not the same as clean.

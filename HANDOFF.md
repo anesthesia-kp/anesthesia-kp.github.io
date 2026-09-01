@@ -1538,3 +1538,42 @@ took a second to notice.
 important half is the other direction: **a count would have stayed green if someone added a new
 UNGUARDED handler — which is precisely how E1 lived through 312, 313, 314 and 315**, four builds whose
 whole subject was rounds. Re-anchored to the seven handlers by name.
+
+### The single-file diagnosis is CONFIRMED by the 316 push (1 Sep 2026)
+
+316 pushed clean — auction admin **316** live and verified served twice (`b295714`, ~18:00 UTC), schedule
+unchanged at 151/51. **All three commit messages survived this time, `tests` included** (`b50f01d`,
+"Suite for 316; the archived-decision pin re-anchored"), and the only thing that differed from the 315
+push is that the `tests` commit carried TWO files rather than one.
+
+**That is the diagnosis confirmed by a controlled comparison rather than by reasoning:** same repo, same
+person, same paste, one variable changed, message preserved. It also means the proposed structural fix
+— a suites index so a `tests` commit is never single-file — is now evidence-backed rather than a guess.
+**Still PROPOSED, still needs his go.** Do not build it unasked.
+
+## SESSION — 1 Sep 2026 (evening) · the inventory, and 317
+
+The auction queue emptied after 316, he chose the surface inventory over the alternatives (§158), it
+found three on the admin dashboard, he said **"go on all"**, and they shipped as 317.
+
+**The inventory is repeatable and should be repeated.** Script both served pages into functions, keep the
+ones that read phase/round/decision state (154), mark each against the four shapes, cross-check against
+one discriminator — *does it ask which round decided this?* — and drive the survivors. It found in one
+pass what five consecutive builds had been finding one screen at a time.
+
+**Two mistakes of Claude's, both caught, both worth the record:**
+
+**· A stub manufactured a false finding.** The first dashboard probe stubbed `bidMatchesPhaseFilter` —
+the function that decides which bids a filter shows — and duly reported that the cards ignored the round
+filter. With the real function in place the filter is honoured and the OUTCOME is the defect. §3 rule 10
+is usually quoted as "a stub can hide a bug"; this is the other direction, where a stub invents one. The
+suite now names that function explicitly and never stubs it, with a comment saying why.
+
+**· A false gate survived into the suite and the honesty run caught it.** The F3 assertions tested
+`bwScopeLabel`, which was already correct — the defect was that `exportDashboard` didn't call it. All
+three passed on the old build. **That is exactly what the honesty run is for, and it is the second time
+today it earned its place.** Replaced with an assertion over the function's own comment-stripped source,
+plus a proof the stripper kept the code, because this build's comment quotes the forbidden string.
+
+**The standing lesson from F2, in one line:** D7 fixed one of two consumers of the same dropdown. When a
+defect is fixed, find every consumer of the same input — not every screen with a similar name.
