@@ -3855,3 +3855,70 @@ What survives, as record rather than as work:
   is a fact about the site, not a task. It carries no action and no suggestion.
 · §146 touches nothing else. The calendar-feed section, the RA-6 remainder and the held schedule pile are
   unaffected and stay exactly as they are under §143.
+
+## §147 — MERGE "DRAW" INTO "UNDER REVIEW": THE §92 GO, LABEL-ONLY, WITH A FOCUSED AUDIT — 31 Aug 2026
+
+**This is the specific §92 decision the auction code requires.** It authorises this change and nothing else.
+
+His problem: admin can face a draw where there is no real room for anyone to win, and **"users in a draw may
+have more hope than users who are under review."** Confirmed in code — the tie test only asks whether ONE
+tied person lands inside the FTE overage allowance, not whether the week has room, so a draw is normal on a
+week already filled to the cap. The old wording made it worse: Draw promised a spin-off or approval *"will
+resolve the tie"* where Under Review only said admin *"may"* approve.
+
+**His rulings:**
+· **Merge them into a single projection, "Under Review."**
+· **LABEL-ONLY** — *"I like the idea of label only"*. The two internal sets stay; only what is displayed
+  merges. The allocator is untouched, so who wins cannot change, and no data is written in a new shape, so
+  the change is cleanly reversible by putting the old files back.
+· **The final wording**, after several passes and with the second sentence cut by him:
+  > **Under Review (R):** Your bid is over the FTE cap for this week and the projection is uncertain.
+  The short form promises nothing, so it cannot over-promise — his own concern: *"I don't want to
+  overpromise."* Accepted cost: nothing staff-facing mentions the wheel of names or says he may approve
+  no one; he fields that question himself.
+· **The surviving badge is R, in purple.** Amber retires from outcomes.
+· **Staff are NOT told they are in a tie** — the board already lists every bidder on a week with their
+  outcome letter, so several R's IS the tie, visible without being told.
+· **The admin's "Draws & Reviews" section is renamed "Under Review."**
+· **The Draws & Reviews panel's filter becomes "All / Ties (2+) / Single."** He first overruled this to
+  "All / Under Review only", then asked where the filter was, was shown both filter locations, and reversed:
+  *"You were right, go with this."* The three options map 1:1 onto the existing internal sets (ties = the
+  draw set, single = the review set), so this is option text only — no logic change. Separately, the
+  **Approvals/Denials** page's Outcome dropdown loses its two middle entries to one: All / WIN / UNDER
+  REVIEW / LOSE / APPROVED / DENIED. That one is forced by the merge, not chosen.
+· **The staff week line becomes one number** ("FTE under review: 2.4") rather than two; he did not object to
+  Claude's stated choice.
+· **ONE VOCABULARY EVERYWHERE, HISTORY INCLUDED.** *"Historical reports don't matter now… Don't edit past
+  reports since they don't matter."* Clarified for him: a report is regenerated from the stored snapshot every
+  time it is opened, so there is no past report to leave alone — making old phases keep the word DRAW would be
+  EXTRA code (a phase-age special case) and would make the stray-"Draw" gate unwritable. So every view merges,
+  reports and Excel exports included.
+· **THE PRINCIPLE, IN HIS WORDS: *"Change in projected outcome still drives the timer and the e-mails."***
+  This is option A stated as a rule rather than an exception, and it is the form to build and test against:
+  the timer reset and the alert e-mail both follow the PROJECTED OUTCOME THE USER CAN SEE. If the displayed
+  projection changes, the clock resets and the user is told; if it does not, neither happens. A tie forming or
+  dissolving is no longer a change in the projection, so it drives nothing.
+· **OPTION A ON THE TIMER — FINAL.** The bid timer's "did this affect anyone?" test and the alert e-mail
+  share ONE function by design (`_changeAffectsOthers`, staff; its twin in the admin — the comment forbids
+  them disagreeing). So the alert fix cannot be isolated: whatever the e-mail treats as a change, the clock
+  treats as a change. He chose **B** first (*"since it could be relevant"*), then reversed to **A** —
+  *"changed my mind. go with A"* — immediately after being told the two facts that made B's value thinner
+  than it looked: the comparison can only ever distinguish ALONE from 2-OR-MORE (a 3-way group shrinking to
+  a 2-way sends nothing, today and after), and the e-mail would have had to state the count out loud, which
+  cuts against his own ruling that staff are not told about ties.
+  **What A means, concretely and it is the ONE behavioural change in this build:** both the comparison and
+  the alert run on the MERGED label, so when a tie forms or dissolves there is no e-mail AND no timer reset.
+  In the timer mode the live auction uses, the clock therefore runs down sooner in that scenario than it does
+  today. Accepted knowingly, twice explained.
+· **A thorough audit of the change is authorised** — *"I agree with the big audit you mentioned."*
+
+**AND A SCOPE RULING ON THAT AUDIT, verbatim: *"What I do not want this audit to do is find a bunch of less
+meaningful and not very important other issues. keep it focused."*** The audit examines THIS change and its
+uniformity. It is not a general defect hunt. Incidental findings outside the merge are not collected, not
+listed, and not reported — if something genuinely serious is seen it is raised in one line and nothing more.
+This is the same principle as his 11 Aug ruling that minor and cosmetic findings are deferred, applied to a
+targeted audit.
+
+Recorded for the record: Claude's earlier claim in this session that e-mails never name the outcome was
+WRONG and was corrected — the per-bid alert prints *"changed from DRAW to REVIEW"*. Removing that
+meaningless alert is now one of the merge's benefits, and mishandling it is its main trap.

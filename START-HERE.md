@@ -30,6 +30,14 @@ instruction** — closed, not completed. **Do not re-raise any of it, list it as
 returning to it.** The full account stays in `DECISIONS.md` §145/§146 and `HANDOFF.md`. One fact, carrying no
 action: Rehearsal Mode was ON when the board was last seen, 31 Aug. The auction has no queued work.
 
+# 🟢 NEXT SESSION BUILDS THIS — DRAW MERGES INTO UNDER REVIEW (§147, the §92 go IS given)
+**Every decision is ruled and NOTHING is edited — 305 / 164 stand.** The full site-by-site inventory (~19
+staff, ~32 admin), the shape of the change, the wording, the verification plan and the restore pair's
+location are in `TODO.md` §1. **Do not re-derive them and do not re-open the decisions.** Two things a
+fresh session must not rediscover: the per-bid alert e-mail DOES name the outcome, and the bid timer shares
+its comparison function with that mailer — so his ruling governs both: *"Change in projected outcome still
+drives the timer and the e-mails."* §147's audit is capped to this change only.
+
 
 # ▶ SCHEDULE BUILDING RESUMES — owner, 25 Aug 2026: *"we proceed with schedule builds."*
 

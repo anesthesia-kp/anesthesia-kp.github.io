@@ -225,6 +225,42 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 31 Aug 2026 (EVENING, fresh session) — §146 CLOSED THE BOARD QUEUE; §147 DESIGNED THE DRAW/UNDER-REVIEW MERGE. NO CODE WAS EDITED.
+
+**What this session produced: two rulings and a build that is fully specified but NOT started.** The auction
+pages are untouched — 305 / 164 on disk and live, verified cache-busted at the open.
+
+**§146.** He cleared the whole 🔴 board block from `TODO.md` §1 — the abandoned rehearsal, the unverified
+Phase-1 state, the Rehearsal-Mode question, the e-mail-switch finding. He asked for them "marked complete";
+Claude pushed back (they were never done, and "complete" beside *"Rehearsal Mode must be OFF before launch"*
+would be read by a later session as done) and he accepted **CLOSED**. He pushed it himself (`7d6a70a`).
+
+**§147 — the merge.** His problem: a draw can occur on a week with no real room, and *"users in a draw may
+have more hope than users who are under review."* Confirmed in code. The full design, every ruling and the
+site-by-site inventory are in `TODO.md` §1 — **do not re-derive them.**
+
+**Three things this session got WRONG and corrected, recorded so they are not repeated:**
+1. **"E-mails never name the outcome" was false.** The results and round-results blasts don't, but the
+   per-bid alert prints *"changed from DRAW to REVIEW"*. Found only by reading the sender.
+2. **The scope estimate was roughly half the truth** — "8 and 16 sites" from a keyword survey became ~19 and
+   ~32 once the trace ran outward from the functions that PRODUCE an outcome. The growth was almost entirely
+   reports and, unmentioned until then, **the Excel exports**, which style cells by outcome colour and print
+   outcome text in eight places. He had asked *"have you thoroughly thought through all aspects of this?"* —
+   the honest answer at that moment was no, and saying so is what surfaced the rest.
+3. **The timer and the alert e-mail share ONE comparison function by design.** So the alert fix could never
+   be isolated: whatever the mailer treats as a change, the clock treats as a change. Missing this would have
+   shipped a silent change to live auction timing. It is now §147's one ruled behavioural change, in his own
+   framing: *"Change in projected outcome still drives the timer and the e-mails."*
+
+**Method note worth keeping:** grep finds a WORD; it does not find a concept expressed without that word (an
+inline hex colour, a set-size check). For anything that must be uniform, enumerate the CONSUMERS of the
+functions that produce the value. That is what turned a plausible-looking inventory into a complete one.
+
+**State at close:** all four repos clean and in sync after a fetch; the three `maintenance.lock` files that
+fetch strands were moved to `_to_delete/`. Restore pair for the coming build is in
+`_archive/vacation/restore-build-305/`, md5-verified. Context at close ≈ 287k — he asked, was given the
+number, and chose to hand off rather than build through a compaction.
+
 ## 30 Aug 2026 (AFTERNOON, next session) — §136/§137: THE CALENDAR FEED GOES LIVE; ADMIN 148
 
 **He opened with the pasted START-HERE one push behind** (147 / 50 were already served — §3 rule 13 again); the
