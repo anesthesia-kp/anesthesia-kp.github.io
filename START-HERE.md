@@ -391,6 +391,13 @@ rewritten). Also delivered: `<repo>/COMMIT-MESSAGE.txt` on disk per repo
 once, which is how messages got lost), and the BUILD-LOG row. Copy from the combined
 outputs file or COMMIT-MESSAGE.txt, never from a source or test file. Any revision to
 any message = the WHOLE combined file re-sent to outputs in the same turn.
+> ⚠️ **THE OUTPUTS FILE CONTAINS ONLY WHAT GETS PASTED — no headings of Claude's own above the
+> message, no guidance, however useful, and the `⚠ COPY ONE SECTION PER REPO` banner even when only
+> ONE repo changed.** Broken 1 Sep 2026: with a single repo the banner was replaced by prose and a
+> note was added above the message, so the whole file was pasted and its first line became the commit
+> subject (`fbea125`) — the same failure as 18 Aug's `7fcd3f1`/`594778e`, caused by Claude's
+> formatting, not the paste. **Guidance belongs in the chat.**
+>
 > ⚠️ **THE OTHER WAY SUBJECTS GET LOST — owner-found, 1 Sep 2026, and it had been happening silently
 > for weeks.** He asked why GitHub Desktop pre-fills a summary for `tests` but not the others. **It
 > pre-fills whenever a commit contains EXACTLY ONE changed file** — "Create <file>" / "Update <file>"

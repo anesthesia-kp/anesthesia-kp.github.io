@@ -1416,6 +1416,23 @@ what makes the test easy.** Two false-pass assertions were also caught and fixed
 `indexOf` ordering comparison that passed on the old build because `-1 < anything`, and a guard that
 passed vacuously while its sandbox was crashing.
 
+### ⚠️ AND THE DAY'S LAST MISTAKE WAS CLAUDE'S, ON THE VERY RULE IT HAD JUST WRITTEN
+
+The docs commit for all of the above shipped as `fbea125` with the subject
+`anesthesia-kp.github.io   (docs)    changed: START-HERE.md · …` — a whole-file paste, the divider
+becoming the subject. **That is the identical failure START-HERE §3 already records from 18 Aug
+(`7fcd3f1`/`594778e`), in the same turn that added a new rule about commit subjects being lost.**
+
+**The cause was Claude's formatting, not the owner's paste.** Only one repo changed, so the standard
+`⚠ COPY ONE SECTION PER REPO` banner was replaced with prose, and a helpful note about GitHub
+Desktop's single-file behaviour was put INSIDE the file above the message. The file stopped looking
+like "one block to copy" and started looking like a document.
+
+**The rule this earns, and it is narrow enough to keep: the outputs file contains ONLY text that gets
+pasted. Guidance goes in the chat, never in the file — however useful it is, and however few repos
+changed.** The banner is not decoration; it is the thing that tells the eye where the copy starts.
+Recorded, not rewritten — the history stands, as it did in August.
+
 ### Owner-facing facts settled today
 - **The bridge drops were macOS sleep** — his own diagnosis. Mains covered by Settings; battery needs
   Amphetamine (installed) or `caffeinate -di`. Recorded in START-HERE §4.
