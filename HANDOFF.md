@@ -225,6 +225,48 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 2 Sep 2026 — TWO WEEKS OUT. THE HUB, THE RUNBOOK, HIS REHEARSAL, AND THE "SAME BID" RULE (§171–§175). 323 AND 324/168 LIVE.
+
+**What the day was.** He opened with *"only concerned about the vacation site… 2 weeks out from go-live"* and asked for
+recommendations. The first was to build nothing; the four operational items and his answers are §171. The hub's schedule
+cards came down (`0aa4c92`), a go-live runbook and a 34-step rehearsal script went into `tests/docs` (plus a Word copy), his
+local backups now file themselves (Automator folder action on Downloads). Then he rehearsed, found two things, and both
+shipped the same evening: admin 323 (§172, the Current Phase card heading) and admin 324 / staff 168 (§173/§174). His
+close: *"all worked as expected."* Nothing is open on the auction.
+
+**THE LESSON OF THE DAY — CLAUDE DEFENDED A GUARD IT HAD NOT TRACED (§3 r14 again, the other way round).** The staff
+"same bid, same answer" dialog was explained from its own comment as "by design, guards a real failure, leave it." He
+disagreed and put one sentence — lower demand or more capacity in a later round — that the comment could not answer.
+Reading the two engines showed the dialog was a symptom of the value-match rule, the rule violated his rounds-as-phases
+principle, and it had an admin-reachable twin (Add bid at the denied value). **A guard's comment says what it prevents,
+never whether it is the only way to prevent it.** Before defending any gate: find the rule it papers over and ask whether
+the rule is right. Conceded and dated in §173.
+
+**Fixtures that model impossible states pass for the wrong reason.** Three suites (317, 318, p4-rounds) had "round 1
+denied X, round 2 open, X's denied bid still live" — a state Start Round makes impossible (it deletes the denied bids in
+the same atomic batch that advances `p4Round`). The old value-match rule happened to freeze that bid, so the assertions
+were green on a state that cannot occur. Re-anchored to the reachable state (the Complete→Start gap). **When a suite
+turns red after a rule change, check the fixture's reachability before the assertion's wording.**
+
+**The trace that answered "is this a bigger problem?"** — three read-only agents in parallel (lifecycle · consumers ·
+record), every claim line-numbered, the load-bearing ones re-read by the session, filed as
+`tests/docs/TRACE-same-bid-2026-09-02.md`. Two hours; it found the admin-side hole nobody had hit. Worth the cost every
+time the owner asks that question.
+
+**The sweep in the cloud, two more recipe notes.** (1) ESM ignores `NODE_PATH`: symlink the global `node_modules` into
+`tests/sweep/` (`ln -sfn $(npm root -g) node_modules`). (2) The four passes take ~4 minutes and the Bash tool killed the
+run at exit 137 before it finished — run it detached (`setsid nohup … &`) and poll the log by mtime. On this
+machine Playwright 1.56 wanted chromium-1194, which is what `/opt/pw-browsers` holds, so no symlink tree was needed.
+Baseline run on 323/167 for comparison: 603 · 137 · 126 · 0, identical to 324/168 (staff/confirm `unlocated=1` on both —
+pre-existing, not this build).
+
+**Three small process slips, owned.** The `tests` divider carried guidance and became a commit subject (`7560869`; rule
+added to START-HERE). The Automator directions were given from memory and were wrong twice until a screenshot arrived —
+verify a UI walkthrough before giving it, or ask for the screenshot first. And the first "leave it" on the dialog, above.
+
+**Baselines for the next session:** auction admin 324 / staff 168 (`34fc686`), schedule 151/51 unchanged, hub `1678ad6`
+plus this session's closing docs commit. Honesty fixtures for anything after 324/168: `git show 34fc686:<file>`.
+
 ## 1 Sep 2026 (LATER, same session) — §149/§150: THE RECORD OF BIDDING. ADMIN 307 THEN 308, BOTH LIVE AS 308.
 
 **He went looking at the live site right after the merge shipped and found two defects in an hour — both in the

@@ -4605,3 +4605,6 @@ Not included (offered, not chosen): the round archive as a second witness for us
 (`tests/docs/REHEARSAL-SCRIPT.md`, simulator on, e-mails skipped) passed end to end on 323/167; the single
 finding is the "same bid, same answer" refusal, filed as admin 324 / staff 168 under §174. Nothing else is open.
 
+**After the push (324/168 served, verified twice):** he re-placed the refused NP bid — no alert — and checked the
+surfaces: *"all worked as expected."* Session closed at his word: *"handoff. thank you."*
+
