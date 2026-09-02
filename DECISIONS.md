@@ -4515,3 +4515,14 @@ index: never re-raise. (2) The rehearsal of the per-round timer (and, by his wor
 off every list, not to be reminded, same standing as launch and the sign-in test. With §168's three builds filed
 (319/166 and 321 live; 322/167 filed), RA-8's queue is EMPTY.
 
+## §170 — THE WALKTHROUGH DECK, UPDATED BY HIM AND BROUGHT INTO LINE WITH THE DRAW MERGE — 2 Sep 2026
+
+**His words: *"file this updated PPT and make necessary changes for Draw merge"*** (then *"use chrome control if
+needed"* — not needed: every screenshot in the deck already shows only W badges and no Draw page). Filed as the single
+current copy `tests/docs/VacationAuctionWalkthrough.pptx`; the 27 Aug deck moved to `_archive/tests/walkthrough-deck/`.
+Changes made: slide 23's legend loses the D · Draw row and Under Review reads the site's own sentence plus his O-4
+sentence; slide 33's rule reads "weeks that were approved in earlier phases" (O-3); slide 34's last bullet drops "in a
+Draw or"; slide 35's timer line reads "Each phase — and each round of Phase 4 — opens with a 5-day window", which
+build 322 made true. RA-8's M-3 is thereby CLOSED. The rehearsal user guide and bid tracker (.docx, site repo) were NOT
+touched — not asked for.
+

@@ -1692,3 +1692,32 @@ sees it. Left for him: the welcome e-mails' "Each phase opens with" sentence (sc
 the timer ON. The cloud workspace (`/home/claude/ra8/`) holds every build's patch script, diff and logs under
 `build1/`, `build3/`, `build2/` — not filed to the repos (the suites and BUILD-LOG rows are the record).
 
+## SESSION CLOSE — 2 Sep 2026 · RA-8 done, its three builds live, the deck updated. NOTHING OPEN ON THE AUCTION.
+
+**Checklist run.** Step 0: the three public repos fetched — all in sync with origin, nothing arrived from elsewhere;
+`tests` judged from `git log` (private, cannot fetch over the bridge). The fetch stranded `objects/maintenance.lock` in
+all three, as §4 says it will — moved to `_to_delete/locks/`; no locks remain. `node status.mjs` exit 0. START-HERE's
+live line reads 322/167, verified served twice.
+
+**What this session did, in one paragraph.** The archive pass (TODO 1,902 → ~1,600, START-HERE 687 → 667). RA-8: eight
+lanes, a ninth for the timer, four adversarial verifiers, filed with every probe — verdict: nothing breaks the auction;
+four record defects and the rounds-as-phases class remained, all pre-existing. His rulings §162–§170. Then three builds
+from one plan, each with its own suite red on the previous pushed SHA, an open-phase invariance block, the full battery,
+the handler audit, the isolation guard and both sweeps: **319/166** (gates, labels, dialogs, his rules text in three
+copies), **321** (a round keeps its capacity; a completed-unsent phase is closed on the admin views), **322/167** (each
+round opens with the window on its own clock — renumbered from the plan's 320 so no served page reads as stale). All
+three pushed by him and verified live. Finally his updated walkthrough deck, brought into line with the Draw merge.
+
+**Waiting on him at close:** two commits — the deck in `tests` (ONE file — clear GitHub Desktop's Summary box) and the
+docs here (four files). Messages in the outputs column.
+
+**Standing at close.** §92 closes the auction code again. §164 governs any future build: narrow and safe, winding down.
+The rehearsal is HIS (§169) — do not remind. The schedule stays parked (§143/§157). `_to_delete/` holds ~15 MB (this
+session's transfer zips, the tests tarball, the lock folder) — his to empty.
+
+**For the next session, the things that are easy to get wrong:** (1) the honesty baseline for any new auction build is
+now `d554242` (admin 322 / staff 167); (2) `tests/docs/RA-8/PLAN.md` describes the three builds as designed — the
+BUILD-LOG rows describe them as shipped, and the two differ in small named ways (322's number, the numeric-phase
+tightening, the round-relabel); read the rows; (3) the cloud workspace is gone with this session — START-HERE §6 rebuilds
+it in ten minutes; (4) the context number at close was ~490,000, under his 600k floor, with no compaction.
+
