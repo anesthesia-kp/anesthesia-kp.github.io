@@ -4526,3 +4526,21 @@ Draw or"; slide 35's timer line reads "Each phase — and each round of Phase 4 
 build 322 made true. RA-8's M-3 is thereby CLOSED. The rehearsal user guide and bid tracker (.docx, site repo) were NOT
 touched — not asked for.
 
+## §171 — TWO WEEKS OUT: VACATION SITE ONLY; THE HUB'S SCHEDULE CARDS COME DOWN; A GO-LIVE RUNBOOK; BACKUPS GET A FOLDER — 2 Sep 2026
+
+**His framing, verbatim:** *"I am only concerned about the vacation site at this point. We are 2 weeks out from
+go-live. Schedule site will be on hold for some time."* §143's "keep schedule parked" is now indefinite.
+
+Asked for recommendations, Claude's first was to build nothing on the auction (§92, §164 stand) and offered four
+operational items. His answers: **(1) GO** — remove the two Daily Scheduling cards from the landing hub until the
+schedule resumes (the §118 CRNA precedent; hub repo only, nothing the auction serves; plan first, §0 rule 2).
+**(2) GO** — a plain-language go-live runbook in the private `tests/docs` (what to do when X happens during the
+live run; read-only, no code). **(3) "All set and done"** — the mail meter and the Firebase billing alert are his and
+handled; do not re-raise. **(4) "agree"** — back up at every phase boundary and cross-check one user's staff Phase
+History against the admin User Summary after each phase (the 1 Sep lesson, §149/§150).
+
+**Hero line:** asked whether *"…and daily scheduling tools"* should be trimmed with the cards gone — *"leave the hero line, it's fine."* Cut the same evening: 24 lines removed, nothing added.
+
+**Backups:** his old computer had a folder the local backups were filed into (the admin's restore help already
+says *Downloads → Auction Backups*). He wants that again — every local backup lands in its own folder inside
+Downloads — and asked for the steps. The steps are his to do on the Mac (a browser/Finder setting, not code).
