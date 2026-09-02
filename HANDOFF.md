@@ -1667,3 +1667,14 @@ functions through new helpers; each change adds the real helper to a fixed sandb
 Cloud workspace `/home/claude/ra8/` still holds the working tree with Build 1 applied (= the Mac's), the 318/165
 fixtures under `/tmp/vac318`, `/tmp/vac165`, and the sweep symlink tree — Builds 3 and 2 start from it.
 
+## SESSION — 2 Sep 2026 (continued) · RA-8 Build 3 filed: admin 321
+
+*"pushed. keep going"* after 319/166 (verified live twice, clone re-synced to `d533420`, md5-identical to the Mac).
+Build 3 (the record: R-1 round capacity frozen, R-3 the closed-current-phase views) built the same way from PLAN §BUILD 3,
+17 anchored edits, all anchors located by TEXT because Build 1 moved the plan's line numbers. Claude re-ran the suite and
+its honesty check itself (56/56 · 24 red on the 319 fixture, exit 1). One thing to know: a round archived BEFORE 321 has no
+frozen header and prints the live backfill under the "(as of completion)" label — accepted because he has said every
+archive so far is test data; the first real auction archives every round on ≥321. Shipped as one zip of 7 files, combined
+md5 identical (`d9050ce3…`). Build 2 (the per-round timer clock, admin 320 + staff 167) is the last and the one rated
+MEDIUM; its honesty baseline is whatever he pushes next, so it starts only after this push.
+
