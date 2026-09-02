@@ -4541,6 +4541,29 @@ History against the admin User Summary after each phase (the 1 Sep lesson, §149
 
 **Hero line:** asked whether *"…and daily scheduling tools"* should be trimmed with the cards gone — *"leave the hero line, it's fine."* Cut the same evening: 24 lines removed, nothing added.
 
+**Later the same evening — the "denied in Phase 1, should have been approved" question.** He asked what an admin should
+do if, after Phase 1 completes, someone denied in Phase 1 turns out to deserve the week. Claude's answer, from code:
+no undo backwards (Revoke is guarded on completed phases by 319; a restore after results were sent is off the
+table) — the path is forward: the user's number is back in hand, the week is bid again in Phase 2 (by them, or by
+the admin via Edit Selections → Add bid), and the admin approves by hand; raise the week's capacity first when the
+reason is "we now have room". Verified in the staff page: a high-demand week accepts a new bid in any phase as long
+as it is not locked and the bid meets the week-category floor — there is no "Phase 1 only" rule on those weeks. His
+instruction: **"don't check this in rehearsal"** — not a rehearsal step, not a build.
+
 **Backups:** his old computer had a folder the local backups were filed into (the admin's restore help already
 says *Downloads → Auction Backups*). He wants that again — every local backup lands in its own folder inside
 Downloads — and asked for the steps. The steps are his to do on the Mac (a browser/Finder setting, not code).
+
+## §172 — THE CURRENT PHASE CARD AFTER COMPLETE ROUND: HEADING FIXED, THE PROGRESS LINE STAYS — 2 Sep 2026
+
+Owner-found while preparing his rehearsal (TODO O-5): after Complete Round the dashboard heading read
+*"Phase 4: Round 1 ✓ Round complete"* in the card's largest type and wrapped to three lines — *"This looks
+terrible."* Claude traced both halves to 319's P-3 and proposed two fixes. His ruling:
+
+**1 — the heading:** *"Phase 4: Round 1 as the big line. Below that, just complete with the check mark."* — the
+status moves to its own smaller line reading **✓ Complete**, for a completed round and a completed phase alike.
+This is the §92 go for admin 323 (one rendering block, nothing else).
+
+**2 — the progress line** (*"No bids placed in this round yet."* after a round is archived): *"I'm okay leaving this
+as it is. That part is fine."* — NOT changed; do not re-raise.
+
