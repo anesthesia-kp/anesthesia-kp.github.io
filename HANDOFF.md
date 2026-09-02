@@ -1654,3 +1654,16 @@ context-threshold rule in START-HERE §4 — his sessions never compact below 60
 cloud workspace (`/home/claude/ra8/`) holds the clones, the 305 baseline, the tests tarball and the probes, and is
 rebuilt in ten minutes from START-HERE §6 if lost.
 
+## SESSION — 2 Sep 2026 (continued) · RA-8 Build 1 filed: admin 319 / staff 166
+
+His *"pushed. go."* on the plan. Built in the cloud by one agent from `tests/docs/RA-8/PLAN.md` BUILD 1 with an
+anchored patch script (`split(OLD).length===2` before, `count(NEW)==1` after; a second run refuses). Two plan anchors
+were tightened by the builder and are recorded in the BUILD-LOG row (a phase-1–3 bid's `phase` stays numeric while
+Phase 4 is open; the dashboard card says "round" only on the live view). Claude re-ran the new suite and BOTH honesty
+checks itself before shipping (85/85 · 55 red on the 318 fixture, exit 1 · staff 20/20 · 11 red, exit 1) and read the
+three re-anchored suites' diffs — all stricter, real extractions. Shipped as ONE zip of 19 files, unpacked per-file on
+the Mac, combined md5 identical (`f4ffe262…`). **Thirteen existing suites changed** because the build routed existing
+functions through new helpers; each change adds the real helper to a fixed sandbox. Nothing was committed by Claude.
+Cloud workspace `/home/claude/ra8/` still holds the working tree with Build 1 applied (= the Mac's), the 318/165
+fixtures under `/tmp/vac318`, `/tmp/vac165`, and the sweep symlink tree — Builds 3 and 2 start from it.
+
