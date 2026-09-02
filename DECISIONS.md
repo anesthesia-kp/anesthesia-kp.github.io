@@ -4507,3 +4507,11 @@ staff half cannot be fixed without reading admin-only staged data, so the operat
 Results" stays for the staff page). §164 governs the shape: narrow, each build backed out on its own; §0 rule 2 governs
 the order: the plan is presented and his go on it precedes code.
 
+## §169 — THE TWO BUILD-2 FOLLOW-UPS: ONE DECLINED, ONE HIS OWN — 2 Sep 2026
+
+**His words: *"don't care about that e-mail detail. I will do a full rehearsal myself."*** (1) The welcome e-mails'
+sentence "Each phase opens with a N-day window…" stays as it is — DECLINED, same standing as BULK-1 and the suites
+index: never re-raise. (2) The rehearsal of the per-round timer (and, by his wording, of the whole build set) is HIS —
+off every list, not to be reminded, same standing as launch and the sign-in test. With §168's three builds filed
+(319/166 and 321 live; 322/167 filed), RA-8's queue is EMPTY.
+

@@ -1678,3 +1678,17 @@ archive so far is test data; the first real auction archives every round on ≥3
 md5 identical (`d9050ce3…`). Build 2 (the per-round timer clock, admin 320 + staff 167) is the last and the one rated
 MEDIUM; its honesty baseline is whatever he pushes next, so it starts only after this push.
 
+## SESSION — 2 Sep 2026 (continued) · RA-8 Build 2 filed as admin 322 / staff 167 — ALL THREE BUILDS DONE
+
+*"pushed. go."* after 321 (verified live twice; clone re-synced to `dc9dcd8`, md5-identical to the Mac). **The plan's
+"320" became 322** — Claude caught it while briefing the builder: a served admin whose `var BUILD` is below the live
+`versions.json` number reads itself as stale. Built from PLAN §BUILD 2; the builder restarted once (a trailing comment
+said `phaseBeganAt[cur]`, which the suite's own comment-stripped allow-list assertion flagged — the gate worked on the
+build that created it), `git checkout` back to `dc9dcd8`, re-applied. Claude re-ran the suite and honesty itself
+(70/70 · 29 red on the 321/166 fixtures, exit 1). Shipped as one zip of 10 files, combined md5 identical (`0d2d643d…`).
+**Both pages must be pushed together** (one timer doc, two readers). Harness lesson filed in the BUILD-LOG row: a helper
+called from inside a try/catch that swallows ReferenceError must be NAMED in fixed sandboxes — the auto-resolver never
+sees it. Left for him: the welcome e-mails' "Each phase opens with" sentence (scope), and a rehearsal Start Round with
+the timer ON. The cloud workspace (`/home/claude/ra8/`) holds every build's patch script, diff and logs under
+`build1/`, `build3/`, `build2/` — not filed to the repos (the suites and BUILD-LOG rows are the record).
+
