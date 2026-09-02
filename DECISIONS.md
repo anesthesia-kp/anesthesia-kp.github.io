@@ -4567,3 +4567,41 @@ This is the §92 go for admin 323 (one rendering block, nothing else).
 **2 — the progress line** (*"No bids placed in this round yet."* after a round is archived): *"I'm okay leaving this
 as it is. That part is fine."* — NOT changed; do not re-raise.
 
+## §173 — THE "SAME BID, SAME ANSWER" DIALOG: THE BLOCK IS WRONG; TRACE FIRST, THOROUGHLY — 2 Sep 2026 (late)
+
+During his rehearsal the staff site refused a Phase-4 re-bid with *"This exact bid was already denied on this week
+in Phase 4: Round 3 — same bid, same answer."* (build 134's guard). Claude first defended it as by-design; he
+disagreed, then put the case that settles it: *"what if there is lower demand in a later round in P4? Couldn't a
+user theoretically re-use a bid and get approved, especially if admin opened up additional capacity?"* — yes. Under
+his rounds-as-phases principle (§165) a later-round bid is a new bid whatever its value. Claude conceded, dated here.
+
+The mechanism, read in both engines: a live bid carries no round stamp, so the twin helpers (staff
+`p4AnnouncedDecision`, admin `_p4ArchivedDecisionRound`) tell an old denied bid from a fresh one by VALUE alone;
+the dialog exists only because a same-value re-bid would otherwise be mistaken for the old denial (the 10 Aug zombie).
+
+**His order:** *"Trace it thoroughly. It's very important to have bids that have been used tracked properly,
+returned to users when appropriate with denied bids, and not returned for approved bids. If the only problem is the
+dialog, seems like an easy fix. I really want to be sure this isn't a sign of a bigger problem that we're not
+seeing."* — a READ-ONLY trace of the bid-number lifecycle through Phase 4 (used · returned on denial · kept on
+approval) and of every consumer of the two helpers, before any plan. §92 stands: no build without a separate go.
+
+## §174 — THE GO: A ROUND'S DENIAL BINDS ONLY WHILE ITS ROUND IS CURRENT — admin 324 / staff 168 — 2 Sep 2026 (late)
+
+The §173 trace (`tests/docs/TRACE-same-bid-2026-09-02.md`) came back: the bid-number ledger is sound on both
+pages; the dialog is the fingerprint of the value-match rule in the two twin helpers, which also has an
+admin-reachable face (Edit Selections → Add bid with a value an earlier round denied makes the 10 Aug zombie). He
+pressed on the used-number formula ("you said won in Phases 1–3" / "what about phase 4?") and was walked through it
+with numbers: a round win stays live and keeps its number; a round denial is deleted at Start Round and returns it;
+Phase 4 behaves as a string of phases. Then: *"this build won't change or break anything else?"* — answered: one
+question changes its answer in one situation (a same-value re-bid on a week denied in an EARLIER round); approvals,
+Phases 1–3, the current round, the gap, the engine, the archives and the rules are untouched; proven by the suite,
+not promised. Both pages must be pushed together. **His word: "go."**
+
+Not included (offered, not chosen): the round archive as a second witness for used numbers — no behaviour change.
+
+## §175 — HIS FULL REHEARSAL: DONE, ONE FINDING — 2 Sep 2026 (late)
+
+*"rehearsal done. the only problem i found is the one you are fixing now."* — the 34-step run-through
+(`tests/docs/REHEARSAL-SCRIPT.md`, simulator on, e-mails skipped) passed end to end on 323/167; the single
+finding is the "same bid, same answer" refusal, filed as admin 324 / staff 168 under §174. Nothing else is open.
+
