@@ -377,6 +377,9 @@ any message = the WHOLE combined file re-sent to outputs in the same turn.
 > note was added above the message, so the whole file was pasted and its first line became the commit
 > subject (`fbea125`) — the same failure as 18 Aug's `7fcd3f1`/`594778e`, caused by Claude's
 > formatting, not the paste. **Guidance belongs in the chat.**
+> **And the DIVIDER is pasted too (2 Sep 2026, `7560869` in `tests`): a divider reading `======== tests (ONE file —
+> clear the Summary box first) ========` became the commit subject. Dividers carry the REPO NAME and nothing else;
+> the one-file warning goes in the chat and the file caption.**
 >
 > ⚠️ **THE OTHER WAY SUBJECTS GET LOST — owner-found, 1 Sep 2026, and it had been happening silently
 > for weeks.** He asked why GitHub Desktop pre-fills a summary for `tests` but not the others. **It
