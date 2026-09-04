@@ -4652,4 +4652,13 @@ won, gone for good versus tied up by a live bid this phase, comes back if it doe
 this"*): how many no-preference bids each user has placed this phase, shown beside the numbers since NP uses none. Not
 asked for: a weeks-won-vs-cap column, a weeks-won list (the reports' job). The admin's copy of the rule is a port of the staff
 function, and the suite asserts the two agree on the same fixtures — so the admin never sees a different answer than the
-user does. **BUILT and FILED as admin 325 the same morning** (the record and every gate: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push.
+user does. **BUILT as admin 325 the same morning and LIVE that afternoon** (`346522a`, verified served twice; the record and every gate: `vacation-kp.github.io/BUILD-LOG.md`).
+
+## §179 — USER BIDS ON THE LIVE PAGE: THREE OWNER FINDINGS — 4 Sep 2026 (afternoon)
+
+Seen on the served 325: **(1)** the red (won) and the palette's `--yellow` (`#7a4e00`, a dark gold that reads brown)
+are too close — *"maybe yellow for live bids?"*; Claude proposed a true pale yellow (traffic light: green free, yellow
+pending, red gone) or blue (the site's open/in-progress colour) — his choice pending; **(2)** the legend's placeholder
+"n" chips are *"weird"* — proposed: the labels themselves become the swatches (three pills in the chip colours);
+**(3)** *"remove the Left column, not needed."* All three are paint on one page; the rule and the data are untouched.
+His answers: *"yellow"*, then *"go"*. **BUILT and FILED as admin 326 the same afternoon** (record and gates: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push.

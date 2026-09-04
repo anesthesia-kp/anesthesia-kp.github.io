@@ -1,21 +1,20 @@
 ⚠ COPY ONE SECTION PER REPO
 
 ======== vacation-kp.github.io ========
-Admin 325 - User Bids: a read-only page of bid numbers used and remaining
+Admin 326 - User Bids paint: yellow live chips, labelled legend, no Left column
 
-People section, below Bid Lowerings. Every user alphabetically: remaining
-numbers, used numbers marked won (gone for good) or live this phase, NP bids.
-Same rule as the staff page. No writes, no new listeners. DECISIONS 178.
+His three findings on 325: live-bid chips a real yellow instead of the palette
+gold that read brown; the legend's "n" chips replaced by labelled pills; the
+Left column removed. Rule and data untouched. DECISIONS 179.
 
 ======== tests ========
-test-325-user-bids - the admin User Bids page; test-324 re-anchored
+test-326-user-bids-paint; test-325 re-anchored for five columns
 
-Runs the admin and staff pool rules on the same fixtures and fails if they
-differ; renders the page on a fake DOM; checks sidebar, nav and refreshAll.
-test-324 asserts "at least 324/168" instead of an exact build pin.
+Renders the User Bids page on a fake DOM: the yellow live rule, the labelled
+legend, five cells per row, no Left header. test-325 now expects five columns.
 
 ======== anesthesia-kp.github.io ========
-Docs: admin 325 filed - DECISIONS 178, TODO, HANDOFF, START-HERE
+Docs: admin 326 filed - DECISIONS 179, TODO, START-HERE, HANDOFF
 
-The User Bids ruling and the build's record; status block regenerated.
-Removes the app's stray "Claude outputs" folder that was committed on 3 Sep.
+Also carries the 325-live close-out and gitignores the app's "Claude outputs"
+folder, which keeps reappearing in this repo.

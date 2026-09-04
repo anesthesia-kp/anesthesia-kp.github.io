@@ -11,3 +11,7 @@
 # Desktop too — which made it invisible in both places at once. This name is visible
 # in Finder and still never committed.
 COMMIT-MESSAGE.txt
+
+# The desktop app copies every file it sends to the outputs column into this folder.
+# It is never part of the project (moved to _to_delete/ at every session close).
+Claude outputs/

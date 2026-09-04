@@ -263,7 +263,9 @@ re-anchored 324 suite, COMMIT-MESSAGE), this repo (DECISIONS §178, TODO, START-
 6. **Rule 11 bit again in a one-off command** — `node … --pre | tail -8; echo $?` reported tail's 0 for an honesty run
    that exited 1. Caught in the dry run, re-run without the pipe; every exit code quoted above was read directly.
 
-**Standing at close.** Admin 325 FILED, NOT PUSHED (§178); 324/168 still live and verified. §92 closed, §164 governs; §176
+**Later the same afternoon — §179, admin 326 FILED, NOT PUSHED.** He looked at the served 325 and found three things in one message: red and "brown" too close (the palette's `--yellow` is `#7a4e00`), the legend's "n" chips, and a Left column he did not need. Paint only, one file; `test-326-user-bids-paint` 17 / 17, 11 RED on `346522a`; `test-325` re-anchored to five columns; battery 76 / 2,658 / exit 0; audit 190 / 0; isolation 36 / 36; sweep clean. Lesson: **look at the served page with his eyes before calling a build done** — the chip colours were "correct" by token name and wrong on screen; a screenshot was taken and not judged for contrast.
+
+**Standing at close.** Admin 325 LIVE (`346522a`, served twice); 326 FILED, NOT PUSHED (§179) — three repos. Suites `2d8164a` + the 326 suite pending; docs pending. The BUILD-LOG rows keep "pending" in their commit column, as the 324 row does. §92 closed, §164 governs; §176
 and §177 parked. The desktop app's `Claude outputs/` folder appeared in this repo again and was moved to `_to_delete/`;
 `_to_delete/xfer/` holds the build-325 zip and its unpacked copies, and three stranded lock files — his to empty. Noted,
 not acted on: staff/confirm `unlocated=1` in the default-seed sweep (staff bytes unchanged in this build; not checked
