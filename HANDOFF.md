@@ -225,6 +225,52 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 4 Sep 2026 — "USER BIDS" (§178): ADMIN 325 FILED, NOT PUSHED. THE MAC SLEPT THREE TIMES.
+
+**What the session did.** The §4 ritual (324/168 and 151/51 served twice; four repos clean; the fetch stranded three
+`maintenance.lock`s, moved). His ask: a read-only admin page of each user's bid numbers used and remaining, People section
+below Bid Lowerings. Explored first: the staff site's `bidPoolInfo` is the rule and every input is already on the admin
+page. Plan presented (§0 rule 2); his rulings arrived in four short messages — the name "User Bids", remaining + used,
+then the won / live split, then the NP count, then "Go". Built as admin 325: one sidebar line, one panel, `adminBidPoolInfo`
+(a port of the staff function) + `renderUserBids`, one line each in `nav()` and `refreshAll()`, four CSS rules, BUILD and
+`versions.json`. Suite `tests/test-325-user-bids.mjs` (48 / 48; honesty on `34fc686` 42 RED exit 1); `test-324-168`
+re-anchored (its exact BUILD pin → at-least; still red on `b1ff467`). Battery 75 / 2,642 / exit 0 on the Mac, audit 190 / 0,
+isolation 36 / 36, both sweeps clean in cloud Chromium (14 admin panels now), the panel opened and read in that browser
+on both seeds. Full record: the 325 row in `vacation-kp.github.io/BUILD-LOG.md`. **He has not pushed.** Three repos carry
+the build: `vacation-kp.github.io` (admin page, versions.json, BUILD-LOG, COMMIT-MESSAGE), `tests` (the new suite, the
+re-anchored 324 suite, COMMIT-MESSAGE), this repo (DECISIONS §178, TODO, START-HERE with its FILED marker, this entry).
+
+**Lessons, dated 4 Sep.**
+1. **The Mac sleeps the moment he walks away, every time — three drops in one build.** The first came seconds after
+   his "Go". What worked: keep building in the cloud and hand the result across as an anchored patch (every anchor
+   `count==1`, refuses to apply twice), dry-run on a stand-in page carrying the REAL anchor lines. The dry run caught a
+   real bug before it touched his disk — the suite extractor reaches `function`s only, so a `const` the new code used was
+   invisible to it. Three scheduled check-backs at 30 / 30 / 60 minutes found the Mac still asleep; after that, stop
+   polling and wait for him.
+2. **The vacation repo cannot be cloned from the cloud without its URL, and probing for it was refused by the sandbox.**
+   The hub and schedule repos clone fine under `anesthesia-kp/`; `vacation-kp.github.io` does not, and `git ls-remote`
+   against guessed names was blocked. Do not spend a session on this: stage the four page files and `tests/sweep/**`
+   through the bridge instead — that is what the sweeps ran on.
+3. **A background job started in `device_bash` dies when that call returns** — `setsid nohup` included. The battery
+   stalled at suite 30 with nothing running. The shape that works: a resumable chunk runner (`$HOME/chunk.sh`: done-list,
+   ~145-second budget per call, results appended), called until it prints ALL-DONE. 75 suites fit in one call.
+4. **ESM `import` ignores `NODE_PATH`.** `import { chromium } from 'playwright'` fails in the cloud even with the global
+   package installed; symlink the global `playwright` and `playwright-core` into `tests/node_modules/` and the sweep
+   runs (it did, 3 m 34 s per full four-pass run).
+5. **The device VM's clock was ~14 hours slow at session start** (00:11 UTC while the cloud said 14:04); the STATUS
+   block and the first drafts of §178 / the TODO entry carried the wrong day and were corrected. When a timestamp
+   matters, read `date -u` in BOTH shells and believe the one git agrees with.
+6. **Rule 11 bit again in a one-off command** — `node … --pre | tail -8; echo $?` reported tail's 0 for an honesty run
+   that exited 1. Caught in the dry run, re-run without the pipe; every exit code quoted above was read directly.
+
+**Standing at close.** Admin 325 FILED, NOT PUSHED (§178); 324/168 still live and verified. §92 closed, §164 governs; §176
+and §177 parked. The desktop app's `Claude outputs/` folder appeared in this repo again and was moved to `_to_delete/`;
+`_to_delete/xfer/` holds the build-325 zip and its unpacked copies, and three stranded lock files — his to empty. Noted,
+not acted on: staff/confirm `unlocated=1` in the default-seed sweep (staff bytes unchanged in this build; not checked
+whether it predates 325).
+
+---
+
 ## 3 Sep 2026 — THE SUMMER-FLOOR FUZZ (§176), THREE SETTINGS QUESTIONS (§177). NOTHING BUILT, NOTHING OPEN.
 
 **What the session did.** The §4 ritual (324/168 and 151/51 verified served twice; all four repos clean). Then his

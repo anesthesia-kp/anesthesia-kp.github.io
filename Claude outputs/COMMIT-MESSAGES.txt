@@ -1,5 +1,21 @@
 ⚠ COPY ONE SECTION PER REPO
 
+======== vacation-kp.github.io ========
+Admin 325 - User Bids: a read-only page of bid numbers used and remaining
+
+People section, below Bid Lowerings. Every user alphabetically: remaining
+numbers, used numbers marked won (gone for good) or live this phase, NP bids.
+Same rule as the staff page. No writes, no new listeners. DECISIONS 178.
+
+======== tests ========
+test-325-user-bids - the admin User Bids page; test-324 re-anchored
+
+Runs the admin and staff pool rules on the same fixtures and fails if they
+differ; renders the page on a fake DOM; checks sidebar, nav and refreshAll.
+test-324 asserts "at least 324/168" instead of an exact build pin.
+
 ======== anesthesia-kp.github.io ========
-Docs: session close 3 Sep - the fuzz parked, 177 declined, the handoff entry
-HANDOFF: the day's entry and five lessons. TODO: status block regenerated.
+Docs: admin 325 filed - DECISIONS 178, TODO, HANDOFF, START-HERE
+
+The User Bids ruling and the build's record; status block regenerated.
+Removes the app's stray "Claude outputs" folder that was committed on 3 Sep.

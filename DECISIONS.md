@@ -4639,5 +4639,17 @@ be re-raised. The fallback for a live-run need stays: complete the phase early, 
 A per-user "numbers used / free" admin table was also discussed (read-only, narrow) and not asked for; editing used
 numbers would need a new adjustments document across both pages, rules and backup — not proposed.
 
+## §178 — THE GO: "USER BIDS" — A READ-ONLY PER-USER VIEW OF BID NUMBERS USED AND REMAINING — admin 325 — 4 Sep 2026 (morning)
 
-
+His ask: a viewer in the admin side panel, People section, below Bid Lowerings — every user alphabetically, a clean view
+of which bid numbers (1–10) each has used and which remain. Claude read the code first: the staff site's `bidPoolInfo`
+is the rule (a number is used by any current-phase bid, denied ones included, or by a win in an earlier phase; NP never
+uses one; Phase 4 round wins stay on the live board and so count), and every input the admin needs is already loaded on
+the page — no new listener, no read, no write. Verdict: read-only, narrow and safe under §164. Plan presented; his
+rulings: **(1) the page is called "User Bids"; (2) it shows remaining and used, and a used number is marked as either
+WON — gone for good — or TIED UP by a live bid this phase, which comes back if it doesn't win** (his words: *"do this:
+won, gone for good versus tied up by a live bid this phase, comes back if it doesn't win"*); **(3) — a minute later — the NP count IS in** (*"Do NP count as part of
+this"*): how many no-preference bids each user has placed this phase, shown beside the numbers since NP uses none. Not
+asked for: a weeks-won-vs-cap column, a weeks-won list (the reports' job). The admin's copy of the rule is a port of the staff
+function, and the suite asserts the two agree on the same fixtures — so the admin never sees a different answer than the
+user does. **BUILT and FILED as admin 325 the same morning** (the record and every gate: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push.
