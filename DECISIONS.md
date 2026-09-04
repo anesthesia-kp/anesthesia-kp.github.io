@@ -4608,3 +4608,36 @@ finding is the "same bid, same answer" refusal, filed as admin 324 / staff 168 u
 **After the push (324/168 served, verified twice):** he re-placed the refused NP bid — no alert — and checked the
 surfaces: *"all worked as expected."* Session closed at his word: *"handoff. thank you."*
 
+## §176 — THE SUMMER-FLOOR FUZZ: RUN, THEN PARKED — 3 Sep 2026
+
+He asked whether the 6-bid cap through Phase 2 lets people win summer, spring break or ski week cheaper than history
+(a 3 for ski/spring, a 6 for summer; the old platform had no bid limits) — *"it would be a problem if people can win a
+summer week with an 8/9/10. we don't really want a floor for p2, but maybe we need one anyway."* His set-up rulings:
+Phase 1 + Phase 2 only, 2 bids each in Phase 1 and 6 in total; the real FTE map (his 1 Sep backup); Under Review
+settled at *"don't go more than 0.6 over capacity"*; *"there is no more draw"* — every over-cap bid is Under Review;
+*"do many different varieties"*; bidders who *"improve their bids as needed for weeks they really want. it can't be
+completely random."* His two week lists (7, 14, 15, 22–35; then 20–38) are where interest concentrates — **Phase 2
+opens every week** (*"Yikes"* when v1 opened only those; v1 withdrawn). Report: `tests/docs/FUZZ-summer-floor-2026-09-03.md`
+(v2), harness `tests/fuzz/`. Reading: cheap shoulder-week wins in every scenario; a third of summer open after Phase 2
+regardless; a floor of 6 removes the cheap wins and doubles the open capacity; a Phase-2-only floor is settable in the
+phase gap without a build.
+
+He then asked for a way to find REAL demand (the other weeks people care about) — offered: last year's weeks-taken
+history, a pre-auction survey, weeks-per-person — and ruled: *"forget all this for now. let's move on."* **PARKED at his
+word: no floor decision, no demand calibration, no cap change. Do not re-raise.**
+
+## §177 — MID-PHASE SETTINGS: ASKED, EXPLORED, DECLINED — 3 Sep 2026
+
+Three questions in a row, answered from the code (build 324 + the live rules): the seven frozen settings (cap, floors,
+NP-by-phase, review threshold, lowerings, per-phase cap, calendar) cannot change during a phase; a Global Lock or an
+expired timer does NOT unlock them — only the phase gap (completed AND results sent) or "before Phase 1" does; a
+settings change sends no e-mail and resets no timer, so a mid-phase change would re-score boards silently. He then
+proposed keeping the BID CAP editable in a live phase, increase-only, with a strong warning and a double confirmation;
+Claude called it reasonable with a server-side increase-only guard and a bidder notice, and asked two design questions.
+**His ruling: *"nevermind, i don't want it."* DECLINED — no mid-phase edits of any frozen setting, cap included. Not to
+be re-raised. The fallback for a live-run need stays: complete the phase early, change the setting in the gap, tell people.**
+A per-user "numbers used / free" admin table was also discussed (read-only, narrow) and not asked for; editing used
+numbers would need a new adjustments document across both pages, rules and backup — not proposed.
+
+
+

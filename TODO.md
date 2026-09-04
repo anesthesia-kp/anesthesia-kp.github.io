@@ -38,6 +38,9 @@ _(the only document the owner pastes; this gate exits non-zero when it drifts)_
 
 # 1 · THE QUEUE — work, in order
 
+## ⏸ 3 Sep 2026 — THE SUMMER-FLOOR FUZZ IS PARKED (§176): *"forget all this for now. let's move on."*
+Run and filed (`tests/docs/FUZZ-summer-floor-2026-09-03.md`, `tests/fuzz/`); no floor decision, no demand calibration, no cap change. Not to be re-raised.
+
 ## ✅ 2 Sep 2026 — VACATION SITE ONLY, TWO WEEKS OUT (§171). EVERYTHING RAISED THAT DAY IS CLOSED.
 Standing constraint: §92 + §164 — no auction build without his specific go, and only narrow, safe ones. Schedule on hold indefinitely.
 Closed the same day: the hub's Daily Scheduling cards are OFF (`0aa4c92`; revival = lines 118–129 / 148–159 of `git show d11d209:index.html`);
