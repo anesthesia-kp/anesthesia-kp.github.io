@@ -225,6 +225,43 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 3 Sep 2026 — THE SUMMER-FLOOR FUZZ (§176), THREE SETTINGS QUESTIONS (§177). NOTHING BUILT, NOTHING OPEN.
+
+**What the session did.** The §4 ritual (324/168 and 151/51 verified served twice; all four repos clean). Then his
+question: does the 6-bid cap through Phase 2 let people win summer / spring break / ski week cheaper than history?
+A strategic-bidder fuzz on the REAL engine (computeApprovals extracted from 324, md5-verified) with the REAL roster
+and FTE (from his 1 Sep backup — only the non-sensitive subset kept, `tests/fuzz/live-config-2026-09-01.json`):
+Phase 1 (2 bids each) then Phase 2, bidders who open weak and improve only when the board shows them losing,
+Under Review settled at the wheel within 0.6. 21,600 auctions in v1, 9,720 in v2. Report
+`tests/docs/FUZZ-summer-floor-2026-09-03.md`; harness `tests/fuzz/summer-floor-fuzz.mjs` (SELFCHECK, SENS, CELL
+trace modes). He parked the whole topic (§176) and then declined every form of mid-phase settings editing (§177).
+Both pushed by him (`32c4684` and the follow-on docs commit here; `288858e` in tests).
+
+**Lessons, dated 3 Sep.**
+1. **§0 rule 4 was skipped and it cost a full re-run.** *"have only the following weeks open in p2"* was read
+   literally — Phase 2 with 17 weeks open — when the auction opens EVERY week in Phase 2 (the staff rules say so
+   in one line). His *"Yikes"* caught it. The ambiguity was visible at the time (his next paragraph spoke of
+   interest "throughout the entire year"); the fix was one question. Ask, do not guess — even when he is away.
+   v1's numbers (30 cheap summer wins, summer always full) are WITHDRAWN; v2 (17, a third of summer open) stands.
+2. **`pkill -f '<pattern>'` killed the shell that ran it** — the pattern matched the Bash tool's own command
+   line, exactly the trap START-HERE §3 rule 8 records for `pgrep`. Use `kill $(pgrep -x node)` (process NAME)
+   for a background node run, never `-f` with a string that appears in your own command.
+3. **The desktop app writes a `Claude outputs/` folder INSIDE the first connected folder** — here the hub repo —
+   holding a copy of every file sent to the outputs column. It shows in GitHub Desktop as untracked. Moved to
+   `_to_delete/`; check for it at every close (`git status` shows it as `?? "Claude outputs/"`).
+4. **Real Firestore data reaches the cloud only as his backup JSON attached to the chat.** Extract the subset the
+   task needs into a file with no e-mails or names before it goes near a repo; never print the backup's keys
+   blind (`emailToUser`'s keys ARE the e-mails — printed once by accident, not filed anywhere).
+5. **A fuzz result is only as good as its demand assumptions, and he saw that before the report said it**
+   (*"106 FTE weeks for 35 people"*). Lead with the supply/demand ratio next time; the grid is the appendix.
+
+**Standing at close.** 324/168 live, §92 closed, §164 governs. Parked, not to be re-raised: the summer floor and
+demand calibration (§176); mid-phase editing of any frozen setting, the cap included (§177); the per-user
+numbers table was discussed and not asked for. `_to_delete/` holds ~15 MB (this session's zips, the tests
+tarball from 2 Sep, lock files) — his to empty. Context at close ~420,000, no compaction.
+
+---
+
 ## 2 Sep 2026 — TWO WEEKS OUT. THE HUB, THE RUNBOOK, HIS REHEARSAL, AND THE "SAME BID" RULE (§171–§175). 323 AND 324/168 LIVE.
 
 **What the day was.** He opened with *"only concerned about the vacation site… 2 weeks out from go-live"* and asked for
