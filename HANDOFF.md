@@ -239,7 +239,12 @@ assertions that finally execute), #14b ×1. Battery 78 / exit 0 in the cloud; is
 (108 / 182 / 62). Sweeps on 328 with the fixed harness: default admin 338 + 281, staff 13 + 13, 151 dialogs, 136 confirms, 0 errors;
 look-back 284 + 250, 11 + 11, 94, 54, 0 — the confirm pass now includes hold 2, hold 3, release 7, and `cloudRestore` opens its dialogs
 (it stops at the typed RESTORE, which the driver never types; a probe that typed it completed Full and One-User restores with 0 errors).
-Five files md5-verified on his Mac. One repo to push: `tests`; this repo carries TODO / START-HERE / this entry.
+Five files md5-verified on his Mac; he pushed `tests` (`2b85dc2`) and this repo (`51c654f`) at 09:07, then *"let's update and prepare
+handoff docs"* — the closing checklist ran (fetch all four, three stranded locks moved, `status.mjs` exit 0, every repo clean and in sync,
+`tests` judged from `git log` as always). **Nothing is open on the auction. Next auction honesty baseline: admin 328 = `e5eea70`,
+staff 169 unchanged. he emptied `_to_delete/` himself during the close (what remains is this close's own patch script and
+lock, 9 KB).** The cloud scratch (`/tmp/ra10-lanes/**`: every lane's scripts, the 57 mutant trees, the browser walks) dies with the
+session; everything a reader needs is in the RA-10 report and the two BUILD-LOG rows.
 
 **Lessons, dated 5 Sep (late morning).**
 1. **`test-backup-restore`'s restore harness had never reached `commit()` on any build since 251** — the batch tail threw on a name the
