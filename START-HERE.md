@@ -462,6 +462,10 @@ visible after every push (owner order, 31 Aug 2026).**
 
 ## 4 · EVERY SESSION — the re-grounding ritual, ONE turn, before any work
 
+0. **NAME THE SESSION — owner order, 5 Sep 2026 (§185): every session is `Vacation Auction <D Mon YYYY> V<n>`**, e.g.
+   `Vacation Auction 6 Sep 2026 V1`; a second session the same day is `V2`, and so on. Pick `n` by counting today's
+   dated entries in `HANDOFF.md`. State the name in the FIRST line of the first reply, use it as the heading of the
+   session's `HANDOFF.md` entry, and he gives the chat the same name — Claude cannot rename the chat itself.
 1. Read `TODO.md` (this repo) — the STATUS block and §1's queue and standing constraint.
 2. Verify live builds: fetch both sites' `versions.json` cache-busted. **If a fetch
    disagrees with disk right after a push, fetch AGAIN before believing it** — the CDN has

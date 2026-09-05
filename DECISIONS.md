@@ -4720,3 +4720,11 @@ F7–F13 and F15 and stop building. His answer: *"pushed. proceed with 2."* then
 re-raised. §92 is untouched by (2): nothing the site serves changes. Scope of (2), exactly: execute the staff dropdown and write-time guard
 with a hold (F3); execute Add Bid's write-time refusal (F4); a Phase-1 fixture (F5); `bidHoldsRef` in the restore harness with the
 "never written" assertion (F6); the sweep fake's variadic `doc()` and User Bids swept before Delete All Users (F14).
+
+## §185 — EVERY SESSION IS NAMED "VACATION AUCTION <DATE> V<n>" — 5 Sep 2026 (close)
+
+*"I want the start here to name every new session Vacation Auction with a date stamp. If 2 sessions in 1 day do a V1, V2 ..."* Rule
+written into START-HERE §4 as step 0. One choice Claude made, his to overrule: the number is ALWAYS present (`V1` even when no second
+session follows), because the first session of a day cannot know a second is coming and a chat is not renamed after the fact. The name
+is stated in the first line of the first reply and heads the session's HANDOFF entry; he names the chat the same — Claude has no tool
+to rename a chat.
