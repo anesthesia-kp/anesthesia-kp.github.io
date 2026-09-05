@@ -225,6 +225,26 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 5 Sep 2026 (MORNING, same session) — §183: ADMIN 328, RA-10's F1 + F2, FILED. RA-2 RUN BY HIM (155 / 155).
+
+**What the session did.** He asked whether RA-2 had run after the rules change; the record held the plan, not a result, and the emulator's
+own log said 30 Aug — so he ran it: 155 / 155 current, the holds gates 4 / 4 red on the old rules (recorded in DECISIONS §182). Then *"proceed
+with f1 anf f2"* (§183). Explored the three functions first, presented the plan (§0 rule 2), his "Go". Built in the cloud clone as an anchored
+patch (`build328-patch.py`: base md5 pinned to 327, every anchor `count==1`, refuses to apply twice), suite `test-328-held-behind.mjs` written
+against it, then the patch applied on his Mac by `device_bash` and every file md5-verified against the cloud (admin da2d7e7b…, versions
+28f22a6b…, the two suites). Gates: see the 328 row in `vacation-kp.github.io/BUILD-LOG.md`. Three repos to push: `vacation-kp.github.io`
+(admin page, versions.json, BUILD-LOG), `tests` (new suite, re-anchored 327 suite, the RA-10 report's RA-2 line — three files), this repo
+(DECISIONS §182 addendum + §183, TODO, START-HERE, this entry).
+
+**Lessons, dated 5 Sep (morning).**
+1. **A `typeof helper==='function'` guard is a silent no-op in a test sandbox.** The first cut of F2 used the build-266 convention
+   (`typeof _adminHeldNums==='function' ? … : []`) and the new suite went GREEN on a page where the seed did nothing, because the sandbox
+   never defined the helper and `typeof` never throws. The suite only caught it once the helper was named in `need`. Rule: in a function the
+   suites execute, either call the helper unguarded (a missing one then crashes loudly — rule 11) or name it explicitly in the sandbox; the
+   328 page does the former and both suites now do the latter for `ubRelease`, which is CALLED after assembly and so cannot auto-resolve.
+2. **A dialog's copy is part of the guard.** The 327 Release dialog said "goes back into the pool"; for a hold behind a bid that is false
+   (the number stays on the bid). Found by the browser lane reading the DOM, not by any suite — the walk now asserts both bodies.
+
 ## 5 Sep 2026 (OVERNIGHT, unattended) — RA-10: THE ADVERSARIAL AUDIT OF THE LIVE HOLDS BUILD. NOTHING DAMAGED. NOTHING BUILT.
 
 **What the session did.** The §4 ritual (327/169/18 and 151/51 served twice; four repos clean and in sync; the fetch stranded three
@@ -253,6 +273,10 @@ box first), this repo (four files).
    Users before User Bids, so the record's confirms never include a hold. Harness gaps, dated 22 Aug; in `TODO.md` as F14.
 4. **Chromium in the sandbox is v141 under a playwright pinned to v151**: the symlink recipe in START-HERE §6 still works with the new
    build numbers (`chromium-1234`, `chromium_headless_shell-1234`), plus `INSTALLATION_COMPLETE` / `DEPENDENCIES_VALIDATED` marker files.
+5. **A recorded order of steps is not a recorded result.** §180 and TODO said 327 was "pushed in the order RA-2 → console → push", but no
+   passed/failed line was written anywhere, and `tests/rules-emu/firestore-debug.log` (the emulator writes it on every run) was dated 30 Aug.
+   He asked the next morning; it had not run. He ran it: 155 / 155, holds gates 4/4 red on the old rules. When a gate is HIS to run, the
+   record needs his numbers, not the plan — and that log's mtime is the cheap way to check.
 
 ## 4 Sep 2026 — "USER BIDS" (§178): ADMIN 325 FILED, NOT PUSHED. THE MAC SLEPT THREE TIMES.
 

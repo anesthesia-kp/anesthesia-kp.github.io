@@ -43,9 +43,11 @@ const dirty = repo => {
   return lines.length ? `${lines.length} uncommitted file(s)` : 'clean';
 };
 const sync = repo => {
-  const out = git(repo, 'status --short --branch');
-  if (out.includes('ahead')) return 'AHEAD of origin — push pending';
-  if (out.includes('behind')) return 'BEHIND origin';
+  // [5 Sep 2026] Read the BRANCH line only: a FILENAME containing "behind" (test-328-held-behind.mjs) once
+  // made this report "BEHIND origin" for a repo in sync — a gate firing on the wrong thing (START-HERE §3 r8).
+  const head = (git(repo, 'status --short --branch').split('\n')[0] || '');
+  if (/\[[^\]]*ahead \d+/.test(head)) return 'AHEAD of origin — push pending';
+  if (/\[[^\]]*behind \d+/.test(head)) return 'BEHIND origin';
   return 'in sync with origin';
 };
 const locks = repo => {

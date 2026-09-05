@@ -4700,3 +4700,14 @@ unintended consequences. prepare a report and I'll review in the morning. Ensure
 five audit lanes, three adversarial verifiers with the opposite brief, and a browser lane on the live bytes. **RA-10 FILED (5 Sep 2026,
 overnight): nothing damaged; two MEDIUM edges of the new feature (a hold hidden behind a live bid after a restore; the Struggling Users box
 not taught about holds) and four suite holes.** Nothing built (§92). His rulings on the report's recommendation are `TODO.md` §1's first item.
+**5 Sep, morning:** asked *"Did we ever run ra-2 after the rules change?"* — the record said so but held no result, and the emulator's own log was dated
+30 Aug. He ran `RA-2.command`: **155 / 155 on the live rules; honesty on `28bae0c` 147 / 155, the 8 red being Feed reads 4/4 + Bid holds 4/4 — exit 0 both.**
+The 327 rules are now executed-tested. Lesson (HANDOFF): a recorded ORDER of steps is not a recorded RESULT.
+
+## §183 — RA-10's F1 AND F2 HAVE HIS GO: ONE NARROW ADMIN BUILD (328) — 5 Sep 2026 (morning)
+
+*"pushed files. proceed with f1 anf f2."* — his specific §92 decision for these two changes and nothing else. F1: a hold sitting behind a
+LIVE or WON number on User Bids is painted as its own chip with the release handler and counted in "N numbers withheld" (today it is an
+ordinary yellow/red chip with no way to release it — the state a restore creates deterministically). F2: the Insights "Struggling Users"
+box (`availableNumbersFor`) is taught about holds the way `_adminPriorUsedPriorities` was — one seed line. Admin page only; no engine, no
+rules, no staff change. F3–F6 (tests) and F7–F15 were not part of this go.
