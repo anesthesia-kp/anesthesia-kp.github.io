@@ -4686,3 +4686,10 @@ All Users) wipe them, and the reset dialog says so.** A restore never touches th
 same treatment as adminAccess): a restore is a repair within the cycle, and the admin's standing holds are not part of what it repairs. Claude's own choice, stated for the record: a withheld number is
 a hard refusal on every admin bid-entry path, not a warn-and-override, so a hold can never sit behind a live bid with no chip to
 release it.
+
+## §182 — RA-10 ORDERED: ONE MORE STRONG AUDIT OF THE LIVE HOLDS BUILD BEFORE HANDOFF — 5 Sep 2026
+
+327 / 169 + rules live and his two-minute live check passed (*"seems to work"*). His order before handoff: *"1 more strong audit to
+make sure everything this new build could touch is reviewed and still working."* Scope: not the diff — every CONSUMER of every
+function and document the build touched, on both pages and in the rules, traced on the live bytes and exercised where a harness
+exists. Fresh-session auditor (RA-9's method). Findings and verdict to be filed in `tests/docs/RA-10-2026-09-05.md`.
