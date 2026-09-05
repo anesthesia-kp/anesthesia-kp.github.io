@@ -4711,3 +4711,12 @@ LIVE or WON number on User Bids is painted as its own chip with the release hand
 ordinary yellow/red chip with no way to release it — the state a restore creates deterministically). F2: the Insights "Struggling Users"
 box (`availableNumbersFor`) is taught about holds the way `_adminPriorUsedPriorities` was — one seed line. Admin page only; no engine, no
 rules, no staff change. F3–F6 (tests) and F7–F15 were not part of this go.
+
+## §184 — THE TESTS-ONLY FIXES HAVE HIS GO; THE LOW ITEMS ARE DECLINED — 5 Sep 2026 (morning)
+
+Asked *"what do you reccomend?"* after 328 was filed. Recommended: (1) push 328; (2) the tests-only items F3–F6 + F14 as one `tests` push —
+the holds enforcement on the user's page had no executing test, proven by mutants that stayed green across all 78 suites; (3) decline
+F7–F13 and F15 and stop building. His answer: *"pushed. proceed with 2."* then *"skip 3"* — read as: the LOW items are DECLINED, not to be
+re-raised. §92 is untouched by (2): nothing the site serves changes. Scope of (2), exactly: execute the staff dropdown and write-time guard
+with a hold (F3); execute Add Bid's write-time refusal (F4); a Phase-1 fixture (F5); `bidHoldsRef` in the restore harness with the
+"never written" assertion (F6); the sweep fake's variadic `doc()` and User Bids swept before Delete All Users (F14).

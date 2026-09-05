@@ -225,6 +225,31 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 5 Sep 2026 (LATE MORNING, same session) — §184: THE TESTS MADE HONEST ABOUT THE HOLDS BUILD. 328 LIVE. NOTHING OPEN.
+
+**What the session did.** He pushed 328 (`e5eea70`, verified served twice), chose (2) of the recommendation and declined (3)
+(*"skip 3"*). Two agents in parallel, no page touched: **F3/F4/F5** in `test-327` (82 → 108: the staff dropdown and write-time guard
+EXECUTED with a hold — exact disabled/enabled option lists, `persistScheduleChange` not called, a free-number control that does persist;
+Add Bid EXECUTED at click and at Confirm with the hold arriving in between — recorded writes, not text; a Phase-1 fixture through all four
+helpers; honesty 62 → 80 RED on 326, no throw) and `'bidHoldsRef'` in `test-appcheck-login`'s MOVED list; **F6** in `test-backup-restore`
+(177 → 182: `bidHoldsRef` in the restore harness; a 326-shaped backup commits the same 24 docs + phaseStaging; a backup carrying `bidHolds`
+never writes it); **F14** in the sweep (fake `doc()` variadic, `getDocs` children-only; `userbids` hoisted before `users` in the walk).
+Every escaped mutant from RA-10 is now red: #35 ×5, #36 ×4, #5c2 ×2, #5d2 ×2, #5d3 ×2, #42 ×4, #43 ×2, #44 ×1, #13c ×5 (+5 older restore
+assertions that finally execute), #14b ×1. Battery 78 / exit 0 in the cloud; isolation 36 / 36; the three changed suites re-run on his Mac
+(108 / 182 / 62). Sweeps on 328 with the fixed harness: default admin 338 + 281, staff 13 + 13, 151 dialogs, 136 confirms, 0 errors;
+look-back 284 + 250, 11 + 11, 94, 54, 0 — the confirm pass now includes hold 2, hold 3, release 7, and `cloudRestore` opens its dialogs
+(it stops at the typed RESTORE, which the driver never types; a probe that typed it completed Full and One-User restores with 0 errors).
+Five files md5-verified on his Mac. One repo to push: `tests`; this repo carries TODO / START-HERE / this entry.
+
+**Lessons, dated 5 Sep (late morning).**
+1. **`test-backup-restore`'s restore harness had never reached `commit()` on any build since 251** — the batch tail threw on a name the
+   sandbox did not define, the "Restore FAILED" toast went to a no-op, and the assertions inspected the writes captured before the throw.
+   Green for months on a half-run. Found only because F6 added the missing ref and the batch ran to the end. The same shape as rule 8's
+   "check that a gate actually ran": record the terminal call (`commit`, `persist`, `send`) and assert on it, never on what preceded it.
+2. **A one-line seed is not one line of test.** F2's `availableNumbersFor` seed passed a green suite with the seed inert (see the morning
+   entry); F3's pins on the helper said nothing about its two callers. The rule that survives both: test the CALLER that enforces, with the
+   terminal effect recorded, and keep a control that proves the harness can see a write at all.
+
 ## 5 Sep 2026 (MORNING, same session) — §183: ADMIN 328, RA-10's F1 + F2, FILED. RA-2 RUN BY HIM (155 / 155).
 
 **What the session did.** He asked whether RA-2 had run after the rules change; the record held the plan, not a result, and the emulator's
