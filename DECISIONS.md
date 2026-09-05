@@ -4672,7 +4672,7 @@ and every consumer that iterates a user's bid keys would show or count it. Claud
 enforce prior-win numbers server-side (I2 catches same-phase duplicates only); prior-win numbers are a client guard fed by ONE
 helper per site, so a `bidHolds` document (admin-only by rules) joining those helpers is honoured by the pool, both entry
 guards and User Bids without an engine change. **His ruling: *"I want it for now."*** Plan and risk list to follow under §0
-rule 2. His answers to the two design questions: **no notice line on the user's page — the number simply disappears from their pool; he tells the user himself. A hold is permanent until he releases it** (it survives every phase change). Build: admin 327 / staff 169 + rules. **BUILT, AUDITED (RA-9, §181) and FILED the same evening** (record and every gate: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push AND his RA-2 run on the new rules; the rules go into the console before the pages are pushed (§2).
+rule 2. His answers to the two design questions: **no notice line on the user's page — the number simply disappears from their pool; he tells the user himself. A hold is permanent until he releases it** (it survives every phase change). Build: admin 327 / staff 169 + rules. **BUILT, AUDITED (RA-9, §181) and FILED the same evening** (record and every gate: `vacation-kp.github.io/BUILD-LOG.md`); pushed by him 5 Sep in that order (RA-2, console, then the pages) and LIVE (`1c73971`, verified served twice).
 
 ## §181 — RA-9: THE FRESH-EYES AUDIT OF THE HOLDS BUILD, AND TWO RULINGS ON ITS EDGES — 4 Sep 2026 (night)
 
