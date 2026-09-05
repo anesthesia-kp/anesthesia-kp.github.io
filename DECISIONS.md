@@ -4693,3 +4693,10 @@ release it.
 make sure everything this new build could touch is reviewed and still working."* Scope: not the diff — every CONSUMER of every
 function and document the build touched, on both pages and in the rules, traced on the live bytes and exercised where a harness
 exists. Fresh-session auditor (RA-9's method). Findings and verdict to be filed in `tests/docs/RA-10-2026-09-05.md`.
+
+**Addendum, 5 Sep 2026 (night) — the go, and what he asked for.** *"The most important thing is that you confirm nothing was damaged by
+this recent build. Anything that could have been effected needs to be tested to ensure it's working correctly. Look for any possible
+unintended consequences. prepare a report and I'll review in the morning. Ensure you use adversarial claudes."* Run unattended as ordered:
+five audit lanes, three adversarial verifiers with the opposite brief, and a browser lane on the live bytes. **RA-10 FILED (5 Sep 2026,
+overnight): nothing damaged; two MEDIUM edges of the new feature (a hold hidden behind a live bid after a restore; the Struggling Users box
+not taught about holds) and four suite holes.** Nothing built (§92). His rulings on the report's recommendation are `TODO.md` §1's first item.

@@ -225,6 +225,35 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 5 Sep 2026 (OVERNIGHT, unattended) — RA-10: THE ADVERSARIAL AUDIT OF THE LIVE HOLDS BUILD. NOTHING DAMAGED. NOTHING BUILT.
+
+**What the session did.** The §4 ritual (327/169/18 and 151/51 served twice; four repos clean and in sync; the fetch stranded three
+`maintenance.lock`s, moved). His go, at night, for RA-10 with the order recorded under §182's addendum. Cloud audit tree: the three public
+repos cloned with full history (see the corrected lesson below), the private `tests` tarred, staged and md5-verified; the three live files
+matched the brief's md5s. The 327 suite: 82/82 live, 62 RED on `54cfc92` exit 1. Then five parallel lanes (staff page · admin entry & User
+Bids · record, backup/restore & lifecycle · rules & cross-cutting · suite honesty by mutation), three adversarial verifiers with the
+opposite brief (a regression hunter — 15 hypotheses rejected; a disprover of every claimed defect; a full-battery run of every escaped
+mutant), and a browser lane that drove the real pages in headless Chromium on the sweep harness (both sweeps, mobile bid flow, the full
+phase run-through, and a 106-step hold walk). Gates: battery 77 suites exit 0 (regression run, no auction baseline — the 327 honesty ran
+separately); isolation 36/36; handler audit 192/0; `node --check` 8/8. Report: `tests/docs/RA-10-2026-09-05.md` (md5 197681eb…), also in
+the chat outputs. Docs: DECISIONS §182 addendum, TODO §1, START-HERE, this entry. Two repos to push: `tests` (ONE file — clear the Summary
+box first), this repo (four files).
+
+**Lessons, dated 5 Sep.**
+1. **A build's own suite can be green for the wrong reasons and the whole battery will not tell you.** Fifty-seven planted single-line
+   breakages, run against all 77 suites: four realistic ones (the staff dropdown/write guard, Add Bid's write-time `return`, a Phase-1-only
+   gate, a typeof-guarded restore of `bidHolds`) stay green everywhere. Text pins on a helper say nothing about its callers; a sandbox that
+   lacks the ref makes a `typeof`-guarded line a no-op in the test and live in production. Mutation runs are cheap (≈33 s a battery) and
+   should be part of every audit of a build that adds a guard.
+2. **"The UI cannot create the state" is not "the state cannot exist."** RA-9 closed the four manual entry paths; a restore re-places an
+   older bid on a withheld number deterministically and the page then has no chip to release it. When a build adds a rule, walk the
+   non-UI writers of the same document (restore, stale clients, hand edits) before writing "never" in the record.
+3. **The sweep's fake `doc()` takes three arguments**, so every cloud backup in the harness collapses onto one path and every restore fails
+   silently while "Cloud Backup & Continue" proceeds — the sweep has never exercised restore, and its confirm pass reaches Delete All
+   Users before User Bids, so the record's confirms never include a hold. Harness gaps, dated 22 Aug; in `TODO.md` as F14.
+4. **Chromium in the sandbox is v141 under a playwright pinned to v151**: the symlink recipe in START-HERE §6 still works with the new
+   build numbers (`chromium-1234`, `chromium_headless_shell-1234`), plus `INSTALLATION_COMPLETE` / `DEPENDENCIES_VALIDATED` marker files.
+
 ## 4 Sep 2026 — "USER BIDS" (§178): ADMIN 325 FILED, NOT PUSHED. THE MAC SLEPT THREE TIMES.
 
 **What the session did.** The §4 ritual (324/168 and 151/51 served twice; four repos clean; the fetch stranded three
@@ -247,10 +276,11 @@ re-anchored 324 suite, COMMIT-MESSAGE), this repo (DECISIONS §178, TODO, START-
    real bug before it touched his disk — the suite extractor reaches `function`s only, so a `const` the new code used was
    invisible to it. Three scheduled check-backs at 30 / 30 / 60 minutes found the Mac still asleep; after that, stop
    polling and wait for him.
-2. **The vacation repo cannot be cloned from the cloud without its URL, and probing for it was refused by the sandbox.**
-   The hub and schedule repos clone fine under `anesthesia-kp/`; `vacation-kp.github.io` does not, and `git ls-remote`
-   against guessed names was blocked. Do not spend a session on this: stage the four page files and `tests/sweep/**`
-   through the bridge instead — that is what the sweeps ran on.
+2. **The vacation repo's remote is `https://github.com/anesthesia-kp/vacation.git` (the local folder name is not the repo
+   name) — corrected 5 Sep 2026: it clones from the cloud in seconds, full history, and matched the device tree md5-for-md5.**
+   The 4 Sep note that it "cannot be cloned without its URL" was true only because the URL was not written down; `git ls-remote`
+   against guessed names is still refused by the sandbox, so use this one. The hub and schedule clone under `anesthesia-kp/`
+   by their folder names.
 3. **A background job started in `device_bash` dies when that call returns** — `setsid nohup` included. The battery
    stalled at suite 30 with nothing running. The shape that works: a resumable chunk runner (`$HOME/chunk.sh`: done-list,
    ~145-second budget per call, results appended), called until it prints ALL-DONE. 75 suites fit in one call.
