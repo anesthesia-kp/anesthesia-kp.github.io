@@ -4661,4 +4661,28 @@ are too close — *"maybe yellow for live bids?"*; Claude proposed a true pale y
 pending, red gone) or blue (the site's open/in-progress colour) — his choice pending; **(2)** the legend's placeholder
 "n" chips are *"weird"* — proposed: the labels themselves become the swatches (three pills in the chip colours);
 **(3)** *"remove the Left column, not needed."* All three are paint on one page; the rule and the data are untouched.
-His answers: *"yellow"*, then *"go"*. **BUILT and FILED as admin 326 the same afternoon** (record and gates: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push.
+His answers: *"yellow"*, then *"go"*. **BUILT as admin 326 and LIVE the same afternoon** (`54cfc92`, verified served twice; record and gates: `vacation-kp.github.io/BUILD-LOG.md`).
+
+## §180 — WITHHELD BID NUMBERS: HE WANTS IT NOW — 4 Sep 2026 (evening)
+
+He asked what it would take to "take a bid away from a user". Removing a live bid already exists (Edit Selections → Remove Bid).
+Taking a NUMBER away does not. His first shape — a placeholder "Week 0" only the admin writes — was examined and rejected on the
+code: the rules confine a user to their own key and cannot see week keys, so a user could delete a Week-0 entry from devtools;
+and every consumer that iterates a user's bid keys would show or count it. Claude's corrected finding: the engine does not
+enforce prior-win numbers server-side (I2 catches same-phase duplicates only); prior-win numbers are a client guard fed by ONE
+helper per site, so a `bidHolds` document (admin-only by rules) joining those helpers is honoured by the pool, both entry
+guards and User Bids without an engine change. **His ruling: *"I want it for now."*** Plan and risk list to follow under §0
+rule 2. His answers to the two design questions: **no notice line on the user's page — the number simply disappears from their pool; he tells the user himself. A hold is permanent until he releases it** (it survives every phase change). Build: admin 327 / staff 169 + rules. **BUILT, AUDITED (RA-9, §181) and FILED the same evening** (record and every gate: `vacation-kp.github.io/BUILD-LOG.md`); awaiting his push AND his RA-2 run on the new rules; the rules go into the console before the pages are pushed (§2).
+
+## §181 — RA-9: THE FRESH-EYES AUDIT OF THE HOLDS BUILD, AND TWO RULINGS ON ITS EDGES — 4 Sep 2026 (night)
+
+His concern — *"I am concerned it could break something else"* — and his choice of option 1: close the staff-side browser gap and
+run a fresh-session adversarial audit before any push, rather than deploy as-is or defer to after Phase 1. RA-9 found nothing HIGH
+and four MEDIUMs at the edges (restore, Reset Auction, remove-user, the admin Add Bid override), all fixed in the same build; a
+second pass on the fixes found no page defect. **His rulings while it ran: (1) the user's page must look no different than the
+bid greyed out in the dropdown and red in "Bids already used" — no wording change, no notice; (2) *"Reset auction should not keep
+holds. I just mean within a single auction cycle"* — a hold is permanent until released WITHIN the cycle; Reset Auction (and Delete
+All Users) wipe them, and the reset dialog says so.** A restore never touches them (backed up for the record, never restored — the
+same treatment as adminAccess): a restore is a repair within the cycle, and the admin's standing holds are not part of what it repairs. Claude's own choice, stated for the record: a withheld number is
+a hard refusal on every admin bid-entry path, not a warn-and-override, so a hold can never sit behind a live bid with no chip to
+release it.

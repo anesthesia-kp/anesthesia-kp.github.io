@@ -265,7 +265,22 @@ re-anchored 324 suite, COMMIT-MESSAGE), this repo (DECISIONS §178, TODO, START-
 
 **Later the same afternoon — §179, admin 326 FILED, NOT PUSHED.** He looked at the served 325 and found three things in one message: red and "brown" too close (the palette's `--yellow` is `#7a4e00`), the legend's "n" chips, and a Left column he did not need. Paint only, one file; `test-326-user-bids-paint` 17 / 17, 11 RED on `346522a`; `test-325` re-anchored to five columns; battery 76 / 2,658 / exit 0; audit 190 / 0; isolation 36 / 36; sweep clean. Lesson: **look at the served page with his eyes before calling a build done** — the chip colours were "correct" by token name and wrong on screen; a screenshot was taken and not judged for contrast.
 
-**Standing at close.** Admin 325 LIVE (`346522a`, served twice); 326 FILED, NOT PUSHED (§179) — three repos. Suites `2d8164a` + the 326 suite pending; docs pending. The BUILD-LOG rows keep "pending" in their commit column, as the 324 row does. §92 closed, §164 governs; §176
+**Evening — §180, admin 327 / staff 169 + rules FILED, NOT PUSHED.** He asked what it would take to "take a bid away from a user".
+Explored on the code: removing a live bid exists (Remove Bid); taking a NUMBER away did not. His "Week 0" shape was rejected (rules
+cannot see week keys, so a user could delete it; every bid-key iterator would show it). The corrected finding — prior-win numbers are a
+client guard fed by one helper per site, no engine involvement — made a `bidHolds` document a one-build item, and he wanted it now: no
+notice for the user, permanent until released, the NP count and the yellow/legend/Left-column changes from 326 kept. Built across both
+pages + rules; the record is the 327 row in `vacation-kp.github.io/BUILD-LOG.md`. Three things the gates caught before he could: the
+audit flagged user text interpolated into an onclick (fixed with `data-u`/`data-n`); `normalizeEntry` dropped the hold reason on its way
+to the Change Log (found only by walking the flow in a real browser); and a `typeof` sandbox guard was needed on both helpers or four
+older suites went red. One thing that was mine, not the build's: a `cp` with two same-named sources put the ADMIN page at the staff path
+of the sandbox, and the staff sweep aborted — diagnosed by md5, not by reading tea leaves. **RA-2 is his to run before anything is
+published; the rules must land in the console BEFORE the pages are pushed (§2). Under the OLD rules `bidHolds` is an unknown
+document, which the default rule lets any REGISTERED user write — so a page pushed ahead of the rules would open a window in which a
+bidder could release their own hold. Reads are fine either way (the old default read is open); the order is about the write hole.**
+
+**Standing at close.** Admin 326 LIVE (`54cfc92`); 327 / 169 + rules FILED, NOT PUSHED (§180) — his order: RA-2 → console → push
+three repos. `Claude outputs/` gitignored here (its tracked copy deleted in this commit). RA-9 (§181) ran on his choice before the push: no HIGH, four MEDIUM edge fixes and four LOW ones landed in the same build; the fixture now seeds a hold so every future staff sweep exercises it. The Mac slept six times in the session. The BUILD-LOG rows keep "pending" in their commit column, as the 324 row does. §92 closed, §164 governs; §176
 and §177 parked. The desktop app's `Claude outputs/` folder appeared in this repo again and was moved to `_to_delete/`;
 `_to_delete/xfer/` holds the build-325 zip and its unpacked copies, and three stranded lock files — his to empty. Noted,
 not acted on: staff/confirm `unlocated=1` in the default-seed sweep (staff bytes unchanged in this build; not checked
