@@ -9,9 +9,11 @@
 //     node status.mjs
 // Reads the sibling repos, runs READ-ONLY git (--no-optional-locks), counts suites,
 // and best-effort fetches the live versions.json (5s timeout, cache-busted). Then
-// rewrites ONLY the block between the STATUS markers in TODO.md.
+// rewrites ONLY the generated blocks: the STATUS block in TODO.md, the MAP block in
+// START-HERE.md (stamping LAST REVISED when the map changed) and the index block at the top
+// of DECISIONS.md — see THE DOCS GATES below (§188, 8 Sep 2026).
 //
-// It never writes anything else, never runs a mutating git command, never deploys.
+// It never writes anything outside those markers, never runs a mutating git command, never deploys.
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -243,6 +245,147 @@ const cmp = (livej, diskj) => livej === null ? 'not checked from here (no networ
   : JSON.stringify(livej) === JSON.stringify(diskj) ? 'live MATCHES disk'
   : `⚠️ LIVE DIFFERS FROM DISK — live says ${JSON.stringify(livej)} (just pushed? fetch again before trusting)`;
 
+// --- THE DOCS GATES (DECISIONS §188, 8 Sep 2026): the map, the tripwires, the index ----
+// WHY: the governing files grew until they stopped being read (HANDOFF 2,011 lines against a
+// 2,000 trigger nobody measured). The owner's requirement, verbatim: "Your map must be complete
+// and self-updating… All the docs need to be self-updating to keep the context manageable
+// without prompting by me." So every run of this script — after every push, at every close —
+// (a) REGENERATES THE MAP on START-HERE's first screen from the files that exist and each file's
+//     own one-line "answers" note (first three lines: <!-- answers: … -->). A mapped file with
+//     no note is a FAILED gate naming the file — a Claude cannot be sent to a file nobody described.
+// (b) MEASURES every governing file against its tripwire and EXITS NON-ZERO when one is over:
+//     that is how "archive pass due" reaches a session without the owner noticing anything.
+// (c) KEEPS THE DECISIONS INDEX: every `## §n — title — date` heading gets a row (status blank);
+//     a row whose title drifted from its heading is a failed gate. The body is never touched.
+// (d) CHECKS TODO's never-re-raise table: every § it cites must exist in DECISIONS.
+// Exit codes: 3 START-HERE stale (above) · 4 tripwire · 5 map/notes · 6 DECISIONS index · 7 never-re-raise.
+const TRIPWIRE = { 'START-HERE.md': 350, 'TODO.md': 700, 'HANDOFF.md': 900 };
+const docsFail = [];   // [{code, msg}]
+const lineCount = f => { try { return readFileSync(f, 'utf8').split('\n').length - 1; } catch { return null; } };
+const noteOf = f => {
+  try {
+    const head = readFileSync(f, 'utf8').split('\n').slice(0, 3).join('\n');
+    const m = head.match(/<!--\s*answers:\s*([\s\S]*?)\s*-->/);
+    return m ? m[1].replace(/\s+/g, ' ').trim() : null;
+  } catch { return null; }
+};
+const lastChanged = (repo, rel, abs) => {
+  const dirty = git(repo, `status --short -- "${rel}"`);
+  if (dirty !== '(git unavailable)' && dirty.trim()) return 'today (uncommitted)';
+  const ct = git(repo, `log -1 --format=%ct -- "${rel}"`);
+  if (/^\d+$/.test(ct)) return dayIn(new Date(Number(ct) * 1000));
+  try { return dayIn(statSync(abs).mtime) + ' (mtime)'; } catch { return '?'; }
+};
+// The files the map covers, in reading order: the hub's own files, then the private record, then the two build logs.
+const mapped = [];
+const hubMd = readdirSync(here).filter(f => f.endsWith('.md')).sort((a, b) => {
+  const order = ['START-HERE.md', 'TODO.md', 'HANDOFF.md', 'DECISIONS.md'];
+  const ia = order.indexOf(a), ib = order.indexOf(b);
+  return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
+});
+for (const f of hubMd) mapped.push({ label: `anesthesia-kp.github.io/${f}`, abs: join(here, f), repo: here, rel: f });
+try {
+  for (const f of readdirSync(join(REPOS.tests, 'docs')).filter(f => f.endsWith('.md')).sort())
+    mapped.push({ label: `tests/docs/${f}`, abs: join(REPOS.tests, 'docs', f), repo: REPOS.tests, rel: `docs/${f}` });
+} catch { docsFail.push({ code: 5, msg: 'tests/docs is not beside this repo — the map cannot list the audits and plans' }); }
+// The two BUILD-LOGs live in the SITE repos. A push there is a deploy (START-HERE §2) and the auction's is closed by
+// §92, so the pass did not add a line-2 note to them; each carries a built-in note here instead, used only while the
+// file has none of its own (add the line to the file and this default is ignored).
+const BUILT_IN = {
+  'vacation-kp.github.io/BUILD-LOG.md': 'what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number\'s record',
+  'schedule/BUILD-LOG.md': 'what shipped on the Daily Schedule — one row per build with its gates and its commit; read for any schedule build number\'s record',
+};
+for (const [repo, label] of [[REPOS.auction, 'vacation-kp.github.io'], [REPOS.schedule, 'schedule']])
+  mapped.push({ label: `${label}/BUILD-LOG.md`, abs: join(repo, 'BUILD-LOG.md'), repo, rel: 'BUILD-LOG.md', builtIn: BUILT_IN[`${label}/BUILD-LOG.md`] });
+
+const mapRows = [];
+for (const m of mapped) {
+  if (!existsSync(m.abs)) { docsFail.push({ code: 5, msg: `mapped file missing: ${m.label}` }); continue; }
+  const note = noteOf(m.abs) || m.builtIn;
+  if (!note) docsFail.push({ code: 5, msg: `${m.label} has no "<!-- answers: … -->" note in its first three lines — write one (what it answers, when to read it)` });
+  m.lines = lineCount(m.abs);
+  m.note = note || '⚠️ NO NOTE — this file is undescribed';
+  m.when = lastChanged(m.repo, m.rel, m.abs);
+  mapRows.push(`| \`${m.label}\` | ${m.note.replace(/\|/g, '\\|')} | ${m.lines} | ${m.when} |`);
+}
+const mapBlock = `<!-- MAP:BEGIN — generated by status.mjs from each file's own "answers" note. DO NOT EDIT BY HAND. -->
+| file | answers | lines | last changed |
+|---|---|---|---|
+${mapRows.join('\n')}
+<!-- MAP:END -->`;
+
+// (b) tripwires — measured, never estimated.
+const sizes = {};
+for (const [f, cap] of Object.entries(TRIPWIRE)) {
+  const n = lineCount(join(here, f));
+  sizes[f] = n;
+  if (n !== null && n > cap) docsFail.push({ code: 4, msg: `ARCHIVE PASS DUE — before hand-over: ${f} is ${n} lines, tripwire ${cap}. Promote any lesson first, then \`node archive.mjs ${f} "<heading>"\` for what fails the §101 test, then re-run.` });
+}
+const archSizes = hubMd.filter(f => /-ARCHIVE\.md$/.test(f)).map(f => `${f} ${lineCount(join(here, f))}`).join(' · ') || 'none';
+for (const f of hubMd.filter(f => /-ARCHIVE\.md$/.test(f)))
+  if (!mapRows.some(r => r.includes(`anesthesia-kp.github.io/${f}`))) docsFail.push({ code: 5, msg: `the map does not name ${f}` });
+
+// (c) the DECISIONS index — rows generated from headings, status words kept from the file.
+const decPath = join(here, 'DECISIONS.md');
+let decText = '';
+try { decText = readFileSync(decPath, 'utf8'); } catch { docsFail.push({ code: 6, msg: 'DECISIONS.md unreadable' }); }
+const idxRe = /<!-- DECISIONS-INDEX:BEGIN[^\n]*-->\n([\s\S]*?)<!-- DECISIONS-INDEX:END -->/;
+const idxMatch = decText.match(idxRe);
+let decIndexBlock = null, decHeadings = [];
+if (decText && !idxMatch) {
+  docsFail.push({ code: 6, msg: 'DECISIONS.md has no DECISIONS-INDEX markers — the index cannot be kept' });
+} else if (decText) {
+  const body = decText.slice(decText.indexOf('<!-- DECISIONS-INDEX:END -->'));
+  const parseHeading = h => {
+    // Shapes seen: "## §92 — TITLE — 24 Aug 2026 (evening)" · "## 12 · Title — 15 Aug 2026" ·
+    // "## §47 (outcome) — DONE, build 59. …" · "## THE CARDINAL RULE — 15 Aug 2026" · "## Buried rulings — an index, added 17 Aug 2026"
+    let t = h.replace(/^##\s+/, '').trim();
+    let id = null;
+    const m = t.match(/^§?(\d+[a-z]?)(\s*\(outcome\))?\s*[·—–-]\s*/);
+    if (m) { id = '§' + m[1] + (m[2] ? ' (outcome)' : ''); t = t.slice(m[0].length); }
+    let date = '';
+    const d = t.match(/\s[—–-]\s(\d{1,2}\s+[A-Z][a-z]{2,4}\s+20\d\d(?:\s*\([^)]*\))?)\s*$/);
+    if (d) { date = d[1]; t = t.slice(0, d.index); }
+    if (!id) id = t.length > 40 ? t.slice(0, 40) + '…' : t;
+    return { id, date, title: t.trim() };
+  };
+  decHeadings = body.split('\n').filter(l => /^## /.test(l)).map(parseHeading);
+  // existing rows: | id | date | title | status |
+  const existing = new Map();
+  for (const l of idxMatch[1].split('\n')) {
+    const c = l.match(/^\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$/);
+    if (c && c[1] !== '§' && !/^-+$/.test(c[1])) existing.set(c[1], { date: c[2], title: c[3], status: c[4] });
+  }
+  const esc = x => x.replace(/\|/g, '\\|');
+  const seen = new Set();
+  const rows = [];
+  for (const h of decHeadings) {
+    let key = h.id; while (seen.has(key)) key += "'"; seen.add(key);
+    const row = existing.get(key);
+    if (row && row.title !== esc(h.title)) docsFail.push({ code: 6, msg: `DECISIONS index row ${key} says "${row.title.slice(0, 60)}…" but the heading reads "${h.title.slice(0, 60)}…" — fix the row (status word kept)` });
+    rows.push(`| ${key} | ${h.date || row?.date || ''} | ${esc(h.title)} | ${row ? row.status : ''} |`);
+  }
+  for (const k of existing.keys()) if (!seen.has(k)) docsFail.push({ code: 6, msg: `DECISIONS index has a row ${k} with no matching heading — a ruling is never deleted, so fix the row` });
+  decIndexBlock = `<!-- DECISIONS-INDEX:BEGIN — generated by status.mjs from the "## §n — title — date" headings below. Only the STATUS word is hand-kept (LIVE / BUILT / DECLINED / PARKED / SUPERSEDED BY §n; blank when unsure). DO NOT edit ids or titles by hand. -->
+| § | date | title (exactly as headed) | status |
+|---|---|---|---|
+${rows.join('\n')}
+<!-- DECISIONS-INDEX:END -->`;
+}
+
+// (d) TODO's never-re-raise table cites only real rulings.
+try {
+  const todoText = readFileSync(join(here, 'TODO.md'), 'utf8');
+  const sec = todoText.match(/^#{1,3} .*CLOSED\s*\/\s*DECLINED[^\n]*\n([\s\S]*?)(?=^#{1,3} |\Z)/m);
+  if (!sec) docsFail.push({ code: 7, msg: 'TODO.md has no "CLOSED / DECLINED — never re-raise" section' });
+  else {
+    const ids = new Set(decHeadings.map(h => h.id));
+    for (const m of sec[1].matchAll(/§(\d+[a-z]?)/g)) if (!ids.has('§' + m[1])) docsFail.push({ code: 7, msg: `TODO's never-re-raise table cites §${m[1]}, which is not a DECISIONS heading` });
+  }
+} catch {}
+
+const docsRow = `**Governing files:** START-HERE **${sizes['START-HERE.md']}** / 350 · TODO **${sizes['TODO.md']}** / 700 · HANDOFF **${sizes['HANDOFF.md']}** / 900 · DECISIONS ${lineCount(decPath)} (unlimited, indexed ${decHeadings.length} rulings) · archives: ${archSizes}. Over a tripwire = this script exits non-zero = the archive pass is due before hand-over.`;
+
 // --- render ---------------------------------------------------------------
 // ── Housekeeping gate (31 Aug 2026, owner request: "ensure it happens automatically").
 // _to_delete/ is designated junk the OWNER empties — the device bridge cannot delete without a
@@ -296,6 +439,8 @@ Suites on disk: auction **${auctionSuites}** (\`tests/test-*.mjs\`) · schedule 
 
 ${junkRow}
 
+${docsRow}
+
 **START-HERE.md** — \`LAST REVISED ${shDate}\`, date checked by ${shDateHow} — ${shRow}
 ${shStale.map(l => '- ⚠️ ' + l).join('\n') || '_(the only document the owner pastes; this gate exits non-zero when it drifts)_'}
 <!-- STATUS:END -->`;
@@ -306,13 +451,37 @@ const re = /<!-- STATUS:BEGIN[\s\S]*?<!-- STATUS:END -->/;
 if (!re.test(todo)) { console.error('No STATUS markers in TODO.md — refusing to guess where to write.'); process.exit(1); }
 if (process.env.SH_PATH) {
   console.log(block.replace(/<!-- STATUS:(BEGIN|END)[^>]*-->/g, '').trim());
-  console.log('\nSH_PATH set — dry run, TODO.md NOT written.');
+  console.log('\nSH_PATH set — dry run, TODO.md / START-HERE.md / DECISIONS.md NOT written.');
 } else {
   writeFileSync(todoPath, todo.replace(re, block));
   console.log(block.replace(/<!-- STATUS:(BEGIN|END)[^>]*-->/g, '').trim());
   console.log('\nTODO.md STATUS block updated.');
+
+  // THE MAP on START-HERE's first screen. When it changes, LAST REVISED is stamped with today's
+  // date in the owner's zone — the map IS a revision of the one document he pastes.
+  const shText = readFileSync(shPath, 'utf8');
+  const mapRe = /<!-- MAP:BEGIN[\s\S]*?<!-- MAP:END -->/;
+  if (!mapRe.test(shText)) docsFail.push({ code: 5, msg: 'START-HERE.md has no MAP markers — the map cannot be written' });
+  else {
+    const current = shText.match(mapRe)[0];
+    if (current !== mapBlock) {
+      let next = shText.replace(mapRe, mapBlock);
+      const MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const [y, mo, d] = dayIn(new Date()).split('-');
+      const todayOwner = `${Number(d)} ${MONS[Number(mo) - 1]} ${y}`;
+      next = next.replace(/LAST REVISED:\s*\d{1,2}\s+[A-Za-z]{3}[a-z]*\s+\d{4}/, `LAST REVISED: ${todayOwner}`);
+      writeFileSync(shPath, next);
+      console.log(`START-HERE.md MAP regenerated (${mapRows.length} files) and LAST REVISED stamped ${todayOwner}.`);
+    } else console.log(`START-HERE.md MAP unchanged (${mapRows.length} files).`);
+  }
+  if (decIndexBlock !== null) {
+    const nextDec = decText.replace(idxRe, decIndexBlock);
+    if (nextDec !== decText) { writeFileSync(decPath, nextDec); console.log(`DECISIONS.md index rewritten (${decHeadings.length} rulings; body untouched).`); }
+    else console.log(`DECISIONS.md index unchanged (${decHeadings.length} rulings).`);
+  }
 }
 
+let exitCode = 0;
 if (shStale.length) {
   console.error('\n' + '='.repeat(74));
   console.error('⛔ START-HERE.md IS STALE. ' + (process.env.SH_PATH
@@ -321,5 +490,13 @@ if (shStale.length) {
   console.error('   this non-zero exit IS the gate. Fix START-HERE, then re-run.');
   for (const l of shStale) console.error('   · ' + l);
   console.error('='.repeat(74));
-  process.exit(3);
+  exitCode = 3;
 }
+if (docsFail.length) {
+  console.error('\n' + '='.repeat(74));
+  console.error('⛔ DOCS GATES FAILED (§188) — the STATUS block was still written; this non-zero exit IS the gate.');
+  for (const f of docsFail) console.error(`   · [${f.code}] ${f.msg}`);
+  console.error('='.repeat(74));
+  if (!exitCode) exitCode = docsFail[0].code;
+}
+process.exit(exitCode);
