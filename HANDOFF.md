@@ -247,7 +247,7 @@ Meter 1 of 2,000 before and after; queue 0 throughout. Chrome tabs left open for
 trivial — it is one guard line, the same as every other transition — approved as admin 329 with the order "update handoff now, then build,
 then finalize handoff"; O-B explained to him; the other four filed for a quiet day. Context at his 700k budget line: ~600k when he ruled.
 
-**Admin 329 FILED (late evening, §187), awaiting his push.** One guard line in `completeP4Round` (the backup gate every other
+**Admin 329 LIVE (`b0ed735`, pushed 7 Sep 19:10 PDT with the tests and docs commits, verified served twice cache-busted). Next auction honesty baseline: admin 329 = `b0ed735`, staff 169.** Filed as: One guard line in `completeP4Round` (the backup gate every other
 transition has), BUILD 328 → 329, `versions.json`. Gates: `tests/test-329-round-backup-prompt.mjs` 11 / 11, honesty on 328 (`e5eea70`,
 fixture from `git show` into `~/vac328/`) 4 RED exit 1; battery on his Mac 79 suites / 2,607 assertions exit 0, no skips; isolation 36 / 36;
 every inline script `node --check` clean. Not run: the browser sweep (no browser on the Mac; not worth the cloud clone at his 700k line).
