@@ -254,6 +254,10 @@ every inline script `node --check` clean. Not run: the browser sweep (no browser
 Paperwork: BUILD-LOG row, START-HERE LAST REVISED + LIVE line, DECISIONS §187, TODO §1, `status.mjs`. Next auction honesty baseline once
 pushed: admin 329 (the SHA he pushes); staff 169 unchanged. **Closing checklist run at the end of this entry** (fetch, locks, status).
 
+**Board state at close (his own hands, after the push):** he ran Reset Auction (not a restore), set Wk 1/3/8 back to 4, turned the
+Bidding Timer master ON (it was OFF at the 5:01 PM start — his choice), and withheld his 3 again. Everything else matches the start.
+Told him the one Reset side-effect: the welcome log is empty, so once Welcome e-mails go ON every user is welcomed at next login.
+
 **Lessons, dated 7 Sep.**
 1. **A background Chrome tab lies about time.** Chrome throttles a tab that is not in front, so the staff page's text lagged the paint by
    many seconds during bursts of admin writes; foregrounding it (a screenshot) repainted at once. Read a page after foregrounding it, and
