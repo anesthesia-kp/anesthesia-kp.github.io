@@ -225,6 +225,45 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 7 Sep 2026 (EVENING) — "Vacation Auction 5 Sep 2026 V2" (the session opened 5 Sep, resumed 7 Sep) — §186: THE FINAL CHROME REHEARSAL. NOTHING BROKE. ZERO E-MAILS. NOTHING BUILT.
+
+**What the session did.** Re-grounded (§4) on 5 Sep; two days later he ordered the full run-through (§186). Explored first: every
+e-mail path on both pages read (three send sites each; outbid alerts not even queued with the switch OFF, welcome mail returns with its
+switch OFF, results/round/reminder/whitelist mails are button-only; the one residual is the mail-queue sweep, so the queue was checked
+empty first). Plan stated, questions asked, his approvals recorded, then driven from his Chrome: admin tab + staff tab as AF. Starting
+state recorded from the Controls DOM, cloud + local backups taken (5:01 PM), timer ON with the opening window off for Phases 1–3 (back
+on for Phase 4), timer mode 2 in P1, 1 in P2, 3 in P3, back to 2 for P4. Phase 1 slowly (dropdown floors and the hold, mode-2 resets,
+lowering, Under Review filters, wheel, hand decisions, bulk approve/deny, revoke, close/complete/skip, reports, cross-check); Phase 2
+(cap refusal on the 7th bid, 5 sims/user, auto-decide, capacity raise + the cut stop-sign); Phase 3 (NP, mode 3); Phase 4 in three
+rounds (month picker, opening window per round, round-labelled history and reports, frozen round capacity, no Revoke on locked rounds),
+Complete Phase 4 → Mark results sent. Full step list with times in `tests/docs/REHEARSAL-2026-09-07.md`.
+
+**State left behind, at his word.** The live auction is in its FINISHED state (all rounds announced), Rehearsal Mode ON, timer ON
+(mode 2, window 5 d), Wk 1/3/8 capacities raised to 5/5/6, both e-mail switches OFF as he set them. He restores from the "Sep 7, 2026,
+5:01 PM · Phase 1 · 0 bids" cloud backup (or the local file) himself. Holds are not restored by design — his withheld 3 stays withheld.
+Meter 1 of 2,000 before and after; queue 0 throughout. Chrome tabs left open for him.
+
+**Late evening, same session (§187).** He read the six notes: O-E (no backup prompt on Complete Round) is the one to fix now if
+trivial — it is one guard line, the same as every other transition — approved as admin 329 with the order "update handoff now, then build,
+then finalize handoff"; O-B explained to him; the other four filed for a quiet day. Context at his 700k budget line: ~600k when he ruled.
+
+**Admin 329 FILED (late evening, §187), awaiting his push.** One guard line in `completeP4Round` (the backup gate every other
+transition has), BUILD 328 → 329, `versions.json`. Gates: `tests/test-329-round-backup-prompt.mjs` 11 / 11, honesty on 328 (`e5eea70`,
+fixture from `git show` into `~/vac328/`) 4 RED exit 1; battery on his Mac 79 suites / 2,607 assertions exit 0, no skips; isolation 36 / 36;
+every inline script `node --check` clean. Not run: the browser sweep (no browser on the Mac; not worth the cloud clone at his 700k line).
+Paperwork: BUILD-LOG row, START-HERE LAST REVISED + LIVE line, DECISIONS §187, TODO §1, `status.mjs`. Next auction honesty baseline once
+pushed: admin 329 (the SHA he pushes); staff 169 unchanged. **Closing checklist run at the end of this entry** (fetch, locks, status).
+
+**Lessons, dated 7 Sep.**
+1. **A background Chrome tab lies about time.** Chrome throttles a tab that is not in front, so the staff page's text lagged the paint by
+   many seconds during bursts of admin writes; foregrounding it (a screenshot) repainted at once. Read a page after foregrounding it, and
+   trust the painted screenshot over `innerText`.
+2. **Click the page's own buttons; do not call the function.** A report opened from script is a blocked pop-up; the same button clicked
+   by hand opens it. When a pop-up cannot be read (about:blank is off-limits to the extension), capture the HTML in-page instead.
+3. **`find` can resolve to the wrong row.** A "priority select in the AF row" resolved to another user's row and opened a real change
+   dialog (cancelled, nothing saved). Address rows by their `onclick` target, never by description, when a wrong click writes.
+4. **Rounds are phases to the simulator's "existing bids" count too** (O-F) — the same class as §163, in the one tool that does not matter live.
+
 ## 5 Sep 2026 (LATE MORNING, same session) — §184: THE TESTS MADE HONEST ABOUT THE HOLDS BUILD. 328 LIVE. NOTHING OPEN.
 
 **What the session did.** He pushed 328 (`e5eea70`, verified served twice), chose (2) of the recommendation and declined (3)

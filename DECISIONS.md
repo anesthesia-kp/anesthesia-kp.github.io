@@ -4728,3 +4728,31 @@ written into START-HERE §4 as step 0. One choice Claude made, his to overrule: 
 session follows), because the first session of a day cannot know a second is coming and a chat is not renamed after the fact. The name
 is stated in the first line of the first reply and heads the session's HANDOFF entry; he names the chat the same — Claude has no tool
 to rename a chat.
+
+## §186 — THE FINAL CHROME REHEARSAL BEFORE GO-LIVE: FOUR PHASES, THREE ROUNDS, ZERO E-MAILS — 7 Sep 2026 (evening)
+
+His order, verbatim: *"Please use chrome control to run a thorough auction using the simulator functions. I want no e-mails sent at all
+during this auction and I already have turned off the ones I can. Ensure there are no never events and no other problems. Run through 4
+phases and 3 rounds of phase 4. This is a final run through before go live. It's okay to change settings. Please adjust any setting that
+would be useful to confirm functionality prior to go live. I do want settings to return to what I have now at the end. I removed bid 3
+from AF (me) as a test of that feature."* Rulings during the run: **Phase 1 high-demand accepts bids down to the floor** (*"bids as low as
+5 accepted in P1"* — the old "1·2·3 only" note is dead); **use his login to test his own bids**; **"ensure timer mode functions as it
+should"**; simulator **1 bid per user in P1, 5 in P2, then 1 per phase/round**; local backups may be triggered; and, overriding the
+"settings return" line: **"leave at the end, i will restore later"** — no Reset, no Restore by Claude; his 5:01 PM cloud backup (+ the
+local file) is the way back. The run is `tests/docs/REHEARSAL-2026-09-07.md` (private). **Verdict: nothing broke, no never-event, zero
+e-mails** (meter 1 of 2,000 before and after, queue 0 throughout). Six LOW observations O-A…O-F await his rulings — `TODO.md` §1;
+§92 stands, nothing was built.
+
+## §187 — THE REHEARSAL'S SIX NOTES RULED: O-E IS A BUILD (ADMIN 329), THE REST WAIT FOR A QUIET DAY — 7 Sep 2026 (late evening)
+
+His words: *"This might need fixing if it's a trivial repair and unlikely to cause problems: Complete Round having no backup prompt while
+every other step does. I don't understand what you mean for the under review item. all other items can be filed as something to do at
+a later when there is no time constraint."* Then, told it is one line: *"If this is a small repair, we can do within this session and
+then handoff. I don't want to exceed 700k tokens."* and *"update handoff now to ensure nothing is lost from this chat, then build, then
+finalize handoff docs."*
+
+**RULED:** **O-E is the §92 go for admin 329** — `completeP4Round` gets the same `_bkBypass` / `_backupThen` guard line every other
+transition has, placed after the round's own refusals and before its confirm (backup → confirm, exactly like Complete Phase). Nothing else
+changes. **O-B was explained** (the Under Review header's "Winning" counts engine-projected winners only; approvals show in Remaining and
+in every report — label only) and joins the wait list. **O-A, O-B, O-C, O-D, O-F are FILED FOR LATER — "when there is no time
+constraint"** — not to be built before go-live and not to be re-raised as urgent; they stay in `TODO.md` §1 under that heading.
