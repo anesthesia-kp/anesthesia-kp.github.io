@@ -4756,3 +4756,39 @@ transition has, placed after the round's own refusals and before its confirm (ba
 changes. **O-B was explained** (the Under Review header's "Winning" counts engine-projected winners only; approvals show in Remaining and
 in every report — label only) and joins the wait list. **O-A, O-B, O-C, O-D, O-F are FILED FOR LATER — "when there is no time
 constraint"** — not to be built before go-live and not to be re-raised as urgent; they stay in `TODO.md` §1 under that heading.
+
+## §188 — THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST — 7 Sep 2026 (evening)
+
+His question opened it: *"How do i get leaner starthere, handoffs, decisions docs without sacrificing necessary input?"* He is *"done
+with the heavy building at this point, only small tweaks going forward"* and is weighing a smaller plan. On the proposal (split by how
+often a thing is read — rules every session, state every session and generated, record on demand): *"I like this idea."* On the
+drawbacks and the question of whether every file gets read anyway: *"It sounds like this will change how I start new sessions
+dramatically. I would need to know exactly how to use each of the files includeing the archive files."* — answered: his start does
+not change (attach START-HERE, say go); every where-to-look rule is written for Claude. Then *"Go"* on the detailed plan, and on it:
+
+*"I agree with all your plans. Finish the complete plan and ensure it will go smoothly. I want no information lost and I must have
+you be able to find all information when needed. Your map must be complete and self-updating to point to where you need to go to
+find the info. All the docs need to be self-updating to keep the context manageable without prompting by me, that just needs to be
+part of every session."*
+
+**RULED, and what each sentence binds:**
+1. **The plan at `tests/docs/DOCS-PASS-PLAN-2026-09-07.md` is approved in full**, its four questions answered by *"all your plans"*:
+   archives live IN the repo (`HANDOFF-ARCHIVE.md`, `TODO-ARCHIVE.md`, beside `START-HERE-ARCHIVE.md`); START-HERE's tripwire becomes
+   350 lines and is ENFORCED by `status.mjs`; the DECISIONS index carries a status column (blank when unsure); the pass runs in a FRESH
+   session, early, on the larger plan.
+2. **No information lost** — `docs-pass-check.mjs` proves every pre-pass line survives verbatim in live file + archive; zero exceptions;
+   the commit does not exist until it exits 0. `DECISIONS.md`'s body stays byte-identical. Nothing is ever deleted.
+3. **Claude must be able to find everything** — START-HERE's first screen carries THE MAP (every file and archive, what each answers,
+   how to look something up by kind: ruling → DECISIONS index; shipped → BUILD-LOG row; a day → HANDOFF / HANDOFF-ARCHIVE; why a rule
+   exists → START-HERE-ARCHIVE by rule number; closed/declined → TODO's never-re-raise table; anything else → grep), and the pass ends
+   with a RETRIEVAL CHECK: a fresh-eyes agent given only START-HERE must answer a dozen questions spanning every file and archive.
+4. **The map is self-updating** — `status.mjs` GENERATES it between markers in START-HERE from the files that exist and each file's own
+   one-line "answers" note; a new or renamed file appears on the next run, a file missing its note fails the gate.
+5. **The docs are self-maintaining, every session, unprompted** — `status.mjs` measures every governing file against its tripwire
+   (START-HERE 350 · TODO 700 · HANDOFF 900 · archives unlimited) and exits non-zero when one is over; the closing checklist's step 2
+   then moves what fails the §101 test with `archive.mjs` (a verbatim, verified section move) BEFORE the session hands over; the
+   DECISIONS index gains its rows automatically from the headings, with only the status word left to Claude in the same turn as the
+   ruling. He is never the one who notices a file has grown.
+6. Superseded by this ruling: the 700-line START-HERE tripwire and the 2,000-line TODO/HANDOFF triggers (HANDOFF §"maintaining",
+   START-HERE §3 table) — edited in place during the pass, not duplicated. The §101 "not by age" test itself is unchanged and governs
+   every move.

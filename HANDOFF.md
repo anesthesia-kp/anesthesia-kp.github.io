@@ -225,6 +225,26 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 ---
 
+## 7 Sep 2026 (LATE EVENING) — "Vacation Auction 7 Sep 2026 V1" — §188: THE DOCS PASS IS PLANNED AND APPROVED. NOTHING BUILT. NOTHING MOVED.
+
+Opened with START-HERE attached; ritual run from disk (three public repos fetched, locks moved, live 329/169/18 and 151/51 fetched twice).
+He pushed last night's two pending hub files (`e1452f5`). One small START-HERE edit, his go: §4 step 5 names the context reading as part of every
+opening report; step 0 takes the session date in America/Los_Angeles (this session was first misnamed "8 Sep" from the UTC clock).
+Three product questions answered from Anthropic's docs (Pro vs Max for small tweaks; Opus 4.8 vs 5 token use) — no ruling, he is weighing a smaller plan.
+Then the docs question → the leaner-docs proposal → his *"I like this idea"*, his two concerns (his session start; whether everything gets read anyway),
+his *"Go"* on the detailed plan, and §188 approving it in full with the self-updating requirement. **Plan: `tests/docs/DOCS-PASS-PLAN-2026-09-07.md`
+(137 lines, §§0–8). The pass itself runs in a FRESH session, early — it is the next job.** HANDOFF is at 1,991 lines against its 2,000 tripwire.
+
+**Lessons, dated 7 Sep (V1).**
+1. **"Not readable from here" was asserted without running the recipe** — START-HERE §4 already said where the context number lives, and it was
+   readable. He caught it in one line. Rule 8's shape again: a claim that sounds like a check is not one. The number is now part of step 5.
+2. **Read the clock in his timezone before naming anything.** `TZ=America/Los_Angeles date`. Now in §4 step 0.
+3. **The archiving rules already existed and one of my proposals contradicted them** (archive by age; his §101 ruling is "not by time").
+   Caught by reading HANDOFF's maintaining section before writing the plan — §0 rule 1, and it changed the plan. Read the governing text first, every time.
+
+Closing checklist run at the end of this entry: fetch (three public repos; `tests` judged from log/disk), chat reviewed (§188, the §4 edits, this
+entry, the TODO item), no code touched so no battery, files accounted for below, `status.mjs`, locks. Context at close ≈ 250k.
+
 ## 7 Sep 2026 (EVENING) — "Vacation Auction 5 Sep 2026 V2" (the session opened 5 Sep, resumed 7 Sep) — §186: THE FINAL CHROME REHEARSAL. NOTHING BROKE. ZERO E-MAILS. NOTHING BUILT.
 
 **What the session did.** Re-grounded (§4) on 5 Sep; two days later he ordered the full run-through (§186). Explored first: every
