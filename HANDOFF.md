@@ -870,6 +870,21 @@ dialogs, 139 confirms, 0 errors (xlsx=3 — the capacity export ran in the confi
 His next ask, received while the gates ran: check that the Rules & Reminders are in a logical order (rules that build on another come
 after it; shared topics adjacent) — a read-and-propose, no build without his go.
 
+**333 pushed by him** (`a4d7fcc` auction, `b29d631` tests, `3776ff3` hub) while 334 was being built; 333 / 171 served twice; the pushed
+admin bytes md5-match the built ones; START-HERE LIVE line 333 / 171; §192 LIVE. (His commit landed BEFORE the 334 edits touched disk —
+checked: HEAD carries BUILD 333 / 171 and no numbers sentence.)
+
+**§193 + §192 addendum — BUILT as staff 172 / admin 334.** Rules & Reminders: proposal from a whole-list read (the order was the order
+of addition; strategy tips split, "Sniping" far from the timer rules, ATO stranded; gap — the page never said what the numbers are);
+his rulings *"short one. Go with re-ordering plus the add."* then, mid-build, *"make the key with definitions in avail cap by week be
+red/green"* and *"Also color code date and available with same coloring"* — folded into 334 as the §192 addendum (his later word
+replaces the morning's plain Available). Deck slides 33–34 re-ordered at his ask (rendered through LibreOffice and looked at; all other
+slides canonical-XML identical; the deck is also in the outputs column for him to re-send). Gates: `test-334-rules-order` 28 / 28,
+honesty on `a4d7fcc` 11 red; `test-333` re-anchored 41 / 41 (honesty 25 red on `c0a5978`); `test-332`'s last 331-baseline pins scoped;
+battery 84 / 2,844 exit 0 both machines; isolation 36 / 36; `node --check` clean; sweep 361 · 13 · 294 · 13, 0 errors. FILED, not pushed.
+Lesson (r16 again, twice in one day): an invariance written against a fixed baseline is a proof for THAT build — scope it to the build
+numbers it was written for the day it is written, not after it goes red.
+
 **Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
 rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
 claim about the engine — the display audit of RA-11 (lesson 1 there) applies to PROSE too; the owner found it by reading his own site.

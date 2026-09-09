@@ -206,7 +206,8 @@
 | §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
 | §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | LIVE (331 / 170, `1a4e269`, 9 Sep 2026); rules published, RA-2 186 / 186 |
 | §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) | LIVE (332 / 171, `c0a5978`, 9 Sep 2026) |
-| §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL |  |
+| §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL | LIVE (333 / 171, `a4d7fcc`, 9 Sep 2026) |
+| §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5131,7 +5132,14 @@ row would disagree mid-phase and the test's design rule would be broken.
 red: **"Below Smart Lock Control"** — two states only. So: Available column plain text (no colour, no bold) in the report and in Excel;
 week label GREEN when the row's Available ≥ that week's Smart Lock Control (`getSlc`), RED when below it — the report's own Available,
 never Smart Lock's live figure (see above); a legend in the header band naming both colours; Excel identical. Rows, Taken, Available
-arithmetic, winners column, PDF path untouched. §92 satisfied for exactly this change. **BUILT as admin 333 the same session** — BUILD-LOG row 333 carries the gates; `tests/test-333-capacity-colors.mjs`; honesty baseline `c0a5978`. Status: FILED, awaiting his push.
+arithmetic, winners column, PDF path untouched. §92 satisfied for exactly this change. **BUILT as admin 333 the same session** — BUILD-LOG row 333 carries the gates; `tests/test-333-capacity-colors.mjs`; honesty baseline `c0a5978`. **Pushed by him the same session** (`a4d7fcc` auction, `b29d631` tests, `3776ff3` hub); 333 / 171 served twice. Status: LIVE.
+
+**Addendum, same session, after 333 went live:** *"make the key with definitions in avail cap by week be red/green"* — the legend's two
+definitions coloured in their own colours (the word "green =…" green, "red =…" red) in the report band and in Excel (two legend rows
+there, one per colour — a sheet cell holds one font colour). Then: *"Also color code date and available with same coloring"* — the Date
+cell and the Available cell take the SAME green / red as the week label (the Smart Lock rule, not the sign of the number); this replaces
+the morning's "Available as plain text" by his own later word. Type, Capacity, Taken stay plain. Excel the same. Rides admin 334 with §193.
+Status of this addendum: BUILT in 334 (test-333 re-anchored), FILED with it.
 
 ## §193 — RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS — 9 Sep 2026
 
@@ -5153,4 +5161,4 @@ still holds (each-number-once directly above losers-return).
 to 10, plus NP — 1 is the strongest bid and NP the weakest"* (the longer variant with combined-bid ranking declined). §92 satisfied for
 exactly: the re-order + this one added bullet, in the staff Rules & Reminders box, the staff welcome e-mail and the admin's copy. The deck
 (slides 33–34) not touched — his to say. Built as staff 172 / admin 334; honesty baseline the last PUSHED build `c0a5978` (333 is filed,
-not pushed, so it has no fixture — said so). Status: BUILDING.
+not pushed at the time). He pushed 333 (`a4d7fcc`) while this was being built — the honesty baseline is therefore `a4d7fcc` (admin 333 / staff 171). **BUILT as staff 172 / admin 334 the same session**, with the deck's slides 33–34 brought to the same order (his ask: *"can you also update ppt with all the updates that have made changes to it? I will be re-sending when we start"*). BUILD-LOG row 334; `tests/test-334-rules-order.mjs`. Status: FILED, awaiting his push.
