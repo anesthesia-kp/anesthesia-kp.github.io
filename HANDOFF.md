@@ -853,6 +853,26 @@ BUILD-LOG row 331 (*pending*); §190 ruling and status; TODO §1; START-HERE FIL
 tripwire, so the 8 Sep V1 entry (the docs pass — its facts are §188, the plan doc and the retrieval check) was moved verbatim to
 `HANDOFF-ARCHIVE.md` with `archive.mjs`; `status.mjs` exit 0.
 
-**Left for him (any order):** push `vacation-kp.github.io`, `tests`, the hub; paste the rules and Publish; run RA-2 (the new
-generation green on the live rules, 3 gates red on the old). Then verify 331 twice, retire the FILED line, give the BUILD-LOG row its
-SHA. Empty `_to_delete/` when convenient (this session: the tests tarball, two zips, three locks).
+**Pushed (same session):** auction `1a4e269`, tests `aa78be8`, hub `7781288`; 331 / 170 / 18 served, fetched twice with different
+cache-busters. **Rules published in the console (his word: "updated rules"). RA-2, his run:** 186 / 186 on the current rules; honesty
+against the old rules (`28bae0c` baseline) 22 red — Feed 4 / 4, Bid holds 4 / 4, User Activity 11 / 11, **Bid map bound 3 / 3** —
+"BOTH: the current rules pass, and the old rules fail the new gates." START-HERE's LIVE line is 331 / 170 and the FILED line retired;
+BUILD-LOG row 331 carries the SHA and the RA-2 numbers; §190 marked LIVE. Three fetch locks moved to `_to_delete/git-locks/`.
+**Next auction honesty baseline: `1a4e269` (admin 331 / staff 170).**
+
+**Closing checklist, run at his word ("run closing", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`,
+tests judged from disk (in sync); nine fetch locks moved over the day to `_to_delete/git-locks/`. 1 · chat reviewed — his order, his
+choice from options, "pushed", "updated rules" and the RA-2 numbers are in §190 (grepped on disk); the memory correction (cancel on a
+projected-win week IS allowed) is in §190 and RA-11 §5; the lessons are above; the below-the-bar items are RA-11 §3 by his brief and
+are NOT queued; the brief the lanes ran from is filed as `tests/docs/RA-11-BRIEF-2026-09-09.md` (it existed only in the cloud).
+2 · state files true — START-HERE LIVE 331 / 170, no FILED line, LAST REVISED 9 Sep; BUILD-LOG row 331 with SHA + RA-2; TODO §1
+carries the one-line state; `node status.mjs` exit 0, every governing file under its tripwire (HANDOFF 878 / 900 after the 8 Sep
+V1 entry was archived). 3 · code proven — the numbers above are from the runs: battery 81 suites / 2,755 assertions exit 0 on BOTH
+machines (80 executed, 1 skipped — the emulator suite, covered by his RA-2 186 / 186), honesty by explicit SHA `4f71695` 15 red exit 1
+on both, isolation 36 / 36 both, `node --check` clean, sweep 0 errors (cloud), adversarial review of the diff no findings. 4 · files —
+uncommitted on disk: `vacation-kp.github.io/BUILD-LOG.md` (the SHA + RA-2 row edit, a ONE-file commit), the hub's DECISIONS /
+HANDOFF / START-HERE / TODO, and `tests/docs/RA-11-BRIEF-2026-09-09.md` (new, a ONE-file commit) — all docs, three commit messages in
+the outputs column; the cloud clone is BEHIND origin since his pushes and is not a base for anything. 4a · rubbish — `_to_delete/`
+holds 24 MB / 43 files (this session: the tests tarball, three zips, nine locks; earlier: the 330 zip, the docs-pass zip, a spent patch
+script) — his to empty; nothing loose in a repo; `Claude outputs/`, `COMMIT-MESSAGE.txt` and `firestore-debug.log` are gitignored where
+they sit. 5 · handed over: 331 / 170 / rules live; nothing queued on the auction; §92 and §164 stand; the schedule parked.

@@ -204,7 +204,7 @@
 | §187 | 7 Sep 2026 (late evening) | THE REHEARSAL'S SIX NOTES RULED: O-E IS A BUILD (ADMIN 329), THE REST WAIT FOR A QUIET DAY | LIVE (329); O-A…O-F LATER |
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
 | §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
-| §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | RULED — F1 + F3 + F2 BUILT (admin 331 + rules), FILED |
+| §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | LIVE (331 / 170, `1a4e269`, 9 Sep 2026); rules published, RA-2 186 / 186 |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5079,6 +5079,8 @@ wrapper; initials containing "." would break field paths (admin input only).
 options: **build F1 + F3 + F2** — admin 331 (escape the three report cells, sever the report window's opener, drop the dial's second
 lock) AND the rules key-count bound on own-key bid writes (a rules deploy: console paste + his RA-2 run). Selection, not dictation —
 recorded per §37 practice. Not chosen: F1 + F3 only, F3 only, none yet. Standing: §92 satisfied for exactly these three changes; §164
-governs the build (narrow, safe). The record is the BUILD-LOG row 331 and `HANDOFF.md` 9 Sep V3. A correction to
+governs the build (narrow, safe). The record is the BUILD-LOG row 331 and `HANDOFF.md` 9 Sep V3. **Pushed by him the same session** (`1a4e269` auction, `aa78be8` tests, `7781288` hub), 331 / 170 served twice; the rules pasted and published in the console ("updated rules"); RA-2 his run: 186 / 186 on the current rules, the Bid map bound generation 3 of 3 red on the old rules — "BOTH: the current rules pass, and the old rules fail the new gates." A correction to
 the project's memory, from lane 1's reading: users CAN cancel a bid on a projected-win week (the rule was removed 12 Jul 2026; the Fair
 Play monitor tracks late cancels).
+
+**DECLINED, at closing (9 Sep 2026):** Claude offered to empty `_to_delete/` at every closing via the per-session deletion prompt on his Mac. His answer: *"no, don't need that."* The folder stays his to empty; the 🧹 line in TODO's STATUS block keeps reporting it, and Claude does not raise it again.
