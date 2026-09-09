@@ -1520,3 +1520,58 @@ Move it to `_archive/`, dated, in one file. **Never delete.**
 taken before the next feature build rather than "when there's time". Measure it, do not estimate:
 `wc -l TODO.md HANDOFF.md`. `TODO.md` carries the full pass procedure and its acceptance
 criteria in its §1 queue.
+
+---
+## ⤵ moved 9 Sep 2026 from HANDOFF.md — 8 Sep 2026 — "Vacation Auction 8 Sep 2026 V1" — §188: THE DOCS PASS, RUN. NOTHING LOST. NOTHING BUILT ON EITHER SITE.
+
+## 8 Sep 2026 — "Vacation Auction 8 Sep 2026 V1" — §188: THE DOCS PASS, RUN. NOTHING LOST. NOTHING BUILT ON EITHER SITE.
+
+Opened with START-HERE attached (read from disk, md5 `1452e5ec…`); ritual clean: live 329/169/18 and 151/51 fetched twice, all four
+repos clean and in sync (his 22:47/22:48 UTC pushes `b49a18e` / `f078c94`), three `maintenance.lock`s from the fetch moved to
+`_to_delete/`. His *"yes, go"* on the approved plan (`tests/docs/DOCS-PASS-PLAN-2026-09-07.md`, §8 order). **Pre-pass SHAs: hub
+`b49a18e`, tests `f078c94`.** Built in a cloud clone of the hub at `b49a18e` with `tests/docs` staged beside it; shipped to the Mac as
+one zip, unpacked per file, md5-verified.
+
+**What the pass did.** `docs-pass-check.mjs` (the lossless guard — red on a planted deletion, green on the untouched tree, then green
+on the finished pass: 7,376 pre-pass lines, 0 unaccounted for). `archive.mjs` (one section per call, verbatim, into `<file>-ARCHIVE.md`;
+refuses DECISIONS, non-unique headings, protected parts; tested). `status.mjs` gained the DOCS GATES: the MAP on START-HERE's first
+screen generated from each file's line-2 `<!-- answers: … -->` note (24 files; a file with no note fails — the two site-repo
+`BUILD-LOG.md`s were left untouched, a push there being a deploy, so `status.mjs` carries built-in notes for those two), tripwires 350 / 700 / 900
+as a non-zero exit, the DECISIONS index generated from the headings (197 rulings; 114 status words filled by hand, the rest blank),
+the never-re-raise § check, archive sizes in the STATUS block. HANDOFF: 34 dated entries archived after their lessons were promoted
+into a new permanent STANDING TRAPS section (six groups, one line per trap, dated); the maintaining section and checklist step 2
+edited in place for the new destinations and numbers. TODO: 43 sections archived; what remains is the STATUS block, the open queue
+(the rehearsal's O-A…O-D/O-F, his-call items, the three kept owner sections, test gaps), the CLOSED / DECLINED table (32 rows),
+the accepted residuals, the deferred items, and the schedule pile as pointers. START-HERE: the whole pre-pass file moved to
+`START-HERE-ARCHIVE.md` under a search-hint table; the new file is rules + map + lookup paragraph. DECISIONS: an index prefix only;
+the body proven byte-identical (`diff <(git show b49a18e:DECISIONS.md) <(tail -n +210 DECISIONS.md)` empty).
+
+**Sizes (lines, before → after):** START-HERE 676 → 163 (with the map) · TODO 1,677 → 221 · HANDOFF 2,011 → 722 + this entry ·
+DECISIONS 4,794 → 5,003 (index rows only). Archives: HANDOFF-ARCHIVE 1,520 · TODO-ARCHIVE 1,700 · START-HERE-ARCHIVE 816.
+HANDOFF did not reach the plan's ≈500: the never-archived parts (checklist, maintaining, PART A–D, the new traps section) are ~600
+on their own; the 900 tripwire is what is enforced.
+
+**Gates:** `docs-pass-check.mjs` exit 0 · `node status.mjs` exit 0 (cloud, then on his Mac) · DECISIONS body diff empty · every
+governing file under its tripwire · **the retrieval check: 12 / 12 found, 12 / 12 direct** (`tests/docs/DOCS-PASS-CHECK.md`
+records the questions, answers and paths). No auction or schedule byte changed; no battery was due.
+
+**Judgement calls made, recorded rather than asked (he approved the plan in full and said go):** (1) HANDOFF's lessons live in a
+permanent HANDOFF section rather than in START-HERE §3, so START-HERE stays under 350 — the plan's "promote to §3" was read as
+"promote to where rules of that kind live". (2) Every dated HANDOFF entry was archived — after promotion, none carried anything a
+fresh session would act on that is not now in START-HERE, the traps, TODO or the archives. (3) Where a TODO section was trimmed,
+the original was archived whole first, so the guard judges, not I. (4) Status words in the DECISIONS index were filled only where
+the heading or a BUILD-LOG row says so; 83 rows are blank on purpose.
+
+**Left for him:** push the hub (many files — no Summary-box trap) and `tests` (17 files: fifteen line-2 notes, this check record, `COMMIT-MESSAGE.txt`). Nothing to push in the site repos.
+Then `node status.mjs` on the Mac must exit 0 (it will regenerate the map's "last changed" column and the STATUS block; that
+is the churn the design accepts — the same churn `status.mjs` already caused in TODO). Delete the "docs pass FILED" line in
+TODO §1 after the push. `_to_delete/` holds this session's zip, three lock files and the earlier lock folders — his to empty.
+
+**Lessons, dated 8 Sep.** (1) `~` in the cloud container is `/root` — hit again while testing `archive.mjs` from a scratch
+folder; the traps section now says so. (2) A `#`-level dated entry's section runs to the next `#`, so its `##` siblings must be
+archived BEFORE it or they travel with it — `archive.mjs` documents the rule; the order of moves handled it. (3) A line changed in
+place is a line the guard will name: edit, run the guard, and put the original in the archive's "edited in place" block —
+cheaper than deciding by hand which lines changed.
+
+Closing checklist run at the end of this entry: fetch (three public repos), chat reviewed (nothing ruled beyond §188's plan; the
+four judgement calls above), no code touched, files accounted for above, `status.mjs` on the Mac, locks.

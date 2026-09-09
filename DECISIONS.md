@@ -204,6 +204,7 @@
 | §187 | 7 Sep 2026 (late evening) | THE REHEARSAL'S SIX NOTES RULED: O-E IS A BUILD (ADMIN 329), THE REST WAIT FOR A QUIET DAY | LIVE (329); O-A…O-F LATER |
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
 | §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
+| §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | RULED — F1 + F3 + F2 BUILT (admin 331 + rules), FILED |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5041,3 +5042,43 @@ features will work and that's it. Go."* Two choices he left to Claude and did no
 and backups leave them alone — diagnostics, not auction state); the unsubscribe note is admin-initiated and does not consult the
 outbid-alert or welcome switches. **Built as admin 330 / staff 170 / `firestore.rules`** — the record is the BUILD-LOG row 330 and
 `HANDOFF.md` 9 Sep V2. **Pushed by him 9 Sep 2026** (`4f71695` auction, `459fc0f` tests, `a7566c9` hub), served twice; RA-2 run by him: 177 / 177 on the current rules, the User Activity generation 11 of 11 red on the old rules. Rules published in the console by him the same day ("pasted").
+
+## §190 — THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING — 9 Sep 2026
+
+His order, opening the session after the ritual report: *"Go with the audit. Ensure this includes a multi-agent review and adversarial
+pass."* The brief it ran under is §189's: *"ensure the auction will work and the features will work and that's it"* — CRITICAL / HIGH
+only. **Read-only under §92 — nothing was built.** The record is `tests/docs/RA-11-2026-09-09.md` (private).
+
+**What ran:** the battery green on both machines on the served bytes (80 suites / 2,728 assertions, exit 0; the rules suite skipped in
+both sandboxes — his RA-2 run of 9 Sep, 177 / 177, is the coverage), isolation 36 / 36, `node --check` clean; five independent review
+lanes (bid path and fairness · the §189 code and e-mail · phase and round lifecycle · auth, rules, spend · admin guards, rehearsal,
+restore); a red-team agent; an independent verifier that re-derived and EXECUTED every surviving candidate. The engine, caps, holds,
+floors, timer, close, results, boundaries, restore and the §189 code held against everything tried.
+
+**Three findings survived, each needing HIS specific decision (build · accept as residual · defer) — the fix shapes are in the report:**
+- **F1 · CRITICAL, insider precondition.** Three admin report windows (Summaries, and the HTML exports of Phase Results and User Summary)
+  print a colleague's bid VALUE unescaped into a same-origin window that keeps its link to the admin page; the rules validate the key,
+  never the value. A registered colleague writing from devtools could make the admin's own report run as the admin. The engine ignores
+  such values (audited before); the display was never audited. Fix: escape three cells, sever the window's opener — a few lines.
+- **F2 · CRITICAL blast radius, insider precondition, admin-recoverable.** No size bound on own-key bid-doc writes; all bids share one
+  document with Firestore's 1 MiB ceiling. One oversized write makes everyone's bids fail with a 4-second "Save failed" and blocks
+  Complete Phase until the admin removes that key. The `changes` log has the same shape (its failure is silent). Fix: one rules line
+  bounding the caller's own map (no extra billed read) — an auction deploy with the console paste and his RA-2 — or a written residual.
+- **F3 · HIGH, no precondition.** The FTE-overage (review threshold) dial never unlocks in the between-phases gap: a second client-side
+  lock refuses whenever any live bid carries the current phase's tag, which is every gap and every Phase-4 round gap. The caption, the
+  rules and §177's own fallback ("complete the phase early, change the setting in the gap") all promise otherwise. Executed in three gap
+  fixtures — refused in all three; editable only before Phase 1. Fix: drop the second lock.
+
+**Below the bar, recorded once in the report and not queued:** outbid-alert volume vs the EmailJS quota is a documented operating
+condition the runbook already covers (estimated 750–1,100 mails in Phase 1 against 2,000 / cycle; the Send Results failure toast does
+not say "quota"); a user told "not registered" who clicks Sign in again with the same account sees nothing until a reload (the runbook
+already says "they reload"); two-tab stale-dialog variants of the M-4 class; the NP-branch bookkeeping write without the timeout
+wrapper; initials containing "." would break field paths (admin input only).
+
+**RULED, the same session (9 Sep 2026):** *"go"* — then, asked which (a general go is not a §92 decision), he chose from written
+options: **build F1 + F3 + F2** — admin 331 (escape the three report cells, sever the report window's opener, drop the dial's second
+lock) AND the rules key-count bound on own-key bid writes (a rules deploy: console paste + his RA-2 run). Selection, not dictation —
+recorded per §37 practice. Not chosen: F1 + F3 only, F3 only, none yet. Standing: §92 satisfied for exactly these three changes; §164
+governs the build (narrow, safe). The record is the BUILD-LOG row 331 and `HANDOFF.md` 9 Sep V3. A correction to
+the project's memory, from lane 1's reading: users CAN cancel a bid on a projected-win week (the rule was removed 12 Jul 2026; the Fair
+Play monitor tracks late cancels).

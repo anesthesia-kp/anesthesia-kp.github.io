@@ -721,58 +721,6 @@ nowhere.*
 
 ---
 
-## 8 Sep 2026 — "Vacation Auction 8 Sep 2026 V1" — §188: THE DOCS PASS, RUN. NOTHING LOST. NOTHING BUILT ON EITHER SITE.
-
-Opened with START-HERE attached (read from disk, md5 `1452e5ec…`); ritual clean: live 329/169/18 and 151/51 fetched twice, all four
-repos clean and in sync (his 22:47/22:48 UTC pushes `b49a18e` / `f078c94`), three `maintenance.lock`s from the fetch moved to
-`_to_delete/`. His *"yes, go"* on the approved plan (`tests/docs/DOCS-PASS-PLAN-2026-09-07.md`, §8 order). **Pre-pass SHAs: hub
-`b49a18e`, tests `f078c94`.** Built in a cloud clone of the hub at `b49a18e` with `tests/docs` staged beside it; shipped to the Mac as
-one zip, unpacked per file, md5-verified.
-
-**What the pass did.** `docs-pass-check.mjs` (the lossless guard — red on a planted deletion, green on the untouched tree, then green
-on the finished pass: 7,376 pre-pass lines, 0 unaccounted for). `archive.mjs` (one section per call, verbatim, into `<file>-ARCHIVE.md`;
-refuses DECISIONS, non-unique headings, protected parts; tested). `status.mjs` gained the DOCS GATES: the MAP on START-HERE's first
-screen generated from each file's line-2 `<!-- answers: … -->` note (24 files; a file with no note fails — the two site-repo
-`BUILD-LOG.md`s were left untouched, a push there being a deploy, so `status.mjs` carries built-in notes for those two), tripwires 350 / 700 / 900
-as a non-zero exit, the DECISIONS index generated from the headings (197 rulings; 114 status words filled by hand, the rest blank),
-the never-re-raise § check, archive sizes in the STATUS block. HANDOFF: 34 dated entries archived after their lessons were promoted
-into a new permanent STANDING TRAPS section (six groups, one line per trap, dated); the maintaining section and checklist step 2
-edited in place for the new destinations and numbers. TODO: 43 sections archived; what remains is the STATUS block, the open queue
-(the rehearsal's O-A…O-D/O-F, his-call items, the three kept owner sections, test gaps), the CLOSED / DECLINED table (32 rows),
-the accepted residuals, the deferred items, and the schedule pile as pointers. START-HERE: the whole pre-pass file moved to
-`START-HERE-ARCHIVE.md` under a search-hint table; the new file is rules + map + lookup paragraph. DECISIONS: an index prefix only;
-the body proven byte-identical (`diff <(git show b49a18e:DECISIONS.md) <(tail -n +210 DECISIONS.md)` empty).
-
-**Sizes (lines, before → after):** START-HERE 676 → 163 (with the map) · TODO 1,677 → 221 · HANDOFF 2,011 → 722 + this entry ·
-DECISIONS 4,794 → 5,003 (index rows only). Archives: HANDOFF-ARCHIVE 1,520 · TODO-ARCHIVE 1,700 · START-HERE-ARCHIVE 816.
-HANDOFF did not reach the plan's ≈500: the never-archived parts (checklist, maintaining, PART A–D, the new traps section) are ~600
-on their own; the 900 tripwire is what is enforced.
-
-**Gates:** `docs-pass-check.mjs` exit 0 · `node status.mjs` exit 0 (cloud, then on his Mac) · DECISIONS body diff empty · every
-governing file under its tripwire · **the retrieval check: 12 / 12 found, 12 / 12 direct** (`tests/docs/DOCS-PASS-CHECK.md`
-records the questions, answers and paths). No auction or schedule byte changed; no battery was due.
-
-**Judgement calls made, recorded rather than asked (he approved the plan in full and said go):** (1) HANDOFF's lessons live in a
-permanent HANDOFF section rather than in START-HERE §3, so START-HERE stays under 350 — the plan's "promote to §3" was read as
-"promote to where rules of that kind live". (2) Every dated HANDOFF entry was archived — after promotion, none carried anything a
-fresh session would act on that is not now in START-HERE, the traps, TODO or the archives. (3) Where a TODO section was trimmed,
-the original was archived whole first, so the guard judges, not I. (4) Status words in the DECISIONS index were filled only where
-the heading or a BUILD-LOG row says so; 83 rows are blank on purpose.
-
-**Left for him:** push the hub (many files — no Summary-box trap) and `tests` (17 files: fifteen line-2 notes, this check record, `COMMIT-MESSAGE.txt`). Nothing to push in the site repos.
-Then `node status.mjs` on the Mac must exit 0 (it will regenerate the map's "last changed" column and the STATUS block; that
-is the churn the design accepts — the same churn `status.mjs` already caused in TODO). Delete the "docs pass FILED" line in
-TODO §1 after the push. `_to_delete/` holds this session's zip, three lock files and the earlier lock folders — his to empty.
-
-**Lessons, dated 8 Sep.** (1) `~` in the cloud container is `/root` — hit again while testing `archive.mjs` from a scratch
-folder; the traps section now says so. (2) A `#`-level dated entry's section runs to the next `#`, so its `##` siblings must be
-archived BEFORE it or they travel with it — `archive.mjs` documents the rule; the order of moves handled it. (3) A line changed in
-place is a line the guard will name: edit, run the guard, and put the original in the archive's "edited in place" block —
-cheaper than deciding by hand which lines changed.
-
-Closing checklist run at the end of this entry: fetch (three public repos), chat reviewed (nothing ruled beyond §188's plan; the
-four judgement calls above), no code touched, files accounted for above, `status.mjs` on the Mac, locks.
-
 ## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V2" — §189: USER ACTIVITY + KP E-MAIL DISABLE, BUILT AS ADMIN 330 / STAFF 170 / RULES. FILED, NOT PUSHED.
 
 Opened with START-HERE attached (read from disk); ritual clean: live 329/169/18 and 151/51 fetched twice, all four repos in sync, the hub's
@@ -843,3 +791,68 @@ outputs column; the cloud clone was at `4508463` when the build was made and is 
 locks, a spent patch script) — his to empty; nothing loose in a repo; `firestore-debug.log` is gitignored where it sits.
 5 · handed over: the next session opens with START-HERE and runs the final audit on 330 / 170 (his brief in TODO §1).
 
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V3" — §190: THE FINAL AUDIT, RA-11. READ-ONLY. THREE FINDINGS AWAIT HIS RULING. NOTHING BUILT.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 330 / 170 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (hub `810fd06`, auction `a7c8f7d`, schedule `0a61585`, tests `459fc0f` judged from disk), three fetch
+`maintenance.lock`s moved to `_to_delete/git-locks/`. TODO's STATUS block was stale (generated before his commits) — noted, regenerated
+at the end of this session. Named V3 because V2 already heads today's earlier entry. Context at open 129k.
+
+**His order:** *"Go with the audit. Ensure this includes a multi-agent review and adversarial pass."* Recorded as §190 the same turn.
+
+**How it ran (the record is `tests/docs/RA-11-2026-09-09.md`, private):** cloud clone at the Mac's HEADs, `tests` tarred minus
+`node_modules` and staged, every served file md5-identical Mac ↔ cloud (staff `f46bd976…`, admin `92e4eed0…`, rules `2999a64b…`).
+Gates read directly: battery **80 suites / 2,728 assertions, exit 0, cloud AND Mac** (79 executed, `test-rules-emulator` skipped in both
+sandboxes — his RA-2 of today, 177 / 177, is the coverage; auction honesty baseline left absent on purpose, regression gate on unchanged
+bytes); isolation 36 / 36 both machines; `node --check` clean on 4 + 4 + 1 inline scripts. Then five independent review lanes from one
+written brief (CRITICAL / HIGH only, cite the line you read, grep DECISIONS and the battery before calling anything a defect, a clean
+lane is a valid result), a red-team agent that attacked the seams and executed extracted functions, and an independent verifier that
+re-derived every surviving candidate from its own reads and executed the real functions in fixtures. Claude re-read the F1 sinks itself.
+Agent spend ≈ 1.6 M tokens across the seven agents.
+
+**Verdict:** the engine, caps, holds, floors, timer, close, results, phase and round boundaries, restore, auth, rules containment, spend
+and the §189 code held against everything tried. Three findings survived the verifier — **F1** CRITICAL (insider precondition: three
+admin report windows render a colleague's raw bid value unescaped into a same-origin window with a live opener; rules check the key,
+never the value), **F2** CRITICAL blast radius (insider precondition, admin-recoverable: no size bound on own-key bid-doc writes, one
+shared 1 MiB document), **F3** HIGH (no precondition: the FTE-overage dial never unlocks in any real between-phases gap — a second
+client lock, older than the build-268 gap unlock; executed in three gap fixtures, refused in all three). Each needs his specific
+decision under §92; the fix shapes are in the report; nothing was built. The red team's mail-quota HIGH was demoted by the verifier to
+a documented operating condition (runbook 25–41; est. 750–1,100 mails in Phase 1 vs 2,000 / cycle). Below-the-bar items are listed
+once in the report §3 and NOT queued.
+
+**Paperwork this session:** `tests/docs/RA-11-2026-09-09.md` (new, with its line-2 answers note); RA-10's note no longer says "THE
+CURRENT AUDIT"; DECISIONS §190 + index row; TODO §1 (the audit outcome and the three items awaiting his ruling, one line each);
+this entry; `node status.mjs` re-run on the Mac. Two repos change — the hub and `tests` — neither a one-file commit. Delivered the three
+ways: `COMMIT-MESSAGES.txt` in the outputs column, `<repo>/COMMIT-MESSAGE.txt` on disk, and the zip unpacked with `unzip -p`,
+md5-verified per file. Memory correction from lane 1: users CAN cancel a bid on a projected-win week (rule removed 12 Jul 2026).
+
+**Lessons, dated 9 Sep V3.** (1) The engines were audited for forged VALUES; the DISPLAYS never were — "the engine ignores it" is not
+"the page ignores it". (2) A rules residual written for one dimension (value) said nothing about another (size); when a residual is
+accepted, name what it does NOT cover. (3) Two gates AND-ed on one control, written at different times, can each be right and together be
+always-false — execute the control in the state it promises, not just its parts. (4) An independent verifier that must EXECUTE the
+claim killed one HIGH and hardened two CRITICALs — the second skeptic is worth its tokens.
+
+**His ruling, same session:** *"go"* — asked which (a general go is not a §92 decision), he chose **F1 + F3 + F2** from written options
+(§190). **BUILT as admin 331 + `firestore.rules`, honesty baseline `4f71695`.** Exploration first: every bid doc's per-user value is a
+map (`{[user]:{[wk]:v}}`, `bidLowerings` `{used:n}`), `emailToUser` maps an address to a one-element list (collisions excluded), so a
+key-count bound on `myInitials()[0]` is safe for every client shape. The edits, anchored and counted: three `${esc(b.bid)}` cells
+(3980 / 7834 / 7935), `w.opener=null` after both `window.open` (7685 / 8168), `syncControls` and `_confirmSaveReviewThreshold` on
+`cfgUnlockedNow()` alone with the status line and caption kept true, `var BUILD` 331 + `versions.json`, rules `ownMapBounded()` on the
+bid-doc branch (60 keys; non-map own value left alone; no new document access).
+**Gates, read directly:** `test-331-report-escape-threshold.mjs` 27 / 27 (executes the real builders, `openReportTab`, and the
+threshold handler in five fixtures); honesty on `4f71695` **15 RED, exit 1**; `test-330`'s VERSIONS pin re-anchored (≥ and agrees
+with `var BUILD` — what was ASSERTED moved, not what is true; its own honesty block untouched); `rules-emu/assertions.mjs` gains the
+"Bid map bound (9 Sep, RA-11 F2)" generation — 10 assertions, 3 gates, **RA-2 is his run**; cloud battery **81 / 2,755 exit 0**
+(emulator suite skipped, as always here); isolation 36 / 36; `node --check` clean; sweep **361 · 13 · 294 · 13 clicks, 159 dialogs,
+139 confirms, 0 errors**; adversarial fresh-agent review of the diff: no findings (it re-checked `esc` hoisting, legitimate labels
+unchanged, opener semantics, the gap freeze, every rules construct against forms already live in the file, every staff write shape,
+the emulator seeds and gate polarity). **Mac, after the unpack (all 17 md5s identical): battery 81 / 2,755 exit 0; honesty on `4f71695` 15 red, exit 1; isolation 36 / 36; `status.mjs` exit 0 with the FILED line.**
+**Delivered the three ways:** `COMMIT-MESSAGES.txt` (three repos; none a one-file commit), `firestore-rules.txt` (⚙️ caption,
+md5 = repo), `build-331-files.zip` → `_to_delete/xfer/`, unpacked per file with `unzip -p`, every md5 identical to the cloud.
+BUILD-LOG row 331 (*pending*); §190 ruling and status; TODO §1; START-HERE FILED line. This entry took HANDOFF over its 900-line
+tripwire, so the 8 Sep V1 entry (the docs pass — its facts are §188, the plan doc and the retrieval check) was moved verbatim to
+`HANDOFF-ARCHIVE.md` with `archive.mjs`; `status.mjs` exit 0.
+
+**Left for him (any order):** push `vacation-kp.github.io`, `tests`, the hub; paste the rules and Publish; run RA-2 (the new
+generation green on the live rules, 3 gates red on the old). Then verify 331 twice, retire the FILED line, give the BUILD-LOG row its
+SHA. Empty `_to_delete/` when convenient (this session: the tests tarball, two zips, three locks).
