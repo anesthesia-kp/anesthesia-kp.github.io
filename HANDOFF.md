@@ -830,6 +830,9 @@ the Summary box); both docs-only; `tests` clean. Commit messages in the outputs 
 is not a base for anything. 4a · rubbish — `_to_delete/` holds 17 MB / 22 files (he emptied part of it during the day; this session added the
 tests tarball, three build zips, patches, locks) — his to empty. 5 · handed over below. **After the hand-over he ruled *"fix slide 14"*** — the deck caption corrected (one line, rendered), filed to
 `tests/docs/` (md5 `0871d56e…`), recorded in §193; `tests` now has ONE uncommitted file (a ONE-file commit — clear the Summary box). Context at close ≈ 505k.
+**Pushed by him** (auction, tests, hub — all docs / the deck). His last question: *"we did a lot here. is any audit indicated?"* Claude's reading: not a full
+audit (prose and display only, engine untouched, invariance-proven, sweep clean) but a fresh-eyes diff review of `1a4e269 → 7862742`, because
+none of the day's three diffs had a second reader. His choice: *"for a new session"* — queued as TODO §1's first item. Nothing else open.
 
 **Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
 rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
