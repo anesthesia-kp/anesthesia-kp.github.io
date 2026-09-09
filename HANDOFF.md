@@ -721,76 +721,6 @@ nowhere.*
 
 ---
 
-## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V2" — §189: USER ACTIVITY + KP E-MAIL DISABLE, BUILT AS ADMIN 330 / STAFF 170 / RULES. FILED, NOT PUSHED.
-
-Opened with START-HERE attached (read from disk); ritual clean: live 329/169/18 and 151/51 fetched twice, all four repos in sync, the hub's
-two dirty files were `status.mjs`'s own post-push regeneration, three `maintenance.lock`s moved to `_to_delete/locks-2026-09-08-V2/`.
-Context at open 134k. **Baseline SHA for this build: `b0ed735` (admin 329 / staff 169 / rules).**
-
-**His ask, explored before anything was promised (§0 rule 1):** more data for the admin — last login with date, time and phase; active
-bids now; "clean and easy to read"; suggestions. The exploration found the premise half wrong: the site recorded NO login time
-(`welcomeLog` is a yes/no per address, marked only when a welcome sends) and NO per-user e-mail outcome (`mailStats` counts a month;
-a queue entry dies on send). Offered A / B / C; he chose C and ruled the scope (§189): last login · "no bids this phase" (his name for
-silent users) · last e-mail and whether it sent · a KP e-mail Disable with an unsubscribe note naming the Google address. Declined:
-numbers remaining, an activity strip, time since last activity. Then the plan, then *"Go."*
-
-**Built (cloud clone at `4508463`, tests staged from the Mac, md5-verified both ways):** staff `_recordLogin` at the end of
-`completeSignIn` (after the board, never awaited, never throws) into `vacations/loginLog`; `_mailLogNote` on both pages beside every
-`emailjs.send` — the failure branch notes and RETHROWS so every existing catch (strike count, queue retention, welcome log not marked)
-is unchanged; the admin's User Activity page (`_activityRows` on the real `isCurrentPhaseBidAdmin`, `renderUserActivity`,
-`clearActivityLogs`); `adminDisableEmail` → `__skip__` written FIRST, then `sendUnsubscribeNote` to the old KP address; Reset Auction
-clears both logs; rules: both docs admin-read (`isAdminReadDoc`), loginLog own-key write, mailLog ≤1-row write, both out of the
-catch-all, `dailysched` byte-identical. No ordering dependency between push and console paste — under the old rules the writes pass
-via the catch-all and the admin read is public; the paste is the tightening.
-
-**Gates, all run and read directly (no pipes):** `test-330-user-activity.mjs` 120 / 120, honesty on `b0ed735` 32 RED exit 1 (cloud AND
-Mac); `test-high-fixes.mjs` re-anchored — its executed `completeSignIn` sandbox lacked the new collaborator (ReferenceError, legible),
-fixed by adding `_recordLogin` to the fake world PLUS a stricter line (record after the board) that fails on 169 (`REPO_ROOT=/tmp/gh169`
-proved it) and passes on 170; `rules-emu/assertions.mjs` gains the generation "User Activity logs (9 Sep)" — 28 assertions, 11 gates
-that must fail on the old rules — **RA-2 is his run** (the jar is 403 from the cloud, checked again); battery **80 suites / 2,728
-assertions exit 0** in the cloud and on the Mac, no skips (auction baseline left absent on purpose: the older honesty blocks are a
-regression gate); isolation 36 / 36; every inline script `node --check` clean; Playwright sweep in the cloud **admin/cancel 361 ·
-staff/cancel 13 · admin/confirm 294 · staff/confirm 13 clicks, 159 dialogs, 139 confirms, 0 errors** — Disable and Clear records
-driven cancel + confirm, the sort buttons clicked; the lone staff/confirm `unlocated=1` is the known default-seed artifact (STANDING
-TRAPS). **Adversarial fresh-agent review of the diff** (brief: what breaks the auction or the feature, nothing smaller): no confirmed
-findings; nine areas checked sound; one observation — if a sign-in completes before the first `phases` snapshot, the record says
-"before Phase 1" rather than "—" (one mislabeled row at worst; the sign-in screen already shows the phase by then).
-
-**Delivered the three ways:** `COMMIT-MESSAGES.txt` (three repos, none a one-file commit), `firestore-rules.txt` (⚙️ caption, md5
-`2999a64b…` = repo), `build-330-files.zip` → `_to_delete/xfer/`, unpacked per file with `unzip -p`, all ten md5s identical to the cloud.
-BUILD-LOG row 330; §189 body extended with his go and the two judgement calls; TODO §1 box; START-HERE FILED line; `status.mjs` exit 0.
-
-**Left for him (any order):** push `vacation-kp.github.io`, `tests`, the hub; paste the rules and Publish; run RA-2 (the new
-generation must be green on the live rules). Then verify 330/170 twice and retire the FILED line. He said he will end this session
-after this and have **a fresh session do the final audit** — his brief is in TODO §1's box. Rehearsal-era rows on User Activity:
-🧹 Clear records, or Reset Auction. `_to_delete/` holds the zip, the tests tar and the lock folder — his to empty.
-
-**Lessons, dated 9 Sep.** (1) "Data that's already available" was a premise, not a fact — the two things he most wanted were the two
-the site never recorded; §0 rule 1 earned its keep before a line was written. (2) The extracted-code sandboxes are a fixture of
-collaborators: adding a call inside a function other suites EXECUTE (`completeSignIn`) breaks them with a legible ReferenceError —
-re-anchor stricter, prove the new line fails on the old build. (3) `grep exit=$?` after a pipe reports grep — rule 11, hit again on
-the first honesty run; the second run read the exit directly.
-
-**Pushed (same session):** auction `4f71695`, tests `459fc0f`, hub `a7566c9`; 330 / 170 / 18 served, fetched twice with different
-cache-busters. **RA-2, his run:** 177 / 177 on the current rules; honesty against the old rules (`28bae0c` baseline) 19 red — Feed 4 / 4,
-Bid holds 4 / 4, User Activity logs 11 / 11 — "BOTH: the current rules pass, and the old rules fail the new gates." **The 330 rules are
-PUBLISHED in the console (his word, 9 Sep: "pasted")** — loginLog and mailLog are admin-read and contained-write on the live project. START-HERE's LIVE line
-is 330 / 170 and the FILED line retired; BUILD-LOG row 330 carries the SHA and the RA-2 numbers; §189 marked LIVE. Three fetch locks moved
-to `_to_delete/locks-2026-09-09-V2-push/`. **Next auction honesty baseline: `4f71695` (admin 330 / staff 170).**
-
-**Closing checklist, run at his word ("run closing", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`, tests
-judged from disk (in sync). 1 · chat reviewed — every ruling of the day is in §189 (scope, name, go, the two judgement calls, "pushed",
-"pasted"); nothing raised and unrecorded. 2 · state files true — START-HERE LIVE 330 / 170, no FILED line, LAST REVISED 9 Sep; BUILD-LOG
-row 330 with SHA + RA-2; TODO §1 carries only the one-line state and the next-session brief (the FILED box removed the turn the row
-gained its SHA); `node status.mjs` exit 0, every governing file under its tripwire. 3 · code proven — the numbers above are from the
-runs, honesty by explicit SHA `b0ed735` (32 red, exit 1 on both machines), 80 suites ran / 0 skipped on both machines, isolation 36 / 36,
-`node --check` clean, sweep 0 errors, RA-2 177 / 177 by him. 4 · files — uncommitted on disk: `vacation-kp.github.io/BUILD-LOG.md`
-(the SHA + RA-2 row edit) and the hub's DECISIONS / HANDOFF / START-HERE / TODO — all docs, their two commit messages are in the
-outputs column; the cloud clone was at `4508463` when the build was made and is not a base for anything now. 4a · rubbish —
-`_to_delete/` holds 13 MB / 27 files (this session's zip, the 11 MB tests tarball, the docs-pass zip, six lock folders, three loose
-locks, a spent patch script) — his to empty; nothing loose in a repo; `firestore-debug.log` is gitignored where it sits.
-5 · handed over: the next session opens with START-HERE and runs the final audit on 330 / 170 (his brief in TODO §1).
-
 ## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V3" — §190: THE FINAL AUDIT, RA-11. READ-ONLY. THREE FINDINGS AWAIT HIS RULING. NOTHING BUILT.
 
 Opened with START-HERE attached (read from disk); ritual clean: live 330 / 170 / 18 and 151 / 51 fetched twice with different cache-busters,
@@ -876,3 +806,56 @@ the outputs column; the cloud clone is BEHIND origin since his pushes and is not
 holds 24 MB / 43 files (this session: the tests tarball, three zips, nine locks; earlier: the 330 zip, the docs-pass zip, a spent patch
 script) — his to empty; nothing loose in a repo; `Claude outputs/`, `COMMIT-MESSAGE.txt` and `firestore-debug.log` are gitignored where
 they sit. 5 · handed over: 331 / 170 / rules live; nothing queued on the auction; §92 and §164 stand; the schedule parked.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V4" — 331 VERIFIED END TO END (SERVED BYTES, CONSOLE RULES, LIVE SMOKE, APP CHECK); §191 THE RETURNED-BID SENTENCE, BUILT AS ADMIN 332 / STAFF 171. FILED, NOT PUSHED.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 331 / 170 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (hub `cc710af`, auction `ca923a2`, schedule `0a61585`, tests `b95a2bb` judged from disk); no locks before
+the fetch, three `maintenance.lock`s after it, moved to `_to_delete/`. Context at open 118k.
+
+**His question: "is there a useful check or confirmation for the recent build we did?"** Claude's reading: 331's repo bytes were proven every
+way (tests, honesty, battery, sweep, review, his RA-2) but two inches between the repo and the world were not — the SERVED page vs the repo
+(only `versions.json` had been fetched after the push) and the PUBLISHED rules vs the repo (RA-2 proves the file on disk, not what the
+console holds). He chose all three offered checks, all read-only, run in his Chrome:
+- **Served = repo:** `admin/index.html` (960,087 B) and `index.html` (287,081 B) fetched from origin (`x-cache: MISS`) hash SHA-256-identical
+  to the disk copies at `1a4e269`; `mobile.html` and `versions.json` too. Method: `fetch` + `crypto.subtle` in a same-origin tab.
+- **Console rules = repo:** the newest release in Firebase → Firestore → Rules (Today 10:15 AM, starred, no draft pending) read out of the
+  CodeMirror model: 673 lines, 48,035 B + the trailing newline the editor drops = 48,036 B, SHA-256 identical to `firestore.rules`.
+  `ownMapBounded` present. Note for next time: the Chrome extension redacts hex strings in tool output — return the digest as a byte array.
+- **Live admin smoke:** he completed the Google popup; page runs BUILD 331, zero console errors across a full reload; the FTE-overage dial
+  reads editable at 0.4 with "Phase 1 has not begun" (F3 as promised for the current state); Bids-by-Week report opened as a document —
+  table rendered, `opener === null` (F1 live). No writes: the admin site logs no admin sign-ins (only the staff site writes `loginLog`).
+- **App Check (he took the screenshots):** Cloud Firestore **Enforced**, 100 % valid / 0 % invalid; Authentication Monitoring (by the
+  standing rule — never Auth), 93 / 7; the web app registered with reCAPTCHA v3; the key's Domains list = `anesthesia-kp.github.io` only,
+  "Verify the origin" checked; Owners shows the single-owner triangle (explained, not acted on).
+Struck by him: item 2 (e-mail end-to-end — his own live test is in the record) and the billing-alert half of item 3 (§171(3) "his and
+handled" — Claude re-raised it and should not have). His "anything else?" twice: no.
+
+**§191 — owner-found while reading the staff rules:** *"the bids are actually not returned until next phase starts."* Confirmed in code:
+retirement is the Begin Phase batch (§71 boundary scrub) / Start Round — never Complete or Send Results; the sentence in the staff box, the
+staff welcome e-mail and the admin's copy said "when the phase (or Phase 4 round) completes". His ideal (return at Send Results) pushed
+back as a fairness-area engine change days from go-live; bidding is closed in the gap anyway, so the defect is what a user sees between
+results and the next Begin. Options A (text) / B (text + gap hint) / C (keep the gap short) — **"Go with A"**, then his sentence verbatim:
+*"Bids that do not win are returned to you when the next phase begins."* (his choice over the longer draft with the round and capacity
+qualifiers). Deck checked at his ask: never carried the wrong sentence (slide 9 "subsequent phases", slide 34 "for the next phase") — no
+change; adding the bullet to slide 33 for parity is his call. His question on the User Bids key chip "withheld AND on a bid" answered
+from RA-10/§183: reachable only via restore, a stale tab, or a hand edit — never the UI's own paths.
+
+**BUILT as admin 332 / staff 171** (edits made on the Mac with count-asserted `python3`, mirrored in the cloud clone, md5 identical both
+ways): the sentence in three places, `var BUILD` 171 / 332, `versions.json`. `tests/test-332-returned-wording.mjs` (new): 19 / 19, executes
+the REAL `buildWelcomeEmailBody` on both pages, plus the INVARIANCE that baseline box and baseline executed welcome bodies equal the current
+ones once the one sentence is substituted; honesty on `1a4e269` **11 red, exit 1** (Mac and cloud). `test-166` / `test-319` S2 pins
+re-anchored (the target moved, not the truth) — both still red on their own baselines (165: 11 red; 318/165: 55 red). Battery **82 / 2,774
+exit 0** on BOTH machines; isolation 36 / 36 both; `node --check` 4 + 4 clean; sweep **361 · 13 · 294 · 13 clicks, 159 dialogs, 139
+confirms, 0 errors** (the standing staff/confirm `unlocated=1`, unchanged since 323/167). No adversarial agent review — three sentence
+substitutions and two build bumps, invariance-proven; said so in the BUILD-LOG row. `firestore.rules` untouched: no console paste, no RA-2.
+
+**Paperwork this session:** DECISIONS §191 (+ index row, status FILED); BUILD-LOG row 332 (*pending*); TODO §1 FILED line; START-HERE FILED
+line (LAST REVISED already 9 Sep); this entry, which took HANDOFF over its 900-line tripwire, so the 9 Sep V2 entry (its facts:
+§189, BUILD-LOG row 330, the V3 entry) was moved verbatim to `HANDOFF-ARCHIVE.md` with `archive.mjs`; `node status.mjs` exit 0. Three repos change — auction (4 files), tests (3 files), hub (4 files) — none a one-file
+commit. Delivered the three ways. **Next auction honesty baseline after his push: the 332/171 SHA; until then `1a4e269`.**
+
+**Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
+rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
+claim about the engine — the display audit of RA-11 (lesson 1 there) applies to PROSE too; the owner found it by reading his own site.
+

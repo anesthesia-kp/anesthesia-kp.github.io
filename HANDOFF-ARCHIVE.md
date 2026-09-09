@@ -1575,3 +1575,76 @@ cheaper than deciding by hand which lines changed.
 
 Closing checklist run at the end of this entry: fetch (three public repos), chat reviewed (nothing ruled beyond §188's plan; the
 four judgement calls above), no code touched, files accounted for above, `status.mjs` on the Mac, locks.
+
+---
+## ⤵ moved 9 Sep 2026 from HANDOFF.md — 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V2" — §189: USER ACTIVITY + KP E-MAIL DISABLE, BUILT AS ADMIN 330 / STAFF 170 / RULES. FILED, NOT PUSHED.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V2" — §189: USER ACTIVITY + KP E-MAIL DISABLE, BUILT AS ADMIN 330 / STAFF 170 / RULES. FILED, NOT PUSHED.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 329/169/18 and 151/51 fetched twice, all four repos in sync, the hub's
+two dirty files were `status.mjs`'s own post-push regeneration, three `maintenance.lock`s moved to `_to_delete/locks-2026-09-08-V2/`.
+Context at open 134k. **Baseline SHA for this build: `b0ed735` (admin 329 / staff 169 / rules).**
+
+**His ask, explored before anything was promised (§0 rule 1):** more data for the admin — last login with date, time and phase; active
+bids now; "clean and easy to read"; suggestions. The exploration found the premise half wrong: the site recorded NO login time
+(`welcomeLog` is a yes/no per address, marked only when a welcome sends) and NO per-user e-mail outcome (`mailStats` counts a month;
+a queue entry dies on send). Offered A / B / C; he chose C and ruled the scope (§189): last login · "no bids this phase" (his name for
+silent users) · last e-mail and whether it sent · a KP e-mail Disable with an unsubscribe note naming the Google address. Declined:
+numbers remaining, an activity strip, time since last activity. Then the plan, then *"Go."*
+
+**Built (cloud clone at `4508463`, tests staged from the Mac, md5-verified both ways):** staff `_recordLogin` at the end of
+`completeSignIn` (after the board, never awaited, never throws) into `vacations/loginLog`; `_mailLogNote` on both pages beside every
+`emailjs.send` — the failure branch notes and RETHROWS so every existing catch (strike count, queue retention, welcome log not marked)
+is unchanged; the admin's User Activity page (`_activityRows` on the real `isCurrentPhaseBidAdmin`, `renderUserActivity`,
+`clearActivityLogs`); `adminDisableEmail` → `__skip__` written FIRST, then `sendUnsubscribeNote` to the old KP address; Reset Auction
+clears both logs; rules: both docs admin-read (`isAdminReadDoc`), loginLog own-key write, mailLog ≤1-row write, both out of the
+catch-all, `dailysched` byte-identical. No ordering dependency between push and console paste — under the old rules the writes pass
+via the catch-all and the admin read is public; the paste is the tightening.
+
+**Gates, all run and read directly (no pipes):** `test-330-user-activity.mjs` 120 / 120, honesty on `b0ed735` 32 RED exit 1 (cloud AND
+Mac); `test-high-fixes.mjs` re-anchored — its executed `completeSignIn` sandbox lacked the new collaborator (ReferenceError, legible),
+fixed by adding `_recordLogin` to the fake world PLUS a stricter line (record after the board) that fails on 169 (`REPO_ROOT=/tmp/gh169`
+proved it) and passes on 170; `rules-emu/assertions.mjs` gains the generation "User Activity logs (9 Sep)" — 28 assertions, 11 gates
+that must fail on the old rules — **RA-2 is his run** (the jar is 403 from the cloud, checked again); battery **80 suites / 2,728
+assertions exit 0** in the cloud and on the Mac, no skips (auction baseline left absent on purpose: the older honesty blocks are a
+regression gate); isolation 36 / 36; every inline script `node --check` clean; Playwright sweep in the cloud **admin/cancel 361 ·
+staff/cancel 13 · admin/confirm 294 · staff/confirm 13 clicks, 159 dialogs, 139 confirms, 0 errors** — Disable and Clear records
+driven cancel + confirm, the sort buttons clicked; the lone staff/confirm `unlocated=1` is the known default-seed artifact (STANDING
+TRAPS). **Adversarial fresh-agent review of the diff** (brief: what breaks the auction or the feature, nothing smaller): no confirmed
+findings; nine areas checked sound; one observation — if a sign-in completes before the first `phases` snapshot, the record says
+"before Phase 1" rather than "—" (one mislabeled row at worst; the sign-in screen already shows the phase by then).
+
+**Delivered the three ways:** `COMMIT-MESSAGES.txt` (three repos, none a one-file commit), `firestore-rules.txt` (⚙️ caption, md5
+`2999a64b…` = repo), `build-330-files.zip` → `_to_delete/xfer/`, unpacked per file with `unzip -p`, all ten md5s identical to the cloud.
+BUILD-LOG row 330; §189 body extended with his go and the two judgement calls; TODO §1 box; START-HERE FILED line; `status.mjs` exit 0.
+
+**Left for him (any order):** push `vacation-kp.github.io`, `tests`, the hub; paste the rules and Publish; run RA-2 (the new
+generation must be green on the live rules). Then verify 330/170 twice and retire the FILED line. He said he will end this session
+after this and have **a fresh session do the final audit** — his brief is in TODO §1's box. Rehearsal-era rows on User Activity:
+🧹 Clear records, or Reset Auction. `_to_delete/` holds the zip, the tests tar and the lock folder — his to empty.
+
+**Lessons, dated 9 Sep.** (1) "Data that's already available" was a premise, not a fact — the two things he most wanted were the two
+the site never recorded; §0 rule 1 earned its keep before a line was written. (2) The extracted-code sandboxes are a fixture of
+collaborators: adding a call inside a function other suites EXECUTE (`completeSignIn`) breaks them with a legible ReferenceError —
+re-anchor stricter, prove the new line fails on the old build. (3) `grep exit=$?` after a pipe reports grep — rule 11, hit again on
+the first honesty run; the second run read the exit directly.
+
+**Pushed (same session):** auction `4f71695`, tests `459fc0f`, hub `a7566c9`; 330 / 170 / 18 served, fetched twice with different
+cache-busters. **RA-2, his run:** 177 / 177 on the current rules; honesty against the old rules (`28bae0c` baseline) 19 red — Feed 4 / 4,
+Bid holds 4 / 4, User Activity logs 11 / 11 — "BOTH: the current rules pass, and the old rules fail the new gates." **The 330 rules are
+PUBLISHED in the console (his word, 9 Sep: "pasted")** — loginLog and mailLog are admin-read and contained-write on the live project. START-HERE's LIVE line
+is 330 / 170 and the FILED line retired; BUILD-LOG row 330 carries the SHA and the RA-2 numbers; §189 marked LIVE. Three fetch locks moved
+to `_to_delete/locks-2026-09-09-V2-push/`. **Next auction honesty baseline: `4f71695` (admin 330 / staff 170).**
+
+**Closing checklist, run at his word ("run closing", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`, tests
+judged from disk (in sync). 1 · chat reviewed — every ruling of the day is in §189 (scope, name, go, the two judgement calls, "pushed",
+"pasted"); nothing raised and unrecorded. 2 · state files true — START-HERE LIVE 330 / 170, no FILED line, LAST REVISED 9 Sep; BUILD-LOG
+row 330 with SHA + RA-2; TODO §1 carries only the one-line state and the next-session brief (the FILED box removed the turn the row
+gained its SHA); `node status.mjs` exit 0, every governing file under its tripwire. 3 · code proven — the numbers above are from the
+runs, honesty by explicit SHA `b0ed735` (32 red, exit 1 on both machines), 80 suites ran / 0 skipped on both machines, isolation 36 / 36,
+`node --check` clean, sweep 0 errors, RA-2 177 / 177 by him. 4 · files — uncommitted on disk: `vacation-kp.github.io/BUILD-LOG.md`
+(the SHA + RA-2 row edit) and the hub's DECISIONS / HANDOFF / START-HERE / TODO — all docs, their two commit messages are in the
+outputs column; the cloud clone was at `4508463` when the build was made and is not a base for anything now. 4a · rubbish —
+`_to_delete/` holds 13 MB / 27 files (this session's zip, the 11 MB tests tarball, the docs-pass zip, six lock folders, three loose
+locks, a spent patch script) — his to empty; nothing loose in a repo; `firestore-debug.log` is gitignored where it sits.
+5 · handed over: the next session opens with START-HERE and runs the final audit on 330 / 170 (his brief in TODO §1).

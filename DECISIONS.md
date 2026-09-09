@@ -205,6 +205,7 @@
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
 | §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
 | §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | LIVE (331 / 170, `1a4e269`, 9 Sep 2026); rules published, RA-2 186 / 186 |
+| §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5084,3 +5085,27 @@ the project's memory, from lane 1's reading: users CAN cancel a bid on a project
 Play monitor tracks late cancels).
 
 **DECLINED, at closing (9 Sep 2026):** Claude offered to empty `_to_delete/` at every closing via the per-session deletion prompt on his Mac. His answer: *"no, don't need that."* The folder stays his to empty; the 🧹 line in TODO's STATUS block keeps reporting it, and Claude does not raise it again.
+
+## §191 — THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) — 9 Sep 2026
+
+**Owner-found, 9 Sep 2026 (V4):** *"I just checked and the bids are actually not returned until next phase starts."* Confirmed in
+code: non-winning entries retire in the Begin Phase batch (admin `_commitBeginPhase`, the §71 boundary scrub, build 295) and at
+Start Round in Phase 4 — never at Complete Phase or Send Results. The staff rules panel, the staff welcome e-mail and the admin's
+copy of that e-mail all say *"returned to you when the phase (or Phase 4 round) completes"*; the admin denial dialog already says
+"next phase". Bidding is closed for everyone between Complete and Begin, so the number could not be used earlier either way — the
+defect is what a user who has just read their results sees during the gap.
+
+**His stated ideal:** *"Ideally, bid would be returned at the same time the results of each phase are visible to the user, which is
+triggered when e-mail results are sent."* Claude pushed back for now: moving the retirement out of the atomic Begin batch, on both
+the phase and the round path, is a fairness-area engine change days from go-live (§164) — a post-auction change if wanted.
+
+**Options put to him:** A — fix the sentence in its three places (text only, the two pinned tests re-anchored); B — A plus a
+staff-page gap hint (display logic, needs real tests); C — no code: keep the Send-Results-to-Begin gap short as a habit.
+
+**RULED:** *"Go with A."* §92 satisfied for exactly this wording change (staff rules panel + staff welcome e-mail + admin welcome
+e-mail copy). Welcome e-mails already sent carry the old sentence; only e-mails sent after the build change. **His sentence, verbatim
+(9 Sep 2026):** *"Bids that do not win are returned to you when the next phase begins."* — chosen over Claude's longer draft (which
+added "or next Phase 4 round" and "if it still has slots open"); in Phase 4 the return happens at the next round, which the site
+labels as a phase ("Phase 4: Round 2"). The walkthrough deck (`tests/docs/VacationAuctionWalkthrough.pptx`) was checked: it never
+carried the wrong sentence (slide 9 "subsequent phases", slide 34 "for the next phase") — nothing to correct there; adding the new
+bullet to slide 33 for parity is his call, not done. **BUILT as admin 332 / staff 171 the same session (9 Sep V4)** — BUILD-LOG row 332 carries the gates; `tests/test-332-returned-wording.mjs`; honesty baseline `1a4e269`. Status: FILED, awaiting his push.
