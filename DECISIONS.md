@@ -203,7 +203,7 @@
 | §186 | 7 Sep 2026 (evening) | THE FINAL CHROME REHEARSAL BEFORE GO-LIVE: FOUR PHASES, THREE ROUNDS, ZERO E-MAILS | DONE |
 | §187 | 7 Sep 2026 (late evening) | THE REHEARSAL'S SIX NOTES RULED: O-E IS A BUILD (ADMIN 329), THE REST WAIT FOR A QUIET DAY | LIVE (329); O-A…O-F LATER |
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
-| §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | BUILT (9 Sep 2026) — admin 330 / staff 170 / rules, awaiting push |
+| §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5040,4 +5040,4 @@ These audits are not meant to look for small details that don't really matter. I
 features will work and that's it. Go."* Two choices he left to Claude and did not overrule: Reset Auction clears both records (Restore
 and backups leave them alone — diagnostics, not auction state); the unsubscribe note is admin-initiated and does not consult the
 outbid-alert or welcome switches. **Built as admin 330 / staff 170 / `firestore.rules`** — the record is the BUILD-LOG row 330 and
-`HANDOFF.md` 9 Sep V2. Not pushed at the time of writing.
+`HANDOFF.md` 9 Sep V2. **Pushed by him 9 Sep 2026** (`4f71695` auction, `459fc0f` tests, `a7566c9` hub), served twice; RA-2 run by him: 177 / 177 on the current rules, the User Activity generation 11 of 11 red on the old rules. Rules published in the console by him the same day ("pasted").

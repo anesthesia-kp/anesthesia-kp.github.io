@@ -823,5 +823,23 @@ collaborators: adding a call inside a function other suites EXECUTE (`completeSi
 re-anchor stricter, prove the new line fails on the old build. (3) `grep exit=$?` after a pipe reports grep — rule 11, hit again on
 the first honesty run; the second run read the exit directly.
 
-Closing checklist to run at his word: fetch, chat reviewed (§189 carries every ruling and both judgement calls), locks, `status.mjs`.
+**Pushed (same session):** auction `4f71695`, tests `459fc0f`, hub `a7566c9`; 330 / 170 / 18 served, fetched twice with different
+cache-busters. **RA-2, his run:** 177 / 177 on the current rules; honesty against the old rules (`28bae0c` baseline) 19 red — Feed 4 / 4,
+Bid holds 4 / 4, User Activity logs 11 / 11 — "BOTH: the current rules pass, and the old rules fail the new gates." **The 330 rules are
+PUBLISHED in the console (his word, 9 Sep: "pasted")** — loginLog and mailLog are admin-read and contained-write on the live project. START-HERE's LIVE line
+is 330 / 170 and the FILED line retired; BUILD-LOG row 330 carries the SHA and the RA-2 numbers; §189 marked LIVE. Three fetch locks moved
+to `_to_delete/locks-2026-09-09-V2-push/`. **Next auction honesty baseline: `4f71695` (admin 330 / staff 170).**
+
+**Closing checklist, run at his word ("run closing", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`, tests
+judged from disk (in sync). 1 · chat reviewed — every ruling of the day is in §189 (scope, name, go, the two judgement calls, "pushed",
+"pasted"); nothing raised and unrecorded. 2 · state files true — START-HERE LIVE 330 / 170, no FILED line, LAST REVISED 9 Sep; BUILD-LOG
+row 330 with SHA + RA-2; TODO §1 carries only the one-line state and the next-session brief (the FILED box removed the turn the row
+gained its SHA); `node status.mjs` exit 0, every governing file under its tripwire. 3 · code proven — the numbers above are from the
+runs, honesty by explicit SHA `b0ed735` (32 red, exit 1 on both machines), 80 suites ran / 0 skipped on both machines, isolation 36 / 36,
+`node --check` clean, sweep 0 errors, RA-2 177 / 177 by him. 4 · files — uncommitted on disk: `vacation-kp.github.io/BUILD-LOG.md`
+(the SHA + RA-2 row edit) and the hub's DECISIONS / HANDOFF / START-HERE / TODO — all docs, their two commit messages are in the
+outputs column; the cloud clone was at `4508463` when the build was made and is not a base for anything now. 4a · rubbish —
+`_to_delete/` holds 13 MB / 27 files (this session's zip, the 11 MB tests tarball, the docs-pass zip, six lock folders, three loose
+locks, a spent patch script) — his to empty; nothing loose in a repo; `firestore-debug.log` is gitignored where it sits.
+5 · handed over: the next session opens with START-HERE and runs the final audit on 330 / 170 (his brief in TODO §1).
 
