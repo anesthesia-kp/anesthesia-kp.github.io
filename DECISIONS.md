@@ -205,7 +205,8 @@
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
 | §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | LIVE (330 / 170, `4f71695`, 9 Sep 2026); rules RA-2 177 / 177 |
 | §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | LIVE (331 / 170, `1a4e269`, 9 Sep 2026); rules published, RA-2 186 / 186 |
-| §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) |  |
+| §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) | LIVE (332 / 171, `c0a5978`, 9 Sep 2026) |
+| §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5108,4 +5109,48 @@ e-mail copy). Welcome e-mails already sent carry the old sentence; only e-mails 
 added "or next Phase 4 round" and "if it still has slots open"); in Phase 4 the return happens at the next round, which the site
 labels as a phase ("Phase 4: Round 2"). The walkthrough deck (`tests/docs/VacationAuctionWalkthrough.pptx`) was checked: it never
 carried the wrong sentence (slide 9 "subsequent phases", slide 34 "for the next phase") — nothing to correct there; adding the new
-bullet to slide 33 for parity is his call, not done. **BUILT as admin 332 / staff 171 the same session (9 Sep V4)** — BUILD-LOG row 332 carries the gates; `tests/test-332-returned-wording.mjs`; honesty baseline `1a4e269`. Status: FILED, awaiting his push.
+bullet to slide 33 for parity is his call, not done. **BUILT as admin 332 / staff 171 the same session (9 Sep V4)** — BUILD-LOG row 332 carries the gates; `tests/test-332-returned-wording.mjs`; honesty baseline `1a4e269`. **Pushed by him the same session** (`c0a5978` auction, `3344017` tests, `8148e84` hub); 332 / 171 served twice. Status: LIVE.
+
+## §192 — THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL — 9 Sep 2026
+
+**His request, verbatim (9 Sep 2026, V4, after 332 / 171 went live):** *"I need the vacation capacity by week report to better display what
+weeks have capacity left and which do not. I want the red/green in available to just be regular text without color coding. I want the W1,
+W2 ... labels to be green when the capacity remaining is within the smart lock control range. does that make sense?"* And: *"does the avail
+cap by week report show anything different depending on which phase is selected?"* — answered from code: NO; the report is deliberately
+cumulative (build 271 · B4: approved winners across every completed phase + announced rounds + current-phase approvals), the phase dropdown
+does not reach it (its buttons pass no phase argument; the card comment says so).
+
+**Exploration (read, not recalled):** the report's rows come from `_capacityWeekRows` — `avail = capacity − approved winners`, pending and
+projected bids excluded by design (`test-capacity-float` pins that the row code never touches `computeApprovals`). Smart Lock itself
+compares `weekLedger(wk).remainingFte` (capacity − committed, which INCLUDES the live phase's projected winners) with `getSlc(wk)` (per-week
+control, default 0.4). Between phases the two "remaining" figures are equal; mid-phase the report's is larger. So the green label must be
+defined against the report's own Available (the number printed beside it), not against Smart Lock's live figure — otherwise a label and its
+row would disagree mid-phase and the test's design rule would be broken.
+
+**RULED:** *"Go with what you say, except: Week label red when not available with legend for it. excel gets same."* Asked which weeks are
+red: **"Below Smart Lock Control"** — two states only. So: Available column plain text (no colour, no bold) in the report and in Excel;
+week label GREEN when the row's Available ≥ that week's Smart Lock Control (`getSlc`), RED when below it — the report's own Available,
+never Smart Lock's live figure (see above); a legend in the header band naming both colours; Excel identical. Rows, Taken, Available
+arithmetic, winners column, PDF path untouched. §92 satisfied for exactly this change. **BUILT as admin 333 the same session** — BUILD-LOG row 333 carries the gates; `tests/test-333-capacity-colors.mjs`; honesty baseline `c0a5978`. Status: FILED, awaiting his push.
+
+## §193 — RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS — 9 Sep 2026
+
+**His ask, verbatim (9 Sep 2026, V4):** *"Can you also confirm that rules/reminders are in the most logical order? I think that some rules
+were added randomly and this has led to an imperfect order. Rules should be grouped so that any rule that builds on a previous rule comes
+after it and rules that share topics are adjacent to each other."* Read as a whole (staff box, both welcome e-mails, the deck): the list was
+in the order the rules were added. Out of place: the two strategy tips split ("Enter your bids early" 2nd, "Consider starting with lower
+bids" 14th); "Sniping is not possible" 3rd, far from the timer rules that make it true; the ATO sentence among the tips instead of beside
+the running cap. Gap found: the page never says what the numbers ARE — "stronger" and "5 or better" had nothing to refer to (only the
+deck's slide 9 says 1–10 plus NP, 1 strongest).
+
+**Proposed order (no rewording, moves only), five groups:** what this is (bids · 4 phases · Phase 1 high-demand only) → how many weeks
+(running cap · ATO) → your bid numbers (NEW numbers sentence · each number once · losers return next phase · combined bid · NP phases —
+the cap stays "above" NP so its wording holds) → changing a bid (priorities/lowering · floors) → strategy and conduct (start lower ·
+enter early · sniping · late cancels tracked), then Timer Rules and Understanding Outcomes unchanged. Test-166/319's S1→S2 adjacency pin
+still holds (each-number-once directly above losers-return).
+
+**RULED:** *"short one. Go with re-ordering plus the add."* The added sentence, verbatim as offered and chosen: *"You hold bid numbers 1
+to 10, plus NP — 1 is the strongest bid and NP the weakest"* (the longer variant with combined-bid ranking declined). §92 satisfied for
+exactly: the re-order + this one added bullet, in the staff Rules & Reminders box, the staff welcome e-mail and the admin's copy. The deck
+(slides 33–34) not touched — his to say. Built as staff 172 / admin 334; honesty baseline the last PUSHED build `c0a5978` (333 is filed,
+not pushed, so it has no fixture — said so). Status: BUILDING.

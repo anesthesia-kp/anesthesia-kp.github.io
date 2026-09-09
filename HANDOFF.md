@@ -853,7 +853,22 @@ substitutions and two build bumps, invariance-proven; said so in the BUILD-LOG r
 **Paperwork this session:** DECISIONS §191 (+ index row, status FILED); BUILD-LOG row 332 (*pending*); TODO §1 FILED line; START-HERE FILED
 line (LAST REVISED already 9 Sep); this entry, which took HANDOFF over its 900-line tripwire, so the 9 Sep V2 entry (its facts:
 §189, BUILD-LOG row 330, the V3 entry) was moved verbatim to `HANDOFF-ARCHIVE.md` with `archive.mjs`; `node status.mjs` exit 0. Three repos change — auction (4 files), tests (3 files), hub (4 files) — none a one-file
-commit. Delivered the three ways. **Next auction honesty baseline after his push: the 332/171 SHA; until then `1a4e269`.**
+commit. Delivered the three ways. **Pushed by him the same session:** auction `c0a5978`, tests `3344017`, hub `8148e84`; 332 / 171 / 18 served, fetched twice with different
+cache-busters; the pushed page bytes md5-match the built ones. Two fetch locks moved to `_to_delete/`. START-HERE LIVE line 332 / 171, FILED line retired;
+BUILD-LOG row 332 carries the SHA; §191 LIVE. **Next auction honesty baseline: `c0a5978` (admin 332 / staff 171).**
+
+**§192 — the capacity-by-week report, his request after 332 went live:** Available as plain text; week labels green when the row's own
+Available ≥ that week's Smart Lock Control, red when below (asked: "below Smart Lock Control", two states); legend; Excel the same. His side
+question — does the phase dropdown change this report? — answered NO from code (271: cumulative by design). The one decision surfaced and
+ruled: the colour is judged on the report's OWN Available (approved winners only), not Smart Lock's live remaining (which counts projected
+bids mid-phase) — otherwise label and number could disagree. **BUILT as admin 333** (`CAPACITY_LEGEND_TEXT`, `_capacityWeekOpen`, `availCell`
+plain, `wkCell` coloured with a hover title, xlsx `wkStyle` + legend row, `_capacityWeekRows` untouched). Gates: `test-333-capacity-colors`
+30 / 30, honesty on `c0a5978` 19 red exit 1 (both machines); `test-capacity-float` harness given the builder's new inputs (45 / 45);
+`test-332`'s whole-page length pin scoped to 332 / 171 after it went red on 333 (r16, within the hour — the box / welcome-body invariances
+stay unconditional); battery 83 / 2,805 exit 0 Mac and cloud; isolation 36 / 36; `node --check` clean; sweep 361 · 13 · 294 · 13, 159
+dialogs, 139 confirms, 0 errors (xlsx=3 — the capacity export ran in the confirm pass). Mac ↔ cloud md5 identical. FILED, not pushed.
+His next ask, received while the gates ran: check that the Rules & Reminders are in a logical order (rules that build on another come
+after it; shared topics adjacent) — a read-and-propose, no build without his go.
 
 **Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
 rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
