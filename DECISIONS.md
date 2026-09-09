@@ -203,6 +203,7 @@
 | §186 | 7 Sep 2026 (evening) | THE FINAL CHROME REHEARSAL BEFORE GO-LIVE: FOUR PHASES, THREE ROUNDS, ZERO E-MAILS | DONE |
 | §187 | 7 Sep 2026 (late evening) | THE REHEARSAL'S SIX NOTES RULED: O-E IS A BUILD (ADMIN 329), THE REST WAIT FOR A QUIET DAY | LIVE (329); O-A…O-F LATER |
 | §188 | 7 Sep 2026 (evening) | THE DOCS PASS: LEANER GOVERNING FILES, A COMPLETE SELF-UPDATING MAP, NOTHING LOST | BUILT (8 Sep 2026) |
+| §189 | 9 Sep 2026 | AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE | BUILT (9 Sep 2026) — admin 330 / staff 170 / rules, awaiting push |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5001,3 +5002,42 @@ part of every session."*
 6. Superseded by this ruling: the 700-line START-HERE tripwire and the 2,000-line TODO/HANDOFF triggers (HANDOFF §"maintaining",
    START-HERE §3 table) — edited in place during the pass, not duplicated. The §101 "not by age" test itself is unchanged and governs
    every move.
+
+## §189 — AN ADMIN "USER ACTIVITY" PAGE (LAST LOGIN, ACTIVE BIDS, NO BIDS THIS PHASE, LAST E-MAIL) AND A KP E-MAIL "DISABLE" WITH AN UNSUBSCRIBE NOTE — 9 Sep 2026
+
+He opened it: *"I'm interested in having more data available for the admin site… This would all go under the People category, beneath
+user bids. I want to see last login for each user to the site with a date, time, and phase of the login. I also want to see if the user
+has active bids at that moment. I want it clean and easy to read. The idea is to have extra information visible to admin to track
+progress."* Claude's exploration (9 Sep): the site records NO login timestamp and NO per-user e-mail outcome — `welcomeLog` is a
+yes/no per address, `mailStats` a monthly counter — so "last login" and "last e-mail" both need a NEW write from the staff site and a
+rules clause; active bids, last bid time/phase, welcome and whitelist state are readable today. Offered A (read-only page), B (login
+tracking as its own build), C (both). **He chose C** and ruled the scope:
+
+**RULED:**
+1. **Build last login for the admin** — date, time and the phase (Phase 4: the round) of the login, recorded by the staff site at sign-in.
+2. **"No bids this phase"** — Claude's "silent users" idea is IN, under that name: registered users with no live bid in the current
+   phase (current round in Phase 4).
+3. **Last e-mail alert sent, and whether it succeeded** — IN.
+4. **DECLINED for this page:** bid numbers remaining (*"already have that"* — User Bids); the per-phase activity strip; time since last
+   activity site-wide. Do not re-propose.
+5. **KP e-mail "Disable" per user (Users page):** today a user who answers "No thanks" to the KP-e-mail prompt is stored as `__skip__`
+   (shown as "none"), is never prompted again and gets no KP-address e-mails. He wants the admin to be able to do the same for a user who
+   entered an address and later changes their mind: *"a disable button for each user that then changes to none. It would essentially
+   clear the e-mail and then disable the prompt for them at the same time."*
+6. **The unsubscribe note:** *"In a truly ideal world, the user would then receive an e-mail to that address stating that they are
+   unsubscribed from e-mail alerts for the vacation auction. The e-mail should also state that the user will continue to receive
+   notifications to their gmail address on record and state the e-mail address."*
+
+Standing: §92 satisfied for exactly these six items; §164 governs the build (narrow, safe). The plan is output and work stops until his go.
+
+**The plan, and his go (9 Sep 2026, same session).** The plan named two facts the exploration found — no per-user e-mail record exists either
+(`mailStats` is a monthly counter, a queue entry dies when it sends), and e-mails go out from BOTH sites (whichever signed-in page
+relays), so the e-mail record must be written by the staff site too; and that the rules already let any registered user write any
+unlisted document and anyone read it, so the two new documents needed a rules clause to be admin-read and contained-write. Page name
+"User Activity" — *"User acitivity is perfect."* **His go:** *"Ensure you do all checks and audits to ensure nothing else is broken
+during this build. Once this is built and reviewed and audited, I will end this session and have a new session do a final audit.
+These audits are not meant to look for small details that don't really matter. I am looking to ensure the auction will work and the
+features will work and that's it. Go."* Two choices he left to Claude and did not overrule: Reset Auction clears both records (Restore
+and backups leave them alone — diagnostics, not auction state); the unsubscribe note is admin-initiated and does not consult the
+outbid-alert or welcome switches. **Built as admin 330 / staff 170 / `firestore.rules`** — the record is the BUILD-LOG row 330 and
+`HANDOFF.md` 9 Sep V2. Not pushed at the time of writing.
