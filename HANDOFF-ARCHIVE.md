@@ -1648,3 +1648,92 @@ outputs column; the cloud clone was at `4508463` when the build was made and is 
 `_to_delete/` holds 13 MB / 27 files (this session's zip, the 11 MB tests tarball, the docs-pass zip, six lock folders, three loose
 locks, a spent patch script) — his to empty; nothing loose in a repo; `firestore-debug.log` is gitignored where it sits.
 5 · handed over: the next session opens with START-HERE and runs the final audit on 330 / 170 (his brief in TODO §1).
+
+---
+## ⤵ moved 9 Sep 2026 from HANDOFF.md — 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V3" — §190: THE FINAL AUDIT, RA-11. READ-ONLY. THREE FINDINGS AWAIT HIS RULING. NOTHING BUILT.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V3" — §190: THE FINAL AUDIT, RA-11. READ-ONLY. THREE FINDINGS AWAIT HIS RULING. NOTHING BUILT.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 330 / 170 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (hub `810fd06`, auction `a7c8f7d`, schedule `0a61585`, tests `459fc0f` judged from disk), three fetch
+`maintenance.lock`s moved to `_to_delete/git-locks/`. TODO's STATUS block was stale (generated before his commits) — noted, regenerated
+at the end of this session. Named V3 because V2 already heads today's earlier entry. Context at open 129k.
+
+**His order:** *"Go with the audit. Ensure this includes a multi-agent review and adversarial pass."* Recorded as §190 the same turn.
+
+**How it ran (the record is `tests/docs/RA-11-2026-09-09.md`, private):** cloud clone at the Mac's HEADs, `tests` tarred minus
+`node_modules` and staged, every served file md5-identical Mac ↔ cloud (staff `f46bd976…`, admin `92e4eed0…`, rules `2999a64b…`).
+Gates read directly: battery **80 suites / 2,728 assertions, exit 0, cloud AND Mac** (79 executed, `test-rules-emulator` skipped in both
+sandboxes — his RA-2 of today, 177 / 177, is the coverage; auction honesty baseline left absent on purpose, regression gate on unchanged
+bytes); isolation 36 / 36 both machines; `node --check` clean on 4 + 4 + 1 inline scripts. Then five independent review lanes from one
+written brief (CRITICAL / HIGH only, cite the line you read, grep DECISIONS and the battery before calling anything a defect, a clean
+lane is a valid result), a red-team agent that attacked the seams and executed extracted functions, and an independent verifier that
+re-derived every surviving candidate from its own reads and executed the real functions in fixtures. Claude re-read the F1 sinks itself.
+Agent spend ≈ 1.6 M tokens across the seven agents.
+
+**Verdict:** the engine, caps, holds, floors, timer, close, results, phase and round boundaries, restore, auth, rules containment, spend
+and the §189 code held against everything tried. Three findings survived the verifier — **F1** CRITICAL (insider precondition: three
+admin report windows render a colleague's raw bid value unescaped into a same-origin window with a live opener; rules check the key,
+never the value), **F2** CRITICAL blast radius (insider precondition, admin-recoverable: no size bound on own-key bid-doc writes, one
+shared 1 MiB document), **F3** HIGH (no precondition: the FTE-overage dial never unlocks in any real between-phases gap — a second
+client lock, older than the build-268 gap unlock; executed in three gap fixtures, refused in all three). Each needs his specific
+decision under §92; the fix shapes are in the report; nothing was built. The red team's mail-quota HIGH was demoted by the verifier to
+a documented operating condition (runbook 25–41; est. 750–1,100 mails in Phase 1 vs 2,000 / cycle). Below-the-bar items are listed
+once in the report §3 and NOT queued.
+
+**Paperwork this session:** `tests/docs/RA-11-2026-09-09.md` (new, with its line-2 answers note); RA-10's note no longer says "THE
+CURRENT AUDIT"; DECISIONS §190 + index row; TODO §1 (the audit outcome and the three items awaiting his ruling, one line each);
+this entry; `node status.mjs` re-run on the Mac. Two repos change — the hub and `tests` — neither a one-file commit. Delivered the three
+ways: `COMMIT-MESSAGES.txt` in the outputs column, `<repo>/COMMIT-MESSAGE.txt` on disk, and the zip unpacked with `unzip -p`,
+md5-verified per file. Memory correction from lane 1: users CAN cancel a bid on a projected-win week (rule removed 12 Jul 2026).
+
+**Lessons, dated 9 Sep V3.** (1) The engines were audited for forged VALUES; the DISPLAYS never were — "the engine ignores it" is not
+"the page ignores it". (2) A rules residual written for one dimension (value) said nothing about another (size); when a residual is
+accepted, name what it does NOT cover. (3) Two gates AND-ed on one control, written at different times, can each be right and together be
+always-false — execute the control in the state it promises, not just its parts. (4) An independent verifier that must EXECUTE the
+claim killed one HIGH and hardened two CRITICALs — the second skeptic is worth its tokens.
+
+**His ruling, same session:** *"go"* — asked which (a general go is not a §92 decision), he chose **F1 + F3 + F2** from written options
+(§190). **BUILT as admin 331 + `firestore.rules`, honesty baseline `4f71695`.** Exploration first: every bid doc's per-user value is a
+map (`{[user]:{[wk]:v}}`, `bidLowerings` `{used:n}`), `emailToUser` maps an address to a one-element list (collisions excluded), so a
+key-count bound on `myInitials()[0]` is safe for every client shape. The edits, anchored and counted: three `${esc(b.bid)}` cells
+(3980 / 7834 / 7935), `w.opener=null` after both `window.open` (7685 / 8168), `syncControls` and `_confirmSaveReviewThreshold` on
+`cfgUnlockedNow()` alone with the status line and caption kept true, `var BUILD` 331 + `versions.json`, rules `ownMapBounded()` on the
+bid-doc branch (60 keys; non-map own value left alone; no new document access).
+**Gates, read directly:** `test-331-report-escape-threshold.mjs` 27 / 27 (executes the real builders, `openReportTab`, and the
+threshold handler in five fixtures); honesty on `4f71695` **15 RED, exit 1**; `test-330`'s VERSIONS pin re-anchored (≥ and agrees
+with `var BUILD` — what was ASSERTED moved, not what is true; its own honesty block untouched); `rules-emu/assertions.mjs` gains the
+"Bid map bound (9 Sep, RA-11 F2)" generation — 10 assertions, 3 gates, **RA-2 is his run**; cloud battery **81 / 2,755 exit 0**
+(emulator suite skipped, as always here); isolation 36 / 36; `node --check` clean; sweep **361 · 13 · 294 · 13 clicks, 159 dialogs,
+139 confirms, 0 errors**; adversarial fresh-agent review of the diff: no findings (it re-checked `esc` hoisting, legitimate labels
+unchanged, opener semantics, the gap freeze, every rules construct against forms already live in the file, every staff write shape,
+the emulator seeds and gate polarity). **Mac, after the unpack (all 17 md5s identical): battery 81 / 2,755 exit 0; honesty on `4f71695` 15 red, exit 1; isolation 36 / 36; `status.mjs` exit 0 with the FILED line.**
+**Delivered the three ways:** `COMMIT-MESSAGES.txt` (three repos; none a one-file commit), `firestore-rules.txt` (⚙️ caption,
+md5 = repo), `build-331-files.zip` → `_to_delete/xfer/`, unpacked per file with `unzip -p`, every md5 identical to the cloud.
+BUILD-LOG row 331 (*pending*); §190 ruling and status; TODO §1; START-HERE FILED line. This entry took HANDOFF over its 900-line
+tripwire, so the 8 Sep V1 entry (the docs pass — its facts are §188, the plan doc and the retrieval check) was moved verbatim to
+`HANDOFF-ARCHIVE.md` with `archive.mjs`; `status.mjs` exit 0.
+
+**Pushed (same session):** auction `1a4e269`, tests `aa78be8`, hub `7781288`; 331 / 170 / 18 served, fetched twice with different
+cache-busters. **Rules published in the console (his word: "updated rules"). RA-2, his run:** 186 / 186 on the current rules; honesty
+against the old rules (`28bae0c` baseline) 22 red — Feed 4 / 4, Bid holds 4 / 4, User Activity 11 / 11, **Bid map bound 3 / 3** —
+"BOTH: the current rules pass, and the old rules fail the new gates." START-HERE's LIVE line is 331 / 170 and the FILED line retired;
+BUILD-LOG row 331 carries the SHA and the RA-2 numbers; §190 marked LIVE. Three fetch locks moved to `_to_delete/git-locks/`.
+**Next auction honesty baseline: `1a4e269` (admin 331 / staff 170).**
+
+**Closing checklist, run at his word ("run closing", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`,
+tests judged from disk (in sync); nine fetch locks moved over the day to `_to_delete/git-locks/`. 1 · chat reviewed — his order, his
+choice from options, "pushed", "updated rules" and the RA-2 numbers are in §190 (grepped on disk); the memory correction (cancel on a
+projected-win week IS allowed) is in §190 and RA-11 §5; the lessons are above; the below-the-bar items are RA-11 §3 by his brief and
+are NOT queued; the brief the lanes ran from is filed as `tests/docs/RA-11-BRIEF-2026-09-09.md` (it existed only in the cloud).
+2 · state files true — START-HERE LIVE 331 / 170, no FILED line, LAST REVISED 9 Sep; BUILD-LOG row 331 with SHA + RA-2; TODO §1
+carries the one-line state; `node status.mjs` exit 0, every governing file under its tripwire (HANDOFF 878 / 900 after the 8 Sep
+V1 entry was archived). 3 · code proven — the numbers above are from the runs: battery 81 suites / 2,755 assertions exit 0 on BOTH
+machines (80 executed, 1 skipped — the emulator suite, covered by his RA-2 186 / 186), honesty by explicit SHA `4f71695` 15 red exit 1
+on both, isolation 36 / 36 both, `node --check` clean, sweep 0 errors (cloud), adversarial review of the diff no findings. 4 · files —
+uncommitted on disk: `vacation-kp.github.io/BUILD-LOG.md` (the SHA + RA-2 row edit, a ONE-file commit), the hub's DECISIONS /
+HANDOFF / START-HERE / TODO, and `tests/docs/RA-11-BRIEF-2026-09-09.md` (new, a ONE-file commit) — all docs, three commit messages in
+the outputs column; the cloud clone is BEHIND origin since his pushes and is not a base for anything. 4a · rubbish — `_to_delete/`
+holds 24 MB / 43 files (this session: the tests tarball, three zips, nine locks; earlier: the 330 zip, the docs-pass zip, a spent patch
+script) — his to empty; nothing loose in a repo; `Claude outputs/`, `COMMIT-MESSAGE.txt` and `firestore-debug.log` are gitignored where
+they sit. 5 · handed over: 331 / 170 / rules live; nothing queued on the auction; §92 and §164 stand; the schedule parked.

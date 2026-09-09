@@ -207,7 +207,7 @@
 | §190 | 9 Sep 2026 | THE FINAL AUDIT — RA-11: MULTI-AGENT REVIEW AND ADVERSARIAL PASS ON THE LIVE 330 / 170; THREE FINDINGS AWAIT HIS RULING | LIVE (331 / 170, `1a4e269`, 9 Sep 2026); rules published, RA-2 186 / 186 |
 | §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) | LIVE (332 / 171, `c0a5978`, 9 Sep 2026) |
 | §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL | LIVE (333 / 171, `a4d7fcc`, 9 Sep 2026) |
-| §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS |  |
+| §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS | LIVE (334 / 172, `7862742`, 9 Sep 2026) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5139,7 +5139,7 @@ definitions coloured in their own colours (the word "green =…" green, "red =�
 there, one per colour — a sheet cell holds one font colour). Then: *"Also color code date and available with same coloring"* — the Date
 cell and the Available cell take the SAME green / red as the week label (the Smart Lock rule, not the sign of the number); this replaces
 the morning's "Available as plain text" by his own later word. Type, Capacity, Taken stay plain. Excel the same. Rides admin 334 with §193.
-Status of this addendum: BUILT in 334 (test-333 re-anchored), FILED with it.
+Status of this addendum: LIVE in 334.
 
 ## §193 — RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS — 9 Sep 2026
 
@@ -5161,4 +5161,10 @@ still holds (each-number-once directly above losers-return).
 to 10, plus NP — 1 is the strongest bid and NP the weakest"* (the longer variant with combined-bid ranking declined). §92 satisfied for
 exactly: the re-order + this one added bullet, in the staff Rules & Reminders box, the staff welcome e-mail and the admin's copy. The deck
 (slides 33–34) not touched — his to say. Built as staff 172 / admin 334; honesty baseline the last PUSHED build `c0a5978` (333 is filed,
-not pushed at the time). He pushed 333 (`a4d7fcc`) while this was being built — the honesty baseline is therefore `a4d7fcc` (admin 333 / staff 171). **BUILT as staff 172 / admin 334 the same session**, with the deck's slides 33–34 brought to the same order (his ask: *"can you also update ppt with all the updates that have made changes to it? I will be re-sending when we start"*). BUILD-LOG row 334; `tests/test-334-rules-order.mjs`. Status: FILED, awaiting his push.
+not pushed at the time). He pushed 333 (`a4d7fcc`) while this was being built — the honesty baseline is therefore `a4d7fcc` (admin 333 / staff 171). **BUILT as staff 172 / admin 334 the same session**, with the deck's slides 33–34 brought to the same order (his ask: *"can you also update ppt with all the updates that have made changes to it? I will be re-sending when we start"*). BUILD-LOG row 334; `tests/test-334-rules-order.mjs`. **Pushed by him the same session** (`7862742` auction, `329e868` tests, `d085519` hub); 334 / 172 served twice. Status: LIVE.
+
+**Deck check, same session (his order *"run the deck, then close"*):** all 35 slides against the live 334 / 172 pages and the live
+configuration — one finding, slide 14's My Bid Count caption ("Red: already used on a week you are winning" — the red chips are every
+number on ANY current bid plus prior-phase wins). **RULED: *"fix slide 14"*** — caption now *"Green: numbers you can still spend. Red:
+numbers on one of your bids, or won in an earlier phase. Top right: bid lowerings you have left this phase."* Only slide 14 changed
+(canonical-XML check); rendered and checked. Filed in `tests/docs/`; the same file is in the outputs column for re-sending.
