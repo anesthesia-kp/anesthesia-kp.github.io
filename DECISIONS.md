@@ -208,6 +208,7 @@
 | §191 | 9 Sep 2026 | THE "RETURNED WHEN THE PHASE COMPLETES" RULE SENTENCE IS WRONG: NUMBERS RETURN AT THE NEXT BEGIN — FIX THE WORDING ONLY (OPTION A) | LIVE (332 / 171, `c0a5978`, 9 Sep 2026) |
 | §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL | LIVE (333 / 171, `a4d7fcc`, 9 Sep 2026) |
 | §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS | LIVE (334 / 172, `7862742`, 9 Sep 2026) |
+| §194 | 9 Sep 2026 | AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE | BUILT (admin 335, filed 9 Sep 2026, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5168,3 +5169,17 @@ configuration — one finding, slide 14's My Bid Count caption ("Red: already us
 number on ANY current bid plus prior-phase wins). **RULED: *"fix slide 14"*** — caption now *"Green: numbers you can still spend. Red:
 numbers on one of your bids, or won in an earlier phase. Top right: bid lowerings you have left this phase."* Only slide 14 changed
 (canonical-XML check); rendered and checked. Filed in `tests/docs/`; the same file is in the outputs column for re-sending.
+
+## §194 — AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE — 9 Sep 2026
+
+**His ask (9 Sep 2026, V5):** *"is it a small build to add a section to admin beneath change log that shows capacity left each week in the
+main page instead of as a report? I could see it being useful for admin to be able to interact with those items more with sort features
+like sort by available, not available, all. It's more or less the report but built into the site?"* Sized from the code: `_capacityWeekRows()`
+(333, round-aware) already builds every row; the page is one sidebar entry under Change Log, one panel, one render function — read-only,
+no write path, no rules change, User-Activity-shaped. A narrow §164 build, but a served-bytes admin deploy. Claude asked which "not
+available" he meant (the report's below-Smart-Lock-Control red, or Available ≤ 0) and whether "sort" meant a re-ordering.
+
+**RULED:** *"keep report's definition. weeks should always go in order from beginning of year to end of year, but admin should be able to
+choose from all, avail, not avail. go. ask any questions you have."* So: the report's rule (green = Available at or above the week's Smart
+Lock Control, red = below it), weeks always chronological, a filter (all / available / not available) and no sort, the report's colour
+coding, clean. §92 satisfied for exactly this page. Built as admin 335; honesty baseline the last pushed build `7862742` (admin 334).
