@@ -1737,3 +1737,123 @@ the outputs column; the cloud clone is BEHIND origin since his pushes and is not
 holds 24 MB / 43 files (this session: the tests tarball, three zips, nine locks; earlier: the 330 zip, the docs-pass zip, a spent patch
 script) — his to empty; nothing loose in a repo; `Claude outputs/`, `COMMIT-MESSAGE.txt` and `firestore-debug.log` are gitignored where
 they sit. 5 · handed over: 331 / 170 / rules live; nothing queued on the auction; §92 and §164 stand; the schedule parked.
+
+---
+## ⤵ moved 9 Sep 2026 from HANDOFF.md — 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V4" — 331 VERIFIED END TO END (SERVED BYTES, CONSOLE RULES, LIVE SMOKE, APP CHECK); §191 THE RETURNED-BID SENTENCE, BUILT AS ADMIN 332 / STAFF 171. FILED, NOT PUSHED.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V4" — 331 VERIFIED END TO END (SERVED BYTES, CONSOLE RULES, LIVE SMOKE, APP CHECK); §191 THE RETURNED-BID SENTENCE, BUILT AS ADMIN 332 / STAFF 171. FILED, NOT PUSHED.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 331 / 170 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (hub `cc710af`, auction `ca923a2`, schedule `0a61585`, tests `b95a2bb` judged from disk); no locks before
+the fetch, three `maintenance.lock`s after it, moved to `_to_delete/`. Context at open 118k.
+
+**His question: "is there a useful check or confirmation for the recent build we did?"** Claude's reading: 331's repo bytes were proven every
+way (tests, honesty, battery, sweep, review, his RA-2) but two inches between the repo and the world were not — the SERVED page vs the repo
+(only `versions.json` had been fetched after the push) and the PUBLISHED rules vs the repo (RA-2 proves the file on disk, not what the
+console holds). He chose all three offered checks, all read-only, run in his Chrome:
+- **Served = repo:** `admin/index.html` (960,087 B) and `index.html` (287,081 B) fetched from origin (`x-cache: MISS`) hash SHA-256-identical
+  to the disk copies at `1a4e269`; `mobile.html` and `versions.json` too. Method: `fetch` + `crypto.subtle` in a same-origin tab.
+- **Console rules = repo:** the newest release in Firebase → Firestore → Rules (Today 10:15 AM, starred, no draft pending) read out of the
+  CodeMirror model: 673 lines, 48,035 B + the trailing newline the editor drops = 48,036 B, SHA-256 identical to `firestore.rules`.
+  `ownMapBounded` present. Note for next time: the Chrome extension redacts hex strings in tool output — return the digest as a byte array.
+- **Live admin smoke:** he completed the Google popup; page runs BUILD 331, zero console errors across a full reload; the FTE-overage dial
+  reads editable at 0.4 with "Phase 1 has not begun" (F3 as promised for the current state); Bids-by-Week report opened as a document —
+  table rendered, `opener === null` (F1 live). No writes: the admin site logs no admin sign-ins (only the staff site writes `loginLog`).
+- **App Check (he took the screenshots):** Cloud Firestore **Enforced**, 100 % valid / 0 % invalid; Authentication Monitoring (by the
+  standing rule — never Auth), 93 / 7; the web app registered with reCAPTCHA v3; the key's Domains list = `anesthesia-kp.github.io` only,
+  "Verify the origin" checked; Owners shows the single-owner triangle (explained, not acted on).
+Struck by him: item 2 (e-mail end-to-end — his own live test is in the record) and the billing-alert half of item 3 (§171(3) "his and
+handled" — Claude re-raised it and should not have). His "anything else?" twice: no.
+
+**§191 — owner-found while reading the staff rules:** *"the bids are actually not returned until next phase starts."* Confirmed in code:
+retirement is the Begin Phase batch (§71 boundary scrub) / Start Round — never Complete or Send Results; the sentence in the staff box, the
+staff welcome e-mail and the admin's copy said "when the phase (or Phase 4 round) completes". His ideal (return at Send Results) pushed
+back as a fairness-area engine change days from go-live; bidding is closed in the gap anyway, so the defect is what a user sees between
+results and the next Begin. Options A (text) / B (text + gap hint) / C (keep the gap short) — **"Go with A"**, then his sentence verbatim:
+*"Bids that do not win are returned to you when the next phase begins."* (his choice over the longer draft with the round and capacity
+qualifiers). Deck checked at his ask: never carried the wrong sentence (slide 9 "subsequent phases", slide 34 "for the next phase") — no
+change; adding the bullet to slide 33 for parity is his call. His question on the User Bids key chip "withheld AND on a bid" answered
+from RA-10/§183: reachable only via restore, a stale tab, or a hand edit — never the UI's own paths.
+
+**BUILT as admin 332 / staff 171** (edits made on the Mac with count-asserted `python3`, mirrored in the cloud clone, md5 identical both
+ways): the sentence in three places, `var BUILD` 171 / 332, `versions.json`. `tests/test-332-returned-wording.mjs` (new): 19 / 19, executes
+the REAL `buildWelcomeEmailBody` on both pages, plus the INVARIANCE that baseline box and baseline executed welcome bodies equal the current
+ones once the one sentence is substituted; honesty on `1a4e269` **11 red, exit 1** (Mac and cloud). `test-166` / `test-319` S2 pins
+re-anchored (the target moved, not the truth) — both still red on their own baselines (165: 11 red; 318/165: 55 red). Battery **82 / 2,774
+exit 0** on BOTH machines; isolation 36 / 36 both; `node --check` 4 + 4 clean; sweep **361 · 13 · 294 · 13 clicks, 159 dialogs, 139
+confirms, 0 errors** (the standing staff/confirm `unlocated=1`, unchanged since 323/167). No adversarial agent review — three sentence
+substitutions and two build bumps, invariance-proven; said so in the BUILD-LOG row. `firestore.rules` untouched: no console paste, no RA-2.
+
+**Paperwork this session:** DECISIONS §191 (+ index row, status FILED); BUILD-LOG row 332 (*pending*); TODO §1 FILED line; START-HERE FILED
+line (LAST REVISED already 9 Sep); this entry, which took HANDOFF over its 900-line tripwire, so the 9 Sep V2 entry (its facts:
+§189, BUILD-LOG row 330, the V3 entry) was moved verbatim to `HANDOFF-ARCHIVE.md` with `archive.mjs`; `node status.mjs` exit 0. Three repos change — auction (4 files), tests (3 files), hub (4 files) — none a one-file
+commit. Delivered the three ways. **Pushed by him the same session:** auction `c0a5978`, tests `3344017`, hub `8148e84`; 332 / 171 / 18 served, fetched twice with different
+cache-busters; the pushed page bytes md5-match the built ones. Two fetch locks moved to `_to_delete/`. START-HERE LIVE line 332 / 171, FILED line retired;
+BUILD-LOG row 332 carries the SHA; §191 LIVE. **Next auction honesty baseline: `c0a5978` (admin 332 / staff 171).**
+
+**§192 — the capacity-by-week report, his request after 332 went live:** Available as plain text; week labels green when the row's own
+Available ≥ that week's Smart Lock Control, red when below (asked: "below Smart Lock Control", two states); legend; Excel the same. His side
+question — does the phase dropdown change this report? — answered NO from code (271: cumulative by design). The one decision surfaced and
+ruled: the colour is judged on the report's OWN Available (approved winners only), not Smart Lock's live remaining (which counts projected
+bids mid-phase) — otherwise label and number could disagree. **BUILT as admin 333** (`CAPACITY_LEGEND_TEXT`, `_capacityWeekOpen`, `availCell`
+plain, `wkCell` coloured with a hover title, xlsx `wkStyle` + legend row, `_capacityWeekRows` untouched). Gates: `test-333-capacity-colors`
+30 / 30, honesty on `c0a5978` 19 red exit 1 (both machines); `test-capacity-float` harness given the builder's new inputs (45 / 45);
+`test-332`'s whole-page length pin scoped to 332 / 171 after it went red on 333 (r16, within the hour — the box / welcome-body invariances
+stay unconditional); battery 83 / 2,805 exit 0 Mac and cloud; isolation 36 / 36; `node --check` clean; sweep 361 · 13 · 294 · 13, 159
+dialogs, 139 confirms, 0 errors (xlsx=3 — the capacity export ran in the confirm pass). Mac ↔ cloud md5 identical. FILED, not pushed.
+His next ask, received while the gates ran: check that the Rules & Reminders are in a logical order (rules that build on another come
+after it; shared topics adjacent) — a read-and-propose, no build without his go.
+
+**333 pushed by him** (`a4d7fcc` auction, `b29d631` tests, `3776ff3` hub) while 334 was being built; 333 / 171 served twice; the pushed
+admin bytes md5-match the built ones; START-HERE LIVE line 333 / 171; §192 LIVE. (His commit landed BEFORE the 334 edits touched disk —
+checked: HEAD carries BUILD 333 / 171 and no numbers sentence.)
+
+**§193 + §192 addendum — BUILT as staff 172 / admin 334.** Rules & Reminders: proposal from a whole-list read (the order was the order
+of addition; strategy tips split, "Sniping" far from the timer rules, ATO stranded; gap — the page never said what the numbers are);
+his rulings *"short one. Go with re-ordering plus the add."* then, mid-build, *"make the key with definitions in avail cap by week be
+red/green"* and *"Also color code date and available with same coloring"* — folded into 334 as the §192 addendum (his later word
+replaces the morning's plain Available). Deck slides 33–34 re-ordered at his ask (rendered through LibreOffice and looked at; all other
+slides canonical-XML identical; the deck is also in the outputs column for him to re-send). Gates: `test-334-rules-order` 28 / 28,
+honesty on `a4d7fcc` 11 red; `test-333` re-anchored 41 / 41 (honesty 25 red on `c0a5978`); `test-332`'s last 331-baseline pins scoped;
+battery 84 / 2,844 exit 0 both machines; isolation 36 / 36; `node --check` clean; sweep 361 · 13 · 294 · 13, 0 errors. FILED, not pushed.
+Lesson (r16 again, twice in one day): an invariance written against a fixed baseline is a proof for THAT build — scope it to the build
+numbers it was written for the day it is written, not after it goes red.
+**334 / 172 pushed by him** (`7862742` auction, `329e868` tests, `d085519` hub); served twice; pushed page bytes md5-match the build. LIVE line
+334 / 172; BUILD-LOG row 334 carries the SHA; §193 LIVE. **Next auction honesty baseline: `7862742` (admin 334 / staff 172).**
+
+**The deck check (his order: "run the deck, then close").** All 35 slides read against the live 334 / 172 pages and the LIVE configuration —
+read off the site, not recalled: the staff page renders its rules panel before sign-in (anonymous bootstrap), so `#ruleMaxBids`,
+`#ruleNpPhases`, `#rulePrioLock`, `#ruleBidFloors` and `#timerRulesInfoBody` give the live cap / NP phases / lowerings / floors / timer text
+with no login and no write; the live `auctionConfig` (holidays, high-demand flags, summer range) is in the staff origin's
+`localStorage.auctionConfigV1`. Live: HD = Thanksgiving W47 / Christmas W51 / New Year's W52 only; Ski Week W7; Spring Break W14 + W15;
+summer May 30 – Sep 5 (W22–W36); cap 6 through Phase 2; NP Phases 3–4; lowerings 2 / 4 / 4 / 2; HD floor 5, no summer floor; 5-day window,
+48 → 24 / 12 / 6 / 3 h at 10 / 12 / 14 / 16 days, quiet 12 AM – 7 AM. Every deck number and rule matched, including the 235 / 6.7 / 7.5
+arithmetic and the 34-week Phase-4 extra. **One finding — slide 14:** "Red: already used on a week you are winning" is wrong; the staff
+`bidPoolInfo` paints red every number on ANY current bid (winning, losing or under review) plus prior-phase wins. Proposed caption put to
+him. NOT verified live: the per-week FTE values (slides 29–30) — the admin page was mid-rehearsal (Phase 3, live bids, Fair Play incidents)
+when read, so no further clicks were made there; the deck matches the ruled 26 Aug supply table and the live values are his to set.
+Note for the next reader: the live board had moved from "Not started" (this morning) to Phase 3 by the evening — his own walkthrough.
+This paragraph took HANDOFF over 900 again, so the 9 Sep V3 entry (its facts: §190, BUILD-LOG row 331, `tests/docs/RA-11-2026-09-09.md`; its
+lessons stand in the archive verbatim) was moved to `HANDOFF-ARCHIVE.md` with `archive.mjs`.
+
+**Closing checklist, run at his word ("run the deck, then close", 9 Sep 2026):** 0 · fetch on the three public repos — all `main...origin/main`,
+tests judged from disk (in sync at `329e868`); three fetch locks moved to `_to_delete/`. 1 · chat reviewed — every ruling of the day is in
+DECISIONS (§191, §192 + its two addenda, §193) in his words; the struck items (his e-mail test; the billing alert, §171(3)) are in this entry;
+the deck finding (slide 14) is put to him — his answer, when it comes, goes to §193. 2 · state files true — START-HERE LIVE 334 / 172, no FILED
+line, LAST REVISED 9 Sep; BUILD-LOG rows 332–334 with SHAs; TODO §1 one line for the day, nothing queued; `node status.mjs` exit 0, every
+governing file under its tripwire (HANDOFF 822 / 900 after the V3 entry was archived). 3 · code proven — numbers in the BUILD-LOG rows are from
+the runs: final battery 84 suites / 2,844 assertions exit 0 on BOTH machines (83 executed, 1 skipped — the emulator suite; rules unchanged
+all day, his RA-2 186 / 186 from V3 stands), honesty by explicit SHA for every new suite (332 on `1a4e269` 11 red, 333 on `c0a5978` 25 red,
+334 on `a4d7fcc` 11 red), isolation 36 / 36, `node --check` clean, sweep 0 errors three times. 4 · files — uncommitted on disk: the hub's
+DECISIONS / HANDOFF / HANDOFF-ARCHIVE / START-HERE / TODO and `vacation-kp.github.io/BUILD-LOG.md` (the two SHA rows — a ONE-file commit, clear
+the Summary box); both docs-only; `tests` clean. Commit messages in the outputs column. The cloud clone is at `a4d7fcc` + the 334 patch and
+is not a base for anything. 4a · rubbish — `_to_delete/` holds 17 MB / 22 files (he emptied part of it during the day; this session added the
+tests tarball, three build zips, patches, locks) — his to empty. 5 · handed over below. **After the hand-over he ruled *"fix slide 14"*** — the deck caption corrected (one line, rendered), filed to
+`tests/docs/` (md5 `0871d56e…`), recorded in §193; `tests` now has ONE uncommitted file (a ONE-file commit — clear the Summary box). Context at close ≈ 505k.
+**Pushed by him** (auction, tests, hub — all docs / the deck). His last question: *"we did a lot here. is any audit indicated?"* Claude's reading: not a full
+audit (prose and display only, engine untouched, invariance-proven, sweep clean) but a fresh-eyes diff review of `1a4e269 → 7862742`, because
+none of the day's three diffs had a second reader. His choice: *"for a new session"* — queued as TODO §1's first item. Nothing else open.
+
+**Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
+rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
+claim about the engine — the display audit of RA-11 (lesson 1 there) applies to PROSE too; the owner found it by reading his own site.
