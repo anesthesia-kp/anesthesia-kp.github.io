@@ -12,10 +12,10 @@
 | file | answers | lines | last changed |
 |---|---|---|---|
 | `anesthesia-kp.github.io/START-HERE.md` | how we work — every binding rule, once; the map of every file and archive; the LIVE line — the one file the owner pastes; read first, every session, then TODO's STATUS block and §1 | 167 | today (uncommitted) |
-| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 233 | today (uncommitted) |
-| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 769 | today (uncommitted) |
-| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5209 | today (uncommitted) |
-| `anesthesia-kp.github.io/HANDOFF-ARCHIVE.md` | sections archived from HANDOFF.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1859 | today (uncommitted) |
+| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 232 | today (uncommitted) |
+| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 780 | today (uncommitted) |
+| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5209 | 2026-09-09 |
+| `anesthesia-kp.github.io/HANDOFF-ARCHIVE.md` | sections archived from HANDOFF.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1859 | 2026-09-09 |
 | `anesthesia-kp.github.io/START-HERE-ARCHIVE.md` | the stories behind START-HERE's rules and every paragraph retired from it, including the whole pre-pass START-HERE of 7 Sep 2026 — why a rule exists, by rule number; read when a rule's reason or history matters | 816 | 2026-09-08 |
 | `anesthesia-kp.github.io/TODO-ARCHIVE.md` | sections archived from TODO.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1699 | 2026-09-08 |
 | `tests/docs/CODE-REVIEW-FINDINGS.md` | the skeptical code review of the auction (25 Jul / 7 Aug 2026) — the full fix sketches behind TODO's M1 / L2 / L3 / L4 residuals; read when one of those residuals is touched | 119 | 2026-09-08 |
@@ -37,7 +37,7 @@
 | `tests/docs/REHEARSAL-SCRIPT.md` | the owner's own ~45-minute rehearsal script (§169 / §175) — page and button names in order; read to run or update a rehearsal | 57 | 2026-09-08 |
 | `tests/docs/REVIEW-332-334-2026-09-09.md` | the read-only, fresh-agent review of the cumulative diff 1a4e269 → 7862742 (the three 9 Sep builds that had no second pair of eyes), CRITICAL / HIGH only — what was checked, the clean verdict, and the two LOW pre-existing notes; read before touching the capacity report or the staff rules list | 16 | 2026-09-09 |
 | `tests/docs/TRACE-same-bid-2026-09-02.md` | the read-only trace of the "same bid, same answer" dialog and the Phase-4 bid-number lifecycle (§173, 2 Sep 2026); read when denial, round or bid-number rules are questioned | 88 | 2026-09-08 |
-| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 99 | today (uncommitted) |
+| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 99 | 2026-09-09 |
 | `schedule/BUILD-LOG.md` | what shipped on the Daily Schedule — one row per build with its gates and its commit; read for any schedule build number's record | 175 | 2026-08-30 |
 <!-- MAP:END -->
 

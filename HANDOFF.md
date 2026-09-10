@@ -767,3 +767,14 @@ trap bit again: copying the NEW page into the cloud clone and leaving the staged
 eight honesty blocks run against the new build. Move the staged copy aside the moment it is copied in. (3) Two invariance assertions failed
 on BOTH builds — the assumptions were wrong, not the code; rule 12 held. (4) Asking "what else has this shape?" after an owner-found defect
 paid twice today (O-G; the timer-off statement) — make the class hunt part of every owner-found fix's audit brief.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — DOCS ONLY: THE SHIPPED §195 BULLET REMOVED FROM TODO §1. NOTHING BUILT ON EITHER SITE.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 335 / 173 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (auction `d518121`, hub `60952ff`, tests `cfa79de` from disk, schedule `0a61585`); no locks before the
+fetch, three after it, moved to `_to_delete/locks-2026-09-09-V6/`. Context at open 124k.
+
+**Found at open, fixed at his "fix docs":** TODO §1 still carried the pre-fix bullet for the stale "bidding is closed" statement — the
+§195 mechanism and "one line, staff 173 … his decision" — after 173 had shipped and the NEXT line above it already said so. Removed; the
+mechanism lives in DECISIONS §195, so nothing is lost. The NEXT line's hub SHA updated from `2f60e8d` to the V5 close commit `60952ff`.
+`node status.mjs` exit 0; STATUS block and the MAP regenerated. No auction file touched; §92 untouched.
