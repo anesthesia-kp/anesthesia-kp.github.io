@@ -209,6 +209,7 @@
 | §192 | 9 Sep 2026 | THE "AVAILABLE CAPACITY BY WEEK" REPORT: PLAIN AVAILABLE NUMBERS, GREEN WEEK LABELS WHEN AT/ABOVE SMART LOCK CONTROL | LIVE (333 / 171, `a4d7fcc`, 9 Sep 2026) |
 | §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS | LIVE (334 / 172, `7862742`, 9 Sep 2026) |
 | §194 | 9 Sep 2026 | AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE | LIVE (335, `6f2b0e2`, 9 Sep 2026) |
+| §195 | 9 Sep 2026 | THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH | BUILT (staff 173, filed 9 Sep 2026, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5183,3 +5184,26 @@ available" he meant (the report's below-Smart-Lock-Control red, or Available ≤
 choose from all, avail, not avail. go. ask any questions you have."* So: the report's rule (green = Available at or above the week's Smart
 Lock Control, red = below it), weeks always chronological, a filter (all / available / not available) and no sort, the report's colour
 coding, clean. §92 satisfied for exactly this page. Built as admin 335; honesty baseline the last pushed build `7862742` (admin 334).
+
+## §195 — THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH — 9 Sep 2026
+
+**His find (9 Sep 2026, V5, screenshot):** after he reset the whole auction, his open staff tab showed the "Phase 1" pill and
+*"Bidding has not started yet"* AND, beneath it, *"Phase 4: Round 3 bidding is closed — no more changes can be made."*
+*"clearly happened after i reset the entire auction. see that it says p1 at the top?"* Read in staff 172: `_setPhaseClosedBanner(true)`
+is called from `renderCountdown` when a window closes and fixes its label then; the only `_setPhaseClosedBanner(false)` sits below
+the early `if(!biddingOpen()) return`, so after a reset the timer listener re-runs `renderCountdown`, exits early, and the banner is
+never cleared. Only a tab open across a reset shows it; a fresh load never turns the banner on pre-launch. Display only.
+
+**RULED: *"go"*** on Claude's recommendation (the one moment real users could hit it is right after the final rehearsal reset).
+§92 satisfied for exactly: one call, `_setPhaseClosedBanner(false)`, inside the not-started branch of `renderCountdown`.
+
+**The audit he ordered (*"plus audit the fix of course"*) and his second ruling:** the independent pass found the one-liner sound and
+(a) a residual — it relied on the reset's phases write landing before its timer write, and on the timer doc changing at all — with a
+one-line hardening, `startCountdownTick()` from the phases listener; and (b) a sibling of the same class, verified by Claude in code: the
+timer-OFF branch left the statement untouched, so a timer switched off after an expiry kept "bidding is closed" above a live board, and
+Close bidding with the timer off never showed it. He asked *"any other stale banners that could happen like this?"* — the hunt across both
+pages found that one, plus two smaller (the label baked at expiry reads the old round across ▶ Start Round for seconds; the board's ✎ / ✕
+stay painted at a clock expiry until the next snapshot — guarded server-side) and two LOW admin-only labels. **RULED: *"do both. go."*** —
+the hardening and the timer-off fix ride staff 173: with the timer off the statement follows `isAuctionClosed()`. A second adversarial pass
+on the two additions traced every admin timer write: clean. Built as staff 173; honesty baseline the pushed 172 (`1d056d4`, whose
+`index.html` is `7862742`'s). The two smaller display items and the LOW labels stay in TODO §1, unruled.
