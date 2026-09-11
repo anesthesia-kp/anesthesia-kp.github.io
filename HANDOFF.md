@@ -768,7 +768,7 @@ eight honesty blocks run against the new build. Move the staged copy aside the m
 on BOTH builds — the assumptions were wrong, not the code; rule 12 held. (4) Asking "what else has this shape?" after an owner-found defect
 paid twice today (O-G; the timer-off statement) — make the class hunt part of every owner-found fix's audit brief.
 
-## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — DOCS ONLY: THE SHIPPED §195 BULLET REMOVED FROM TODO §1. NOTHING BUILT ON EITHER SITE.
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — THE SHIPPED §195 BULLET REMOVED (pushed `6b74b8f`); THEN §196 DESTINATION OF THE DAY: LIST, 100 LICENSED PHOTOS, BUILT AS STAFF 174 / ADMIN 336, GATED, FILED — AWAITING HIS PUSH.
 
 Opened with START-HERE attached (read from disk); ritual clean: live 335 / 173 / 18 and 151 / 51 fetched twice with different cache-busters,
 all four repos clean and in sync (auction `d518121`, hub `60952ff`, tests `cfa79de` from disk, schedule `0a61585`); no locks before the
@@ -778,3 +778,24 @@ fetch, three after it, moved to `_to_delete/locks-2026-09-09-V6/`. Context at op
 §195 mechanism and "one line, staff 173 … his decision" — after 173 had shipped and the NEXT line above it already said so. Removed; the
 mechanism lives in DECISIONS §195, so nothing is lost. The NEXT line's hub SHA updated from `2f60e8d` to the V5 close commit `60952ff`.
 `node status.mjs` exit 0; STATUS block and the MAP regenerated. No auction file touched; §92 untouched.
+
+**§196 — his idea, ruled step by step, then built (the session ran into 11 Sep his time).** Idea → risk reading from the code (the hero is seen by every
+returning user; feature Firebase-free; the pictures are the risk) → mockup of three looks → B chosen, then A, then A without the tile
+(*"just right on the blue background"*), caption *"just location"*, phones *"both"*, admin switch above Reset Auction. The list: 100 from
+Tripadvisor / Expedia / AAA / YouGov / Kayak, trimmed twice for variety and again by his taste (no people, more landmarks). The pictures:
+Wikimedia Commons through his double-click `tests/destinations/FETCH-DESTINATIONS.command` (the cloud cannot reach Wikimedia); the
+script grew a licence filter, a not-a-photo / historic / B&W / interior / people filter, short searches, a candidates mode (up to 8 per
+place, he picks) and a named-file pin; seven fetch rounds, 100 / 100 licensed, `tests/destinations/manifest.json` is the record.
+The build: staff 174 (`.dest-pill`, `DESTINATIONS`, `DEST_EPOCH`, `destinationIndexFor`, `renderDestinationPill`, hook in the adminSettings
+listener, midnight tick), admin 336 (card + `toggleDestinationOfDay`, change-log sentences), `img/destinations/` (100 × 200px, 909 KB,
+`CREDITS.md`), versions 174 / 336, rules untouched. Gates on the final bytes, both machines: suite 65 / 65 + honesty 57 red on `c10b825`
+/ `6f2b0e2`, batteries 87 / 2,903 Mac and 2,902 cloud, isolation 36, sweep clean, `sweep/dest-pill-check.mjs` 12 / 12 (a Chromium-driven
+check of the pill itself — rule 9), two adversarial passes (no CRITICAL / HIGH; two LOWs fixed). Filed, not pushed: `COMMIT-MESSAGES.txt`
+in the outputs column, one section per repo (auction, tests, hub). START-HERE carries the FILED line; `status.mjs` exit 0.
+
+**Traps met today (for STANDING TRAPS if they recur):** (1) `status.mjs` reads file mtimes in UTC — after 17:00 PDT an edit "happened
+tomorrow" and the LAST REVISED gate stamps tomorrow's date; harmless, but the date in START-HERE runs a day ahead in the evening. (2) The
+staged-copy trap (§6) bit once more: the cloud battery ran 8 honesty blocks against the CURRENT admin page until the staged copies at
+`/mnt/user-data/uploads/…` were moved aside — now done the moment they are copied in. (3) Commons search ANDs every word: long, specific
+queries return nothing; 2–3 words work. (4) `device_stage_files` takes at most 50 paths per call. (5) Playwright 1.6x wants
+`chromium_headless_shell-<rev>/chrome-headless-shell-linux64/chrome-headless-shell` — a second symlink beside the `chrome-linux64` one.

@@ -210,6 +210,7 @@
 | §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS | LIVE (334 / 172, `7862742`, 9 Sep 2026) |
 | §194 | 9 Sep 2026 | AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE | LIVE (335, `6f2b0e2`, 9 Sep 2026) |
 | §195 | 9 Sep 2026 | THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH | LIVE (staff 173, `c10b825`, 9 Sep 2026) |
+| §196 | 9 Sep 2026 | "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE | BUILT (staff 174 / admin 336, filed 11 Sep 2026) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5207,3 +5208,79 @@ stay painted at a clock expiry until the next snapshot — guarded server-side) 
 the hardening and the timer-off fix ride staff 173: with the timer off the statement follows `isAuctionClosed()`. A second adversarial pass
 on the two additions traced every admin timer write: clean. Built as staff 173; honesty baseline the pushed 172 (`1d056d4`, whose
 `index.html` is `7862742`'s). The two smaller display items and the LOW labels stay in TODO §1, unruled.
+
+## §196 — "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE — 9 Sep 2026
+
+**His idea (9 Sep 2026, V6):** *"a nice vacation destination with a small image on the login screen for the user site. Something small,
+but noticeable and fun for the users to get them excited about vacations… the top 100 vacation destinations in the world that cycle on
+repeat starting today indefinitely… Vacation Destination of the day: Kaanapali (with a beach image) or Paris… Is this a low risk thing
+that could improve user interface?"* Then: *"fun, and appear clean and not intrusive with a fun image"*; *"would need to work for real
+site and mobile site. if you think it's a bad idea, please say so"*; *"or maybe just be on computer site and not mobile because of space
+constraints?"*
+
+**Claude's reading, from the code:** the blue hero is shown to EVERY returning user (the "Continue as X" screen), so the card is seen daily;
+`mobile.html` is a redirect, so one page and one code path serve phones (the hero stacks under 640px). The feature is self-contained
+and Firebase-free by shape; the risk and the work are the 100 pictures (licensing on a PUBLIC repo, page weight, never a third-party
+host on the sign-in path). Not a bad idea; timing under §164 is a narrow cosmetic build that deploys between phases.
+
+**RULED: *"I like B"*** — of three mocked looks (A postcard tile, B luggage-tag pill, C pinned postcard), the white pill with a round
+photo and "Destination of the day · <place>". *"Find list of 100 top vacation destinations for americans over the last few years. I like
+the idea of a real image and be fun about it."* Then *"Plan it out"*, with two questions: is this much data a problem for the repos or the
+sites, and what are the downsides. Phones: open (his space concern). Build not yet ordered — the list and the image set come first, for
+his approval, then a plan, then his go (§92).
+
+**On the draft list (same session):** *"Remove many of the latin american beaches and a few of the hawaii and replace with destinations abroad. more variety, more fun."* — nine swapped (Punta Cana, Cabo, Tulum, Puerto Vallarta, Nassau, Montego Bay, Cayman, Kauai, Kona → Petra, Giza, Cappadocia, Cinque Terre, Provence, Angkor Wat, Agra, Galápagos, Patagonia); Kaanapali (his example), Waikiki, Cancún, Aruba, Turks & Caicos, St. Lucia, Bermuda, Cartagena, Costa Rica kept.
+Then *"yes, change more"*: twelve U.S. beach / resort towns and Cancún swapped for Kraków, Isle of Skye, Fiji, Zanzibar, the Great Barrier Reef, Copenhagen, Seville, Amboseli (Kenya), Lake Como, Bruges, the Cliffs of Moher and Hong Kong — about 35 U.S. / 65 abroad.
+*"approved"* — the list is final (100 entries, `tests/destinations/destinations.json`).
+
+**RULED, same session: an admin on/off switch** — *"Can you make a new control setting on admin site that can toggle this feature on/off?"*
+*"that can go in controls just above reset auction."* *"plan sounds good."* Claude's reading: the staff page already listens to
+`vacations/adminSettings` BEFORE sign-in (the anonymous bootstrap; it feeds the sign-in button state), and that document is admin-write
+by the rules with its frozen-key clause naming only the seven fairness keys — so a new boolean `adminSettings.destinationOfDay` costs
+no new listener, no rules change and no extra read; default ON when the key is absent; the pill paints only once the setting is known
+(no flicker). Stage 2 delivered: `tests/destinations/` — the list, `fetch-destinations.mjs` (Commons search with the licence filter
+CC0 / PD / CC BY / CC BY-SA, ≥1200×800, no Restrictions note; quality-assessed files first; a named `file` overrides the search) and
+`FETCH-DESTINATIONS.command` (his double-click: fetch, then 320×320 centre crops with `sips`). Output stays in `tests/destinations/out/`
+until the review; the site repo is untouched.
+
+**Review rulings (same session, after the first fetch — 99 / 100 licensed, contact sheets reviewed):** Morocco out → Lake Bled, Slovenia
+(slot 77); Reykjavik → "Iceland" (Kirkjufell); *"more landmarks for cities"* → Statue of Liberty, Southernmost Point buoy, Bellagio
+fountains, Lake Eola fountain, Belém Tower, Madrid's Royal Palace, Osaka Castle, the Merlion, El Morro; picture re-dos he named: Lake Como
+(too dark), Provence, Kyoto (→ Golden Pavilion), Dubai, Cartagena, Galápagos (*"the galapagos turtle is creepy"* — a whole tortoise, not the
+face), the Alps, Chicago, Machu Picchu (*"more iconic"*), the Reef, Zion, D.C. (→ the Capitol), Buenos Aires (→ the Obelisco), Big Sur
+(*"needs redwoods"*), Croatia, Jackson Hole (*"needs color"*), Boston, Fiji, Acadia (lighthouse → *"nevermind, otter cliffs"*). Claude's own
+25 rejects (paintings, a map, a satellite image, wrong places, people, black-and-white) go in the same second pass.
+**RULED: the caption.** *"we can do better than 'destination of the day'. it's too many words, I want cleaner"* → *"less cheesy"* →
+**"just location"**: the pill shows the photo and the place name only — no label.
+
+**Passes 2–3 and the twelve swaps (same session):** the search kept returning the same top hit for twelve places, so at his *"change the 12
+to new ones… present 12 picks"* → *"great"*: Kaanapali (*"I don't care about kaanapali"*) → Plitvice Lakes; Orlando → St. Augustine;
+Cappadocia → Pamukkale; Dubai → Abu Dhabi (Sheikh Zayed Mosque); Provence → Mont-Saint-Michel; Napa → Tuscany (Val d'Orcia); Galápagos
+(the tortoise close-up twice — *"creepy"*) → Salar de Uyuni; Buenos Aires → Iguazú Falls; Great Barrier Reef → Great Ocean Road (Twelve
+Apostles); Machu Picchu → Easter Island; Osaka → Mount Fuji; Glacier → Crater Lake. 88 pictures approved by contact sheet; 12 to fetch.
+The fetch script gained, pass by pass: licence suffixes ("CC BY 3.0 us"), HTML-entity decoding, a not-a-photo / historic (<1970) / B&W /
+interior filter, short 2–3-word searches (long ones return nothing — Commons ANDs every word), and a candidates mode (up to 8 per place).
+Pass 4: ten of the twelve landed; Abu Dhabi pinned from the candidates (*"i like #1"*, the mosque silhouette); Pamukkale dropped
+(*"find new location"*) → Victoria Falls, Zimbabwe, fetched pass 5. **THE PICTURE SET IS COMPLETE: 100 / 100, every licence CC0 / PD /
+CC BY / CC BY-SA (47 CC BY-SA 4.0, 18 CC BY-SA 3.0, 10 CC BY 2.0, 7 CC BY 4.0, 7 CC BY-SA 2.0, 4 PD, 2 CC0, 2 CC BY-SA 2.5, 2 CC BY 2.5,
+1 CC BY 3.0), manifest `tests/destinations/out/manifest.json`.**
+
+**RULED — the build plan (staff 174 + admin 336 + `img/destinations/`, no rules change) with his two answers: *"1- good. 2- both."* — day 1 (Plitvice Lakes) is the day he pushes; the pill shows on phones too. Build proceeds.
+
+**RULED, after seeing the built B on the real page: *"I think i want to go back to style A from the beginning"* → *"I'd like to see it
+without the tile border and shading change. just right on the blue background"* → *"I like this better."*** The look is now A without
+the tile: an 84×64 photo, slightly tilted, and two lines of white text (place, then country) straight on the blue panel under the
+phase line. *"some images still need work"* — his numbers to follow.
+
+**Picture rulings, final round:** *"i don't like images with people in them"* (six found by review: Waikiki, Las Vegas, Cape Town, Boston,
+Nashville, Bangkok) + his *"big sur still not good"*, *"plitvice lakes not good"*, *"Others not good: key west, barcelona needs image without
+construction crane, dublin, scotland, tuscany"* → a 13-place candidates round (up to 8 each, the fetch now also rejects captions naming
+people); his picks: Claude's list *"except big sur #6, barcelona #3, find a guinness brewery image for dublin"* → the St. James's Gate
+brewery gate, *"8 good"*. The fetch tool gained a people filter; every picture re-verified (100 / 100, licences, files, credits).
+
+**BUILT — staff 174 / admin 336, filed 11 Sep 2026 (V6), awaiting his push.** The gate ran on the final bytes on both machines:
+`test-174-336-destination.mjs` 65 / 65 (honesty 57 red on `c10b825` / `6f2b0e2`), batteries 87 suites Mac 2,903 + cloud 2,902, isolation
+36 / 36, sweep clean, the new driven check `sweep/dest-pill-check.mjs` 12 / 12 (its own honesty red on 173), two adversarial passes by an
+independent agent: no CRITICAL / HIGH; two LOWs it found were fixed (an OFF arriving while the picture loads now wins; a sign-in tab left open
+past midnight turns over by itself). Day 1 = 11 Sep 2026 (`DEST_EPOCH`) — if he pushes on a later day, bump it before the push. Record:
+BUILD-LOG row "staff 174 · 336 (admin)".
