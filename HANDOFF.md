@@ -249,6 +249,12 @@ Add a line the turn a new one is paid for. Retire a line only when the tool or m
   say which, and re-stage the Mac's before building on the cloud's (30 Aug).
 - Files delivered with `device_commit_files` are not seen as untracked by git over the bridge: anything that must be
   COMMITTED is written with `device_bash` or unpacked with `unzip -p`; `device_commit_files` is delivery only (24 Aug).
+- `git fetch` over the bridge can be refused outright: the proxy answers `403 Forbidden` with
+  `X-Proxy-Error: blocked-by-allowlist` and NOTHING leaves the Mac — not github.com, not npm, not even the live site.
+  The device VM's egress allowlist varies by session: it worked 9 Sep, was empty all day 11 Sep. Read origin from the
+  CLOUD instead — `git ls-remote https://github.com/anesthesia-kp/<repo>.git refs/heads/main`, one call per public repo.
+  When that fetch fails, `status.mjs`'s "vs origin" column is reading STALE local refs — it never fetches — so it can
+  print "in sync with origin" on the day it knows least. Confirm origin by `ls-remote` before believing it (11 Sep).
 
 **The cloud container**
 - `~` is `/root`, not `/home/claude`. Use absolute paths everywhere; `REPO_ROOT` must be absolute (31 Aug, 8 Sep).
