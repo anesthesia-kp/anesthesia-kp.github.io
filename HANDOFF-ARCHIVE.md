@@ -1857,3 +1857,96 @@ none of the day's three diffs had a second reader. His choice: *"for a new sessi
 **Lessons, dated 9 Sep V4.** (1) "Verified" had stopped one file short twice: the served page was inferred from `versions.json`, the published
 rules from the repo file. The last inch is cheap to close and belongs in the post-push ritual. (2) A rules sentence written for the user is a
 claim about the engine — the display audit of RA-11 (lesson 1 there) applies to PROSE too; the owner found it by reading his own site.
+
+---
+## ⤵ moved 11 Sep 2026 from HANDOFF.md — 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V5" — THE ROUNDS-AS-PHASES INVENTORY; ADMIN 335 THE CAPACITY PAGE (§194); THE 332–334 REVIEW CLEAN; STAFF 173 THE STALE CLOSED STATEMENT (§195). ALL PUSHED, ALL SERVED.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V5" — THE ROUNDS-AS-PHASES INVENTORY; ADMIN 335 THE CAPACITY PAGE (§194); THE 332–334 REVIEW CLEAN; STAFF 173 THE STALE CLOSED STATEMENT (§195). ALL PUSHED, ALL SERVED.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 334 / 172 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (auction `3971a23`, hub `7ca1177`, tests `fb33da9` from disk, schedule `0a61585`); no locks before the
+fetch, three after it, moved. Context at open 126k; at close ~390k.
+
+**His find at open — a P4R2 sim at "1 bid per user" gave 21 of 35 users a bid.** Read in code, not recalled: the simulator tops each user up
+counting every live bid tagged Phase 4, and Start Round leaves Round-1 WINS on the live board, so the 14 skipped were the Round-1 winners —
+O-F, already in the quiet-day pile. His real question: *"are there other things hiding with the same problem?"* — and *"that makes me not
+trust our audits."* Answered with an inventory of every phase-of-bid call site on both pages (23 admin + 6 staff): the deciding paths
+(engine, round boundary, number consumption, Add-bid, dashboard no-bidders, User Activity, reports) all consult the round archives; the
+round-blind leftovers are the simulator and ONE new label (O-G, Insights counts round wins) — filed. The structural cause named: a bid has a
+phase stamp and no round stamp, so every new counter must remember the helper. His idea — stamp each round as its own phase, label it for
+users — recorded under HIS CALL as a post-auction change (Claude pushed back on doing it pre-launch under §164; the money paths are round-
+correct). His *"you remain confident…?"* answered as a reading, not a verdict: the engine yes, "smoothly" no — the runbook, untested load,
+and label-class quirks named.
+
+**§194 — admin 335, the Capacity page.** His sizing question → "small" from the code (`_capacityWeekRows` already existed, round-aware) →
+his rulings: report's definition, calendar order always, filter All / Available / Not available, no sort, clean. Built as one sidebar page
+under Change Log; 42/42 new suite, honesty 35 red on `7862742`, batteries 85 Mac + cloud, isolation, sweep with the panel walked, sandbox
+screenshot, independent review no findings. Pushed `6f2b0e2`, served twice. The reviewer's aside — the report TAB prints admin-typed
+holiday names and initials unescaped — was carried into the pending diff review.
+
+**The 332–334 review (his V4 order) ran and closed CLEAN** at CRITICAL / HIGH: independent agent + Claude's byte re-check; two LOW
+pre-existing insider-only notes recorded in `tests/docs/REVIEW-332-334-2026-09-09.md`, not queued.
+
+**§195 — staff 173, owner-found from his screenshot** after a Reset Auction: "Phase 1 · not started" beside "Phase 4: Round 3 bidding is
+closed". Cause: the statement is painted at an expiry and its only clearing call sat below the not-started early return. His *"go"*; then
+*"plus audit the fix of course"* and *"any other stale banners that could happen like this?"* — the audit approved the line, proposed a
+hardening (recompute on every phase change) and found the sibling (timer OFF after an expiry left the statement above a live board; Close
+with the timer off never showed it). His *"do both. go."* → 173 = three additions; 30/30, honesty 10 red on `1d056d4`, batteries 86 Mac +
+cloud, sweep clean, a SECOND adversarial pass tracing every admin timer write: clean. Pushed `c10b825`, served twice. Two display leftovers
+from the hunt stay in TODO §1 unruled (board controls at a clock expiry; two LOW labels).
+
+**Closing checklist run at his "close":** 0 fetch on the three public repos, all in sync, locks moved · 1 chat reviewed — §194 and §195 in
+DECISIONS with his words; O-G, his rounds-as-phases idea, the two leftovers and the LOW notes in TODO; the two BUILD-LOG rows carry their
+commits · 2 status.mjs exit 0 after archiving V4 (HANDOFF was at 840/900 before this entry) · 3 numbers above are from the runs · 4 git
+status: only the docs-only follow-ups of this close are uncommitted, delivered as COMMIT-MESSAGES.txt · 4a `_to_delete/` holds the day's
+xfer zips and lock folders — his to empty, not raised · 5 handed over in the chat.
+
+**Lessons, dated 9 Sep V5.** (1) The device VM is Linux — `md5`, not `md5sum`, aborted an `&&` chain BEFORE the edit ran and only the
+grep count showed it; the trap was already in STANDING TRAPS (1 Sep). Read that section at open, not after. (2) The §6 staged-baseline
+trap bit again: copying the NEW page into the cloud clone and leaving the staged copy at `/mnt/user-data/uploads/…/admin/index.html` made
+eight honesty blocks run against the new build. Move the staged copy aside the moment it is copied in. (3) Two invariance assertions failed
+on BOTH builds — the assumptions were wrong, not the code; rule 12 held. (4) Asking "what else has this shape?" after an owner-found defect
+paid twice today (O-G; the timer-off statement) — make the class hunt part of every owner-found fix's audit brief.
+
+---
+## ⤵ moved 11 Sep 2026 from HANDOFF.md — 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — THE SHIPPED §195 BULLET REMOVED (pushed `6b74b8f`); THEN §196 DESTINATION OF THE DAY: LIST, 100 LICENSED PHOTOS, BUILT AS STAFF 174 / ADMIN 336, GATED, PUSHED `158d81e` AND SERVED TWICE.
+
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — THE SHIPPED §195 BULLET REMOVED (pushed `6b74b8f`); THEN §196 DESTINATION OF THE DAY: LIST, 100 LICENSED PHOTOS, BUILT AS STAFF 174 / ADMIN 336, GATED, PUSHED `158d81e` AND SERVED TWICE.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 335 / 173 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean and in sync (auction `d518121`, hub `60952ff`, tests `cfa79de` from disk, schedule `0a61585`); no locks before the
+fetch, three after it, moved to `_to_delete/locks-2026-09-09-V6/`. Context at open 124k.
+
+**Found at open, fixed at his "fix docs":** TODO §1 still carried the pre-fix bullet for the stale "bidding is closed" statement — the
+§195 mechanism and "one line, staff 173 … his decision" — after 173 had shipped and the NEXT line above it already said so. Removed; the
+mechanism lives in DECISIONS §195, so nothing is lost. The NEXT line's hub SHA updated from `2f60e8d` to the V5 close commit `60952ff`.
+`node status.mjs` exit 0; STATUS block and the MAP regenerated. No auction file touched; §92 untouched.
+
+**§196 — his idea, ruled step by step, then built (the session ran into 11 Sep his time).** Idea → risk reading from the code (the hero is seen by every
+returning user; feature Firebase-free; the pictures are the risk) → mockup of three looks → B chosen, then A, then A without the tile
+(*"just right on the blue background"*), caption *"just location"*, phones *"both"*, admin switch above Reset Auction. The list: 100 from
+Tripadvisor / Expedia / AAA / YouGov / Kayak, trimmed twice for variety and again by his taste (no people, more landmarks). The pictures:
+Wikimedia Commons through his double-click `tests/destinations/FETCH-DESTINATIONS.command` (the cloud cannot reach Wikimedia); the
+script grew a licence filter, a not-a-photo / historic / B&W / interior / people filter, short searches, a candidates mode (up to 8 per
+place, he picks) and a named-file pin; seven fetch rounds, 100 / 100 licensed, `tests/destinations/manifest.json` is the record.
+The build: staff 174 (`.dest-pill`, `DESTINATIONS`, `DEST_EPOCH`, `destinationIndexFor`, `renderDestinationPill`, hook in the adminSettings
+listener, midnight tick), admin 336 (card + `toggleDestinationOfDay`, change-log sentences), `img/destinations/` (100 × 200px, 909 KB,
+`CREDITS.md`), versions 174 / 336, rules untouched. Gates on the final bytes, both machines: suite 65 / 65 + honesty 57 red on `c10b825`
+/ `6f2b0e2`, batteries 87 / 2,903 Mac and 2,902 cloud, isolation 36, sweep clean, `sweep/dest-pill-check.mjs` 12 / 12 (a Chromium-driven
+check of the pill itself — rule 9), two adversarial passes (no CRITICAL / HIGH; two LOWs fixed). He pushed the same session: auction `158d81e` (105 files), tests `94483ef`, hub `34b5550`; 174 / 336 fetched twice with different
+cache-busters, `CREDITS.md` served (100 rows), the day-1 picture served (the fetcher reports "image content", not a 404). START-HERE live
+line updated, FILED line removed; `status.mjs` exit 0. Closing checklist run: 0 fetch (in sync, one lock moved) · 1 chat reviewed — every
+ruling is in §196, the picture taste in the record · 2 state files true · 3 numbers from the runs · 4 only this close's docs are
+uncommitted (auction BUILD-LOG commit column + hub) · 4a `_to_delete/` holds the fetch rounds and xfer zips, his to empty · 5 handed over. After the push: random-per-load asked and declined (*"leave as it is"*); deck slide 13 re-shot with the pill. He pushed the closing docs too: auction `4068f73`, tests `78afcc5`, hub `6702528` — all four repos
+clean and in sync at close; 174 / 336 re-fetched live. Context at open 124k; at close ~683k (his "stop by 700k"). The only uncommitted
+residue is `status.mjs`'s own post-push regeneration (STATUS timestamp, the map's dates) — the same as every close; no push needed.
+
+**Next session:** nothing queued on the auction; the auction is closed under §92 / §164. Honesty baseline `158d81e` (staff 174 / admin 336).
+The deck is current. `_to_delete/` is 178 MB (fetch rounds, xfer zips, lock folders) — his to empty.
+
+**Traps met today (for STANDING TRAPS if they recur):** (1) `status.mjs` reads file mtimes in UTC — after 17:00 PDT an edit "happened
+tomorrow" and the LAST REVISED gate stamps tomorrow's date; harmless, but the date in START-HERE runs a day ahead in the evening. (2) The
+staged-copy trap (§6) bit once more: the cloud battery ran 8 honesty blocks against the CURRENT admin page until the staged copies at
+`/mnt/user-data/uploads/…` were moved aside — now done the moment they are copied in. (3) Commons search ANDs every word: long, specific
+queries return nothing; 2–3 words work. (4) `device_stage_files` takes at most 50 paths per call. (5) Playwright 1.6x wants
+`chromium_headless_shell-<rev>/chrome-headless-shell-linux64/chrome-headless-shell` — a second symlink beside the `chrome-linux64` one.

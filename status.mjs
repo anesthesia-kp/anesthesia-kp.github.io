@@ -44,12 +44,34 @@ const dirty = repo => {
   const lines = out.split('\n').filter(Boolean);
   return lines.length ? `${lines.length} uncommitted file(s)` : 'clean';
 };
+// [11 Sep 2026 · §198(1)] How stale are the local origin refs? This script never fetches, and on
+// the owner's Mac the bridge's `git fetch` can be refused outright by the egress allowlist — so the
+// refs this comparison trusts may not have moved in days. Newest mtime of the origin ref / FETCH_HEAD
+// / packed-refs, in days; null when nothing has ever been fetched here.
+const refAgeDays = repo => {
+  const branch = git(repo, 'rev-parse --abbrev-ref HEAD');
+  if (branch === '(git unavailable)') return null;
+  const times = [
+    join(repo, '.git', 'refs', 'remotes', 'origin', branch),
+    join(repo, '.git', 'FETCH_HEAD'),
+    join(repo, '.git', 'packed-refs'),
+  ].map(f => { try { return statSync(f).mtimeMs; } catch { return 0; } }).filter(Boolean);
+  return times.length ? (Date.now() - Math.max(...times)) / 86400000 : null;
+};
 const sync = repo => {
   // [5 Sep 2026] Read the BRANCH line only: a FILENAME containing "behind" (test-328-held-behind.mjs) once
   // made this report "BEHIND origin" for a repo in sync — a gate firing on the wrong thing (START-HERE §3 r8).
-  const head = (git(repo, 'status --short --branch').split('\n')[0] || '');
+  // [11 Sep 2026 · §198(1)] "in sync" used to be the FALLTHROUGH, so the same green covered a true match,
+  // refs left stale by a blocked fetch, and git failing outright. Every not-known case now SAYS so.
+  const raw = git(repo, 'status --short --branch');
+  if (raw === '(git unavailable)') return '❓ UNKNOWN — git unavailable';
+  const head = (raw.split('\n')[0] || '');
   if (/\[[^\]]*ahead \d+/.test(head)) return 'AHEAD of origin — push pending';
   if (/\[[^\]]*behind \d+/.test(head)) return 'BEHIND origin';
+  if (!head.includes('...')) return '❓ UNKNOWN — no upstream on this branch';
+  const age = refAgeDays(repo);
+  if (age === null) return '❓ UNKNOWN — origin refs have never been fetched here';
+  if (age > 1) return `matches origin refs, but they are ${Math.floor(age)}d old — fetch before believing this`;
   return 'in sync with origin';
 };
 const locks = repo => {

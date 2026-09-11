@@ -212,6 +212,7 @@
 | §195 | 9 Sep 2026 | THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH | LIVE (staff 173, `c10b825`, 9 Sep 2026) |
 | §196 | 9 Sep 2026 | "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE | LIVE (staff 174 / admin 336, `158d81e`, 11 Sep 2026) |
 | §197 | 11 Sep 2026 | THE GO-LIVE RUNBOOK GETS A PRE-FLIGHT OF EVERY DECISION BEFORE BEGIN PHASE 1; GO-LIVE IS NEXT WEEK; CLAUDE PRO FROM 12 SEP | DONE (docs only — tests `be6a46b`, pushed 11 Sep 2026) |
+| §198 | 11 Sep 2026 | THE BRIDGE'S `git fetch` IS BLOCKED BY THE DEVICE EGRESS ALLOWLIST — PROMOTED TO STANDING TRAPS; TWO GATE-HONESTY FINDINGS RAISED AND, ON HIS ORDER, FIXED | DONE (hub `c30f0cc` pushed; both fixes filed, awaiting his push) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5312,3 +5313,52 @@ in any repo by design (the markdown is the record). **Also on record from this t
 ends 12 Sep and sessions from then run on Claude Pro (smaller usage window per sitting — read-and-advise stays cheap; batteries and audits
 of the V6 size will not fit one sitting).
 
+## §198 — THE BRIDGE'S `git fetch` IS BLOCKED BY THE DEVICE EGRESS ALLOWLIST — PROMOTED TO STANDING TRAPS; TWO GATE-HONESTY FINDINGS RAISED AND, ON HIS ORDER, FIXED — 11 Sep 2026
+
+**His question (11 Sep 2026, V2)**, challenging a line in Claude's own opening report: *"Why this? `git fetch` over the bridge failed on
+all three public repos — 403 from the device VM's proxy, so the device has no egress to github.com right now."* **The answer, tested rather
+than recalled, and it corrected the report:** the refusal is not GitHub-specific. Five hosts were tried from `device_bash` — github.com,
+api.github.com, raw.githubusercontent.com, registry.npmjs.org and the live auction site — and all five were refused identically at CONNECT,
+with the proxy naming its own reason in the response header: `403 Forbidden` / `X-Proxy-Error: blocked-by-allowlist`. So the Mac-side shell
+had NO outbound network at all this session; requests never left the machine. The cloud container's allowlist is separate and wider, which
+is why `git ls-remote` and the live `versions.json` fetches had worked from there minutes earlier. One hypothesis — that the proxy
+credential embeds the command text, so a long command might overflow it — was tested with a one-line `curl` and REFUTED. The same trap had
+been met in V1 the same morning and filed *"for STANDING TRAPS if they recur"*; on 9 Sep the fetch had worked. **His ruling:** *"go"* —
+promote it. Written as a six-line trap under THE MAC AND THE BRIDGE with `git ls-remote https://github.com/anesthesia-kp/<repo>.git
+refs/heads/main` as the standing substitute, and pushed the same session (hub `c30f0cc`).
+
+**TWO FINDINGS RAISED THIS SESSION, NEITHER RULED, NEITHER BUILT — both are `START-HERE` §3 r8 shapes (a gate that passes without testing):**
+
+**(1) `status.mjs`'s "vs origin" column reports success as a FALLTHROUGH.** `sync()` reads one line of `git status --short --branch`, tests
+it for `ahead` and for `behind`, and `return`s `'in sync with origin'` when it matches neither — and the script never fetches. That cell
+therefore prints the same green in three different states: genuinely in sync; refs stale because the bridge fetch was blocked (today); and
+git failing outright, since `git()` returns `(git unavailable)` and `sync()`, unlike its neighbour `dirty()`, does not check for that
+string. Fix shape: report UNKNOWN rather than "in sync" when the branch line carries no tracking marker or git was unavailable, and say
+when the refs were last fetched. Nothing served is involved, so §92 does not apply.
+
+**(2) NO COMMIT IN THIS PROJECT HAS A BODY — the commit cap has been treating a symptom.** Measured, not recalled: over the last eight
+commits of all three public repos, every single message is ONE subject line of 55–371 characters with an EMPTY body. Git ends a subject at
+the first blank line, and `COMMIT-MESSAGE.txt` carries no blank line after its subject — so the four capped lines are concatenated into the
+one summary he reads. His 19 Aug cap (§62) and his 20 Aug re-affirmation (*"i am using only the summaries though and they are too long"*)
+were aimed at this outcome; the mechanism was never found. Claude's own `c30f0cc` is the longest subject in the hub at 318 characters,
+having REMOVED a blank line from its first draft to match the archived house format — Claude's error, owned. Fix shape: a blank line after
+the subject in `COMMIT-MESSAGE.txt` and in the combined outputs file, and the subject alone into GitHub Desktop's Summary box with the rest
+into Description. Whether he wants that, and whether the 318-character subject already pushed is worth any correction at all, is his call.
+
+**HIS ORDER, SAME SESSION, ON BOTH FINDINGS:** *"if it's fine, just fix it and/or get rid of it"* — asked after he said the fetch block
+*"seems new… makes me feel like something is wrong"* and Claude showed it was an Anthropic-side sandbox policy, not his machine and not his
+project. **Both were fixed on that order and neither is queued any longer.**
+
+**(1) built — `status.mjs` `sync()`.** Every not-known case now says so: `❓ UNKNOWN — git unavailable`, `❓ UNKNOWN — no upstream on this
+branch`, `❓ UNKNOWN — origin refs have never been fetched here`, and, when the refs are older than a day, `matches origin refs, but they
+are Nd old — fetch before believing this`. Plain "in sync with origin" is now reachable only from a real upstream comparison against refs
+under a day old. New `refAgeDays()` reads the newest mtime of the origin ref / FETCH_HEAD / packed-refs. Gate: `status-sync-test.mjs` in
+this repo — 9 assertions, executing the REAL functions lifted out of `status.mjs` against throwaway git repos it builds itself (a true
+clone, a branch with no upstream, a non-repo, a missing directory, refs backdated nine days). 9 / 9 green; honesty run against the previous
+copy 1 / 9 with exit 1, the old code answering "in sync with origin" for a directory that does not exist. Deliberately NOT named `test-*.mjs`
+and NOT placed in `tests/`: `run-all.mjs` discovers by that name, and the auction battery must not gain a dependency on this repo three days
+from go-live. The auction battery was re-run anyway after the change: 87 suites, 2903 assertions, all green.
+
+**(2) built — the blank line.** `START-HERE.md` §3's commit-summary rule now requires a blank line after the subject, with the measurement
+behind it, and says the subject alone goes in GitHub Desktop's Summary box and the rest in Description. `c30f0cc`'s 318-character subject
+is left exactly as it is — it is pushed history on a live repo, and rewriting it would buy nothing.
