@@ -768,7 +768,7 @@ eight honesty blocks run against the new build. Move the staged copy aside the m
 on BOTH builds — the assumptions were wrong, not the code; rule 12 held. (4) Asking "what else has this shape?" after an owner-found defect
 paid twice today (O-G; the timer-off statement) — make the class hunt part of every owner-found fix's audit brief.
 
-## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — THE SHIPPED §195 BULLET REMOVED (pushed `6b74b8f`); THEN §196 DESTINATION OF THE DAY: LIST, 100 LICENSED PHOTOS, BUILT AS STAFF 174 / ADMIN 336, GATED, FILED — AWAITING HIS PUSH.
+## 9 Sep 2026 — "Vacation Auction 9 Sep 2026 V6" — THE SHIPPED §195 BULLET REMOVED (pushed `6b74b8f`); THEN §196 DESTINATION OF THE DAY: LIST, 100 LICENSED PHOTOS, BUILT AS STAFF 174 / ADMIN 336, GATED, PUSHED `158d81e` AND SERVED TWICE.
 
 Opened with START-HERE attached (read from disk); ritual clean: live 335 / 173 / 18 and 151 / 51 fetched twice with different cache-busters,
 all four repos clean and in sync (auction `d518121`, hub `60952ff`, tests `cfa79de` from disk, schedule `0a61585`); no locks before the
@@ -790,8 +790,11 @@ The build: staff 174 (`.dest-pill`, `DESTINATIONS`, `DEST_EPOCH`, `destinationIn
 listener, midnight tick), admin 336 (card + `toggleDestinationOfDay`, change-log sentences), `img/destinations/` (100 × 200px, 909 KB,
 `CREDITS.md`), versions 174 / 336, rules untouched. Gates on the final bytes, both machines: suite 65 / 65 + honesty 57 red on `c10b825`
 / `6f2b0e2`, batteries 87 / 2,903 Mac and 2,902 cloud, isolation 36, sweep clean, `sweep/dest-pill-check.mjs` 12 / 12 (a Chromium-driven
-check of the pill itself — rule 9), two adversarial passes (no CRITICAL / HIGH; two LOWs fixed). Filed, not pushed: `COMMIT-MESSAGES.txt`
-in the outputs column, one section per repo (auction, tests, hub). START-HERE carries the FILED line; `status.mjs` exit 0.
+check of the pill itself — rule 9), two adversarial passes (no CRITICAL / HIGH; two LOWs fixed). He pushed the same session: auction `158d81e` (105 files), tests `94483ef`, hub `34b5550`; 174 / 336 fetched twice with different
+cache-busters, `CREDITS.md` served (100 rows), the day-1 picture served (the fetcher reports "image content", not a 404). START-HERE live
+line updated, FILED line removed; `status.mjs` exit 0. Closing checklist run: 0 fetch (in sync, one lock moved) · 1 chat reviewed — every
+ruling is in §196, the picture taste in the record · 2 state files true · 3 numbers from the runs · 4 only this close's docs are
+uncommitted (auction BUILD-LOG commit column + hub) · 4a `_to_delete/` holds the fetch rounds and xfer zips, his to empty · 5 handed over. After the push: random-per-load asked and declined (*"leave as it is"*); deck slide 13 re-shot with the pill (tests, uncommitted).
 
 **Traps met today (for STANDING TRAPS if they recur):** (1) `status.mjs` reads file mtimes in UTC — after 17:00 PDT an edit "happened
 tomorrow" and the LAST REVISED gate stamps tomorrow's date; harmless, but the date in START-HERE runs a day ahead in the evening. (2) The

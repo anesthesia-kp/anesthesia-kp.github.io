@@ -210,7 +210,7 @@
 | §193 | 9 Sep 2026 | RULES & REMINDERS RE-ORDERED INTO TOPIC GROUPS, PLUS ONE NEW SENTENCE NAMING THE BID NUMBERS | LIVE (334 / 172, `7862742`, 9 Sep 2026) |
 | §194 | 9 Sep 2026 | AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE | LIVE (335, `6f2b0e2`, 9 Sep 2026) |
 | §195 | 9 Sep 2026 | THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH | LIVE (staff 173, `c10b825`, 9 Sep 2026) |
-| §196 | 9 Sep 2026 | "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE | BUILT (staff 174 / admin 336, filed 11 Sep 2026) |
+| §196 | 9 Sep 2026 | "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE | LIVE (staff 174 / admin 336, `158d81e`, 11 Sep 2026) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5278,7 +5278,11 @@ construction crane, dublin, scotland, tuscany"* → a 13-place candidates round 
 people); his picks: Claude's list *"except big sur #6, barcelona #3, find a guinness brewery image for dublin"* → the St. James's Gate
 brewery gate, *"8 good"*. The fetch tool gained a people filter; every picture re-verified (100 / 100, licences, files, credits).
 
-**BUILT — staff 174 / admin 336, filed 11 Sep 2026 (V6), awaiting his push.** The gate ran on the final bytes on both machines:
+**LIVE — staff 174 / admin 336, pushed 11 Sep 2026 (`158d81e`; tests `94483ef`, hub `34b5550`), 174 / 336 served twice, CREDITS.md and the day-1 picture served.** The gate ran on the final bytes on both machines:
+
+**Asked and DECLINED (same session, after the push):** *"what does it take to make each page load choose a random image so it's different with each login?"* — one line, staff-only; the trade-off (a shared daily place and turn-fairness vs per-load variety, with a "daily shuffled" middle path) laid out → *"leave as it is"*. The daily rule stands.
+
+**Deck (his ask, same session): *"can you update deck to include today's image?"*** — slide 13 "Signing in" re-shot at the deck's own size from the sandboxed 174 page (both states, Phase 2 as before) with Plitvice Lakes; the other 34 slides untouched; validated; the previous deck archived.
 `test-174-336-destination.mjs` 65 / 65 (honesty 57 red on `c10b825` / `6f2b0e2`), batteries 87 suites Mac 2,903 + cloud 2,902, isolation
 36 / 36, sweep clean, the new driven check `sweep/dest-pill-check.mjs` 12 / 12 (its own honesty red on 173), two adversarial passes by an
 independent agent: no CRITICAL / HIGH; two LOWs it found were fixed (an OFF arriving while the picture loads now wins; a sign-in tab left open
