@@ -794,7 +794,12 @@ check of the pill itself — rule 9), two adversarial passes (no CRITICAL / HIGH
 cache-busters, `CREDITS.md` served (100 rows), the day-1 picture served (the fetcher reports "image content", not a 404). START-HERE live
 line updated, FILED line removed; `status.mjs` exit 0. Closing checklist run: 0 fetch (in sync, one lock moved) · 1 chat reviewed — every
 ruling is in §196, the picture taste in the record · 2 state files true · 3 numbers from the runs · 4 only this close's docs are
-uncommitted (auction BUILD-LOG commit column + hub) · 4a `_to_delete/` holds the fetch rounds and xfer zips, his to empty · 5 handed over. After the push: random-per-load asked and declined (*"leave as it is"*); deck slide 13 re-shot with the pill (tests, uncommitted).
+uncommitted (auction BUILD-LOG commit column + hub) · 4a `_to_delete/` holds the fetch rounds and xfer zips, his to empty · 5 handed over. After the push: random-per-load asked and declined (*"leave as it is"*); deck slide 13 re-shot with the pill. He pushed the closing docs too: auction `4068f73`, tests `78afcc5`, hub `6702528` — all four repos
+clean and in sync at close; 174 / 336 re-fetched live. Context at open 124k; at close ~683k (his "stop by 700k"). The only uncommitted
+residue is `status.mjs`'s own post-push regeneration (STATUS timestamp, the map's dates) — the same as every close; no push needed.
+
+**Next session:** nothing queued on the auction; the auction is closed under §92 / §164. Honesty baseline `158d81e` (staff 174 / admin 336).
+The deck is current. `_to_delete/` is 178 MB (fetch rounds, xfer zips, lock folders) — his to empty.
 
 **Traps met today (for STANDING TRAPS if they recur):** (1) `status.mjs` reads file mtimes in UTC — after 17:00 PDT an edit "happened
 tomorrow" and the LAST REVISED gate stamps tomorrow's date; harmless, but the date in START-HERE runs a day ahead in the evening. (2) The
