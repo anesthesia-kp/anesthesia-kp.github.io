@@ -807,3 +807,35 @@ staged-copy trap (§6) bit once more: the cloud battery ran 8 honesty blocks aga
 `/mnt/user-data/uploads/…` were moved aside — now done the moment they are copied in. (3) Commons search ANDs every word: long, specific
 queries return nothing; 2–3 words work. (4) `device_stage_files` takes at most 50 paths per call. (5) Playwright 1.6x wants
 `chromium_headless_shell-<rev>/chrome-headless-shell-linux64/chrome-headless-shell` — a second symlink beside the `chrome-linux64` one.
+
+## 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V1" — NOTHING LEFT TO BUILD; THE GO-LIVE RUNBOOK GETS ITS PRE-FLIGHT (§197), PUSHED `be6a46b`. GO-LIVE NEXT WEEK; CLAUDE PRO FROM 12 SEP.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 174 / 336 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean (auction `4068f73`, schedule `0a61585`, tests `78afcc5` from disk, hub `e9416f6`), no locks before or after. `git fetch`
+over the bridge FAILED today — the device proxy answered 403 for github.com on all three public repos — so origin/main was read from the
+cloud with `git ls-remote` instead (all three equal to disk). Context at open 130k.
+
+**His question:** anything at all left for the vacation site, with Max ending 12 Sep and go-live next week. Answer: no code (queue empty,
+§92 / §164), one docs gap — the go-live runbook predated 329–336. **His go:** *"Do the runbook update please. keep it concise, but thorough.
+Ensure all decisions that need to be made are listed so that auction begins without a hitch."* Delivered as a new §0 pre-flight plus the
+329–336 features (§197 has the full list); every claim read off the admin code (`FROZEN_CONFIG_KEYS`, `clearEverything`, the 🧹 handler,
+the holds release path) or the 7 Sep rehearsal record, never recalled — two memory errors caught that way (🧹 wipes ALL records; a hold can
+be released on User Bids). Delivered per the outputs rule (COMMIT-MESSAGES.txt + zip → `_to_delete/xfer/` → `unzip -p` into
+`tests/docs/GO-LIVE-RUNBOOK.md`, md5 `9a1e7462…` both sides), then at his ask as a loose `.md` and a `.docx` (pandoc + styled tables, 6
+pages — not in any repo). He pushed mid-session: tests `be6a46b` (the runbook), hub `f2a77d0` (the generated map / STATUS from
+`status.mjs`), and emptied `_to_delete/` (176.7 MB → 20 KB). No served bytes changed; no battery run — nothing to prove.
+
+**Recorded:** DECISIONS §197 (his question, his go, what the runbook now lists, go-live week of 14 Sep, Claude Pro from 12 Sep); START-HERE
+§1 go-live sentence and fact (1) corrected in place ("days", the week of 14 Sep). **Next session:** nothing queued on the auction; the
+auction is closed under §92 / §164. Honesty baseline `158d81e` (staff 174 / admin 336). The runbook is current to 174 / 336. Sessions
+from 12 Sep run on Claude Pro — plan for smaller sittings (read-and-advise is cheap; a V6-sized battery-and-audit day is not).
+Closing checklist: 0 origin read via cloud `ls-remote` (bridge fetch 403) · 1 chat reviewed — §197, START-HERE §1, this entry · 2 state
+files true, `status.mjs` exit 0 · 3 not applicable (docs only) · 4 hub closing docs uncommitted (his push) · 4a `_to_delete/` 20 KB · 5
+handed over. Context at close ~212k.
+
+**Traps met today (for STANDING TRAPS if they recur):** (1) `git fetch` in `device_bash` got "403 from proxy after CONNECT" for github.com
+— the device VM's egress allowlist did not include it this session, though it did on 9 Sep. The cloud sandbox reaches github.com, so
+`git ls-remote https://github.com/anesthesia-kp/<repo>.git refs/heads/main` from `Bash` is the substitute for the three public repos.
+(2) pandoc's docx tables carry no borders and equal column widths — set `tblW`/`gridCol`/`tcW` and a `tblBorders` on the Table style
+after conversion, then render to check.
+

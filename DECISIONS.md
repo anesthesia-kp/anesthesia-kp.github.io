@@ -211,6 +211,7 @@
 | §194 | 9 Sep 2026 | AN IN-PAGE CAPACITY PAGE ON THE ADMIN SITE: THE CAPACITY REPORT BUILT INTO THE SITE | LIVE (335, `6f2b0e2`, 9 Sep 2026) |
 | §195 | 9 Sep 2026 | THE STALE "BIDDING IS CLOSED" BANNER AFTER A RESET AUCTION (OWNER-FOUND) — CLEAR IT PRE-LAUNCH | LIVE (staff 173, `c10b825`, 9 Sep 2026) |
 | §196 | 9 Sep 2026 | "VACATION DESTINATION OF THE DAY" ON THE STAFF SIGN-IN SCREEN — LOOK B, REAL PHOTOS, A TOP-100 LIST ON A DAILY CYCLE | LIVE (staff 174 / admin 336, `158d81e`, 11 Sep 2026) |
+| §197 | 11 Sep 2026 | THE GO-LIVE RUNBOOK GETS A PRE-FLIGHT OF EVERY DECISION BEFORE BEGIN PHASE 1; GO-LIVE IS NEXT WEEK; CLAUDE PRO FROM 12 SEP | DONE (docs only — tests `be6a46b`, pushed 11 Sep 2026) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5288,3 +5289,26 @@ brewery gate, *"8 good"*. The fetch tool gained a people filter; every picture r
 independent agent: no CRITICAL / HIGH; two LOWs it found were fixed (an OFF arriving while the picture loads now wins; a sign-in tab left open
 past midnight turns over by itself). Day 1 = 11 Sep 2026 (`DEST_EPOCH`) — if he pushes on a later day, bump it before the push. Record:
 BUILD-LOG row "staff 174 · 336 (admin)".
+
+## §197 — THE GO-LIVE RUNBOOK GETS A PRE-FLIGHT OF EVERY DECISION BEFORE BEGIN PHASE 1; GO-LIVE IS NEXT WEEK; CLAUDE PRO FROM 12 SEP — 11 Sep 2026
+
+**His question (11 Sep 2026, V1):** *"Is there anything at all left for vacation site? my claude max ends tomorrow and i'll be back to
+claude pro. site goes live next week."* Claude's answer: no code — the queue is empty, RA-11 and the 332–334 review are clean, and under
+§164 a build now buys risk, not a better auction; the one gap was `tests/docs/GO-LIVE-RUNBOOK.md`, last touched 8 Sep, which did not know
+User Activity (330), withheld numbers (327), the Capacity page (335) or the Destination switch (336). **His ruling:** *"Do the runbook
+update please. keep it concise, but thorough. Ensure all decisions that need to be made are listed so that auction begins without a
+hitch."* Built as a docs-only change in the private tests repo (no served bytes, no §92 question): a new §0 pre-flight in lock order —
+wipe the rehearsals → people → calendar and supply → bidding rules → clock → mail → cosmetic / safety → Begin — every row naming where the
+setting lives, what the record holds (26 Aug supply table, the 7 Sep rehearsal read, the 9 Sep live read) and whether it is a ruling to
+confirm or still his call; User Activity in "can't sign in" / "never got the e-mail"; a "can't place a bid / number missing" checklist
+(used vs withheld); the Capacity page in §5; which settings freeze mid-phase (`FROZEN_CONFIG_KEYS`) in §8. Every claim was checked against
+the admin code, which corrected two things memory had wrong: the User Activity 🧹 button wipes ALL sign-in and e-mail records (`setDoc(…,{})`
+on both logs), so the runbook now says never to click it mid-run; and a withheld number can be released on the User Bids page, not only by
+Reset. **The decisions the record does not hold, now listed for him:** each user's auction FTE; Smart Lock Control per week (0.6 at the
+rehearsal, the page's own advice 0.4); FTE Overage (0.4 at the rehearsal, default 0.5); the KP e-mail prompt; Destination of the Day. **Two
+rehearsal settings to flip back:** both e-mail switches ON; the opening window re-checked at 5 days (O-C). He pushed it the same session
+(tests `be6a46b`, hub `f2a77d0`) and had it re-sent as a loose `.md` and as a Word document (pandoc, tables styled) — the `.docx` is NOT
+in any repo by design (the markdown is the record). **Also on record from this turn:** go-live is the week of 14 Sep 2026; his Claude Max
+ends 12 Sep and sessions from then run on Claude Pro (smaller usage window per sitting — read-and-advise stays cheap; batteries and audits
+of the V6 size will not fit one sitting).
+
