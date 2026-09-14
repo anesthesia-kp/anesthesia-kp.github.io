@@ -5362,3 +5362,38 @@ from go-live. The auction battery was re-run anyway after the change: 87 suites,
 **(2) built — the blank line.** `START-HERE.md` §3's commit-summary rule now requires a blank line after the subject, with the measurement
 behind it, and says the subject alone goes in GitHub Desktop's Summary box and the rest in Description. `c30f0cc`'s 318-character subject
 is left exactly as it is — it is pushed history on a live repo, and rewriting it would buy nothing.
+
+## §199 — THE DESTINATION PHOTO HANGS SQUARE; THREE GATE DEFECTS THE RUN ITSELF EXPOSED — 14 Sep 2026
+
+**Owner-found, on his phone, on the live sign-in screen:** *"Why is this image crooked?"* The answer, read off the served bytes rather than
+recalled: deliberate. `.dest-pill img` carried `transform:rotate(-2deg)` beside its drop shadow — the "snapshot tossed on the desk" look,
+shipped with Destination of the Day (§196, staff 174). Not a rendering fault and not his phone; it applied everywhere the pill appears, and
+the separate lightweight mobile page does not carry the pill at all. Told that straightening it was the deletion of that one declaration and
+that the shadow could stay or go independently, **his ruling was `"go"`** — the §92 specific decision for this change.
+
+**Built as staff 175, the narrowest form:** the rotation removed, the shadow kept, nothing else touched. No logic, no `firestore.rules`
+change, admin unchanged at 336. Honesty baseline `158d81e`.
+
+**THE GATES, AND THE THREE DEFECTS THEY EXPOSED IN THEMSELVES — §3 r16, r8 and r11 shapes, all fixed in this build:**
+
+**(1) Two decaying literals in `test-174-336-destination.mjs`.** It asserted `var BUILD = 174` and `versions.json.index === 174` — pins that
+must be hand-edited on every bump and that assert nothing once edited (§3 r16). Repointed to the INVARIANT: `versions.json` must equal each
+page's own `BUILD` var. Strictly stronger than what it replaced — it catches a half-done bump in BOTH directions, which is the real failure
+mode the literals were standing in for, and it never needs touching again.
+
+**(2) The sweep's first geometry assertion had a FALSE PREMISE.** Written to assert the photo's painted box is the declared 84×64, it went
+red on the CORRECT build, reading 96.59×73.59. Measured rather than assumed: the staff page sets `body{zoom:1.15}`, so every painted box is
+1.15× its laid-out size (the phone block resets it to 1). The aim was wrong, not the bar — it now compares SHAPE, not size: with no tilt the
+painted box keeps exactly the laid-out aspect (1.31253 against 1.31250), and a tilt widens and shortens the axis-aligned box (1.28839). That
+reading is immune to any uniform zoom the page carries later.
+
+**(3) A FALSE GREEN on an absent photo — §3 r11, caught by an accident.** The sweep's honesty run was first pointed at an empty baseline (a
+`--depth 1` cloud clone has no history, so `git show 158d81e:index.html` wrote nothing). Every other assertion failed legibly; the NEW tilt
+assertion **passed**, because a missing image yields `transform null` and an angle initialised to `0`, and `Math.abs(0) < 0.01` is true. An
+assertion that cannot tell "square" from "not there" is not an assertion. Absence now reads `NO IMAGE` and fails.
+
+**Gate results, quoted from the runs.** Static suite 68 / 68 green on 175; honesty against `158d81e` 67 green / 1 red, the one red being
+exactly the new no-tilt invariant. Sweep 15 / 15 green on 175 in headless Chromium at desktop 1440×1000 and phone 390×844; honesty against
+`158d81e` 12 green / 3 red, reading −2.000° on both viewports and aspect 1.28839. FULL auction battery 87 suites / 2903 assertions green,
+0 skipped. `node --check` clean on all four of the staff page's inline scripts. `firestore.rules` untouched and not covered by the node
+battery (RA-2 is his double-click) — a regression non-issue here, since no rules byte changed.
