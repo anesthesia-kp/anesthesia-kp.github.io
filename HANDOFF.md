@@ -732,6 +732,49 @@ nowhere.*
 
 ---
 
+## 14 Sep 2026 — "Vacation Auction 14 Sep 2026 V1" — STAFF 175, THE DESTINATION PHOTO HANGS SQUARE (§199). FILED, NOT PUSHED. THREE GATE DEFECTS FOUND IN THE GATES THEMSELVES.
+
+Opened with START-HERE attached. Ritual clean: live 174 / 336 / 18 fetched twice with different cache-busters, disk identical, all four repos
+clean, no locks. Bridge `git fetch` refused again (§198) — origin read from the cloud with `ls-remote`: vacation `4068f73`, schedule
+`0a61585`, hub `f41bc77`, all equal to disk; `tests` `be6a46b` judged from disk, private. Nothing had moved since 11 Sep.
+
+**HE FOUND IT ON HIS PHONE.** A screenshot of the live sign-in screen: *"Why is this image crooked?"* Read off the served bytes — deliberate,
+`transform:rotate(-2deg)` on `.dest-pill img`, shipped with §196. Told it was one declaration and that the shadow could stay independently,
+he said **"go"**. Built as staff 175: rotation out, shadow kept, nothing else. Full record §199; BUILD-LOG row 175.
+
+**Gates:** full battery 87 suites / 2903 assertions / 0 skipped; static honesty vs `158d81e` 67 green / 1 red on exactly the new invariant;
+browser sweep 15/15 on 175, honesty 12 green / 3 red reading −2.000° and aspect 1.28839. `node --check` clean ×4.
+
+**LESSONS — all three are gate defects the run exposed, and all three are already-written rules biting (§199 has the detail):**
+1. **r16.** The suite pinned `var BUILD = 174` and `versions.json === 174`. Literals like that need hand-editing every bump and assert
+   nothing afterwards. Repointed to the invariant "versions.json equals each page's own BUILD var" — stronger, and permanent.
+2. **r8, aim not bar.** A new geometry assertion went red on the CORRECT build: the staff page sets `body{zoom:1.15}`, so painted boxes are
+   1.15× their laid-out size. **A gate that fires on the wrong thing is worth nothing — measure the page before asserting about its pixels.**
+3. **r11, and the one worth remembering.** An accidental empty baseline (a `--depth 1` cloud clone has no history, so `git show <sha>:<file>`
+   wrote nothing) revealed the new tilt assertion PASSING on a page with no photo at all — `transform null`, angle initialised to `0`.
+   **An assertion that cannot distinguish the good state from the absent state is not an assertion.** The accident was the only reason it
+   was caught; a clean baseline would have hidden it. Absence now fails legibly.
+
+**A NEW TRAP, for STANDING TRAPS if it recurs:** a `--depth 1` clone in the cloud silently cannot serve `git show <sha>:<file>` for an
+honesty fixture — it writes an EMPTY file and the run proceeds. Build every fixture from a repo with history, and check the fixture's BUILD
+number before believing the run.
+
+**He asked two questions and I got one of them wrong first time.** (1) Whether a long-open tab needs periodic re-login: no — "Remember me" is
+ticked by default, Google and App Check refresh silently, there is no idle timeout, and the page reloads itself when a new build is published.
+(2) He then challenged my claim that the ✎ / ✕ controls depend on an admin tab: *"Are you saying that an admin page needs to be open at timer
+expiration?"* **Claude's first answer implied something functional hung on an open admin tab. It does not** — `timerNotExpired()` rejects late
+bid writes on Google's clock. Corrected and owned in-chat; the architecture question he raised from it is filed in TODO §1 HIS CALL.
+
+**Open at hand-over:** nothing is pushed. vacation (index.html, versions.json, BUILD-LOG, COMMIT-MESSAGE), tests
+(test-174-336-destination.mjs, sweep/dest-pill-check.mjs, COMMIT-MESSAGE) and hub (START-HERE, TODO, DECISIONS, HANDOFF, COMMIT-MESSAGE,
+plus 11 Sep's two derived files) are all uncommitted. He pushes from his desktop. **Do not push while a phase is open** — a push redeploys
+the live site and every open staff tab reloads itself.
+
+**Bridge note:** it dropped mid-filing when he walked away from the machine, exactly as the standing trap predicts. The call that died had
+written NOTHING — verified by grep on return before re-running it, rather than re-running blind.
+
+---
+
 ## 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V2" — THE BRIDGE-FETCH TRAP PROMOTED (§198), PUSHED `c30f0cc`. TWO GATE-HONESTY DEFECTS FOUND AND FIXED ON HIS ORDER.
 
 Opened with START-HERE attached (read from disk); ritual clean: live 174 / 336 / 18 and 151 / 51 fetched twice with different cache-busters,
