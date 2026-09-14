@@ -1950,3 +1950,130 @@ staged-copy trap (§6) bit once more: the cloud battery ran 8 honesty blocks aga
 `/mnt/user-data/uploads/…` were moved aside — now done the moment they are copied in. (3) Commons search ANDs every word: long, specific
 queries return nothing; 2–3 words work. (4) `device_stage_files` takes at most 50 paths per call. (5) Playwright 1.6x wants
 `chromium_headless_shell-<rev>/chrome-headless-shell-linux64/chrome-headless-shell` — a second symlink beside the `chrome-linux64` one.
+
+---
+## ⤵ moved 14 Sep 2026 from HANDOFF.md — 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V1" — NOTHING LEFT TO BUILD; THE GO-LIVE RUNBOOK GETS ITS PRE-FLIGHT (§197), PUSHED `be6a46b`. GO-LIVE NEXT WEEK; CLAUDE PRO FROM 12 SEP.
+
+## 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V1" — NOTHING LEFT TO BUILD; THE GO-LIVE RUNBOOK GETS ITS PRE-FLIGHT (§197), PUSHED `be6a46b`. GO-LIVE NEXT WEEK; CLAUDE PRO FROM 12 SEP.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 174 / 336 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean (auction `4068f73`, schedule `0a61585`, tests `78afcc5` from disk, hub `e9416f6`), no locks before or after. `git fetch`
+over the bridge FAILED today — the device proxy answered 403 for github.com on all three public repos — so origin/main was read from the
+cloud with `git ls-remote` instead (all three equal to disk). Context at open 130k.
+
+**His question:** anything at all left for the vacation site, with Max ending 12 Sep and go-live next week. Answer: no code (queue empty,
+§92 / §164), one docs gap — the go-live runbook predated 329–336. **His go:** *"Do the runbook update please. keep it concise, but thorough.
+Ensure all decisions that need to be made are listed so that auction begins without a hitch."* Delivered as a new §0 pre-flight plus the
+329–336 features (§197 has the full list); every claim read off the admin code (`FROZEN_CONFIG_KEYS`, `clearEverything`, the 🧹 handler,
+the holds release path) or the 7 Sep rehearsal record, never recalled — two memory errors caught that way (🧹 wipes ALL records; a hold can
+be released on User Bids). Delivered per the outputs rule (COMMIT-MESSAGES.txt + zip → `_to_delete/xfer/` → `unzip -p` into
+`tests/docs/GO-LIVE-RUNBOOK.md`, md5 `9a1e7462…` both sides), then at his ask as a loose `.md` and a `.docx` (pandoc + styled tables, 6
+pages — not in any repo). He pushed mid-session: tests `be6a46b` (the runbook), hub `f2a77d0` (the generated map / STATUS from
+`status.mjs`), and emptied `_to_delete/` (176.7 MB → 20 KB). No served bytes changed; no battery run — nothing to prove.
+
+**Recorded:** DECISIONS §197 (his question, his go, what the runbook now lists, go-live week of 14 Sep, Claude Pro from 12 Sep); START-HERE
+§1 go-live sentence and fact (1) corrected in place ("days", the week of 14 Sep). **Next session:** nothing queued on the auction; the
+auction is closed under §92 / §164. Honesty baseline `158d81e` (staff 174 / admin 336). The runbook is current to 174 / 336. Sessions
+from 12 Sep run on Claude Pro — plan for smaller sittings (read-and-advise is cheap; a V6-sized battery-and-audit day is not).
+Closing checklist: 0 origin read via cloud `ls-remote` (bridge fetch 403) · 1 chat reviewed — §197, START-HERE §1, this entry · 2 state
+files true, `status.mjs` exit 0 · 3 not applicable (docs only) · 4 hub closing docs uncommitted (his push) · 4a `_to_delete/` 20 KB · 5
+handed over. Context at close ~212k.
+
+**Traps met today (for STANDING TRAPS if they recur):** (1) `git fetch` in `device_bash` got "403 from proxy after CONNECT" for github.com
+— the device VM's egress allowlist did not include it this session, though it did on 9 Sep. The cloud sandbox reaches github.com, so
+`git ls-remote https://github.com/anesthesia-kp/<repo>.git refs/heads/main` from `Bash` is the substitute for the three public repos.
+(2) pandoc's docx tables carry no borders and equal column widths — set `tblW`/`gridCol`/`tcW` and a `tblBorders` on the Table style
+after conversion, then render to check.
+
+---
+## ⤵ moved 14 Sep 2026 from HANDOFF.md — 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V2" — THE BRIDGE-FETCH TRAP PROMOTED (§198), PUSHED `c30f0cc`. TWO GATE-HONESTY DEFECTS FOUND AND FIXED ON HIS ORDER.
+
+## 11 Sep 2026 — "Vacation Auction 11 Sep 2026 V2" — THE BRIDGE-FETCH TRAP PROMOTED (§198), PUSHED `c30f0cc`. TWO GATE-HONESTY DEFECTS FOUND AND FIXED ON HIS ORDER.
+
+Opened with START-HERE attached (read from disk); ritual clean: live 174 / 336 / 18 and 151 / 51 fetched twice with different cache-busters,
+all four repos clean, no locks before or after. `git fetch` over the bridge failed again — origin read from the cloud with `ls-remote`
+(auction `4068f73`, schedule `0a61585`, hub `0427704`, all equal to disk; `tests` `be6a46b` judged from disk, private). Context at open ~123k.
+
+**Three of his turns, in order.** (1) *"Why this?"* — a challenge to Claude's own opening sentence, and it was right to be challenged.
+Claude had written "no egress to github.com"; testing five hosts showed the device shell had NO egress at all, and the proxy stated its own
+reason in a header (`X-Proxy-Error: blocked-by-allowlist`). A command-length hypothesis was tested and refuted. **His go:** *"go"* — promote
+it to STANDING TRAPS. Six lines under THE MAC AND THE BRIDGE; pushed as hub `c30f0cc`. (2) *"this bridge fetch block seems new. makes me
+feel like something is wrong"* — see the next paragraph. (3) *"if it's fine, just fix it and/or get rid of it"*, then *"then redo handoff"*.
+
+**WHY THE BLOCK IS NOT A SIGN OF TROUBLE, tested rather than asserted — the answer a future session should reuse.** Probing eight hosts from
+`device_bash` separates a broken proxy from a working one: `api.anthropic.com` answered **404** and `claude.ai` answered **403 from the site
+itself**, so CONNECT succeeded and TLS completed for both — while github.com, npm, PyPI, Google, Firebase and `storage.googleapis.com` were
+all refused at CONNECT. **The allowlist is not empty and the proxy is not broken: it permits Anthropic's own hosts and nothing else.** That
+is a deliberate, functioning policy on Anthropic's side, not a fault of his Mac, his repos or his Firebase project. Blast radius is exactly
+two things: `git fetch` and package installs from inside the device VM. It cannot touch the live auction (GitHub Pages), Firebase (reached
+from his users' browsers), or his pushes (GitHub Desktop runs on macOS proper, outside this sandbox — he pushed twice during this session).
+The batteries need no network: the auction battery was run on the Mac to prove it — **87 suites, 2903 assertions, all green, 21 s**.
+
+**Built on his order — two gate-honesty defects, both `START-HERE` §3 r8 shapes (a gate that passes without testing). Full detail in §198.**
+**(1) `status.mjs`'s "vs origin" column** returned "in sync with origin" as a FALLTHROUGH: the same green covered a true match, refs left
+stale by the blocked fetch, and git failing outright — the old code answers "in sync with origin" for a directory that does not exist. Every
+not-known case now says UNKNOWN, and refs older than a day are named as such. Gate: **`status-sync-test.mjs`** in this repo, 9 assertions
+executing the REAL extracted `sync()`/`refAgeDays()` against throwaway git repos it builds itself — 9 / 9 green, honesty 1 / 9 exit 1
+against an explicit copy of the previous file. **It is deliberately not `test-*.mjs` and not in `tests/`** — `run-all.mjs` discovers by that
+name, and the auction battery must not gain a dependency on this repo three days from go-live. Auction battery re-run after the change:
+87 / 87, 2903 assertions. **(2) The commit-message blank line** — `START-HERE` §3 now requires one after the subject.
+
+**The lesson this session paid for, three times, and it is one lesson — SAYING A CAUSE INSTEAD OF TESTING ONE.** The opening report named
+github.com because that is the host the failing command happened to touch; one `curl` elsewhere would have corrected it before it was said.
+Verifying the `status.mjs` claim before writing it into a permanent file is what turned it into §198(1). And "it's probably just policy"
+only became worth telling him once eight hosts had been probed and two of them answered. **A symptom seen through one door is not a
+diagnosis** — START-HERE §3 r14 (*run it, don't recall it*) applied to Claude's own prose, not just to its assertions about code.
+
+**Claude's own error, owned:** the first draft of `COMMIT-MESSAGE.txt` had a blank line after its subject; Claude REMOVED it to match the
+archived house format, and git took all four lines as one 318-character subject. Checking whether that was new found §198(2) — it is not
+new, no commit in any repo has ever had a body, and that is the mechanism behind his commit-length complaint. `c30f0cc` is left as it is.
+
+**HE ASKED WHETHER THE DESTINATION FEATURE (§196) HAD A PROBLEM — IT DOES NOT, CHECKED LIVE, NOT FROM THE CODE'S INTENTIONS.** Read on
+the served staff page in the browser pane (Chrome's extension was not connected): build 174, `#destPill` present and NOT hidden, name
+"Plitvice Lakes" / "Croatia" — correct for day 1, which is today — image loaded at its real 200px natural width, href on the right Commons
+page, page clock in Pacific. The specific risk worth checking was the rollover firing on UTC rather than his midnight, the same class as the
+`status.mjs` mtime trap: it is NOT present — `destinationIndexFor` builds its day difference from LOCAL date parts (`getFullYear` /
+`getMonth` / `getDate`) normalised through `Date.UTC`, so it turns over at midnight where the viewer is, and `_destMidnightTick` re-paints a
+tab left open across it. Nothing to do. (`DESTINATIONS` and `destinationIndexFor` read as undefined from the console because the page's
+script is an ES module and only `renderDestinationPill` was put on `window` — that is not a defect; check the pill's DOM, not the globals.)
+
+**A STANDING ORDER, 11 Sep 2026, VERBATIM — now in `START-HERE` §1 above the 25 Aug line it generalises:** *"i want you to stop mentioning
+things that i've already decided are for later. if it's not current, don't mention it. I'll ask for the tabled items when it's time."* Said
+after Claude put the bridge-fetch block in the opening report and then in both handovers, and followed by *"if it can't be fixed and is not
+a problem, why do you keep mentioning it?"* — a fair hit. **The rule for every future report: only what is live, what changed this session,
+and what he must act on now.** The deferred pile stays filed and stays out of the summary; he will ask. Filing it is not the same as
+surfacing it, and a settled item that cannot be acted on is not worth a line however interesting its diagnosis was.
+
+**TODO's ▶ NEXT SECTION STRIPPED TO WHAT IS ACTUALLY NEXT, on his order (*"do it now"*).** He asked whether the list was growing.
+Measured across the last twenty commits touching `TODO.md`: §1 went 13 → 22 items during 9 Sep and has been FLAT at 22 through every
+commit since; today added two and removed two. The growth he felt was real but older than he thought — and the count hid the actual fault:
+of eight bullets under ▶ NEXT, SEVEN were records of shipped, live work, each already carrying its BUILD-LOG row and its DECISIONS §.
+That is the standing rule of this file skipped seven times ("the moment something ships, `TODO.md` is not its home"), and it is exactly how
+the file reached 2,600 lines before. Every one of the seven was verified present elsewhere BEFORE deletion — nine BUILD-LOG rows, eight
+DECISIONS headings, the two named audit documents and the archived 8 Sep entry all confirmed by grep. ▶ NEXT now holds the one genuinely
+open item and the standing constraint. **The lesson for the paperwork step: the deletion is not bookkeeping, it is what keeps the list
+readable — a NEXT section that is seven-eighths finished work reads as a growing pile no matter how little is actually outstanding.**
+
+**Recorded:** DECISIONS §198 (his question, the tested answer, his two orders, both fixes and their gates). `TODO.md` 🙋 HIS CALL gained the
+two findings and then LOST them again the moment they were built — one deletion per build, same turn. STANDING TRAPS gained the bridge-fetch
+line. **Next session:** nothing queued on the auction; §92 / §164 hold; honesty baseline `158d81e` (staff 174 / admin 336). Go-live is the
+week of 14 Sep. Sessions from 12 Sep run on Claude Pro.
+
+**THE ARCHIVE PASS RAN, on his order (*"do that now actually"*), at 897 / 900 — promote first, then move.** Four lessons in the two 9 Sep
+entries lived nowhere else and were promoted BEFORE anything was archived: **START-HERE §3 gains rule 17** — after an owner-found defect,
+hunt the CLASS before fixing the instance (*"are there other things hiding with the same problem?"*), which is why an owner-found item
+outranks the queue; and **STANDING TRAPS gains three** — `device_stage_files` caps at 50 paths per call, `status.mjs` reads mtimes in UTC so
+after 17:00 PDT START-HERE's date runs a day ahead, and Wikimedia Commons search ANDs every word (2–3 words work), which his
+`FETCH-DESTINATIONS.command` needs and a CRNA revival would need again. Rule 17 was appended, NOT inserted: §3 r8 / r11 / r12 / r14 / r16
+are cited by number across these files and a renumber would silently repoint every one of them. Then `node archive.mjs HANDOFF.md --line`
+moved **9 Sep V5 (47 lines) and 9 Sep V6 (40 lines)** to `HANDOFF-ARCHIVE.md`, each dry-run first and each verified lossless by the tool.
+**HANDOFF 897 → 815 / 900.** Both 11 Sep entries were KEPT — V1's pandoc-docx-tables trap is still unhoused, and uncertainty keeps a
+section (§101). A `grep -ciE` with `\|` alternations was silently matching a literal pipe and reported four promoted lessons as missing;
+re-run with real ERE before believing any such sweep.
+
+Closing checklist: 0 origin read via cloud `ls-remote` (bridge fetch 403) · 1 chat reviewed — §198, TODO, START-HERE §3 r17, STANDING TRAPS,
+this entry, plus the ▶ NEXT strip and the "not current" standing order · 2 state files true, `status.mjs` exit 0 and converged (run 1 regenerates the MAP after archiving, runs 2 and 3 identical) ·
+3 code proved — `status-sync-test.mjs` 9 / 9 with honesty 1 / 9 exit 1 on an explicit previous copy, auction battery 87 / 87 (2903
+assertions) and isolation 36 / 36 on the Mac; the schedule's browser suites do NOT run there and were not run, a coverage hole and not a
+pass; nothing served changed, so no build number and no BUILD-LOG row · 4 all four repos accounted for, seven files uncommitted in the hub ·
+4a `_to_delete/` 20 KB, 3 files — a 4-byte write-probe Claude left there, the bridge cannot delete it · 5 handed over.
