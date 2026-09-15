@@ -5398,3 +5398,40 @@ exactly the new no-tilt invariant. Sweep 15 / 15 green on 175 in headless Chromi
 `158d81e` 12 green / 3 red, reading −2.000° on both viewports and aspect 1.28839. FULL auction battery 87 suites / 2903 assertions green,
 0 skipped. `node --check` clean on all four of the staff page's inline scripts. `firestore.rules` untouched and not covered by the node
 battery (RA-2 is his double-click) — a regression non-issue here, since no rules byte changed.
+
+## §200 — THE FLOATING MESSAGE BOX IS OPAQUE; THE ADMIN-TAB DEPENDENCY WEIGHED AND LEFT WHERE IT IS — 14 Sep 2026
+
+**His report.** *"when the timer expires for the phase and the admin site is not open, the weeks all become
+unbiddable, but they do not lock until admin logs in. When a user clicks a week in this situation, the pop-up
+alert alerts as a red box that displays somewhat transparently at the top of the page and sometimes over other
+text that looks bad and unprofessional."* He offered two routes — fix the box, or **"perhaps the better solution
+would be to not depend on the admin site being open for the timer to expire properly"** — asked whether other
+things depend on an open admin tab, and set the constraint: *"I want smaller and safer fixes at this point since
+we are close to go-live."*
+
+**What the code said.** The box is `#errorMessage`, class `.flash.err`, painted `rgba(239,68,68,.15)` — 15%
+opaque — and `position:fixed; top:16px; z-index:100000`. It is see-through *every* time it appears; the expiry
+case is merely where it is worst, because the board already carries the in-flow `#phaseClosedBanner` saying the
+same sentence, and the floating box lands over it. Path: `openPriorityModal` → `isAuctionClosed()` → `showError`
+→ `flash()`, which falls back to the floating box when no dialog is open.
+
+**The admin-tab inventory (his second question).** Exactly ONE automatic action is admin-only:
+`_autoCloseOnExpiry()`, which locks the 52 weeks. The mail queue is already relayed by ANY signed-in staff tab
+through the claim protocol; `updatePhaseOpen` runs on both pages and writes nothing; nothing else on the admin's
+one-second tick writes. **And the lock is paint:** `timerNotExpired()` in `firestore.rules` rejects every late
+bid against `request.time`, Google's clock, whether or not a tab is open anywhere. So the missing auto-close
+costs promptness of repaint, never fairness.
+
+**Claude's push-back, which he accepted.** Removing the dependency has only two shapes, and neither is the
+smaller or safer fix: give staff tabs write access to the `locks` document — today admin-only via
+`isAdminOnlyDoc` — which would hand every registered bidder the power to lock all 52 weeks; or add a scheduled
+server-side job, which this project has nowhere today (new infrastructure, a new cost line, a new deploy path)
+and which is squarely against §164. The architectural route buys no fairness that the rules do not already
+guarantee. It stays where he parked it, as behaviour parity after launch.
+
+**HIS RULING: "A alone. Go."** One CSS declaration on the staff page: `.flash.err` background becomes the opaque
+`#fde3e3` — the exact composite of the old wash over white, so the box looks unchanged wherever it does not
+overlap. Border, text colour, position, z-index and shadow untouched. No JavaScript, no rules, no data, admin
+untouched at 336. Claude also argued AGAINST the optional half (suppressing the duplicate message when the
+in-flow banner already says it): a click that produces silence reads as a broken page. Built as **staff 176**.
+

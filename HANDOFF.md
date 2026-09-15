@@ -732,6 +732,69 @@ nowhere.*
 
 ---
 
+## 14 Sep 2026 — "Vacation Auction 14 Sep 2026 V2" — STAFF 176, THE FLOATING MESSAGE BOX IS OPAQUE (§200). THE ADMIN-TAB DEPENDENCY WEIGHED AND LEFT WHERE HE PARKED IT. THE BRIDGE DROPPED AFTER THE GATES; DELIVERY IS BY BUNDLE.
+
+Opened with START-HERE attached and no message — the ritual. Folder access had to be requested twice: the first
+`device_request_folder_access` was refused by this session's own auto-mode policy before it ever reached him, and it
+went through on his word. Ritual clean: live staff 175 / admin 336 / mobile 18 and schedule 51 / 151, each fetched
+TWICE with different cache-busters, all equal to disk and to START-HERE's LIVE line; all four repos clean; the three
+public ones fetched and in sync (auction `4251378`, hub `0d3dbd7`, schedule `0a61585`), `tests` judged from disk at
+`8254b5e`. The fetch stranded `objects/maintenance.lock` in all three, as always — moved to
+`_to_delete/locks-14sep-v2/`. Context at the report: 130,072. Raised with him, not acted on: TODO's STATUS block was
+generated before his 14 Sep push and still reported five uncommitted files, so `node status.mjs` is due.
+
+**His report and the exploration (§200).** The red box that appears when a user clicks a week after the clock has
+expired with no admin tab open. Traced to `#errorMessage` / `.flash.err` — `rgba(239,68,68,.15)`, 15% opaque,
+`position:fixed` at `z-index:100000`. It is see-through every time it appears; the expiry case is the worst because
+the board already carries `#phaseClosedBanner` with the same sentence, and the floating box lands on it. The class
+hunt (rule 17) came back clean: `.flash` exists only on the staff page; the admin uses `toast()`; the only other
+fixed translucent background is the modal backdrop, which is meant to be translucent.
+
+**His second question, answered with an inventory.** Exactly ONE automatic action is admin-only:
+`_autoCloseOnExpiry()`. The mail queue is already relayed by any signed-in staff tab through the claim protocol;
+`updatePhaseOpen` runs on both pages and writes nothing. And `timerNotExpired()` in `firestore.rules` rejects every
+late bid against Google's clock regardless, so the lock is paint. Claude pushed back on his own preferred route —
+staff write access to the admin-only `locks` doc, or server-side compute that does not exist in this project — and
+he took the small fix: **"A alone. Go."**
+
+**Built as staff 176.** One declaration: `.flash.err` background → `#fde3e3`, the exact composite of the old wash
+over white. `var BUILD` and `versions.json` bumped together. Two lines of diff in `index.html`, one in
+`versions.json`; the rest byte-identical.
+
+**Gates.** New `tests/test-176-flash-opaque.mjs` 19/19 — the invariant is that EVERY rule anywhere in the page that
+paints the box is fully opaque, so a later cascade override fails too; plus invariance on border, colour, position,
+z-index, shadow and the click path. New `tests/sweep/flash-opaque-check.mjs` 27/27 — headless Chromium, desktop AND
+phone, driving his exact scenario through the fake store: expired timer, locks untouched, 0 weeks locked, 52 painted,
+click a week, then read the BROWSER-RESOLVED background (`rgb(253,227,227)`, alpha 1) with 4–6 text-bearing elements
+underneath. Honesty on `7a33311`: static 2 red exit 1, browser 2 red exit 1 (alpha 0.15, both viewports). Three
+mutations prove absence FAILS rather than passes (rule deleted 5 red, element deleted 2 red, a later translucent rule
+2 red). Battery 88 suites exit 0 — Mac 2,922 assertions, cloud 2,921; isolation 36/36; `node --check` clean ×4; sweep
+382 / 13 / 315 / 13 clicks, 163 dialogs, 144 confirms, **0 errors**. Mac ↔ cloud md5 identical on both pages,
+`versions.json`, `firestore.rules`, `mobile.html` and the schedule pages. Before/after screenshots taken and read.
+
+**Two traps this session walked into, both caught by our own rules.**
+1. `test-audit-fixes.mjs` went red in the cloud only. Its honesty baselines are HARDCODED at
+   `/mnt/user-data/uploads/GitHub/vacation-kp.github.io/index.html` — exactly where `device_stage_files` drops the
+   CURRENT page, which START-HERE §6 warns about in writing. Proved it was the path and not the build by putting the
+   PUSHED 175 bytes there: the same 4 assertions failed. Cleared the staged path (as on the Mac) and the battery went
+   green. Those blocks want a pre-126 baseline; there is no correct file for them today, and this build's honesty
+   gate is `test-176 --pre` on `7a33311`, which ran red.
+2. The new suite's summary line omitted the `(N assertions)` token that `run-all.mjs` parses, so the battery headline
+   under-counted by 19 while still reporting pass/fail correctly — a quiet gate defect of the rule-8 family. Fixed;
+   the cloud total went 2,902 → 2,921. The Mac battery had run the PRE-FIX file; once the bridge came back it was re-run
+   on the corrected file and the headline went 2,903 → 2,922, the predicted +19. Separately, Claude read an
+   exit code through `| tail` and briefly reported a honesty run as exit 0 — the exact mistake rule 11 names. Re-read
+   directly: exit 1.
+
+**The bridge dropped after the sweep**, so the build was delivered to the outputs column as `build-176-files.zip`
+rather than written into the repos. It came back when he returned: the zip was committed to `_to_delete/xfer/` and
+unpacked file by file with `unzip -p`, all 11 md5-verified against the cloud copies, and the Mac gates re-run on the
+final disk state (suite 19/19, honesty 2 red exit 1 read directly, battery 88 suites / 2,922, isolation 36/36).
+Everything is now on disk and filed. Nothing is pushed. `_to_delete/` gained `locks-14sep-v2/`, `tests-176.tgz` and
+`xfer/build-176-files.zip` — his to empty.
+
+---
+
 ## 14 Sep 2026 — "Vacation Auction 14 Sep 2026 V1" — STAFF 175, THE DESTINATION PHOTO HANGS SQUARE (§199), PUSHED `7a33311` AND SERVED. THREE GATE DEFECTS FOUND IN THE GATES THEMSELVES. HIS EXPIRY REHEARSAL: THREE DISPLAY ITEMS RAISED AND RULED FOR LATER.
 
 Opened with START-HERE attached. Ritual clean: live 174 / 336 / 18 fetched twice with different cache-busters, disk identical, all four repos
