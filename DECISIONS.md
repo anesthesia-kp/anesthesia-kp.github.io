@@ -214,6 +214,7 @@
 | §197 | 11 Sep 2026 | THE GO-LIVE RUNBOOK GETS A PRE-FLIGHT OF EVERY DECISION BEFORE BEGIN PHASE 1; GO-LIVE IS NEXT WEEK; CLAUDE PRO FROM 12 SEP | DONE (docs only — tests `be6a46b`, pushed 11 Sep 2026) |
 | §198 | 11 Sep 2026 | THE BRIDGE'S `git fetch` IS BLOCKED BY THE DEVICE EGRESS ALLOWLIST — PROMOTED TO STANDING TRAPS; TWO GATE-HONESTY FINDINGS RAISED AND, ON HIS ORDER, FIXED | DONE (hub `c30f0cc` pushed; both fixes filed, awaiting his push) |
 | §199 | 14 Sep 2026 | THE DESTINATION PHOTO HANGS SQUARE; THREE GATE DEFECTS THE RUN ITSELF EXPOSED |  |
+| §200 | 14 Sep 2026 | THE FLOATING MESSAGE BOX IS OPAQUE; THE ADMIN-TAB DEPENDENCY WEIGHED AND LEFT WHERE IT IS |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5433,5 +5434,7 @@ guarantee. It stays where he parked it, as behaviour parity after launch.
 `#fde3e3` — the exact composite of the old wash over white, so the box looks unchanged wherever it does not
 overlap. Border, text colour, position, z-index and shadow untouched. No JavaScript, no rules, no data, admin
 untouched at 336. Claude also argued AGAINST the optional half (suppressing the duplicate message when the
-in-flow banner already says it): a click that produces silence reads as a broken page. Built as **staff 176**.
+in-flow banner already says it): a click that produces silence reads as a broken page. Built as **staff 176**,
+pushed the same session (auction `595bf77`, tests `1a602ca`, hub `daa259e`) and served twice. Next auction honesty
+baseline `595bf77`.
 

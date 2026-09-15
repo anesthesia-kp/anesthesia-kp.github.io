@@ -790,7 +790,9 @@ mutations prove absence FAILS rather than passes (rule deleted 5 red, element de
 rather than written into the repos. It came back when he returned: the zip was committed to `_to_delete/xfer/` and
 unpacked file by file with `unzip -p`, all 11 md5-verified against the cloud copies, and the Mac gates re-run on the
 final disk state (suite 19/19, honesty 2 red exit 1 read directly, battery 88 suites / 2,922, isolation 36/36).
-Everything is now on disk and filed. Nothing is pushed. `_to_delete/` gained `locks-14sep-v2/`, `tests-176.tgz` and
+Everything is now on disk and filed. **He pushed all three the same session — auction `595bf77`, tests `1a602ca`,
+hub `daa259e` — and the live site serves 176, fetched twice with different cache-busters.** Next auction honesty
+baseline `595bf77`. `_to_delete/` gained `locks-14sep-v2/`, `tests-176.tgz` and
 `xfer/build-176-files.zip` — his to empty.
 
 ---
