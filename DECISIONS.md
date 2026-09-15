@@ -215,6 +215,8 @@
 | §198 | 11 Sep 2026 | THE BRIDGE'S `git fetch` IS BLOCKED BY THE DEVICE EGRESS ALLOWLIST — PROMOTED TO STANDING TRAPS; TWO GATE-HONESTY FINDINGS RAISED AND, ON HIS ORDER, FIXED | DONE (hub `c30f0cc` pushed; both fixes filed, awaiting his push) |
 | §199 | 14 Sep 2026 | THE DESTINATION PHOTO HANGS SQUARE; THREE GATE DEFECTS THE RUN ITSELF EXPOSED |  |
 | §200 | 14 Sep 2026 | THE FLOATING MESSAGE BOX IS OPAQUE; THE ADMIN-TAB DEPENDENCY WEIGHED AND LEFT WHERE IT IS |  |
+| §201 | 14 Sep 2026 | TEST-MODE BANNER ON THE STAFF BOARD WHILE REHEARSAL MODE IS ON |  |
+| §202 | 14 Sep 2026 | A REAL SANDBOX — SIZED AND TABLED BY HIM FOR LATER | TABLED |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5438,3 +5440,91 @@ in-flow banner already says it): a click that produces silence reads as a broken
 pushed the same session (auction `595bf77`, tests `1a602ca`, hub `daa259e`) and served twice. Next auction honesty
 baseline `595bf77`.
 
+## §201 — TEST-MODE BANNER ON THE STAFF BOARD WHILE REHEARSAL MODE IS ON — 14 Sep 2026
+
+**His ask.** *"I'm interested in a Simulation Running - Auction Not Live Banner at the top of the user site when
+I have simulator switched on in case a user logs in when I'm running a sim to prevent confusion. Some users may
+have the whitelist notification still and I want to make sure it lies cleanly for all users. This seems like a
+small and safe build. You agree?"* — then, unprompted: *"I want it to look clean and not have text over other
+text."*
+
+**What exploration found, before agreeing.** The switch he means is the admin's **Rehearsal Mode**, whose stored
+field is `adminSettings.simulatorEnabled` — the same field that gates the simulator, "⏭ Skip backup" and
+"⏭ Skip sending". Three facts made the build genuinely small, and none of them were assumed:
+1. the staff page has **always** subscribed to `vacations/adminSettings` (the listener that carries bid caps,
+   floors, timer rules and the destination switch), so the value was already arriving on every user's page and
+   was simply never read — `simulatorEnabled` appeared nowhere in `index.html`;
+2. that snapshot resolves **before sign-in** (the sign-in button gates on `_adminSettingsReady`);
+3. the read is already public in `firestore.rules` — `adminSettings` is on neither `isAdminReadDoc` nor
+   `isSensitiveDoc`, so the catch-all `true` applies.
+**Therefore: no rules change, no console publish, no new document, no new listener, no extra Firestore reads and
+no added cost.** One file, the staff page.
+
+**A correction Claude made to the record rather than repeating it.** The comment heading `toggleSimulator` still
+says rehearsal mode "REFUSES to turn on. No click-through." once Phase 1 has started. **Build 223 replaced that**
+with one red danger confirm ("Only arm Rehearsal Mode if this run is a REHEARSAL"), because a rehearsal begins
+real phases too and only the human knows which kind of run it is. So his safety argument — *"I will never turn
+the sim on during a live auction"* — rests on his own discipline, not on a hard lock. Claude told him so, and
+noted that this makes the banner MORE valuable than he framed it: if Rehearsal Mode were ever armed by accident
+during the real auction, 35 clinicians would see it within seconds, whereas today the only warning is on his own
+dashboard. The stale comment is recorded for a later docs fix; it was NOT changed in this build.
+
+**His choices.** Trigger: *"I think I'm okay with just the switch controlling it if that's safe and reasonable
+and a small build. I will never turn the sim on during a live auction, so it seems safe to me."* — the persistent
+switch, not a transient "a run is in progress" flag (which Claude argued against: if the admin tab dies mid-run
+the flag never clears and users are stranded reading a banner nobody can turn off). Wording: first **"🎭 Test mode — the auction is not
+live right now. Please check back shortly."** — then **HE REVISED IT AFTER THE BUILD**, and was right to: *"the
+current one can be confusing since people would be able to place bids."* "Check back shortly" tells a user the
+site is unavailable when in fact bidding works normally during a simulation. His replacement text proposed a
+second sentence saying active bids *"are for testing purposes only and are not real"* — **Claude pushed back and
+he accepted the correction**: Rehearsal Mode is explicitly NOT a sandbox (the admin's own red banner says so, and
+mail staying live in rehearsal is a recorded decision), so a bid placed during a simulation is a genuine write to
+the live auction documents and fires real confirmation and outbid e-mails. Telling 35 clinicians their bids are
+"not real" is the same error pointed the other way, and the worse of the two: it invites a careless bid that then
+stands. **HIS RULING — the final text:** "🎭 The site is currently in testing mode and the auction is not live
+right now. Any bids placed during testing are part of the test and will not be counted." The second sentence now
+promises about HIS process (he resets after a test run), not about the data. Placement: he first chose login screen AND board, then changed it mid-build to **board only**.
+
+**Built as staff 177.** An empty `#simModeBanner` div one line above `#whitelistBanner` inside the board; a
+`renderSimModeBanner()` beside the whitelist banner's own function; three call sites — the `adminSettings`
+listener (so flipping the switch reaches tabs already open, with no reload), the board's `render()`, and the
+sign-in path BEFORE the board is made visible (so it cannot flash in late). Only an explicit `true` shows it:
+absent, `false`, a non-boolean, settings not yet arrived and a null document all hide it, because when we cannot
+know we do not cry wolf. Amber, in **normal document flow**, no z-index — deliberately not the `.flash` box that
+caused §200.
+
+**Gates.** `tests/test-177-sim-mode-banner.mjs` 36/36 (the real extracted functions through every state);
+`sweep/sim-mode-check.mjs` 101/101 (headless Chromium, desktop and phone, whitelist notification both present and
+absent, every pair of laid-out boxes tested for overlap — his actual requirement, measured rather than asserted).
+Honesty vs `595bf77`: 32 red static, 4 red browser, both exit 1. Full battery 89 suites / 2,958 assertions exit 0;
+isolation 36/36; button sweep run on BOTH builds and compared row by row, every number identical.
+
+## §202 — A REAL SANDBOX — SIZED AND TABLED BY HIM FOR LATER — 14 Sep 2026
+
+**His question, while 177 was being gated:** *"Another thought I had is that it might be ideal to have an actual
+sandbox so I can do testing. How big of a build is that?"* It follows directly from §201: the banner exists
+because Rehearsal Mode is not a sandbox — it writes the real auction documents and sends real mail.
+
+**The three shapes, as sized for him (estimates from code read this session, not a plan).**
+1. **A second Firebase project and a second site.** The CRNA auction is exactly this shape and is SUSPENDED
+   (§118). The build is not the hard part; the DRIFT is — two copies of a 970 KB admin page and a 312 KB staff
+   page that must stay identical or the sandbox stops representing reality. That project needed its own stamping
+   tool (`crna-stamp.mjs`) to stay in sync. Days of work plus a permanent maintenance tax.
+2. **A test namespace inside the same project** (`vacations-test/*`). Every Firestore path in both pages, and
+   every clause in `firestore.rules`, is hard-coded to `vacations/...` in hundreds of places. Making that
+   swappable is a wide refactor of the two most safety-critical files in the project. The worst of the three,
+   and squarely what §92 exists to prevent.
+3. **Publish the sandbox the project already owns.** `tests/sweep/make-site.mjs` already generates a fully
+   working copy of the real staff and admin pages running against a fake in-browser store (`fake/`), seeded with
+   8 users and 8 weeks: real code, real buttons, real engine, NO Firebase connection, no mail, no cost, and no
+   possible path to the live auction. It resets on reload, and it cannot drift because the generator re-runs from
+   the real pages on every build. What it lacks is a front door — today it only runs from a command line, which
+   is no use to him ("I don't do those things"). Claude's recommendation of the three.
+
+**Claude's recommendation was NOT NOW for all three:** shape 3 means a new folder served by the live site, which
+is an auction deploy, and go-live is this week (§164). Claude also named the cheap interim — making mail
+suppressible during Rehearsal Mode, which is a switch rather than an architecture, and would need its own ruling
+because live mail in rehearsal was a deliberate decision.
+
+**HIS RULING: "keep the sandbox idea tabled for a later date."** TABLED. It is filed here and in `TODO.md`; per
+his standing instruction of 11 Sep it is not to be surfaced in any report, handover or summary. He will ask.

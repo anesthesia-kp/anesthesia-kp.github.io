@@ -2077,3 +2077,76 @@ this entry, plus the ▶ NEXT strip and the "not current" standing order · 2 st
 assertions) and isolation 36 / 36 on the Mac; the schedule's browser suites do NOT run there and were not run, a coverage hole and not a
 pass; nothing served changed, so no build number and no BUILD-LOG row · 4 all four repos accounted for, seven files uncommitted in the hub ·
 4a `_to_delete/` 20 KB, 3 files — a 4-byte write-probe Claude left there, the bridge cannot delete it · 5 handed over.
+
+---
+## ⤵ moved 14 Sep 2026 from HANDOFF.md — 14 Sep 2026 — "Vacation Auction 14 Sep 2026 V1" — STAFF 175, THE DESTINATION PHOTO HANGS SQUARE (§199), PUSHED `7a33311` AND SERVED. THREE GATE DEFECTS FOUND IN THE GATES THEMSELVES. HIS EXPIRY REHEARSAL: THREE DISPLAY ITEMS RAISED AND RULED FOR LATER.
+
+## 14 Sep 2026 — "Vacation Auction 14 Sep 2026 V1" — STAFF 175, THE DESTINATION PHOTO HANGS SQUARE (§199), PUSHED `7a33311` AND SERVED. THREE GATE DEFECTS FOUND IN THE GATES THEMSELVES. HIS EXPIRY REHEARSAL: THREE DISPLAY ITEMS RAISED AND RULED FOR LATER.
+
+Opened with START-HERE attached. Ritual clean: live 174 / 336 / 18 fetched twice with different cache-busters, disk identical, all four repos
+clean, no locks. Bridge `git fetch` refused again (§198) — origin read from the cloud with `ls-remote`: vacation `4068f73`, schedule
+`0a61585`, hub `f41bc77`, all equal to disk; `tests` `be6a46b` judged from disk, private. Nothing had moved since 11 Sep.
+
+**HE FOUND IT ON HIS PHONE.** A screenshot of the live sign-in screen: *"Why is this image crooked?"* Read off the served bytes — deliberate,
+`transform:rotate(-2deg)` on `.dest-pill img`, shipped with §196. Told it was one declaration and that the shadow could stay independently,
+he said **"go"**. Built as staff 175: rotation out, shadow kept, nothing else. Full record §199; BUILD-LOG row 175.
+
+**Gates:** full battery 87 suites / 2903 assertions / 0 skipped; static honesty vs `158d81e` 67 green / 1 red on exactly the new invariant;
+browser sweep 15/15 on 175, honesty 12 green / 3 red reading −2.000° and aspect 1.28839. `node --check` clean ×4.
+
+**LESSONS — all three are gate defects the run exposed, and all three are already-written rules biting (§199 has the detail):**
+1. **r16.** The suite pinned `var BUILD = 174` and `versions.json === 174`. Literals like that need hand-editing every bump and assert
+   nothing afterwards. Repointed to the invariant "versions.json equals each page's own BUILD var" — stronger, and permanent.
+2. **r8, aim not bar.** A new geometry assertion went red on the CORRECT build: the staff page sets `body{zoom:1.15}`, so painted boxes are
+   1.15× their laid-out size. **A gate that fires on the wrong thing is worth nothing — measure the page before asserting about its pixels.**
+3. **r11, and the one worth remembering.** An accidental empty baseline (a `--depth 1` cloud clone has no history, so `git show <sha>:<file>`
+   wrote nothing) revealed the new tilt assertion PASSING on a page with no photo at all — `transform null`, angle initialised to `0`.
+   **An assertion that cannot distinguish the good state from the absent state is not an assertion.** The accident was the only reason it
+   was caught; a clean baseline would have hidden it. Absence now fails legibly.
+
+**A NEW TRAP, for STANDING TRAPS if it recurs:** a `--depth 1` clone in the cloud silently cannot serve `git show <sha>:<file>` for an
+honesty fixture — it writes an EMPTY file and the run proceeds. Build every fixture from a repo with history, and check the fixture's BUILD
+number before believing the run.
+
+**He asked two questions and I got one of them wrong first time.** (1) Whether a long-open tab needs periodic re-login: no — "Remember me" is
+ticked by default, Google and App Check refresh silently, there is no idle timeout, and the page reloads itself when a new build is published.
+(2) He then challenged my claim that the ✎ / ✕ controls depend on an admin tab: *"Are you saying that an admin page needs to be open at timer
+expiration?"* **Claude's first answer implied something functional hung on an open admin tab. It does not** — `timerNotExpired()` rejects late
+bid writes on Google's clock. Corrected and owned in-chat; the architecture question he raised from it is filed in TODO §1 HIS CALL.
+
+**PUSHED AND LIVE.** He pushed from his desktop the same afternoon: vacation `7a33311`, tests `8254b5e`, hub `5a9ad6b` (the hub in two
+commits — the docs, then this entry and the state files). Staff 175 verified live twice with different cache-busters (index 175 / mobile 18
+/ admin 336) and origin read from the cloud matches disk on all three. **Standing note for any build that follows: do not push while a phase
+is open** — a push redeploys the live site and every open staff tab reloads itself within a minute of being looked at.
+
+### The same day, continued — HIS EXPIRY REHEARSAL, and what it turned up
+
+He then ran a rehearsal of the case he had never tested: **what the user site does when the timer expires with no admin page open anywhere.**
+Three things came out of it; all are display-only, none is a defect in what the auction DOES, and **he ruled them all for later** (*"i'm ok
+with the above staying as it is for now"*). They are filed in `TODO.md` §1, with the full mechanism, and are NOT queued:
+1. The admin's **"Auction window — Nh" readout shows the STAGE length, not the stored window** — which is why a manual 1h looked like it
+   "reset itself" to 48h a few minutes later. Nothing wrote; the countdown, the staff site and the server rule stayed on the stored 1h.
+   The focus guard in `syncDurationUI()` is why it took minutes: the readout is skipped only while the slider holds focus.
+2. The trap that follows from it, and the fact that **a manual window is temporary anyway** (any bid re-applies the stage length).
+3. **The "bidding is closed" alert sometimes overlaps other text** — owner-found, not yet traced.
+His direction for whenever the browser-dependency item is unparked, in his words: *"would be good to have the same events happen whether
+admin is logged in or not."* Filed onto that item.
+
+**One question answered with no change needed, recorded so it is not re-litigated.** He placed a bid during the rehearsal and the timer did
+not reset. Five gates can stop a reset (timer off · already expired · same value · opening window · the Timer Reset Mode gate), plus the
+extend-only skip. It was the **Timer Reset Mode**: mode 2 restarts the countdown only when a bid changes another user's projected outcome.
+That is not a rehearsal leftover — `GO-LIVE-RUNBOOK.md` already carries it as a `confirm` row in the §0 pre-flight and explains it in §3, so
+**mode 2 is the ruled live setting and the behaviour he saw is what the real auction will do.** No gap, nothing filed.
+
+**A CORRECTION CLAUDE OWES THE RECORD.** Asked whether a long-open tab needs periodic re-login, Claude answered correctly (no — "Remember
+me" is on by default, Google and App Check refresh silently, there is no idle timeout, and the page reloads itself on a new build), but then
+added a sentence implying the staff board's ✎ / ✕ controls depend on an admin tab being open. **He challenged it** — *"Are you saying that
+an admin page needs to be open at timer expiration?"* — and he was right to. `timerNotExpired()` rejects late bid writes against
+`request.time`, Google's clock; enforcement does not involve browsers at all. An open admin page only makes the repaint prompt, via the
+auto-lock write. **The lesson is §3 r14's: the claim came from a TODO note rather than from the expiry path, and a line not re-read sounds
+exactly like a verified one.**
+
+**Bridge note:** it dropped mid-filing when he walked away from the machine, exactly as the standing trap predicts. The call that died had
+written NOTHING — verified by grep on return before re-running it, rather than re-running blind.
+
+---
