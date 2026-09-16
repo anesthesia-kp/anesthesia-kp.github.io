@@ -738,6 +738,8 @@ nowhere.*
 ## 14–15 Sep 2026 — "Vacation Auction 14 Sep 2026 V3" — STAFF 177, THE TEST-MODE BANNER (§201), PUSHED AND LIVE; THEN ADMIN 337, THE REPORTS PAGE (§203), BUILT AND FULLY GATED, AWAITING HIS PUSH.
 
 
+**⛔ AND IT CAME BACK OWNER-FOUND THE SAME DAY — read `TODO.md`'s top item before anything else.** He reported the Reports tab "glitchy", then "sometimes reports opens blank, sometimes with data", and asked for a selector so only ONE summary shows at a time. **The lesson, which is the reusable part:** 337 copied the capacity page's refresh hook without asking what that shape DOES in a different medium. The hook writes `innerHTML` into a div — cheap and invisible. Assigned to an iframe's `srcdoc` it tears down and loads a whole new document, so every data change reloads both frames (measured: 1 load on open, +1 per change), and a reassignment landing mid-load can be dropped, which is what "sometimes blank" almost certainly is. **Copying a working pattern is not free: the pattern was correct for a div and wrong for a frame, and nothing in the gates could catch that because every gate asserted about a single render, never about what a SECOND render costs.** No gate in this project yet asks "what happens when this runs again, and again, while someone is looking at it" — that is the hole this defect came through.
+
 **ADMIN 337 — THE REPORTS PAGE (§203), built the same session, after the 177 work above.** His ask: the Weekly
 and User summaries shown in the admin site as an alternative to the pop-ups, sortable by phase / Phase-4 round /
 all phases, plus the export buttons repeated at the top ("I know it's redundant, but I want it").
