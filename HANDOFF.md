@@ -867,9 +867,11 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 
 ---
 
-## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. FILED, AWAITING HIS PUSH.
+## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. PUSHED AND LIVE.
 
 **Rulings:** §204 (User first, choice remembered), §205 (only the selected report's buttons; a failed report says so). Record of the build: `BUILD-LOG.md` row 338.
+
+**Pushed 16 Sep 2026** — auction `57ac389`, tests `5494f54`, hub `33a86fb`; `versions.json` served admin 338 on two cache-busted fetches; the pushed `admin/index.html` is md5-identical to the gated copy (`3a40a298…`), as is the new browser gate. All three commits again carry the whole message as the SUBJECT with an empty body (START-HERE's blank-line warning).
 
 **The lesson — a test browser that cannot show the defect passes it.** The first reproduction ran 26 scenarios and found ZERO blanks, and Claude withdrew its "almost certainly" on that evidence. His four screenshots then showed the blank on any phase after leaving and returning. The difference was the BROWSER: desktop Chrome isolates a sandboxed frame in its own process; Playwright's headless shell does not. With `--site-per-process --enable-features=IsolateSandboxedIframes` it reproduced every time. Before believing a clean browser run about frames, pop-ups or anything process-shaped, ask whether the test browser is built like his. (START-HERE rule 9, in a new costume: what would still pass if the defect were REAL?)
 
