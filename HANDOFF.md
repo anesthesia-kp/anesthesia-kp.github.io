@@ -866,3 +866,15 @@ documented symlink shim for the playwright/chromium version mismatch (1243 expec
 HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited baseline was provably the live page.
 
 ---
+
+## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. FILED, AWAITING HIS PUSH.
+
+**Rulings:** §204 (User first, choice remembered), §205 (only the selected report's buttons; a failed report says so). Record of the build: `BUILD-LOG.md` row 338.
+
+**The lesson — a test browser that cannot show the defect passes it.** The first reproduction ran 26 scenarios and found ZERO blanks, and Claude withdrew its "almost certainly" on that evidence. His four screenshots then showed the blank on any phase after leaving and returning. The difference was the BROWSER: desktop Chrome isolates a sandboxed frame in its own process; Playwright's headless shell does not. With `--site-per-process --enable-features=IsolateSandboxedIframes` it reproduced every time. Before believing a clean browser run about frames, pop-ups or anything process-shaped, ask whether the test browser is built like his. (START-HERE rule 9, in a new costume: what would still pass if the defect were REAL?)
+
+**Three smaller traps.** (1) A listener added by a helper called twice doubles every count — make instrumentation idempotent. (2) A report stamp that is precise to the minute makes a "nothing changed" check flaky across minute boundaries; compare with the stamp stripped, never loosen to "≤1". (3) A textual check that reads "anything after function X" matches new code elsewhere; extract X's own body.
+
+**Also this session:** a live check in his Chrome was tried with his OK — the admin sign-in did not complete from the automation tab and it was abandoned after one Continue click, nothing written. His credit limit paused the build at ~9:45 PM; a scheduled resume picked it up at 1 AM with the cloud workspace intact (bases md5-verified on both sides before continuing).
+
+---

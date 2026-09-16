@@ -218,6 +218,8 @@
 | §201 | 14 Sep 2026 | TEST-MODE BANNER ON THE STAFF BOARD WHILE REHEARSAL MODE IS ON |  |
 | §202 | 14 Sep 2026 | A REAL SANDBOX — SIZED AND TABLED BY HIM FOR LATER | TABLED |
 | §203 | 15 Sep 2026 | THE REPORTS PAGE IN THE ADMIN MENU |  |
+| §204 | 15 Sep 2026 | THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED | BUILT (admin 338, pending push) |
+| §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | BUILT (admin 338, pending push) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5581,3 +5583,19 @@ proving Fair Play, User Summary and Capacity BYTE-IDENTICAL across the refactor,
 found and fixed before the gate was trusted** — the full list is in the BUILD-LOG row; the sharpest was an
 assertion aimed at the WRONG FUNCTION, which therefore passed on the old build. Built in the cloud while his Mac
 was off and delivered by zip, md5-identical both ways.
+
+## §204 — THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED — 15 Sep 2026
+
+**His words, 15 Sep 2026 (V1), answering the two open questions on his §203 follow-up** (*"I need to be able to select which one at the top and only show 1 at a time"*): **"1 - User first. 2 - choice sticks."**
+
+**Ruled.** (1) A selector at the top of the Reports page chooses **User** or **Weekly**; only the chosen report shows. (2) On first open the page shows the **User Summary**. (3) The choice **sticks** — Claude's reading, stated to him in the same turn: remembered between visits in that browser, the same way the Insights Graph / Popcornometer choice already is (`insightsView`), so each admin's own computer opens back to their last choice.
+
+**Not yet built.** Carries with it the owner-found reload defect on the same page (TODO §1). No auction change until he approves the plan for it (§92).
+
+## §205 — THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO — 15 Sep 2026
+
+**His words, 15 Sep 2026 (V1): "1 - yes. 2 - yes."**, answering two questions on the §204 plan.
+
+**Ruled.** (1) The PDF / Excel buttons at the top of the Reports page show **only for the selected report** (User or Weekly), not both sets. (2) A report that fails to build shows a **short message in its frame** ("This report couldn't be built") instead of a blank box — the blank was indistinguishable from the reload defect.
+
+**Not yet built** — admin 338, pending his explicit go on the code change (§0 rule 2, §92).
