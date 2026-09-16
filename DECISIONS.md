@@ -217,6 +217,7 @@
 | §200 | 14 Sep 2026 | THE FLOATING MESSAGE BOX IS OPAQUE; THE ADMIN-TAB DEPENDENCY WEIGHED AND LEFT WHERE IT IS |  |
 | §201 | 14 Sep 2026 | TEST-MODE BANNER ON THE STAFF BOARD WHILE REHEARSAL MODE IS ON |  |
 | §202 | 14 Sep 2026 | A REAL SANDBOX — SIZED AND TABLED BY HIM FOR LATER | TABLED |
+| §203 | 15 Sep 2026 | THE REPORTS PAGE IN THE ADMIN MENU |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5528,3 +5529,55 @@ because live mail in rehearsal was a deliberate decision.
 
 **HIS RULING: "keep the sandbox idea tabled for a later date."** TABLED. It is filed here and in `TODO.md`; per
 his standing instruction of 11 Sep it is not to be surfaced in any report, handover or summary. He will ask.
+
+## §203 — THE REPORTS PAGE IN THE ADMIN MENU — 15 Sep 2026
+
+**His ask.** *"I'm interested in a new section for the admin site just above the capacity section that would show
+similar or the same information as the user summary and weekly summary report, but embedded into the site… It
+would essentially be just an alternative way for admin to view these reports. Different admins may like different
+views and that's why I would like this… it would need to be sortable by phase or round of phase 4 or all phases
+just like the reports are."* Then, with his go: *"Also include the same export pdf/excel buttons at the top of the
+page. I know it's redundant, but I want it."*
+
+**PLACEMENT — recorded because Claude got it wrong twice before it was settled.** "Just above the capacity
+section" was first read as a NAV PANEL above Capacity. His first screenshot (the Dashboard's "Summaries and
+Reports" card, with its Weekly / User / Available-capacity blocks) made Claude over-correct to "a block inside
+that card" — the screenshot had answered a different question, WHICH reports he meant, and Claude let it move the
+placement too. His second screenshot — the nav menu with **Capacity circled in red and an arrow** — settled it
+back to the first reading. **A new nav item between Change Log and Capacity**, labelled **📑 Reports** (his choice
+from three). He also ruled, unprompted: *"Not in the summaries and reports card, which should remain just as it
+is."*
+
+**A correction to the record, found by reading the buttons rather than trusting an earlier claim.** Claude had
+told him both pop-ups came from one function, `openSummaryTab`. **That function has ZERO call sites** — it is
+orphaned (filed with `exportDashboard` and the §148 hidden wraps). The card's **"Weekly summary"** buttons call
+`exportPhaseResults`, whose report was headed **"Bids by Week"**; **"User summary"** calls `exportUserSummary`.
+So the label on the card and the title on the report did not match, live.
+
+**HIS RULINGS.** Match the pop-ups exactly, not the orphan's layout ("Ignore it, match what I see") · **rename the
+report** so "Bids by Week" becomes "Weekly Summary", matching the button · **capacity stays its own page**, and —
+once the placement was settled as a neighbouring menu item — **with no cross-link at all** ("the menu does the
+job") · the export buttons repeated at the top of the page, his call, redundancy accepted knowingly.
+
+**Why capacity stayed out (Claude's reasoning, which he took).** `exportCapacityByWeek` takes NO scope argument:
+capacity counts approved winners cumulatively across every completed phase, so the Phase dropdown deliberately
+does not apply to it. Embedding it under that dropdown would put a control directly above a report it cannot
+change — the same class of defect as §199's "Auction window — Nh" readout. And `renderCapacityPage()` already IS
+the embedded view, with the All / Available / Not available filter he asked for in §194; embedding the capacity
+REPORT beside it would leave two capacity views and no answer to which is authoritative.
+
+**Built as admin 337.** `reportDocHtml()` factored out of `openReportTab`; both export functions given a
+`format=='parts'` early return that returns `{title, phaseLabel, subtitle, body}` and opens nothing;
+`renderReportsPage()` asks for parts and hands them to that one document function, inside sandboxed frames. The
+identity is therefore STRUCTURAL — one builder, one document, two surfaces — not a resemblance Claude has to keep
+maintaining. Sealed frames because `REPORT_CSS` targets bare `table`/`th`/`td`/`h1`/`body`. Render hooks copied
+from the capacity page, so the page costs nothing while it is not showing — which also dissolved the
+collapse-by-default question Claude had raised when the section was still going to live on the Dashboard.
+
+**Gates.** 73/73 static (executing the real renderer), 53/53 browser on desktop and phone (the pop-up's own output
+captured and proved character-identical to the page's, plus a measured no-bleed check), a new cross-build capture
+proving Fair Play, User Summary and Capacity BYTE-IDENTICAL across the refactor, honesty 57 red exit 1, battery
+90 suites / 3,031 assertions, isolation 36/36, sweep compared per panel on both builds. **Six gate defects were
+found and fixed before the gate was trusted** — the full list is in the BUILD-LOG row; the sharpest was an
+assertion aimed at the WRONG FUNCTION, which therefore passed on the old build. Built in the cloud while his Mac
+was off and delivered by zip, md5-identical both ways.
