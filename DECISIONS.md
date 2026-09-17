@@ -221,7 +221,7 @@
 | §204 | 15 Sep 2026 | THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED | LIVE (admin 338, `57ac389`) |
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
 | §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | LIVE (staff 178 + admin 339, `970c4bc`) |
-| §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | BUILT (admin 340, not pushed) |
+| §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | LIVE (admin 340, `47643ee`) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5620,5 +5620,5 @@ was off and delivered by zip, md5-identical both ways.
 
 **What "everywhere" is, traced.** The legend lives in exactly TWO live strings — the `subtitle` of `exportPhaseResults` (Weekly Summary) and of `exportUserSummary` (User Summary). Each report builds its parts once and every surface reads them: the card's View and PDF buttons (`openReportTab`) and the Reports page's embedded frame and its PDF button (`format 'parts'` → `reportDocHtml`, §203). So two edits reach all eight surfaces. **Not changed:** the Excel exports carry no legend at all (their stamp row is date and counts only) — raised to him as a question, not added unasked; `openSummaryTab` carries a copy but has zero call sites (the dead-code item, his "Ignore it, match what I see").
 
-**Build:** admin 340, text only — filed 16 Sep 2026, not yet pushed.
+**Build:** admin 340, text only. **LIVE** `47643ee`, pushed 17 Sep 2026, served twice.
 
