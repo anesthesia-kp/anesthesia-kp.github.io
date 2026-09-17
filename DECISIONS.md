@@ -222,6 +222,8 @@
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
 | §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | LIVE (staff 178 + admin 339, `970c4bc`) |
 | §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | LIVE (admin 340, `47643ee`) |
+| §208 | 17 Sep 2026 | THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT | BUILT (admin 341, not pushed) |
+| §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | BUILT (admin 341, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5621,4 +5623,30 @@ was off and delivered by zip, md5-identical both ways.
 **What "everywhere" is, traced.** The legend lives in exactly TWO live strings — the `subtitle` of `exportPhaseResults` (Weekly Summary) and of `exportUserSummary` (User Summary). Each report builds its parts once and every surface reads them: the card's View and PDF buttons (`openReportTab`) and the Reports page's embedded frame and its PDF button (`format 'parts'` → `reportDocHtml`, §203). So two edits reach all eight surfaces. **Not changed:** the Excel exports carry no legend at all (their stamp row is date and counts only) — raised to him as a question, not added unasked; `openSummaryTab` carries a copy but has zero call sites (the dead-code item, his "Ignore it, match what I see").
 
 **Build:** admin 340, text only. **LIVE** `47643ee`, pushed 17 Sep 2026, served twice.
+
+## §208 — THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT — 17 Sep 2026
+
+**Context.** His timer review ask (17 Sep): *"i want it to work right … don't want to try to fix things that could cause it to break."* Findings T-1…T-10 and options: `tests/docs/TIMER-REVIEW-2026-09-17.md`. Asked what removing the slider would cost and whether he could still set the timer to what he wants, Claude answered that the slider never did that reliably, and proposed replacing it with a length choice inside ↺ Reset Timer, asking one question: may a later bid change a chosen length — (a) only lengthen it, or (b) never.
+
+**Ruled — his words: *"Agree with a."*** A chosen length is set from the moment of the reset; a later qualifying bid may only LENGTHEN it, never shorten it (the user site and the rules already work this way; admin bid entry is to match). (b), a length that holds against bids, was not chosen.
+
+**Also raised the same turn (owner-found):** reopening bidding keeps contested weeks locked — R-1 in the review's addendum, options R-A / R-B, unruled.
+
+**Not yet built** — the combined plan awaits his explicit go (§0 rule 2, §92).
+
+## §209 — GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT — 17 Sep 2026
+
+**His words, in order:** *"Agree with a."* (§208) · on reopening: *"if the weeks are over the cap from the current round projections, those weeks won't re-open even though they should re-open since they were open during the current phase"* (R-1) · challenging Claude's claim that Close bidding equals expiry — he was right (correction filed in the review) · *"So should I have a close bidding button?"* — yes, kept · **"Yes, go ahead with the build."**
+
+**The build (admin only; no staff page, no rules change):**
+1. **The slider is removed.** ↺ Reset Timer asks for the length: the rules' default (preselected; the full opening window while it runs) or 1 / 3 / 6 / 12 / 24 / 48 h, from the moment of the reset. The dialog states the closing time and that a later qualifying bid can only lengthen it (§208 (a)). Its values are re-checked when OK is pressed. When every week is locked it does not claim to reopen anything and points to ↩ Reopen bidding.
+2. **⏱ Expire timer now** — a separate button with exactly the slider's former 0 writes (timer expired, then all weeks locked, no server flag): the faithful rehearsal of a countdown running out. **⏱ Close bidding stays** as the deliberate close.
+3. **R-A:** the lock decisions (Smart Lock and Unlock, ↩ Reopen bidding in Phases 1–3, the Phase 4 month picker, the lock health check) count only DECIDED winners — earlier phases/rounds and approvals — never this window's projections.
+4. **Admin bid entry and the simulator** restart the countdown only when that lengthens it, matching the user site.
+5. **Change Log:** Reset Timer (with its length), Expire timer now, and the timer on/off switch are recorded.
+6. **Runbook:** §3 corrected (Reset Timer, reopening), plus the habit: *after the countdown runs out, do not switch the timer off — use ↩ Reopen bidding or Complete.*
+
+**Not in this build, as recommended and agreed:** auto-close setting the server flag at expiry (after the auction, with a rehearsal); a length that holds against bids (§208 (b), not chosen).
+
+**Built 17 Sep 2026** as admin 341 — filed, not yet pushed.
 

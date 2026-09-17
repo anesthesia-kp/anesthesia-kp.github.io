@@ -889,4 +889,8 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 
 **Later the same session — admin 340, the report legend (§207). PUSHED AND LIVE** (17 Sep 2026, 07:18) — auction `47643ee`, tests `062c91f`, hub `3d15ceb`; served 340 twice; pushed `admin/index.html` and `versions.json` md5-identical to the gated copies. He asked whether a Weekly Summary header was correct; the legend "Result — = awaiting admin decision" was right but read as punctuation. Built the shorter wording across every report while he slept (Amphetamine on). Open question left for him: the Excel exports have no legend at all. Harness trap: a page `const` (here `REPORT_CSS`) is invisible to the function resolver — read it from the page, as `PROJ_LABEL` already was.
 
+**17 Sep — the TIMER REVIEW, read-only, filed `tests/docs/TIMER-REVIEW-2026-09-17.md`, awaiting his ruling.** Lesson: the timer card's controls, its readouts and the bids each own a different stored number — a claim about "the window" must name WHICH number. Nothing drove the slider in any suite; the probes in `tests/docs/timer-review-2026-09-17/` did.
+
+**17 Sep, later — admin 341 FILED (§209).** Lessons: an assertion aimed at a string found a display column too (aim at the named function); a helper used only inside an OK handler is invisible to the extractor suites (keep it local); `|| true` slipped into a draft assertion and was removed before the honesty run.
+
 ---
