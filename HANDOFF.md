@@ -880,3 +880,11 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 **Also this session:** a live check in his Chrome was tried with his OK — the admin sign-in did not complete from the automation tab and it was abandoned after one Continue click, nothing written. His credit limit paused the build at ~9:45 PM; a scheduled resume picked it up at 1 AM with the cloud workspace intact (bases md5-verified on both sides before continuing).
 
 ---
+
+## 16 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — STAFF 178 + ADMIN 339, THE FREEZE WORDING. FILED, NOT PUSHED.
+
+**Ruling:** §206. Record: `BUILD-LOG.md` row 178/339. Go-live moved to next week (owner, 16 Sep). Re-grounding at start: all live builds matched; three `maintenance.lock` files moved to `_to_delete/`; `status.mjs` re-run after his 05:13 push.
+
+**The lesson — read the click path, not the guard.** Claude told him a tap under the Freeze showed "This week is locked — no more changes allowed."; he said it does not, and the code agreed: locked cards have no click handler, and those four guard messages fire only in a race. A guard's message is not what a user sees unless something routes the user to it. Now an invariant in the 178 suite.
+
+---

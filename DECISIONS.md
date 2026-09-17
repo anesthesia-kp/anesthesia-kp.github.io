@@ -220,6 +220,7 @@
 | §203 | 15 Sep 2026 | THE REPORTS PAGE IN THE ADMIN MENU |  |
 | §204 | 15 Sep 2026 | THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED | LIVE (admin 338, `57ac389`) |
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
+| §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | BUILT (staff 178 + admin 339, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5599,3 +5600,13 @@ was off and delivered by zip, md5-identical both ways.
 **Ruled.** (1) The PDF / Excel buttons at the top of the Reports page show **only for the selected report** (User or Weekly), not both sets. (2) A report that fails to build shows a **short message in its frame** ("This report couldn't be built") instead of a blank box — the blank was indistinguishable from the reload defect.
 
 **Not yet built** — admin 338, pending his explicit go on the code change (§0 rule 2, §92).
+
+## §206 — THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM — 16 Sep 2026
+
+**His ask (16 Sep 2026, V1).** *"When admin turns on the global lock during a live auction, I wonder if a bit more explanation would be good on the user site. It currently says: The schedule has been locked by the admin. I think it would be better if it said "The auction has been temporarily locked for administrative reasons. Please check back soon."* — then *"Go. Also fix the Admin site. I think this new sentence is enough: "No user can add, edit or remove any bid while this is on""*. Go-live moved to next week (owner, 16 Sep).
+
+**What exploration found.** The ONLY writer of `globalLock:true` is the admin's manual Freeze toggle (`toggleGlobalLock`); phase close and the expiry auto-lock use per-week locks. So "temporarily" is honest. Under the Freeze every week moves to the bottom "Locked Weeks" section, whose cards carry no click handler — a tap does nothing (he confirmed live in P4R1). Claude first claimed a tap showed "This week is locked — no more changes allowed."; that was read off the guard, not the click path, and was withdrawn the same turn. Those four sites fire only in a race (a dialog or stale ✎/✕ open when the Freeze lands) and are left alone.
+
+**Ruled.** (1) Staff: the global-lock banner reads *"🔒 The auction has been temporarily locked for administrative reasons. Please check back soon."* (2) Admin: the Freeze confirm's red box reads only *"No user can add, edit or remove any bid while this is on."* — the false "nobody is told why" sentence and the per-week-locks hint go with it ("this new sentence is enough").
+
+**Build:** staff 178 + admin 339, text only — no rules change, no behaviour change.
