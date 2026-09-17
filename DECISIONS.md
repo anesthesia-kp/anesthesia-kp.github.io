@@ -228,6 +228,7 @@
 | §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | LIVE (admin 343, `b07e675`) |
 | §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | LIVE (standing order) |
 | §213 | 17 Sep 2026 | THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION | DONE |
+| §214 | 17 Sep 2026 | A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5687,3 +5688,15 @@ was off and delivered by zip, md5-identical both ways.
 **Done, both read-only or docs-only — nothing the site serves was touched (§92).** The review of the cumulative diff `158d81e → b07e675` (admin 287/132 lines, staff 45) found **nothing at CRITICAL or HIGH**; three LOW notes recorded, not queued. Record: `tests/docs/REVIEW-337-343-2026-09-17.md`. The runbook's §3 gained one bullet: the three controls ask twice, nothing is written until the second OK, its button is dead for a second, and the state is re-checked there.
 
 **Also his instruction, same turn:** when this session hits its usage limit, restart at **12:15 PM** today and continue — Amphetamine will be on, so the bridge stays up. A scheduled task bound to his Mac carries the whole brief.
+
+## §214 — A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY — 17 Sep 2026
+
+**His words, told after pushing the §213 docs commits:** *"I only ever paste into Summary, never description."*
+
+**What it explains.** §198(2) measured that no commit in any of the three public repos had a body and that subjects ran 55–371 characters, and the fix written then was a blank line after the subject, with the rest to be pasted into **Description**. That fix could never work: the lines below the blank one are not mis-pasted, they are never pasted at all. Today’s two commits repeated it exactly — whole message in the subject, empty body.
+
+**Ruled.** A commit message is a SUBJECT AND NOTHING ELSE — no body, no blank line, no four short lines. 60–72 characters, never much beyond 100. `COMMIT-MESSAGE.txt` and the combined outputs file each carry that one line per repo, so what he copies is the whole file. The detail those body lines carried is not lost: the BUILD-LOG row, `DECISIONS.md` and `HANDOFF.md` already hold it, and they are what gets read.
+
+**Refined minutes later, same turn, after Claude proposed 60–72 characters:** *"This is why i want the commit messages very brief, as brief as possible actually. they are generally still too long."* **The target is 3–8 words, about 50 characters or less** — the thing changed, named, and nothing else: no reason clause, no outcome, no counts, no two halves joined by a dash or semicolon. That is the third time he has said they are too long (19 Aug, 20 Aug, 17 Sep), so the rule now says: when in doubt, cut again. Examples in START-HERE §3.
+
+**Not amended:** the two commits pushed today keep their long subjects. Rewriting them means a force-push over good history — declined on the spot, not worth it. START-HERE §3 rewritten in the same turn he said it.
