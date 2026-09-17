@@ -776,3 +776,35 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Nothing open.** He declined the Excel legend (*"leave excel alone"*, CLOSED table). Everything else from the review is filed under HIS CALL.
 
 ---
+
+## 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V1" — THE 337–343 REVIEW (CLEAN) AND THE RUNBOOK'S DOUBLE CONFIRMATION. NO CODE.
+
+**Ruling:** §213 (his *"Go on 1 and 2."*). Read-only and docs-only — nothing `vacation-kp.github.io` serves was touched, and no build number moved. Live at the close, as at the open: auction admin **343** / staff **178** / mobile 18, schedule 151 / 51, each fetched twice with different cache-busters.
+
+**What was done.**
+1. **Fresh-eyes review of `158d81e → b07e675`** — admin 287/132 lines over 42 hunks, staff 45 lines: builds 337 (Reports page), 338 (one report at a time + the blank frame), 339/178 (freeze wording), 340 (report legend), 341 (Timer card rebuilt), 342 (ask twice), 343 (second box restyled), staff 175–177. **No CRITICAL, no HIGH.** Three LOW notes recorded, not queued. Full record: `tests/docs/REVIEW-337-343-2026-09-17.md`.
+2. **`tests/docs/GO-LIVE-RUNBOOK.md` §3** gained one bullet: ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch each ask twice since 342/343; nothing is written until the second OK; that OK is dead for one second; the state is re-checked there; Reset Timer reads the chosen length at the FIRST OK.
+
+**The four checks that mattered, and why they were the four.** A build that DELETES a control and RENAMES a ledger field fails in ways that report nothing, so the review went after absence first: (a) every removed slider symbol — `DUR_STOPS`, `durIdxFor`, `onDurSlider*`, `setDuration`, `syncDurationUI`, `getResetLabel`, `durSlider`, `durationDisplay` — grepped for across all three pages: zero references left, so the one-second tick cannot throw; (b) `weekLedger` really returns `remainingApproved` — had it not, Smart Lock would have listed no weeks and the reopen picker no months, silently; (c) the new extend-only gates match the staff page's identical comparison and the rules' `timerNotExpired()`, so no surface disagrees about what a reset means; (d) the four new Change Log types carry `scope:'system'` and the staff page filters system entries out of both of its views, so nothing new reaches a doctor's browser.
+
+**Lesson, dated 17 Sep.** A clean battery is not a second pair of eyes. 337–343 each shipped green with their own suites, and the gap the review closed was not a defect but an unanswered question: *what did the deletions leave behind?* A suite asserts what someone thought to assert; a diff read end to end is the only thing that sees what is no longer there. The review took one session hour and found nothing — which is the outcome to want four days before go-live, and is worth the hour only because nobody could have said so beforehand.
+
+**Housekeeping.** The `git fetch` in step 3 stranded `objects/maintenance.lock` in all three public repos, as it always does; all three moved to `_to_delete/` (the bridge cannot delete) and the post-check found none. His instruction for the day: at the usage limit, restart at 12:15 PM — a scheduled task bound to his Mac carries the full brief.
+
+---
+
+## 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V2" — THE 12:15 RESTART: V1's WORK WAS ALREADY COMPLETE. VERIFIED OFF DISK, TWO PAPERWORK CORRECTIONS. NO CODE.
+
+**Why this session exists:** his instruction in §213 — at the usage limit, restart at 12:15 PM and continue jobs 1 and 2. **Both were already finished before the limit hit.** The restart's real work was therefore to prove that off disk rather than take V1's word for it, and to finish the close that the limit interrupted.
+
+**Live at the open and at the close, fetched twice per site with different cache-busters:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, the disk `var BUILD` lines and START-HERE's LIVE line. All four repos clean against `origin/main`; `tests` judged from `git log` (`6d692a3`) as always. The `git fetch` stranded `objects/maintenance.lock` in all three public repos again; all three moved to `_to_delete/` and the post-check found none. Context at the close: **~133,000 tokens.**
+
+**What was verified, not assumed.** Job 1's record (`tests/docs/REVIEW-337-343-2026-09-17.md`, 7.5 KB, line-2 note present so the MAP picks it up) and job 2's runbook bullet (`GO-LIVE-RUNBOOK.md` §3) were both read end to end. Two of the review's load-bearing claims were re-run rather than re-read: the eight deleted slider symbols return **zero** hits across all three served pages, and `weekLedger` really does return `remainingApproved` (defined at 3081, consumed at 9393 / 9416 / 11208). Both hold. Nothing the site serves was touched (§92).
+
+**Two corrections.** (1) `TODO.md` called the review session V2; the HANDOFF entry and the review file's own heading both say V1 — the file was the truth and TODO was fixed to match, before this entry made V2 a real session name. (2) The §213 index row's hand-kept status word was blank; the ruling's work is complete and docs-only, so it now reads **DONE**.
+
+**One deviation from his words, deliberate.** He asked for the verdict at `REVIEW-336-343-2026-09-17.md`; V1 had written it as `REVIEW-337-343-…`. 336 is the BASELINE of the diff (`158d81e`), not a reviewed build, so the name on disk is the more accurate one — and it is already cited by START-HERE's MAP, `TODO.md`, §213 and the file's own heading. Renaming would touch four documents to make a name less true, so it was left and raised instead. **His call; one rename and four edits if he wants it.**
+
+**Lesson, dated 17 Sep.** A restart brief is written before the interruption and describes the work as unfinished; the disk describes it as it actually ended. Read the disk first and the brief second — this restart's two jobs were both done, and a session that had trusted its own brief would have written a second review over a good one. The re-grounding ritual is what makes that cheap: an hour of duplicated work avoided by twenty minutes of reading.
+
+---

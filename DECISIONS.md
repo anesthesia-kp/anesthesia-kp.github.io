@@ -227,6 +227,7 @@
 | §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | LIVE (admin 342, `539e5ee`) |
 | §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | LIVE (admin 343, `b07e675`) |
 | §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | LIVE (standing order) |
+| §213 | 17 Sep 2026 | THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION | DONE |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5677,3 +5678,12 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled.** The last act of every handoff is `START-HERE.md` in the outputs column: taken from disk after `status.mjs` has run, delivered as plain Markdown, md5-identical to the repo copy, and named in the handover — whether or not it changed that session. Recorded in `HANDOFF.md` checklist step 5 and START-HERE's paperwork table (session end), and in Claude's memory. An addition to the §3 outputs-hygiene list, which otherwise stays curated.
 
+## §213 — THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION — 17 Sep 2026
+
+**Asked:** whether anything needed doing or review with go-live the week of 21 Sep. Claude reported three things and recommended the first: (1) admin builds 337–343 had shipped since the last independent review (336 / RA-11), (2) `GO-LIVE-RUNBOOK.md` §3 was written at 341 and still described ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch as single-step, and (3) TODO's STATUS block was one commit stale.
+
+**His words:** *"Go on 1 and 2."*
+
+**Done, both read-only or docs-only — nothing the site serves was touched (§92).** The review of the cumulative diff `158d81e → b07e675` (admin 287/132 lines, staff 45) found **nothing at CRITICAL or HIGH**; three LOW notes recorded, not queued. Record: `tests/docs/REVIEW-337-343-2026-09-17.md`. The runbook's §3 gained one bullet: the three controls ask twice, nothing is written until the second OK, its button is dead for a second, and the state is re-checked there.
+
+**Also his instruction, same turn:** when this session hits its usage limit, restart at **12:15 PM** today and continue — Amphetamine will be on, so the bridge stays up. A scheduled task bound to his Mac carries the whole brief.
