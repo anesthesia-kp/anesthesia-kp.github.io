@@ -226,6 +226,7 @@
 | §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | LIVE (admin 341, `612cebe`) |
 | §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | LIVE (admin 342, `539e5ee`) |
 | §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | LIVE (admin 343, `b07e675`) |
+| §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | LIVE (standing order) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5669,3 +5670,10 @@ was off and delivered by zip, md5-identical both ways.
 **Ruled / built:** the second box of ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch takes that dialog's layout — a bold red "Are you sure…?" line, a short list of what will happen, and a red-shaded box with one bold sentence — and a red OK button. No "nuclear", no 🚨/💣. Wording, behaviour and the double-confirm guard are otherwise unchanged. Admin 343.
 
 **LIVE** as admin 343 `b07e675`, pushed 17 Sep 2026, served twice.
+
+## §212 — EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN — 17 Sep 2026
+
+**His words:** *"Can the most recent start here always be placed into outputs as part of handoff. it's easier to copy paste that way. ensure this is remembered and always happens."*
+
+**Ruled.** The last act of every handoff is `START-HERE.md` in the outputs column: taken from disk after `status.mjs` has run, delivered as plain Markdown, md5-identical to the repo copy, and named in the handover — whether or not it changed that session. Recorded in `HANDOFF.md` checklist step 5 and START-HERE's paperwork table (session end), and in Claude's memory. An addition to the §3 outputs-hygiene list, which otherwise stays curated.
+

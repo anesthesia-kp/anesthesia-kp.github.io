@@ -151,6 +151,12 @@ REDIRECTS; open one and read its `<title>` before touching it.
 State, in the chat: what shipped, what the gates said, what is pending a push, what was recorded
 and where, and what is recommended but deliberately NOT built. Then stop and wait (§7).
 
+**⛔ ALWAYS put the current `START-HERE.md` into the outputs column (owner order, 17 Sep 2026, DECISIONS §212):**
+*"Can the most recent start here always be placed into outputs as part of handoff. it's easier to copy paste that way.
+ensure this is remembered and always happens."* Do it LAST — after `status.mjs` has rewritten the map and date — as
+`START-HERE.md` (plain Markdown, never a Word doc), md5-identical to the repo copy (verified, never asserted), and say so
+in the handover. It goes out even when START-HERE did not change this session.
+
 ---
 
 # 🧹 MAINTAINING THIS FILE AND `TODO.md` — archiving is CONTINUOUS, not a spring clean
