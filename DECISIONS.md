@@ -225,7 +225,7 @@
 | §208 | 17 Sep 2026 | THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT | LIVE (admin 341, `612cebe`) |
 | §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | LIVE (admin 341, `612cebe`) |
 | §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | LIVE (admin 342, `539e5ee`) |
-| §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | BUILT (admin 343, not pushed) |
+| §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | LIVE (admin 343, `b07e675`) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5622,7 +5622,7 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled.** The legend reads *"Projected = outcome before admin approval/denial · Result = admin decision ("—" = not yet decided)"* everywhere it appears.
 
-**What "everywhere" is, traced.** The legend lives in exactly TWO live strings — the `subtitle` of `exportPhaseResults` (Weekly Summary) and of `exportUserSummary` (User Summary). Each report builds its parts once and every surface reads them: the card's View and PDF buttons (`openReportTab`) and the Reports page's embedded frame and its PDF button (`format 'parts'` → `reportDocHtml`, §203). So two edits reach all eight surfaces. **Not changed:** the Excel exports carry no legend at all (their stamp row is date and counts only) — raised to him as a question, not added unasked; `openSummaryTab` carries a copy but has zero call sites (the dead-code item, his "Ignore it, match what I see").
+**What "everywhere" is, traced.** The legend lives in exactly TWO live strings — the `subtitle` of `exportPhaseResults` (Weekly Summary) and of `exportUserSummary` (User Summary). Each report builds its parts once and every surface reads them: the card's View and PDF buttons (`openReportTab`) and the Reports page's embedded frame and its PDF button (`format 'parts'` → `reportDocHtml`, §203). So two edits reach all eight surfaces. **Not changed:** the Excel exports carry no legend at all (their stamp row is date and counts only) — raised to him as a question, not added unasked; **DECLINED 17 Sep 2026: *"leave excel alone"*;** `openSummaryTab` carries a copy but has zero call sites (the dead-code item, his "Ignore it, match what I see").
 
 **Build:** admin 340, text only. **LIVE** `47643ee`, pushed 17 Sep 2026, served twice.
 
@@ -5668,4 +5668,4 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled / built:** the second box of ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch takes that dialog's layout — a bold red "Are you sure…?" line, a short list of what will happen, and a red-shaded box with one bold sentence — and a red OK button. No "nuclear", no 🚨/💣. Wording, behaviour and the double-confirm guard are otherwise unchanged. Admin 343.
 
-**Built 17 Sep 2026** as admin 343 — filed, not yet pushed.
+**LIVE** as admin 343 `b07e675`, pushed 17 Sep 2026, served twice.

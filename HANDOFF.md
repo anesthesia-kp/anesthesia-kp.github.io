@@ -735,138 +735,6 @@ nowhere.*
 
 ---
 
-## 14–15 Sep 2026 — "Vacation Auction 14 Sep 2026 V3" — STAFF 177, THE TEST-MODE BANNER (§201), PUSHED AND LIVE; THEN ADMIN 337, THE REPORTS PAGE (§203), BUILT AND FULLY GATED, AWAITING HIS PUSH.
-
-
-**⛔ AND IT CAME BACK OWNER-FOUND THE SAME DAY — read `TODO.md`'s top item before anything else.** He reported the Reports tab "glitchy", then "sometimes reports opens blank, sometimes with data", and asked for a selector so only ONE summary shows at a time. **The lesson, which is the reusable part:** 337 copied the capacity page's refresh hook without asking what that shape DOES in a different medium. The hook writes `innerHTML` into a div — cheap and invisible. Assigned to an iframe's `srcdoc` it tears down and loads a whole new document, so every data change reloads both frames (measured: 1 load on open, +1 per change), and a reassignment landing mid-load can be dropped, which is what "sometimes blank" almost certainly is. **Copying a working pattern is not free: the pattern was correct for a div and wrong for a frame, and nothing in the gates could catch that because every gate asserted about a single render, never about what a SECOND render costs.** No gate in this project yet asks "what happens when this runs again, and again, while someone is looking at it" — that is the hole this defect came through.
-
-**ADMIN 337 — THE REPORTS PAGE (§203), built the same session, after the 177 work above.** His ask: the Weekly
-and User summaries shown in the admin site as an alternative to the pop-ups, sortable by phase / Phase-4 round /
-all phases, plus the export buttons repeated at the top ("I know it's redundant, but I want it").
-
-**Placement cost two screenshots and a flip-flop, and that is worth carrying forward:** "just above the capacity
-section" was read correctly first (a nav panel), then Claude let his screenshot of the Dashboard card move the
-placement as well as the report identity, and his second screenshot (the nav menu, Capacity circled) put it back.
-The lesson is narrow and reusable — **a screenshot answers the question it was sent for; it is not licence to
-revise a decision it was not about.**
-
-**Also corrected in the record:** Claude had said both pop-ups came from `openSummaryTab`. That function has zero
-call sites. The card's buttons call `exportPhaseResults` (headed "Bids by Week") and `exportUserSummary` — so the
-card's label and the report's title disagreed, live. His ruling renamed the report.
-
-**The design.** `reportDocHtml()` factored out of `openReportTab`; both exports given a `parts` mode; the page
-asks for parts and hands them to that one document function inside sandboxed frames. Identity is structural, not
-maintained. Render hooks copied from the capacity page, so the page costs nothing while it is not open.
-
-**Gates:** 73/73 static, 53/53 browser (desktop + phone), honesty 57 red exit 1, battery 90 suites / 3,031
-assertions (the predicted +73), isolation 36/36, sweep compared per panel on both builds.
-
-**Six gate defects, found before the gate was trusted.** Three negative assertions passed vacuously on an absent
-function — `[].every()` is true and a cleared frame is indistinguishable from "nothing ran". One could not tell
-"not wired into the dashboard" from "does not exist". **One asserted the Excel sheet tab inside the WRONG
-FUNCTION** — it matched a string in `exportDashboard`, so it passed on the old build; that is rule 8's
-gate-aimed-at-the-wrong-thing, and only the baseline-pass listing exposed it. And `test-335`'s "Capacity sits
-directly beneath Change Log" was a line-count pin the new menu item legitimately broke: repointed to the
-invariant it stood in for (first nav group, after Change Log, before People), which holds on 336 and 337 alike.
-
-**A gap Claude found and closed while he was away.** `openReportTab` serves FOUR reports, not the two this build
-is about. A new `sweep/report-refactor-check.mjs` captured all of them on both builds: **Fair Play, User Summary
-(both scopes) and Capacity are byte-identical 336 vs 337**; the three Weekly variants differ only by the agreed
-rename; zero unexplained differences; the PDF branch still carries auto-print and the view branch still does not.
-
-**Bridge behaviour to expect:** it dropped roughly every few minutes through the afternoon and then his Mac was
-off for hours. The build and every cloud-runnable gate were done against a staged copy, delivered by zip, and
-unpacked with `unzip -p` when he returned — all four files md5-identical both ways, and the device's admin page
-verified as still the exact 336 the build was made on before anything was overwritten.
-
----
-
-Opened with START-HERE attached and no message — the ritual. His machine's clock still read 14 Sep (22:34 PDT)
-though UTC had rolled over, so this is V3 of the 14th, not a V1 of the 15th (§185: the date is HIS). Live
-verified twice per site: auction 336 / 176 / 18, schedule 151 / 51, all matching disk. All four repos clean and
-in sync; the fetch stranded `objects/maintenance.lock` in the three public repos as always — moved to
-`_to_delete/locks-2026-09-14-v3/`. `status.mjs` was NOT re-run: its last run (18:09 his time) already reflected
-the pushed state, and re-running would only rewrite its own timestamp and dirty a clean tree; its LIVE-line claim
-was verified by hand instead. Two docs-only commits had landed past the V2 handover (auction `b4691d5`, hub
-`ff38c5f`) — served bytes unchanged, which the live check confirmed.
-
-**His ask, and the exploration that preceded agreeing to it.** A "Simulation Running / Auction Not Live" banner
-on the staff site while his simulator is switched on, stacking cleanly for users who still carry the whitelist
-notification. Claude did NOT agree on the shape until the code was read. What it found: the switch is Rehearsal
-Mode, stored as `adminSettings.simulatorEnabled`; the staff page has ALWAYS listened to `adminSettings`, so the
-value was already arriving on every user's page and was simply ignored (`simulatorEnabled` appeared nowhere in
-`index.html`); that snapshot resolves BEFORE sign-in; and the read is already public in the rules. So the build
-is one file, with no rules change, no new document, no new listener and no extra reads. Full reasoning in §201.
-
-**A stale comment corrected in the record, not in the code.** The header above `toggleSimulator` still claims
-rehearsal mode "REFUSES to turn on. No click-through." once Phase 1 has started. Build 223 replaced that with a
-single red danger confirm. Claude read the function before repeating the comment, and told him his safety
-argument rests on his discipline rather than a lock — which makes the banner more valuable than he framed it,
-since today the only warning is on his own dashboard. The stale comment is logged for a later docs fix; the
-auction code was not touched for it (§92).
-
-**His rulings.** The persistent switch, not a transient "run in progress" flag (Claude argued the transient one
-strands users behind a banner nobody can clear if the admin tab dies mid-run). Wording: see below — he revised it after the build. Placement: he chose login screen + board, then changed
-it mid-build to **board only**. He added, unprompted: *"I want it to look clean and not have text over other
-text."* — which is why the browser gate below is geometric.
-
-**Built as staff 177.** Empty `#simModeBanner` one line above `#whitelistBanner`; `renderSimModeBanner()` beside
-the whitelist banner's own function; three call sites — the settings listener, `render()`, and the sign-in path
-before the board is shown. Only an explicit `true` paints it. Amber, normal flow, no z-index.
-
-**Gates.** New `test-177-sim-mode-banner.mjs` 36/36 and `sweep/sim-mode-check.mjs` 101/101 (Chromium, desktop and
-phone, whitelist present AND absent, every pair of laid-out boxes tested for overlap, scroll-proof of normal
-flow, stack proved to close back to the same header y). Honesty vs `595bf77`: 32 red static, 4 red browser, both
-exit 1. Battery 89 suites / 2,958 assertions exit 0 — the predicted +36. Isolation 36/36. `node --check` clean on
-all four inline scripts. Button sweep run on BOTH 176 and 177 and compared row by row: every number identical,
-including the standing staff/confirm `unlocated=1`, which this session confirmed pre-existing rather than
-assuming it.
-
-**HE REVISED THE WORDING AFTER THE BUILD, and was right to.** *"the current one can be confusing since people
-would be able to place bids."* "Please check back shortly" implies the site is unavailable, when bidding works
-normally during a simulation. His proposed replacement carried a second sentence saying active bids "are for
-testing purposes only and are not real" — **Claude pushed back and he took the correction**: Rehearsal Mode is
-not a sandbox, so a bid placed during a sim is a genuine write to the live documents and fires real confirmation
-and outbid mail. That wording is the same error pointed the other way, and the worse one, because it invites a
-careless bid that then stands. Final text, his ruling: "🎭 The site is currently in testing mode and the auction
-is not live right now. Any bids placed during testing are part of the test and will not be counted." — a promise
-about HIS process (he resets), not about the data. 177 was amended in place rather than becoming 178, because
-nothing had been committed or pushed (HEAD still `b4691d5`, live still 176 — both verified, not assumed). All
-gates re-run on the new text: static 36/36, browser 101/101 (the phone banner grew from 2 lines to 3 — 76px to
-121px — and still clears the whitelist notification by 14px), honesty 32 red static / 4 red browser, battery
-89 / 2,958, isolation 36/36. One gate defect the longer sentence exposed: the browser check's measure function
-truncated element text at 80 characters, so its text assertion would have failed on length rather than content —
-widened to 220 before it could produce a false red.
-
-**He pushed all three mid-session** (auction `cda15f7`, tests `707defa`, hub `1207985`, all 15 Sep 07:00 his time — his clock had rolled past midnight, so this session keeps its "14 Sep V3" name while the push carries the 15th). Verified after the fact rather than assumed: local HEAD == origin/main, the PUSHED commit's `index.html` md5 `9001bc87…` identical to the gated disk copy, the pushed bytes carry the final wording and `var BUILD = 177`, and live `versions.json` read 177 twice with different cache-busters.
-
-**Two things he raised this session, neither built.** (1) The board-level "Bidding is closed" message in a
-centered pop-up like the bid-cap alerts — filed in `TODO.md` under HIS CALL with the shape, and with the catch
-that the button sweep cannot dismiss `#centerAlertOverlay` and would silently under-test after such a change.
-Raised, answered, UNRULED at the close of this entry. (2) A real sandbox — sized in three shapes and **TABLED by
-him** (§202); filed, not to be surfaced.
-
-**Three traps worth carrying forward.**
-1. **Anchors must be counted before substituting.** Two of the six edit anchors matched TWICE (`renderWhitelistBanner();`
-   appears in `render()` and in the confirm retry; the `typeof` guard appears in the whitelist snapshot and the
-   sign-in path). The `count(old)==1` assertion caught both before anything was written.
-2. **Build pins decay, and the decay is a real failure.** `test-176-flash-opaque.mjs` pinned `BUILD === 176`
-   and went red the moment 177 existed. Repointed to the house invariant (a floor, plus `versions.json` agreeing
-   with the page's own BUILD var) — the shape `test-173` and `test-174` already use. 177's own pins were written
-   that way from the start.
-3. **Negative assertions pass vacuously on an absent function.** In the first honesty run, three of 177's checks
-   ("not a .flash box", "no z-index", "no Firestore write") went GREEN on the 176 baseline because the extractor
-   had returned a stub. Each was widened to require the extraction to have succeeded first; honesty went 28 red
-   → 32 red. This is rule 11 in miniature and it will happen again to any negative assertion.
-
-**Cloud setup note.** The Mac has playwright installed but no browser binary, so the browser half ran in the
-cloud: staged staff + admin pages (md5-verified against the device), the sweep harness as a 39 KB tar, and the
-documented symlink shim for the playwright/chromium version mismatch (1243 expected, 1194 present — chromium
-`chrome-linux`, and the headless shell as `chrome-headless-shell-linux64/chrome-headless-shell`). The public
-HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited baseline was provably the live page.
-
----
-
 ## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. PUSHED AND LIVE.
 
 **Rulings:** §204 (User first, choice remembered), §205 (only the selected report's buttons; a failed report says so). Record of the build: `BUILD-LOG.md` row 338.
@@ -881,16 +749,24 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 
 ---
 
-## 16 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — STAFF 178 + ADMIN 339, THE FREEZE WORDING. PUSHED AND LIVE.
+## 16–17 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — FIVE BUILDS, ALL PUSHED AND LIVE: STAFF 178 + ADMIN 339 · 340 · 341 · 342 · 343. THE TIMER CARD REBUILT.
 
-**Ruling:** §206. Record: `BUILD-LOG.md` row 178/339. **Pushed 16 Sep 2026** — auction `970c4bc`, tests `f827884`, hub `0faa961`; `versions.json` served 178/339 on two cache-busted fetches; pushed `index.html`, `admin/index.html`, `versions.json` md5-identical to the gated copies. Go-live moved to next week (owner, 16 Sep). Re-grounding at start: all live builds matched; three `maintenance.lock` files moved to `_to_delete/`; `status.mjs` re-run after his 05:13 push.
+**What shipped** (every row in `vacation-kp.github.io/BUILD-LOG.md`; each served twice on cache-busted fetches, pushed bytes md5-identical to the gated copies):
+- **staff 178 + admin 339** `970c4bc` — the Freeze wording (§206).
+- **admin 340** `47643ee` — the report legend, "Result = admin decision ("—" = not yet decided)" (§207).
+- **admin 341** `612cebe` — the Timer card rebuilt and contested weeks reopen (§208 §209), after the read-only **timer review** (`tests/docs/TIMER-REVIEW-2026-09-17.md`, T-1…T-10, R-1, and the close-vs-expire correction; probes beside it).
+- **admin 342** `539e5ee` — Reset Timer, Expire timer now and on/off each ask twice (§210).
+- **admin 343** `b07e675` — that second box styled like the Reset Auction warning (§211).
+Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.** The user site and `firestore.rules` were byte-identical through 341–343 — his hard line: *"how user bids effect the timer countdown and expiration … absolutely cannot break."* **Go-live moved to the week of 21 Sep** (START-HERE §1). Runbook §3 corrected, with the habit: after a countdown runs out, do not switch the timer off.
 
-**The lesson — read the click path, not the guard.** Claude told him a tap under the Freeze showed "This week is locked — no more changes allowed."; he said it does not, and the code agreed: locked cards have no click handler, and those four guard messages fire only in a race. A guard's message is not what a user sees unless something routes the user to it. Now an invariant in the 178 suite.
+**Lessons, dated 16–17 Sep:**
+1. **Read the click path, not the guard.** Claude said a tap under the Freeze showed "This week is locked…"; he said it does not, and the code agreed — locked cards have no click handler. A guard's message is not what a user sees unless something routes the user to it.
+2. **Two actions that end in the same state are not the same action.** Claude said Close bidding "does the same job, better" than expiring the timer; he remembered otherwise and was right — Close sets a server flag that survives switching the timer off, expiry does not. Compare the WRITES, then the next action after each, before calling two paths equivalent.
+3. **Name which stored number "the window" means.** The Timer card's controls, its readout and the bids each owned a different one; every finding in the review came from that.
+4. **He pushes while Claude is still amending a build.** 341 went live without §210 mid-build, and the amendment had to become 342. Before editing a filed build, `git log` the repo — if it moved, the change is a NEW build number.
+5. **Gate slips caught this session, each before a push:** an assertion aimed at a string also matched a display column (aim at the named function); helpers used only inside an OK handler were invisible to the extractor suites (keep them local); `|| true` slipped into a draft assertion; two honesty greens passed only because the button under test was absent; a new section crashed instead of failing on the old build (guard every `confirms[n]`).
+6. **Dates are his.** Entries were first stamped 17 Sep while his clock read 16 Sep — `TZ=America/Los_Angeles date` before writing any date.
 
-**Later the same session — admin 340, the report legend (§207). PUSHED AND LIVE** (17 Sep 2026, 07:18) — auction `47643ee`, tests `062c91f`, hub `3d15ceb`; served 340 twice; pushed `admin/index.html` and `versions.json` md5-identical to the gated copies. He asked whether a Weekly Summary header was correct; the legend "Result — = awaiting admin decision" was right but read as punctuation. Built the shorter wording across every report while he slept (Amphetamine on). Open question left for him: the Excel exports have no legend at all. Harness trap: a page `const` (here `REPORT_CSS`) is invisible to the function resolver — read it from the page, as `PROJ_LABEL` already was.
-
-**17 Sep — the TIMER REVIEW, read-only, filed `tests/docs/TIMER-REVIEW-2026-09-17.md`, awaiting his ruling.** Lesson: the timer card's controls, its readouts and the bids each own a different stored number — a claim about "the window" must name WHICH number. Nothing drove the slider in any suite; the probes in `tests/docs/timer-review-2026-09-17/` did.
-
-**17 Sep, later — admin 341 FILED (§209).** Lessons: an assertion aimed at a string found a display column too (aim at the named function); a helper used only inside an OK handler is invisible to the extractor suites (keep it local); `|| true` slipped into a draft assertion and was removed before the honesty run.
+**Nothing open.** He declined the Excel legend (*"leave excel alone"*, CLOSED table). Everything else from the review is filed under HIS CALL.
 
 ---
