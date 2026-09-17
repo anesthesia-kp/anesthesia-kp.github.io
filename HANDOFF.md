@@ -881,9 +881,9 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 
 ---
 
-## 16 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — STAFF 178 + ADMIN 339, THE FREEZE WORDING. FILED, NOT PUSHED.
+## 16 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — STAFF 178 + ADMIN 339, THE FREEZE WORDING. PUSHED AND LIVE.
 
-**Ruling:** §206. Record: `BUILD-LOG.md` row 178/339. Go-live moved to next week (owner, 16 Sep). Re-grounding at start: all live builds matched; three `maintenance.lock` files moved to `_to_delete/`; `status.mjs` re-run after his 05:13 push.
+**Ruling:** §206. Record: `BUILD-LOG.md` row 178/339. **Pushed 16 Sep 2026** — auction `970c4bc`, tests `f827884`, hub `0faa961`; `versions.json` served 178/339 on two cache-busted fetches; pushed `index.html`, `admin/index.html`, `versions.json` md5-identical to the gated copies. Go-live moved to next week (owner, 16 Sep). Re-grounding at start: all live builds matched; three `maintenance.lock` files moved to `_to_delete/`; `status.mjs` re-run after his 05:13 push.
 
 **The lesson — read the click path, not the guard.** Claude told him a tap under the Freeze showed "This week is locked — no more changes allowed."; he said it does not, and the code agreed: locked cards have no click handler, and those four guard messages fire only in a race. A guard's message is not what a user sees unless something routes the user to it. Now an invariant in the 178 suite.
 

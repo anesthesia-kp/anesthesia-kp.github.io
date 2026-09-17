@@ -220,7 +220,7 @@
 | §203 | 15 Sep 2026 | THE REPORTS PAGE IN THE ADMIN MENU |  |
 | §204 | 15 Sep 2026 | THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED | LIVE (admin 338, `57ac389`) |
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
-| §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | BUILT (staff 178 + admin 339, not pushed) |
+| §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | LIVE (staff 178 + admin 339, `970c4bc`) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5609,4 +5609,4 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled.** (1) Staff: the global-lock banner reads *"🔒 The auction has been temporarily locked for administrative reasons. Please check back soon."* (2) Admin: the Freeze confirm's red box reads only *"No user can add, edit or remove any bid while this is on."* — the false "nobody is told why" sentence and the per-week-locks hint go with it ("this new sentence is enough").
 
-**Build:** staff 178 + admin 339, text only — no rules change, no behaviour change.
+**Build:** staff 178 + admin 339, text only — no rules change, no behaviour change. **LIVE** `970c4bc`, pushed 16 Sep 2026, served twice.
