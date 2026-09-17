@@ -224,7 +224,8 @@
 | §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | LIVE (admin 340, `47643ee`) |
 | §208 | 17 Sep 2026 | THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT | LIVE (admin 341, `612cebe`) |
 | §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | LIVE (admin 341, `612cebe`) |
-| §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | BUILT (admin 342, not pushed) |
+| §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | LIVE (admin 342, `539e5ee`) |
+| §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | BUILT (admin 343, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5659,4 +5660,12 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled / built:** each of the three asks twice; nothing is written until the second OK, and the state is re-checked at that moment. **One guard Claude added without changing the look:** the shared dialog re-opens with its OK button in the same place, so one fast double-click could pass both boxes — the second box's OK ignores clicks for its first second on screen. He pushed admin 341 while this was being built, so it ships as **admin 342**.
 
-**Built 17 Sep 2026** as admin 342 — filed, not yet pushed.
+**LIVE** as admin 342 `539e5ee`, pushed 17 Sep 2026, served twice.
+
+## §211 — THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) — 17 Sep 2026
+
+**His words, with a screenshot of the Reset Auction ("Remove ALL Data") dialog:** *"I think some red shading and/or bold text would be good in that secondary alert to make it stand out. Maybe in this style, although don't say nuclear and no bomb image since it's not quite as severe."*
+
+**Ruled / built:** the second box of ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch takes that dialog's layout — a bold red "Are you sure…?" line, a short list of what will happen, and a red-shaded box with one bold sentence — and a red OK button. No "nuclear", no 🚨/💣. Wording, behaviour and the double-confirm guard are otherwise unchanged. Admin 343.
+
+**Built 17 Sep 2026** as admin 343 — filed, not yet pushed.
