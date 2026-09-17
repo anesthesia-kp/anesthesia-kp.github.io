@@ -3,9 +3,9 @@
 
 **LAST REVISED: 17 Sep 2026** — the docs pass (DECISIONS §188): this file is rules and a map; state lives in `TODO.md`'s STATUS block and §1; every story behind a rule is in `START-HERE-ARCHIVE.md`.
 
-**LIVE, verified cache-busted TWICE: auction admin 340 · staff (index) 178 · mobile 18 · schedule admin 151 / staff 51** (admin 340 = `47643ee`, §207, pushed 17 Sep 2026 and served twice — the pushed bytes were md5-verified against the gated copy; staff 178 = `970c4bc`, §206; the next auction honesty baseline is `47643ee` for admin, `970c4bc` for staff). `node status.mjs` checks this line against `versions.json` and exits non-zero when it drifts.
+**LIVE, verified cache-busted TWICE: auction admin 341 · staff (index) 178 · mobile 18 · schedule admin 151 / staff 51** (admin 341 = `612cebe`, §208 §209, pushed 17 Sep 2026 and served twice — the pushed bytes were md5-verified against the gated copy; staff 178 = `970c4bc`, §206; the next auction honesty baseline is `612cebe` for admin, `970c4bc` for staff). `node status.mjs` checks this line against `versions.json` and exits non-zero when it drifts.
 
-**FILED, NOT YET PUSHED: auction admin 341** (the Timer card rebuilt and contested weeks reopen — §208 §209, `BUILD-LOG.md`). Delete this line once pushed and served.
+**FILED, NOT YET PUSHED: auction admin 342** (every timer change asks twice — §210, `BUILD-LOG.md`). Delete this line once pushed and served.
 
 
 
@@ -18,8 +18,8 @@
 |---|---|---|---|
 | `anesthesia-kp.github.io/START-HERE.md` | how we work — every binding rule, once; the map of every file and archive; the LIVE line — the one file the owner pastes; read first, every session, then TODO's STATUS block and §1 | 179 | today (uncommitted) |
 | `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 241 | today (uncommitted) |
-| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 896 | today (uncommitted) |
-| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5652 | today (uncommitted) |
+| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 896 | 2026-09-17 |
+| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5662 | today (uncommitted) |
 | `anesthesia-kp.github.io/HANDOFF-ARCHIVE.md` | sections archived from HANDOFF.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 2220 | 2026-09-15 |
 | `anesthesia-kp.github.io/START-HERE-ARCHIVE.md` | the stories behind START-HERE's rules and every paragraph retired from it, including the whole pre-pass START-HERE of 7 Sep 2026 — why a rule exists, by rule number; read when a rule's reason or history matters | 816 | 2026-09-08 |
 | `anesthesia-kp.github.io/TODO-ARCHIVE.md` | sections archived from TODO.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1699 | 2026-09-08 |
@@ -27,7 +27,7 @@
 | `tests/docs/DOCS-PASS-CHECK.md` | the twelve retrieval questions that prove START-HERE's map is complete — each with its answer and the path a fresh-eyes reader used; re-run after any big archiving and record the result here | 36 | 2026-09-08 |
 | `tests/docs/DOCS-PASS-PLAN-2026-09-07.md` | the approved plan for the 8 Sep 2026 docs pass (§188) — what moved where and why, the lossless guard, the self-updating map; read before changing status.mjs, archive.mjs or an archive file | 138 | 2026-09-08 |
 | `tests/docs/FUZZ-summer-floor-2026-09-03.md` | the strategic-bidder fuzz on the real engine (§176, PARKED) — whether the 6-bid cap lets summer go cheap; read only if the summer floor is ever unparked | 142 | 2026-09-08 |
-| `tests/docs/GO-LIVE-RUNBOOK.md` | the live-run sheet for the admin — the pre-flight of every decision and setting before Begin Phase 1 (§0), then when this happens do this, the habits, the backups; read before or during the real auction | 215 | today (uncommitted) |
+| `tests/docs/GO-LIVE-RUNBOOK.md` | the live-run sheet for the admin — the pre-flight of every decision and setting before Begin Phase 1 (§0), then when this happens do this, the habits, the backups; read before or during the real auction | 215 | 2026-09-17 |
 | `tests/docs/RA-10-2026-09-05.md` | RA-10 (5 Sep 2026), the adversarial audit of the live holds build 327/169 (superseded as the current audit by RA-11, 9 Sep): findings F1–F15, the mutation results, what was built (328, §183) and declined (§184); read before any auction build | 219 | 2026-09-09 |
 | `tests/docs/RA-10-BRIEF-2026-09-05.md` | the brief RA-10 ran from (§182) — scope, lanes, the md5s of the audited bytes; read to repeat an audit of that shape | 37 | 2026-09-08 |
 | `tests/docs/RA-11-2026-09-09.md` | THE CURRENT AUDIT — RA-11 (9 Sep 2026), the multi-agent + adversarial final audit of the live 330/170 build: five review lanes, a red team, an independent verifier; findings F1–F3 awaiting his ruling (§190), what was checked and found sound, the below-the-bar list; read before any auction build | 67 | 2026-09-09 |
@@ -41,9 +41,9 @@
 | `tests/docs/REHEARSAL-2026-09-07.md` | the final Chrome-driven rehearsal before go-live (§186, 7 Sep 2026) — every step with times, and the six notes O-A…O-F; read before repeating a rehearsal or fixing O-A…O-F | 107 | 2026-09-08 |
 | `tests/docs/REHEARSAL-SCRIPT.md` | the owner's own ~45-minute rehearsal script (§169 / §175) — page and button names in order; read to run or update a rehearsal | 57 | 2026-09-08 |
 | `tests/docs/REVIEW-332-334-2026-09-09.md` | the read-only, fresh-agent review of the cumulative diff 1a4e269 → 7862742 (the three 9 Sep builds that had no second pair of eyes), CRITICAL / HIGH only — what was checked, the clean verdict, and the two LOW pre-existing notes; read before touching the capacity report or the staff rules list | 16 | 2026-09-09 |
-| `tests/docs/TIMER-REVIEW-2026-09-17.md` | the read-only review of every timer control (Timer card slider, Reset Timer, on/off, Timer Rules, Reset Mode) on live admin 340 / staff 178 — what each really does, the confirmed defects T-1…T-10 with the run that proves each, and the options A–D awaiting his ruling; read before any timer build | 89 | today (uncommitted) |
+| `tests/docs/TIMER-REVIEW-2026-09-17.md` | the read-only review of every timer control (Timer card slider, Reset Timer, on/off, Timer Rules, Reset Mode) on live admin 340 / staff 178 — what each really does, the confirmed defects T-1…T-10 with the run that proves each, and the options A–D awaiting his ruling; read before any timer build | 89 | 2026-09-17 |
 | `tests/docs/TRACE-same-bid-2026-09-02.md` | the read-only trace of the "same bid, same answer" dialog and the Phase-4 bid-number lifecycle (§173, 2 Sep 2026); read when denial, round or bid-number rules are questioned | 88 | 2026-09-08 |
-| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 108 | today (uncommitted) |
+| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 109 | today (uncommitted) |
 | `schedule/BUILD-LOG.md` | what shipped on the Daily Schedule — one row per build with its gates and its commit; read for any schedule build number's record | 175 | 2026-08-30 |
 <!-- MAP:END -->
 

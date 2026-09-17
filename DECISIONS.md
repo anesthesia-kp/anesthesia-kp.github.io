@@ -222,8 +222,9 @@
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
 | §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | LIVE (staff 178 + admin 339, `970c4bc`) |
 | §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | LIVE (admin 340, `47643ee`) |
-| §208 | 17 Sep 2026 | THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT | BUILT (admin 341, not pushed) |
-| §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | BUILT (admin 341, not pushed) |
+| §208 | 17 Sep 2026 | THE TIMER CARD: A LENGTH CHOICE IN RESET TIMER REPLACES THE SLIDER; BIDS MAY ONLY LENGTHEN IT | LIVE (admin 341, `612cebe`) |
+| §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | LIVE (admin 341, `612cebe`) |
+| §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | BUILT (admin 342, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5632,7 +5633,7 @@ was off and delivered by zip, md5-identical both ways.
 
 **Also raised the same turn (owner-found):** reopening bidding keeps contested weeks locked — R-1 in the review's addendum, options R-A / R-B, unruled.
 
-**Not yet built** — the combined plan awaits his explicit go (§0 rule 2, §92).
+**Built and LIVE** as admin 341 `612cebe` (§209).
 
 ## §209 — GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT — 17 Sep 2026
 
@@ -5648,5 +5649,14 @@ was off and delivered by zip, md5-identical both ways.
 
 **Not in this build, as recommended and agreed:** auto-close setting the server flag at expiry (after the auction, with a rehearsal); a length that holds against bids (§208 (b), not chosen).
 
-**Built 17 Sep 2026** as admin 341 — filed, not yet pushed.
+**LIVE** as admin 341 `612cebe`, pushed 17 Sep 2026, served twice.
 
+## §210 — A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) — 17 Sep 2026
+
+**His words:** *"This all looks great and is a huge improvement. The only thing I need is an extra confirmation dialogue for when I make timer settings changes. This could be a big problem if done accidentally and deserves 1 additional layer of confirmation."*
+
+**Asked and answered (two questions):** which actions → **↺ Reset Timer, ⏱ Expire timer now, and the timer on/off switch** (not Timer Rules or Reset Mode). Style → **a plain second box** (Claude offered a summary box with a moved button, or type-to-confirm; he chose plain).
+
+**Ruled / built:** each of the three asks twice; nothing is written until the second OK, and the state is re-checked at that moment. **One guard Claude added without changing the look:** the shared dialog re-opens with its OK button in the same place, so one fast double-click could pass both boxes — the second box's OK ignores clicks for its first second on screen. He pushed admin 341 while this was being built, so it ships as **admin 342**.
+
+**Built 17 Sep 2026** as admin 342 — filed, not yet pushed.
