@@ -221,6 +221,7 @@
 | §204 | 15 Sep 2026 | THE REPORTS PAGE SHOWS ONE REPORT AT A TIME: USER FIRST, THE CHOICE REMEMBERED | LIVE (admin 338, `57ac389`) |
 | §205 | 15 Sep 2026 | THE REPORTS PAGE: EXPORT BUTTONS FOLLOW THE SELECTION; A FAILED REPORT SAYS SO | LIVE (admin 338, `57ac389`) |
 | §206 | 16 Sep 2026 | THE FREEZE: A CLEARER BANNER FOR USERS, AND AN HONEST WARNING IN THE ADMIN CONFIRM | LIVE (staff 178 + admin 339, `970c4bc`) |
+| §207 | 16 Sep 2026 | THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT | BUILT (admin 340, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5610,3 +5611,14 @@ was off and delivered by zip, md5-identical both ways.
 **Ruled.** (1) Staff: the global-lock banner reads *"🔒 The auction has been temporarily locked for administrative reasons. Please check back soon."* (2) Admin: the Freeze confirm's red box reads only *"No user can add, edit or remove any bid while this is on."* — the false "nobody is told why" sentence and the per-week-locks hint go with it ("this new sentence is enough").
 
 **Build:** staff 178 + admin 339, text only — no rules change, no behaviour change. **LIVE** `970c4bc`, pushed 16 Sep 2026, served twice.
+
+## §207 — THE REPORT LEGEND: "Result = admin decision ("—" = not yet decided)" IN EVERY REPORT — 16 Sep 2026
+
+**His ask (16 Sep 2026, V1).** Looking at a Weekly Summary: *"Is this all correct? … specifically this: Result — = awaiting admin decision"*. Claude traced it correct in meaning (`resultCellHtml` shows a grey dash while a bid's phase/round is open and it is neither approved nor denied) but hard to read — the dash sits beside the "=" like punctuation. His draft, then Claude's shorter alternative; his ruling: *"Go with the shorter one. Do all reports, both the ones embedded in the page and all reports in the summaries and reports card on the dashboard."*
+
+**Ruled.** The legend reads *"Projected = outcome before admin approval/denial · Result = admin decision ("—" = not yet decided)"* everywhere it appears.
+
+**What "everywhere" is, traced.** The legend lives in exactly TWO live strings — the `subtitle` of `exportPhaseResults` (Weekly Summary) and of `exportUserSummary` (User Summary). Each report builds its parts once and every surface reads them: the card's View and PDF buttons (`openReportTab`) and the Reports page's embedded frame and its PDF button (`format 'parts'` → `reportDocHtml`, §203). So two edits reach all eight surfaces. **Not changed:** the Excel exports carry no legend at all (their stamp row is date and counts only) — raised to him as a question, not added unasked; `openSummaryTab` carries a copy but has zero call sites (the dead-code item, his "Ignore it, match what I see").
+
+**Build:** admin 340, text only — filed 16 Sep 2026, not yet pushed.
+
