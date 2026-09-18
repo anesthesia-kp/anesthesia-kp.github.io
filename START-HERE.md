@@ -1,7 +1,7 @@
 # START HERE — KP East Bay Anesthesia. Both sites. The ONLY document you paste.
 <!-- answers: how we work — every binding rule, once; the map of every file and archive; the LIVE line — the one file the owner pastes; read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 17 Sep 2026** — the docs pass (DECISIONS §188): this file is rules and a map; state lives in `TODO.md`'s STATUS block and §1; every story behind a rule is in `START-HERE-ARCHIVE.md`.
+**LAST REVISED: 18 Sep 2026** — the docs pass (DECISIONS §188): this file is rules and a map; state lives in `TODO.md`'s STATUS block and §1; every story behind a rule is in `START-HERE-ARCHIVE.md`.
 
 **LIVE, verified cache-busted TWICE: auction admin 343 · staff (index) 178 · mobile 18 · schedule admin 151 / staff 51** (admin 343 = `b07e675`, §211, pushed 17 Sep 2026 and served twice — the pushed bytes were md5-verified against the gated copy; staff 178 = `970c4bc`, §206; the next auction honesty baseline is `b07e675` for admin, `970c4bc` for staff). `node status.mjs` checks this line against `versions.json` and exits non-zero when it drifts.
 
@@ -16,9 +16,9 @@
 | file | answers | lines | last changed |
 |---|---|---|---|
 | `anesthesia-kp.github.io/START-HERE.md` | how we work — every binding rule, once; the map of every file and archive; the LIVE line — the one file the owner pastes; read first, every session, then TODO's STATUS block and §1 | 179 | today (uncommitted) |
-| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 243 | today (uncommitted) |
+| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 244 | today (uncommitted) |
 | `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 810 | 2026-09-17 |
-| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5702 | today (uncommitted) |
+| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 5715 | today (uncommitted) |
 | `anesthesia-kp.github.io/HANDOFF-ARCHIVE.md` | sections archived from HANDOFF.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 2355 | 2026-09-17 |
 | `anesthesia-kp.github.io/START-HERE-ARCHIVE.md` | the stories behind START-HERE's rules and every paragraph retired from it, including the whole pre-pass START-HERE of 7 Sep 2026 — why a rule exists, by rule number; read when a rule's reason or history matters | 816 | 2026-09-08 |
 | `anesthesia-kp.github.io/TODO-ARCHIVE.md` | sections archived from TODO.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1699 | 2026-09-08 |

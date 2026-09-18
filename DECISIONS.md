@@ -229,6 +229,7 @@
 | §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | LIVE (standing order) |
 | §213 | 17 Sep 2026 | THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION | DONE |
 | §214 | 17 Sep 2026 | A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY |  |
+| §215 | 18 Sep 2026 | RESET AUCTION DOES NOT TURN REHEARSAL MODE OFF, AND STAYS THAT WAY | DECLINED |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5700,3 +5701,15 @@ was off and delivered by zip, md5-identical both ways.
 **Refined minutes later, same turn, after Claude proposed 60–72 characters:** *"This is why i want the commit messages very brief, as brief as possible actually. they are generally still too long."* **The target is 3–8 words, about 50 characters or less** — the thing changed, named, and nothing else: no reason clause, no outcome, no counts, no two halves joined by a dash or semicolon. That is the third time he has said they are too long (19 Aug, 20 Aug, 17 Sep), so the rule now says: when in doubt, cut again. Examples in START-HERE §3.
 
 **Not amended:** the two commits pushed today keep their long subjects. Rewriting them means a force-push over good history — declined on the spot, not worth it. START-HERE §3 rewritten in the same turn he said it.
+
+## §215 — RESET AUCTION DOES NOT TURN REHEARSAL MODE OFF, AND STAYS THAT WAY — 18 Sep 2026
+
+**What he found, 18 Sep 2026 (V1):** *"I just did an auction reset and it worked, but I thought rehearsal mode was supposed to be off after a reset? it stayed on."*
+
+**What the code does — read off disk that turn, not recalled.** Reset Auction (`clearEverything`) writes exactly ONE key into the settings document: `fteEditEnabled:false`, as a MERGE write. Every other setting is left as it stands, and Rehearsal Mode (`simulatorEnabled`) is one of them. Only FOUR places in the admin page clear it: the Simulation panel's own switch, the red dashboard banner's "Turn off", Begin Phase 1's refusal dialog, and every restore (which scrubs it to OFF on the way in). Reset is not one of them, and neither reset dialog claims it is — they list bids, approvals, denials, priority locks, timestamps and phase history, never settings.
+
+**Why that is the right design, and Claude's reading:** Reset Auction is the rehearsal's OWN tool — the board is reset BETWEEN rehearsal runs. Clearing rehearsal on reset would make every cycle re-arm it, and re-arming once phases are running costs a red confirmation of its own. The live-auction protection was never reset: it is Begin Phase 1 refusing to start while rehearsal is on, a door sealed from both sides (arming refuses once live; going live refuses while armed), with a one-click "turn it off and continue". `GO-LIVE-RUNBOOK.md` step A already carries the manual pair — Reset Auction, *then* Rehearsal Mode OFF.
+
+**The gap Claude raised:** nothing states plainly that a reset LEAVES it on. The runbook instructs the manual step, which implies it, but never says it — the same shape as the timer wording of T-6 / T-10. One sentence in runbook step A was offered; docs-only, no auction code, no §92 question.
+
+**RULED: *"do nothing, it's ok."*** DECLINED. The behaviour is correct, the runbook step exists, and Begin Phase 1 is the backstop. Filed here so it is not re-discovered and re-raised as a defect: it is not one.
