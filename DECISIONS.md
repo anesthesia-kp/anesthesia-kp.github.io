@@ -230,6 +230,7 @@
 | §213 | 17 Sep 2026 | THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION | DONE |
 | §214 | 17 Sep 2026 | A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY |  |
 | §215 | 18 Sep 2026 | RESET AUCTION DOES NOT TURN REHEARSAL MODE OFF, AND STAYS THAT WAY | DECLINED |
+| §216 | 19 Sep 2026 | THE USERS PAGE SHOWS NO ROSTER-WIDE FTE TOTAL: A FUTURE BUILD, NOT NOW | PARKED |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5713,3 +5714,17 @@ was off and delivered by zip, md5-identical both ways.
 **The gap Claude raised:** nothing states plainly that a reset LEAVES it on. The runbook instructs the manual step, which implies it, but never says it — the same shape as the timer wording of T-6 / T-10. One sentence in runbook step A was offered; docs-only, no auction code, no §92 question.
 
 **RULED: *"do nothing, it's ok."*** DECLINED. The behaviour is correct, the runbook step exists, and Begin Phase 1 is the backstop. Filed here so it is not re-discovered and re-raised as a defect: it is not one.
+
+## §216 — THE USERS PAGE SHOWS NO ROSTER-WIDE FTE TOTAL: A FUTURE BUILD, NOT NOW — 19 Sep 2026
+
+**How it came up, 19 Sep 2026:** he updated user FTEs before go-live and asked what the new total was. There was no way to answer from the page — he read the whole roster off the screen in three scrolling screenshots and Claude summed it in code.
+
+**What the code does — read off disk that turn.** Every FTE sum in the admin page is PER WEEK: capacity, taken, available. `getUserFTE` feeds the ~49 capacity sums, the Capacity page (§194) reports capacity / taken / available by week, and the Users page prints each person's own FTE on their row. Nothing anywhere sums the roster. The FTE gates that do exist are validity gates, not totals — `usersTrulyMissingFte` (a hard gate: no phase opens while a roster user has no admin-entered FTE) and `usersOffGridFte` (values off the 0.1 step). So the figure is genuinely not displayed, on any page.
+
+**Claude's reading:** this is a gap, not a defect — nothing claims to show a total, and nothing computes one wrongly. Total FTE is the demand side of the capacity arithmetic he does before every auction, so it is read rarely but read at exactly the highest-stakes moment.
+
+**RULED: *"An FTE total can be part of a future build - not now."*** Deferred, not declined. It stays out of every report until he asks for it (his standing instruction of 11 Sep).
+
+**Shape when it is unparked, so it is not re-derived:** a single read-only line under the Users table — the roster count and the summed FTE, computed from the same `getUserFTE` the capacity sums already use, so it cannot disagree with them. No data write, no `firestore.rules` change, no effect on any gate. It is still an auction build under §92 and §164, so it needs his specific go, and not before go-live.
+
+**Not recorded here:** the roster's actual FTE values and the total measured that day. These repos are PUBLIC, and a department's staffing numbers are not written into them.
