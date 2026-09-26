@@ -151,7 +151,7 @@ REDIRECTS; open one and read its `<title>` before touching it.
 State, in the chat: what shipped, what the gates said, what is pending a push, what was recorded
 and where, and what is recommended but deliberately NOT built. Then stop and wait (§7).
 
-**⛔ ALWAYS put the current `START-HERE.md` into the outputs column (owner order, 17 Sep 2026, DECISIONS §212):**
+**⛔ ALWAYS put the current `START-HERE.md` into the outputs column (owner order, 17 Sep 2026, DECISIONS §212 — widened 22 Sep to the START of every session too, START-HERE §4 step 5):**
 *"Can the most recent start here always be placed into outputs as part of handoff. it's easier to copy paste that way.
 ensure this is remembered and always happens."* Do it LAST — after `status.mjs` has rewritten the map and date — as
 `START-HERE.md` (plain Markdown, never a Word doc), md5-identical to the repo copy (verified, never asserted), and say so
@@ -348,6 +348,11 @@ Add a line the turn a new one is paid for. Retire a line only when the tool or m
   suite in the same turn it is written (25 Aug). The auction runner discovers suites by `readdirSync` — no such gap (1 Sep).
 - Real Firestore data reaches the cloud only as his backup JSON attached to the chat. Extract the subset a task needs into
   a file with no names or e-mails before it goes near a repo; never print the backup's keys blind (3 Sep).
+
+**Slide decks**
+- pptxgenjs writes a SECOND `<a:pPr>` in the middle of a paragraph whenever one bullet mixes a bold lead-in with plain
+  text (and splits the paragraph if both runs carry `bullet`). `validate.py` passes it and LibreOffice renders it, so
+  nothing flags it; strip every `<a:pPr>` that is not a paragraph's first child after `writeFile`, then count zero (22 Sep).
 
 **The auction itself — facts that shape a build**
 - The real auction runs TIMER MODE 2 (resets only when a bid affects others) — his words, 26 Aug. Current supply numbers
@@ -828,3 +833,27 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Pushed by him this session:** `cc95923` (§215) and `e98900d` (§216 + deck notes). Both carry an empty body, so §214 is holding — but `cc95923`'s subject begins with a stray `o ` from the paste. Not amended: rewriting it means a force-push over good history, the same call §214 made.
 
 ---
+
+## 22 Sep 2026 — "Vacation Auction 22 Sep 2026 V1" — NO CODE. THE PHASE 1 REMINDER DECK (§217), GO-LIVE PINNED TO THU 24 SEP ~9 AM, §212 WIDENED TO SESSION START.
+
+**Live at open, fetched twice per site with different cache-busters:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, disk and START-HERE's LIVE line. All four repos clean against `origin/main`; `tests` judged from `git log`. Both fetches (open and close) stranded `objects/maintenance.lock` in all three public repos; every one moved to `_to_delete/`, zero left. Nothing the auction serves was touched (§92) — no build, so no battery: a correct absence, not a skipped gate.
+
+**The deck (§217).** Built in the walkthrough's measured style, revised through eight rounds of his direction, and FILED AS HIS OWN FINAL FILE byte for byte — `tests/docs/Phase1-Reminders.pptx`, md5 `e6d953bc…`, pushed by him as tests `0f2e962` (subject "…projection slide": he committed the final bytes under the previous round's message; not amended — a force-push over good history, the §214 call). Every transfer went cloud → `_to_delete/xfer/` → `cat` into the repo with `device_bash`, md5-verified each time.
+
+**Go-live pinned:** Thursday 24 Sep 2026, about 9 AM (owner, 22 Sep) — START-HERE §1 and fact (1), and TODO's NEXT line, edited in place.
+
+**§212 widened** — his words and the audit are in DECISIONS §212. The finding worth keeping: §212 said the rule was "in Claude's memory"; checked, it was not. It is now (read back 22 Sep), and START-HERE carries it both as a banner under the LIVE line and in §4 step 5. **Lesson: a record that says something was saved somewhere else is a claim like any other — read the other place before trusting it.**
+
+**Lesson — his mid-edit copies.** Twice he edited the deck in PowerPoint while Claude was also changing it: once in a copy that never reached disk (a typo in a screenshot that no file on disk contained — found by md5 of both copies before overwriting anything), once in a copy built on an OLDER round (slides he had since asked to change). Before merging a returned file, diff its TEXT against every recent round to find its base, then carry his edits onto the newest one and report every remaining difference, word by word.
+
+## 25 Sep 2026 — "Vacation Auction 25 Sep 2026 V1" — STAFF 179 FILED (§218): THE TIMER SAYS WHEN THE PHASE CAN END. THE AUCTION IS LIVE.
+
+**The auction went LIVE Thu 24 Sep, about 7:45 AM** (owner) — START-HERE fact (1) and §1 now say so. Live at open, fetched twice with different cache-busters: auction 343 / 178 / 18, schedule 151 / 51.
+
+**Staff 179, built and filed, NOT pushed** — he pushes late at night or early morning. His layout, in five rounds (§218). Most of it was built in the cloud while the Mac was asleep or off (the bridge dropped six times); parked as `build-179-files.zip` in the outputs column with a RESUME note so no work depended on the container surviving. Filed only after the Mac's `index.html` was md5-matched to live 178 (`4dcddbca…`), then every file md5-verified after `unzip -p`.
+
+**Gates:** full battery 97/97, 3,275 assertions, none skipped; new suite 21/21, honesty on 178 FAILED (18 red, 3 greens read); `test-173` repointed (its harness lacked the two new helpers) — old and new copies identical on 172 and 178; and, at his demand, the INVARIANCE PROOF (`tests/prove-179-invariance.mjs`) — allow-listed diff, function-by-function identity, 50,000 random states side by side — with four planted faults each caught.
+
+**Lesson — a harness that runs one extracted function will break when that function gains a collaborator.** `test-173` extracted `renderCountdown` with a fixed list of its helpers; the new display calls made it throw. The fix is to extract the new REAL helpers (never to stub them, never to soften the site's code for the test) and to prove the repointed suite is unchanged on the builds it was written against.
+
+**Lesson — proof by three independent routes.** The side-by-side run cannot see a changed timer calculation (it stubs those); the function-identity check can. The diff allow-list catches what function parsing might miss (markup, top-level code). Each negative control was caught by the part designed for it — say which part, never just "the proof failed".

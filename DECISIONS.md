@@ -231,6 +231,8 @@
 | §214 | 17 Sep 2026 | A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY |  |
 | §215 | 18 Sep 2026 | RESET AUCTION DOES NOT TURN REHEARSAL MODE OFF, AND STAYS THAT WAY | DECLINED |
 | §216 | 19 Sep 2026 | THE USERS PAGE SHOWS NO ROSTER-WIDE FTE TOTAL: A FUTURE BUILD, NOT NOW | PARKED |
+| §217 | 22 Sep 2026 | THE PHASE 1 REMINDER DECK: FIVE SLIDES, SEPARATE FROM THE WALKTHROUGH, HIS FINAL EDIT FILED AS-IS | DONE (tests `0f2e962`) |
+| §218 | 25 Sep 2026 | THE STAFF TIMER SAYS WHEN THE PHASE CAN END (STAFF 179) | LIVE (staff 179, `1a243d5`) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5681,6 +5683,8 @@ was off and delivered by zip, md5-identical both ways.
 
 **Ruled.** The last act of every handoff is `START-HERE.md` in the outputs column: taken from disk after `status.mjs` has run, delivered as plain Markdown, md5-identical to the repo copy, and named in the handover — whether or not it changed that session. Recorded in `HANDOFF.md` checklist step 5 and START-HERE's paperwork table (session end), and in Claude's memory. An addition to the §3 outputs-hygiene list, which otherwise stays curated.
 
+**WIDENED, 22 Sep 2026 (V1) — his words:** *"I also want the starthere fiule presented in outputs every time i am ending a session and starting a new one,. i think i said that before. file it in a way that's not forgotten again."* He had said it before, and the ruling above was only half-kept: it lived in the CLOSING checklist alone, so a session that began without a handoff never produced it, and the "in Claude's memory" claim above was checked on 22 Sep and was FALSE — nothing was in memory. Now: START-HERE carries it as a banner under the LIVE line (the first thing every session reads) AND as part of §4 step 5 (the opening report), HANDOFF step 5 keeps the closing half, and it was written to Claude's memory on 22 Sep and read back.
+
 ## §213 — THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION — 17 Sep 2026
 
 **Asked:** whether anything needed doing or review with go-live the week of 21 Sep. Claude reported three things and recommended the first: (1) admin builds 337–343 had shipped since the last independent review (336 / RA-11), (2) `GO-LIVE-RUNBOOK.md` §3 was written at 341 and still described ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch as single-step, and (3) TODO's STATUS block was one commit stale.
@@ -5728,3 +5732,25 @@ was off and delivered by zip, md5-identical both ways.
 **Shape when it is unparked, so it is not re-derived:** a single read-only line under the Users table — the roster count and the summed FTE, computed from the same `getUserFTE` the capacity sums already use, so it cannot disagree with them. No data write, no `firestore.rules` change, no effect on any gate. It is still an auction build under §92 and §164, so it needs his specific go, and not before go-live.
 
 **Not recorded here:** the roster's actual FTE values and the total measured that day. These repos are PUBLIC, and a department's staffing numbers are not written into them.
+
+## §217 — THE PHASE 1 REMINDER DECK: FIVE SLIDES, SEPARATE FROM THE WALKTHROUGH, HIS FINAL EDIT FILED AS-IS — 22 Sep 2026
+
+**The ask, 22 Sep 2026 (V1):** *"The auction is going live this thursday morning around 9AM. I would like you to create a few ppt slides in the style of the current ppt presentation in my files that re-iterates the most important practical reminders for users as we begin phase 1. This is just the absolute most important key points."* He presents it on Thursday, at go-live.
+
+**RULED, in order:** a SEPARATE short deck, not slides added to `VacationAuctionWalkthrough.pptx` (untouched); NO specific dates on the slides (the earliest close is five days after Begin Phase 1 is clicked, so a printed date would drift if the start slips); bullet points instead of cards, keeping cards only for the three week tiles because they mirror the site's board; a projection slide added (W / R / L, wording from the site's own Understanding Outcomes panel); and the "a number on a week you win is spent, a losing one comes back" point Claude recommended as the one real Phase 1 decision — whether a holiday is worth your 1.
+
+**What Claude verified before writing a fact onto a slide:** every rule was read off the served staff page or the runbook's pre-flight (§0), never recalled — the floor ladder (`bfAllows`: only 1–5, 1/2 and 1/2/3 clear a floor of 5), the opening window (Begin sets the countdown to the window's days × 24 and bids do not reset it until the first stage's hours remain), and the returned-bids and used-numbers rules (the site's own Rules & Reminders text). The later reset stages (24 / 12 / 6 / 3 h) were deliberately NOT written onto a slide — the walkthrough deck hard-codes them, the staleness already filed against its next rebuild.
+
+**FINAL = HIS FILE, byte for byte** (`tests/docs/Phase1-Reminders.pptx`, md5 `e6d953bcf0d289027aa669662c3a15ad`, pushed as tests `0f2e962`). His own last edits include DELETING the "Things to remember" slide — the only place that told people to add the auction address to their contacts; Claude named that once and he kept the deletion. The generator script is not kept: the final carries edits made in PowerPoint, so any future change is made in PowerPoint, not regenerated.
+
+## §218 — THE STAFF TIMER SAYS WHEN THE PHASE CAN END (STAFF 179) — 25 Sep 2026
+
+**Asked during LIVE Phase 1 (began Thu 24 Sep, about 7:45 AM):** *"Would it be a small enough build to add the time that the timer expires to the timer box? It would be a big convenience for users."*
+
+**What the code showed, read that turn:** the staff countdown already runs to `lastChange + durationHours`, and `firestore.rules`' `timerNotExpired()` closes bidding at exactly that moment on Google's clock — so a printed time equals enforcement; the overnight push is already inside the stored `durationHours`; resets are extend-only, so a user's bid can only move it LATER. `mobile.html` is a redirect, so one page changes. Claude recommended pushing BETWEEN phases (START-HERE §2): a push reloads every open tab when it is next refocused — nothing saved is lost, since nothing is saved before Submit, but an open dialog closes.
+
+**RULED:** build it, and *"As soon as it's ready"* — he pushes late at night or early morning, *"when nobody is likely to be using"* it. The layout is his, in steps: the clock moves directly under "Time remaining until auction closes"; a new last line below "Phase N has been open for …" in his words *"Phase x will not end before 'time'"*; a zone label — "(Pacific)" offered and accepted, then **"PT"** (*"Is there an accepted abbreviation for pacific"* → *"Yes, change it to PT"*; PT, not PDT/PST, because it is right all year and the auction crosses the 1 Nov change); the hourglass first moved onto the heading line, then *"remove hourglass entirely, it's in the way."* Phase 4 reads "Phase 4: Round N will not end before …".
+
+**Built as staff 179** (`vacation-kp.github.io/BUILD-LOG.md`). What the wording promises and what it does not: true of everything a USER can do; the admin's ⏱ Expire timer now and ⏱ Close bidding can still end a window sooner — raised with him before he approved it.
+
+**His condition, 25 Sep, while it was being filed:** *"because we are live, i want the best checks possible to confirm that absolutely nothing other than wording and layout in the timer box changes. there must be absolutely no changes in timer function or changes in the algorithms."* Met by `tests/prove-179-invariance.mjs` (allow-listed line diff · every function byte-identical except `renderCountdown`, which is identical once its display calls are removed · 50,000 random states run side by side with identical output) — the record is in the BUILD-LOG row.
