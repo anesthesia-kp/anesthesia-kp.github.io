@@ -233,6 +233,7 @@
 | §216 | 19 Sep 2026 | THE USERS PAGE SHOWS NO ROSTER-WIDE FTE TOTAL: A FUTURE BUILD, NOT NOW | PARKED |
 | §217 | 22 Sep 2026 | THE PHASE 1 REMINDER DECK: FIVE SLIDES, SEPARATE FROM THE WALKTHROUGH, HIS FINAL EDIT FILED AS-IS | DONE (tests `0f2e962`) |
 | §218 | 25 Sep 2026 | THE STAFF TIMER SAYS WHEN THE PHASE CAN END (STAFF 179) | LIVE (staff 179, `1a243d5`) |
+| §219 | 29 Sep 2026 | THE 24H CHANGES LIST FITS ON A PHONE HELD UPRIGHT (STAFF 180) | FILED (staff 180), NOT PUSHED |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5754,3 +5755,13 @@ was off and delivered by zip, md5-identical both ways.
 **Built as staff 179** (`vacation-kp.github.io/BUILD-LOG.md`). What the wording promises and what it does not: true of everything a USER can do; the admin's ⏱ Expire timer now and ⏱ Close bidding can still end a window sooner — raised with him before he approved it.
 
 **His condition, 25 Sep, while it was being filed:** *"because we are live, i want the best checks possible to confirm that absolutely nothing other than wording and layout in the timer box changes. there must be absolutely no changes in timer function or changes in the algorithms."* Met by `tests/prove-179-invariance.mjs` (allow-listed line diff · every function byte-identical except `renderCountdown`, which is identical once its display calls are removed · 50,000 random states run side by side with identical output) — the record is in the BUILD-LOG row.
+
+## §219 — THE 24H CHANGES LIST FITS ON A PHONE HELD UPRIGHT (STAFF 180) — 29 Sep 2026
+
+**Owner-found during LIVE Phase 1:** *"The drop down showing # changes in last 24h on the user page gets cut off on mobile site. When P1 is complete, is this an easy fix? With phone sideways, it works, but not vertically. There's a fair amount of empty space to the right of the data that could probably be eliminated? Would this affect the main desktop site negatively?"*
+
+**What the page showed, measured that turn in Chromium on the live 179 bytes:** the list is pinned to the RIGHT edge of its "📋 N changes in last 24h" button and opens leftward. Wherever the Popcornometer box wraps below the timer (every width ≤ 710 px, and 830–844 px where the page's 115% scale applies — an ordinary phone held sideways is 844) the button sits at the screen's left, so 110–165 px of the list ran off-screen while the right of the screen stood empty — the empty space he saw. Beside the timer (big phones sideways, tablets, desktop) it fits, which is why sideways worked on his phone. `mobile.html` is a redirect; phones get the same page. Class hunted (§3 r17): the only other dropdown of the kind, "changes affecting your weeks", sits at the right of its row and fits at every width.
+
+**RULED 29 Sep 2026:** *"go with build"*, then *"do all the checks and confirm it works and nothing else breaks."*
+
+**Built as staff 180** (`vacation-kp.github.io/BUILD-LOG.md`): one style block inside `@media(max-width:860px)` — the list is positioned against the Popcornometer box instead of the button, keeps its usual 360 px width, and is never wider than the screen. **Changed during the build, on evidence, and said so:** the fix quoted the turn before made the list only as wide as the box; the width sweep showed that squashed rows onto two lines on 720–860 px tablets (where the list had always fitted), so the width became "usual width, but never wider than the screen". Wider than 860 px nothing changes — measured pixel-identical. Display only; no script, data, timer or rules change (`tests/prove-180-invariance.mjs`). The deploy is his: he asked about it for after Phase 1, and a push of the auction repo is a deploy of the live site (START-HERE §2).
