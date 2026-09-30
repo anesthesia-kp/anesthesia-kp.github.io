@@ -233,7 +233,7 @@
 | §216 | 19 Sep 2026 | THE USERS PAGE SHOWS NO ROSTER-WIDE FTE TOTAL: A FUTURE BUILD, NOT NOW | PARKED |
 | §217 | 22 Sep 2026 | THE PHASE 1 REMINDER DECK: FIVE SLIDES, SEPARATE FROM THE WALKTHROUGH, HIS FINAL EDIT FILED AS-IS | DONE (tests `0f2e962`) |
 | §218 | 25 Sep 2026 | THE STAFF TIMER SAYS WHEN THE PHASE CAN END (STAFF 179) | LIVE (staff 179, `1a243d5`) |
-| §219 | 29 Sep 2026 | THE 24H CHANGES LIST FITS ON A PHONE HELD UPRIGHT (STAFF 180) | FILED (staff 180), NOT PUSHED |
+| §219 | 29 Sep 2026 | THE 24H CHANGES LIST FITS ON A PHONE HELD UPRIGHT (STAFF 180) | LIVE (staff 180, `7b6659e`) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5765,3 +5765,5 @@ was off and delivered by zip, md5-identical both ways.
 **RULED 29 Sep 2026:** *"go with build"*, then *"do all the checks and confirm it works and nothing else breaks."*
 
 **Built as staff 180** (`vacation-kp.github.io/BUILD-LOG.md`): one style block inside `@media(max-width:860px)` — the list is positioned against the Popcornometer box instead of the button, keeps its usual 360 px width, and is never wider than the screen. **Changed during the build, on evidence, and said so:** the fix quoted the turn before made the list only as wide as the box; the width sweep showed that squashed rows onto two lines on 720–860 px tablets (where the list had always fitted), so the width became "usual width, but never wider than the screen". Wider than 860 px nothing changes — measured pixel-identical. Display only; no script, data, timer or rules change (`tests/prove-180-invariance.mjs`). The deploy is his: he asked about it for after Phase 1, and a push of the auction repo is a deploy of the live site (START-HERE §2).
+
+**Pushed by him 30 Sep 2026** (`7b6659e` auction, `9c1c2c6` tests, `580f501` hub); the pushed index.html is md5-identical to the gated copy; `versions.json` served 180 twice, cache-busted. Status: LIVE.

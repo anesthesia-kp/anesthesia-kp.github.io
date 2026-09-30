@@ -363,6 +363,8 @@ Add a line the turn a new one is paid for. Retire a line only when the tool or m
   lived in that gap (G1–G3 built as 318); state any fix there as a rule about the WEEK (1 Sep).
 - The honesty baseline for the next auction build is the last PUSHED build's SHA, from its BUILD-LOG row — never `HEAD~n`.
 
+**THE FULL SCHEDULE BATTERY OUTLASTS ONE CLOUD COMMAND** (29 Sep 2026, staff 180). In the cloud all 108 suites run (the Mac runs 22 — no browser) and take ~20 minutes; one `Bash` call is capped at 10, so a foreground run dies at `EXIT=124` mid-suite and reads like a failure. Run it in the background — `(nohup node sched/run-all.mjs > log 2>&1; echo "EXIT=$?" >> log) &` — and poll the log for `EXIT=`.
+
 ---
 
 # PART A — SHARED
@@ -857,3 +859,17 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Lesson — a harness that runs one extracted function will break when that function gains a collaborator.** `test-173` extracted `renderCountdown` with a fixed list of its helpers; the new display calls made it throw. The fix is to extract the new REAL helpers (never to stub them, never to soften the site's code for the test) and to prove the repointed suite is unchanged on the builds it was written against.
 
 **Lesson — proof by three independent routes.** The side-by-side run cannot see a changed timer calculation (it stubs those); the function-identity check can. The diff allow-list catches what function parsing might miss (markup, top-level code). Each negative control was caught by the part designed for it — say which part, never just "the proof failed".
+
+## 25–30 Sep 2026 — "Vacation Auction 25 Sep 2026 V2" — STAFF 180 LIVE (§219): THE 24H CHANGES LIST FITS ON A PHONE. 179 RE-PROVEN.
+
+**179 re-proven on his ask (25 Sep):** *"confirm the previous build in the timer box didn't alter anything about timer function or auction function"* — `prove-179-invariance.mjs` re-run on the PUSHED bytes (`4c5a4df` → `1a243d5`) exit 0, three planted timer changes each caught, full battery 97/97, test-179's honesty on 178 FAILED (18 red). No files changed.
+
+**Staff 180 — owner-found during live Phase 1, built on his go, pushed 30 Sep (`7b6659e`), served twice.** Everything is in §219 and BUILD-LOG row 180. The build changed shape once on evidence: the sketch made the list only as wide as the Popcornometer box, and the width sweep showed long names squashed onto two lines on 720–860 px tablets — the list now keeps its 360 px and is capped at the screen.
+
+**Lesson — the sandbox's users are two-letter codes, and a layout check fed codes cannot see squashing.** The first width sweep reported "0 rows wrapped" everywhere, including where the list had shrunk to 248 px; with names of realistic length staged, 4 of 14 rows wrapped. A check whose inputs are smaller than real data passes on anything. `sweep/dropdown-180-check.mjs` stages long names on purpose.
+
+**Lesson — a new suite's LAST line must be `N passed, M failed (K assertions)` or `run-all.mjs` leaves it out of the total.** 98 suites reported the same 3,275 as 97 had; the runner parses only that shape, and test-180's first last line ended in the file path — as test-179's still does (filed in `TODO.md` 🧪). The suite still gated (a failure throws); only the count lied. **Read the total against the previous run before believing it.**
+
+**Rule 18 paid again:** test-180's honesty run on 179 kept B6 green by absence (no block on 179, so "nothing in the block touches the other list" was vacuously true); fixed to require the block. And the invariance proof missed an extra rule slipped into the same `@media` line — the static suite caught that control; the proof now pins the line exactly.
+
+**The bridge dropped three times** (the Mac asleep); the public repo was read from a cloud clone meanwhile (same commit, md5-checked), and no file on the Mac was written until it was back.
