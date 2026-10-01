@@ -239,6 +239,8 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 **THE BUTTON SWEEP ATTRIBUTES CLICKS TO THE PANEL IT STARTED ON, NOT THE ONE IT ENDS UP IN** (found 15 Sep 2026, admin 337). `sweep/driver.mjs` collects every visible `button, [onclick], input[type=checkbox]` in the WHOLE document, not just the open panel — so the nav links are always in its list. It clicks one, the page changes panel underneath it, and it carries on clicking what is now visible while still labelling everything with the panel it began on. Adding the Reports page put 22 clicks under `reports`, of which only 4 were that page's buttons; the other 18 were Approvals/Denials controls it wandered into. **This is long-standing and harmless** — every panel has always done it, the totals are honest, and the per-panel comparison still localises a change correctly (every pre-existing panel was byte-identical between 336 and 337). But **do not read a per-panel click count as "what that panel contains"**, and do not treat a jump in one panel's number as evidence about that panel until you have listed the entries.
 
 
+**A TEST BROWSER THAT CANNOT SHOW THE DEFECT PASSES IT** (15–16 Sep 2026, admin 338; story in `HANDOFF-ARCHIVE.md` by that date): a reproduction that finds nothing in the sandbox browser is not evidence against what he SEES in his own — check the browser differs before withdrawing a finding.
+
 The rules live in `START-HERE.md` §3 and §6; these are the tool-level gotchas that cost a session an hour each,
 one line per trap, dated by the session that paid for it (the full story: `HANDOFF-ARCHIVE.md`, by that date).
 Add a line the turn a new one is paid for. Retire a line only when the tool or machine it describes is gone.
@@ -748,20 +750,6 @@ nowhere.*
 
 ---
 
-## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. PUSHED AND LIVE.
-
-**Rulings:** §204 (User first, choice remembered), §205 (only the selected report's buttons; a failed report says so). Record of the build: `BUILD-LOG.md` row 338.
-
-**Pushed 16 Sep 2026** — auction `57ac389`, tests `5494f54`, hub `33a86fb`; `versions.json` served admin 338 on two cache-busted fetches; the pushed `admin/index.html` is md5-identical to the gated copy (`3a40a298…`), as is the new browser gate. All three commits again carry the whole message as the SUBJECT with an empty body (START-HERE's blank-line warning).
-
-**The lesson — a test browser that cannot show the defect passes it.** The first reproduction ran 26 scenarios and found ZERO blanks, and Claude withdrew its "almost certainly" on that evidence. His four screenshots then showed the blank on any phase after leaving and returning. The difference was the BROWSER: desktop Chrome isolates a sandboxed frame in its own process; Playwright's headless shell does not. With `--site-per-process --enable-features=IsolateSandboxedIframes` it reproduced every time. Before believing a clean browser run about frames, pop-ups or anything process-shaped, ask whether the test browser is built like his. (START-HERE rule 9, in a new costume: what would still pass if the defect were REAL?)
-
-**Three smaller traps.** (1) A listener added by a helper called twice doubles every count — make instrumentation idempotent. (2) A report stamp that is precise to the minute makes a "nothing changed" check flaky across minute boundaries; compare with the stamp stripped, never loosen to "≤1". (3) A textual check that reads "anything after function X" matches new code elsewhere; extract X's own body.
-
-**Also this session:** a live check in his Chrome was tried with his OK — the admin sign-in did not complete from the automation tab and it was abandoned after one Continue click, nothing written. His credit limit paused the build at ~9:45 PM; a scheduled resume picked it up at 1 AM with the cloud workspace intact (bases md5-verified on both sides before continuing).
-
----
-
 ## 16–17 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — FIVE BUILDS, ALL PUSHED AND LIVE: STAFF 178 + ADMIN 339 · 340 · 341 · 342 · 343. THE TIMER CARD REBUILT.
 
 **What shipped** (every row in `vacation-kp.github.io/BUILD-LOG.md`; each served twice on cache-busted fetches, pushed bytes md5-identical to the gated copies):
@@ -797,22 +785,6 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Lesson, dated 17 Sep.** A clean battery is not a second pair of eyes. 337–343 each shipped green with their own suites, and the gap the review closed was not a defect but an unanswered question: *what did the deletions leave behind?* A suite asserts what someone thought to assert; a diff read end to end is the only thing that sees what is no longer there. The review took one session hour and found nothing — which is the outcome to want four days before go-live, and is worth the hour only because nobody could have said so beforehand.
 
 **Housekeeping.** The `git fetch` in step 3 stranded `objects/maintenance.lock` in all three public repos, as it always does; all three moved to `_to_delete/` (the bridge cannot delete) and the post-check found none. His instruction for the day: at the usage limit, restart at 12:15 PM — a scheduled task bound to his Mac carries the full brief.
-
----
-
-## 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V2" — THE 12:15 RESTART: V1's WORK WAS ALREADY COMPLETE. VERIFIED OFF DISK, TWO PAPERWORK CORRECTIONS. NO CODE.
-
-**Why this session exists:** his instruction in §213 — at the usage limit, restart at 12:15 PM and continue jobs 1 and 2. **Both were already finished before the limit hit.** The restart's real work was therefore to prove that off disk rather than take V1's word for it, and to finish the close that the limit interrupted.
-
-**Live at the open and at the close, fetched twice per site with different cache-busters:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, the disk `var BUILD` lines and START-HERE's LIVE line. All four repos clean against `origin/main`; `tests` judged from `git log` (`6d692a3`) as always. The `git fetch` stranded `objects/maintenance.lock` in all three public repos again; all three moved to `_to_delete/` and the post-check found none. Context at the close: **~133,000 tokens.**
-
-**What was verified, not assumed.** Job 1's record (`tests/docs/REVIEW-337-343-2026-09-17.md`, 7.5 KB, line-2 note present so the MAP picks it up) and job 2's runbook bullet (`GO-LIVE-RUNBOOK.md` §3) were both read end to end. Two of the review's load-bearing claims were re-run rather than re-read: the eight deleted slider symbols return **zero** hits across all three served pages, and `weekLedger` really does return `remainingApproved` (defined at 3081, consumed at 9393 / 9416 / 11208). Both hold. Nothing the site serves was touched (§92).
-
-**Two corrections.** (1) `TODO.md` called the review session V2; the HANDOFF entry and the review file's own heading both say V1 — the file was the truth and TODO was fixed to match, before this entry made V2 a real session name. (2) The §213 index row's hand-kept status word was blank; the ruling's work is complete and docs-only, so it now reads **DONE**.
-
-**One deviation from his words, deliberate.** He asked for the verdict at `REVIEW-336-343-2026-09-17.md`; V1 had written it as `REVIEW-337-343-…`. 336 is the BASELINE of the diff (`158d81e`), not a reviewed build, so the name on disk is the more accurate one — and it is already cited by START-HERE's MAP, `TODO.md`, §213 and the file's own heading. Renaming would touch four documents to make a name less true, so it was left and raised instead. **His call; one rename and four edits if he wants it.**
-
-**Lesson, dated 17 Sep.** A restart brief is written before the interruption and describes the work as unfinished; the disk describes it as it actually ended. Read the disk first and the brief second — this restart's two jobs were both done, and a session that had trusted its own brief would have written a second review over a good one. The re-grounding ritual is what makes that cheap: an hour of duplicated work avoided by twenty minutes of reading.
 
 ---
 
@@ -891,4 +863,22 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Lesson — a heuristic screen silently goes wrong when a setting changes the premise it was written on.** The Fair Play replay was correct for mode 1 and nobody re-read it when mode 2 was chosen for the live run. When a setting changes how the auction behaves, grep for every screen that RE-DERIVES that behaviour rather than reading it.
 
 **Lesson — Claude changed position twice on evidence, and said so:** "B is safer than A" fell when he required the alert to fire only when an action could help (that needs A's what-if); and "a tie means Under Review" was corrected while finalising the wording (tied bids that cannot both fit lose the week).
+
+---
+
+## 30 Sep – 1 Oct 2026 — "Vacation Auction 30 Sep 2026 V2" — STAFF 181 + ADMIN 344 FILED (§225): THE TIMER SAYS WHAT A BID REALLY DOES TO IT. NOT YET PUSHED.
+
+**Start:** staff 180 / admin 343 served twice each; repos in sync after his 23:29 docs pushes; three `maintenance.lock`s moved to `_to_delete/`.
+
+**His question first:** can a bid shorten the clock when the reset window has stepped down (19h left, reset 12h)? Read in code: NO — the save path skips a reset that would not extend, and `firestore.rules` `timerWriteSane()` clause 4 rejects one from a bidder. **He then found the defect:** the staff countdown still said "Resets to 12h with each bid change." Ruling §225, wording settled line by line with him; record of the build: BUILD-LOG row "staff 181 + admin 344".
+
+**Filed, awaiting his push (mid-phase, at a time he picks):** `vacation-kp.github.io` (index.html, admin/index.html, versions.json, BUILD-LOG, COMMIT-MESSAGE), `tests` (NEW test-181-344-reset-line.mjs, NEW prove-181-344-invariance.mjs, test-179 repointed), this repo (DECISIONS §225, TODO). **After the push:** the steps are in `TODO.md` §1's ▶ line.
+
+**Lesson — Claude offered a line that said the opposite of the truth, and corrected it itself:** "Never resets to more time than is already left" (it never leaves LESS). A short rewording of a rule must be re-derived from the code, not from the previous sentence.
+
+**Lesson — work a rule through a full day before recommending how to word it.** Claude recommended showing the "real reset length" overnight; tabulating 3 PM → 3 AM showed the number jumping to 18h and ticking down every minute, and the recommendation changed to naming the end time — said so, dated 1 Oct.
+
+**Lesson — he wants the plan, not the conversation.** After several rounds of piecemeal questions: *"This is all gotten confusing. Present the entire plan as you believe it to be correct."* Lead with one complete plan and the open questions numbered; do not drip options.
+
+**Bridge:** dropped repeatedly while he was away from the Mac (one call hung 190 s). He said *"Stop trying to connect to it"* — the public repo cloned into the cloud was md5-identical to disk and answered every read-only question meanwhile.
 

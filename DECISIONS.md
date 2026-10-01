@@ -239,6 +239,7 @@
 | §222 | 30 Sep 2026 | ALERT COVERAGE: ONLY #4 AND #5 OF THE INVENTORY GO FORWARD | #4 → §221 build · rest DECLINED |
 | §223 | 30 Sep 2026 | FAIR PLAY MONITOR: DROP "SLOW START", FLAG WINNING-BID CANCELS / LOWERINGS ONLY WHEN THEY AFFECT OTHERS; THE LATE-TIMER ("SNIPING") FLAG MIS-READS MODE 2 | TO PLAN — all choices ruled |
 | §224 | 30 Sep 2026 | STRUGGLING USERS: SEPARATE "LOSING" FROM "UNDER REVIEW" | floor fix TO PLAN · rest DECLINED |
+| §225 | 1 Oct 2026 | THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING | BUILT (181/344) · push pending |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5864,3 +5865,31 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 
 **RULED 30 Sep 2026:** *"keep as it is"* — the section titles stay as they are; his opening split request is withdrawn. **§224 now = the floor fix only.**
 
+## §225 — THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING — 1 Oct 2026
+
+**Owner-found, 30 Sep / 1 Oct (V2):** the staff countdown showed 19 hours left and "Resets to 12h with each bid change." *"It's wrong on two fronts. First, not all bids will reset the timer at all. Second, nothing will reset it until it's below 12 hours. This needs to be fixed."*
+
+**Read in code first (staff 180 / admin 343 / live rules, md5 a7999d9f… / 7b5fd416… / a55c4e1b…):** a bid can never SHORTEN the clock — the staff save path skips any reset whose new deadline would land earlier, and `firestore.rules` `timerWriteSane()` clause 4 (extend-only, Jul audit H5/H8) rejects one from a bidder; only the admin's own timer controls can shorten. The countdown line (`index.html` ~2227) ignores both the reset mode (mode 2 live) and the extend-only rule.
+
+**Class hunt:** staff countdown line (wrong on both) · staff Timer Rules box (mode right, silent on extend-only) · welcome e-mail timer text (twin copies staff ~4290 + admin ~6511; mode right, silent) · admin Timer card "resets on each bid change" (~539) · admin "Each bid now resets the timer to N hours" (~10852) (both = TIMER-REVIEW T-10).
+
+**RULED so far (his words, this session):** keep everything brief, no clutter. Staff countdown, exact wording —
+- 12h or more left: *"No reset until less than 12h remain."*
+- less than 12h left, by the mode in force — mode 2 (live): *"Bids reset the timer to 12h only if they change another user's outcome."* · mode 1: *"Any bid change resets the timer to 12h."* · mode 3: *"New bids reset the timer to 12h; changes, only if they change another user's outcome."*
+- "(Last change: …)" stays; the opening-window and under-2h lines unchanged.
+- Timer Rules box AND welcome e-mail: one added line (proposed: *"Bids cannot reset the timer until less than the reset time remains."*).
+
+**Open, asked:** the overnight-rule case (show the real reset length, e.g. "7h 30m" — recommended — or the end time); whether admin 344 also fixes the two admin Timer card lines; then his go. Display only: no bid, timer, engine or rules change. Builds: staff 181 + admin 344 (the e-mail twin).
+
+**RULED 1 Oct 2026 (V2), superseding the open items above where they differ:**
+- "(Last change: …)" is DROPPED from every countdown line (*"users can open the drop-down if they want to see it"*); the under-2h line becomes "Timer is expiring soon."
+- No "qualifying" in the countdown — the lines say which bids reset. Claude's correction, put to him: modes 2 and 3 name cancels too ("Bids, changes and cancels reset the timer to 12h only if they change another user's outcome." · "New bids reset the timer to 12h; changes and cancels, only if they change another user's outcome.") — awaiting his confirmation.
+- Timer Rules box and welcome e-mail: add *"No reset until less than the Admin selected reset time remains."* (his wording); KEEP *"Each qualifying reset returns the countdown to N hours"* as it is.
+- Overnight: **option A — name the end time** (e.g. "…reset the timer to end at 9 AM only if…"), *"as long as it accounts for the admin selected overnight window"* — it reads the admin's own overnight start / end / "applies at N hours or less" settings, the same ones the reset itself uses.
+- Admin Timer card lines: **corrected as well** (admin 344).
+- **"Timer is expiring soon." is REMOVED entirely** (his ruling, 1 Oct): the last two hours show the reset rule like any other time.
+- Claude's rare-case line "No reset until the timer would end before 9 AM" REJECTED (*"This doesn't make sense"*) — that case shows the ordinary upper line with the stage hours.
+- **He will push mid-phase, at a time he picks.**
+- **"changes and cancels" CONFIRMED and GO GIVEN, 1 Oct 2026:** *"1 - good. Go."*
+
+**BUILT 1 Oct 2026 as staff 181 + admin 344 (filed, NOT yet pushed — he pushes mid-phase at a time he picks).** One new function `_timerResetLine`, byte-identical on both pages, reading the same numbers the bid save path uses. Final wording as built: "admin-selected" (lowercase, hyphenated — put to him, not objected to); the rare hand-set case shows the ordinary upper line with the stage length. Gates and the byte-for-byte invariance proof: the BUILD-LOG row "staff 181 + admin 344". Next honesty baselines once pushed: the commit that carries 181/344.

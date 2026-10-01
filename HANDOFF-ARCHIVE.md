@@ -2353,3 +2353,39 @@ documented symlink shim for the playwright/chromium version mismatch (1243 expec
 HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited baseline was provably the live page.
 
 ---
+
+---
+## ⤵ moved 1 Oct 2026 from HANDOFF.md — 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. PUSHED AND LIVE.
+
+## 15–16 Sep 2026 — "Vacation Auction 15 Sep 2026 V1" — ADMIN 338, THE REPORTS PAGE: ONE AT A TIME, AND THE OWNER-FOUND BLANK FIXED. PUSHED AND LIVE.
+
+**Rulings:** §204 (User first, choice remembered), §205 (only the selected report's buttons; a failed report says so). Record of the build: `BUILD-LOG.md` row 338.
+
+**Pushed 16 Sep 2026** — auction `57ac389`, tests `5494f54`, hub `33a86fb`; `versions.json` served admin 338 on two cache-busted fetches; the pushed `admin/index.html` is md5-identical to the gated copy (`3a40a298…`), as is the new browser gate. All three commits again carry the whole message as the SUBJECT with an empty body (START-HERE's blank-line warning).
+
+**The lesson — a test browser that cannot show the defect passes it.** The first reproduction ran 26 scenarios and found ZERO blanks, and Claude withdrew its "almost certainly" on that evidence. His four screenshots then showed the blank on any phase after leaving and returning. The difference was the BROWSER: desktop Chrome isolates a sandboxed frame in its own process; Playwright's headless shell does not. With `--site-per-process --enable-features=IsolateSandboxedIframes` it reproduced every time. Before believing a clean browser run about frames, pop-ups or anything process-shaped, ask whether the test browser is built like his. (START-HERE rule 9, in a new costume: what would still pass if the defect were REAL?)
+
+**Three smaller traps.** (1) A listener added by a helper called twice doubles every count — make instrumentation idempotent. (2) A report stamp that is precise to the minute makes a "nothing changed" check flaky across minute boundaries; compare with the stamp stripped, never loosen to "≤1". (3) A textual check that reads "anything after function X" matches new code elsewhere; extract X's own body.
+
+**Also this session:** a live check in his Chrome was tried with his OK — the admin sign-in did not complete from the automation tab and it was abandoned after one Continue click, nothing written. His credit limit paused the build at ~9:45 PM; a scheduled resume picked it up at 1 AM with the cloud workspace intact (bases md5-verified on both sides before continuing).
+
+---
+
+---
+## ⤵ moved 1 Oct 2026 from HANDOFF.md — 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V2" — THE 12:15 RESTART: V1's WORK WAS ALREADY COMPLETE. VERIFIED OFF DISK, TWO PAPERWORK CORRECTIONS. NO CODE.
+
+## 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V2" — THE 12:15 RESTART: V1's WORK WAS ALREADY COMPLETE. VERIFIED OFF DISK, TWO PAPERWORK CORRECTIONS. NO CODE.
+
+**Why this session exists:** his instruction in §213 — at the usage limit, restart at 12:15 PM and continue jobs 1 and 2. **Both were already finished before the limit hit.** The restart's real work was therefore to prove that off disk rather than take V1's word for it, and to finish the close that the limit interrupted.
+
+**Live at the open and at the close, fetched twice per site with different cache-busters:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, the disk `var BUILD` lines and START-HERE's LIVE line. All four repos clean against `origin/main`; `tests` judged from `git log` (`6d692a3`) as always. The `git fetch` stranded `objects/maintenance.lock` in all three public repos again; all three moved to `_to_delete/` and the post-check found none. Context at the close: **~133,000 tokens.**
+
+**What was verified, not assumed.** Job 1's record (`tests/docs/REVIEW-337-343-2026-09-17.md`, 7.5 KB, line-2 note present so the MAP picks it up) and job 2's runbook bullet (`GO-LIVE-RUNBOOK.md` §3) were both read end to end. Two of the review's load-bearing claims were re-run rather than re-read: the eight deleted slider symbols return **zero** hits across all three served pages, and `weekLedger` really does return `remainingApproved` (defined at 3081, consumed at 9393 / 9416 / 11208). Both hold. Nothing the site serves was touched (§92).
+
+**Two corrections.** (1) `TODO.md` called the review session V2; the HANDOFF entry and the review file's own heading both say V1 — the file was the truth and TODO was fixed to match, before this entry made V2 a real session name. (2) The §213 index row's hand-kept status word was blank; the ruling's work is complete and docs-only, so it now reads **DONE**.
+
+**One deviation from his words, deliberate.** He asked for the verdict at `REVIEW-336-343-2026-09-17.md`; V1 had written it as `REVIEW-337-343-…`. 336 is the BASELINE of the diff (`158d81e`), not a reviewed build, so the name on disk is the more accurate one — and it is already cited by START-HERE's MAP, `TODO.md`, §213 and the file's own heading. Renaming would touch four documents to make a name less true, so it was left and raised instead. **His call; one rename and four edits if he wants it.**
+
+**Lesson, dated 17 Sep.** A restart brief is written before the interruption and describes the work as unfinished; the disk describes it as it actually ended. Read the disk first and the brief second — this restart's two jobs were both done, and a session that had trusted its own brief would have written a second review over a good one. The re-grounding ritual is what makes that cheap: an hour of duplicated work avoided by twenty minutes of reading.
+
+---
