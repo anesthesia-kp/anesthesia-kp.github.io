@@ -239,7 +239,7 @@
 | §222 | 30 Sep 2026 | ALERT COVERAGE: ONLY #4 AND #5 OF THE INVENTORY GO FORWARD | #4 → §221 build · rest DECLINED |
 | §223 | 30 Sep 2026 | FAIR PLAY MONITOR: DROP "SLOW START", FLAG WINNING-BID CANCELS / LOWERINGS ONLY WHEN THEY AFFECT OTHERS; THE LATE-TIMER ("SNIPING") FLAG MIS-READS MODE 2 | TO PLAN — all choices ruled |
 | §224 | 30 Sep 2026 | STRUGGLING USERS: SEPARATE "LOSING" FROM "UNDER REVIEW" | floor fix TO PLAN · rest DECLINED |
-| §225 | 1 Oct 2026 | THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING | BUILT (181/344) · push pending |
+| §225 | 1 Oct 2026 | THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING | LIVE (181/344) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5893,3 +5893,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 - **"changes and cancels" CONFIRMED and GO GIVEN, 1 Oct 2026:** *"1 - good. Go."*
 
 **BUILT 1 Oct 2026 as staff 181 + admin 344 (filed, NOT yet pushed — he pushes mid-phase at a time he picks).** One new function `_timerResetLine`, byte-identical on both pages, reading the same numbers the bid save path uses. Final wording as built: "admin-selected" (lowercase, hyphenated — put to him, not objected to); the rare hand-set case shows the ordinary upper line with the stage length. Gates and the byte-for-byte invariance proof: the BUILD-LOG row "staff 181 + admin 344". Next honesty baselines once pushed: the commit that carries 181/344.
+
+**PUSHED AND LIVE 1 Oct 2026, 1:42 PM — `14807e1`** (tests `11ad780`, hub `fec6946`): `versions.json` served 181 / 344 on two cache-busted fetches; the pushed index.html and admin/index.html are md5-identical to the gated copies (`d7e2227c…`, `90ac0461…`). His word after seeing it live: *"It's working right."*

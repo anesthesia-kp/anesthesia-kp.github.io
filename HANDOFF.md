@@ -866,13 +866,13 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 
 ---
 
-## 30 Sep – 1 Oct 2026 — "Vacation Auction 30 Sep 2026 V2" — STAFF 181 + ADMIN 344 FILED (§225): THE TIMER SAYS WHAT A BID REALLY DOES TO IT. NOT YET PUSHED.
+## 30 Sep – 1 Oct 2026 — "Vacation Auction 30 Sep 2026 V2" — STAFF 181 + ADMIN 344 LIVE (§225): THE TIMER SAYS WHAT A BID REALLY DOES TO IT.
 
 **Start:** staff 180 / admin 343 served twice each; repos in sync after his 23:29 docs pushes; three `maintenance.lock`s moved to `_to_delete/`.
 
 **His question first:** can a bid shorten the clock when the reset window has stepped down (19h left, reset 12h)? Read in code: NO — the save path skips a reset that would not extend, and `firestore.rules` `timerWriteSane()` clause 4 rejects one from a bidder. **He then found the defect:** the staff countdown still said "Resets to 12h with each bid change." Ruling §225, wording settled line by line with him; record of the build: BUILD-LOG row "staff 181 + admin 344".
 
-**Filed, awaiting his push (mid-phase, at a time he picks):** `vacation-kp.github.io` (index.html, admin/index.html, versions.json, BUILD-LOG, COMMIT-MESSAGE), `tests` (NEW test-181-344-reset-line.mjs, NEW prove-181-344-invariance.mjs, test-179 repointed), this repo (DECISIONS §225, TODO). **After the push:** the steps are in `TODO.md` §1's ▶ line.
+**Pushed 1 Oct 2026, 1:42 PM** — auction `14807e1`, tests `11ad780`, hub `fec6946`; `versions.json` served 181 / 344 on two cache-busted fetches; pushed pages md5-identical to the gated copies. His word: *"It's working right."* **Also this session:** he questioned two outbid alerts (MA, AQ, 6:02 AM 1 Oct) — neither had touched her bid. Traced with his Change Log and Wk 51 card against `computeApprovals`: ADG's new 4 made the 4s the tied group, so both 5s went Under Review → Lose; alerts report a PROJECTION change, not a bid change. He agreed: *"you are right."* No change.
 
 **Lesson — Claude offered a line that said the opposite of the truth, and corrected it itself:** "Never resets to more time than is already left" (it never leaves LESS). A short rewording of a rule must be re-derived from the code, not from the previous sentence.
 
