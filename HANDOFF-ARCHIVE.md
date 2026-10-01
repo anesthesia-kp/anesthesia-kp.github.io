@@ -2389,3 +2389,70 @@ HEAD's `index.html` md5 matched the pre-edit Mac copy exactly, so the audited ba
 **Lesson, dated 17 Sep.** A restart brief is written before the interruption and describes the work as unfinished; the disk describes it as it actually ended. Read the disk first and the brief second — this restart's two jobs were both done, and a session that had trusted its own brief would have written a second review over a good one. The re-grounding ritual is what makes that cheap: an hour of duplicated work avoided by twenty minutes of reading.
 
 ---
+
+---
+## ⤵ moved 1 Oct 2026 from HANDOFF.md — 16–17 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — FIVE BUILDS, ALL PUSHED AND LIVE: STAFF 178 + ADMIN 339 · 340 · 341 · 342 · 343. THE TIMER CARD REBUILT.
+
+## 16–17 Sep 2026 — "Vacation Auction 16 Sep 2026 V1" — FIVE BUILDS, ALL PUSHED AND LIVE: STAFF 178 + ADMIN 339 · 340 · 341 · 342 · 343. THE TIMER CARD REBUILT.
+
+**What shipped** (every row in `vacation-kp.github.io/BUILD-LOG.md`; each served twice on cache-busted fetches, pushed bytes md5-identical to the gated copies):
+- **staff 178 + admin 339** `970c4bc` — the Freeze wording (§206).
+- **admin 340** `47643ee` — the report legend, "Result = admin decision ("—" = not yet decided)" (§207).
+- **admin 341** `612cebe` — the Timer card rebuilt and contested weeks reopen (§208 §209), after the read-only **timer review** (`tests/docs/TIMER-REVIEW-2026-09-17.md`, T-1…T-10, R-1, and the close-vs-expire correction; probes beside it).
+- **admin 342** `539e5ee` — Reset Timer, Expire timer now and on/off each ask twice (§210).
+- **admin 343** `b07e675` — that second box styled like the Reset Auction warning (§211).
+Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.** The user site and `firestore.rules` were byte-identical through 341–343 — his hard line: *"how user bids effect the timer countdown and expiration … absolutely cannot break."* **Go-live moved to the week of 21 Sep** (START-HERE §1). Runbook §3 corrected, with the habit: after a countdown runs out, do not switch the timer off.
+
+**Lessons, dated 16–17 Sep:**
+1. **Read the click path, not the guard.** Claude said a tap under the Freeze showed "This week is locked…"; he said it does not, and the code agreed — locked cards have no click handler. A guard's message is not what a user sees unless something routes the user to it.
+2. **Two actions that end in the same state are not the same action.** Claude said Close bidding "does the same job, better" than expiring the timer; he remembered otherwise and was right — Close sets a server flag that survives switching the timer off, expiry does not. Compare the WRITES, then the next action after each, before calling two paths equivalent.
+3. **Name which stored number "the window" means.** The Timer card's controls, its readout and the bids each owned a different one; every finding in the review came from that.
+4. **He pushes while Claude is still amending a build.** 341 went live without §210 mid-build, and the amendment had to become 342. Before editing a filed build, `git log` the repo — if it moved, the change is a NEW build number.
+5. **Gate slips caught this session, each before a push:** an assertion aimed at a string also matched a display column (aim at the named function); helpers used only inside an OK handler were invisible to the extractor suites (keep them local); `|| true` slipped into a draft assertion; two honesty greens passed only because the button under test was absent; a new section crashed instead of failing on the old build (guard every `confirms[n]`).
+6. **Dates are his.** Entries were first stamped 17 Sep while his clock read 16 Sep — `TZ=America/Los_Angeles date` before writing any date.
+
+**Nothing open.** He declined the Excel legend (*"leave excel alone"*, CLOSED table). Everything else from the review is filed under HIS CALL.
+
+---
+
+---
+## ⤵ moved 1 Oct 2026 from HANDOFF.md — 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V1" — THE 337–343 REVIEW (CLEAN) AND THE RUNBOOK'S DOUBLE CONFIRMATION. NO CODE.
+
+## 17 Sep 2026 — "Vacation Auction 17 Sep 2026 V1" — THE 337–343 REVIEW (CLEAN) AND THE RUNBOOK'S DOUBLE CONFIRMATION. NO CODE.
+
+**Ruling:** §213 (his *"Go on 1 and 2."*). Read-only and docs-only — nothing `vacation-kp.github.io` serves was touched, and no build number moved. Live at the close, as at the open: auction admin **343** / staff **178** / mobile 18, schedule 151 / 51, each fetched twice with different cache-busters.
+
+**What was done.**
+1. **Fresh-eyes review of `158d81e → b07e675`** — admin 287/132 lines over 42 hunks, staff 45 lines: builds 337 (Reports page), 338 (one report at a time + the blank frame), 339/178 (freeze wording), 340 (report legend), 341 (Timer card rebuilt), 342 (ask twice), 343 (second box restyled), staff 175–177. **No CRITICAL, no HIGH.** Three LOW notes recorded, not queued. Full record: `tests/docs/REVIEW-337-343-2026-09-17.md`.
+2. **`tests/docs/GO-LIVE-RUNBOOK.md` §3** gained one bullet: ↺ Reset Timer, ⏱ Expire timer now and the timer on/off switch each ask twice since 342/343; nothing is written until the second OK; that OK is dead for one second; the state is re-checked there; Reset Timer reads the chosen length at the FIRST OK.
+
+**The four checks that mattered, and why they were the four.** A build that DELETES a control and RENAMES a ledger field fails in ways that report nothing, so the review went after absence first: (a) every removed slider symbol — `DUR_STOPS`, `durIdxFor`, `onDurSlider*`, `setDuration`, `syncDurationUI`, `getResetLabel`, `durSlider`, `durationDisplay` — grepped for across all three pages: zero references left, so the one-second tick cannot throw; (b) `weekLedger` really returns `remainingApproved` — had it not, Smart Lock would have listed no weeks and the reopen picker no months, silently; (c) the new extend-only gates match the staff page's identical comparison and the rules' `timerNotExpired()`, so no surface disagrees about what a reset means; (d) the four new Change Log types carry `scope:'system'` and the staff page filters system entries out of both of its views, so nothing new reaches a doctor's browser.
+
+**Lesson, dated 17 Sep.** A clean battery is not a second pair of eyes. 337–343 each shipped green with their own suites, and the gap the review closed was not a defect but an unanswered question: *what did the deletions leave behind?* A suite asserts what someone thought to assert; a diff read end to end is the only thing that sees what is no longer there. The review took one session hour and found nothing — which is the outcome to want four days before go-live, and is worth the hour only because nobody could have said so beforehand.
+
+**Housekeeping.** The `git fetch` in step 3 stranded `objects/maintenance.lock` in all three public repos, as it always does; all three moved to `_to_delete/` (the bridge cannot delete) and the post-check found none. His instruction for the day: at the usage limit, restart at 12:15 PM — a scheduled task bound to his Mac carries the full brief.
+
+---
+
+---
+## ⤵ moved 1 Oct 2026 from HANDOFF.md — 17–19 Sep 2026 — "Vacation Auction 17 Sep 2026 V3" — NO CODE. TWO RULINGS (§215, §216), THE WALKTHROUGH DECK CHECKED, TWO DECK NOTES FILED.
+
+## 17–19 Sep 2026 — "Vacation Auction 17 Sep 2026 V3" — NO CODE. TWO RULINGS (§215, §216), THE WALKTHROUGH DECK CHECKED, TWO DECK NOTES FILED.
+
+**Shape of the session:** three working stretches across three calendar days, with the owner away between them. Nothing the auction serves was touched (§92); no build, therefore no battery — that is a correct absence, not a skipped gate.
+
+**Live at every check, fetched twice per site with different cache-busters on 17, 18 and 19 Sep:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, disk and START-HERE's LIVE line throughout. All four repos clean against `origin/main` at open and close; `tests` judged from `git log` as always. The `git fetch` stranded `objects/maintenance.lock` in all three public repos on each of the three fetches; every one moved to `_to_delete/`, post-checks clean. Context at the close: **~244,000 tokens.**
+
+**§215 — his finding: Reset Auction left Rehearsal Mode ON.** The code was read rather than recalled: `clearEverything` writes exactly one settings key (`fteEditEnabled:false`, a merge), so rehearsal survives by construction, and only four call sites ever clear it — the two disarm switches, Begin Phase 1's refusal, and every restore. The runbook's step A already pairs the reset with a manual "then Rehearsal Mode OFF". Claude offered one runbook sentence saying a reset does NOT clear it (the T-6 / T-10 shape: a true instruction that never says what does not happen). **RULED *"do nothing, it's ok"*** — filed so a later session finds the ruling instead of re-reporting the behaviour as a defect.
+
+**§216 — there is no roster-wide FTE total anywhere.** He updated user FTEs before go-live and asked for the new total; the page cannot answer. Every FTE sum in the admin page is PER WEEK (capacity / taken / available); the only roster-level FTE logic is validity gating (`usersTrulyMissingFte`, `usersOffGridFte`). He read all 35 rows off the screen in three screenshots and the sum was computed in code, with exact decimals, not mentally. **RULED a future build, not now** — PARKED, with the build shape recorded so it is not re-derived.
+
+**The deck.** He thought `tests/docs/VacationAuctionWalkthrough.pptx` (last touched 11 Sep, at 174/336) was out of date. All 35 slides were read: it is **entirely staff-facing — no admin screen appears in it**, so every admin build since (337–343: the Reports page, the rebuilt Timer card, the double confirmations, the report legend) leaves it untouched, and the three staff builds since (176 opaque flash, 177 rehearsal banner, 178 freeze wording) only show in states the deck never pictures. Two real findings: slide 29's FTE-bidding total and its derived weeks-per-FTE both predate the FTE update; and slides 21 / 35 HARD-CODE the timer reset steps, while the staff site generates that list live from the stored timer rules — so the site is always right and the deck is right only while the stored values still match. **RULED *"too late to change, doesnt matter too much"***; both filed in `TODO.md` against the next deck rebuild.
+
+**Deliberately not written into any repo:** the roster's FTE values and their total. These repos are PUBLIC and a department's staffing numbers do not belong in them — §216 and the deck notes describe the shape only. **Also not filed:** a Google Cloud marketing e-mail asked about (Cloud SQL) was answered in chat — wrong fit, no server tier, per-instance billing against Firestore's per-operation billing, no live listeners, and `firestore.rules` is the whole security model — but he gave no ruling, so nothing was recorded.
+
+**Lesson, dated 19 Sep — a session can outlive its own date.** This one spanned three days with long gaps, and §215 was first stamped with the date from the opening ritual, a day stale; it was caught and corrected inside the same turn, heading, index row and TODO row together. **Re-read `TZ=America/Los_Angeles date` before stamping anything after any gap** — the opening ritual's date is a reading, not a constant, and §4 step 0's "the date is HIS" applies to every stamp in the session, not just the session name.
+
+**Pushed by him this session:** `cc95923` (§215) and `e98900d` (§216 + deck notes). Both carry an empty body, so §214 is holding — but `cc95923`'s subject begins with a stray `o ` from the paste. Not amended: rewriting it means a force-push over good history, the same call §214 made.
+
+---
