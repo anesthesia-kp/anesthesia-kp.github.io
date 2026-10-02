@@ -234,14 +234,14 @@
 | §217 | 22 Sep 2026 | THE PHASE 1 REMINDER DECK: FIVE SLIDES, SEPARATE FROM THE WALKTHROUGH, HIS FINAL EDIT FILED AS-IS | DONE (tests `0f2e962`) |
 | §218 | 25 Sep 2026 | THE STAFF TIMER SAYS WHEN THE PHASE CAN END (STAFF 179) | LIVE (staff 179, `1a243d5`) |
 | §219 | 29 Sep 2026 | THE 24H CHANGES LIST FITS ON A PHONE HELD UPRIGHT (STAFF 180) | LIVE (staff 180, `7b6659e`) |
-| §220 | 30 Sep 2026 | "OUTBID ALERTS" ARE PROJECTION-CHANGE ALERTS: RENAME THE WORDING BETWEEN PHASES | BUILT (183/345) — filed, not pushed (§227) |
+| §220 | 30 Sep 2026 | "OUTBID ALERTS" ARE PROJECTION-CHANGE ALERTS: RENAME THE WORDING BETWEEN PHASES | LIVE (183/345) |
 | §221 | 30 Sep 2026 | TELL A WINNER WHEN THEIR COMPETITION DROPS (OPTION B): PLAN FOR THE BETWEEN-PHASE WINDOW | LIVE (182) — wording as ruled in §226 |
 | §222 | 30 Sep 2026 | ALERT COVERAGE: ONLY #4 AND #5 OF THE INVENTORY GO FORWARD | #4 LIVE (182) · rest DECLINED |
-| §223 | 30 Sep 2026 | FAIR PLAY MONITOR: DROP "SLOW START", FLAG WINNING-BID CANCELS / LOWERINGS ONLY WHEN THEY AFFECT OTHERS; THE LATE-TIMER ("SNIPING") FLAG MIS-READS MODE 2 | BUILT (183/345) — filed, not pushed (§227) |
-| §224 | 30 Sep 2026 | STRUGGLING USERS: SEPARATE "LOSING" FROM "UNDER REVIEW" | floor fix BUILT (345) — filed, not pushed · rest DECLINED |
+| §223 | 30 Sep 2026 | FAIR PLAY MONITOR: DROP "SLOW START", FLAG WINNING-BID CANCELS / LOWERINGS ONLY WHEN THEY AFFECT OTHERS; THE LATE-TIMER ("SNIPING") FLAG MIS-READS MODE 2 | LIVE (183/345) |
+| §224 | 30 Sep 2026 | STRUGGLING USERS: SEPARATE "LOSING" FROM "UNDER REVIEW" | floor fix LIVE (345) · rest DECLINED |
 | §225 | 1 Oct 2026 | THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING | LIVE (181/344) |
 | §226 | 1 Oct 2026 | THE E-MAIL SUBJECT IS "VACATION SCHEDULER"; §221 SUMMARY "GOOD"; THE PHASE-4 EXTRA FTE TASK IS NOT TO BE MENTIONED | LIVE (182) |
-| §227 | 1 Oct 2026 | THE THREE BETWEEN-PHASE BUILDS ARE BUILT NOW (STAFF 183 / ADMIN 345), HE PUSHES WHEN READY; OLD ENTRIES GET NO FLAG; TIMER STALLING MUST BE RIGHT UNDER THE SELECTED TIMER SETTING | BUILT (183/345) — filed, not pushed |
+| §227 | 1 Oct 2026 | THE THREE BETWEEN-PHASE BUILDS ARE BUILT NOW (STAFF 183 / ADMIN 345), HE PUSHES WHEN READY; OLD ENTRIES GET NO FLAG; TIMER STALLING MUST BE RIGHT UNDER THE SELECTED TIMER SETTING | LIVE (183/345) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5928,3 +5928,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **What was built (staff 183 / admin 345 — FILED, NOT PUSHED).** Staff: each change-log entry written by a bidder now carries `tRem` (ms left just before the change), `tDur` (the countdown it is measured against, capped at the starting reset length so an opening-window clock's last hours do not read as "under 10%"), `tReset` (this change restarted the clock) and `aff` (it changed another person's projection — the alert e-mails' own comparison). No rules change (the log rule only requires append). Admin: Slow start removed; late-timer = under 10% left AND `aff`; stalling and winning-bid cancel / lowering as above; the replayed clock is gone. **RULED after hand-over, 1 Oct 2026: *"remove that footnote."*** — the sentence Claude had added to the Fair Play report (that the flags use the clock recorded from staff build 183 on and earlier bids carry none) is REMOVED; the footnote keeps only the definition, now ending "…and the move changed another bidder's projection." Admin re-gated and re-filed, still unpushed. Struggling Users "can improve" asks the real floor (`bfAllows(n,bfFloorFor(wk))`). Gates and the fresh-eyes review: the BUILD-LOG row and `tests/docs/REVIEW-183-345-2026-10-01.md`.
 
 **The caveat of §223 stands and is now wider:** a strong bid held for days and dropped late "affects nobody" at that instant and is not flagged; and until staff 183 is pushed, and for every bid made before it, the monitor shows only over-limit lowerings.
+
+**PUSHED AND LIVE 1 Oct 2026, about 5:17 PM — `aa10c51`** (tests `9004ee7`, hub `9820f6e`). **He pushed during live Phase 1 — his decision; Claude's recommendation had been to wait for the phase to close.** `versions.json` served index 183 / admin 345 on two cache-busted fetches; `origin/main`'s index.html (`79dcd87a…`) and admin/index.html (`36379b08…`) are md5-identical to the gated copies. Next auction honesty baseline: `aa10c51` for both pages. From this push on, bidders' change-log entries carry the recorded clock; earlier ones never will.
