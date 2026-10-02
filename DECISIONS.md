@@ -242,6 +242,7 @@
 | §225 | 1 Oct 2026 | THE STAFF COUNTDOWN LINE SAYS EVERY BID RESETS IT TO 12h — WRONG TWICE; FIX THE WORDING | LIVE (181/344) |
 | §226 | 1 Oct 2026 | THE E-MAIL SUBJECT IS "VACATION SCHEDULER"; §221 SUMMARY "GOOD"; THE PHASE-4 EXTRA FTE TASK IS NOT TO BE MENTIONED | LIVE (182) |
 | §227 | 1 Oct 2026 | THE THREE BETWEEN-PHASE BUILDS ARE BUILT NOW (STAFF 183 / ADMIN 345), HE PUSHES WHEN READY; OLD ENTRIES GET NO FLAG; TIMER STALLING MUST BE RIGHT UNDER THE SELECTED TIMER SETTING | LIVE (183/345) |
+| §228 | 2 Oct 2026 | THE PDF EXPORTS MUST BE COLOUR-CODED AND HIGHLIGHTED LIKE THE ON-SCREEN REPORTS — ALL OF THEM (ADMIN 346) | BUILT (346), not pushed |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5930,3 +5931,19 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **The caveat of §223 stands and is now wider:** a strong bid held for days and dropped late "affects nobody" at that instant and is not flagged; and until staff 183 is pushed, and for every bid made before it, the monitor shows only over-limit lowerings.
 
 **PUSHED AND LIVE 1 Oct 2026, about 5:17 PM — `aa10c51`** (tests `9004ee7`, hub `9820f6e`). **He pushed during live Phase 1 — his decision; Claude's recommendation had been to wait for the phase to close.** `versions.json` served index 183 / admin 345 on two cache-busted fetches; `origin/main`'s index.html (`79dcd87a…`) and admin/index.html (`36379b08…`) are md5-identical to the gated copies. Next auction honesty baseline: `aa10c51` for both pages. From this push on, bidders' change-log entries carry the recorded clock; earlier ones never will.
+
+## §228 — THE PDF EXPORTS MUST BE COLOUR-CODED AND HIGHLIGHTED LIKE THE ON-SCREEN REPORTS — ALL OF THEM (ADMIN 346) — 2 Oct 2026
+
+**Owner-found (V3), verbatim:** *"pdf summary exports don't have results highlighted and color coded the way the on-screen reports and excel spreadsheets do."* Claude read the code and reproduced it in a real print run, then put one plan to him with three questions (go or no go; when it deploys; whether the Dashboard export is in scope). **His answer, with a screenshot of the on-screen Weekly Summary (filled green APPROVED / red DENIED chips, outlined WIN / UNDER REVIEW chips, dark week bars, the amber Thanksgiving tag), verbatim:** *"Ensure all reports are color coded and highlighted the same way, like this:"* — and, minutes later: ***"P1 is complete.  P2 will start today."***
+
+**How Claude read it — said so he can overrule it:** the first sentence is the specific decision §92 requires for this change AND the scope answer (every report, so the Dashboard export too); the second answers the timing question — the auction is BETWEEN phases this morning, which is when served bytes are meant to change. He did not type the word "go". The build is FILED, NOT PUSHED; the push is his.
+
+**The cause.** "Export PDF" does not make a PDF. It opens the same document the on-screen report is rendered from and calls the browser's print dialog. Browsers drop background colours in print unless the document says `print-color-adjust: exact`; the shared report stylesheet (`REPORT_CSS`) never said it. So everything drawn as a FILL — the Result chips, the week bars, the phase badge, the type tags — printed as pale text on white, while the OUTLINED Projected chips (a border and a text colour) survived. The Excel exports were never affected: they carry their own cell fills.
+
+**What was built (admin 346; staff untouched at 183; no rules change).** One CSS rule, `*{-webkit-print-color-adjust:exact;print-color-adjust:exact}`, in `REPORT_CSS` — which every report that opens through `openReportTab` / `reportDocHtml` shares: Weekly Summary, User Summary, Capacity by Week, the Fair Play Report, the dashboard's Weekly / User snapshot, and the Reports page's sealed frames. The same rule in the Dashboard export's own separate stylesheet (`exportDashboard`), the only other document in the page that prints itself — **which no button currently calls** (found by grep; said, not acted on). Nothing on screen changes: the property only acts in print.
+
+**The class (rule 17).** The invariant the new suite pins is not "REPORT_CSS has the rule" but "EVERY document in the page that calls `window.print()` carries it" — two today. A third added later without it fails the gate.
+
+**Gates.** `tests/test-346-print-colour.mjs`: Part A executes the real `reportDocHtml` and reads the document; Part C is the class invariant; Part B DRIVES it — the real document printed to a real PDF with background printing OFF and the chip, week-bar and badge colours counted in the rendered page (cloud only; on the Mac it says NOT RUN). New build 14/14 in the cloud, 9/9 on the Mac; the pushed admin 345 (`aa10c51`) FAILS 6 (A2, C1 and all four colours at 0 pixels), exit 1. Battery on the Mac: 102 suites, 3,435 assertions, exit 0 — run as a regression gate (no auction honesty baseline supplied, so the older suites' honesty blocks did not run; said out loud per §6). One older assertion pinned `BUILD = 345` and failed on 346; re-anchored on the invariant (BUILD equals `versions.json`, and is 345 or later — rule 16). The diff against `aa10c51` is the BUILD line plus five added lines, nothing else. Filed admin md5 `cfbc20f352e60a288b626a4de15c1294`.
+
+**Not checked:** a print from Safari or Firefox (the rule is the standard one and both honour it, but only Chromium was run), and his own print dialog. After the push: export one PDF and look.
