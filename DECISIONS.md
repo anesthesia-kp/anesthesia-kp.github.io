@@ -244,7 +244,9 @@
 | §227 | 1 Oct 2026 | THE THREE BETWEEN-PHASE BUILDS ARE BUILT NOW (STAFF 183 / ADMIN 345), HE PUSHES WHEN READY; OLD ENTRIES GET NO FLAG; TIMER STALLING MUST BE RIGHT UNDER THE SELECTED TIMER SETTING | LIVE (183/345) |
 | §228 | 2 Oct 2026 | THE PDF EXPORTS MUST BE COLOUR-CODED AND HIGHLIGHTED LIKE THE ON-SCREEN REPORTS — ALL OF THEM (ADMIN 346) | LIVE (346) |
 | §229 | 2 Oct 2026 | REPORTS PAGE: A "WITH BIDS ONLY" SWITCH — WEEKS AND PEOPLE; THE PAGE'S PDF / EXCEL FOLLOW IT; OFF BY DEFAULT AND OFF AGAIN ON EVERY RELOAD (ADMIN 347) | LIVE (347) |
-| §230 | 2 Oct 2026 | THE CHANGE LOG CAN BE EXPORTED — PDF AND EXCEL, FOLLOWING THE ON-SCREEN FILTERS (ADMIN 348) | BUILT (348), not pushed |
+| §230 | 2 Oct 2026 | THE CHANGE LOG CAN BE EXPORTED — PDF AND EXCEL, FOLLOWING THE ON-SCREEN FILTERS (ADMIN 348) | LIVE (348) |
+| §231 | 2 Oct 2026 | THE CHANGE LOG EXPORT IS DRAWN LIKE THE CHANGE LOG PAGE — SUBTLE TINTED PILLS, NO SOLID COLOUR BLOCKS (ADMIN 349) | BUILT (349), not pushed — rides in 350 |
+| §232 | 2 Oct 2026 | THE TIMER-RESET ROW IN THE CHANGE LOG STATES THE TIME BIDDING WAS SET TO CLOSE, NOT HOURS (ADMIN 350) | BUILT (350), not pushed |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -5979,3 +5981,37 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **Found while testing, a harness trap worth keeping:** the page wraps the week label in try/catch, which swallows a missing-function error before the test resolver can see it — every label silently fell back to the raw key and the screen-vs-export comparison still passed, both sides being equally wrong. The week helpers are now named up front and the labels are asserted literally.
 
 **Not run:** the real spreadsheet library (a stand-in recorded the cells); a click in his browser. After the push: export each once.
+
+**PUSHED AND LIVE 2 Oct 2026, about 4:08 PM — `41bc1a0`** (tests `c1de901`, hub `57b7022`). `versions.json` served index 183 / admin 348 on two cache-busted fetches; `origin/main`'s admin/index.html is md5-identical to the gated copy (`baa5e795c312ef0f0806758a178d2ac0`). Next auction honesty baseline: `41bc1a0` for the admin page.
+
+## §231 — THE CHANGE LOG EXPORT IS DRAWN LIKE THE CHANGE LOG PAGE — SUBTLE TINTED PILLS, NO SOLID COLOUR BLOCKS (ADMIN 349) — 2 Oct 2026
+
+**His words (V3), in order, verbatim**, after exporting 348 in his own browser: *"For this report, the color coding is not necessary and is distractiung"* — then *"If it was subtle like the change log itself, maybe that's best"* — then *"I like this style, it's good"* — and, with a screenshot of the Change Log PAGE (plain uppercase day headings with a count, a light purple USER / orange ADMIN pill with its icon, a light tinted EDITED / ADDED / REMOVED / LOWERED / SYSTEM pill), ***"this"***.
+
+**What 348 had shipped that he was reacting to:** Claude had drawn the export in the other reports' style — dark day bars and SOLID colour chips with white text. Nobody asked for that; the plan said "coloured labels" and he had approved a plan, not a look.
+
+**What was built (admin 349; staff untouched at 183; no rules change).** The PDF is drawn like the page in his screenshot: a plain uppercase day heading with its count and a thin rule; one quiet row per entry — the real date and time, the By pill (with the page's icon), the Action pill, the sentence; no dark bar, no solid chip, no column-header row. The pills are the page's own: a see-through tint behind coloured text. The Excel sheet's By and Action cells carry the same tint as a light fill behind the same text colour. An action the colour list does not name (LOWERED, which his screenshot shows) gets the page's own neutral pill. The title, the blue phase badge and the stamp line are the shared report document's and are unchanged; content, filters, order and wording are unchanged from 348.
+
+**Two copies of the pill colours now exist** — the page's (inside `renderChangelog`) and the export's (`CL_ACTION_PILL` / `CL_ACTOR_PILL`). They were left as two so that the code that draws the live page is not touched again; the suite holds them together by comparing every exported pill with what the real `renderChangelog` paints for the same entry.
+
+**On the way (1 Oct evening rule: say when the position changed).** Claude first read the opening sentence as "no colour at all", built that (By and Action as plain text), and ran the battery on it; his next two messages arrived mid-build and the plain version was replaced before anything was filed. The bridge dropped during the replacement; on reconnect the disk was checked (it held the plain version, md5 `e24d77ce…`) before anything was re-applied.
+
+**Gates.** `tests/test-348-changelog-export.mjs`, its colour assertions rewritten to compare the export with the SCREEN: 26/26 on 349. **Honesty for 349: the pushed 348 (`41bc1a0`) FAILS 5, exit 1** (pills, no-solid-chip / no-dark-bar, the LOWERED pill, the plain day heading, the Excel tint); 347 fails 24. `renderChangelog` byte-identical to 348's on 19 settings (Part I). Battery on the Mac: 104 suites, exit 0, as a regression gate. One real PDF rendered in the cloud with background printing off and looked at beside his screenshot. Filed admin md5 `9d2de7469c7e497220774a49b8d3df41`.
+
+**Found in his screenshot, RAISED, not built (§92):** a timer-reset entry reads *"Admin reset the bidding timer to h (chosen length)"* — the hours are missing. `adminLog` stores `hours` and `choice` on the entry; `normalizeEntry` drops both before `systemActionText` reads them, so every such row shows no number and always says "(chosen length)", even when the timer-rules default was used. On screen since 341; the export inherits it. `TODO.md` §1.
+
+## §232 — THE TIMER-RESET ROW IN THE CHANGE LOG STATES THE TIME BIDDING WAS SET TO CLOSE, NOT HOURS (ADMIN 350) — 2 Oct 2026
+
+**Found by Claude in his §231 screenshot and raised:** a Change Log row read *"Admin reset the bidding timer to h (chosen length)"* — no number. **His ruling, verbatim:** *"it should be time, not hrs"*. Claude put the reading and the exact wording back to him — the row states the time bidding was set to close, "…— bidding to close **Wed, Sep 30, 9:00 PM** (chosen length)" / "(the timer rules default)", an entry with no length stored reads just "Admin reset the bidding timer" — and asked whether that was the reading, or a duration such as "12h 0m". **His answer:** ***"yes, go"***.
+
+**The cause.** `adminLog` stores `hours` and `choice` on a timer-reset entry (since admin 341). `normalizeEntry` rebuilt each entry from a fixed list of fields that did not include them, so `systemActionText` always received neither: the number was blank and the row said "(chosen length)" even when the timer-rules default had been used. On the page since 341; the 348 / 349 export inherited it.
+
+**What was built (admin 350; staff untouched at 183; no rules change; no stored entry is altered).** `normalizeEntry` carries `hours` and `choice` through. The timer-reset sentence states the closing time — the entry's own timestamp plus its stored length — as weekday, date and time; "to close", not "closed", because a later bid can still lengthen the countdown. Every reset logged since 341 already stores its length, so existing rows read correctly as soon as the page loads. The Change Log page and the PDF / Excel exports share the sentence.
+
+**The class (rule 17).** Every field `systemActionText` reads (`type`, `user`, `bidValue`, `reason`, `ts`, `hours`, `choice`) now survives normalization; only two callers of `adminLog` pass extra fields (the hold reason, the timer reset) — checked by grep, nothing else is dropped.
+
+**Why the gate missed it for two weeks (rule 10).** `test-341-timer-card.mjs` asserted the sentence by calling `systemActionText` with a RAW entry, which has `hours`. The page never does that — it passes the normalized entry. The assertion was true of a path that does not exist. The new suite goes entry → `normalizeEntry` → sentence through the real `renderChangelog` and `exportChangelog`; the two old assertions were replaced (their premise changed with the ruling — rule 12).
+
+**Gates.** `tests/test-350-timer-reset-row.mjs`: 12/12. **Honesty: the filed 349 FAILS 9, exit 1 — and reproduces his screenshot exactly ("Admin reset the bidding timer to h (chosen length)", for all four entries)**; the pushed 348 (`41bc1a0`) fails the same 9. 349 was never pushed on its own, so its fixture is the filed copy saved at build time (md5 `9d2de746…`), said per §4. The three checks that stay green on the baseline are true invariants (rule 18). The rest of the page: `renderChangelog` byte-identical to 349's on 19 settings (the 348 suite's Part I, whose world has no timer reset). Battery on the Mac: 105 suites, exit 0, as a regression gate. The diff against the filed 349 is 13 changed lines. Filed admin md5 `7a546dd0dc7eee99abbe45ceb48a4abd`.
+
+**Not run:** a look at the real row in his browser — after the push, the row in his screenshot should show a closing time.
