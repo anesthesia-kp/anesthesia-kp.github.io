@@ -248,7 +248,7 @@
 | §231 | 2 Oct 2026 | THE CHANGE LOG EXPORT IS DRAWN LIKE THE CHANGE LOG PAGE — SUBTLE TINTED PILLS, NO SOLID COLOUR BLOCKS (ADMIN 349) | LIVE (in 350) |
 | §232 | 2 Oct 2026 | THE TIMER-RESET ROW IN THE CHANGE LOG STATES THE TIME BIDDING WAS SET TO CLOSE, NOT HOURS (ADMIN 350) | LIVE (350) |
 | §233 | 3 Oct 2026 | TWO VALID ALERTS WERE PARKED AND NEVER SENT — FIX THE FAILURE PATH ONLY, DO NOT OVERBUILD, NEVER DELETE A PARKED E-MAIL, BUILD IN A NEW SESSION | DONE — size A, staff 184 / admin 351 LIVE `091b0f6` |
-| §234 | 3 Oct 2026 | AN E-MAIL LOG PAGE FOR THE ADMIN: EVERY E-MAIL, TO WHOM, WHAT KIND, SENT OR FAILED AND WHY |  |
+| §234 | 3 Oct 2026 | AN E-MAIL LOG PAGE FOR THE ADMIN: EVERY E-MAIL, TO WHOM, WHAT KIND, SENT OR FAILED AND WHY | DONE — staff 185 / admin 352 LIVE `9af2c46` |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6070,3 +6070,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **2. RULED 3 Oct 2026, verbatim: *"go"*** — in answer to "The plan file is updated with all of this. Go?" (the phase stamp, the phase filter, the export following the filters, the newest 1,000). **THE GO FOR STAFF 185 / ADMIN 352 IS GIVEN, exactly the plan file.**
 
 **BUILT AND FILED 3 Oct 2026, NOT PUSHED: staff 185 (`8e0a0089…`) / admin 352 (`efc2c4d7…`).** Record: the `vacation-kp.github.io/BUILD-LOG.md` row; suite `tests/test-185-352-email-log.mjs` (124/124; 42 fail on the live pair). As planned, with nothing added: one line in `_mailLogNote` on each page, the new `_mailHistNote`, the People → E-mail Log page with its four filters and its PDF / Excel export, the trim to the newest 1,000, the Clear dialog's wording. No rules change. Not independently reviewed (offered to him).
+
+**PUSHED BY HIM 3 Oct 2026 about 10:24 PM — LIVE `9af2c46`:** `versions.json` served 185 / 352 twice; the pushed pages md5-identical to the gated copies (`8e0a0089…`, `efc2c4d7…`). §234 is DONE. **Confirmed by him the same evening, verbatim: *"looks good, do handoff"*.**
