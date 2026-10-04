@@ -245,8 +245,9 @@
 | §228 | 2 Oct 2026 | THE PDF EXPORTS MUST BE COLOUR-CODED AND HIGHLIGHTED LIKE THE ON-SCREEN REPORTS — ALL OF THEM (ADMIN 346) | LIVE (346) |
 | §229 | 2 Oct 2026 | REPORTS PAGE: A "WITH BIDS ONLY" SWITCH — WEEKS AND PEOPLE; THE PAGE'S PDF / EXCEL FOLLOW IT; OFF BY DEFAULT AND OFF AGAIN ON EVERY RELOAD (ADMIN 347) | LIVE (347) |
 | §230 | 2 Oct 2026 | THE CHANGE LOG CAN BE EXPORTED — PDF AND EXCEL, FOLLOWING THE ON-SCREEN FILTERS (ADMIN 348) | LIVE (348) |
-| §231 | 2 Oct 2026 | THE CHANGE LOG EXPORT IS DRAWN LIKE THE CHANGE LOG PAGE — SUBTLE TINTED PILLS, NO SOLID COLOUR BLOCKS (ADMIN 349) | BUILT (349), not pushed — rides in 350 |
-| §232 | 2 Oct 2026 | THE TIMER-RESET ROW IN THE CHANGE LOG STATES THE TIME BIDDING WAS SET TO CLOSE, NOT HOURS (ADMIN 350) | BUILT (350), not pushed |
+| §231 | 2 Oct 2026 | THE CHANGE LOG EXPORT IS DRAWN LIKE THE CHANGE LOG PAGE — SUBTLE TINTED PILLS, NO SOLID COLOUR BLOCKS (ADMIN 349) | LIVE (in 350) |
+| §232 | 2 Oct 2026 | THE TIMER-RESET ROW IN THE CHANGE LOG STATES THE TIME BIDDING WAS SET TO CLOSE, NOT HOURS (ADMIN 350) | LIVE (350) |
+| §233 | 3 Oct 2026 | TWO VALID ALERTS WERE PARKED AND NEVER SENT — FIX THE FAILURE PATH ONLY, DO NOT OVERBUILD, NEVER DELETE A PARKED E-MAIL, BUILD IN A NEW SESSION | OPEN — size A chosen, NOT built |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6015,3 +6016,32 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **Gates.** `tests/test-350-timer-reset-row.mjs`: 12/12. **Honesty: the filed 349 FAILS 9, exit 1 — and reproduces his screenshot exactly ("Admin reset the bidding timer to h (chosen length)", for all four entries)**; the pushed 348 (`41bc1a0`) fails the same 9. 349 was never pushed on its own, so its fixture is the filed copy saved at build time (md5 `9d2de746…`), said per §4. The three checks that stay green on the baseline are true invariants (rule 18). The rest of the page: `renderChangelog` byte-identical to 349's on 19 settings (the 348 suite's Part I, whose world has no timer reset). Battery on the Mac: 105 suites, exit 0, as a regression gate. The diff against the filed 349 is 13 changed lines. Filed admin md5 `7a546dd0dc7eee99abbe45ceb48a4abd`.
 
 **Not run:** a look at the real row in his browser — after the push, the row in his screenshot should show a closing time.
+
+**PUSHED AND LIVE 2 Oct 2026, about 4:39 PM — `1dc3cb9`** (tests `07029e4`, hub `8e46123`), carrying 349 (§231) with it. `versions.json` served index 183 / admin 350 on two cache-busted fetches; `origin/main`'s admin/index.html is md5-identical to the gated copy (`7a546dd0dc7eee99abbe45ceb48a4abd`). Next auction honesty baseline: `1dc3cb9` for the admin page.
+
+## §233 — TWO VALID ALERTS WERE PARKED AND NEVER SENT — FIX THE FAILURE PATH ONLY, DO NOT OVERBUILD, NEVER DELETE A PARKED E-MAIL, BUILD IN A NEW SESSION — 3 Oct 2026
+
+**Owner-found (V3), on his phone, admin 350 live.** The Messaging Users card read "Queued e-mails — 0 · 2 parked"; Send Pending answered *"Nothing old enough to send yet (or another page just took it) — try again shortly"*. He opened ⛔ parked, pressed Retry all, and both projection-change alerts sent. **NOTHING IS BUILT. This § records his rulings so the build, in a NEW session, starts from them.** The evidence, the cause as read in the code and the design are in `tests/docs/PLAN-MAIL-QUEUE-NO-FALSE-PARKING-2026-10-03.md`.
+
+**His rulings, in order, verbatim:**
+1. *"I was able to flush these projection alerts. Addresses are therefore correct. I don't want this to happen again. It's not the wording, it's that it happened at all."*
+2. *"I want to make sure we think through this one carefully. I will push it during phase 2 and will temporarily close bidding. If something gets parked, can I get an email alert to myself?"*
+3. *"1-just send to vacation goddess. 2-these are time sensitive, I don't want to wait long. 3-wait, what else needs considering?"*
+4. *"emailjs has no record of it.  maybe because the messages eventually sent?  can it be reasonably be shorter than 5 min?"* → Claude: 2 minutes is the floor (a healthy alert can take about a minute). ***"2 min good."***
+5. *"Yes for test notice. Before we go, is this being done in the safest way possible?  Nothing else can break during this build, especially the sending of alerts. I don't want to overbuild and create trouble."*
+6. ***"That all sounds good. Only address the failure path and ensure the success path is unchanged. Anything else?"***
+7. ***"This only happened once, so we shouldn't overbuild"***
+8. ***"2-I don't want to delete items from the parked list ever. I want the ability to resend them. 3. Build needs to happen in a new session"***
+
+**What is SETTLED.** The build touches ONLY what happens after a send has already failed; the successful-send path must be PROVEN unchanged. Do not overbuild — it happened once. If a notice to him is built, it goes to the Vacation Goddess address only, "stuck" is 2 minutes, and it comes with a test-notice button. A parked e-mail is never deleted by him; he wants to be able to resend it. He pushes during Phase 2 with bidding temporarily closed. The build happens in a NEW session.
+
+**How Claude's position moved (said and dated, rule 14).** Claude first proposed a seven-part design (the plan file's §3 A–G), including one shared, paced, retrying sender replacing all eight `emailjs.send` call sites. Asked whether that was the safest way, Claude said NO: that part rewrites the path every successful e-mail takes, on an INFERRED cause. It cut to "Stage 1" (failure path + reporting), and after ruling 7 cut again to two sizes: **(A) the fix alone** — in each relay's failure block (staff + admin) count a strike only when the mail service rejects the message itself, and record the reason on the entry; **(B) A plus the e-mail notice and its test button.** Claude recommended A.
+
+**What is NOT settled — the first questions for the new session:**
+- **A or B.** His last message answered points 2 and 3 of an earlier list and did not choose. He had asked for the e-mail (ruling 2) and said yes to its test button (ruling 5) BEFORE ruling 7.
+- **What "never delete, able to resend" means for the ⛔ parked dialog.** Today it has "Retry all" (clears the strikes; the normal sweep then sends — this is what he used) and a per-entry 🗑 Delete. Ask: remove the Delete button? add a per-entry Resend? It also overrides the plan's fallback that a message failing for an unrecognised reason would be "deleted from the parked list" — that sentence is withdrawn.
+- **The explicit go.** None has been given for any size.
+
+**Known and unknown.** The mail service documents 1 request per second (read 3 Oct); its error codes beyond 200 / 400 are not documented. Its own history shows no failure for these two alerts (his check). The site kept no reason. So the cause is inferred: page-side failures (a refusal for sending too fast, or a browser that cannot reach the service) counted as strikes against good alerts.
+
+**9. RULED 3 Oct 2026, after the session was closed out, verbatim: *"A"*** — in answer to "the fix alone (A), or the fix plus the e-mail notice and test button (B)?". **SIZE A IS CHOSEN:** in each relay's failure block (staff + admin) a strike is counted only when the mail service rejects the message itself, and the reason for the failure is recorded on the entry. Nothing else: no e-mail notice, no test-notice button, no watcher, no new counter, no early claim release, no pacing, no banner. Rulings 2, 4 and 5 (the notice, 2 minutes, the test button) are therefore NOT built now; they stand as his answers should B ever be wanted. **The new session still owes him, before any code:** the plan for A in his terms with its tests (§0 rule 2 — "A" chose the size; the build's own plan and go belong to the session that builds it), and the question about the ⛔ parked dialog (ruling 8).
