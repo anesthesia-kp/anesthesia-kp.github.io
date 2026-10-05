@@ -255,7 +255,8 @@
 | §238 | 4 Oct 2026 | THE E-MAIL LOG SHOULD SAY WHOSE PAGE MADE EACH ATTEMPT, WITHOUT A NEW COLUMN, IN THE SAME PUSH AS 187 |  |
 | §239 | 4 Oct 2026 | THE POPCORNOMETER: THE SPEED KEEPS CLIMBING PAST 70 CHANGES, AND "POPCORN PANDEMONIUM!" AT 90 OR MORE | LIVE |
 | §240 | 4 Oct 2026 | UNDER REVIEW ROWS SHOULD SHOW THE UNUSED BIDS THAT WOULD HAVE WON; THE POPCORNOMETER 20% UP AT EACH LEVEL | LIVE |
-| §241 | 5 Oct 2026 | THE STAFF BOARD MUST NOT DRAW, AND A BID MUST NOT SAVE, UNTIL ALL THE BOARD'S DATA HAS ARRIVED | BUILT |
+| §241 | 5 Oct 2026 | THE STAFF BOARD MUST NOT DRAW, AND A BID MUST NOT SAVE, UNTIL ALL THE BOARD'S DATA HAS ARRIVED | LIVE |
+| §242 | 5 Oct 2026 | THE POPCORNOMETER: ANOTHER 20% AT EVERY LEVEL | BUILT |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6187,3 +6188,15 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **RULED, verbatim, about 9:55 AM:** *"1-yes.  2-now.  3-include.  go."* — the wording as proposed; built and gated now, during live Phase 2, the push moment his; the save refusal included.
 
 **BUILT AND FILED 5 Oct 2026, NOT PUSHED: staff 190 (`c1282126…`)**, on the live `0e2630a`; admin untouched at 356. Record: the `vacation-kp.github.io/BUILD-LOG.md` row. The board waits for TEN documents, not the eight named in the plan — the phase and the admin settings (review threshold, floors) are inputs of the projection engine too. With the board held, the bid dialogs cannot be reached, so the save refusal is a guard behind the paint (rule 5), not a message users will normally meet. **Reproduced before it was fixed:** on a sandboxed copy of the live 189 with one document held back, the page drew the bids with the wrong outcome (capacity late) and "No selections yet" (bids late), then corrected itself — his report. **Added beyond the plan, told to him:** the independent review found that a document that does not exist, on a page that first failed to reach the server, would have held the board for ever; 190 now asks the server directly for any document still missing after 15 seconds (8 looks at most) and accepts only "no such document" — the one place this build can read something the live page does not, and only on a page that has already waited 15 seconds. **Told to him, not built:** `tests/docs/REVIEW-190-2026-10-05.md` M1 and L1–L5. The push moment is his.
+
+**PUSHED BY HIM 5 Oct 2026 about 3:05 PM, during live Phase 2 — LIVE `ec66488`:** `versions.json` served staff 190 twice; `origin/main:index.html` md5-identical to the gated copy (`c1282126…`). Tests `7c91f7d`, hub `c3d342e`.
+
+## §242 — THE POPCORNOMETER: ANOTHER 20% AT EVERY LEVEL — 5 Oct 2026
+
+**Owner, verbatim, about 3:10 PM (Phase 2 live), in the message reporting the 190 push:** *"I also want to add another 20% to each popcorn degree."*
+
+**Read from the code that turn (staff 190 / admin 356):** `popcornRate(n)` is `min(24, max(0.6, n × 0.12))` on both pages — §240's 20% already in it. **Claude's reading, put to him:** the same shape as §240's ruling (*"keeping the levels as they are but increasing the visual kernels by 20% at all levels"*) — every number × 1.2 again: 0.144 kernels a second per change, floor 0.72, top 28.8 a second at 200 changes; the five labels and the counts they start at untouched. Both pages, display only: staff 191 / admin 357. **Not a go: nothing built (§92).**
+
+**RULED, verbatim, about 3:20 PM:** *"go"* — on the reading as put to him: every number × 1.2 again (0.144 a change, floor 0.72, top 28.8 a second at 200 changes), labels and their counts untouched, both pages, staff 191 / admin 357.
+
+**BUILT AND FILED 5 Oct 2026, NOT PUSHED: staff 191 (`d4e9f3da…`) / admin 357 (`6db2551d…`)**, on the live pair `ec66488`. One line on each page. Record: the `vacation-kp.github.io/BUILD-LOG.md` row; suite `tests/test-191-357-popcorn-again.mjs`. **Told to him:** on a screen under about 29 frames a second the top speed levels off just below 28.8; the resting kernels step up slightly at low counts; no independent review.
