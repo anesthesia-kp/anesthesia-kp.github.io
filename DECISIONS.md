@@ -256,7 +256,7 @@
 | §239 | 4 Oct 2026 | THE POPCORNOMETER: THE SPEED KEEPS CLIMBING PAST 70 CHANGES, AND "POPCORN PANDEMONIUM!" AT 90 OR MORE | LIVE |
 | §240 | 4 Oct 2026 | UNDER REVIEW ROWS SHOULD SHOW THE UNUSED BIDS THAT WOULD HAVE WON; THE POPCORNOMETER 20% UP AT EACH LEVEL | LIVE |
 | §241 | 5 Oct 2026 | THE STAFF BOARD MUST NOT DRAW, AND A BID MUST NOT SAVE, UNTIL ALL THE BOARD'S DATA HAS ARRIVED | LIVE |
-| §242 | 5 Oct 2026 | THE POPCORNOMETER: ANOTHER 20% AT EVERY LEVEL | BUILT |
+| §242 | 5 Oct 2026 | THE POPCORNOMETER: ANOTHER 20% AT EVERY LEVEL | LIVE |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6200,3 +6200,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **RULED, verbatim, about 3:20 PM:** *"go"* — on the reading as put to him: every number × 1.2 again (0.144 a change, floor 0.72, top 28.8 a second at 200 changes), labels and their counts untouched, both pages, staff 191 / admin 357.
 
 **BUILT AND FILED 5 Oct 2026, NOT PUSHED: staff 191 (`d4e9f3da…`) / admin 357 (`6db2551d…`)**, on the live pair `ec66488`. One line on each page. Record: the `vacation-kp.github.io/BUILD-LOG.md` row; suite `tests/test-191-357-popcorn-again.mjs`. **Told to him:** on a screen under about 29 frames a second the top speed levels off just below 28.8; the resting kernels step up slightly at low counts; no independent review.
+
+**PUSHED BY HIM 5 Oct 2026 about 4:27 PM, during live Phase 2 — LIVE `86c99e2`:** the first two fetches, a minute after the push, still served 190 / 356 (Pages had not redeployed); fetched again about two minutes later, `versions.json` served 191 / 357 twice; `origin/main`'s two pages md5-identical to the gated copies (`d4e9f3da…`, `6db2551d…`). Tests `ecd52f9`, hub `af7c4cd`.
