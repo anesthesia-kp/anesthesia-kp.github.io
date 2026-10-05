@@ -254,7 +254,7 @@
 | §237 | 4 Oct 2026 | CANCEL-AND-RE-BID E-MAILS: §235 UN-TABLED BY HIM, THE SMALLEST FIX WANTED NOW |  |
 | §238 | 4 Oct 2026 | THE E-MAIL LOG SHOULD SAY WHOSE PAGE MADE EACH ATTEMPT, WITHOUT A NEW COLUMN, IN THE SAME PUSH AS 187 |  |
 | §239 | 4 Oct 2026 | THE POPCORNOMETER: THE SPEED KEEPS CLIMBING PAST 70 CHANGES, AND "POPCORN PANDEMONIUM!" AT 90 OR MORE | LIVE |
-| §240 | 4 Oct 2026 | UNDER REVIEW ROWS SHOULD SHOW THE UNUSED BIDS THAT WOULD HAVE WON; THE POPCORNOMETER 20% UP AT EACH LEVEL | BUILT |
+| §240 | 4 Oct 2026 | UNDER REVIEW ROWS SHOULD SHOW THE UNUSED BIDS THAT WOULD HAVE WON; THE POPCORNOMETER 20% UP AT EACH LEVEL | LIVE |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6172,3 +6172,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **RULED, verbatim, about 10:35 PM:** *"unmarked as in my wording.  go."* Mid-build he asked whether the popcorn changes *"at every level or only when it crosses a cutoff point"* — answered from the code: at every count (count ÷ 10, flat only from 1 to 5 changes and from 200 up); the cutoffs change the words only. ***"perfect.  go."***
 
 **BUILT AND FILED 5 Oct 2026, NOT PUSHED: staff 189 (`d0c3fc1e…`) / admin 356 (`9327b664…`)**, on the live pair `afb5f79`. Record: the `vacation-kp.github.io/BUILD-LOG.md` row; suite `tests/test-189-356-unused-bids-popcorn.mjs` (80/80; 53 of 79 fail on `afb5f79`; 23 of 25 mutations caught, the two survivors equivalent in context); battery 111 suites / 4,114; the real rows rendered in Chromium and shown to him; the independent review he asked for — no CRITICAL, HIGH or MEDIUM (`tests/docs/REVIEW-189-356-2026-10-05.md`). **Added beyond his wording, told to him:** if the line ever cannot be worked out the row says "Unused bids: could not be worked out" instead of showing nothing. **Told to him, not built:** the numbers on the row's own bid count as held even if he has since withheld one of them (review L2); the resting kernels in the pan also step up slightly (L4). **The push and its timing are his.**
+
+**PUSHED BY HIM 5 Oct 2026 about 6:23 AM, during live Phase 2 — LIVE `0e2630a`:** the first two fetches, seconds after the push, still served 188 / 355 (Pages had not redeployed); fetched again a minute later, `versions.json` served 189 / 356 twice; the pushed pages md5-identical to the gated copies (`d0c3fc1e…`, `9327b664…`), read from a fresh clone of the public repo. Tests `5ca2b74`, hub `cf2a888`.
