@@ -2456,3 +2456,13 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Pushed by him this session:** `cc95923` (§215) and `e98900d` (§216 + deck notes). Both carry an empty body, so §214 is holding — but `cc95923`'s subject begins with a stray `o ` from the paste. Not amended: rewriting it means a force-push over good history, the same call §214 made.
 
 ---
+
+---
+## ⤵ moved 5 Oct 2026 from HANDOFF.md — 1 Oct 2026 — "Vacation Auction 1 Oct 2026 V1" — STAFF 182 LIVE (§221 · §222 #4 · §226): THE ALERT E-MAIL SAYS "ANY BID X OR BETTER WOULD ALSO WIN".
+
+## 1 Oct 2026 — "Vacation Auction 1 Oct 2026 V1" — STAFF 182 LIVE (§221 · §222 #4 · §226): THE ALERT E-MAIL SAYS "ANY BID X OR BETTER WOULD ALSO WIN".
+
+**State at hand-over.** LIVE: **staff 182 (`7bd76b4`, pushed 1 Oct 3:56 PM during live Phase 1 — his decision) / admin 344 (`14807e1`)**, served twice, pushed bytes md5-equal to the gated copy (`0bf98504…`). All four repos clean and level with origin before the closing docs. Nothing is queued to build now; the between-phase items (§220 rename, §223 Fair Play + §224 Struggling Users) still need plans and his go. **Watch after this push:** the first real cancel or lowering that qualifies sends the new line — if he reports one that reads wrong, the suite's scenario helpers (`world` / `act`) reproduce any picture in a few lines.
+**Rulings this session (§226):** EmailJS subject is "Vacation Scheduler" (the §220 rename is code-only); "and makes your bid easier to beat" removed; the still-winning line opens with the cause ("Another bid on this week was withdrawn / lowered."); the Phase-4 extra FTE task is not to be mentioned until he asks; go given for the build.
+**Built in the cloud** (clone md5-equal to the Mac; `tests` staged as a tarball), filed by zip → `unzip -p`, all eight files md5-equal both sides; the invariance proof and the battery (100 / 3,344) re-run ON THE MAC after filing. Gates: the BUILD-LOG row.
+**Lessons.** (1) A new suite's wrong EXPECTATIONS were five of its first failures — the page was right each time (a two-slot week where the chance already existed; a combined-bid list). Check the scenario against the engine before blaming the code. (2) `npm install <one package>` inside `tests/` replaced the symlinked playwright with a newer one that had no browser; re-link the global one. (3) `pgrep -f` matched its own shell again (rule 8) — a ten-minute wait on a finished job. (4) The cloud container runs in HIS timezone; the Mac VM in UTC — two suites care (TODO test gaps). (5) An older suite (`test-staff-158`) caught that a missing helper would have cost the ordinary alert: the battery, not the new suite, found the build's one real weakness.
