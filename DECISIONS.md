@@ -261,6 +261,7 @@
 | §244 | 5 Oct 2026 | THE "LOWER AND STILL WIN" LINE (§221) STATES THE LOWEST BID THAT WOULD WIN, COUNTING FREE NUMBERS AND NUMBERS LIVE ON OTHER WEEKS THIS PHASE | LIVE (192, with the narrowing) — audit of the narrowing filed for later |
 | §245 | 6 Oct 2026 | A WINNING BID CANNOT BE LOWERED BELOW THE WEAKEST WINNING BID, ON A WEEK WHERE A BIDDING COMPETITION HAS HAPPENED | LIVE (193) |
 | §246 | 6 Oct 2026 | COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME | STANDING |
+| §247 | 6 Oct 2026 | START-HERE IS ALSO PASTED IN THE CHAT, IN ONE COPY-BOX, AT THE START AND THE END OF EVERY SESSION | STANDING (on trial) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6291,3 +6292,11 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **Owner order, verbatim, after asking for the staff 193 lines in the chat (*"paste in the chat"*):** *"I actually want these message pasted in the chat this way every time going forward. add to the handoff docs so it always happens. it's easier this way."*
 
 **The form he approved by example:** for each repo with something to commit — the repo's name in bold, then a copy-box holding the ONE line (§214) and nothing else. In the same message that tells him what to push; again in full whenever a line changes. The combined `COMMIT-MESSAGES.txt` in the outputs column, the per-repo `COMMIT-MESSAGE.txt` and the BUILD-LOG row continue unchanged — he did not ask for them to stop. Written into START-HERE §3 (commit summaries) and HANDOFF's checklist step 5.
+
+## §247 — START-HERE IS ALSO PASTED IN THE CHAT, IN ONE COPY-BOX, AT THE START AND THE END OF EVERY SESSION — 6 Oct 2026
+
+**How it came up.** After the 6 Oct hand-over he reported that pasting START-HERE into a new session no longer named the session automatically and now asked for folder permission (*"my starthere is no longer functioning as I want"*; he copies it with the square-in-square icon in the outputs column; he had also just upgraded from Pro to Max). Claude: nothing in START-HERE's text controls either — the app decides both when a session starts; the session of that morning had needed a folder grant too, before START-HERE was touched; the upgrade is the more likely cause but cannot be confirmed from inside a session. The one delivery difference (START-HERE sent in the same card as the commit-messages file) was put back.
+
+**His order, verbatim:** *"can you always present starthere in the chat like the commit messages? that might work for me."*
+
+**The form:** the whole current file, read from disk after `status.mjs` has run, in ONE copy-box in the chat — the last thing in the hand-over message, and with the opening state report. **It is a typed copy and cannot be md5-verified; the file in the outputs column (§212) stays the byte-exact one and is still delivered, and the disk copy is the document (START-HERE rule 13).** Say which is which. On trial in his words (*"that might work"*): if it does not solve the naming / permission behaviour, he will say so. Written into START-HERE's 📤 line and HANDOFF's checklist step 5.

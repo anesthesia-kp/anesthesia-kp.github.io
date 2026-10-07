@@ -157,7 +157,7 @@ and where, and what is recommended but deliberately NOT built. Then stop and wai
 *"Can the most recent start here always be placed into outputs as part of handoff. it's easier to copy paste that way.
 ensure this is remembered and always happens."* Do it LAST — after `status.mjs` has rewritten the map and date — as
 `START-HERE.md` (plain Markdown, never a Word doc), md5-identical to the repo copy (verified, never asserted), and say so
-in the handover. It goes out even when START-HERE did not change this session.
+in the handover. It goes out even when START-HERE did not change this session. **And paste the whole file IN THE CHAT too, in ONE copy-box, last thing in the hand-over message (owner order, 6 Oct 2026, DECISIONS §247: *"can you always present starthere in the chat like the commit messages? that might work for me."*) — at the START of a session as well. The chat copy is typed, so the outputs file remains the md5-identical one; say which is which.**
 
 ---
 
