@@ -2496,3 +2496,43 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Lesson — a harness that runs one extracted function will break when that function gains a collaborator.** `test-173` extracted `renderCountdown` with a fixed list of its helpers; the new display calls made it throw. The fix is to extract the new REAL helpers (never to stub them, never to soften the site's code for the test) and to prove the repointed suite is unchanged on the builds it was written against.
 
 **Lesson — proof by three independent routes.** The side-by-side run cannot see a changed timer calculation (it stubs those); the function-identity check can. The diff allow-list catches what function parsing might miss (markup, top-level code). Each negative control was caught by the part designed for it — say which part, never just "the proof failed".
+
+---
+## ⤵ moved 7 Oct 2026 from HANDOFF.md — 25–30 Sep 2026 — "Vacation Auction 25 Sep 2026 V2" — STAFF 180 LIVE (§219): THE 24H CHANGES LIST FITS ON A PHONE. 179 RE-PROVEN.
+
+## 25–30 Sep 2026 — "Vacation Auction 25 Sep 2026 V2" — STAFF 180 LIVE (§219): THE 24H CHANGES LIST FITS ON A PHONE. 179 RE-PROVEN.
+
+**179 re-proven on his ask (25 Sep):** *"confirm the previous build in the timer box didn't alter anything about timer function or auction function"* — `prove-179-invariance.mjs` re-run on the PUSHED bytes (`4c5a4df` → `1a243d5`) exit 0, three planted timer changes each caught, full battery 97/97, test-179's honesty on 178 FAILED (18 red). No files changed.
+
+**Staff 180 — owner-found during live Phase 1, built on his go, pushed 30 Sep (`7b6659e`), served twice.** Everything is in §219 and BUILD-LOG row 180. The build changed shape once on evidence: the sketch made the list only as wide as the Popcornometer box, and the width sweep showed long names squashed onto two lines on 720–860 px tablets — the list now keeps its 360 px and is capped at the screen.
+
+**Lesson — the sandbox's users are two-letter codes, and a layout check fed codes cannot see squashing.** The first width sweep reported "0 rows wrapped" everywhere, including where the list had shrunk to 248 px; with names of realistic length staged, 4 of 14 rows wrapped. A check whose inputs are smaller than real data passes on anything. `sweep/dropdown-180-check.mjs` stages long names on purpose.
+
+**Lesson — a new suite's LAST line must be `N passed, M failed (K assertions)` or `run-all.mjs` leaves it out of the total.** 98 suites reported the same 3,275 as 97 had; the runner parses only that shape, and test-180's first last line ended in the file path — as test-179's still does (filed in `TODO.md` 🧪). The suite still gated (a failure throws); only the count lied. **Read the total against the previous run before believing it.**
+
+**Rule 18 paid again:** test-180's honesty run on 179 kept B6 green by absence (no block on 179, so "nothing in the block touches the other list" was vacuously true); fixed to require the block. And the invariance proof missed an extra rule slipped into the same `@media` line — the static suite caught that control; the proof now pins the line exactly.
+
+**The bridge dropped three times** (the Mac asleep); the public repo was read from a cloud clone meanwhile (same commit, md5-checked), and no file on the Mac was written until it was back.
+
+---
+## ⤵ moved 7 Oct 2026 from HANDOFF.md — 30 Sep 2026 — "Vacation Auction 30 Sep 2026 V1" — NO CODE. FIVE RULINGS (§220–§224): THE ALERT AND FAIR-PLAY WORK FOR THE NEXT BETWEEN-PHASE WINDOW, ALL PLANNED OR QUEUED, NOTHING BUILT.
+
+## 30 Sep 2026 — "Vacation Auction 30 Sep 2026 V1" — NO CODE. FIVE RULINGS (§220–§224): THE ALERT AND FAIR-PLAY WORK FOR THE NEXT BETWEEN-PHASE WINDOW, ALL PLANNED OR QUEUED, NOTHING BUILT.
+
+**Start:** staff 180 / admin 343 served twice each; all repos in sync after his 07:51 pushes; three `maintenance.lock`s moved to `_to_delete/`. **No served byte changed all session.**
+
+**Queued for the next between-phase window — each needs a plan and his go (§92 / §164):**
+- **§220** rename "outbid alerts" → projection-change alerts (wording only). First ask what the EmailJS template's SUBJECT says.
+- **§221 + §222 #4 — staff build, PLAN COMPLETE:** `tests/docs/PLAN-221-LOWER-AND-STILL-WIN-2026-09-30.md`. One short line when a winner (still winning, or just became winning) could bid weaker and still win; fires once when the chance opens, only on another user's cancel or lowering; staff side only; same switch; no cut-off; engine and timer byte-identical.
+- **§223 — Fair Play Monitor (admin; plus a staff part):** drop Slow start; flag winning-bid cancels / lowerings, and late moves, only when they affected someone; keep 10%; record the real time left (and whether the clock restarted) in each bid's change-log entry from the build on, and read that — entries from before carry no late flag.
+- **§224 — Struggling Users (admin):** the floor fix only.
+
+**Declined today (in `TODO.md`'s table):** alert inventory #1–#3, #5–#8 (§222); Struggling Users extras and the section rename (§224). Inventory: `tests/docs/ALERT-EVENTS-INVENTORY-2026-09-30.md`.
+
+**Found, by reading the code (filed, not fixed):** (1) the Fair Play "Late-timer move" replay assumes every bid restarts the clock (reset mode 1) while mode 2 is live per the runbook, so it can miss late moves (§223); (2) the Struggling Users "can improve" test hard-codes high-demand weeks to numbers 1–4 while the floor is 5 or better (§224) — the only hard-coded floor in either page.
+
+**Lesson — a heuristic screen silently goes wrong when a setting changes the premise it was written on.** The Fair Play replay was correct for mode 1 and nobody re-read it when mode 2 was chosen for the live run. When a setting changes how the auction behaves, grep for every screen that RE-DERIVES that behaviour rather than reading it.
+
+**Lesson — Claude changed position twice on evidence, and said so:** "B is safer than A" fell when he required the alert to fire only when an action could help (that needs A's what-if); and "a tie means Under Review" was corrected while finalising the wording (tied bids that cannot both fit lose the week).
+
+---
