@@ -259,7 +259,8 @@
 | §242 | 5 Oct 2026 | THE POPCORNOMETER: ANOTHER 20% AT EVERY LEVEL | LIVE |
 | §243 | 5 Oct 2026 | "THE WEEK YOU LEFT IS WITHIN REACH AGAIN": ANY BID THEY HOLD COUNTS, EITHER KIND OF OPENING, WITHIN A PHASE ONLY | LIVE (192) |
 | §244 | 5 Oct 2026 | THE "LOWER AND STILL WIN" LINE (§221) STATES THE LOWEST BID THAT WOULD WIN, COUNTING FREE NUMBERS AND NUMBERS LIVE ON OTHER WEEKS THIS PHASE | LIVE (192, with the narrowing) — audit of the narrowing filed for later |
-| §245 | 6 Oct 2026 | A WINNING BID CANNOT BE LOWERED BELOW THE WEAKEST WINNING BID, ON A WEEK WHERE A BIDDING COMPETITION HAS HAPPENED | FILED (193), not pushed |
+| §245 | 6 Oct 2026 | A WINNING BID CANNOT BE LOWERED BELOW THE WEAKEST WINNING BID, ON A WEEK WHERE A BIDDING COMPETITION HAS HAPPENED | LIVE (193) |
+| §246 | 6 Oct 2026 | COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME | STANDING |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6283,4 +6284,10 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 
 **Told to him at filing, his call (the audit's findings, neither built):** **M1** — two people together can still end with a lowered winning bid: a colleague places a first bid (never restricted) weaker than the winner's but stronger than the winner's target; the winner lowers to the target (it would not win, so it is allowed); the colleague removes theirs. A solo variant: lower to TIE a loser still on the week (Under Review, allowed) and win if that loser leaves. A gap in the rule as ruled, not a defect; 193 is no worse than 192 there. **M2** — in the instant after sign-in before the floors arrive on a device, a weaker RE-BID after a removal is not checked (192's priority lock has the same window). Also accepted by him earlier: page-enforced; the room-left gap.
 
-**Status: FILED 6 Oct 2026, NOT PUSHED.**
+**Status: LIVE — he pushed 6 Oct 2026 about 8:45 PM (`1173efd`), served twice, the pushed page md5-identical to the gated copy.**
+
+## §246 — COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME — 6 Oct 2026
+
+**Owner order, verbatim, after asking for the staff 193 lines in the chat (*"paste in the chat"*):** *"I actually want these message pasted in the chat this way every time going forward. add to the handoff docs so it always happens. it's easier this way."*
+
+**The form he approved by example:** for each repo with something to commit — the repo's name in bold, then a copy-box holding the ONE line (§214) and nothing else. In the same message that tells him what to push; again in full whenever a line changes. The combined `COMMIT-MESSAGES.txt` in the outputs column, the per-repo `COMMIT-MESSAGE.txt` and the BUILD-LOG row continue unchanged — he did not ask for them to stop. Written into START-HERE §3 (commit summaries) and HANDOFF's checklist step 5.

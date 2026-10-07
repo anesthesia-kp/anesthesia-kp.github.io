@@ -151,6 +151,8 @@ REDIRECTS; open one and read its `<title>` before touching it.
 State, in the chat: what shipped, what the gates said, what is pending a push, what was recorded
 and where, and what is recommended but deliberately NOT built. Then stop and wait (§7).
 
+**⛔ ALWAYS paste the commit messages IN THE CHAT (owner order, 6 Oct 2026, DECISIONS §246):** *"I actually want these message pasted in the chat this way every time going forward. add to the handoff docs so it always happens. it's easier this way."* One copy-box per repo that has something to commit, the repo's name in bold above it, the one line inside and nothing else — in the same message that says what to push, and again whenever a line changes. The `COMMIT-MESSAGES.txt` file and the per-repo `COMMIT-MESSAGE.txt` still go out as before (START-HERE §3).
+
 **⛔ ALWAYS put the current `START-HERE.md` into the outputs column (owner order, 17 Sep 2026, DECISIONS §212 — widened 22 Sep to the START of every session too, START-HERE §4 step 5):**
 *"Can the most recent start here always be placed into outputs as part of handoff. it's easier to copy paste that way.
 ensure this is remembered and always happens."* Do it LAST — after `status.mjs` has rewritten the map and date — as
