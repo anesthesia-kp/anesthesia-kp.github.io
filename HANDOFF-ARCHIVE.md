@@ -2466,3 +2466,33 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **Rulings this session (§226):** EmailJS subject is "Vacation Scheduler" (the §220 rename is code-only); "and makes your bid easier to beat" removed; the still-winning line opens with the cause ("Another bid on this week was withdrawn / lowered."); the Phase-4 extra FTE task is not to be mentioned until he asks; go given for the build.
 **Built in the cloud** (clone md5-equal to the Mac; `tests` staged as a tarball), filed by zip → `unzip -p`, all eight files md5-equal both sides; the invariance proof and the battery (100 / 3,344) re-run ON THE MAC after filing. Gates: the BUILD-LOG row.
 **Lessons.** (1) A new suite's wrong EXPECTATIONS were five of its first failures — the page was right each time (a two-slot week where the chance already existed; a combined-bid list). Check the scenario against the engine before blaming the code. (2) `npm install <one package>` inside `tests/` replaced the symlinked playwright with a newer one that had no browser; re-link the global one. (3) `pgrep -f` matched its own shell again (rule 8) — a ten-minute wait on a finished job. (4) The cloud container runs in HIS timezone; the Mac VM in UTC — two suites care (TODO test gaps). (5) An older suite (`test-staff-158`) caught that a missing helper would have cost the ordinary alert: the battery, not the new suite, found the build's one real weakness.
+
+---
+## ⤵ moved 6 Oct 2026 from HANDOFF.md — 22 Sep 2026 — "Vacation Auction 22 Sep 2026 V1" — NO CODE. THE PHASE 1 REMINDER DECK (§217), GO-LIVE PINNED TO THU 24 SEP ~9 AM, §212 WIDENED TO SESSION START.
+
+## 22 Sep 2026 — "Vacation Auction 22 Sep 2026 V1" — NO CODE. THE PHASE 1 REMINDER DECK (§217), GO-LIVE PINNED TO THU 24 SEP ~9 AM, §212 WIDENED TO SESSION START.
+
+**Live at open, fetched twice per site with different cache-busters:** auction admin **343** / staff **178** / mobile 18, schedule 151 / 51 — matching `versions.json`, disk and START-HERE's LIVE line. All four repos clean against `origin/main`; `tests` judged from `git log`. Both fetches (open and close) stranded `objects/maintenance.lock` in all three public repos; every one moved to `_to_delete/`, zero left. Nothing the auction serves was touched (§92) — no build, so no battery: a correct absence, not a skipped gate.
+
+**The deck (§217).** Built in the walkthrough's measured style, revised through eight rounds of his direction, and FILED AS HIS OWN FINAL FILE byte for byte — `tests/docs/Phase1-Reminders.pptx`, md5 `e6d953bc…`, pushed by him as tests `0f2e962` (subject "…projection slide": he committed the final bytes under the previous round's message; not amended — a force-push over good history, the §214 call). Every transfer went cloud → `_to_delete/xfer/` → `cat` into the repo with `device_bash`, md5-verified each time.
+
+**Go-live pinned:** Thursday 24 Sep 2026, about 9 AM (owner, 22 Sep) — START-HERE §1 and fact (1), and TODO's NEXT line, edited in place.
+
+**§212 widened** — his words and the audit are in DECISIONS §212. The finding worth keeping: §212 said the rule was "in Claude's memory"; checked, it was not. It is now (read back 22 Sep), and START-HERE carries it both as a banner under the LIVE line and in §4 step 5. **Lesson: a record that says something was saved somewhere else is a claim like any other — read the other place before trusting it.**
+
+**Lesson — his mid-edit copies.** Twice he edited the deck in PowerPoint while Claude was also changing it: once in a copy that never reached disk (a typo in a screenshot that no file on disk contained — found by md5 of both copies before overwriting anything), once in a copy built on an OLDER round (slides he had since asked to change). Before merging a returned file, diff its TEXT against every recent round to find its base, then carry his edits onto the newest one and report every remaining difference, word by word.
+
+---
+## ⤵ moved 6 Oct 2026 from HANDOFF.md — 25 Sep 2026 — "Vacation Auction 25 Sep 2026 V1" — STAFF 179 FILED (§218): THE TIMER SAYS WHEN THE PHASE CAN END. THE AUCTION IS LIVE.
+
+## 25 Sep 2026 — "Vacation Auction 25 Sep 2026 V1" — STAFF 179 FILED (§218): THE TIMER SAYS WHEN THE PHASE CAN END. THE AUCTION IS LIVE.
+
+**The auction went LIVE Thu 24 Sep, about 7:45 AM** (owner) — START-HERE fact (1) and §1 now say so. Live at open, fetched twice with different cache-busters: auction 343 / 178 / 18, schedule 151 / 51.
+
+**Staff 179, built and filed, NOT pushed** — he pushes late at night or early morning. His layout, in five rounds (§218). Most of it was built in the cloud while the Mac was asleep or off (the bridge dropped six times); parked as `build-179-files.zip` in the outputs column with a RESUME note so no work depended on the container surviving. Filed only after the Mac's `index.html` was md5-matched to live 178 (`4dcddbca…`), then every file md5-verified after `unzip -p`.
+
+**Gates:** full battery 97/97, 3,275 assertions, none skipped; new suite 21/21, honesty on 178 FAILED (18 red, 3 greens read); `test-173` repointed (its harness lacked the two new helpers) — old and new copies identical on 172 and 178; and, at his demand, the INVARIANCE PROOF (`tests/prove-179-invariance.mjs`) — allow-listed diff, function-by-function identity, 50,000 random states side by side — with four planted faults each caught.
+
+**Lesson — a harness that runs one extracted function will break when that function gains a collaborator.** `test-173` extracted `renderCountdown` with a fixed list of its helpers; the new display calls made it throw. The fix is to extract the new REAL helpers (never to stub them, never to soften the site's code for the test) and to prove the repointed suite is unchanged on the builds it was written against.
+
+**Lesson — proof by three independent routes.** The side-by-side run cannot see a changed timer calculation (it stubs those); the function-identity check can. The diff allow-list catches what function parsing might miss (markup, top-level code). Each negative control was caught by the part designed for it — say which part, never just "the proof failed".
