@@ -261,7 +261,7 @@
 | §244 | 5 Oct 2026 | THE "LOWER AND STILL WIN" LINE (§221) STATES THE LOWEST BID THAT WOULD WIN, COUNTING FREE NUMBERS AND NUMBERS LIVE ON OTHER WEEKS THIS PHASE | LIVE (192, with the narrowing) — audit of the narrowing filed for later |
 | §245 | 6 Oct 2026 | A WINNING BID CANNOT BE LOWERED BELOW THE WEAKEST WINNING BID, ON A WEEK WHERE A BIDDING COMPETITION HAS HAPPENED | LIVE (193) |
 | §246 | 6 Oct 2026 | COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME | STANDING |
-| §247 | 6 Oct 2026 | START-HERE IS ALSO PASTED IN THE CHAT, IN ONE COPY-BOX, AT THE START AND THE END OF EVERY SESSION | STANDING (on trial) |
+| §247 | 6 Oct 2026 | START-HERE IS ALSO PASTED IN THE CHAT, IN ONE COPY-BOX, AT THE START AND THE END OF EVERY SESSION | WITHDRAWN the same day — never paste START-HERE in the chat |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6300,3 +6300,5 @@ Status: #4/#5 planned into §221's build (plan file updated); the rest DECLINED.
 **His order, verbatim:** *"can you always present starthere in the chat like the commit messages? that might work for me."*
 
 **The form:** the whole current file, read from disk after `status.mjs` has run, in ONE copy-box in the chat — the last thing in the hand-over message, and with the opening state report. **It is a typed copy and cannot be md5-verified; the file in the outputs column (§212) stays the byte-exact one and is still delivered, and the disk copy is the document (START-HERE rule 13).** Say which is which. On trial in his words (*"that might work"*): if it does not solve the naming / permission behaviour, he will say so. Written into START-HERE's 📤 line and HANDOFF's checklist step 5.
+
+**WITHDRAWN the same evening, 6 Oct 2026.** Tried once. The new session reported, as he relayed it: *"Your paste arrived cut off. The copy you pasted into this chat stopped at line 55 of 200 (14,043 of 51,275 bytes), part-way through the map. Its first 54 lines match disk exactly. Nothing was lost, because I read the rules from disk, but a pasted copy this long may not survive the paste box."* **His ruling, verbatim: *"that starthere within the chat is terrible, don't do that"*.** START-HERE is NOT pasted in the chat — it goes to the outputs column only, as §212 always had it; the clause is out of START-HERE and HANDOFF's checklist now says never. §246 (commit lines in the chat) stands. The naming / folder-permission behaviour he reported is unexplained from inside a session (his Pro → Max upgrade is the likeliest cause; unconfirmed).
