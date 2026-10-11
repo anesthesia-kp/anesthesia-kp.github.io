@@ -17,7 +17,9 @@ updated and the chat is reviewed for important items."*
 restated here.** Work it top to bottom before saying a session is finished, and say in the
 chat which steps ran. A step that was skipped is reported as skipped, never left silent.
 
-**Run it at every handoff point, not only at the end** — before a compaction, before a long
+**⛔ AT 650,000 TOKENS THIS CHECKLIST RUNS AND THE SESSION ENDS — ABSOLUTE, NO OVERRIDE (§264, owner order 11 Oct 2026: *"i never want a conversation compacted"*). Above 550,000 no new build starts. The rule and how to take the reading are in `START-HERE.md` §4 (Context); the reading at the close goes in the "Session close" line.**
+
+**Run it at every handoff point, not only at the end** — before a long
 gap, before "what's next?", and whenever the owner is about to walk away. A session that ends
 without this ends in whatever half-state it happened to be in.
 

@@ -120,7 +120,7 @@
 | §103 | 25 Aug 2026 | THE WORD IS "STAFFING". "DEMAND" IS RETIRED FROM THE UI | BUILT (101) |
 | §104 | 25 Aug 2026 | COLLAPSE BY DEFAULT. THE OPEN/CLOSED MODEL, RULED | BUILT (96–99); closed by §115 |
 | §105 | 25 Aug 2026 | AN EARLY RETURN ADDED FOR ONE PANEL OWNS EVERY LINE AFTER IT |  |
-| §106 | 25 Aug 2026 | THE FOUR GOVERNING FILES, AND WHO JUDGES CONTEXT | STANDING — tripwires superseded by §188 |
+| §106 | 25 Aug 2026 | THE FOUR GOVERNING FILES, AND WHO JUDGES CONTEXT | STANDING — tripwires superseded by §188; "never block" superseded by §264 |
 | §107 | 25 Aug 2026 | SCHEDULE BUILDING RESUMES. THE AUCTION DOES NOT | SUPERSEDED BY §143 |
 | §108 | 25 Aug 2026 | THE NAME IS **QUOTA**, AND IT IS ITS OWN SET | BUILT (102) |
 | §109 | 25 Aug 2026 | A SHIFT MAY SIT IN TWO QUOTAS | BUILT (117) |
@@ -278,6 +278,7 @@
 | §261 | 10 Oct 2026 | THE BLINDED-BIDDING SWITCH: HIS BRIEF FOR THE EXPLORATION |  |
 | §262 | 10 Oct 2026 | TWO IDEAS FILED FOR EXPLORATION IN A LATER SESSION: "VACATION BUCKS" IN PLACE OF BID NUMBERS (FUTURE AUCTIONS ONLY); AND NO LEAVING A WEEK FROM A WINNING POSITION |  |
 | §263 | 11 Oct 2026 | BAIL TRACKING TAKEN UP AGAIN: EXPLORE IT, AND EXPLORE A LOOK BACK THROUGH THIS AUCTION'S CHANGE LOG; HIS DEFINITION OF BAILING |  |
+| §264 | 11 Oct 2026 | TWO HARD CONTEXT LINES: NO NEW BUILD ABOVE 550,000 TOKENS, EVERYTHING STOPS AT 650,000; NO SESSION IS EVER COMPACTED | STANDING |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6535,3 +6536,13 @@ So the lowest winning bid on a competition week cannot be undercut by a later ar
 **PUSHED by him 11 Oct 2026 about 4:03 PM (*"pushed"*) during live Phase 3 — auction `999c85e`, tests `037b105`, hub `b59bdf5`; live serves staff 205 / admin 366, fetched twice; the pushed pages md5-identical to the gated copies (`ac75830c…` / `9760e158…`). Asked by him 3:39 PM, *"do all 3 types of bail only apply to comp weeks?"* — answered yes: a winning bid taken off any other week is not listed (25 such on his backup).
 **OWNER-FOUND on the live 366, 11 Oct 2026 4:27 PM, verbatim:** *"These are hard to read:"* followed by one Bail entry quoted whole. Then 4:27 PM *"punctuation seems off to me"* and 4:28 PM *"especially this:  — on the week 4.4 days;"*. A labelled-list layout was put to him; **RULED 4:29 PM, verbatim: *"this is better.  week 27 in full."*** — the layout is his choice, weeks written in full; the three shapes are in `TODO.md` §1. **His go, 4:29 PM, verbatim: *"go"*** — admin 367 (display only; staff stays 205), building in the cloud.
 **Status:** LIVE since 11 Oct 2026; the entries' readability is open.
+
+## §264 — TWO HARD CONTEXT LINES: NO NEW BUILD ABOVE 550,000 TOKENS, EVERYTHING STOPS AT 650,000; NO SESSION IS EVER COMPACTED — 11 Oct 2026
+**HIS WORDS, 11 Oct 2026 (session "Vacation Auction 11 Oct 2026 V2", 4:37 PM), verbatim:** *"I stopped that session because it was trying to compact.  I would actually like you to update handoffs so that future sessions including this one refuse to keep going when at risk of exceeding 700k tokens."*
+**What happened:** session "Vacation Auction 11 Oct 2026 V1" filed staff 205 / admin 366 at a context of 728,351, took his go for admin 367 at 4:29 PM, and tried to compact; he stopped it. Admin 367 was left part-built in that session's cloud workspace, which no other session can reach.
+**Put to him the same turn (4:38 PM):** a refusal AT 700k cannot work, because the close itself costs tokens and a build costs far more — so two lines: (1) no new build starts above a first line (questions, filing a ruling, a docs fix still allowed); (2) at a second line everything stops and the closing checklist runs. Suggested 550,000 and 650,000, said to be a judgement and not a measurement (the files record the context at six closes, 453k to 728k, but not what a build or a close costs). Asked: are the numbers right, and is the second line absolute or can he override it in the moment.
+**RULED 4:39 PM, verbatim:** *"this sounds perfect.  i want it absolute because i never want a conversation compacted."*
+**So:** ABOVE 550,000 no new build starts — the session reports the reading and refuses. AT 650,000 all work stops and the closing checklist runs; ABSOLUTE, no override by Claude or by him in the moment; an unfinished build is not rushed — its scratch state goes to the outputs column as a zip and `TODO.md` §1 records where it stands. It binds every session, the one it was ruled in included.
+**What it replaces:** §106's "report the reading, never block on it" and the standing line that a session under 700k is never offered a fresh one. The reading is still reported every time; it now also blocks. The two numbers are his — not to be moved, softened or added to.
+**Where it is written:** `START-HERE.md` §4 (the Context paragraph and step 5) and the head of `HANDOFF.md`'s closing checklist. Docs only; nothing the auction serves is touched.
+**Status:** STANDING.
