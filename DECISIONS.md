@@ -285,6 +285,7 @@
 | §268 | 12 Oct 2026 | PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) | | LIVE (209 / 372, `7273296`, 12 Oct 2026) |
 | §269 | 12 Oct 2026 | HIS GOAL: RESOLVE THE WHOLE PENDING LIST, EVENTUALLY |  |
 | §270 | 13 Oct 2026 | A COUNTDOWN THAT RUNS OUT ALSO CLOSES BIDDING ON THE SERVER (ADMIN 374) |  |
+| §271 | 13 Oct 2026 | THE TEST SITE: A PRIVATE PUBLISHED PAGE, 35 MADE-UP DOCTORS, 4 FTE A WEEK, KEPT CURRENT ALWAYS |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6698,3 +6699,9 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **Filed about 12:30 PM:** admin 374 BUILT in the cloud scratch copy by `apply374.py`, gated (cloud and Mac batteries 140 suites / 6,503 assertions green, 0 skipped; new suite 56 / 56, FAILS on 373; four suites repointed), blind review SAFE TO DEPLOY — yes, no CRITICAL / HIGH / MEDIUM, its three suite gaps closed before filing; the LOW notes told to him (REVIEW-374-2026-10-13.md). Gated admin `485bdb2d…`, versions.json `647618ba…`. NOT yet pushed.
 
 **12:39 PM, verbatim:** *"pushed.  next?"* — admin 374 LIVE: served twice (versions.json admin 374), the pushed page md5-identical to the gated copy `485bdb2d…`; auction `de3fc98`, tests `887c1c5`, hub `a3d4453`. Next auction honesty baseline `de3fc98`.
+
+## §271 — THE TEST SITE: A PRIVATE PUBLISHED PAGE, 35 MADE-UP DOCTORS, 4 FTE A WEEK, KEPT CURRENT ALWAYS — 13 Oct 2026
+
+**Session "Vacation Auction 13 Oct 2026 V1".** His want of §269 group 1 #5 (*"a test site where I can interact with a real site via simulator to explore new ideas"*), §202's third shape. Explored read-only on live staff 211 / admin 374; ONE plan: `tests/docs/PLAN-TEST-SITE-2026-10-13.md`. The finding that decided the host: every site on `anesthesia-kp.github.io` shares one browser origin with the live auction, and both real pages keep `auctionConfigV1` (the auction year and settings, read at page start), `adminRemembered` and two view settings in the browser under fixed names — a test copy there would write what the live page reads. A private published page has its own origin.
+
+**12:49 PM, verbatim:** *"1-yes.  2-4 for each week.  3-keep current always.  4-yes"* — (1) hosted as a private published page (an Artifact), NOT on the GitHub site; (2) the starting state as proposed — a fresh auction before Phase 1, 35 made-up doctors, all 52 weeks, Rehearsal Mode on — with a capacity of **4 FTE for every week**; (3) **kept current always**: once it exists, every session in which either page changed regenerates and republishes it before the session closes (a closing-checklist step, added when the site is built); (4) if the probe shows a report cannot open a new tab there, reports show in the page's own panel. NOT yet a go to build; Claude's advice: build it in a fresh session (this one at about 383k).
