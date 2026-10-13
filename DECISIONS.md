@@ -284,6 +284,7 @@
 | §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | LIVE (208 / 371, `ab7f2d8`, 12 Oct 2026) |
 | §268 | 12 Oct 2026 | PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) | | LIVE (209 / 372, `7273296`, 12 Oct 2026) |
 | §269 | 12 Oct 2026 | HIS GOAL: RESOLVE THE WHOLE PENDING LIST, EVENTUALLY |  |
+| §270 | 13 Oct 2026 | A COUNTDOWN THAT RUNS OUT ALSO CLOSES BIDDING ON THE SERVER (ADMIN 374) |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6683,3 +6684,15 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **8:42 AM, verbatim:** *"pushed"* — staff 211 LIVE: served twice, the pushed page md5-identical to the gated copy `403b8887…`; auction `ebb8438`, tests `64337ba`, hub `9c38876`. Next auction honesty baseline `ebb8438`.
 
 **9:19 AM, verbatim:** *"handoff"* · *"all looks good to me"* — he has looked at the live 210 / 373 / 211 work (both change lists, the reports from the home-screen icon). Session V4 closed.
+
+## §270 — A COUNTDOWN THAT RUNS OUT ALSO CLOSES BIDDING ON THE SERVER (ADMIN 374) — 13 Oct 2026
+
+**Session "Vacation Auction 13 Oct 2026 V1".** §269 item 10 (*"if small and safe, do it"*) and his 10:11 PM order (gated by the automated checks and a reading of the code, no live rehearsal). Explored read-only on live admin 373 / staff 211; ONE plan: `tests/docs/PLAN-374-RUNOUT-SETS-CLOSED-FLAG-2026-10-13.md` — admin page only. At a run-out the open admin page locks every week and ALSO sets the server's `biddingClosed` flag (inside one transaction that writes only if the same expiry still stands), so switching the timer off afterwards cannot reopen bids; every reopen path already clears the flag.
+
+**11:23 AM, verbatim:** *"1-agree.  2-yes.  3-yes"* — (1) ⏱ Expire Timer Now sets the flag too, staying identical to a real run-out, its dialog line rewritten; (2) the Disable Timer wording for when bidding is already closed on the server, as in the plan; (3) the Reset Timer line shortened to "This also lifts the server's "bidding closed" flag."
+
+**11:23 AM, verbatim:** *"go"* — admin 374 to be BUILT in a cloud scratch copy, gated, reviewed, then filed. Staff, mobile and `firestore.rules` untouched.
+
+**11:25 AM, verbatim:** *"I wonder if the rules/reminders drop down should follow suit with all the other ones in how it is displayed.  That would be better for consistency and possibly be more functional as well.  thoughts?  part of this build ok?"* — answered: worth a look, but its own staff build with a phone test page first, not part of 374. **11:27 AM, verbatim:** *"forget it.  the current drop down works well."* — DECLINED; one line in TODO's CLOSED / DECLINED table. Rules & Reminders stays as it is.
+
+**Filed about 12:30 PM:** admin 374 BUILT in the cloud scratch copy by `apply374.py`, gated (cloud and Mac batteries 140 suites / 6,503 assertions green, 0 skipped; new suite 56 / 56, FAILS on 373; four suites repointed), blind review SAFE TO DEPLOY — yes, no CRITICAL / HIGH / MEDIUM, its three suite gaps closed before filing; the LOW notes told to him (REVIEW-374-2026-10-13.md). Gated admin `485bdb2d…`, versions.json `647618ba…`. NOT yet pushed.
