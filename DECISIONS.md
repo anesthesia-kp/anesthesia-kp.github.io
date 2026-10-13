@@ -281,6 +281,7 @@
 | §264 | 11 Oct 2026 | TWO HARD CONTEXT LINES: NO NEW BUILD ABOVE 550,000 TOKENS, EVERYTHING STOPS AT 650,000; NO SESSION IS EVER COMPACTED | STANDING |
 | §265 | 11 Oct 2026 | THE ADMIN PAGE MUST WAIT FOR ITS DATA BEFORE IT DRAWS, LIKE THE STAFF PAGE (§241) |  |
 | §266 | 12 Oct 2026 | LOCKED WEEKS STAY IN THEIR MONTH ON THE STAFF BOARD, GREYED; A WON WEEK STAYS GREEN | LIVE (207 / 370, `17d4e49`, 12 Oct 2026) |
+| §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | FILED (208 / 371), not yet pushed |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6584,3 +6585,27 @@ So the lowest winning bid on a competition week cannot be undercut by a later ar
 **HIS ANSWERS, 12 Oct 2026 3:40 PM, verbatim:** *"1-you are correct, leave it.  2-but it was green during bidding.  it won't say it has been won, but it could still say winning i think.  projected to lose can be red still, like during the live auction.  or purple for under review.  once results are in though: green for approved, grey for not approved.  is that consistent?  this is a smaller fix and safe to do here."* **Ruled:** (11) the switch stays as built (every week locked → in place, §266 (5)); (12) a locked week with the person's OWN bid of this phase, before results are sent, keeps its projection's colour as during bidding — green Winning, purple Under Review, red Losing (the one exception to "no red on locked weeks", his) — and says the projection, not "won"; once results are sent: won = the green "Won in Phase N" card, not won = grey; weeks without his bid stay grey. Claude answered "consistent" and read the last sentence as the GO: BUILDING as staff 207 (admin stays 370) in the cloud, this session (context about 490,000 at the go).
 **The blind review found a HIGH on the first 207 bytes:** in Phase 4, between Send Round Results and Start Round, a week DENIED in that round still showed green "Winning" (the denied bid is live until Start Round). Fixed by the reviewer's tested clause `&&!p4AnnouncedDecision(user,wk)`, and a browser test added. **Asked of him (Claude recommended hiding it):** after results are sent a grey not-won card still prints the projection word. **His answer 4:32 PM, verbatim:** *"I think okay to show it.  Does it go away when the next phase begins?"* — kept; Claude: yes — at the next phase (or the next Phase 4 round) the bid is no longer a live bid, so the line leaves the card. **FILED about 4:36 PM: staff 207 `ed34f097…`** (Mac battery 135 / 6,133). **PUSHED BY HIM about 4:39 PM during live Phase 3 (*"pushed.  handoff."*) — LIVE `17d4e49`**, served twice, md5-identical to the gated copy; tests `6958ce0`, hub `866ffe0`.
 **Status:** LIVE — staff 207 / admin 370 since 12 Oct 2026 (`17d4e49`).
+
+## §267 — WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD — 12 Oct 2026
+
+Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12 Oct 2026 (his word, 5:50 PM); Phase 4 opens next year; he is planning for next year's auction now.
+
+**His question, 5:10 PM, verbatim:** *"Re: the last build, Will weeks stay ordered in their months when that option is selected at phase close?  Or does it follow the setting that admin sets?"* — answered from the live code: a phase close locks every week (`_lockEveryWeek`), and with every week locked the board stays in place whatever the switch says (§266 (5)).
+
+**5:15 PM:** *"I now want the weeks to follow the same setting that controls where they appears while bidding is live.  Do you agree that makes more sense?  Disagree if you think otherwise."* — Claude disagreed: with the switch at the bottom and every week locked the whole board becomes one list of 52 with no month headings, and the board jumps at the expiry either way.
+
+**5:16 PM, owner-found:** *"Also, admin being logged in at some point changed how the weeks appeared at phase end when all weeks locked."* · *"I don't love that"* — cause, read in the code: only an open admin page writes the week locks (`_autoCloseOnExpiry` → `_lockEveryWeek`; `locks` is admin-only in the rules); the staff board drew from that record alone, so between the zero and an admin sign-in the open weeks still drew open, and the admin's lock-all then moved the board.
+
+**5:20 PM:** *"1- are you saying Weeks don't actually lock at timer expiry?  I think they do. 2-why not b?  That way the weeks don't shift around at timer expiry?"* — answered: bidding stops at zero for everyone (the rules, on Google's clock); the lock RECORD waits for an admin page; B moves the open weeks instead of the locked ones.
+
+**5:42 PM:** *"1- yes, they should lock at timer expiry even if admin isn't logged in.  Agree?  What I want is consistency.  I don't want weeks jumping all over the place."* — Claude agreed on the goal and proposed the display route (the staff page draws a closed auction as locked) over staff writes to `locks` or server code.
+
+**5:50 PM:** *"P3 now closed.  p4 doesn't open until next year.  I am planning for next year's auction now.  I want P1 included."* — four ways put: A today's rule, B follow the switch, C hold the layout at the close, D Phase 1's switch in place. **5:54 PM:** *"I like C as well.  You said they turn grey.  Would weeks with the user's own bids still say their projection and be that color?"* — yes (207's rule; grey only without an own bid). **5:57 PM:** *"Yes. Go."* (the plan). Plan: `tests/docs/PLAN-208-371-BOARD-HOLDS-ITS-LAYOUT-AT-CLOSE-2026-10-12.md`.
+
+**6:09 PM, verbatim:** *"1-nothing moves.  2-good.  3-go"* — (1) the Freeze holds the layout too; (2) the switch's note, his sentence: *"When bidding closes, the board keeps this layout until the next phase or round begins."*; (3) GO.
+
+**Built as staff 208 / admin 371 (BUILD-LOG row 208).** One addition beyond the plan, told to him: the saved layout is written by EVERY admin lock write that leaves every week locked (not only Lock-every-week and Lock All), so locking the last weeks by hand or by Smart Lock cannot jump the board either.
+
+**Put to him, UNRULED:** the review found that an admin UNLOCKING a week by hand after the close re-arranges the board (a deliberate admin act, like flipping the switch) — keep (Claude's recommendation) or hold the layout even then?
+
+**Status:** FILED 12 Oct 2026 about 7:30 PM (gated staff `83b39ae5…`, admin `251feb0a…`, versions.json `abc6f88a…`) — NOT PUSHED; the push is his.
