@@ -282,7 +282,8 @@
 | §265 | 11 Oct 2026 | THE ADMIN PAGE MUST WAIT FOR ITS DATA BEFORE IT DRAWS, LIKE THE STAFF PAGE (§241) |  |
 | §266 | 12 Oct 2026 | LOCKED WEEKS STAY IN THEIR MONTH ON THE STAFF BOARD, GREYED; A WON WEEK STAYS GREEN | LIVE (207 / 370, `17d4e49`, 12 Oct 2026) |
 | §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | LIVE (208 / 371, `ab7f2d8`, 12 Oct 2026) |
-| §268 | 12 Oct 2026 | PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) | | BUILT (209 / 372, filed 12 Oct 2026, not pushed) |
+| §268 | 12 Oct 2026 | PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) | | LIVE (209 / 372, `7273296`, 12 Oct 2026) |
+| §269 | 12 Oct 2026 | HIS GOAL: RESOLVE THE WHOLE PENDING LIST, EVENTUALLY |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6630,4 +6631,8 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **AS BUILT — STAFF 209 / ADMIN 372, FILED 12 Oct 2026 (NOT PUSHED).** Gated staff `96f5418f…` / admin `0ed2ab15…` / versions.json `e343755a…`. One admin helper `_p4DecidedRoundBid` (exactly `_hasOpenRoundBid`'s skip test); Struggling Users, the simulator (decided weeks: never re-bid, numbers used, a cap slot, not the target; `simHasBids`; one help sentence) and the staff chip (the My Bids list's rule) leave an announced round's result out. Gates and the blind review (SAFE TO DEPLOY — yes): the BUILD-LOG row and `tests/docs/REVIEW-209-372-2026-10-12.md`. Told to him at filing, left as they are (LOW): in the gap between "Send Round N Results" and "Start Round N+1", Struggling Users no longer lists someone denied on every Round N bid, and a simulator run there counts such a denial toward the cap, not the target.
 
 **9:40 PM, on the two LOW gap-state effects (Struggling Users and the simulator, between "Send Round N Results" and "Start Round N+1"), verbatim:** *"i'm okay with those minor effects"* — ACCEPTED; nothing to build. Also confirmed for him the same minute, by running the built page: the fix holds in every later round (wins of Rounds 1–3 all left out in Round 4); Start Round refuses until the previous round's results are sent, so an unannounced earlier win cannot meet a later round.
+
+## §269 — HIS GOAL: RESOLVE THE WHOLE PENDING LIST, EVENTUALLY — 12 Oct 2026
+
+**Session "Vacation Auction 12 Oct 2026 V3", 9:42 PM, after pushing 209 / 372, verbatim:** *"I want to eventually resolve the entire list of pending items"*. The list is the one put to him at 8:21 PM (his ideas for future auctions, the Phase 3→4 owner task, the quiet-day fixes, his-call items, the no-code items, the paperwork, the parked schedule and CRNA). Claude's proposal, put to him, NOT ruled: resolving includes declining — first a triage pass where he rules each item build / decline / keep for later, then the builds in small batches by page, each its own plan and go (§92). Nothing planned or built.
 
