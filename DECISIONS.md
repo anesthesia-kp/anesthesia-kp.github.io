@@ -282,6 +282,7 @@
 | §265 | 11 Oct 2026 | THE ADMIN PAGE MUST WAIT FOR ITS DATA BEFORE IT DRAWS, LIKE THE STAFF PAGE (§241) |  |
 | §266 | 12 Oct 2026 | LOCKED WEEKS STAY IN THEIR MONTH ON THE STAFF BOARD, GREYED; A WON WEEK STAYS GREEN | LIVE (207 / 370, `17d4e49`, 12 Oct 2026) |
 | §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | LIVE (208 / 371, `ab7f2d8`, 12 Oct 2026) |
+| §268 | 12 Oct 2026 | PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) | | BUILT (209 / 372, filed 12 Oct 2026, not pushed) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6615,3 +6616,18 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **HIS RULING on the open question, 7:53 PM, verbatim:** *"pushed.  if I unlock a week by hand, it must always be on the bidding board.  if it's down below, it would have to move up top.  if it's top, nothing should change?"* — an admin UNLOCK after the close: the unlocked week must always be on the bidding board, in its month; if it sat in the bottom section it moves up; if it is already in its month nothing changes — and (Claude's reading, put to him) NO OTHER week moves. Today (208) the other weeks that were open at the close DO move to the bottom when a week is unlocked, and a re-lock rewrites the saved list. A further build (staff 209 / admin 372) was outlined. **Then, 8:05 PM, after Claude explained it arises only in a phase whose switch is at the bottom (Phase 1 by default), after the close, and only if he unlocks a week by hand: *"I would never do that"* — DECLINED; nothing to build.** (In the TODO CLOSED / DECLINED table.)
 
 **Status:** LIVE — staff 208 / admin 371 since 12 Oct 2026 (`ab7f2d8`). The unlock refinement was declined (8:05 PM).
+
+## §268 — PHASE 4: THE COUNTS THAT TREAT AN EARLIER ROUND'S WIN AS AN OPEN-ROUND BID (O-F, O-G) — 12 Oct 2026
+
+**Session "Vacation Auction 12 Oct 2026 V3", 8:25 PM.** Asked for the items queued for later, he was told Claude's view that this window (Phase 3 closed, Phase 4 next year) is best spent on what Phase 4 touches: the two Phase-4 counting notes (O-F the simulator, O-G Insights) and possibly storing each round as its own phase. His answer, verbatim: *"good idea, let's start that."* — read as a go to EXPLORE and plan (§0), not to build (§92).
+
+**Explored read-only the same turn** (Claude, plus one independent agent hunting the class over every call site): nothing that decides a bid, an outcome, an e-mail or a gate counts a round win wrongly; O-G no longer exists on screen (the counts are computed and never shown); three real defects — Struggling Users (admin, live), the simulator = O-F (Rehearsal only), the staff "changes on your weeks" chip (users see it). Re-tagging rounds as phases NOT recommended. ONE plan: `tests/docs/PLAN-209-372-PHASE4-ROUND-COUNTS-2026-10-12.md` (staff 209 / admin 372), two questions put to him. NOT approved, nothing built.
+
+**HIS RULING, 8:52 PM, verbatim:** *"Struggling users is worthless, let's remove it entirely. Fix the simulator problem. Fix the changes on your weeks problem."* — the build is: (1) the Struggling Users list REMOVED from the admin page entirely (not fixed); (2) the simulator fix as planned (O-F); (3) the staff chip fix as planned. The cosmetic items and O-D were not taken up — left as they are. Read as his go for exactly these three (§92).
+
+**8:57 PM, before any gate ran, he reconsidered, verbatim:** *"Not sure I need to get rid of it actually. It's fine to leave.  Is it easier to fix it than to remove it?"* — Claude: fixing is one line (the same test the simulator fix adds); removing touched four places and retires checks in three older suites. His answer: *"Go"* — the build is now: Struggling Users FIXED (not removed), the simulator fixed (O-F), the staff chip fixed. The removal was never filed (scratch only).
+
+**AS BUILT — STAFF 209 / ADMIN 372, FILED 12 Oct 2026 (NOT PUSHED).** Gated staff `96f5418f…` / admin `0ed2ab15…` / versions.json `e343755a…`. One admin helper `_p4DecidedRoundBid` (exactly `_hasOpenRoundBid`'s skip test); Struggling Users, the simulator (decided weeks: never re-bid, numbers used, a cap slot, not the target; `simHasBids`; one help sentence) and the staff chip (the My Bids list's rule) leave an announced round's result out. Gates and the blind review (SAFE TO DEPLOY — yes): the BUILD-LOG row and `tests/docs/REVIEW-209-372-2026-10-12.md`. Told to him at filing, left as they are (LOW): in the gap between "Send Round N Results" and "Start Round N+1", Struggling Users no longer lists someone denied on every Round N bid, and a simulator run there counts such a denial toward the cap, not the target.
+
+**9:40 PM, on the two LOW gap-state effects (Struggling Users and the simulator, between "Send Round N Results" and "Start Round N+1"), verbatim:** *"i'm okay with those minor effects"* — ACCEPTED; nothing to build. Also confirmed for him the same minute, by running the built page: the fix holds in every later round (wins of Rounds 1–3 all left out in Round 4); Start Round refuses until the previous round's results are sent, so an unannounced earlier win cannot meet a later round.
+
