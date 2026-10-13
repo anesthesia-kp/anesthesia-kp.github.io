@@ -6679,3 +6679,7 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **6:40 AM, verbatim:** *"keep this: “🔒 Locked Weeks — No bid changes allowed”."* · *"go"* · *"do sign out todying"* — staff 211 also carries: the locked card's tag reads just "🔒 Locked" (the bottom section's heading KEPT as it is); the Close button kept to one compact line (the review's LOW 1, restoring the approved look); an open change list is closed at every sign-out / session end and on a roster removal (the review's LOW 2).
 
 **6:45 AM, verbatim:** *"away from mac for a bit"* · *"continue what you can while i'm gone"* — the 211 gates were run in the cloud. The verifier of the additions found, pre-existing in 210, that on a computer the 12-hour list opened off the LEFT edge of the screen when the Popcornometer box sits alone on its row (timer off); fixed inside 211 under his 6:22 AM brief (*"this box logic needs re-thinking… get it the most functional"*): `_npFit` opens a list rightward when leftward does not fit — told to him at filing. **7:59 AM** *"back"*. Staff 211 FILED about 8:35 AM.
+
+**8:42 AM, verbatim:** *"pushed"* — staff 211 LIVE: served twice, the pushed page md5-identical to the gated copy `403b8887…`; auction `ebb8438`, tests `64337ba`, hub `9c38876`. Next auction honesty baseline `ebb8438`.
+
+**9:19 AM, verbatim:** *"handoff"* · *"all looks good to me"* — he has looked at the live 210 / 373 / 211 work (both change lists, the reports from the home-screen icon). Session V4 closed.
