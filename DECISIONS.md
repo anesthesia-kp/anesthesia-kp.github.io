@@ -266,7 +266,7 @@
 | §249 | 7 Oct 2026 | CLOSING THE "WEEK WITH ROOM LEFT" GAP: A NEW BID ON A COMPETITION WEEK MUST MATCH THE LOWEST WINNING BID ("NO WEAKENING AT ALL" RULED, THEN WITHDRAWN) | RULED in its final form (entry level on a competition week) — NOT BUILT; staff 195 to be planned |
 | §250 | 7 Oct 2026 | THE COMPETITION-WEEK LABEL IS EXPLORED AND PLANNED; THE POPCORNOMETER AND THE "CHANGES" CHIP BOTH GO TO THE LAST 12 HOURS; RULES & REMINDERS TO BE CHECKED AND CORRECTED |  |
 | §251 | 7 Oct 2026 | A BIDDING COMPETITION MEANS MORE ON THE WEEK THAN IT CAN HOLD AT THE SAME TIME; "PREVIOUS PHASES DON'T MATTER" |  |
-| §252 | 7 Oct 2026 | THE FORGED-LOG FIX (A RULES BUILD) IS FOR LATER; THE NEXT BUILD REMOVES "CLEAR CHANGE LOG" |  |
+| §252 | 7 Oct 2026 | THE FORGED-LOG FIX (A RULES BUILD) IS FOR LATER; THE NEXT BUILD REMOVES "CLEAR CHANGE LOG" | forged-log fix DECLINED 12 Oct 2026; Clear Log removal LIVE (359) |
 | §253 | 8 Oct 2026 | BAIL TRACKING WAITS; THE "MID-WAY" QUESTION DECLINED; CHECK ALL THE NEW WORDING; FIX THE PAPERWORK; FIX THE DOUBLE SENDS; REMOVE THE CLEAR-LOG BUTTON; TWO IDEAS FILED |  |
 | §254 | 8 Oct 2026 | STAFF 197 / ADMIN 359: THE BID-BOX NOTE, THE "MAY BE A REPEAT" RE-SEND, "RETRY LOG RESET"; THE LAST-PERSON EDIT APPROVED AND WITHDRAWN; A COMPETITION WEEK IS TO STAY ONE WITH NO EXCEPTION (BUILD 198) |  |
 | §255 | 8 Oct 2026 | STAFF 198 / ADMIN 360: THE REMEMBERED LEVEL IS THE LAST PERSON'S BID; A RETURNING BIDDER IS HELD TO IT LIKE ANYONE; ONE PUSH |  |
@@ -6406,6 +6406,8 @@ So the lowest winning bid on a competition week cannot be undercut by a later ar
 ## §252 — THE FORGED-LOG FIX (A RULES BUILD) IS FOR LATER; THE NEXT BUILD REMOVES "CLEAR CHANGE LOG" — 7 Oct 2026
 
 **Session "Vacation Auction 7 Oct 2026 V2", about 9:46 PM, verbatim: *"mark rules change for a later todo, when phase 3 is complete maybe.  next build must remove option to clear log in this case. pushed."*** (1) F1 of the 196 audits — forged change-log entries can make a real fight read as "never together" — is to be closed by a `firestore.rules` change (one document per entry, create-only, the writer's own initials, the server's time), FOR LATER: a TODO item, "when phase 3 is complete maybe". Not planned, nothing built. (2) **The next build removes the admin's option to clear the change log** ("Clear Change Log", admin page; it writes the log empty with no reset stamp, which under 196 makes every floor count for the rest of the phase and erases the record the competition rule reads). Not planned, nothing built (§92): explore, one plan, his go.
+
+**12 Oct 2026 (session "Vacation Auction 12 Oct 2026 V3", 8:19 PM) — THE FORGED-LOG RULES BUILD (F1) IS DECLINED.** Phase 3 had closed, so his condition ("when phase 3 is complete maybe") was met and Claude raised it as the one current item. Asked *"Is it really that important?"*, Claude's answer: not in practice — it needs a colleague to deliberately hand-write two crafted entries with developer tools; the gain is the competition rule switched off on one week; the entries appear in the admin Change Log (as an ordinary removal and re-add); the fix (rules + every writer and reader of the log) is the build most likely to break a working site. Recommended table or decline. His ruling, verbatim: *"Decline"*. Nothing built. In the TODO CLOSED / DECLINED table.
 
 ## §253 — BAIL TRACKING WAITS; THE "MID-WAY" QUESTION DECLINED; CHECK ALL THE NEW WORDING; FIX THE PAPERWORK; FIX THE DOUBLE SENDS; REMOVE THE CLEAR-LOG BUTTON; TWO IDEAS FILED — 8 Oct 2026
 
