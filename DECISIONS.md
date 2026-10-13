@@ -281,7 +281,7 @@
 | §264 | 11 Oct 2026 | TWO HARD CONTEXT LINES: NO NEW BUILD ABOVE 550,000 TOKENS, EVERYTHING STOPS AT 650,000; NO SESSION IS EVER COMPACTED | STANDING |
 | §265 | 11 Oct 2026 | THE ADMIN PAGE MUST WAIT FOR ITS DATA BEFORE IT DRAWS, LIKE THE STAFF PAGE (§241) |  |
 | §266 | 12 Oct 2026 | LOCKED WEEKS STAY IN THEIR MONTH ON THE STAFF BOARD, GREYED; A WON WEEK STAYS GREEN | LIVE (207 / 370, `17d4e49`, 12 Oct 2026) |
-| §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | FILED (208 / 371), not yet pushed |
+| §267 | 12 Oct 2026 | WHEN BIDDING CLOSES NOTHING MOVES: EVERY WEEK DRAWN LOCKED AT ZERO, WITH OR WITHOUT AN ADMIN PAGE, IN THE LAYOUT IT HAD | LIVE (208 / 371, `ab7f2d8`, 12 Oct 2026) |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6608,4 +6608,8 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 
 **Put to him, UNRULED:** the review found that an admin UNLOCKING a week by hand after the close re-arranges the board (a deliberate admin act, like flipping the switch) — keep (Claude's recommendation) or hold the layout even then?
 
-**Status:** FILED 12 Oct 2026 about 7:30 PM (gated staff `83b39ae5…`, admin `251feb0a…`, versions.json `abc6f88a…`) — NOT PUSHED; the push is his.
+**FILED 12 Oct 2026 about 7:30 PM. PUSHED BY HIM about 7:50 PM — LIVE `ab7f2d8`**, served twice, the pushed pages md5-identical to the gated copies (tests `17ba1b7`, hub `7621028`).
+
+**HIS RULING on the open question, 7:53 PM, verbatim:** *"pushed.  if I unlock a week by hand, it must always be on the bidding board.  if it's down below, it would have to move up top.  if it's top, nothing should change?"* — an admin UNLOCK after the close: the unlocked week must always be on the bidding board, in its month; if it sat in the bottom section it moves up; if it is already in its month nothing changes — and (Claude's reading, put to him) NO OTHER week moves. Today (208) the other weeks that were open at the close DO move to the bottom when a week is unlocked, and a re-lock rewrites the saved list. A further build (staff 209 / admin 372) was outlined. **Then, 8:05 PM, after Claude explained it arises only in a phase whose switch is at the bottom (Phase 1 by default), after the close, and only if he unlocks a week by hand: *"I would never do that"* — DECLINED; nothing to build.** (In the TODO CLOSED / DECLINED table.)
+
+**Status:** LIVE — staff 208 / admin 371 since 12 Oct 2026 (`ab7f2d8`). The unlock refinement was declined (8:05 PM).
