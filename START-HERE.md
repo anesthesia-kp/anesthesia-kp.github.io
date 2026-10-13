@@ -24,9 +24,9 @@
 | file | answers | lines | last changed |
 |---|---|---|---|
 | `anesthesia-kp.github.io/START-HERE.md` | how we work — every binding rule, once; the map of every file and archive; the LIVE line — the one file the owner pastes; read first, every session, then TODO's STATUS block and §1 | 243 | today (uncommitted) |
-| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 399 | today (uncommitted) |
-| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 859 | 2026-10-12 |
-| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 6637 | today (uncommitted) |
+| `anesthesia-kp.github.io/TODO.md` | what is OUTSTANDING on both sites — the generated STATUS block, the §1 queue and its standing constraint, the held schedule pile, and the CLOSED / DECLINED never-re-raise table; read at §4 step 1 of every session | 403 | today (uncommitted) |
+| `anesthesia-kp.github.io/HANDOFF.md` | how a session closes (the checklist), how the files are maintained, the standing traps of the tools and machines, PART A–D reference and D1–D5, and the latest session entries; read the checklist before any hand-over | 867 | today (uncommitted) |
+| `anesthesia-kp.github.io/DECISIONS.md` | every owner ruling on both sites, numbered and dated, never trimmed — the generated index (§ · date · title · status) first, then the body; read the index to find a ruling, read its § before re-litigating or building on it | 6662 | today (uncommitted) |
 | `anesthesia-kp.github.io/HANDOFF-ARCHIVE.md` | sections archived from HANDOFF.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 2700 | 2026-10-12 |
 | `anesthesia-kp.github.io/START-HERE-ARCHIVE.md` | the stories behind START-HERE's rules and every paragraph retired from it, including the whole pre-pass START-HERE of 7 Sep 2026 — why a rule exists, by rule number; read when a rule's reason or history matters | 816 | 2026-09-08 |
 | `anesthesia-kp.github.io/TODO-ARCHIVE.md` | sections archived from TODO.md, verbatim and dated (moved by archive.mjs) — read when a working file points here, or when a fact is absent from the working file | 1699 | 2026-09-08 |
@@ -101,7 +101,7 @@
 | `tests/docs/TIMER-REVIEW-2026-09-17.md` | the read-only review of every timer control (Timer card slider, Reset Timer, on/off, Timer Rules, Reset Mode) on live admin 340 / staff 178 — what each really does, the confirmed defects T-1…T-10 with the run that proves each, and the options A–D awaiting his ruling; read before any timer build | 89 | 2026-09-17 |
 | `tests/docs/TRACE-same-bid-2026-09-02.md` | the read-only trace of the "same bid, same answer" dialog and the Phase-4 bid-number lifecycle (§173, 2 Sep 2026); read when denial, round or bid-number rules are questioned | 88 | 2026-09-08 |
 | `tests/docs/WHEEL-FAIRNESS-CHECK-2026-10-05.md` | whether any user is favoured over another in a Wheel of Names spin (owner question, 5 Oct 2026, admin 356) — NO: how the wheel picks, the measured spins (over 40 million), what was checked when two runs wobbled, what the wheel does NOT do (it decides nothing, re-spins are unlimited and unrecorded), and the standing suite test-wheel-fairness.mjs that now re-checks it in every battery; read before re-measuring the wheel, before changing openWheel / drawWheel / spinWheel, or when someone asks whether a spin was fair | 36 | 2026-10-05 |
-| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 149 | today (uncommitted) |
+| `vacation-kp.github.io/BUILD-LOG.md` | what shipped on the Vacation Auction — one row per build with its gates and its commit; read for any auction build number's record | 149 | 2026-10-12 |
 | `schedule/BUILD-LOG.md` | what shipped on the Daily Schedule — one row per build with its gates and its commit; read for any schedule build number's record | 175 | 2026-08-30 |
 <!-- MAP:END -->
 
@@ -240,4 +240,4 @@ Working both sites from one chat is the owner's settled preference. What makes i
 
 ## 7 · WAIT FOR INSTRUCTIONS BETWEEN BATCHES
 
-The owner drives the order. Present the state, propose, and stop.
+The owner drives the order. Present the state, propose, and stop. **Never suggest a hand-off when the session has done little** (owner, 12 Oct 2026: *"bad idea to handoff now.  don't suggest that again when this session has done basically nothing."*).
