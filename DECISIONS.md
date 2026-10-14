@@ -178,7 +178,7 @@
 | §161 | 1 Sep 2026 | G1, G2, G3 BUILT (318), AND A SEVERITY CALL CORRECTED TWICE | LIVE (318) |
 | §162 | 1 Sep 2026 (evening) | RA-8 MANDATED: A THOROUGH AUDIT OF THE WEEK'S AUCTION BUILDS, AND TWO CAPACITY REQUIREMENTS | DONE — RA-8 filed §166 |
 | §163 | 1 Sep 2026 (evening) | A PHASE-4 ROUND GETS THE SAME TREATMENT AS A PHASE, EVERYWHERE | LIVE (319, 322) |
-| §164 | 1 Sep 2026 (evening) | RA-8'S THREE ANSWERS, AND THE STANDING ORDER FOR WHAT FOLLOWS IT: SAFE, NARROW, WINDING DOWN | STANDING |
+| §164 | 1 Sep 2026 (evening) | RA-8'S THREE ANSWERS, AND THE STANDING ORDER FOR WHAT FOLLOWS IT: SAFE, NARROW, WINDING DOWN | ITEM 4 LIFTED BY §274 |
 | §165 | 1 Sep 2026 (evening) | THE OWNER'S RUNNING LIST OF FINDINGS DURING RA-8: rounds open with the window, timer rules editable, two rules-text changes | BUILT (319/166, 322/167); O-2 clean |
 | §166 | 1 Sep 2026 (late evening) | RA-8 IS FILED: NOTHING BREAKS THE AUCTION; THE RECORD AND THE ROUNDS-AS-PHASES CLASS ARE WHAT REMAINS | FILED |
 | §167 | 1 Sep 2026 (late evening) | HIS THREE ANSWERS TO RA-8'S DECISIONS: NO E-MAIL ON A CAPACITY RAISE; THE CONFIRM ON A CUT BELOW APPROVED; AND A CORRECTION | BUILT (319) |
@@ -288,6 +288,10 @@
 | §271 | 13 Oct 2026 | THE TEST SITE: A PRIVATE PUBLISHED PAGE, 35 MADE-UP DOCTORS, 4 FTE A WEEK, KEPT CURRENT ALWAYS |  |
 | §272 | 13 Oct 2026 | OWNER-FOUND: PHASE 3 RESULTS E-MAILED TWICE TO EVERY DOCTOR — TWO SENDS OVERLAPPED; FIXED AS ADMIN 375, LIVE |  |
 | §273 | 13 Oct 2026 | A "BETWEEN PHASES" STATE ON BOTH PAGES: EXPLORED, ONE PLAN (STAFF 212 / ADMIN 376) |  |
+| §274 | 14 Oct 2026 | THE "RISKY TO BUILD" GUIDANCE LIFTED: THE LIVE SITE WILL NOT BE USED FOR SEVERAL MONTHS | STANDING |
+| §275 | 14 Oct 2026 | PRIVACY ON THE SITE: SITE SECURITY ONLY, FOR NOW |  |
+| §276 | 14 Oct 2026 | AN ADMIN SECTION FOR SENDING E-MAILS TO THE GROUP OR SELECTED USERS, ONE-TIME OR PERIODIC | BUILT (377, filed) |
+| §277 | 14 Oct 2026 | OWNER-FOUND ON THE TEST SITE: THE PHASE 4 START DIALOG'S BUTTONS COULD NOT BE REACHED — FILED FOR LATER |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -4706,6 +4710,8 @@ that exact rule. Whether that reaches a person is for the audit to drive.
 
 ## §164 — RA-8'S THREE ANSWERS, AND THE STANDING ORDER FOR WHAT FOLLOWS IT: SAFE, NARROW, WINDING DOWN — 1 Sep 2026 (evening)
 
+**⚠ ITEM 4 (THE STANDING ORDER) LIFTED 14 Oct 2026 by §274 — the live site will not be used for several months; new builds are no longer treated as risky. Items 1–3 stand as written.**
+
 **His words, verbatim:** *"I read that as adding capacity to a week - correct. okay to allow admin to reduce
 capacity below what's approved, it's unlikely and maybe not worth the build. perhaps a confirmation dialogue
 stating that's happening to keep it simple? If it's just as easy to block it with an explanation why, that also
@@ -6745,3 +6751,39 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **Built and FILED 14 Oct 2026 (V4) — staff 212 / admin 376, NOT YET PUSHED.** As ruled, with one change from the independent review, told to him: while a rounds-run Phase 4 waits for "Mark results sent" the admin's small line stays the plain "✓ Complete" (it had said "results not sent yet" beside the box saying every round was announced); and on the staff page the last round's line ("Round N complete · Round N+1 is next") shows until "Mark results sent", not only until Complete Phase 4 — the staff page cannot tell the two apart. Record `tests/docs/REVIEW-212-376-2026-10-13.md`; BUILD-LOG row 212 / 376.
 
 **✅ LIVE 14 Oct 2026 — staff 212 / admin 376 `23dfb11`.** He pushed about 7:35 AM (*"pushed.  handoff."*); served twice, the pushed pages md5-identical to the gated copies.
+
+## §274 — THE "RISKY TO BUILD" GUIDANCE LIFTED: THE LIVE SITE WILL NOT BE USED FOR SEVERAL MONTHS — 14 Oct 2026
+
+**Session "Vacation Auction 14 Oct 2026 V1", about 7:48 AM, verbatim:** *"The live site will not be used for several months.  Remove the guidance that it's risky to do new builds."*
+
+**WHAT THIS RULES:** §164 item 4 (no dangerous builds, narrow and safe only, winding down) is LIFTED, and the "every decision is made knowing the auction is live" framing in START-HERE §1 is replaced: Phases 1–3 are complete and nobody is bidding, so a new build is ordinary work again. Edited the same turn: START-HERE's ⛔ line, §1's paragraph and fact (1), `TODO.md`'s standing constraint, §164's index row and heading note.
+
+**WHAT IT DOES NOT CHANGE (Claude's reading, said to him the same turn):** §92 stands — each change to what the auction serves still needs his specific go. The working discipline (§3: explore, plan, his go, tests that fail on the previous build, reviews) is how code is kept high quality, not a risk posture, and stands. The site still holds the REAL Phase 1–3 results; a build may not damage them.
+
+## §275 — PRIVACY ON THE SITE: SITE SECURITY ONLY, FOR NOW — 14 Oct 2026
+
+**Session "Vacation Auction 14 Oct 2026 V1".** 8:42 AM he asked *"What privacy violations should i be concerned with on my site?"* and 8:43 AM *"include info that admin has access to that users do not"*; Claude read the rules and the public repos and listed six concerns (1 any Google account can read the address documents and the bids; 2 blinded bidding and withheld numbers are display only; 3 the roster is public without sign-in; 4 the public project notes unscanned; 5 visit tracking possibly undisclosed; 6 third parties and employer policy) and what only admins see. 8:54 AM *"Which of these are reasonably easy fixes?"* — answered (5 easy; 1 moderate; 2 and 3 hard).
+
+**8:54 AM, verbatim:** *"let's only address site security for now"* — the work is item 1 (and, by his questions, any part of 2 he chooses). Items 4, 5 and 6 are KEPT FOR LATER (filed in TODO §1, not to be surfaced). Explored read-only the same turn; ONE plan: `tests/docs/PLAN-SECURITY-REGISTERED-READS-2026-10-14.md` — rules: the six address / sign-in documents readable only by a registered colleague, an auction admin or a schedule admin; staff page: a refused sign-in-list read tells "not registered" from a failed security check by one public read. Three questions put to him (the bid documents too; `adminAccess` admins-only; push order). NOT approved, nothing built (§92).
+
+**9:03 AM, verbatim:** *"1-yes.  2-yes."* — (1) the bid documents (`schedule · bestBids · changes · bidTimes · bidPhase · bidLowerings · bidHolds`) join the "registered only" bar too (price checked the same turn: Firestore Standard reads $0.03 per 100,000 beyond the 50,000-a-day free quota, rules get()/exists() billed, each dependent document once per request); (2) `adminAccess` readable by admins only. Question 3 (push order) and the go to build: NOT yet given.
+
+## §276 — AN ADMIN SECTION FOR SENDING E-MAILS TO THE GROUP OR SELECTED USERS, ONE-TIME OR PERIODIC — 14 Oct 2026
+
+**Session "Vacation Auction 14 Oct 2026 V1", 9:03 AM, verbatim:** *"I also want to explore if it's possible for the admin site to have a new section to the site to send e-mails to the group or to selected users from the site."* **9:04 AM, verbatim:** *"I'm interested in the ability to craft 1-time or periodic e-mails that utilize the built in email addresses on the site."* Explore only — NOT planned, NOT approved, nothing built (§92).
+
+**The reading (live admin 376), told to him the same turn:** no free-form message exists today — the Messaging Users card has bid reminders, the outbox and the EmailJS meter. The pieces exist: `adminSendEmail` sends one e-mail per address (Google + KP via `recipientsFor`), records each in the E-mail Log, counts against the meter. Every e-mail goes through ONE EmailJS template whose SUBJECT is fixed in the template (the body is the `changes` parameter) — a custom subject needs a second template made in his EmailJS dashboard. Periodic sending needs something that runs on its own; nothing in this project runs without an open browser, so a true schedule is not possible from the site alone.
+
+**9:07 AM, verbatim, with a screenshot of a Phase 3 results e-mail (sender "Vacation Goddess", subject "Vacation Scheduler"):** *"Not sure I need another template since the subject and text is generic."* — AGREED, no second template: the existing template passes the body through whole (the greeting is written by the code), so an admin message rides the same subject. Seen in his screenshot and told to him: the template's Reply-To is the RECIPIENT's own address, so a colleague who replies to a message writes to themselves — a setting in his EmailJS dashboard, not site code; his call.
+
+**9:08 AM, verbatim:** *"1-time e-mails only for now.  Send to both e-mails.  yes, be able to save drafts and store past 1-time messages."* — one-time messages only (no periodic, for now); each to the Google AND the KP address; drafts saved and every sent message stored. ONE plan the same turn: `tests/docs/PLAN-ADMIN-MESSAGES-2026-10-14.md` (a new admin panel "📨 Messages", one new admin-only document, four questions). The Reply-To question not yet answered. NOT approved, nothing built (§92).
+
+**9:16 AM, verbatim:** *"1-yes.  2-yes.  3-messages first, then security.  4- I fixed this.  security fix will go in next session."* — (1) greeting "Hello <initials>," and sign-off "— Anesthesia Vacation Scheduler" added automatically; (2) one confirm with the counts, a second red confirm for "Everyone"; (3) ORDER: the Messages build first, the security build (§275) after — in the NEXT session; (4) he changed the template's Reply-To himself in EmailJS. The explicit go to build Messages: asked for the same turn (§0 rule 2).
+
+**9:20 AM, verbatim:** *"I want the new admin section to be in a sensible location within the People category.  Go."* — GO to build Messages as planned (admin 377), the panel placed in the menu's People group.
+
+## §277 — OWNER-FOUND ON THE TEST SITE: THE PHASE 4 START DIALOG'S BUTTONS COULD NOT BE REACHED — FILED FOR LATER — 14 Oct 2026
+
+**Session "Vacation Auction 14 Oct 2026 V1", 9:35 AM (during the admin 377 build), verbatim:** *"File for later.  On the test site, I was unable to proceed with P4 due to being unable to click either cancel or open selected months and reopen.  Im not sure if it's because I couldn't slide down in the box far enough, but those buttons were not usable."* — on the test site (the Firebase-free copy of the real pages, §271), starting Phase 4: the dialog's Cancel and "open selected months and reopen" buttons could not be clicked — possibly the box could not be scrolled far enough to reach them. FILED FOR LATER at his word — not read, not explored, nothing built. When taken up: read the dialog on the live admin page first (the test site runs the real page's code, so the live page likely shares it), find whether its buttons sit below a box that cannot scroll, and hunt the class (every tall dialog).
+
+**Built and FILED 14 Oct 2026 — admin 377, NOT YET PUSHED.** As planned, the panel in the People group just above ✉️ E-mail Log. Found in the code and told to him: the e-mail TEMPLATE already adds the site link, the sign-off and the subject to every site e-mail, so the code adds only "Hello <initials>," (his "1-yes" is met without a second sign-off). The blind review's HIGH (an address could be e-mailed twice if a page died between the e-mail and its record) was fixed with a "trying" mark before every e-mail — an unconfirmed address is shown "not confirmed" and never re-sent automatically — and its four MEDIUM answered; verifier SAFE TO DEPLOY — yes. **Push order for this build: the rules FIRST (console, then RA-2), then the page** (under the old rules the new document is world-readable). Record: BUILD-LOG row 377, `tests/docs/REVIEW-377-2026-10-14.md`.
