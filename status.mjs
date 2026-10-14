@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
+import { createHash } from 'node:crypto'; // [§278] the test site's pages compared by md5
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -501,6 +502,21 @@ if (process.env.SH_PATH) {
     if (nextDec !== decText) { writeFileSync(decPath, nextDec); console.log(`DECISIONS.md index rewritten (${decHeadings.length} rulings; body untouched).`); }
     else console.log(`DECISIONS.md index unchanged (${decHeadings.length} rulings).`);
   }
+}
+
+// [§278 · 14 Oct 2026] THE TEST SITE MUST CARRY EVERY BUILD (owner: "If they don't, the test site is useless."). It is a
+// published copy that cannot update itself; tests/testsite/published.json records the md5 of each page the published
+// copy was made from (written by tests/testsite/mark-published.mjs after each publish, HANDOFF step 3a). Both must
+// equal the pages on disk — so a build filed (or pushed) without republishing the test site fails this gate.
+{
+  const md5f = p => { try { return createHash('md5').update(readFileSync(p)).digest('hex'); } catch (_) { return null; } };
+  let pub = null; try { pub = JSON.parse(readFileSync(join(REPOS.tests, 'testsite', 'published.json'), 'utf8')); } catch (_) {}
+  const pa = pub && pub.sources && pub.sources.admin, ps = pub && pub.sources && pub.sources.staff;
+  const dA = md5f(join(REPOS.auction, 'admin', 'index.html')), dS = md5f(join(REPOS.auction, 'index.html'));
+  if (!pub) docsFail.push({ code: 8, msg: 'TEST SITE NOT RECORDED (§278): tests/testsite/published.json is missing or unreadable — republish the test site (HANDOFF step 3a), then run node tests/testsite/mark-published.mjs' });
+  else if (!pa || !ps || !dA || !dS || pa.md5 !== dA || ps.md5 !== dS)
+    docsFail.push({ code: 8, msg: 'TEST SITE BEHIND (§278): it was made from admin ' + (pa && pa.build) + ' / staff ' + (ps && ps.build) + ', and the pages on disk are different — republish it (HANDOFF step 3a), then run node tests/testsite/mark-published.mjs' });
+  else console.log('✅ test site current — carries admin ' + pa.build + ' / staff ' + ps.build + ' (§278)');
 }
 
 let exitCode = 0;
