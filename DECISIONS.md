@@ -286,7 +286,7 @@
 | §269 | 12 Oct 2026 | HIS GOAL: RESOLVE THE WHOLE PENDING LIST, EVENTUALLY |  |
 | §270 | 13 Oct 2026 | A COUNTDOWN THAT RUNS OUT ALSO CLOSES BIDDING ON THE SERVER (ADMIN 374) |  |
 | §271 | 13 Oct 2026 | THE TEST SITE: A PRIVATE PUBLISHED PAGE, 35 MADE-UP DOCTORS, 4 FTE A WEEK, KEPT CURRENT ALWAYS |  |
-| §272 | 13 Oct 2026 | OWNER-FOUND: PHASE 3 RESULTS E-MAILED TWICE TO EVERY DOCTOR — TWO SENDS OVERLAPPED; FIX PLANNED, NOT BUILT |  |
+| §272 | 13 Oct 2026 | OWNER-FOUND: PHASE 3 RESULTS E-MAILED TWICE TO EVERY DOCTOR — TWO SENDS OVERLAPPED; FIXED AS ADMIN 375, LIVE |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6711,7 +6711,7 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 
 **BUILT and PUBLISHED — 13 Oct 2026 (V2).** The probe came back from both of his devices (the Claude desktop app: 13 of 13; the Claude iPhone app: 12 of 13 — a new tab is refused there, as expected, so reports use the panel, his answer 4). The test site is a private published page (https://claude.ai/artifact/RqnGwmqua7PW1qhT9aVtnG): a Home tab, the real admin and staff pages in frames (side by side on a wide screen), and an E-mails tab listing what the pages would have sent. Built by `tests/testsite/make-testsite.mjs` from the real pages — six external addresses swapped for the button sweep's fakes, four live links turned into tab switches, one inserted script (`testsite.js`: the red bar, the shared saved data, the sign-in picker, the kept e-mails, the report panel); the sweep's own files are never written. The seed as he ruled: 35 made-up doctors, 52 weeks at 4 FTE, Rehearsal Mode on, before Phase 1. Gates: new suite `test-testsite-make.mjs` 37/37 (undoing the listed swaps gives each real page back byte for byte; the generator refuses a surviving live address or a moved link); the Mac battery 141 suites / 6,540 assertions, exit 0 (the predicted +37); the browser check `tests/testsite/testsite-check.mjs` 31/31 — and RED under each of six deliberate breaks (no shared data ×2, no picker, no report panel, no kept e-mails, no tab switch). Kept current per his answer 3: HANDOFF closing checklist step 3a. Nothing the auction serves changed.
 
-## §272 — OWNER-FOUND: PHASE 3 RESULTS E-MAILED TWICE TO EVERY DOCTOR — TWO SENDS OVERLAPPED; FIX PLANNED, NOT BUILT — 13 Oct 2026
+## §272 — OWNER-FOUND: PHASE 3 RESULTS E-MAILED TWICE TO EVERY DOCTOR — TWO SENDS OVERLAPPED; FIXED AS ADMIN 375, LIVE — 13 Oct 2026
 
 **Session "Vacation Auction 13 Oct 2026 V2".** 6:19 PM, verbatim: *"I'm also interested in removing the extra send phase results button in the messaging users card. It was used today by an admin other than myself to send results, and then I had to send results a second time to advance through the current phase card. any utility for that button anymore"* — then *"It was all phase 3 results"* and *"I actually don't know which send results button the other admin used"*, with two E-mail Log exports (failed-only; then the Phase 3 results kind — 88 rows).
 
