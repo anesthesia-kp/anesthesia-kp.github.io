@@ -96,6 +96,14 @@ trusting the summary's paraphrase of them.
 - The **isolation guard** (the cardinal rule) re-run after anything that touches a writer.
 - Say how many suites RAN and how many were SKIPPED. "All green" beside 22 skips is a lie.
 
+### 3a · Keep the test site current — owner ruling 13 Oct 2026 (DECISIONS §271: *"keep current always"*)
+
+If either auction page changed on disk this session (a build filed or pushed), regenerate and republish the private test site before closing — to the SAME link, never a new one:
+- in the cloud, with the repos laid out as for the battery: `GH_ROOT=<root> node tests/testsite/testsite-check.mjs` — it rebuilds `tests/testsite/out/` from the pages on disk (refusing a page mid-build or one where a live address would survive) and drives it in Chromium; it must say **31/31 passed, exit 0**;
+- publish `tests/testsite/out/index.html` with the Artifact tool: `url` https://claude.ai/artifact/RqnGwmqua7PW1qhT9aVtnG, `root` `tests/testsite/out`, `files` = every path in `tests/testsite/out-files.json`;
+- say in the chat which builds it now carries (its Home tab names them). If no page changed: say "test site — no page changed, not republished".
+The test site never touches the auction; `out/` is never committed. The design and the reasons: `tests/docs/PLAN-TEST-SITE-2026-10-13.md`.
+
 ### 4 · Account for every file
 
 - `git status` in **all four** repos. Name every uncommitted file and say why it is uncommitted
@@ -881,3 +889,11 @@ nowhere.*
 **Lessons.** (1) **SAME-ORIGIN HOSTING SHARES BROWSER STORAGE WITH THE LIVE SITE** — every site on `anesthesia-kp.github.io` is one origin; both real pages read `auctionConfigV1` at start. Any copy of the pages served there could change what the live page shows in that browser. Test copies go on their own origin (a published page). (2) **A SHELL EXIT CODE IS NOT THE SCRIPT'S** — `node status.mjs > /tmp/st.txt` "exited 1" because the redirect was refused on the device, so status.mjs never ran; check the redirect target is writable (use `$HOME/…` on the device) before reading the number. (3) Rule 18 paid again: one new assertion passed on 373 through `[].every()` on an empty list — found by reading the honesty run's passes, closed before filing.
 **Next session.** The test site build (TODO §1 ▶ NEXT): his go first; step 1 is the probe page on his phone and computer.
 **Session close** about 1:20 PM at 411,050; docs to push (hub, tests); `_to_delete/` holds this session's transfer bundle (`xfer374/`) and moved locks — his to empty.
+
+## 13 Oct 2026 — "Vacation Auction 13 Oct 2026 V2" — THE TEST SITE BUILT AND PUBLISHED (§271) · PHASE 3 RESULTS SENT TWICE, FOUND AND PLANNED (§272)
+
+**State.** LIVE unchanged: staff 211 `ebb8438` / admin 374 `de3fc98`, served twice at the opening. Nothing the auction serves changed this session. Next auction honesty baseline still `de3fc98` (admin), `ebb8438` (staff).
+**The session, in order.** (1) 1:20 PM re-grounding at 190,544; START-HERE delivered (the attached copy was older than disk — disk used). (2) His go on the test site, 1:33 PM; the probe page published and run on both his devices (desktop app 13/13; iPhone app 12/13 — a new tab is refused there, as expected). (3) The test site built in `tests/testsite/` and `tests/test-testsite-make.mjs`, published privately (link in HANDOFF checklist step 3a and the plan §10); browser check 31/31 and red under six deliberate breaks; Mac battery 141 / 6,540, exit 0. Files unpacked from `_to_delete/xfer-testsite/` and md5-verified. (4) 6:19 PM his ask to remove the Messaging Users card's extra "Send Phase Results" → read: same function as the phase card's; then his two E-mail Log exports showed every Phase 3 results address e-mailed twice — two overlapping sends; cause read in the code and a five-part plan filed (§272, TODO top). Not built.
+**Lessons.** (1) **AN E-MAIL LOG EXPORT ANSWERS WHAT THE CODE CANNOT** — the reading "the extra button caused it" was wrong twice over; the timestamps showed two overlapping sends, which no reading of the buttons could. Ask for the log early. (2) **A bare `fake/x.js` in an `import` is not a path** — the staff copy failed to load until it was `./fake/x.js`; the browser check found it. (3) **A guard that expires is only as good as the longest run it guards** — the results claim lasts 2 minutes; a sleeping phone made a send last 53.
+**Next session.** §272 first (owner-found): put the plan to him as ONE plan, his go, build, full gate + independent review. Then the test site waits on his look.
+**Session close** about 8:30 PM at about 465,000; his pushes owed: tests (`Tests: test site`) and hub (`Docs: test site built`) — the hub commit now also carries §272, the TODO entry and this entry. Test site: no page changed — not republished. `_to_delete/` holds `xfer-testsite/` and moved locks — his to empty.
