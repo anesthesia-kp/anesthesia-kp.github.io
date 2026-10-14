@@ -290,8 +290,9 @@
 | §273 | 13 Oct 2026 | A "BETWEEN PHASES" STATE ON BOTH PAGES: EXPLORED, ONE PLAN (STAFF 212 / ADMIN 376) |  |
 | §274 | 14 Oct 2026 | THE "RISKY TO BUILD" GUIDANCE LIFTED: THE LIVE SITE WILL NOT BE USED FOR SEVERAL MONTHS | STANDING |
 | §275 | 14 Oct 2026 | PRIVACY ON THE SITE: SITE SECURITY ONLY, FOR NOW |  |
-| §276 | 14 Oct 2026 | AN ADMIN SECTION FOR SENDING E-MAILS TO THE GROUP OR SELECTED USERS, ONE-TIME OR PERIODIC | BUILT (377, filed) |
+| §276 | 14 Oct 2026 | AN ADMIN SECTION FOR SENDING E-MAILS TO THE GROUP OR SELECTED USERS, ONE-TIME OR PERIODIC | LIVE (377, `d3f8b95`, 14 Oct 2026) |
 | §277 | 14 Oct 2026 | OWNER-FOUND ON THE TEST SITE: THE PHASE 4 START DIALOG'S BUTTONS COULD NOT BE REACHED — FILED FOR LATER |  |
+| §278 | 14 Oct 2026 | THE TEST SITE MUST CARRY EVERY BUILD |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6787,3 +6788,9 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **Session "Vacation Auction 14 Oct 2026 V1", 9:35 AM (during the admin 377 build), verbatim:** *"File for later.  On the test site, I was unable to proceed with P4 due to being unable to click either cancel or open selected months and reopen.  Im not sure if it's because I couldn't slide down in the box far enough, but those buttons were not usable."* — on the test site (the Firebase-free copy of the real pages, §271), starting Phase 4: the dialog's Cancel and "open selected months and reopen" buttons could not be clicked — possibly the box could not be scrolled far enough to reach them. FILED FOR LATER at his word — not read, not explored, nothing built. When taken up: read the dialog on the live admin page first (the test site runs the real page's code, so the live page likely shares it), find whether its buttons sit below a box that cannot scroll, and hunt the class (every tall dialog).
 
 **Built and FILED 14 Oct 2026 — admin 377, NOT YET PUSHED.** As planned, the panel in the People group just above ✉️ E-mail Log. Found in the code and told to him: the e-mail TEMPLATE already adds the site link, the sign-off and the subject to every site e-mail, so the code adds only "Hello <initials>," (his "1-yes" is met without a second sign-off). The blind review's HIGH (an address could be e-mailed twice if a page died between the e-mail and its record) was fixed with a "trying" mark before every e-mail — an unconfirmed address is shown "not confirmed" and never re-sent automatically — and its four MEDIUM answered; verifier SAFE TO DEPLOY — yes. **Push order for this build: the rules FIRST (console, then RA-2), then the page** (under the old rules the new document is world-readable). Record: BUILD-LOG row 377, `tests/docs/REVIEW-377-2026-10-14.md`.
+
+**✅ LIVE 14 Oct 2026 — admin 377 `d3f8b95`.** He published the rules first and ran RA-2 (193 passed, 0 failed; honesty: the 4 new gates FAIL on the old rules), then pushed all three (tests `61d91a4`, hub `024f419`); served twice, the pushed page md5-identical to the gated copy. 10:44 AM, verbatim: *"it works, already used it.  thanks."*
+
+## §278 — THE TEST SITE MUST CARRY EVERY BUILD — 14 Oct 2026
+
+**Session "Vacation Auction 14 Oct 2026 V1", 10:44 AM, verbatim:** *"I don't see this update as part of the test site.  I thought all updates would automatically go live there as well?  If they don't, the test site is useless."* — The test site (§271) is a private published copy; it cannot update itself from GitHub, and a session republishes it (HANDOFF step 3a). This session had not yet republished after 377 — Claude's miss. Republished the same turn (admin 377 / staff 212, browser check 31 / 31). Proposed to him the same turn, NOT yet ruled: make it a gated step — republish as part of FILING every build (before he pushes), record the published builds in a tracked file, and have `status.mjs` exit non-zero when the test site's builds differ from `versions.json`.
