@@ -73,7 +73,7 @@ trusting the summary's paraphrase of them.
   LAST REVISED date against git, regenerates START-HERE's MAP and the DECISIONS index, and
   measures every governing file against its tripwire (§188). If it cannot reach `origin/main` it says so LOUDLY — in that
   state, `git fetch` first and believe no build number until you have.
-- **`START-HERE.md`** — the LIVE line, the `FILED, NOT YET PUSHED:` line, and LAST REVISED,
+- **`START-HERE.md`** — the LIVE line (REPLACE its builds, commits and baseline — never append history, §281), the `FILED, NOT YET PUSHED:` line, and LAST REVISED,
   bumped in the SAME turn as the edit. Delete the FILED line once it is pushed.
 - **`BUILD-LOG.md`** — a row for every build, written at the same time as the code, in the
   repo the build belongs to.

@@ -295,6 +295,7 @@
 | §278 | 14 Oct 2026 | THE TEST SITE MUST CARRY EVERY BUILD |  |
 | §279 | 14 Oct 2026 | AFTER THE SECURITY BUILD: STOPPING THE WORST KIND OF BAIL ON A COMPETITION WEEK, AND A "MINIMUM BID" LABEL |  |
 | §280 | 15 Oct 2026 | THE SHORT START MESSAGE: START-HERE IS READ FROM THE DISK, NEVER PASTED, AND NO LONGER GOES TO THE OUTPUTS COLUMN | STANDING |
+| §281 | 15 Oct 2026 | START-HERE'S LIVE LINE SHORTENED TO THE CURRENT BUILDS AND BASELINE | STANDING |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6866,4 +6867,8 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **His rulings, verbatim:** *"1-yes stop that."* — START-HERE is no longer delivered to the outputs column at the start and end of a session (§212 SUPERSEDED). And: *"I also want you to always present the new, shortened start here message with the commit lines within the chat so it's easy to copy and start the next session.  Ensure that's remembered."* — at every hand-over, and whenever commit lines are given, the message from `SESSION-START.md` goes IN THE CHAT in its own copy-box right after the commit lines. Recorded in START-HERE (the line under the LIVE line, §3's paperwork table and commit paragraph, §4 step 5), HANDOFF's hand-over step, and his saved preferences. START-HERE itself is still never pasted into the chat (§247 stays withdrawn).
 
 **Asked, not yet ruled:** shortening START-HERE's LIVE line to the current builds and baseline (the history is in each BUILD-LOG).
+
+## §281 — START-HERE'S LIVE LINE SHORTENED TO THE CURRENT BUILDS AND BASELINE — 15 Oct 2026
+
+**Session "Vacation Auction 15 Oct 2026 V2", 11:51 AM.** Asked under §280 whether to shorten START-HERE's LIVE line — one paragraph that had grown a clause for every build since staff 192, about 17,700 characters, roughly 16% of the file and about 7,000 tokens read every session. Claude measured it and put the downsides: nothing is lost (the old text moves verbatim to `START-HERE-ARCHIVE.md`, and each build is already its BUILD-LOG row); `status.mjs` reads only the build numbers at the line's start, so the gate is unaffected; an older commit or md5 costs one search of BUILD-LOG. His ruling, verbatim: *"yes, shorten"*. The line now carries the current builds, their commits and the honesty baseline only; a session that ships a build REPLACES those, never appends (START-HERE's LIVE line and HANDOFF step 2 say so).
 
