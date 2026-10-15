@@ -226,7 +226,7 @@
 | §209 | 17 Sep 2026 | GO: ADMIN 341 — THE TIMER CARD REBUILT, CONTESTED WEEKS REOPEN, AND A RUNBOOK HABIT | LIVE (admin 341, `612cebe`) |
 | §210 | 17 Sep 2026 | A SECOND CONFIRMATION FOR TIMER CHANGES (ADMIN 342) | LIVE (admin 342, `539e5ee`) |
 | §211 | 17 Sep 2026 | THE SECOND TIMER CONFIRMATION STANDS OUT: RED HEADING, WHAT HAPPENS, A RED-SHADED BOX (ADMIN 343) | LIVE (admin 343, `b07e675`) |
-| §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | LIVE (standing order) |
+| §212 | 17 Sep 2026 | EVERY HANDOFF DELIVERS THE CURRENT START-HERE TO THE OUTPUTS COLUMN | SUPERSEDED BY §280 |
 | §213 | 17 Sep 2026 | THE SEVEN UNREVIEWED ADMIN BUILDS GET A FRESH-EYES REVIEW, AND THE RUNBOOK LEARNS THE DOUBLE CONFIRMATION | DONE |
 | §214 | 17 Sep 2026 | A COMMIT MESSAGE IS ONE LINE: HE PASTES ONLY INTO SUMMARY |  |
 | §215 | 18 Sep 2026 | RESET AUCTION DOES NOT TURN REHEARSAL MODE OFF, AND STAYS THAT WAY | DECLINED |
@@ -294,6 +294,7 @@
 | §277 | 14 Oct 2026 | OWNER-FOUND ON THE TEST SITE: THE PHASE 4 START DIALOG'S BUTTONS COULD NOT BE REACHED — FILED FOR LATER |  |
 | §278 | 14 Oct 2026 | THE TEST SITE MUST CARRY EVERY BUILD |  |
 | §279 | 14 Oct 2026 | AFTER THE SECURITY BUILD: STOPPING THE WORST KIND OF BAIL ON A COMPETITION WEEK, AND A "MINIMUM BID" LABEL |  |
+| §280 | 15 Oct 2026 | THE SHORT START MESSAGE: START-HERE IS READ FROM THE DISK, NEVER PASTED, AND NO LONGER GOES TO THE OUTPUTS COLUMN | STANDING |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -6857,3 +6858,12 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **15 Oct 2026, 10:13 AM (V1) — RULED, verbatim:** *"I prefer to figure out a way to remove bid lowerings as we have them now.  Remember the loophole above since I want to make sure we close that and then look for other loopholes.  So you can leave out the bid lowering items for now.   If you rpefer to build them and just be unlikely to ever use them, also okay with me if it's cheap to do.,"* — the bail-fix session is to find a way to REMOVE bid lowerings as they are now, closing first the one-room-left loophole Claude raised (a 1 that keeps others off a week that never becomes a competition week, dropped near the end), then hunting other loopholes. 214 leaves out the bid-lowering note (wording 3 and the lowering line); where the lock alone sets a person's limit, the note is not shown rather than say something untrue.
 
 **15 Oct 2026, 10:15 AM (V1) — HIS CONCERN, verbatim, for the bail-fix session:** *"A new concern I just realized is that if bailing was not allowed, would that make people slower to raise bids and delay things?  If so, I need ideas to prevent that."* Claude's first answer given in the chat (to be tested on his data in that session): the rule removes uncommitted bidding wars, which are what cause most of the churn and alerts; the move rule leaves a committed bidder a way to respond, so the commitment is less of a gamble; waiting already has a cost, since bidding closes when the countdown runs out; and how late raises actually came in Phases 1–3 can be measured from the change log before any further idea is chosen.
+
+## §280 — THE SHORT START MESSAGE: START-HERE IS READ FROM THE DISK, NEVER PASTED, AND NO LONGER GOES TO THE OUTPUTS COLUMN — 15 Oct 2026
+
+**Session "Vacation Auction 15 Oct 2026 V2", about 11:42–11:45 AM.** His questions, verbatim: *"First, can you always read start here from the disk instead of the chat?  Can we make a shorter start here that directs each session to one on the disk?  Would that be better anyway so it's read twice?"* and, correcting the last word, *"not read twice"*. Claude's answer: yes — the pasted copy goes stale (that morning's paste was older than the disk, V1's close having edited it after he copied it, and the session had followed the pasted rules — what START-HERE rule 13 forbids); a paste plus a disk read costs about 45,000 tokens twice; and a short message holding no dates or build numbers never goes stale. Proposed: the short message, kept in `SESSION-START.md`; if the Mac cannot be reached the session says so and stops rather than work from an older copy (GitHub's copy lacks unpushed edits).
+
+**His rulings, verbatim:** *"1-yes stop that."* — START-HERE is no longer delivered to the outputs column at the start and end of a session (§212 SUPERSEDED). And: *"I also want you to always present the new, shortened start here message with the commit lines within the chat so it's easy to copy and start the next session.  Ensure that's remembered."* — at every hand-over, and whenever commit lines are given, the message from `SESSION-START.md` goes IN THE CHAT in its own copy-box right after the commit lines. Recorded in START-HERE (the line under the LIVE line, §3's paperwork table and commit paragraph, §4 step 5), HANDOFF's hand-over step, and his saved preferences. START-HERE itself is still never pasted into the chat (§247 stays withdrawn).
+
+**Asked, not yet ruled:** shortening START-HERE's LIVE line to the current builds and baseline (the history is in each BUILD-LOG).
+
