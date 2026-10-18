@@ -300,7 +300,7 @@
 | §283 | 15 Oct 2026 | ADMIN SETTINGS REMEMBERED AS THEY LAST WERE; NO DEFAULTS | GUARDS KEPT; THE TIMER'S 48 H — FIX LATER |
 | §284 | 15 Oct 2026 | THE "YOU COULD LOWER AND STILL WIN" ALERT: PART A REMOVED, PART B KEPT — TO BUILD LATER | RULED — TO BUILD LATER |
 | §285 | 16 Oct 2026 | COMBINATION BIDS 2/3, 3/4, 4/5, CHOSEN BY THE ADMIN; A SECOND SCREEN FOR COMBINATIONS |  |
-| §286 | 17 Oct 2026 | STRICT ONLY FOR WINNING BIDS OF N OR STRONGER (adminSettings.strictThreshold) | FILED AS STAFF 218 / ADMIN 382 + RULES — NOT PUSHED (RA-2 FIRST) |
+| §286 | 17 Oct 2026 | STRICT ONLY FOR WINNING BIDS OF N OR STRONGER (adminSettings.strictThreshold) | LIVE `2705630` (staff 218 / admin 382 + rules) |
 | §287 | 17 Oct 2026 | AUCTION SETUP: SETTINGS LOCKED ONCE THE AUCTION BEGINS, A SECTION OF THEIR OWN, A PRE-PHASE-1 SEQUENCE | PLAN COMPLETE, LOOK APPROVED — AWAITING HIS GO (FRESH SESSION, AFTER 218 IS PUSHED); NOT BUILT |
 <!-- DECISIONS-INDEX:END -->
 
@@ -7013,3 +7013,5 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 **5:11 PM, verbatim:** *"Timer rules should specify opening window if there is one set"* — RULED: wherever the review shows the timer rules, it names the opening window when one is set (its length, and that bids do not reset the timer until the first stage's hours remain), and says nothing of it when none is set. Test page version 6. Nothing built (§92).
 
 **5:54 PM (after the hand-over), verbatim:** *"When I unlock settings as part of the bail out, will I have to scroll down to interact with the setting ir does it appear on screen after unlocking?"* — not yet specified (the test page only shows a message). Claude proposed: after UNLOCK the page scrolls that setting's card to the top of the screen, opens it if collapsed, and marks it "🔓 Unlocked for one change — locks again when you save" until it is saved or cancelled. Nothing built (§92). **5:54 PM, verbatim: *"That sounds good"* — RULED as proposed.**
+
+**17 Oct 2026 about 7:42 PM — §286 LIVE:** RA-2 run by him 312 / 312 (honesty 303 / 9, "9 of 9 new-gate assertions FAILED — GOOD"; a first run crashed in the new test section, fixed in the tests), the rules published, the three repos pushed (pages `2705630`, tests `4867107`, hub `5254a45`); served twice as 218 / 382; pushed bytes md5-identical to the gated copies.
