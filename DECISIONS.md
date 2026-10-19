@@ -301,7 +301,9 @@
 | §284 | 15 Oct 2026 | THE "YOU COULD LOWER AND STILL WIN" ALERT: PART A REMOVED, PART B KEPT — TO BUILD LATER | RULED — TO BUILD LATER |
 | §285 | 16 Oct 2026 | COMBINATION BIDS 2/3, 3/4, 4/5, CHOSEN BY THE ADMIN; A SECOND SCREEN FOR COMBINATIONS |  |
 | §286 | 17 Oct 2026 | STRICT ONLY FOR WINNING BIDS OF N OR STRONGER (adminSettings.strictThreshold) | LIVE `2705630` (staff 218 / admin 382 + rules) |
-| §287 | 17 Oct 2026 | AUCTION SETUP: SETTINGS LOCKED ONCE THE AUCTION BEGINS, A SECTION OF THEIR OWN, A PRE-PHASE-1 SEQUENCE | BUILT AND FILED 18 Oct 2026 as staff 219 / admin 383 + rules; NOT PUSHED |
+| §287 | 17 Oct 2026 | AUCTION SETUP: SETTINGS LOCKED ONCE THE AUCTION BEGINS, A SECTION OF THEIR OWN, A PRE-PHASE-1 SEQUENCE | LIVE `b1ca0f8` (18 Oct 2026) |
+| §288 | 18 Oct 2026 | E-MAIL ALERTS: REVIEW EVERY ONE, OPT IN / OUT BY ALERT OR GROUP, NEW ALERT IDEAS |  |
+| §289 | 18 Oct 2026 | NO BUILDS FOR A FEW DAYS: PLANNING ONLY — THE ALERTS PLAN FINISHED, THREE MORE PLANNED |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7026,4 +7028,157 @@ Session "Vacation Auction 12 Oct 2026 V2". Phase 3 of the live auction CLOSED 12
 
 **17 Oct 2026 ~11:10 PM — PLAN Q1 ANSWERED BY TEST** (`tests/test-219-p4-carry.mjs`, the real code of both pages on live 218 / 382: 107 / 107; a mutant without Complete Round's refusal fails 13 of 26 in each scenario): **the §285 premise is DISPROVED for every normal route** — Complete Round refuses while any bid is undecided; Start Round retires the denied bids; the approved winners are locked in and keep counting (and their capacity) after a combination, a floor or NP is switched off between rounds; Reopen, Reset Timer, Add Bid and Edit Selections all refuse in the gap; staff bids need bidding open. **ONE narrow admin-only route found (P2b):** an admin's Add Bid dialog opened BEFORE Complete Round and confirmed AFTER it (a second tab, or a dialog left open) lands an undecided bid that carries into the next round — its guard checks the phase and round number, not "round completed". Not this build's subject; his call (Claude's view: if fixed, fix the Add Bid guard, not a combination warning — Q24's warning is NOT built). The runbook line and §285's note to be corrected at filing. **11:11 PM, verbatim:** *"I don't like open these weeks and re-open."* — asked for the picker's last button, his answer (cut off in the reply box): *"Why not begin p4 r…"* — RULED as read by Claude: the button reads **▶ Begin Phase 4: Round N** (N = the round being opened; Round 1 at Begin Phase 4). **11:18 PM, verbatim:** *"Is there a way back after editing FTE?"* — Claude: in the Phases 1–3 review yes (↩ Back to the review on the FTE page); from the month picker's FTE step no (the picker closes; every week stays locked; only Reopen bidding, months not kept); proposed the same pattern. **11:20 PM, verbatim:** *"agreed"* — RULED: after "📆 Open FTE Availability" in the picker, the FTE page shows **↩ Back to Round N** at its top, which reopens the picker at its FTE step with the same months ticked and the new numbers; only there, only until used. **11:55 PM (on preview v5), verbatim:** *"Good"* — RULED: the screens as previewed (v5, admin 383 `3ea0aeb3…`) APPROVED; next the gates and the blind reviews, then filing.
 
-**18 Oct 2026 ~12:30–1:15 AM — THREE BLIND REVIEWS of staff 219 / admin 383 `3ea0aeb3` / rules `8f6d85be`:** lane 1 (rules, lock / unlock / restore / reset) SAFE yes, one MEDIUM (an admin not on the roster would leave part of the sign-in address in readable places — initials only from now on); lane 2 (lock OFF = 382, every Begin chain, executed side by side) one HIGH (a leftover "↩ Back to the review" could later resume a begin without the backup offer); lane 3 (staff, phone UI, tests; mutation 32 / 33) SAFE yes, the same leftover link as MEDIUM. Small items: a confusing refusal message after an unlock runs out, the shared OK button left disabled, clock skew, three messages still saying "Controls", the picker button on a mid-round reopen. Claude's decision on the wording point (told to him): on a mid-round reopen the picker's button reads **📅 Reopen bidding**; "▶ Begin Phase 4: Round N" only when a round is being begun. ONE FIX ROUND ordered (F1–F10), then an independent verifier. Records: `tests/docs/build219/review/`. **18 Oct 2026 ~3:15 AM — FILED, NOT PUSHED:** staff 219 / admin 383 + rules (gated `3cf7c53b…` / `09ce018e…` / `8f6d85be…`); the verifier SAFE TO DEPLOY yes after the fix round (N1 fixed after it); cloud 184 / 184 (8,679), Mac 184 / 184 (8,659), isolation 36 / 36; test site republished. His order: RA-2 (expected 358 / 358) → publish the rules → push. **RA-2 run by him 18 Oct 2026 about 7:43 AM: 371 / 371 on the new rules; honesty against 2705630: 345 / 26 — "26 of 26 new-gate assertions FAILED — GOOD" (the filing's expectation "358" was a mis-count; the run is the number).** (3) *"[No preference]"* — Claude takes the recommendation: the "✓ Settings reviewed" mark counts for the phase or round it was done for until that phase begins; Reset Auction clears it; it shows the date, time and the admin's initials.
+**18 Oct 2026 ~12:30–1:15 AM — THREE BLIND REVIEWS of staff 219 / admin 383 `3ea0aeb3` / rules `8f6d85be`:** lane 1 (rules, lock / unlock / restore / reset) SAFE yes, one MEDIUM (an admin not on the roster would leave part of the sign-in address in readable places — initials only from now on); lane 2 (lock OFF = 382, every Begin chain, executed side by side) one HIGH (a leftover "↩ Back to the review" could later resume a begin without the backup offer); lane 3 (staff, phone UI, tests; mutation 32 / 33) SAFE yes, the same leftover link as MEDIUM. Small items: a confusing refusal message after an unlock runs out, the shared OK button left disabled, clock skew, three messages still saying "Controls", the picker button on a mid-round reopen. Claude's decision on the wording point (told to him): on a mid-round reopen the picker's button reads **📅 Reopen bidding**; "▶ Begin Phase 4: Round N" only when a round is being begun. ONE FIX ROUND ordered (F1–F10), then an independent verifier. Records: `tests/docs/build219/review/`. **18 Oct 2026 ~3:15 AM — FILED, NOT PUSHED:** staff 219 / admin 383 + rules (gated `3cf7c53b…` / `09ce018e…` / `8f6d85be…`); the verifier SAFE TO DEPLOY yes after the fix round (N1 fixed after it); cloud 184 / 184 (8,679), Mac 184 / 184 (8,659), isolation 36 / 36; test site republished. His order: RA-2 (expected 358 / 358) → publish the rules → push. **RA-2 run by him 18 Oct 2026 about 7:43 AM: 371 / 371 on the new rules; honesty against 2705630: 345 / 26 — "26 of 26 new-gate assertions FAILED — GOOD" (the filing's expectation "358" was a mis-count; the run is the number).** **✅ LIVE `b1ca0f8` — rules published and pushed by him 18 Oct 2026 about 7:45 AM after RA-2 371 / 371; served twice as 219 / 383; pushed bytes md5-identical to the gated copies.** **18 Oct 2026 7:56 AM, verbatim:** *"1 is exceedingly unlikely, probably not necessary and not worth the time?   2 - also seems low risk and not very important or relevant.  if you think these are important though, i'm ok with it.  maybe for later or never?"* — of (1) the Add Bid dialog left open across Complete Round (test-219-p4-carry P2b) and (2) the crafted change-log row that stops the Fair Play report drawing (found in build 216). Claude agreed and recommended never: (1) admin-only, needs a dialog left open across Complete Round, and the bid is then simply decided in the next round; (2) needs a hand-crafted log row, harms no data (the report alone fails to draw until the log resets), and is the same class as the forged-log rules build he declined (§252). RULED: **DECLINED, both** (Claude's recommendation on his deferral; told to him). (3) *"[No preference]"* — Claude takes the recommendation: the "✓ Settings reviewed" mark counts for the phase or round it was done for until that phase begins; Reset Auction clears it; it shows the date, time and the admin's initials.
+
+## §288 — E-MAIL ALERTS: REVIEW EVERY ONE, OPT IN / OUT BY ALERT OR GROUP, NEW ALERT IDEAS — 18 Oct 2026
+
+**Session "Vacation Auction 17 Oct 2026 V2", 18 Oct 2026.** Claude listed the pending items (7:58 AM); asked whether the admin warning (§282 build 2), the walled-week alerts (§282 1:23 PM) and removing Part A of the "lower and still win" e-mail (§284) could be one build, Claude recommended two builds — the alerts (the latter two, same code) and, separately, the admin warning. **8:01 AM, verbatim:** *"explore 1 above.  i want to review all e-mail alerts, every single one and decide if they all should stay and build a platform for people to opt in and out of each or groups of them.  that needs to remain clean and simple and easy to navigate.  i like the alerts option and want ideas if there are other useful alerts.  don't overcomplicate or overbuild however."* — RULED: EXPLORE, read-only, as ONE plan: (1) every e-mail either page can send, each to be decided keep / change / drop by him; (2) a place where each person opts in and out of each alert or group of alerts — clean, simple, easy to navigate; (3) the "tell me when I can get in" alert he likes (§282 1:23 PM) and ideas for other useful alerts; (4) §284's Part A removal folded in. Standing: do not overcomplicate or overbuild. The admin warning (§282 build 2) stays a separate, later build. Nothing built (§92).
+
+**18 Oct 2026 ~8:20 AM: EXPLORED, ONE PLAN** — `tests/docs/PLAN-ALERTS-2026-10-18.md` (read-only on live 219 / 383): 15 kinds of e-mail in three groups (always sent · changes to my projections · chances to win a week); Part A dropped, everything else kept; one "🔔 E-mail alerts" place on the staff page with two switches and a get-in list (nothing stored = ON, today unchanged); one new document `vacations/alertPrefs` (own entry only); the get-in alert defined on the bid box's own check; other new alerts not recommended now; size staff ~150 / admin ~30 / rules ~4 lines; 6 questions put to him. NOT approved, nothing built (§92).
+
+**18 Oct 2026 1:29 PM, verbatim:** *"1/2- agree. 3- end at phase or round end and why only 3?  Is that necessary?  I agree it seems like enough,but why limit?  6- leave out for now, but needs to be filed for the future. Also, I want confirmation emails sent when people opt-in/out of alerts or when a new alert is created. I also want welcome email to triggered by begin P1 click instead of when a user logs in. I also want ideas for other useful alerts. Have we removed all alerts that tell people they could lower their bid?  I like the one that says their removed bid could now win, but I think people need to be responsible for their own bid lowering. Since bids can't be lowered below the floor on a comp week, this is no longer relevant."* — RULED: Q1 two switches; Q2 group 1 always sent; Q3 the get-in alert ends at phase / round end (the cap of 3 questioned — Claude to answer); Q6 the countdown restart left out of this build and FILED FOR THE FUTURE; NEW: a confirmation e-mail when a person changes their alert choices or creates a get-in alert; NEW: the welcome e-mail sent to everyone by ▶ Begin Phase 1 instead of at first sign-in; ideas for other alerts wanted; **ALL "you could lower your bid" content removed — Part A AND Part B** (Part B's "the lowest bid of yours that would also win here is N … Lowering uses …" also suggests lowering); KEEP "your withdrawn bid would win again". Nothing built (§92).
+
+**1:32 PM, verbatim:** *"No new alerts. Agree with the rest."* — RULED, on Claude's answers of 1:30 PM: (a) the get-in alert has NO number cap — one per week, on as many competition weeks as the person likes, ending at phase / round end; (b) Part A AND Part B both removed — no e-mail suggests lowering; the welcome e-mail and Rules lines describing that alert updated to match; "your withdrawn bid would win again" kept; (c) a confirmation e-mail on each change of alert choices or new get-in alert: ONE short e-mail per change summarising all the person's current choices; (d) the welcome e-mail sent to everyone by ▶ Begin Phase 1; anyone added to the roster, or whose address is added, after that gets it at first sign-in as today; (e) **no new alerts** beyond the get-in alert ("bidding is open", "closing soon", "now a competition week", a daily digest — not built). Plan Q4 (wording after a phone test page) stands as recommended. **ALL QUESTIONS ANSWERED** — the plan to be updated with these, then the phone test page, then his go — the build in a FRESH session. Nothing built (§92).
+
+**2:03 PM, verbatim:** *"I want the custom alert messages to be able to turned off when user wants that. I also want to close the problem that occurs when a user neglects to use the swap bid feature and instead cancels two bids and then swap them manually with two new bids. This can create email sends that become out of date seconds later. I want options and how to prevent this. One idea that we explored previously was to delay projection changes  for a period of time, maybe 1-2 minutes."* — RULED: (1) each person can turn off their own get-in ("custom") alerts at any time (Claude's reading: each get-in alert has its own off / remove; the confirmation e-mail rule applies); (2) EXPLORE, as part of the alerts plan, options to stop out-of-date alert e-mails when someone does a swap by hand (cancel two bids, place two new ones) instead of Swap bids — including his idea of holding projection-change alerts 1–2 minutes and sending only the net change. History to weigh: §235 (the problem first raised), §237 (a page-held hold WITHDRAWN — "a hold can strand a real alert"), §257 (Swap bids built as the answer). Context above 550,000: options given in the chat only; the plan in a FRESH session. Nothing built (§92).
+
+**5:52 PM, verbatim:** *"we already do A to some degree.  Are you suggesting an additional layer for a swap?  I have a new idea.  What if we do a 60 sec email delay which should be enough for a manual swap and decrease risk of an e-mail not being sent due to a closed browser.  Also, this delay would probably only be needed for times when a user cancels a bid, so only bid cancels would need this delay.  Additionally, could we build it such that if a user cancels a bid on a week and then enters the same or new bid on that same week that it cancels the delay and sends the single e-mail instantly?  This way real swaps done manually would still go through right away with a single e-mail (only if indicated, since not all manual swaps will cause projection changes for others users).  Is that correct?  The missing piece would be narrowed to users cancelling a bid not as part of a swap.  From what i've seen, during the heat of busy phases, users are constantly online and e-mails get sent quickly.  Can you actually determine how long e-mails would have been queued from my backup file?"* — HIS DESIGN, to be planned in the alerts plan (fresh session): a 60-second hold on the alerts of a CANCEL only; if the same person bids on that same week within the 60 s, the hold ends and ONE netted e-mail goes at once (none if nobody's projection changed overall); a cancel not followed by a bid there sends after 60 s. Claude confirmed his reading and added: the held alert must sit in the shared mail queue (so a closed page cannot lose it — the next open page sends it), and the gap narrows to a plain cancel whose page closes within the 60 s while no other page is open. His backup question: answerable only in part — the backup has bid times and the E-mail Log, not when each page was open; to be measured in the fresh session from his backup (he attaches it). Nothing built (§92). **5:55 PM:** *"Agree with above.  What about from the e-mail log?"* — RULED: his 60-second design as stated. Claude: the E-mail Log adds REAL pickup times — each "no answer" alert re-sent by another open page shows how long until another page sent it (a sample, and the log keeps the latest 1,000); measure with the backup's bid changes (how many cancels were manual swaps) in the fresh session; he attaches his latest backup. **5:56 PM, verbatim:** *"forget looking at the backup for this"* — RULED: no backup or E-mail Log measurement for the 60-second hold; it is planned on his design alone.
+
+**18 Oct 2026, about 7:45 PM (session "Vacation Auction 18 Oct 2026 V1"): THE PLAN UPDATED WITH EVERY ANSWER ABOVE** — `tests/docs/PLAN-ALERTS-2026-10-18.md` §10, read on the live 219 / 383 (it supersedes §3–§8 where they differ). It covers:
+- no cap on get-in alerts, each with its own Remove;
+- Part A and Part B removed, with the three functions only they used deleted, and nothing in the welcome or Rules text to reword;
+- switch 2 renamed "My withdrawn bid would win again";
+- the confirmation e-mail;
+- the welcome e-mail sent by Begin Phase 1 through the existing once-only log;
+- the 60-second hold on a cancel's alerts, kept in the mail queue, merged on a same-week re-bid — with both relays and "Send Pending" honouring the hold.
+
+Four small questions are put to him (§10i). NOT approved, nothing built (§92).
+
+## §289 — NO BUILDS FOR A FEW DAYS: PLANNING ONLY — THE ALERTS PLAN FINISHED, THREE MORE PLANNED — 18 Oct 2026
+
+**Session "Vacation Auction 18 Oct 2026 V1".**
+
+**7:04 PM, verbatim:** *"I am low on credits and this build will have have to wait a few days. I would like to finalize this plan and research the other upcoming builds I want to do that I can do with the credits I have remaining."* **7:05 PM, verbatim:** *"I repeat. I can't do any builds, only planning"*
+
+RULED: no build starts until he says; this session plans only, read-only.
+
+On Claude's question, he picked the plans to write: the admin warning (§282 build 2), the countdown restart (§288, filed for the future), and the priority lock / bid lowerings under Strict (his ideas of 16 Oct 11:07 PM and 17 Oct 7:00 AM). Not picked: private repos.
+
+Written the same evening, each read-only on the live 219 / 383, each NOT approved, nothing built (§92):
+
+- `tests/docs/PLAN-ADMIN-WARNING-2026-10-18.md`
+  - The admin page already warns ("⚠️ This bid breaks the rules users follow", Save anyway) about four rules only.
+  - Remove and Clear floor have no check at all.
+  - Ten rules a bidder meets go unmentioned (G1–G10).
+  - Option A mirrors the staff page's ~400 lines of competition / Strict / lowering judgement on the admin page, proven equal by a differential test (~480 lines).
+  - Option B covers the simple rules plus a "competition week — this page cannot check" line (~100 lines). Recommended: B first.
+  - The same box goes on Remove and Clear floor, with an "If you go ahead" footer. Four questions.
+- `tests/docs/PLAN-COUNTDOWN-RESTART-2026-10-18.md`
+  - In modes 2 and 3 the countdown also restarts when a change makes a competition week's "Minimum new bid" (the card's own number) weaker or go away.
+  - Every other timer rule is unchanged, extend-only included.
+  - Admin edits are left as today.
+  - About 25 staff lines; no rules change. Five questions.
+- `tests/docs/PLAN-PRIORITY-LOCK-UNDER-STRICT-2026-10-18.md`
+  - Lowerings have been unlimited in all phases since 15 Oct, so the lock refuses nobody today. It only records lowerings and moves the floor down with them.
+  - The floors are written either way, and feed the competition-week test and the remembered level.
+  - Switching the lock off would only lose the record and silently make the remembered level stricter.
+  - The one unguarded case is lowering on a non-competition week (the scare-off).
+  - Choices: A keep as is (recommended, no build) · B lock off · C cap lowerings · D the full-week limit (§282 12:35 PM). Three questions.
+
+**7:21 PM, verbatim:**
+> *"agree with all above. I also want concise and clear rules/reminders for the alerts that update what I had before. Also, remove this rule: Vacation selections are now called "bids" — the process works like an auction, where user bids compete for limited slots. Update these 2 rules: The auction has 4 phases — similar to the rounds in previous years / Phase 1 includes only the high-demand weeks; all remaining weeks open starting in Phase 2. Those should merge to: The auction has 4 phases — Phase 1 includes only certain holiday weeks; all remaining weeks open starting in Phase 2"*
+
+RULED:
+1. **Every recommendation in the four plans is taken:**
+   - Alerts §10i: one confirmation per visit; the welcome loop with its count; the hold merges a same-week re-bid only; the phone test page before his go.
+   - Admin warning: Option B first; the warning on Remove and Clear floor; the footer; the wording.
+   - Countdown restart: all five, as its own small build right after the alerts build.
+   - Priority lock: choice A — keep it ON with unlimited lowerings, no build; use the setup lock. No plan for D is ordered.
+2. **Concise alert lines in Rules & Reminders and the welcome e-mail,** updating the old single line — drafted in the alerts plan §11b–§11c.
+3. **The rule *Vacation selections are now called "bids" …* is removed.**
+4. **"The auction has 4 phases …" and "Phase 1 includes only the high-demand weeks …" merge into his line, word for word,** in all three places (the staff Rules list, both welcome e-mails). Checked: Phase 1's weeks are exactly the holidays marked high-demand, so "certain holiday weeks" is accurate.
+
+Points 2–4 ride the alerts build (plan §11). The §11b–§11c wording goes to him on the phone test page. NOT built (§92, §289).
+
+**7:24 PM, verbatim (Rules & Reminders, continued):** *"Change this: No cap on how many weeks you can bid on — you are limited only by the bid numbers you have available. Change it so that is disappears when no limit is set for all 4 phases. Remove this: Only bid for the number of weeks your accrued vacation and ATO will allow for. Remove this: You hold bid numbers 1 to 10, plus NP — 1 is the strongest bid and NP the weakest. Remove this: Ideally, bid priorities would not be decreased once they are set. However, it is okay to reduce bid priorities as needed. Remove these: Consider starting with lower bids and increasing as necessary to prevent "overpaying" for a week. Enter your bids early, it benefits everyone. Sniping is not possible, do not try it"*
+
+RULED, in all three places (the staff Rules list and both welcome e-mails), as part of the alerts build (plan §11e):
+- The "No cap…" line shows only when some phase has a cumulative cap; with none, the line is hidden and the e-mail bullet skipped.
+- Removed: the "accrued vacation and ATO" line; "Consider starting with lower bids…"; "Enter your bids early…"; "Sniping is not possible…".
+- The "Ideally, bid priorities…" line is removed when lowerings are unlimited in every phase. This REVERSES his 15 Oct 12:37 PM "line can stay" (§282). The admin preview then says none is shown.
+- **"You hold bid numbers 1 to 10, plus NP — 1 is the strongest bid and NP the weakest": removal ordered.** Claude raised a concern the same turn: nothing else then says which way the numbers run. He was offered a shorter line, *1 is the strongest bid and NP the weakest.* HELD until he answers.
+
+NOT built (§289).
+
+**7:25 PM, verbatim:** *"Update bailing rules for std vs. strict. Remove this rule: Bailing — leaving a competition week from a winning position when that bid number is not needed on another week — and repeated last-minute bid activity are tracked by admin. Please play fairly. I want clear and concise rules specifying the most important points of std vs. strict comp week rules. place below current comp week rules."*
+
+RULED:
+- The bailing line is removed from the Rules list and both welcome e-mails.
+- Concise Standard / Strict competition-week lines go below the current competition-week rules.
+
+Drafted in the alerts plan §11f:
+- The shared rule line keeps only what both sets share.
+- One new line names the set in force and its key point: Standard — remove any time; Strict — a winning bid (of the level or stronger) can only be moved to a knocked-out week, and can't then be lowered there; other bids leave freely.
+
+Two questions are put to him: show only the set in force; whether the Standard line should still say bailing is tracked. The Fair Play report is unchanged. NOT built (§289).
+
+**7:27 PM, verbatim:** *"Not this one: When you cancel a bid, its alerts wait 60 seconds — bid on the same week within that time and others get one combined e-mail instead of two.."* — RULED: that proposed rules line is dropped. The 60-second hold is built as planned, but it is not described in the Rules list or the welcome e-mail. Plan §11b now carries two alert lines.
+
+**7:32 PM, verbatim:** *"okay, leave this: "You hold bid numbers 1 to 10, plus NP — 1 is the strongest bid and NP the weakest." I don't want rules called standard and strict ... users don't need that information. This actually doesn't need a name at all, just state the rule. Actually, standard doesn't need any line at all since there isn't a restriction, it should remain blank. Strict is good except remove "Strict rules" from user site in all places. I don't need to tell users that i'm tracking bailing."*
+
+RULED (plan §11g):
+- The "You hold bid numbers 1 to 10 …" line is KEPT word for word; the 7:24 PM removal is withdrawn.
+- Bidders never see the set names "Standard" or "Strict". Checked: the staff page shows neither today; only the proposed line would have.
+- Under Standard there is no extra competition-week line.
+- Under Strict, the line (with or without the level) states the rule with no name.
+- Nothing tells bidders that bailing is tracked.
+
+All §11f questions are answered. NOT built (§289).
+
+**7:34 PM, verbatim:** *"Remove this from My Bid Count box: — Projections are likely outcomes, not guaranteed results"* — RULED: the grey note in the "My Bids & Projections" bar title (staff 783, its only appearance) is removed. The Rules list's "These are projections, not final results …" line stays. Rides the alerts build (plan §11h). NOT built (§289).
+
+**7:35 PM, verbatim:** *"phone test page, go"*
+
+The test page was published about 7:50 PM: "E-mail Alerts Test", https://claude.ai/artifact/GX5yAX85HLNVNEc21NMcX9 (plan §11i; copy in `tests/docs/build220/`). Waiting for his look. NOT built (§289).
+
+**8:02 PM, verbatim (on the test page):** *"I don't want tell me when i can get in lines on every single week, super annoying and cluttered. What is the not available nonsense I see there as well? I want these alerts to only be reachable in the alerts menu from top of page. On the phone, the sign out button lands beneath e-mail alerts card. I actually want the e-mail alerts card to always below sign out card on both phone and desktop. changes to my projections should be described as "When someone else's bid changes your projection for a week you're bidding on." rest is good."*
+
+RULED (plan §11j):
+- No get-in link in the bid box. Get-in alerts are set ONLY in 🔔 E-mail alerts, by "+ Add a week" (a list of only the weeks where a minimum keeps out some of the person's numbers and they have no bid).
+- The 🔔 E-mail alerts button sits on its own line directly under Sign out, on a phone and on a computer.
+- Switch 1's description is his sentence.
+- Rules line 2 and the welcome list follow.
+- "Not available" answered: the bid box's existing row (staff 201, §258), unchanged.
+- The rest is approved.
+
+Test page v2 published about 8:10 PM. NOT built (§289).
+
+**8:13 PM, verbatim:** *"The minimum should not be based on what a user has available. It should be based on what that user wants to spend, which we cannot know. I want a user to be able to set an alert for any week of the year no matter what bids they have left. I also don't want bid drop down menus like that. I already ruled that doesn't work well. I'll need a way for a user to be brought from the alert menu to the bidding board to select a week and then continue in a dialog that sets and confirms the alert"*
+
+RULED (plan §11k):
+- The get-in alert is set for ANY week (except one the person already bids on or won), with the bid they would be willing to place, whatever they hold.
+- It is sent when another person's withdrawal or lowering makes that bid allowed and projected to win or be under review there.
+- No drop-downs: the bid box's own tiles (his §259 ruling).
+- "+ Add a week" in 🔔 E-mail alerts leads to the bidding board in a choose-a-week mode. A tap on a week opens a two-screen dialog: pick the bid, then confirm and Set alert.
+
+Two questions are put to him: reopen the alerts box after Set; locked weeks choosable with a note. NOT built (§289).
+
+**8:47 PM, verbatim:** *"I think when a user has an alert set on a week, the bell should appear on that week somewhere indiscreet. Perhaps by clicking it, they could be brought to the alerts workflow. I also think the choose a week for your alert banner needs to remain fixed while the weeks scroll to ensure the user is aware that the're still in the alerts workflow. It might be best for this to all happen in a separate window if that's manageable. once the week is clicked and then continue, the window should shift to the tell me when i can get in window. it could have a back option along with cancel and continue. I don't like the scrolling down thing since it could be missed, especially on a phone. I also wonder if there should be an edit option for these alerts or if that's an overbuild."*
+
+RULED (plan §11l):
+- One full-screen alert window, with its header and buttons fixed: step 1 choose a week (Cancel · Continue), step 2 the bid tiles (Back · Cancel · Continue), step 3 confirm (Back · Cancel · Set alert).
+- A small 🔔 on the person's own alert weeks; tapping it opens the window to change or remove that alert.
+- On editing, Claude's view: not an overbuild (it reuses steps 2–3, about 10 lines) — Change beside Remove in the box, and the bell.
+
+Test page v4 published about 9:05 PM, checked headless first. NOT built (§289).
+
+**8:54–8:55 PM, verbatim:** *"will the bell get in the way of clicking the week for a bid?"* · (on a "change" line in the bid box) *"could be confusing"* · (on the bell as a marker only, every alert change in the 🔔 E-mail alerts box) *"yes, sounds good"*
+
+RULED (plan §11m):
+- The 🔔 on a week card is a marker only. A tap on the card, bell included, opens the bid box as today.
+- Alerts are added, changed and removed only in the 🔔 E-mail alerts box (Change beside Remove).
+- No alert line in the bid box.
+
+Test page v5 published about 9:00 PM. Still open: §11k Q2 (locked weeks choosable — recommended yes).
+
+**8:56 PM, verbatim:** *"I actually think we are done and are ready to hand off. ensure all discussion is carried through, even for the builds we didn't progress much on."* — the session closes. All four plans carry his answers. Everything said this session is in §289 above, in the four plan files and in TODO §1. NOT built (§289).
