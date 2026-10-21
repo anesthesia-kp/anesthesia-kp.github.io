@@ -303,7 +303,7 @@
 | §286 | 17 Oct 2026 | STRICT ONLY FOR WINNING BIDS OF N OR STRONGER (adminSettings.strictThreshold) | LIVE `2705630` (staff 218 / admin 382 + rules) |
 | §287 | 17 Oct 2026 | AUCTION SETUP: SETTINGS LOCKED ONCE THE AUCTION BEGINS, A SECTION OF THEIR OWN, A PRE-PHASE-1 SEQUENCE | LIVE `b1ca0f8` (18 Oct 2026) |
 | §288 | 18 Oct 2026 | E-MAIL ALERTS: REVIEW EVERY ONE, OPT IN / OUT BY ALERT OR GROUP, NEW ALERT IDEAS |  |
-| §289 | 18 Oct 2026 | NO BUILDS FOR A FEW DAYS: PLANNING ONLY — THE ALERTS PLAN FINISHED, THREE MORE PLANNED |  |
+| §289 | 18 Oct 2026 | NO BUILDS FOR A FEW DAYS: PLANNING ONLY — THE ALERTS PLAN FINISHED, THREE MORE PLANNED | RULED — NOT BUILT |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7182,3 +7182,12 @@ RULED (plan §11m):
 Test page v5 published about 9:00 PM. Still open: §11k Q2 (locked weeks choosable — recommended yes).
 
 **8:56 PM, verbatim:** *"I actually think we are done and are ready to hand off. ensure all discussion is carried through, even for the builds we didn't progress much on."* — the session closes. All four plans carry his answers. Everything said this session is in §289 above, in the four plan files and in TODO §1. NOT built (§289).
+
+**Session "Vacation Auction 18 Oct 2026 V2" — 9:42 PM, verbatim:** *"locked weeks not choosable"* — his answer to plan §11k Q2.
+
+RULED (plan §11m):
+- In the alert window's step 1, a week that is locked right now cannot be chosen. It keeps its *🔒 Locked* tag; the line above the buttons reads *This week is locked right now.* The "only if it opens again" note is dropped.
+- A week the admin unlocks mid-phase can be chosen from then on. An alert already set on a week that later locks stays set and is not sent while the week is locked.
+- It narrows his 8:13 PM "any week of the year" by locked weeks; the other exceptions (a week with the person's bid, a week they won) stand.
+
+Claude had recommended yes and withdrew it the same turn, on the code: weeks lock and unlock only when the admin acts (admin 383: Smart Lock, the per-week locks, the Freeze, a phase close or run-out), a user cannot change a bid on a locked week, and the alert ends with the phase or round — so a locked week's alert would almost never be sent. No open questions remain on the alerts plan. NOT built (§289).
