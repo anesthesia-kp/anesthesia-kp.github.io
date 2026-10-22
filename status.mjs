@@ -10,8 +10,8 @@
 // Reads the sibling repos, runs READ-ONLY git (--no-optional-locks), counts suites,
 // and best-effort fetches the live versions.json (5s timeout, cache-busted). Then
 // rewrites ONLY the generated blocks: the STATUS block in TODO.md, the MAP block in
-// START-HERE.md (stamping LAST REVISED when the map changed) and the index block at the top
-// of DECISIONS.md — see THE DOCS GATES below (§188, 8 Sep 2026).
+// MAP.md (§293, 22 Oct 2026: moved out of START-HERE so a session's start reads less) and the index block
+// at the top of DECISIONS.md — see THE DOCS GATES below (§188, 8 Sep 2026).
 //
 // It never writes anything outside those markers, never runs a mutating git command, never deploys.
 
@@ -273,7 +273,7 @@ const cmp = (livej, diskj) => livej === null ? 'not checked from here (no networ
 // 2,000 trigger nobody measured). The owner's requirement, verbatim: "Your map must be complete
 // and self-updating… All the docs need to be self-updating to keep the context manageable
 // without prompting by me." So every run of this script — after every push, at every close —
-// (a) REGENERATES THE MAP on START-HERE's first screen from the files that exist and each file's
+// (a) REGENERATES THE MAP in MAP.md (§293; START-HERE's first screen until 22 Oct 2026) from the files that exist and each file's
 //     own one-line "answers" note (first three lines: <!-- answers: … -->). A mapped file with
 //     no note is a FAILED gate naming the file — a Claude cannot be sent to a file nobody described.
 // (b) MEASURES every governing file against its tripwire and EXITS NON-ZERO when one is over:
@@ -480,22 +480,18 @@ if (process.env.SH_PATH) {
   console.log(block.replace(/<!-- STATUS:(BEGIN|END)[^>]*-->/g, '').trim());
   console.log('\nTODO.md STATUS block updated.');
 
-  // THE MAP on START-HERE's first screen. When it changes, LAST REVISED is stamped with today's
-  // date in the owner's zone — the map IS a revision of the one document he pastes.
-  const shText = readFileSync(shPath, 'utf8');
+  // THE MAP, in MAP.md (§293, 22 Oct 2026 — until then on START-HERE's first screen, which stamped LAST REVISED
+  // when it changed; MAP.md is its own file and is read only when a session needs to find something).
+  const mapPath = join(here, 'MAP.md');
+  let mapText = null; try { mapText = readFileSync(mapPath, 'utf8'); } catch (_) {}
   const mapRe = /<!-- MAP:BEGIN[\s\S]*?<!-- MAP:END -->/;
-  if (!mapRe.test(shText)) docsFail.push({ code: 5, msg: 'START-HERE.md has no MAP markers — the map cannot be written' });
+  if (mapText === null || !mapRe.test(mapText)) docsFail.push({ code: 5, msg: 'MAP.md is missing or has no MAP markers — the map cannot be written (§293)' });
   else {
-    const current = shText.match(mapRe)[0];
+    const current = mapText.match(mapRe)[0];
     if (current !== mapBlock) {
-      let next = shText.replace(mapRe, mapBlock);
-      const MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      const [y, mo, d] = dayIn(new Date()).split('-');
-      const todayOwner = `${Number(d)} ${MONS[Number(mo) - 1]} ${y}`;
-      next = next.replace(/LAST REVISED:\s*\d{1,2}\s+[A-Za-z]{3}[a-z]*\s+\d{4}/, `LAST REVISED: ${todayOwner}`);
-      writeFileSync(shPath, next);
-      console.log(`START-HERE.md MAP regenerated (${mapRows.length} files) and LAST REVISED stamped ${todayOwner}.`);
-    } else console.log(`START-HERE.md MAP unchanged (${mapRows.length} files).`);
+      writeFileSync(mapPath, mapText.replace(mapRe, mapBlock));
+      console.log(`MAP.md regenerated (${mapRows.length} files).`);
+    } else console.log(`MAP.md unchanged (${mapRows.length} files).`);
   }
   if (decIndexBlock !== null) {
     const nextDec = decText.replace(idxRe, decIndexBlock);
