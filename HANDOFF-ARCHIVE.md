@@ -3017,3 +3017,48 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **After it went live (18 Oct, 7:51 AM – 5:57 PM):** answered how the setup lock can be changed once Phase 1 begins (the bail-out; between phases only for the five frozen keys; the year never; Reset). Pending list given on his ask; the Add Bid stale-dialog route and the Fair Play crafted-row fix **DECLINED** (§287). **§288 — E-MAIL ALERTS:** explored as ONE plan, `tests/docs/PLAN-ALERTS-2026-10-18.md` (15 e-mail kinds, three groups), and **ALL ANSWERED** the same day (plan §9 + DECISIONS §288): two switches; group 1 always sent; the get-in alert uncapped (one per week), ending at phase / round end, each one switchable off by its owner; **Part A AND Part B removed** (no e-mail suggests lowering); one confirmation e-mail per change of choices; the welcome e-mail sent by Begin Phase 1 (late joiners at first sign-in); no new alerts; **his 60-second hold on a CANCEL's alerts** (a bid on that same week inside the 60 s ends the hold and sends ONE netted e-mail at once; the held alert sits in the shared mail queue; no backup measurement); the countdown restart filed for the future.
 **Next session.** The alerts build (§288): re-do the plan's §3–§6 wording and size for every §288 answer (plan §9 lists them), the phone test page, his go, then build (agents, blind lanes, verifier, RA-2 — the rules gain one document). The admin warning (§282 build 2) stays separate and later.
 **Session close** 18 Oct 2026 about 6:00 PM at 593,458 tokens (no build started above 550,000; filing of 219 / 383 finished at about 495,000). Pending his push: the docs commits below. `_to_delete/` holds 21 entries, 165 MB — his to empty.
+
+---
+## ⤵ moved 23 Oct 2026 from HANDOFF.md — 18 Oct 2026 — "Vacation Auction 18 Oct 2026 V1" — NO BUILD (credits; his order, §289): THE ALERTS PLAN FINISHED AND SHOWN ON HIS PHONE (five versions), THREE MORE PLANS WRITTEN AND ANSWERED, THE RULES WORDING RE-DONE
+
+## 18 Oct 2026 — "Vacation Auction 18 Oct 2026 V1" — NO BUILD (credits; his order, §289): THE ALERTS PLAN FINISHED AND SHOWN ON HIS PHONE (five versions), THREE MORE PLANS WRITTEN AND ANSWERED, THE RULES WORDING RE-DONE
+
+**State.** LIVE unchanged: staff 219 / admin 383 + rules `b1ca0f8`, schedule 151 / 51 — each served twice with different cache-busters. Nothing built, no page touched, no battery run (no page changed). Test site not republished (no page changed; still 219 / 383).
+
+**The session, in order:**
+1. 6:12 PM — re-grounded at 211,239.
+2. 7:04 / 7:05 PM — his order: no builds for a few days, planning only (§289).
+3. The alerts plan finished as §10 of `tests/docs/PLAN-ALERTS-2026-10-18.md` (every §288 answer, read on the live code). Finding: the admin's Send Pending would send a held cancel alert early, so it must honour the hold.
+4. Three plans written, each read-only on 219 / 383, and ALL ANSWERED at 7:21 PM (*"agree with all above"*):
+   - `PLAN-ADMIN-WARNING-2026-10-18.md` — Option B first;
+   - `PLAN-COUNTDOWN-RESTART-2026-10-18.md` — its own small build right after the alerts build;
+   - `PLAN-PRIORITY-LOCK-UNDER-STRICT-2026-10-18.md` — keep as is, no build. Lowerings have been unlimited since 15 Oct, so the lock refuses nobody.
+5. 7:21–7:34 PM — the Rules & Reminders and welcome e-mail wording re-done (plan §11a–§11h):
+   - removed: the "now called bids" rule, the ATO, overpaying, early, sniping and bailing lines, and "Ideally…" (when unlimited);
+   - the "No cap…" line shows only when a cap exists;
+   - his merged phase rule;
+   - the two alert lines;
+   - the Strict-only competition line, with no set names, and nothing for Standard;
+   - "1 is the strongest…" KEPT (Claude pushed back on removing it; he agreed);
+   - the My Bids note removed.
+6. 7:35 PM – 8:56 PM — the phone test page "E-mail Alerts Test" (https://claude.ai/artifact/GX5yAX85HLNVNEc21NMcX9), versions 1–5. His looks re-shaped the get-in alert (§11j–§11m):
+   - set only in the 🔔 box;
+   - any week, with the bid he would be willing to place (not what he holds);
+   - no drop-downs;
+   - a three-step full-screen alert window;
+   - Change beside Remove;
+   - a 🔔 marker on the week card with no tap of its own;
+   - the 🔔 button on its own line under Sign out.
+   Versions 4 and 5 were driven in headless Chromium at 390 × 800 before publishing — it caught the window drawn while hidden; fixed.
+
+**Lessons (promoted to STANDING TRAPS):**
+1. A re-used staged path makes `device_commit_files` deliver an old upload.
+2. The device VM's `/tmp` can hand back a stale file after a failed redirect.
+
+**Next session:**
+- **When he has credits and gives his GO:** the alerts build (staff 220 / admin 384 + rules), from plan §10 and §11 whole. §11a–§11m supersede earlier sections where they differ. Open: §11k Q2 (locked weeks — recommended yes).
+- **Then:** the countdown restart.
+- **Then:** the admin warning, Option B.
+- **Before building the bell:** read the real week card for where it fits.
+
+**Session close** 18 Oct 2026 about 9:00 PM at 515,208 tokens (no build started). Pending his push: tests and hub docs commits below. `_to_delete/` holds about 165 MB — his to empty.

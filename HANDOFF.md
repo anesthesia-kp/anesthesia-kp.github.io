@@ -785,48 +785,6 @@ nowhere.*
 
 ---
 
-## 18 Oct 2026 — "Vacation Auction 18 Oct 2026 V1" — NO BUILD (credits; his order, §289): THE ALERTS PLAN FINISHED AND SHOWN ON HIS PHONE (five versions), THREE MORE PLANS WRITTEN AND ANSWERED, THE RULES WORDING RE-DONE
-
-**State.** LIVE unchanged: staff 219 / admin 383 + rules `b1ca0f8`, schedule 151 / 51 — each served twice with different cache-busters. Nothing built, no page touched, no battery run (no page changed). Test site not republished (no page changed; still 219 / 383).
-
-**The session, in order:**
-1. 6:12 PM — re-grounded at 211,239.
-2. 7:04 / 7:05 PM — his order: no builds for a few days, planning only (§289).
-3. The alerts plan finished as §10 of `tests/docs/PLAN-ALERTS-2026-10-18.md` (every §288 answer, read on the live code). Finding: the admin's Send Pending would send a held cancel alert early, so it must honour the hold.
-4. Three plans written, each read-only on 219 / 383, and ALL ANSWERED at 7:21 PM (*"agree with all above"*):
-   - `PLAN-ADMIN-WARNING-2026-10-18.md` — Option B first;
-   - `PLAN-COUNTDOWN-RESTART-2026-10-18.md` — its own small build right after the alerts build;
-   - `PLAN-PRIORITY-LOCK-UNDER-STRICT-2026-10-18.md` — keep as is, no build. Lowerings have been unlimited since 15 Oct, so the lock refuses nobody.
-5. 7:21–7:34 PM — the Rules & Reminders and welcome e-mail wording re-done (plan §11a–§11h):
-   - removed: the "now called bids" rule, the ATO, overpaying, early, sniping and bailing lines, and "Ideally…" (when unlimited);
-   - the "No cap…" line shows only when a cap exists;
-   - his merged phase rule;
-   - the two alert lines;
-   - the Strict-only competition line, with no set names, and nothing for Standard;
-   - "1 is the strongest…" KEPT (Claude pushed back on removing it; he agreed);
-   - the My Bids note removed.
-6. 7:35 PM – 8:56 PM — the phone test page "E-mail Alerts Test" (https://claude.ai/artifact/GX5yAX85HLNVNEc21NMcX9), versions 1–5. His looks re-shaped the get-in alert (§11j–§11m):
-   - set only in the 🔔 box;
-   - any week, with the bid he would be willing to place (not what he holds);
-   - no drop-downs;
-   - a three-step full-screen alert window;
-   - Change beside Remove;
-   - a 🔔 marker on the week card with no tap of its own;
-   - the 🔔 button on its own line under Sign out.
-   Versions 4 and 5 were driven in headless Chromium at 390 × 800 before publishing — it caught the window drawn while hidden; fixed.
-
-**Lessons (promoted to STANDING TRAPS):**
-1. A re-used staged path makes `device_commit_files` deliver an old upload.
-2. The device VM's `/tmp` can hand back a stale file after a failed redirect.
-
-**Next session:**
-- **When he has credits and gives his GO:** the alerts build (staff 220 / admin 384 + rules), from plan §10 and §11 whole. §11a–§11m supersede earlier sections where they differ. Open: §11k Q2 (locked weeks — recommended yes).
-- **Then:** the countdown restart.
-- **Then:** the admin warning, Option B.
-- **Before building the bell:** read the real week card for where it fits.
-
-**Session close** 18 Oct 2026 about 9:00 PM at 515,208 tokens (no build started). Pending his push: tests and hub docs commits below. `_to_delete/` holds about 165 MB — his to empty.
-
 ## 18–21 Oct 2026 — "Vacation Auction 18 Oct 2026 V2" — NO BUILD (his order, §289): §11k Q2 RULED, EIGHT ITEMS FILED FOR LATER, THE TEST SITE'S E-MAILS ANSWERED
 
 **State.** LIVE unchanged: staff 219 / admin 383 + rules `b1ca0f8`, schedule 151 / 51 — served twice at the opening (18 Oct 9:22 PM). No page changed: no battery run, test site not republished (still 219 / 383). The Mac link dropped several times; nothing was written while it was down.
@@ -891,3 +849,9 @@ nowhere.*
 (4) **A count from a quick regex is a floor, not a fact** — revision 1 said 195 colours / 855 emoji; measured with Unicode properties and decoded `%23` / bare hex / escapes it is 339 / ~950, plus 53 other symbols. Measure the §1 way before quoting a number.
 **Next.** His order (3:02 / 3:48 PM): the NEXT session starts the plan — `tests/docs/PLAN-REDESIGN-2026-10-23.md`, session A (tools + one phone test page for his remaining rulings; nothing on the site changes), aiming to finish all the styling, schedule site included. His go on the plan is still needed (§92).
 **Session close** 23 Oct 2026 about 3:55 PM at about 515,000 tokens. All four repos fetched (tests judged from disk); no build, so no battery or isolation run; test site — no page changed, not republished; `status.mjs` below.
+## 23 Oct 2026 — "Vacation Auction 23 Oct 2026 V1" — NO BUILD: HIS GO ON THE REDESIGN PLAN (§294) · SESSION A PART 1 — THE SYMBOL LIST, THE COLOUR MAP, GATES G1 / G2 / G5-STATIC / G7, THE RULINGS PAGE (ALL 15 ITEMS RULED)
+**State.** LIVE unchanged: staff 221 / admin 385 / mobile 18 `bd738bf`, schedule 151 / 51 (served twice at the opening, 3:53 PM). Nothing on either site changed; test site not republished (no page changed). Recorded: DECISIONS §294 (his go, 3:55 PM; the 15 rulings, 9:31 PM), the plan's status line and §5, TODO §1, the tools `tests/docs/redesign-build-2026-10-23/` (its README is the record).
+**The session, in order.** 3:52 PM re-grounded at 196,185 (`git fetch` over the bridge refused with 403 again — origin confirmed by `ls-remote` from the cloud, STANDING TRAPS). 3:55 PM his go, verbatim in §294: function unchanged first; every colour scheme and style changed; no old scheme left; no emoji; line icons where needed. 3:56 PM: both the auction and the Daily Schedule sites. About 4:00 PM the bridge dropped; 4:07 PM his order: "mac will be offline. cont in cloud." — the work was done in the cloud (all four repos cloned; `tests` attached read-only). Built and proven, each passing on unchanged and legal copies and refusing one-fault copies: the inventory scanner, the symbol sort, the colour map, G1 code tokens, G2 markup and stylesheets, G5's static half, G7 colour-blind sets. Published the rulings page https://claude.ai/artifact/WSbmiA4NbNVKezySy2AzGn (v4). 9:29 PM the Mac back; 9:31 PM his answer to all 15 items: *"proposal is good, all of it"*. This session had no file-transfer tool to the Mac, so the scripts were written over the bridge as text and every data file regenerated there — all md5-identical to the cloud.
+**Lessons.** (1) **Hunt the class of a data hazard, not the instance (rule 17)** — the plan named the holiday EMOJI as data; the config loader showed the holiday COLOURS are written to the database too (`_acColorFor`), so the colour map leaves those lines byte-identical. (2) **A proof fault that lands outside the gate's reach passes it — read the passes (rule 18)**: two "broken" copies for G1 had their fault in markup; re-aimed, G1 refused both, and the markup copies became G2's proof. (3) **Never key a cache on Python's `id()`** — ids are reused, and the scanner gave one file wrong line numbers for a run. (4) **A quoted font name inside a quoted script string breaks the page** (admin 10139) — the build writes `Hanken Grotesk` unquoted. (5) **Text sent over the bridge: escape codes like `️` arrive as the real character** — build such lines from character numbers (`chr()`) and md5 every file.
+**Next.** Session A part 2: G3 / G3b on the test site (the holiday-note setting added inside G3's own run, not to the shared seed), G5's drawn half, and the second rulings page (dialogs, sign-in, toasts, alerts window, report sheet, the Daily Schedule's pages). Session B (the build) only after that.
+**Session close** 23 Oct 2026 about 9:50 PM at about 615,000 tokens. No build, so no battery or isolation run; test site — no page changed, not republished.
