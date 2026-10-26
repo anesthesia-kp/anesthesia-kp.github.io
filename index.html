@@ -8,79 +8,79 @@
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    color:#0a2540;background:#0f2744;min-height:100vh;
+    font-family:'Hanken Grotesk',system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:#1f2329;background:#1f2329;min-height:100vh;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{display:flex;width:100vw;min-height:100vh;overflow:hidden;background:#fff}
+  .wrap{display:flex;width:100vw;min-height:100vh;overflow:hidden;background:#ffffff}
 
   /* ── LEFT: branded hero ── */
   .hero{
     flex:0 0 44%;
-    background:linear-gradient(160deg,#0f2744 0%,#00507e 60%,#006ba6 100%);
-    color:#fff;padding:48px 52px;
+    background:linear-gradient(160deg,#1f2329 0%,#1f2329 60%,#1f2329 100%);
+    color:#ffffff;padding:48px 52px;
     display:flex;flex-direction:column;justify-content:center;gap:4px;
   }
   .hero-logo{margin-bottom:20px}
   .hero-eyebrow{
     font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:#9fd0ec;margin-bottom:10px;
+    color:#c9cec2;margin-bottom:10px;
   }
   .hero-title{font-size:clamp(2rem,3.6vw,3rem);font-weight:900;line-height:1.02;letter-spacing:.01em}
   .hero-sub{
     font-size:clamp(1.05rem,1.8vw,1.5rem);font-weight:700;line-height:1.2;
-    margin-top:12px;color:#d7ecf8;
+    margin-top:12px;color:#c9cec2;
   }
   .hero-tag{
-    margin-top:26px;font-size:.95rem;line-height:1.5;color:#bcd9ec;max-width:340px;
+    margin-top:26px;font-size:.95rem;line-height:1.5;color:#c9cec2;max-width:340px;
   }
 
   /* ── RIGHT: link list ── */
-  .panel{flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:48px 40px;background:#fff}
+  .panel{flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:48px 40px;background:#ffffff}
   .panel-inner{width:100%;max-width:520px}
-  .panel-head{font-size:1.35rem;font-weight:800;color:#132f49;margin:0 0 24px}
+  .panel-head{font-size:1.35rem;font-weight:800;color:#1f2329;margin:0 0 24px}
 
   .group-label{
     font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
-    color:#006ba6;margin:22px 0 10px;display:flex;align-items:center;gap:8px;
+    color:#1f2329;margin:22px 0 10px;display:flex;align-items:center;gap:8px;
   }
   .group-label:first-of-type{margin-top:0}
-  .group-label::before{content:'';width:4px;height:15px;border-radius:2px;background:linear-gradient(180deg,#006ba6,#00753a)}
-  .group-label-admin{color:#8a5a00}
-  .group-label-admin::before{background:linear-gradient(180deg,#8a5a00,#b8860b)}
+  .group-label::before{content:'';width:4px;height:15px;border-radius:2px;background:linear-gradient(180deg,#1f2329,#36694a)}
+  .group-label-admin{color:#6f6a60}
+  .group-label-admin::before{background:linear-gradient(180deg,#6f6a60,#6f6a60)}
 
   .site-link{
     display:flex;align-items:center;gap:16px;text-decoration:none;
-    border:1.5px solid #d9e2ec;border-radius:14px;padding:15px 18px;margin-bottom:10px;
-    background:#fff;transition:border-color .16s,box-shadow .16s,transform .16s;
+    border:1.5px solid #e2ddd1;border-radius:14px;padding:15px 18px;margin-bottom:10px;
+    background:#ffffff;transition:border-color .16s,box-shadow .16s,transform .16s;
   }
   .site-link:hover{
-    border-color:#006ba6;box-shadow:0 6px 20px rgba(0,107,166,.14);transform:translateY(-1px);
+    border-color:#1f2329;box-shadow:0 6px 20px rgba(31,35,41,.14);transform:translateY(-1px);
   }
   .site-ico{
     flex:0 0 44px;width:44px;height:44px;border-radius:11px;
     display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg,rgba(0,107,166,.12),rgba(59,130,246,.08));
-    color:#006ba6;
+    background:linear-gradient(135deg,rgba(31,35,41,.12),rgba(31,35,41,.08));
+    color:#1f2329;
   }
   .site-link.is-admin .site-ico{
-    background:linear-gradient(135deg,rgba(122,78,0,.14),rgba(234,179,8,.08));color:#8a5a00;
+    background:linear-gradient(135deg,rgba(111,106,96,.14),rgba(111,106,96,.08));color:#6f6a60;
   }
   .site-body{flex:1 1 auto;min-width:0}
   .site-title-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-  .site-title{font-size:1rem;font-weight:700;color:#132f49}
+  .site-title{font-size:1rem;font-weight:700;color:#1f2329}
   .badge{
     font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
     padding:2px 8px;border-radius:999px;
   }
-  .badge-staff{background:rgba(0,107,166,.12);color:#006ba6}
-  .badge-admin{background:rgba(122,78,0,.14);color:#8a5a00}
-  .site-desc{display:block;font-size:.82rem;color:#5a728a;margin:3px 0 5px;line-height:1.35}
-  .site-url{display:block;font-size:.76rem;color:#8595a6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
-  .site-arrow{flex:0 0 auto;color:#b6c3d1;font-size:1.3rem;line-height:1}
-  .site-link:hover .site-arrow{color:#006ba6}
+  .badge-staff{background:rgba(31,35,41,.12);color:#1f2329}
+  .badge-admin{background:rgba(111,106,96,.14);color:#5e5c57}
+  .site-desc{display:block;font-size:.82rem;color:#1f2329;margin:3px 0 5px;line-height:1.35}
+  .site-url{display:block;font-size:.76rem;color:#4a505a;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;word-break:break-all}
+  .site-arrow{flex:0 0 auto;color:#6f6a60;font-size:1.3rem;line-height:1}
+  .site-link:hover .site-arrow{color:#1f2329}
 
-  .footer{margin-top:26px;font-size:.74rem;color:#94a3b4;text-align:center;line-height:1.5}
+  .footer{margin-top:26px;font-size:.74rem;color:#4a505a;text-align:center;line-height:1.5}
 
   /* ── Responsive ── */
   @media (max-width:860px){
@@ -90,6 +90,7 @@
     .panel{padding:32px 22px 44px}
   }
 </style>
+<style id="redesign-looks">@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/HankenGrotesk-Variable.woff2) format('woff2')}@font-face{font-family:'Hanken Grotesk';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/HankenGrotesk-Italic-Variable.woff2) format('woff2')}:root .group-label::before{content:none!important}</style>
 </head>
 <body>
   <div class="wrap">
@@ -97,7 +98,7 @@
     <!-- LEFT: hero -->
     <div class="hero">
       <div class="hero-logo" aria-hidden="true">
-        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/><path d="M8.5 14.5l2.2 2.2 4.3-4.6"/>
         </svg>
       </div>
