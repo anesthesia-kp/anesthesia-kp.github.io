@@ -311,7 +311,7 @@
 | §294 | 22 Oct 2026 | THE REDESIGN: LOOKS ONLY — SAGE IN PLACE OF BLUE ON BOTH SITES, A NEW FONT, NO EMOJI, COLOUR-BLIND-SAFE W / R / L | SHIPPED 26 Oct 2026 (222/386, 52/152; touch-ups 223/387, 53/153); Continue button 224/388, 54/154) |
 | §295 | 26 Oct 2026 | THE NEXT FOUR IDEAS IN THREE PIECES: BUILD A (NO NP LINE + THE PHASE 4 WEEK PICKER), THEN BIDS 11–16 ALONE, THEN PHASES CHOSEN PER AUCTION EXPLORED FIRST | SHIPPED 26 Oct 2026 (225/389) |
 | §296 | 26 Oct 2026 | STAFF 227: THE ☰ MENU, THE RULES BOX, NO MD LABEL, MY BIDS HIDDEN WHEN EMPTY AND YOU CANNOT BID, NO BOARD DROP-DOWN | SHIPPED 27 Oct 2026 (227/391) |
-| §297 | 27 Oct 2026 | BUILD C (STAFF 228 / ADMIN 392): "HI <FIRST NAME>," ON EVERY E-MAIL AND THE NP LEFTOVERS; THEN THE ADMIN WARNING; CHOOSE-THE-PHASES EXPLORED | SHIPPED 27 Oct 2026 (228/392); 229/393 + BUILD D FILED 28 Oct 2026 |
+| §297 | 27 Oct 2026 | BUILD C (STAFF 228 / ADMIN 392): "HI <FIRST NAME>," ON EVERY E-MAIL AND THE NP LEFTOVERS; THEN THE ADMIN WARNING; CHOOSE-THE-PHASES EXPLORED | SHIPPED 27 Oct 2026 (228/392); 229/393 + BUILD D SHIPPED 28 Oct 2026 |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7465,3 +7465,4 @@ Session "Vacation Auction 27 Oct 2026 V1". Shown the queue at 6:03 AM, **6:06 AM
 · **Build D, with no Strict level set:** the Strict line reads "…can only move a winning numbered bid…" (the page's own phrase for that setting) — not on the test page he approved. For his confirmation.
 · **Build D's "Denied this round" line** is in the warning list as planned, but every admin box that could show it is refused first by the page's existing round checks — it can never appear. Kept (harmless, matches the plan). For his call.
 · **The minute around the push:** a held e-mail written by a page still on 228 and re-checked by a 229 page is sent as written (full-name greeting) — nothing stuck, nothing lost.
+· **28 Oct 2026 6:05 AM, his, verbatim:** *"pushed.  1 - file admin get in wording change as part of the admin redesign.  handoff."* — **RULED: the admin-only "get-in" wording (reading 1 above) is renamed as part of the admin clean-up / redesign (TODO §1), not now.** Readings 2–4 (the Strict line with no level set, the unreachable "Denied this round" line, the ➕ Add competition-week limit) were pushed as built with no word from him — they stand as built. **Pushed 28 Oct 2026 about 6:05 AM — LIVE `10699b7`, served 229 / 19 / 393 twice; pushed bytes = gated.**
