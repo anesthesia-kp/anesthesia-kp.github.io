@@ -349,6 +349,7 @@
 | §332 | 1 Nov 2026 | NEXT: THE SMALL FIXES BUNDLE, THE DEFAULTS REVIEW AND HTML E-MAIL — EXPLORED NOW, PLANNED, THEN BUILT |  |
 | §333 | 2 Nov 2026 | BUILD 403 PLANNING: THE FIRST ANSWERS (1–3 APPROVED; FTE AVAILABLE REDESIGNED BY HIM) |  |
 | §334 | 3 Nov 2026 | BUILD 404 PLANNED: THE SETUP LOCK REMOVED, ONE SETTINGS PAGE, STRICT MEANS NO LOWERING LIMITS, LAST BIDS BACK; THE OUTSTANDING-ITEMS REVIEW |  |
+| §335 | 4 Nov 2026 | BUILD 404: B2 DROPPED (BOTH PARTS ALREADY GONE SINCE 220), D1 CONFIRMED; THE BUILD STARTS 4 NOV 2026 3 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7711,3 +7712,8 @@ Session "Vacation Auction 2 Nov 2026 V2" (2 Nov 2026 11:21 PM to 3 Nov 2026 7:14
 · **12:46–12:47 PM:** a "Why?" explainer for staff and admin FILED FOR LATER (TODO §1).
 · **12:48 PM** the review before the build; **12:49 PM** *"Let's do review here"*. **7:14 PM, his answers (the review page):** into 404 — B2 (remove Part A of the "you could lower and still win" e-mail, keep Part B, §284) and D1 (the Add Bid guard across Complete Round); 32 items CLOSED (marked in place in `TODO.md`); 14 Later. With them, verbatim: *"I really like how this was presented. do this more often for longer lists of decisions."* — START-HERE rule 26.
 · **8:28 PM, the last six design questions (review page "404 Design Questions"), all as recommended:** a mid-auction Restore carries the four "any time" settings and names them in its confirm; no automatic notice to staff of a mid-phase rule change; every settings edit writes a Change Log row; Last Bids shows "Lowerings are unlimited, so last bids don't limit anyone right now." while no phase restricts lowerings; an admin's edit becomes the person's last bid; the Fair Play note approved as written. Recorded as PLAN item K.
+
+## §335 — BUILD 404: B2 DROPPED (BOTH PARTS ALREADY GONE SINCE 220), D1 CONFIRMED; THE BUILD STARTS 4 NOV 2026 3 PM — 4 Nov 2026
+
+**Session "Vacation Auction 3 Nov 2026 V1".** His question, 3 Nov 2026 10:15 PM: *"Is there additional exploration or planning needed?"* Claude read `tests/docs/build404-plan/PLAN.md` against the 403 gated pages (`tests/docs/build403-plan/gated/`) and `tests/server/mail/`: **(1) B2 is out of date** — the plan's "remove Part A of the 'you could lower and still win' e-mail, keep Part B" (§284) was overtaken by staff 220, which removed BOTH parts (§288, his 18 Oct 2026 1:29 PM *"I think people need to be responsible for their own bid lowering"*); neither page nor the mail server sends either part; the 3 Nov review (§334) was built from the 15 Oct TODO line, never updated after 220. Recommended: B2 out of 404, Part B stays off, so 404 has no mail-server change and no redeploy. **(2) D1 is still needed** — the Add Bid confirm (`adminAddSelection`) re-checks only the phase (`_decisionGuard`), not a completed round. **(3)** the plan's "review before the build" note marked done.
+**4 Nov 2026 5:58 AM, verbatim:** *"Agree with all.  Begin this build at 3 PM today when my usage resets."* — **RULED: (1)–(3) as recommended; the plan amended in place. His 3 Nov 8:52 PM hold is lifted for a build start at 3 PM 4 Nov** (a message scheduled into this session at 3:05 PM, a few minutes after his reset).
