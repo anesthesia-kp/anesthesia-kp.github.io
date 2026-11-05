@@ -735,6 +735,8 @@ when the feature was queued.
 
 ## D3 · A dated capacity ceiling on a live document
 
+**✅ CLOSED 4 Nov 2026 (DECISIONS §341):** measured 33,342 bytes after Phases 1–3; Reset Auction rewrites the record from scratch each auction, so it never carries across years; ~380 KB at worst for a whole auction.
+
 *Same source, and it appeared nowhere else in the project.*
 
 > phases doc grows ~20KB/round (watch vs 1MB late 2027)
@@ -880,3 +882,4 @@ nowhere.*
 **The session.** 8:54 PM opened; his hold (wait for his go) kept. 10:15 PM *"Is there additional exploration or planning needed?"* → the 404 plan read against the 403 gated pages and the mail server: B2 already done since 220; D1 still needed; the agenda note stale. 4 Nov 5:58 AM his go (§335): all agreed; the plan amended; the build starts at 3 PM 4 Nov in THIS session (a message scheduled at 3:05 PM). Filed: docs only.
 **Lesson.** A review page built from TODO lines can carry an item a later build already did. Before an item goes into a plan, grep the gated pages for it (rule 14: check whether the code already answers it).
 **Session paused** 4 Nov 2026 about 6:05 AM, NOT closed: the 404 build runs here from 3 PM. If a fresh session opens instead, it builds 404 from the plan (TODO §1's top lines).
+**4 Nov 2026 2:44 PM–5:00 PM: BUILD 404 BUILT AND FILED FOR THE TESTING SITE** (his 2:44 PM *"Usage reset. Go."*; §336–§339 ruled during the build) — NOT pushed; where it stands and what is next: TODO §1's top line and `tests/docs/build404-plan/CHECKPOINT.md`. The cloud container restarted once (about 4:00 PM); nothing was lost — every helper's work sat in files and the one running helper resumed from its own record.
