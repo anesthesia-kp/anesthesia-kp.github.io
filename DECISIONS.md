@@ -365,6 +365,9 @@
 | §348 | 5 Nov 2026 | BUILD 406 WORDING AND SEARCH RULE APPROVED (R1–R16) |  |
 | §349 | 5 Nov 2026 | THE OPEN-ITEMS REVIEW (O1–O7) AND AN OLD KEY IN PUBLIC HISTORY |  |
 | §350 | 5 Nov 2026 | A ROLLING VACATION AUCTION YES / NO ON CALENDAR AND PHASES, FOR FUTURE AUCTIONS |  |
+| §351 | 5 Nov 2026 | BUILD 407 WORDING APPROVED (W1–W10) |  |
+| §352 | 5 Nov 2026 | O2 CLOSED: THE PUBLIC-REPO SCAN FOUND NOTHING TO REMOVE |  |
+| §353 | 5 Nov 2026 | O5 DONE: THE FIREBASE BROWSER KEYS ACCEPT ONLY THE SITE |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7828,3 +7831,18 @@ Session "Vacation Auction 2 Nov 2026 V2" (2 Nov 2026 11:21 PM to 3 Nov 2026 7:14
 
 **12:11–12:24 PM — the old key, looked for with him:** he searched the Google Cloud console in both his Google accounts (the project pickers' All lists, Manage Resources with both `dr-vacation-goddess-org` organizations opened, and Resources pending deletion): the July backup's Cloud project is in neither — only the live project, the testing project, the marathon project and four empty starter projects; nothing pending deletion. Reading: that project was deleted long ago (past the 30-day window), taking its service account and key with it. Nothing left to delete. Left open only if he finds a third Google account holding it.
 
+
+## §351 — BUILD 407 WORDING APPROVED (W1–W10) — 5 Nov 2026
+
+Session "Vacation Auction 5 Nov 2026 V3" (planning). The W wording of `tests/docs/build407-plan/PLAN.md` put to him on the review page "Build 407 Wording" (rule 26). **12:42 PM, W6, verbatim:** *"w6 - just auction is finished"* · *"or maybe Auction complete?"* — Claude recommended "Auction complete." (the site's word: "✓ Auction complete", the staff "Auction Complete", W7) and W5 to match; his *"both"*. The class hunt (rule 17) then found two more admin lines saying "finished" (the toast after ■ Finish the auction; the reopen-bidding refusal) — added as W9 / W10. **12:44 PM, his paste, verbatim:** *"Build 407 wording answers: W1 Approve (rec) · W2 Approve (rec) · W3 Approve (rec) · W4 Approve (rec) · W5 Keep my choice (rec) · W6 Keep my choice (rec) · W7 Approve (rec) · W8 Approve (rec) · W9 Approve (rec) · W10 Approve (rec)"* — RULED: W1–W4, W7, W8 as written in PLAN.md; **W5** "<phase> results are sent — the auction is complete."; **W6** and **W9** "Auction complete."; **W10** "<phase> is complete — its bidding cannot be reopened. Auction complete." The admin page then says "complete", never "finished", for the end of the auction; the button keeps its name "■ Finish the auction". Build 407 is fully planned; it is built in the next session (rule 25).
+
+## §352 — O2 CLOSED: THE PUBLIC-REPO SCAN FOUND NOTHING TO REMOVE — 5 Nov 2026
+
+Session "Vacation Auction 5 Nov 2026 V3". O2 of §349 (privacy item 4): every tracked file of the three public repos and the e-mail addresses in their whole git history scanned, nothing changed; the report is in the PRIVATE `tests` repo (`tests/docs/O2-PUBLIC-NOTES-SCAN-2026-11-05.md`), since it names the details. Found: only his own admin addresses — required by the pages and the rules, so public regardless; no colleague detail. **12:41 PM, verbatim:** *"1 - alice baker is a test account.  2-those are not real."* (a name in a screenshot note; example addresses in July code-review scenarios). Claude recommended closing as is. **12:44 PM, verbatim:** *"close o2"* — CLOSED.
+
+## §353 — O5 DONE: THE FIREBASE BROWSER KEYS ACCEPT ONLY THE SITE — 5 Nov 2026
+
+Session "Vacation Auction 5 Nov 2026 V3". O5 of §349 (*"Do it, testing site first"*), done by him in the Google Cloud console with Claude guiding (a security setting: his to press, never Claude's). Each project's one key, "Browser key (auto created by Firebase)", now has **Application restrictions → Websites**: `https://anesthesia-kp.github.io/*` and the project's own sign-in address — `https://crna-vacation.firebaseapp.com/*` on the testing project (key ends …Sw4U, saved 12:51 PM) and `https://vacation-25e8e.firebaseapp.com/*` on the live project (key ends …GxTk, saved 3:22 PM). Its **API restrictions** (the 25 APIs Firebase set) are left untouched. Nothing in any repo or script uses the keys outside the pages (grep of all four repos); the Vacation Test Site artifact runs on a fake database and is unaffected; the schedule pages share the live key and the same address.
+**Checked, on each project:** sign-in on the staff and admin pages works (his "works" / "worked"; a full reload of the live admin page "fine"); the key used with no referrer is refused — 403, `API_KEY_HTTP_REFERRER_BLOCKED` (his screenshots 3:20 PM and 3:25 PM). The red "LIVE CONNECTION LOST" banner seen after a sign-out / sign-in on an open page is the page's normal reconnect (every feed dies at sign-out and resubscribes after 5 / 15 / 30 / 60 s) and cleared on its own.
+**Found on the way:** the testing key's save warned of "usage detected" on `geocoding-backend.googleapis.com` — nothing of ours calls it and that API is not enabled on the testing project (his Enabled APIs list), so those were outside attempts, refused and unbillable; the live key saved with no warning.
+**Undo, either project:** Credentials → the browser key → Application restrictions → None → Save (takes up to 5 minutes). **If the site ever moves to another address, or a new page host is added, that address must be added to both keys first.**
