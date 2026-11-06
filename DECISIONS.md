@@ -368,6 +368,7 @@
 | §351 | 5 Nov 2026 | BUILD 407 WORDING APPROVED (W1–W10) |  |
 | §352 | 5 Nov 2026 | O2 CLOSED: THE PUBLIC-REPO SCAN FOUND NOTHING TO REMOVE |  |
 | §353 | 5 Nov 2026 | O5 DONE: THE FIREBASE BROWSER KEYS ACCEPT ONLY THE SITE |  |
+| §354 | 6 Nov 2026 | BUILD 407 LIVE; THE FOUR LINES THE PLAN DID NOT WORD ACCEPTED |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7846,3 +7847,7 @@ Session "Vacation Auction 5 Nov 2026 V3". O5 of §349 (*"Do it, testing site fir
 **Checked, on each project:** sign-in on the staff and admin pages works (his "works" / "worked"; a full reload of the live admin page "fine"); the key used with no referrer is refused — 403, `API_KEY_HTTP_REFERRER_BLOCKED` (his screenshots 3:20 PM and 3:25 PM). The red "LIVE CONNECTION LOST" banner seen after a sign-out / sign-in on an open page is the page's normal reconnect (every feed dies at sign-out and resubscribes after 5 / 15 / 30 / 60 s) and cleared on its own.
 **Found on the way:** the testing key's save warned of "usage detected" on `geocoding-backend.googleapis.com` — nothing of ours calls it and that API is not enabled on the testing project (his Enabled APIs list), so those were outside attempts, refused and unbillable; the live key saved with no warning.
 **Undo, either project:** Credentials → the browser key → Application restrictions → None → Save (takes up to 5 minutes). **If the site ever moves to another address, or a new page host is added, that address must be added to both keys first.**
+
+## §354 — BUILD 407 LIVE; THE FOUR LINES THE PLAN DID NOT WORD ACCEPTED — 6 Nov 2026
+
+Session "Vacation Auction 5 Nov 2026 V4". Built from the §350 plan with the §351 wording, four lines the plan did not word were built in his approved words and put to him before the push: (1) the Calendar and Phases setup description "…how many Fall phases run, whether Phase 1 opens every week, and whether a Rolling Vacation Auction follows them."; (2) the Begin Phase 1 box with 1 Fall phase and no RVA: "Other weeks are not auctioned."; (3) the phases line with 1 Fall phase, no RVA and no high-demand week set: "…and none are set. Other weeks are not auctioned."; (4) ■ Finish the auction pressed twice: "Auction complete." (the class hunt had missed this "already finished"). His reply, 5 Nov 2026 9:30 PM, verbatim: *"Great, will push later."* — taken as his OK, and said so to him. Pushed by him 6 Nov 2026 about 12:39 AM (`aeba35c`); served 243 / 19 / 407 live and testing.
