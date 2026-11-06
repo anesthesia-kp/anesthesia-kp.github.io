@@ -369,6 +369,7 @@
 | §352 | 5 Nov 2026 | O2 CLOSED: THE PUBLIC-REPO SCAN FOUND NOTHING TO REMOVE |  |
 | §353 | 5 Nov 2026 | O5 DONE: THE FIREBASE BROWSER KEYS ACCEPT ONLY THE SITE |  |
 | §354 | 6 Nov 2026 | BUILD 407 LIVE; THE FOUR LINES THE PLAN DID NOT WORD ACCEPTED |  |
+| §355 | 6 Nov 2026 | RA-12: A FULL AUDIT OF A MONTH OF BUILDS — PLANNED, RUN IN THE NEXT SESSION |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7851,3 +7852,7 @@ Session "Vacation Auction 5 Nov 2026 V3". O5 of §349 (*"Do it, testing site fir
 ## §354 — BUILD 407 LIVE; THE FOUR LINES THE PLAN DID NOT WORD ACCEPTED — 6 Nov 2026
 
 Session "Vacation Auction 5 Nov 2026 V4". Built from the §350 plan with the §351 wording, four lines the plan did not word were built in his approved words and put to him before the push: (1) the Calendar and Phases setup description "…how many Fall phases run, whether Phase 1 opens every week, and whether a Rolling Vacation Auction follows them."; (2) the Begin Phase 1 box with 1 Fall phase and no RVA: "Other weeks are not auctioned."; (3) the phases line with 1 Fall phase, no RVA and no high-demand week set: "…and none are set. Other weeks are not auctioned."; (4) ■ Finish the auction pressed twice: "Auction complete." (the class hunt had missed this "already finished"). His reply, 5 Nov 2026 9:30 PM, verbatim: *"Great, will push later."* — taken as his OK, and said so to him. Pushed by him 6 Nov 2026 about 12:39 AM (`aeba35c`); served 243 / 19 / 407 live and testing.
+
+## §355 — RA-12: A FULL AUDIT OF A MONTH OF BUILDS — PLANNED, RUN IN THE NEXT SESSION — 6 Nov 2026
+
+Session "Vacation Auction 6 Nov 2026 V1". **12:57 AM, verbatim:** *"We've done a lot of building this past month.  I think it might be good to substantial audit with extra agents, adversarial agents, megafuzz, other ideas to catch any bugs we introduced.  I don't want to chase down minor or trivial issues, just real problems."* Put to him 12:58 AM: RA-11's shape (seven read-only lanes — bid engine, rules, mail server, admin data tools, staff flows, a red team, an independent verifier), the RA-11 bar (CRITICAL / HIGH only; the rest one short list, not put to him), `tests/mega-fuzz.mjs` re-aimed (found: it reads build 267's engines from a fixed path, so it tests nothing current) and extended, a replay of the real Phase 1–3 data through today's engines from a live backup, and five questions. **1:00 AM, verbatim:** *"All of this is great"* — RULED: (1) the brief now, the audit in a FRESH session; (2) scope: auction pages, `firestore.rules`, the mail server; the schedule only for its roster writes; (3) the mega-fuzz re-aimed and extended as test code only (a new file; the old one left as it is); (4) he attaches a live backup at the start of the RA-12 session; the backup stays in the cloud scratch, never in a repo, the report giving counts only; (5) no leads of his. Findings go to him on a review page (rule 26); no fix in the audit session. Brief: `tests/docs/RA-12/BRIEF.md`; checkpoint `CHECKPOINT.md` beside it.
