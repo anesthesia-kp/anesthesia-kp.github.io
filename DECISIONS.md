@@ -372,6 +372,7 @@
 | §355 | 6 Nov 2026 | RA-12: A FULL AUDIT OF A MONTH OF BUILDS — PLANNED, RUN IN THE NEXT SESSION |  |
 | §356 | 6 Nov 2026 | RA-12 RUN: THREE HIGH FINDINGS, ALL TO BE FIXED IN ONE BUILD; BIDS STAY IN THE BROWSER |  |
 | §357 | 6 Nov 2026 | BUILD 408 PLANNED AND RULED: F3 BECOMES AN ADMIN RULES-PAGE LINE; W1–W7 |  |
+| §358 | 6 Nov 2026 | BUILD 408: THE TIMER NOTICE SAYS "TIMER", NOT "COUNTDOWN" |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -7895,3 +7896,6 @@ Session "Vacation Auction 6 Nov 2026 V2". **11:15 AM, verbatim:** *"go"* — to 
 - **W7** the "What's this?" box: an intro ("Choose a week and the bid you'd place there. If that bid could later win or be under review, you'll be e-mailed. The alert lasts until the phase ends."), then "Examples:" and the four, 1 and 4 shortened.
 
 Also in the plan, not put to him (no real choice): F1 = the admin page mirrors the locked weeks onto `vacations/timer` and the rules refuse a colleague's own-map change on them (RA-2 case L1 must be green before publishing; if it fails, stop and bring it to him); the mega-fuzz becomes `tests/fuzz/mega-fuzz.mjs`; the 8 drifted suites were already retired (§298); a new swap test. **Next: BUILD 408 in the next session (rule 25), nothing to re-ask.**
+
+## §358 — BUILD 408: THE TIMER NOTICE SAYS "TIMER", NOT "COUNTDOWN" — 6 Nov 2026
+**Session "Vacation Auction 6 Nov 2026 V3", during the build.** The W1 words ruled in §357 said "countdown" twice; §306 (L5) rules "timer" everywhere on the site, and `test-399-L` caught the clash. Put to him as one question; his answer: **"Use "timer" (Recommended)"**. The admin Rules page item 3.12 reads: *"A colleague using browser developer tools can push the timer back without placing a bid. If the timer jumps unexpectedly, Close Phase Bidding always ends the phase."* §357's W1 stands otherwise. **Status: RULED.**
