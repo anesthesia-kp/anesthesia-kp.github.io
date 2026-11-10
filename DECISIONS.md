@@ -400,6 +400,7 @@
 | §383 | 10 Nov 2026 | S2b: AN ADMIN'S REMOVE IS NOT A BAN — THE TWO (OR EITHER, WITH ANYONE) MAY SPLIT THAT WEEK AGAIN · RA-2 FOUND THE RULES TOO LONG ON THAT PATH |  |
 | §384 | 10 Nov 2026 | S2b MORNING REVIEW ANSWERED (1–6) · ITEM 3 HELD AGAINST §383 · THE RULES FIX FOR §383 BUILT, RA-2 TO RE-RUN |  |
 | §385 | 10 Nov 2026 | S2a + 248 + 414 + S2b GO LIVE AND TESTING TOGETHER · RA-2 ✅ BOTH · RULES HEADROOM TO BE MEASURED (NEXT PLANNING) |  |
+| §386 | 10 Nov 2026 | THREE SETS OF AUCTION SITES (FOR LATER): TESTING GETS ITS OWN NEW FIREBASE PROJECT, `crna-vacation` GOES BACK TO CRNA |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8184,4 +8185,8 @@ Session "Vacation Auction 9 Nov 2026 V3".
 - **RA-2, his run 6:14 AM (debug log 14:12 UTC), rules `65ce6476`:** "✅ BOTH: the current rules pass, and the old rules fail the new gates."
 - **His 6:14 AM, verbatim:** *"bidding is closed and site is idle.  why not keep updating both sites?"* — Claude agreed: rule 27's default is both sites; "testing first" was PLAN-S2b's own choice, not something the build needs (the rules reach both projects either way; with Split weeks Off the live site behaves as 409, test-off-409). So S2a + 248 + 414 + S2b are filed on the LIVE site and `testing/` together (§376's "S2a only with S2b" kept). His testing-site try still comes before or after the push as he likes; the live switch stays as he set it.
 - **His 6:15 AM, verbatim:** *"Do these rules limits apply only to split weeks or to other rules as well?  what's the solution to this problem because i'm sure we're not done building this and more rules will likely follow?"* — Claude's answer: the 1,000-expression limit applies to every save on both sites; RA-2 shows pass/fail, not the room left. Proposed for the NEXT PLANNING SESSION (an idea, not yet ruled): (1) a HEADROOM step in RA-2 — the heaviest honest saves re-run against rules padded with extra dummy checks, reporting the room left per save type and failing below an agreed margin; (2) the rules keep to who may write what, the page keeps the business logic; (3) only if a save keeps running short, split a busy document. TODO §1.
+
+## §386 — THREE SETS OF AUCTION SITES (FOR LATER): TESTING GETS ITS OWN NEW FIREBASE PROJECT, `crna-vacation` GOES BACK TO CRNA — 10 Nov 2026
+Session "Vacation Auction 9 Nov 2026 V3". His request, 6:32 AM, verbatim: *"I also want a 3rd set of sites so that I'll have the main vacation, CRNA, and testing. I'll need a 3rd Firestore project, I know. I'll want all 6 of those links plus schedule links on the landing page. For later."* Asked which project keeps `crna-vacation`, his 6:37 AM, verbatim: *"Testing gets its own new one and CRNA goes back to being for CRNA"*.
+- **RULED:** three sets — main vacation (`vacation-25e8e`), CRNA (`crna-vacation`, its own users again; §118's suspension ends when this is built), testing (a NEW Firebase project of its own). The landing page carries staff + admin for all three, plus the schedule links. FOR LATER: not planned, no go (§92). The plan covers the new project's setup (his console steps), rules and mail server on three projects, two stamped copies, and the testing site's move off `crna-vacation`.
 
