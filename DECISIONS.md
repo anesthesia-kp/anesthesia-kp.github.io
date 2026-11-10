@@ -405,6 +405,8 @@
 | §388 | 10 Nov 2026 | BUILD 416 REVIEW ANSWERED: ALL AS RECOMMENDED BUT "ONE PER HALF" IN THIS SESSION · GO |  |
 | §389 | 10 Nov 2026 | BUILD 416 FILED (LIVE AND TESTING TOGETHER, NOT PUSHED) · THE BLIND REVIEW'S FOUR LOW POINTS FOR HIM · NO FIX ROUND |  |
 | §390 | 10 Nov 2026 | LOW 1 AND LOW 4 FIXED IN 416 BEFORE THE PUSH · LOW 2 TO THE NEXT SESSION · LOW 3 IS Q7 |  |
+| §391 |  | THE FIRST RULES HEADROOM READING (RA-2-HEADROOM, HIS RUN 10 NOV 2026 ~2:29 PM) — FOR THE NEXT PLANNING |  |
+| §392 | 10 Nov 2026 | THE TIMER RULES: OPTION 1 — EDITED IN THE SITE'S USUAL POP-UP BOX; THE SAVE BAR GOES (NEXT BUILD) |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8227,4 +8229,15 @@ Session "Vacation Auction 10 Nov 2026 V1". His 1:47 PM, verbatim: *"Can you do t
 - **LOW 4:** when the Save bar hides, a focused Save / Cancel lets go of focus.
 - **LOW 2 (the dead "Use the split on my bid" button after a swapped remake): NEXT SESSION** — it changes the card-state code the whole agreement flow reads, which this session's context could not re-gate and review before 650,000.
 - Refiled about 2:30 PM: staff `5f22ff40`, admin `dd48628c` (the first filing kept in `tests/docs/build416/gated-416-v1/`); testing re-stamped; test-416-fix 9/0 (3 red on the first filing).
+
+## §391 — THE FIRST RULES HEADROOM READING (RA-2-HEADROOM, HIS RUN 10 NOV 2026 ~2:29 PM) — FOR THE NEXT PLANNING
+Session "Vacation Auction 10 Nov 2026 V1". His run of `tests/RA-2-HEADROOM.command` on rules `65ce6476` (721 assertions): extra checks on every rule → failing: 1 → 0, 10 → 0, 50 → 11, 100 → 24, 200 / 400 / 2000 → 278 (self-checks passed: clean at 1, saves refused at 2,000).
+- **Tightest (fail between 10 and 50 extra checks): the staff split saves** — recording a split "on", a change record, the "off" by bidder or partner, the cancel that ends, the remake over an admin's Remove (s27), over an ended / lost / earlier-phase entry, another partner over a same-phase Remove.
+- **Next (between 50 and 100): the combined bid saves** — a first bid with a floor, a lowering, a swap spending two lowerings, a remove, the combined move, the split-shape safety nets, a Strict remove of a moved bid, the locked-week bid cases.
+- **Everything else allowed fails between 100 and 200**, so one "extra check" here costs about five of Firestore's 1,000 expressions (each is a comparison inside a function call): the unit is relative, not expressions.
+- Reading: nothing is failing today; the split saves have the least room. Next planning: finer levels between 10 and 50 for the split saves (and 50–100 for the bid saves), then a margin to gate on, and whether the split rules' checks can be shortened on their own path (§385 (2)). Not ruled.
+
+## §392 — THE TIMER RULES: OPTION 1 — EDITED IN THE SITE'S USUAL POP-UP BOX; THE SAVE BAR GOES (NEXT BUILD) — 10 Nov 2026
+Session "Vacation Auction 10 Nov 2026 V1". His 2:29 PM, verbatim: *"I don't love the timer save banner since it isn't instantly obvious it's there since it's at the bottom.  I'm not sure of the right solution, but this style is not consistent with the rest of the site"*; to Claude's three options, 2:31 PM, verbatim: *"1 from above.  handoff"*.
+- **RULED (option 1, his own 6:48 AM idea):** the timer rules are edited in the site's usual pop-up box — the card shows the rules as they stand and an "Edit timer rules" button; the box holds the editor with its warnings, and Cancel / Save at its foot like every other settings box (Save still asks "Save timer rules?" or saves from the box — to settle in the plan). The Save bar (§387) goes. A phone test page before any build (rule 19). Planned next session; no go yet (§92).
 
