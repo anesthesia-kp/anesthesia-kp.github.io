@@ -401,6 +401,10 @@
 | §384 | 10 Nov 2026 | S2b MORNING REVIEW ANSWERED (1–6) · ITEM 3 HELD AGAINST §383 · THE RULES FIX FOR §383 BUILT, RA-2 TO RE-RUN |  |
 | §385 | 10 Nov 2026 | S2a + 248 + 414 + S2b GO LIVE AND TESTING TOGETHER · RA-2 ✅ BOTH · RULES HEADROOM TO BE MEASURED (NEXT PLANNING) |  |
 | §386 | 10 Nov 2026 | THREE SETS OF AUCTION SITES (FOR LATER): TESTING GETS ITS OWN NEW FIREBASE PROJECT, `crna-vacation` GOES BACK TO CRNA |  |
+| §387 | 10 Nov 2026 | S2b REVIEW ITEM 3 REMOVED · THE TIMER-RULES UNSAVED-CHANGES FIX JOINS THE NEXT BUILD |  |
+| §388 | 10 Nov 2026 | BUILD 416 REVIEW ANSWERED: ALL AS RECOMMENDED BUT "ONE PER HALF" IN THIS SESSION · GO |  |
+| §389 | 10 Nov 2026 | BUILD 416 FILED (LIVE AND TESTING TOGETHER, NOT PUSHED) · THE BLIND REVIEW'S FOUR LOW POINTS FOR HIM · NO FIX ROUND |  |
+| §390 | 10 Nov 2026 | LOW 1 AND LOW 4 FIXED IN 416 BEFORE THE PUSH · LOW 2 TO THE NEXT SESSION · LOW 3 IS Q7 |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8189,4 +8193,38 @@ Session "Vacation Auction 9 Nov 2026 V3".
 ## §386 — THREE SETS OF AUCTION SITES (FOR LATER): TESTING GETS ITS OWN NEW FIREBASE PROJECT, `crna-vacation` GOES BACK TO CRNA — 10 Nov 2026
 Session "Vacation Auction 9 Nov 2026 V3". His request, 6:32 AM, verbatim: *"I also want a 3rd set of sites so that I'll have the main vacation, CRNA, and testing. I'll need a 3rd Firestore project, I know. I'll want all 6 of those links plus schedule links on the landing page. For later."* Asked which project keeps `crna-vacation`, his 6:37 AM, verbatim: *"Testing gets its own new one and CRNA goes back to being for CRNA"*.
 - **RULED:** three sets — main vacation (`vacation-25e8e`), CRNA (`crna-vacation`, its own users again; §118's suspension ends when this is built), testing (a NEW Firebase project of its own). The landing page carries staff + admin for all three, plus the schedule links. FOR LATER: not planned, no go (§92). The plan covers the new project's setup (his console steps), rules and mail server on three projects, two stamped copies, and the testing site's move off `crna-vacation`.
+
+## §387 — S2b REVIEW ITEM 3 REMOVED · THE TIMER-RULES UNSAVED-CHANGES FIX JOINS THE NEXT BUILD — 10 Nov 2026
+Session "Vacation Auction 10 Nov 2026 V1". His 6:43 AM, verbatim: *"can we remove item 3?"* · *"can we add timer settings fix to this?"*
+- **RULED — ITEM 3 REMOVED:** "Close it" (§384 item 3, the same two undoing the admin's Remove by swapping who bids) is dropped. §383 allows the same two to remake the split outright, so there is nothing to close; §383 stands.
+- **RULED — THE TIMER FIX GOES IN THE NEXT BUILD:** the timer-rules unsaved-changes fix (TODO §1, his 6:28 AM idea) is planned with the next build's items (§384 4 and 5, "Add the matching week", "one per half", the "week opened up" e-mail line, remaking a split after an admin's Remove). Which form it takes is his pick in the planning. Read from admin 415: unsaved timer edits survive moving to another admin section (the card is not rebuilt while `_trEditing`), and closing or reloading the tab already warns.
+- **His 6:45–6:47 AM, verbatim:** *"you are wrong on the timer thing"* · *"they don't auto save"* · *"not to auto save, just don't want to be able to so easily miss save button"*. NO auto-save: the fix makes the Save button hard to miss. (Claude misread 6:45 as a request for auto-save and briefly filed it so; corrected 6:47.) Which form — a fixed Save / Cancel bar, a prompt on leaving the Timer section, or both — is his pick in the planning.
+- **RULED his 6:48–6:53 AM:** *"if bar simpler, ok with that.  want to see example"* · *"Timer bar is good"*. The fix is a Save / Cancel bar fixed to the bottom of the screen on every admin section while timer rules are unsaved, exactly as on the test page "Timer Save Bar" (https://claude.ai/artifact/WgxQePrmjX6DC6rPQ8fQTT, admin 415's own styles): red top edge; "Unsaved changes to Timer Rules" with a line beneath; Cancel puts the changes back; Save opens the existing "Save timer rule changes?" box (rule 5 kept); Save greyed with "Fix the warning in Timer Rules to save." while a warning shows; it replaces the card's own Save / Cancel. Not a pop-up editor (his 6:48 question: the bar is simpler; the card has about a dozen boxes).
+
+## §388 — BUILD 416 REVIEW ANSWERED: ALL AS RECOMMENDED BUT "ONE PER HALF" IN THIS SESSION · GO — 10 Nov 2026
+Session "Vacation Auction 10 Nov 2026 V1". Plan `tests/docs/build416/PLAN.md`; review page "Build 416 Review" (https://claude.ai/artifact/18E2MhkYbZBcpYL3NW4AfH). His answer, 12:12 PM, verbatim: *"Build 416: 1 Pick · 2 Now · 3 OK · 4 OK · 5 Own · 6 Leave · 7 Fine · 8 Go"*.
+- **1 PICK:** "Add the matching week" opens the agreement form with the same partner fixed and the bidder swapped and locked; the two people pick the halves (only the two halves of the same pattern offered) and the week.
+- **2 NOW (against Claude's recommendation "next session"):** "one per half" (F, the smallest version: the new bidder starts it, the half-holder approves; not the half-holder starting it, not requests on that week) is built in this session.
+- **3 OK:** the e-mail line as written: "<week> (your alert) — at <time> a split on this week changed; at that moment a new bid of <n> here would have been projected to WIN." (or UNDER REVIEW).
+- **4 OK:** the Rules page — 6.29 adds "After the admin removes a split, either of the two can make a new split on that week, with each other or with someone else."; 6.34 adds "After an agreement, either can start the same split on another week with the bidder and partner swapped (Add the matching week)."
+- **5 OWN:** the headroom step is its own double-click (`tests/RA-2-HEADROOM.command`), report only.
+- **6 LEAVE:** the admin removing the FIRST won split while a second exists on that week (the half-holder's cap counts 1.4 for that week) — left as it is.
+- **7 FINE:** testing-site splits removed before this build may show old offers again; testing only.
+- **8 GO:** build A–H in this session (context 374,801 at the go). Rule 21 holds: a review round finding new faults in the same mechanism stops the build and goes to him.
+
+## §389 — BUILD 416 FILED (LIVE AND TESTING TOGETHER, NOT PUSHED) · THE BLIND REVIEW'S FOUR LOW POINTS FOR HIM · NO FIX ROUND — 10 Nov 2026
+Session "Vacation Auction 10 Nov 2026 V1". Built A–H per `tests/docs/build416/PLAN.md` and §388 (helpers: lane P the split pages, lane T Claude, a blind review, a repoint lane; none messaged while running). Filed about 2:10 PM; gates in the BUILD-LOG row.
+- **Blind review: no HIGH, no MEDIUM. Four LOW, NOT fixed (Claude's call: no fix round for LOW points this late in the session; each is his to rule):**
+  1. One per half: when someone tries to make the half-holder the BIDDER, the refusal is right but its words ("<name> can only take <days> on this week.") give the wrong reason. Fix = a bidder message (new staff wording, his).
+  2. After a remake with the roles swapped, if the OLD bidder bids on that week again before the new bidder saves, the new bidder's card offers "Use the split on my bid", which does nothing (the save still refuses correctly). The same already happens after splits the two ended themselves.
+  3. Q7 confirmed by running: on splits removed BEFORE this build (testing site only), an old change or cancel side can read as new.
+  4. Timer editor: with focus left on the hidden Save / Cancel button, a live refresh from another admin could wait until the admin clicks elsewhere (read, not run).
+- **Not done:** the test site (HANDOFF 3a) is not republished — its builder needs the tests folder in the cloud.
+
+## §390 — LOW 1 AND LOW 4 FIXED IN 416 BEFORE THE PUSH · LOW 2 TO THE NEXT SESSION · LOW 3 IS Q7 — 10 Nov 2026
+Session "Vacation Auction 10 Nov 2026 V1". His 1:47 PM, verbatim: *"Can you do the low fixes here?"* · then, to Claude's answer (LOW 1 and LOW 4 here, LOW 2 next session, LOW 3 already his "Fine" in §388 Q7; the wording below; hold the push), *"Ok"*.
+- **LOW 1 RULED:** one per half — naming the half-holder as the bidder is refused with **"<name> can't be the bidder on this week."** (the wrong-half refusal keeps "<name> can only take <days> on this week.").
+- **LOW 4:** when the Save bar hides, a focused Save / Cancel lets go of focus.
+- **LOW 2 (the dead "Use the split on my bid" button after a swapped remake): NEXT SESSION** — it changes the card-state code the whole agreement flow reads, which this session's context could not re-gate and review before 650,000.
+- Refiled about 2:30 PM: staff `5f22ff40`, admin `dd48628c` (the first filing kept in `tests/docs/build416/gated-416-v1/`); testing re-stamped; test-416-fix 9/0 (3 red on the first filing).
 
