@@ -285,6 +285,10 @@ const cmp = (livej, diskj) => livej === null ? 'not checked from here (no networ
 const TRIPWIRE = { 'START-HERE.md': 350, 'TODO.md': 700, 'HANDOFF.md': 900 };
 const docsFail = [];   // [{code, msg}]
 const lineCount = f => { try { return readFileSync(f, 'utf8').split('\n').length - 1; } catch { return null; } };
+// [§379 (b), 9 Nov 2026] SIZE IN CHARACTERS — line counts do not bound size (one TODO.md line was 32,037 characters), so each governing
+// file is also measured in characters (Unicode characters, not bytes). Reported only: no character limit has been set.
+const charCount = f => { try { return [...readFileSync(f, 'utf8')].length; } catch { return null; } };
+const chars = n => n === null ? '?' : n.toLocaleString('en-US') + ' chars';
 const noteOf = f => {
   try {
     const head = readFileSync(f, 'utf8').split('\n').slice(0, 3).join('\n');
@@ -344,7 +348,7 @@ for (const [f, cap] of Object.entries(TRIPWIRE)) {
   sizes[f] = n;
   if (n !== null && n > cap) docsFail.push({ code: 4, msg: `ARCHIVE PASS DUE — before hand-over: ${f} is ${n} lines, tripwire ${cap}. Promote any lesson first, then \`node archive.mjs ${f} "<heading>"\` for what fails the §101 test, then re-run.` });
 }
-const archSizes = hubMd.filter(f => /-ARCHIVE\.md$/.test(f)).map(f => `${f} ${lineCount(join(here, f))}`).join(' · ') || 'none';
+const archSizes = hubMd.filter(f => /-ARCHIVE\.md$/.test(f)).map(f => `${f} ${lineCount(join(here, f))} (${chars(charCount(join(here, f)))})`).join(' · ') || 'none'; // [§379 (b)] + characters
 for (const f of hubMd.filter(f => /-ARCHIVE\.md$/.test(f)))
   if (!mapRows.some(r => r.includes(`anesthesia-kp.github.io/${f}`))) docsFail.push({ code: 5, msg: `the map does not name ${f}` });
 
@@ -407,7 +411,7 @@ try {
   }
 } catch {}
 
-const docsRow = `**Governing files:** START-HERE **${sizes['START-HERE.md']}** / 350 · TODO **${sizes['TODO.md']}** / 700 · HANDOFF **${sizes['HANDOFF.md']}** / 900 · DECISIONS ${lineCount(decPath)} (unlimited, indexed ${decHeadings.length} rulings) · archives: ${archSizes}. Over a tripwire = this script exits non-zero = the archive pass is due before hand-over.`;
+const docsRow = `**Governing files:** START-HERE **${sizes['START-HERE.md']}** / 350 (${chars(charCount(join(here, 'START-HERE.md')))}) · TODO **${sizes['TODO.md']}** / 700 (${chars(charCount(join(here, 'TODO.md')))}) · HANDOFF **${sizes['HANDOFF.md']}** / 900 (${chars(charCount(join(here, 'HANDOFF.md')))}) · DECISIONS ${lineCount(decPath)} (unlimited, indexed ${decHeadings.length} rulings; ${chars(charCount(decPath))}) · archives: ${archSizes}. Lines / tripwire, then size in characters (§379: measured, no character limit set). Over a tripwire = this script exits non-zero = the archive pass is due before hand-over.`;
 
 // --- render ---------------------------------------------------------------
 // ── Housekeeping gate (31 Aug 2026, owner request: "ensure it happens automatically").
