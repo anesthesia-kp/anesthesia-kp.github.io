@@ -158,7 +158,7 @@ try {
   };
   const claims = [
     { name: 'the header LIVE line',
-      re: /LIVE, verified cache-busted TWICE: auction admin (\d+) . staff \(index\) (\d+) . mobile (\d+) . schedule admin (\d+) \/ staff (\d+)/,
+      re: /LIVE, verified [^:*]{1,60}: auction admin (\d+) . staff \(index\) (\d+) . mobile (\d+) . schedule admin (\d+) \/ staff (\d+)/, // how it was verified is named in the line (two cache-busted fetches, or his page-load when WebFetch is refused - V3 10 Nov 2026); the numbers are what is checked
       order: ['auction admin', 'auction staff', 'auction mobile', 'schedule admin', 'schedule staff'] },
     // The WHERE TO START "LIVE NOW" line was a SECOND copy of the header line above it and was
     // archived in the §106 housekeeping pass, 25 Aug 2026. Its check is gone with it: the header
