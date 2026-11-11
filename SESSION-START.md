@@ -5,6 +5,7 @@ Copy everything inside the box, and nothing else:
 
 ```
 Vacation Auction session. Do not work from memory or from this message.
+0. Attach anesthesia-kp/tests to this session.
 1. Ask for access to ~/Documents/GitHub on my Mac.
 2. Read anesthesia-kp.github.io/START-HERE.md FROM THE DISK, all of it, and follow its §4 ritual.
 If my Mac can't be reached, say so and stop. Do not work from an older copy. I'll wake the Mac or attach the file.
