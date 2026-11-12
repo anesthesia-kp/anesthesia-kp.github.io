@@ -436,6 +436,7 @@
 | §419 | 11 Nov 2026 | SPLIT WORDING: THE OTHER PERSON'S FULL NAME FIRST, THEN INITIALS; THE USER BY INITIALS, NO "ME" |  |
 | §420 | 11 Nov 2026 | THE SPLIT WORDING REVIEW: HIS ANSWERS |  |
 | §421 | 11 Nov 2026 | BUILD 256 / 422 PLANNED: HIS ANSWERS TO ITS QUESTIONS |  |
+| §422 | 11 Nov 2026 | THE LIVE CHECK'S ADDRESSES GO IN THE START MESSAGE |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8402,3 +8403,6 @@ Session "Vacation Auction 11 Nov 2026 V2", 10:05 PM, on the review page "Split W
 
 ## §421 — BUILD 256 / 422 PLANNED: HIS ANSWERS TO ITS QUESTIONS — 11 Nov 2026
 Session "Vacation Auction 11 Nov 2026 V2". The plan: `tests/docs/split-wording/PLAN.md` (§418–§420: the split wording, the Change Log split mark, the dates beside each half; no rules change; the mail server). 10:26 PM, his words, verbatim: *"both sites, 2-good, 3-good"* — **RULED: Q1 both sites together** (no testing round first; rule 27); **Q2** the Split weeks list row for a declined or kept split names the other person in full ("Vacation Goddess declined the split" / "kept the split"); **Q3** the Rules page items as the plan writes them (6.32 "Interested"; 6.35 "<initials>'s bid remains active." beside "The admin removed this split."; 2.42 the dates and the Change Log mark; new 6.37 how splits are worded for staff). Recorded in PLAN §11. **10:29 PM, his GO, verbatim: *"yes"*** (to Claude's "The last thing the plan needs is your go to build it… the next session would then build it straight from the plan, with nothing to ask you") — **GO: build 256 / 422 from `tests/docs/split-wording/PLAN.md` §1–§11 in the next session (rule 25).** Nothing built.
+
+## §422 — THE LIVE CHECK'S ADDRESSES GO IN THE START MESSAGE — 11 Nov 2026
+Session "Vacation Auction 11 Nov 2026 V3". At the opening (10:34 PM) the four `versions.json` fetches of §4 step 2 waited for his approval and timed out: the fetch tool runs unasked only on an address already in the chat, and Claude had built them from disk. 10:41 PM, his *"reply with what?"* — any message; the fetches then ran (255 / 19 / 421, 54 / 156, each under its own address). 10:42 PM, his *"can you automate the web fetches with the start here?"* — Claude proposed a line 3 in `SESSION-START.md` carrying the four addresses (`?a=1` / `?b=2` per site), §4 step 2 pointing at it, and a note under rule 32; a re-check within 15 minutes after a push may need a fresh address and may ask him once. **10:43 PM, his GO, verbatim: *"yes"*. RULED and done the same turn.**
