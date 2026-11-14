@@ -1,9 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 14 Nov 2026** — session "Vacation Auction 14 Nov 2026 V2" (about 12:40 PM, the three-sites build FILED): §2 three projects; rule 27 all three projects and the ONE release double-click; rule 4 the push by release (§452–§457). This line keeps only the newest entry (§431).
+**LAST REVISED: 14 Nov 2026** — session "Vacation Auction 14 Nov 2026 V2" (about 1:00 PM): the LIVE line — the three-sites build released (`f7896b5`); §2, rules 4 and 27 for three projects and the release double-click (§452–§457). This line keeps only the newest entry (§431).
 
-**LIVE, verified by WebFetch at the pushed commit, 14 Nov 2026: auction admin 427 · staff (index) 258 · mobile 19 · schedule admin 156 / staff 54** (read about 10:07 AM; auction `b026001`, schedule `69baa11`, hub `d05a122`, tests `65d6be7` — staff 258 / admin 427 (split dates, a split's half in View previous phases and the bid confirm box, ½W / ½L, the simulator fix, the check FTE table; §440–§450) pushed by him 14 Nov 2026 about 10:05 AM, after his mail-server deploy to both projects at 10:05 AM; `versions.json` read 258 / 19 / 427 at `?c=b026001` and `?c=b026001b` on live, and at `?c=b026001` on `testing/`; no rules change); git HEAD = origin/main on all four repos.
+**LIVE, verified by WebFetch at the pushed commit, 14 Nov 2026: auction admin 427 · staff (index) 258 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 12:58 PM; auction `f7896b5`, tests `9ebee28`, hub `3aff9f4`, schedule `69baa11` — the three-sites build (§452–§457) released by him with ▶ RELEASE about 12:56 PM: RA-2 all four, rules and mail server on all three projects, the pushes; the rules file unchanged); git HEAD = origin/main on all four repos.
 
 
 
