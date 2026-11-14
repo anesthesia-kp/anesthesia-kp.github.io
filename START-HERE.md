@@ -3,7 +3,7 @@
 
 **LAST REVISED: 14 Nov 2026** — session "Vacation Auction 14 Nov 2026 V3" (about 1:45 PM): ▶ RELEASE asks for `go` / `go all`; no commit lines and no rules file in the chat; nothing written to the Mac while a release runs (§458–§460). This line keeps only the newest entry (§431).
 
-**LIVE, verified by WebFetch at the pushed commit, 14 Nov 2026: auction admin 427 · staff (index) 258 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 12:58 PM; auction `f7896b5`, tests `9ebee28`, hub `3aff9f4`, schedule `69baa11` — the three-sites build (§452–§457) released by him with ▶ RELEASE about 12:56 PM: RA-2 all four, rules and mail server on all three projects, the pushes; the rules file unchanged); git HEAD = origin/main on all four repos.
+**LIVE, verified by WebFetch at the pushed commit, 14 Nov 2026: auction admin 427 · staff (index) 258 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 12:58 PM and again 1:22 PM (V3) at auction `bd847a1` / schedule `69baa11`; tests `f294403`, hub `34701be` — V3 changed docs and the release tools only; the three-sites build (§452–§457) released by him with ▶ RELEASE about 12:56 PM: RA-2 all four, rules and mail server on all three projects, the pushes; the rules file unchanged); git HEAD = origin/main on all four repos.
 
 
 
