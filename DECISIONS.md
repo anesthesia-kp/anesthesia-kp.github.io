@@ -86,7 +86,7 @@
 | §70 | 20 Aug 2026 (owner, away, via question card) | Engine ruling: denials are CAPACITY vs POLICY, judged against the pre-denial natural projection | SUPERSEDED BY §77 |
 | §71 | 20 Aug 2026 | DB-1 ruling: "THE BOUNDARY FORGETS" — denied bids retire at every phase boundary | LIVE |
 | §72 | 20 Aug 2026 | Floors are ABSOLUTE (admin included); NE-14 mid-decision stability; caps/locks stay overridable |  |
-| §73 | 20 Aug 2026 (post-push) | Rules files: ALWAYS the paste-ready presentation |  |
+| §73 | 20 Aug 2026 (post-push) | Rules files: ALWAYS the paste-ready presentation | SUPERSEDED BY §459 |
 | §74 | 20 Aug 2026 | Commit-length cap RE-AFFIRMED; Claude drifted again within a day |  |
 | §75 | 20 Aug 2026 (night) | RA-3 triage: the Daily Schedule is OUT of scope until much later |  |
 | §76 | 20 Aug 2026 (night) | World-readable data: fix it only if the fix is cheap |  |
@@ -260,7 +260,7 @@
 | §243 | 5 Oct 2026 | "THE WEEK YOU LEFT IS WITHIN REACH AGAIN": ANY BID THEY HOLD COUNTS, EITHER KIND OF OPENING, WITHIN A PHASE ONLY | LIVE (192) |
 | §244 | 5 Oct 2026 | THE "LOWER AND STILL WIN" LINE (§221) STATES THE LOWEST BID THAT WOULD WIN, COUNTING FREE NUMBERS AND NUMBERS LIVE ON OTHER WEEKS THIS PHASE | LIVE (192, with the narrowing) — audit of the narrowing filed for later |
 | §245 | 6 Oct 2026 | A WINNING BID CANNOT BE LOWERED BELOW THE WEAKEST WINNING BID, ON A WEEK WHERE A BIDDING COMPETITION HAS HAPPENED | LIVE (193) |
-| §246 | 6 Oct 2026 | COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME | STANDING |
+| §246 | 6 Oct 2026 | COMMIT MESSAGES ARE PASTED IN THE CHAT, ONE COPY-BOX PER REPO, EVERY TIME | SUPERSEDED BY §458 |
 | §247 | 6 Oct 2026 | START-HERE IS ALSO PASTED IN THE CHAT, IN ONE COPY-BOX, AT THE START AND THE END OF EVERY SESSION | WITHDRAWN the same day — never paste START-HERE in the chat |
 | §248 | 6 Oct 2026 | ON A COMPETITION WEEK A BID MAY BE WEAKENED ONLY IF IT WOULD STILL WIN, NO LOWER THAN THE LOWEST OTHER WINNING BID | LIVE (194) — rule superseded by §249, not yet built |
 | §249 | 7 Oct 2026 | CLOSING THE "WEEK WITH ROOM LEFT" GAP: A NEW BID ON A COMPETITION WEEK MUST MATCH THE LOWEST WINNING BID ("NO WEAKENING AT ALL" RULED, THEN WITHDRAWN) | RULED in its final form (entry level on a competition week) — NOT BUILT; staff 195 to be planned |
@@ -431,7 +431,7 @@
 | §414 | 11 Nov 2026 | THE 550,000 / 650,000 CONTEXT LINES BECOME RECOMMENDATIONS HE CAN OVERRIDE |  |
 | §415 | 11 Nov 2026 | BUILD 255 / 421 FIX ROUND: THE REVIEW'S FINDINGS AND TWO MORE, ALL IN THIS BUILD |  |
 | §416 | 11 Nov 2026 | THE SPLIT BOXES' NO-BUTTON: "CANCEL" READS POORLY |  |
-| §417 | 11 Nov 2026 | A CHANGED RULES FILE IS PRESENTED WHOLE IN THE CHAT |  |
+| §417 | 11 Nov 2026 | A CHANGED RULES FILE IS PRESENTED WHOLE IN THE CHAT | SUPERSEDED BY §459 |
 | §418 | 11 Nov 2026 | A SPLIT NAMES THE OTHER PERSON BY INITIALS, EVERYWHERE |  |
 | §419 | 11 Nov 2026 | SPLIT WORDING: THE OTHER PERSON'S FULL NAME FIRST, THEN INITIALS; THE USER BY INITIALS, NO "ME" |  |
 | §420 | 11 Nov 2026 | THE SPLIT WORDING REVIEW: HIS ANSWERS |  |
@@ -472,6 +472,9 @@
 | §455 | 14 Nov 2026 | THE DOUBLE-CLICK FILES EASY TO FIND |  |
 | §456 | 14 Nov 2026 | THE THREE-SITES BUILD'S REVIEW ANSWERED: CLAUDE'S FIX ROUND 1 (RELEASE GUARDS, THE TEMPLATE) |  |
 | §457 | 14 Nov 2026 | THE THREE-SITES BUILD FILED AS IT IS AFTER ONE FIX ROUND |  |
+| §458 | 14 Nov 2026 | NO COMMIT LINES IN THE CHAT: HE PUSHES ONLY WITH ▶ RELEASE; THE START MESSAGE STAYS AT EVERY CLOSE |  |
+| §459 | 14 Nov 2026 | NO RULES FILE IN THE CHAT (▶ RELEASE PUBLISHES THE RULES); NOTHING WRITTEN TO THE MAC WHILE A RELEASE RUNS |  |
+| §460 | 14 Nov 2026 | ▶ RELEASE ASKS FOR `go` (AND `go all`), CAPITALS AND SPACES IGNORED |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8560,3 +8563,12 @@ Session "Vacation Auction 14 Nov 2026 V2". The blind review (`tests/docs/three-s
 
 ## §457 — THE THREE-SITES BUILD FILED AS IT IS AFTER ONE FIX ROUND — 14 Nov 2026
 Session "Vacation Auction 14 Nov 2026 V2". The verify (`tests/docs/three-sites/VERIFY-1.md`): H1, M1–M4 and the fixed LOWs FIXED; new N2 (the rss3fn3 paste only in code comments — answered by the go-live list; he did the paste at 12:33 PM, ID confirmed) and three LOWs in the new fingerprint (N1 cannot happen once `server/rules/firebase.json` is filed; N3/N4 need something writing into the repos DURING a release), N5 a suite gap. Per rule 21 the build stopped and it was put to him (12:1x PM): file as is (recommended — habit: run a release only when no session is filing), or one more small round. **His answer, 12:34 PM, verbatim:** *"file as is"* — RULED: filed as it is; N1/N3/N4/N5 recorded here and in VERIFY-1.md for a later build, not fixed now.
+
+## §458 — NO COMMIT LINES IN THE CHAT: HE PUSHES ONLY WITH ▶ RELEASE; THE START MESSAGE STAYS AT EVERY CLOSE — 14 Nov 2026
+Session "Vacation Auction 14 Nov 2026 V3". 1:24 PM he asked *"Do i need commit lines anymore?"* Read this turn: `tests/RELEASE.command` shows each repo's `COMMIT-MESSAGE.txt` before he types RELEASE, commits with it (`git add -A`, `commit -F`) and empties the file — so the chat copy-boxes (§246) and the outputs-column `COMMIT-MESSAGES.txt` are pasted nowhere. Claude proposed: stop both; keep writing `COMMIT-MESSAGE.txt` (RELEASE stops without it); keep the lines one short line (he reads them in the RELEASE window); the hand-over names the repos waiting for ▶ RELEASE. His answer, 1:26 PM, verbatim: *"I don't plan to use github desktop at all.  i still need next session start prompt at each close."* — RULED: no commit copy-boxes in the chat, no `COMMIT-MESSAGES.txt`, never GitHub Desktop; the short start message from `SESSION-START.md` still goes in the chat at every close (§280 stands). Supersedes §246; §214's one-line rule stands for brevity. START-HERE §3 (the commit paragraph, rule 4, the paperwork table, outputs hygiene, the bridge note) and HANDOFF's checklist changed the same turn; the retired text is in `START-HERE-ARCHIVE.md`.
+
+## §459 — NO RULES FILE IN THE CHAT (▶ RELEASE PUBLISHES THE RULES); NOTHING WRITTEN TO THE MAC WHILE A RELEASE RUNS — 14 Nov 2026
+Session "Vacation Auction 14 Nov 2026 V3". 1:26 PM he asked *"any other changes with this new workflow?"* Read this turn: `tests/RELEASE.command` copies the auction repo's `firestore.rules` and deploys it to all three projects on every release, before the push; and it fingerprints each repo when RELEASE is typed and stops if a file changes before that repo is pushed. Claude put two items to him: (1) stop sending `firestore-rules.txt` in the chat (§417, and §73's paste-ready console presentation) — it has no paste destination; the chat says in a line or two what changed in the rules; (2) promote V2's lesson "nothing may be written to the Mac while a release runs" from HANDOFF into START-HERE rule 27. His answer, 1:30 PM, verbatim: *"both"* — RULED. Supersedes §417 and §73. START-HERE §2, rule 27 and the outputs paragraphs changed the same turn; the retired text is in `START-HERE-ARCHIVE.md`.
+
+## §460 — ▶ RELEASE ASKS FOR `go` (AND `go all`), CAPITALS AND SPACES IGNORED — 14 Nov 2026
+Session "Vacation Auction 14 Nov 2026 V3". 1:33 PM, at the RELEASE prompt, he asked *"do i always need to type release?"*; Claude answered yes — the typed word is the one stop before anything goes live (rule 5) — and advised against a single key. 1:33 PM, verbatim: *"i want something easier than release"*. Claude proposed `go` / `go all`, capitals and extra spaces ignored, anything else (Return alone included) does nothing; kept a word, not a key, so one stray keypress cannot publish the live site. His answer 1:34 PM: *"go"* — RULED and built the same session. Built: `tests/RELEASE.command` (the instructions, the answer check `WORD=${(L)${(j: :)${=ANSWER}}}`, the "go all — every step:" line, the changed-repo stop message) and `tests/test-release-tools.mjs` (every run types `go`; R5's do-nothing list gains RELEASE, RELEASE ALL, g, goo, gogo, go now, go all now, goall, all, all go, y, ok; new R5b: Go / GO / spaces do what go does, Go All / GO ALL / spaces do every step, the window says go and never RELEASE). Gates (cloud, zsh 5.9): the finished files 161 passed, 2 failed — A1 and A4, RA-2.command's section, both red on the unchanged baseline too (149 / 2), untouched by this change; honesty: the old RELEASE.command exits 1 (nothing runs on `go`; the suite then stops at R1's record read); mutation "exact word only" exits 1 with 5 R5b reds (Go, GO, Go All, GO ALL, spaced go all); mutation "window still says RELEASE" exits 1 with R5b's wording check red. He closed the open RELEASE window first (1:41 PM, *"i terminated that"*) so the running script was never rewritten under it. Takes effect at his next ▶ RELEASE, which itself still runs the copy on disk at the moment he double-clicks.
