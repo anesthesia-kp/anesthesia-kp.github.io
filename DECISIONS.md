@@ -478,6 +478,7 @@
 | §461 | 14 Nov 2026 | THE SITE LABEL BACK AT THE TOP OF THE STAFF PAGES: "MD" / "CRNA" |  |
 | §462 | 14 Nov 2026 | RA-13: THE CLOSING AUDIT BEFORE A LONG PAUSE IN BUILDING — A MULTI-AGENT REVIEW WITH ADVERSARIAL AUDITS |  |
 | §463 | 14 Nov 2026 | RA-13 ANSWERED: FIX F1–F3 IN ONE BUILD; TESTS ONLY AS THE FIX NEEDS; START-HERE'S SUITE COUNT CORRECTED |  |
+| §464 | 15 Nov 2026 | §4 STEP 2 READS THE LIVE SITES IN HIS CHROME: WEBFETCH REFUSES `/vacation/` |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8625,3 +8626,7 @@ RULED: **R1, R2, R3 — fix** (F1 CRITICAL, F2 HIGH, F3 HIGH of `tests/docs/RA-1
 RULED: the plan (`tests/docs/RA-13-fix/PLAN.md` draft 2) and every wording item as the review page showed them; released to all three sites together; **HIS GO (§92) to build staff 260 / admin 428 in this session (P11 "Build here").** Built outside the folder he pushes from (rule 4).
 
 **BUILT AND FILED, 14 Nov 2026 about 10:05 PM — staff 260 / admin 428, all three sites** (BUILD-LOG top row; `tests/docs/RA-13-fix/`). Gates green: `test-ra13-fix` 118/0 (honesty on `9a9c64f` red 77); 108 suites reading the changed code show no new red (17 repointed, R4); mega-fuzz honesty 15/15; stamp 176/0; isolation 45/0; blind review clean. Awaiting his ▶ RELEASE.
+
+## §464 — §4 STEP 2 READS THE LIVE SITES IN HIS CHROME: WEBFETCH REFUSES `/vacation/` — 15 Nov 2026
+
+Session "Vacation Auction 14 Nov 2026 V5". **6:15 AM, his "pushed"** (▶ RELEASE of staff 260 / admin 428: auction `6b194cb`, tests `fafdc2f`, hub `50a22c3`). §4 step 2's WebFetch then refused every `anesthesia-kp.github.io/vacation/…/versions.json` address with *robots_disallowed* (it read the same addresses on 14 Nov); the landing page and `schedule/versions.json` still read; `robots.txt` answers not-found; the staff page's `noindex` meta dates from build 136 — so the site did not change, the tool did (Claude's inference, unproved: the folder's main page carries `noindex`, the schedule's does not). GitHub's Pages build record is refused by the session's proxy. Not worked around. **6:30 AM, his *"why did this happen?"*** — answered as above, with the advice not to remove the `noindex` tag to suit the tool. **6:31 AM *"does that take longer?"*** — about a minute instead of seconds; a one-time Chrome permission; his Chrome must be open. **6:32 AM, verbatim: *"ok, go"*** — RULED: the live check reads the sites in his Chrome (Claude in Chrome), and §4 step 2 is changed to say so (rule 32), WebFetch kept as a try-first. Read 6:33 AM: `/vacation/` (both endings), `crna/`, `testing/` all 260 / 19 / 428 at `?c=6b194cb`. START-HERE §4 step 2 rewritten the same turn.
