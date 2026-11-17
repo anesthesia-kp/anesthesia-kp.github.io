@@ -3849,3 +3849,25 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: hub with this entry's record changes, line filed; tests, auction, schedule clean.
 - 4a: `_to_delete/` (15 files), his to empty.
 - 5: handed over.
+
+---
+## ⤵ moved 16 Nov 2026 from HANDOFF.md — 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V1" — THE REHEARSAL SITE TESTED BY CLICKS IN HIS CHROME, PHASE 1 → FINISH: FINDINGS F1–F7 AND O1–O15, NOT YET TRIAGED — NO SITE CHANGE
+
+## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V1" — THE REHEARSAL SITE TESTED BY CLICKS IN HIS CHROME, PHASE 1 → FINISH: FINDINGS F1–F7 AND O1–O15, NOT YET TRIAGED — NO SITE CHANGE
+**State.** Live unchanged: staff 260 / mobile 19 / admin 428 (auction `b7ea8f1`), schedule 54 / 156 (`69baa11`); tests `02955a1`, hub `874fe78`; HEAD = origin on all four. His rehearsal auction is left FINISHED with blinded bidding ON (reset before the next run — ask first). **▶ NEXT SESSION (his 11:32 AM: *"handoff and we can analyze results in next session?"*): go through `tests/docs/rehearsal-chrome/CHECKPOINT.md`'s findings and observations with him on a review page (rule 26) — site or tool, keep or drop. Nothing is planned (§92).**
+**The session, in order.**
+- **5:2x AM:** opened (§4 from disk; `tests` attached). His "go" → Claude in Chrome acts inside the artifact by screenshot + click only. 5:33 "reset first", then *"ensure you click every button and try every scenario. be especially thorough with comp weeks and split weeks"*.
+- **Phase 1 (Strict):** the Christmas-week "offers no single bid" = the site as designed; competition weeks, splits (propose / accept / decline / blended FTE), admin splits, approvals, the Wheel; F1–F4 found. Send Results stranded the rehearsal (F5) → second reset (his "ok"), Skip sending from then on.
+- **Phase 2 (Loose, timer mode 1, lowerings 1, cap 4 — his 6:06 *"change timer settings in p2…"*, *"make sure enough bids are placed…"*):** many made-up doctors on the same weeks; ties, Loose removals, the lowering limit, the cap, both alert kinds, no false alerts; every admin page; blinded bidding; F6, F7.
+- **Phase 3, Phase 4 Round 1, Finish:** NP, the simulator, auto-decide, the month picker, Finish.
+- **Not clicked:** the download buttons (PDF / Excel / Local Hard Drive Backup) — they need his OK.
+**Lessons.** 1. The artifact is screenshot-only for Claude in Chrome — now a STANDING TRAP with the picker, `<select>` and KP-box details. 2. **A click right after a list changes can land on the next row** (an approve box opened for LL when Deny was meant; the sign-in picker signed in Alice Barrow) — screenshot after any action that redraws a list, before the next click there. 3. Before calling a screen fact a finding, read the code: three candidates proved deliberate (the alert window's open choices §11k, "Winning" vs "Remaining" [300 · H-1], the backup "site" line = rehearsal-only).
+**Session close** 16 Nov 2026 about 11:40 AM; ONE compaction (the session continued from its summary; everything had been filed to CHECKPOINT as it went, rule 33); the reading was not visible to Claude this session. Closing checklist:
+- 0: HEAD = origin on all four (public repos by ls-remote, tests by fetch in the cloud).
+- 1: chat reviewed (TODO §1: the 5:11 item closed, the 5:28 item completed with the NEXT SESSION line; the 5:42 idea filed; no new ruling).
+- 2: `status.mjs` (below); HANDOFF over its tripwire → six entries archived (13 Nov V3, 14 Nov V1–V5; their lessons promoted to STANDING TRAPS first), exit 0.
+- 3: no code changed; no battery due.
+- 3a: rehearsal site — no page changed, not republished.
+- 4: hub (TODO, HANDOFF, archive) and tests (`docs/rehearsal-chrome/`) with changes, lines filed; auction and schedule clean.
+- 4a: `_to_delete/` (18 entries), his to empty.
+- 5: handed over.
