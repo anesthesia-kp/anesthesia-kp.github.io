@@ -3,9 +3,8 @@
 
 **LAST REVISED: 16 Nov 2026** — session "Vacation Auction 16 Nov 2026 V3" (about 5:10 PM): §4 step 2 — when Claude in Chrome is not connected, the five addresses are read in the app's built-in browser on his Mac (§481). This line keeps only the newest entry (§431).
 
-**LIVE, verified in his Mac's browser at the pushed commit, 16 Nov 2026: auction admin 428 · staff (index) 260 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 5:08 PM in the app's built-in browser (his Chrome not connected, §481) at auction `b7ea8f1` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 260 / 19 / 428) / schedule `69baa11` (54 / 156); tests `d0bbdc2`, hub `f34e648` — his ▶ RELEASE about 4:57 PM and 5:01 PM: tests and the hub only, docs; no page, rules or mail-server change); git HEAD = origin/main on all four repos.
+**LIVE, verified in his Mac's browser at the pushed commit, 16 Nov 2026: auction admin 429 · staff (index) 261 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 6:35 PM in the app's built-in browser (his Chrome not connected, §481) at auction `9e55d51` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 261 / 19 / 429) / schedule `69baa11` (54 / 156, read 5:08 PM, unchanged since); tests `9c99dde`, hub `e5685cf` — staff 261 / admin 429 (the rehearsal fixes, §472–§476, §480, §482) released by him with ▶ RELEASE about 6:33 PM: the auction repo, tests and the hub; no rules or mail-server change); git HEAD = origin/main on all four repos.
 
-**FILED, NOT YET PUSHED: auction staff 261 / admin 429 (mobile 19) — the rehearsal fixes (DECISIONS §472–§476, §480, §482), MD, `crna/` and `testing/` together; with tests and the hub (records). Awaiting his ▶ RELEASE (no rules or mail-server change).**
 
 
 

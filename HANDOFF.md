@@ -245,6 +245,10 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 # 🪤 STANDING TRAPS — the tools and machines as they are today. Promoted from dated entries; NEVER ARCHIVED.
 
+**A HELPER (SUBAGENT) CANNOT WRITE ITS OWN REPORT FILE** (16 Nov 2026 V3, all three build helpers): the environment refuses a subagent writing a report `.md`; each returned its report as its final message instead. Brief helpers to return the report as their final message (their build scripts, suites and diffs they CAN write); Claude files the report to the Mac when it arrives (rule 33).
+
+**HIS CHROME CAN BE "NOT CONNECTED" FOR A WHOLE SESSION, AND THE APP'S BUILT-IN BROWSER IS NOT SIGNED IN TO CLAUDE.AI** (16 Nov 2026 V3). The built-in browser reads the public sites (§4 step 2, §481) but shows "Sign in to view this page." for the rehearsal site (a claude.ai artifact); Claude never types his sign-in. A session that needs the rehearsal site in a browser needs his Chrome connected, or him signed in to claude.ai in the built-in browser.
+
 **A NEW STAFF OR ADMIN BUILD NUMBER TURNS ABOUT 20 ACTIVE SUITES RED FOR REASONS THAT ARE NOT THE BUILD'S** (14 Nov 2026 V4, staff 259). `RETIRED-SUITES.txt` covers only the old `un<N>` chain; the active suites of builds 248–258 still read the pages through the newest put-back library (`lib427.mjs`: `S258` / `un258` / `BUILD_STAFF`) and pin the build number and the versions.json pair. On a 259 page the put-back did not recognise it, so they "lost" functions (`_splitHalfLabel is not defined`) — 300+ reds that looked like a broken build. The fix, two scripts: teach the newest library the new build (its pairs READ out of the build script and checked md5-equal — `tests/docs/site-label/lib427-259.py`) and repoint the pins that remain (`repoint-259.py`, old line kept as a comment). **Always run the same suites on the LIVE build side by side**: a red is the build's only if the live build is green there (many share reds in the cloud because its shallow clone lacks old commits).
 
 **A FILE WRITTEN TO THE MAC BY `device_commit_files` MAY NOT BE VISIBLE TO `device_bash` FOR SEVERAL SECONDS** (16–17 Oct 2026, promoted 23 Oct). A rewrite run straight after read the OLD bytes and put them back. Wait until the md5 matches before touching the file — unpack with `unzip -p` and `md5sum -c` against a shipped checksum file.
@@ -857,5 +861,22 @@ nowhere.*
 - 3: no code changed; no battery due.
 - 3a: rehearsal site — no page changed, not republished.
 - 4: everything released 4:57 PM (hub, tests); after it only this note and START-HERE's LIVE line (hub), its line in COMMIT-MESSAGE.txt; auction, schedule and tests clean.
+- 4a: `_to_delete/` — his to empty.
+- 5: handed over.
+
+## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V3" — STAFF 261 / ADMIN 429, THE REHEARSAL FIXES, BUILT AND LIVE; §4 STEP 2 FALLS BACK TO THE BUILT-IN BROWSER (§481); THE CAP SENTENCE KEPT (§482)
+**State.** MD / CRNA / testing sites serve staff 261 / mobile 19 / admin 429 (auction `9e55d51`, read about 6:35 PM in the app's built-in browser), schedule 54 / 156 (`69baa11`, unchanged); tests `9c99dde`, hub `e5685cf` — released by him about 6:33 PM; HEAD = origin on all four. Rehearsal site republished to the same link, carrying 261 / 429 (`published.json`). Waiting for ▶ RELEASE: only this close (hub, tests: their COMMIT-MESSAGE lines). **▶ NEXT: THE 10 RUN-THROUGHS** (§474, PLAN §5) — in his Chrome (his pick at this close; Chrome reconnected 6:40 PM), next session, rehearsal auction reset first (TODO §1).
+**The session, in order.**
+- **5:02 PM:** opened (§4 from disk, `tests` attached). His Chrome "not connected" → step 2 could not run. **5:07 PM his *"fix this.  the last session broke something about starthere."*** → the built-in browser read all five addresses (= disk) and step 2 now falls back to it (§481).
+- **5:13 PM:** the build (his "yes"): three helpers on separate cloud copies of `b7ea8f1` — C (rehearsal F5) 5:37, A (staff 261) 5:46, B (admin 429) 6:15. A found the approved cap sentence breaks on stored caps with "no limit" before a cap; Claude confirmed by running it; his *"There are no backups that have that setting"* → no change (§482).
+- **6:16–6:29 PM:** joined on a clean copy (B's test-413 edit narrowed where A had edited the same line), versions.json, `crna-stamp.mjs`, 130 suites on the build and on `b7ea8f1` (94 green both, 34 failing identically both, new suites green and red on the old build), every inline script `node --check`ed, the whole difference read; filed by zip + md5 (49 files); rehearsal site republished. **6:33 PM** his ▶ RELEASE; live check 6:35 PM.
+**Lessons.** 1. **Clock times in the records were estimated, not read, and several were wrong** (7:00–7:30 PM written for steps done 6:16–6:29): corrected from the files' own save times. Read the time (`TZ=America/Los_Angeles date`, a file's mtime) before writing it. 2. Two helpers' suite edits met on one line (test-413) — B's script checks every edit before writing any, so nothing was half-applied; the integrator narrows one of them. 3. The helpers' reports could not be written by the helpers (STANDING TRAPS).
+**Session close** 16 Nov 2026 about 6:45 PM; NO compaction; at most 574,467 tokens (metered, 114 requests, read about 6:30 PM). Closing checklist:
+- 0: HEAD = origin on all four after his 6:33 PM release (public repos fetched; tests by `ls-remote` = `9c99dde`); stray locks moved to `_to_delete/`.
+- 1: chat reviewed — §481, §482 filed the turn each was said; START-HERE step 2 and its LIVE line; TODO §1 (the build line replaced by the run-throughs); two STANDING TRAPS.
+- 2: `status.mjs` (below).
+- 3: gates as above (BUILD-LOG row); no code changed after them.
+- 3a: rehearsal site republished, carries admin 429 / staff 261.
+- 4: everything released 6:33 PM; after it only these records (hub; tests: CHECKPOINT), their lines in COMMIT-MESSAGE.txt; auction and schedule clean.
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over.
