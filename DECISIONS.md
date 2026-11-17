@@ -501,6 +501,9 @@
 | §484 | 16 Nov 2026 | RUN-THROUGH RULINGS: AUTO-APPROVE, ONE WELCOME, SUMMER FLOOR |  |
 | §485 | 16 Nov 2026 | ASK FIRST BEFORE PUBLISHING A NEW VERSION OF A PAGE HE MAY HAVE OPEN |  |
 | §486 |  | REHEARSAL FINDINGS REVIEW: HIS ANSWERS (D1–D30) — 16 Nov 2026 9:35 PM |  |
+| §487 |  | EVERY RUN-THROUGH FINDING IS TAGGED "REAL SITES" OR "REHEARSAL ONLY" — 16 Nov 2026 9:46 PM |  |
+| §488 |  | THE V5 RUN FINDINGS JOIN THE FIX BUILD — 17 Nov 2026 6:17 AM |  |
+| §489 |  | OPEN DECISIONS REVIEW: ALL FIVE RULED — 17 Nov 2026 6:31–6:32 AM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8770,4 +8773,37 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - **D6 — "are you sure they are identical?"** No. Read in admin 429: both end with the timer run out, bidding closed on the server (`biddingClosed`) and every week locked. Differences: "Expire timer now" works only while the timer is ON (Close Phase N bidding also works with it off); it offers no backup first (Close does); it asks twice (Close once); it skips the check that the page's data is current (Close has it); it writes an admin-log row "admin-timer-expire" (Close writes none); its toast does not say the phase is not complete (Close's does).
 - **D6 RULED 9:40 PM — owner, verbatim: *"with those differences, what do you recommend for d6?"* · *"does expire timer now have a confirm box?"* · *"agree"*** (to Claude's recommendation): remove "Expire timer now"; "Close Phase N bidding" writes an admin-log row as Expire did, so the log still shows who closed bidding and when. (Expire's two confirm boxes are not kept: Close's backup box plus its one confirm box is the safeguard.)
 - **D16 — "both suck - what does underneath the decision even mean?"** It means: while bidding is open, people can still add, change or remove bids on that week after the admin approves, so the decision may rest on bids that then change. Correction to the page's reason: a button named almost that does exist — the approve box shows "Stop bidding & lock all weeks now" (admin line ~11068) — so the line needs plain new wording, not a button-name fix. **9:41 PM, owner verbatim: *"d16 needs better phrasing, can decide tomorrow.  handoff."*** → D16 waits for tomorrow with better wordings.
+
+
+## §487 — EVERY RUN-THROUGH FINDING IS TAGGED "REAL SITES" OR "REHEARSAL ONLY" — 16 Nov 2026 9:46 PM
+
+**Owner, verbatim (session V5, as the 10 overnight runs began):** *"All findings need to be correlated to ensure they occur on the real sites or only rehearsal"*
+
+**RULED:** every finding from the run-throughs is checked against the real pages' code (and the mail server / rules where it touches them) before it is put to him, and filed with its tag — **real sites** (the same code runs on the MD, CRNA and testing sites) or **rehearsal only** (the cause is the rehearsal layer: the front door, `testsite.js`, the stand-in Firebase in `tests/sweep/fake/`) — with the code line that settles it. A finding not yet checked is filed as "not yet checked", never put to him untagged. (Widens 16 Nov V4's real-sites check of D1–D30 to every finding.)
+
+## §488 — THE V5 RUN FINDINGS JOIN THE FIX BUILD — 17 Nov 2026 6:17 AM
+
+**Owner, verbatim (session V5, after the 10 overnight runs):** *"let's add items from here that need fixing"*
+
+**RULED:** the V5 findings that need a fix join §486's fix build (record: `tests/docs/rehearsal-runs/CHECKPOINT.md`, "V5 findings"). Plan first; no code change without his go on the plan (§92). Tags per §487.
+- **To fix — real sites:** **V5-O1** a check inside a box's OK button closes the box before it runs, so a refusal loses what was picked or typed (Phase 4 month picker; same shape: Reset Timer hours, type RESET — the rule 17 class hunt finishes in the plan) · **V5-O7** the Wheel of Names box fits the window (re-seen 17 Nov 6:21 AM: in a short window the box is taller than the screen — either the result or the pointer ends up out of view). **6:22 AM, owner verbatim:** *"auto scroll good for wheel of names."* — then **6:23 AM, verbatim:** *"box fitting the window is a better plan"* — RULED (replaces 6:22): the Wheel of Names box fits the window (a smaller wheel when the window is short), so the pointer, the wheel and the result show together with no scrolling.
+- **To fix — simulator (a rehearsal tool, but it should only place bids a person could):** **V5-O2** respect a competition week's minimum new bid · **V5-O4** never give a split partner his own bid on the split week.
+- **To fix — wording, his words needed first (rule 26 review page):** **V5-O8** "Deny for week of Wk 7 …" (and the same "for week of" in the Revoke and over-capacity Approve boxes) · **V5-O3** joins **F-R11** ("taken back by the admin" vs the withhold box's "no notice … just shows as used").
+- **Correction 17 Nov 6:30 AM (Claude's error, found building the review page):** **V5-O6 is §486 D25, already ruled** ("Uses your last lowering.") and the wheel-heading half of **V5-O8 is §486 D30, already ruled** ("Wk 14 · Sun Apr 4 (Apr 4 – Apr 10)"). Both are in the fix build already; not put to him again.
+- **His call, not a fix yet:** **V5-O5** a split partner who is not the bidder sees nothing about the split in "Your Bids & Projections" — by design or a gap.
+- **Check before fixing:** **V5-F1** a full restore gave the timer a fresh 48 h instead of the time it had left — not yet known whether real sites or rehearsal only; repeat it and read the stored timer on the rehearsal and testing sites.
+- **6:22 AM, owner asked:** *"does the sim place split bid weeks?"* — answered from admin 429 (`_runSimulationNow` ~6623–6830): no. The simulator places only ordinary one-person bids; it never creates a split. It does take existing splits into account (a won split's share counts toward the cap, ~6697; a week a person already holds through a split gets no bid, ~6689). Splits come only from staff (split requests / agreements) or the admin's Create a split. **6:24 AM, owner verbatim:** *"sim doesn't need to split weeks"* — RULED: the simulator does not make splits; no change.
+
+## §489 — OPEN DECISIONS REVIEW: ALL FIVE RULED — 17 Nov 2026 6:31–6:32 AM
+
+**Owner, verbatim (pasted from the review page "Open Decisions — 17 Nov", artifact 5Mum6noYHKD5SDYcMZXFQS; copy `tests/docs/rehearsal-runs/OPEN-DECISIONS.html`):**
+> Open decisions review: D16 "Approve is blocked while Phase 1 bidding is open — people can still add, change or remove bids on this week. Close bidding first, then decide." · F-R11 "Step 2 doesn't offer numbers the admin has withheld" · V5-O3 Other: where does this show? · V5-O8 "Deny for Wk 7 · Sun Feb 14?" · V5-O5 "The partner's list shows the split week too"
+
+**RULED (all into the fix build, plan first — §92):**
+- **D16** the blocked-action message reads "<Action> is blocked while <Phase N> bidding is open — people can still add, change or remove bids on this week. Close bidding first, then decide." (admin 429 ~10964; every action that uses it).
+- **F-R11** the alert's step 2 does not offer a number the admin has withheld (as D9 for numbers won earlier).
+- **V5-O8** "Deny for Wk 7 · Sun Feb 14?" — "week of" dropped there and in the Revoke and over-capacity Approve boxes (admin ~11306, ~15753, ~15804).
+- **V5-O5** a split partner's own "Your Bids & Projections" shows the split week too (the exact line goes in the plan; split wording rules apply — the user is "you", the other person by full name, then initials).
+- **V5-O3 — 6:32 AM, owner verbatim (the page's answers pasted again):** *V5-O3 "AA can't bid 2 in any phase until you release it. They get no notice (it just shows as used) — tell them yourself."* — RULED: the withhold box keeps today's words; no change. (Asked first, 6:31 AM: *"where does this show?"* — answered: the box opens when the admin withholds a number on People › User Bids; staff see the number under "Bids used" in Bid Count, and the bid box's Why? reads "2 — taken back by the admin for this auction.")
+- **6:33 AM, owner verbatim (after Claude's "Shall I start?" on the plan):** *"go"* — then, the same minute: *"actually handoff and design/build next session"* — RULED (rule 25): hand over now; the NEXT session first checks V5-F1 (the restore timer, real sites or rehearsal only), then writes the fix-build plan for §486 (with D6 and D16 as ruled), §488 and §489, puts it to him, and builds it in the same session.
 
