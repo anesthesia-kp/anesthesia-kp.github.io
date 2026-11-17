@@ -17,7 +17,7 @@ updated and the chat is reviewed for important items."*
 restated here.** Work it top to bottom before saying a session is finished, and say in the
 chat which steps ran. A step that was skipped is reported as skipped, never left silent.
 
-**⛔ NO TOKEN LINE STOPS A SESSION (§437, 13 Nov 2026: *"Remove 550 and 650 limits, they aren’t helpful."*) — instead rule 33: everything goes to the Mac as it is made, so this checklist only CHECKS. The reading is still measured (`START-HERE.md` §4, Context) and goes in the "Session close" line.**
+**⛔ NO TOKEN LINE STOPS A SESSION (§437, 13 Nov 2026: *"Remove 550 and 650 limits, they aren’t helpful."*) — instead rule 33: everything goes to the Mac as it is made, so this checklist only CHECKS. No context reading is measured or reported (§496).**
 
 **Run it at every handoff point, not only at the end** — before a long
 gap, before "what's next?", and whenever the owner is about to walk away. A session that ends
