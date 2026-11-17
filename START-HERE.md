@@ -3,7 +3,7 @@
 
 **LAST REVISED: 16 Nov 2026** — session "Vacation Auction 16 Nov 2026 V2" (about 4:55 PM): rule 26 — one shape, exact buttons, plus `Other` and a separate `Add a note` on every line, checked by `tests/review-page-check.mjs` (§478–§479). This line keeps only the newest entry (§431).
 
-**LIVE, verified in his Chrome at the pushed commit, 16 Nov 2026: auction admin 428 · staff (index) 260 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 11:38 AM at auction `b7ea8f1` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 260 / 19 / 428) / schedule `69baa11` (54 / 156); tests `b53be8d`, hub `3a364bd` — his ▶ RELEASE about 11:36 AM: tests and the hub only, docs; no page, rules or mail-server change); git HEAD = origin/main on all four repos.
+**LIVE, verified in his Chrome at the pushed commit, 16 Nov 2026: auction admin 428 · staff (index) 260 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 11:38 AM at auction `b7ea8f1` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 260 / 19 / 428) / schedule `69baa11` (54 / 156); tests `d0bbdc2`, hub `0f13e71` — his ▶ RELEASE about 4:57 PM: tests and the hub only, docs; no page, rules or mail-server change); git HEAD = origin/main on all four repos.
 
 
 
