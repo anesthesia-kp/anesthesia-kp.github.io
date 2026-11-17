@@ -512,6 +512,15 @@
 | §495 |  | A SPLIT PARTNER GETS NO ALERT WHEN THE ADMIN CHANGES OR REMOVES THE SPLIT'S BID — JOINS THE FIX BUILD — 17 Nov 2026 8:54 AM |  |
 | §496 |  | NO CONTEXT READING IS MEASURED OR REPORTED — 17 Nov 2026 9:13 AM |  |
 | §497 |  | THE V5 FIX BUILD FILED: STAFF 262 / ADMIN 430 — 17 Nov 2026 about 10:40 AM |  |
+| §498 |  | THE V5 FIX BUILD LIVE (262 / 430); THE REHEARSAL SITE IS ALWAYS UPDATED, WITHOUT ASKING — 17 Nov 2026 11:05 AM |  |
+| §499 |  | NO RUN-THROUGH RULE — 17 Nov 2026 11:10 AM |  |
+| §500 |  | 10 MORE REHEARSALS: CONFIRM THE FIXED ITEMS, KEEP LOOKING — SPLIT AND COMPETITION WEEKS FIRST — 17 Nov 2026 11:10 AM |  |
+| §501 |  | FIRST RULINGS ON THE REHEARSAL-RUNS-2 FINDINGS (R2-O3, R2-O4, R2-O5, R2-F2) — 17 Nov 2026 12:35 PM |  |
+| §502 |  | R2-O6: PEOPLE WITH NOTHING THEY CAN BID ARE LEFT OUT OF "WITHOUT BIDS"; R2-O7 LEFT AS IS — 17 Nov 2026 12:45 PM |  |
+| §503 |  | R2-O8 AND R2-O9 FIXED; R2-O10 OPEN — 17 Nov 2026 1:16 PM |  |
+| §504 |  | STOP AFTER RUN 9; REVIEW, DECIDE, HAND OVER; DESIGN AND BUILD NEXT SESSION — 17 Nov 2026 1:43 PM |  |
+| §505 |  | R2-O1 AND R2-O11 FIXED, R2-O2 KEPT; RUN 10 AFTER ALL — 17 Nov 2026 1:49 PM |  |
+| §506 |  | R2-F3, R2-O12, R2-O13 RULED — 17 Nov 2026 2:16 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8857,3 +8866,56 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - Built in session "Vacation Auction 17 Nov 2026 V1" on his 8:56 AM *"go"* (the plan, its Amendments 1–3 and §490–§495). Record: `tests/docs/v5-fix-build/` (CHECKPOINT.md, PLAN.md, BUILD-BRIEF.md, `build/{A,B,C,I,J}/`); BUILD-LOG top row. Filed to the Mac: auction (both pages, versions.json, crna/, testing/, BUILD-LOG, COMMIT-MESSAGE.txt) and tests (63 files: RELEASE.command, the rehearsal layer, lib427, 47 repointed suites, 15 new suites, COMMIT-MESSAGE.txt) — 75 files, md5-verified. No Firestore rules change, no mail-server change. Waits for his ▶ RELEASE (`y`).
 - Decided at the join / fix round by Claude, as how to build (§491): the removal toast and the revoke-DENIAL box name a split's bid "EF/AB" (Q22); D24's "never opened" also needs bidding open on the server (a run-out Round reopens); five LOW review points fixed (Reopen's Phase 1 reason, the Move box's lowering words, Begin's "Action failed" net, the Begin row's non-zero counts, the run-out Round); left with reasons: the D24 toast keeps the direct path's "▶ … ; all others locked." (D24: "the same words as the direct path"), the D7 Rules item stays 6.39 (renumbering 6.19–6.38 would break the §-citations), Restore One User's silent refusal (as before).
 - The rehearsal site is NOT yet republished (it still carries 261 / 429; `status.mjs` stays non-zero until it is): rule 26 — he may have it open; asked first.
+
+## §498 — THE V5 FIX BUILD LIVE (262 / 430); THE REHEARSAL SITE IS ALWAYS UPDATED, WITHOUT ASKING — 17 Nov 2026 11:05 AM
+- **Owner verbatim:** *"pushed.  yes, always update rehearsal site."* (to Claude's question whether to republish the rehearsal site).
+- **LIVE:** ▶ RELEASE about 11:05 AM — auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`; read in his Chrome about 11:07 AM: `/vacation/` (both endings), `crna/`, `testing/` all 262 / 19 / 430; schedule 54 / 156.
+- **RULED:** the rehearsal site ("Vacation Rehearsal Site", https://claude.ai/artifact/RqnGwmqua7PW1qhT9aVtnG) is republished after every build that changes a page, WITHOUT asking — the one exception to rule 26's "ask before republishing a page he may have open" (START-HERE rule 26, the same turn). Done this time: republished about 11:06 AM (version `1794942336-29ef`), recorded by `mark-published.mjs` (262 / 430).
+
+## §499 — NO RUN-THROUGH RULE — 17 Nov 2026 11:10 AM
+- To the question put 9:58 AM (V1) — should every build that changes what people see or how a phase runs end with a rehearsal-site run-through, as a START-HERE rule? — **owner verbatim:** *"no to your question."* RULED: no such rule; START-HERE unchanged. (One line in `TODO.md` §1 CLOSED / DECLINED.)
+
+## §500 — 10 MORE REHEARSALS: CONFIRM THE FIXED ITEMS, KEEP LOOKING — SPLIT AND COMPETITION WEEKS FIRST — 17 Nov 2026 11:10 AM
+- **Owner verbatim (session "Vacation Auction 17 Nov 2026 V2"):** *"but since we keep finding items, I want 10 more rehearsals that confirm previously fixed items and keep looking for other items.  especially split weeks and comp weeks."*
+- RULED: 10 more whole-auction rehearsals on the rehearsal layer, carrying staff 262 / admin 430; each run (a) re-checks items fixed in the rehearsal-fix build (§472–§480) and the V5 fix build (§486–§495), and (b) hunts new faults, weighted to split weeks and competition weeks. Record: `tests/docs/rehearsal-runs-2/CHECKPOINT.md`, written after every run (rule 33). Findings are recorded, not fixed (§92).
+
+## §501 — FIRST RULINGS ON THE REHEARSAL-RUNS-2 FINDINGS (R2-O3, R2-O4, R2-O5, R2-F2) — 17 Nov 2026 12:35 PM
+- **Owner verbatim (V2):** *"1 week is right.  does no preference mean no priority?  If so, agree to fix.  for the split, ideally person would be told at the start that person is at their cap.  This being said, a split can exist without a bid and then not count toward the cap.  For example, what if a split exists without a bid and then a user wants to place a different bid that puts them over the cap with the split, but not without it.  user should be able to place that other bid is that i think. sim should be blocked from putting people over caps."*
+- (NP is "No Priority" — `index.html` 871; Claude's report had wrongly called it "no preference".)
+- **R2-O3 — FIX:** a cap of 1 reads "up to 1 week", not "1 weeks" (`capSentence`, both pages: the cap builder's preview, the guided review, the staff Rules box, the welcome e-mail's cap line).
+- **R2-O4 — FIX:** the NP rules line's "(the bid cap still applies)" shows only when a cap applies in a phase where NP can be used (today it shows when ANY phase has a cap — `_anyCumCap()`, staff 3015 / admin 7418).
+- **R2-O5 — FIX:** the person proposing a split is told at Propose, before it is sent, when the partner (or they) would go over the cap with it — not only at the partner's Accept, and the proposer no longer sees just "declined the split". **His rule, kept:** a split with no bid on it does not count toward anyone's cap, so a person in such a split can place another bid that fits the cap without the split. Read (real sites, 262): this is how the cap count works today — `bidLimitStatus` / `_splitPartnerCap` (staff ~2506, ~3045) count a split only through a live bid this phase; the split's bid is then refused if it would put either person over (`_spPartnerOver`). The Propose-time warning must follow the same test (warn only when the split carries a bid that would count). To be watched in a later run.
+- **R2-F2 — FIX (simulator only):** the Simulator never gives a bid that puts anyone over their cap, a split partner's half included.
+- Recorded, not fixed now (§92, §500): these join the next fix build's list.
+
+## §502 — R2-O6: PEOPLE WITH NOTHING THEY CAN BID ARE LEFT OUT OF "WITHOUT BIDS"; R2-O7 LEFT AS IS — 17 Nov 2026 12:45 PM
+- **Owner verbatim (V2):** *"o6 - yes, leave them out.  o7-that's fine."*
+- **R2-O6 — FIX:** the admin's "users without bids" count (Dashboard, the phase card) and Send Reminders leave out people who have nothing they can bid this phase/round — e.g. every open week is a competition week whose minimum new bid is stronger than every number they hold (run 7: Tara Tran with 7, 8, NP against minimums of 2–5). Joins the next fix build's list (§92, §500).
+- **R2-O7 — NO CHANGE:** the Simulator giving each person at most one NP per phase/round is fine (simulator only; the real sites allow NP without limit).
+
+## §503 — R2-O8 AND R2-O9 FIXED; R2-O10 OPEN — 17 Nov 2026 1:16 PM
+- **Owner verbatim (V2):** *"o8-agree. o9-agree. o10- but the partner could alert the bidder to place the bid and it could be useful information for them?"* then *"o10 - i'm not sure what i want here"*.
+- **R2-O8 — FIX:** the split partner's "changes affecting your weeks" chip counts the split week's changes the same as the bidder's (staff renderNotifications ~6366–6379 looks only at the person's own bids and bid times). Same idea as §495.
+- **R2-O9 — FIX (as §501's R2-O5):** when a split's bid would put either person over the cap, the bid box says so up front, before Submit, and names the person who would go over (today only Submit refuses, "You or BB would go over the bid cap.", though only the partner's cap was the reason).
+- **R2-O10 — OPEN, his call:** a split partner can set a "Notify if a week opens up" alert on his own split week; it never fires (`_giJudge` refuses: he can place no bid there). He sees a use — the partner could tell the bidder to bid. Choices put to him: leave the week out of the partner's alert list, or make the partner's alert work for the split (e-mail him when the bidder's bid could win, so he can tell the bidder).
+- **R2-O10 — RULED 1:19 PM. Owner verbatim:** *"for the first one, could we have the week show up for the partner to place an alert and then immediately be notified that the bidder must set the alert?"* FIX: the split week stays in the partner's "+ Add a week" list; picking it tells him at once, instead of step 2, that the split's bidder has to set that alert — no alert is set. Claude's draft words (his to change): "Alice Barrow (AB) is the bidder on your Week 7 split, so AB has to set this alert." (split wording: "you/your", the other person full name then initials — §435–§436).
+- Recorded, not fixed now (§92, §500): R2-O8, R2-O9 and R2-O10 join the next fix build's list.
+
+## §504 — STOP AFTER RUN 9; REVIEW, DECIDE, HAND OVER; DESIGN AND BUILD NEXT SESSION — 17 Nov 2026 1:43 PM
+- **Owner verbatim (V2):** *"I think we stop after run 9, review findings, make decisions on what's left, then handoff and do design/build in next session"*
+- RULED: §500's 10 rehearsals end at run 9 (run 10, backups mid-phase with splits, is not run). After run 9: review the findings, put what is still undecided to him (rule 26 review page if more than a handful), file his answers, then the hand-over; the fix build's plan and build are the next session's work.
+
+## §505 — R2-O1 AND R2-O11 FIXED, R2-O2 KEPT; RUN 10 AFTER ALL — 17 Nov 2026 1:49 PM
+- **Owner verbatim (V2):** *"1-agree. 2-keep wheel showing, this is how i want it.  3-agree. go with 10 now."*
+- **R2-O1 — FIX:** in a Phase 4 round the Approve / Deny / Complete-round boxes say "round": "they are told when round results are sent" and "Their bid number returns for the next round. They are e-mailed via "Send Phase 4: Round N Results"." (admin 430 ~11330, ~11367–11368, ~8018). Phases 1–3 keep "phase".
+- **R2-O2 — NO CHANGE, his design:** the Wheel of Names stays offered on tied bids even after the week is full ("this is how i want it").
+- **R2-O11 — FIX:** while Global Lock is on, the split boxes show no buttons (ask to end, Keep, Accept, accept an end, propose); the banner "The auction is temporarily locked. Please check back soon." already says why.
+- **R2-F1 — FIX, no new decision (§491):** a missed path of D20 / Q22 — every admin box acting on a split's bid names the pair and the week (Edit Selections Remove box and toast, its priority-change box, and any other found).
+- **Run 10 — RUN:** "go with 10 now" reverses §504's stop at 9; after run 10: review, decide, hand over; design/build next session (rest of §504 stands).
+
+## §506 — R2-F3, R2-O12, R2-O13 RULED — 17 Nov 2026 2:16 PM
+- **Owner verbatim (V2):** *"1 - I don't think I will ever use restore 1 user - not really sure what i would need that for at all.  i'm okay with your rec. 2- agree.  3-great"*
+- **R2-F3 — FIX:** Restore One User refuses a person who was in a split at the backup or is in one now; its box says so and points to the full restore (which carries splits). He does not expect to use Restore One User at all — removing it outright is the simpler option, to be offered at the next session's plan (his call then).
+- **R2-O12 — FIX:** removing a split with no bid reads "Remove this split? It has no bid on Week 13." (admin 430 `removeSplit` ~12854).
+- **R2-O13 — FIX:** a full restore leaves Global Lock ON, and its closing message says "Global Lock is still on — turn it off when ready." (admin 430 full-restore map ~16077 includes `locks`).
+- Recorded, not fixed now (§92): all three join the next fix build's list.

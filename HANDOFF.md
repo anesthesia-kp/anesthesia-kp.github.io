@@ -826,43 +826,6 @@ nowhere.*
 
 ---
 
-## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V2" — THE REHEARSAL FINDINGS TRIAGED (§472) AND THE REHEARSAL-FIXES PLAN WRITTEN AND COMPLETE (§473–§476); START-HERE STEP 2 AND RULE 31 (§471, §477) — NO SITE CHANGE
-**State.** MD / CRNA / testing sites unchanged: staff 260 / mobile 19 / admin 428 (auction `b7ea8f1`), schedule 54 / 156 (`69baa11`); hub `0f13e71`, tests `d0bbdc2` — released by him about 4:57 PM (docs only); HEAD = origin on all four. Waiting for ▶ RELEASE: only this closing note (hub). **▶ NEXT SESSION: BUILD THE REHEARSAL-FIXES PLAN** — `tests/docs/rehearsal-fixes/PLAN.md` (§1 as amended by §7, §8 and §9 — §9 = the first-person lines, §480), CHECKPOINT beside it; staff 261 / admin 429, the stamped copies, the rehearsal site; subagents by part; then ▶ RELEASE (all three sites together); then the 10 full run-throughs on the rehearsal site (§474, plan §5), the first one timed.
-**The session, in order.**
-- **11:37 AM:** opened (§4 from disk, `tests` attached; versions read in his Chrome). WebFetch now refuses `/schedule/` too → his "Update starthere. Go" → step 2 goes straight to his Chrome (§471).
-- **2:47 PM:** the 16 Nov V1 findings on a review page; **3:12 PM answered (§472)**; his notes answered; O14 read (Phase 4 locks every week before it begins — wording order only); his question "confirmed on the real pages?" answered: every item's code found in the MD pages on disk.
-- **3:16 PM (§473):** O1 left; O7's cap builder in this plan; plan here, build next session. **3:17 PM (§474):** at least 10 run-throughs after the build (Claude's "six hours" for one run withdrawn: the record times only Phase 1–2, about 1 h 20 min).
-- Four read-only helpers traced every item (`helper-A..D.md`); **PLAN.md** + review page; **3:52 PM answered (§475):** cap line generic, "the MD site" not "live"; cap builder test page https://claude.ai/artifact/DrHK2R6oFiY4NUktKwPRmr. **4:06 PM (§476):** builder approved; new alert lines "your bid X" — **THE PLAN IS COMPLETE.** **4:08 PM (§477):** rule 31 → new staff wording says "you"; START-HERE names the MD site.
-- **4:20–4:50 PM:** his *"Did you look for remaining uses of the first person?"* — Claude had not; nine staff lines found, on the review page "First Person on the Staff Page" https://claude.ai/artifact/DtgbdSoTzPfcuuskmoHgVG (awaiting his answers; the lines he changes join next session's build). That page mixed three kinds of buttons → his *"you keep doing this, i need a rule"* → **§478: rule 26's one shape with exact buttons, gated by `tests/review-page-check.mjs`** (PASS on the rebuilt page; FAIL on the old one, naming its generic buttons). 4:52 PM (§479): every line also has `Other` (its own box) and, separate from it, `Add a note`; the check refuses a page without both.
-**Lessons.** 1. **Claude said O7 was "harmless" and "works as designed" before the caps had been traced** — caps are a running total, so it refuses real bids; withdrawn at 3:36 PM. A verdict on a finding waits for its code read. 2. **Two known traps struck again** (STANDING TRAPS): the Mac's `/tmp` showed another session's status output, and a re-staged `PLAN.md` reached the Mac as its old bytes though reported "written" — stage each version under a NEW name and md5 the Mac copy every time. 3. **The session's span is not a task's length** — read a run's own step times before quoting how long it took.
-**Session close** 16 Nov 2026 about 5:00 PM (first close 4:15 PM; the first-person review and §478–§480 followed, then his release); NO compaction; at most 798,955 tokens (metered, 174 requests, read 4:58 PM). Closing checklist:
-- 0: HEAD = origin on all four after his 4:57 PM release (public repos fetched; tests by `ls-remote` = `d0bbdc2`); stray locks moved to `_to_delete/`.
-- 1: chat reviewed — rulings §471–§477 filed the turn each was said; START-HERE step 2 and rule 31 edited (old rule 31 in START-HERE-ARCHIVE); TODO §1 updated; three 15 Nov lessons promoted to STANDING TRAPS.
-- 2: `status.mjs` exit 0 (below); HANDOFF near its tripwire → the two 15 Nov V1 entries archived.
-- 3: no code changed; no battery due.
-- 3a: rehearsal site — no page changed, not republished.
-- 4: everything released 4:57 PM (hub, tests); after it only this note and START-HERE's LIVE line (hub), its line in COMMIT-MESSAGE.txt; auction, schedule and tests clean.
-- 4a: `_to_delete/` — his to empty.
-- 5: handed over.
-
-## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V3" — STAFF 261 / ADMIN 429, THE REHEARSAL FIXES, BUILT AND LIVE; §4 STEP 2 FALLS BACK TO THE BUILT-IN BROWSER (§481); THE CAP SENTENCE KEPT (§482)
-**State.** MD / CRNA / testing sites serve staff 261 / mobile 19 / admin 429 (auction `9e55d51`, read about 6:35 PM in the app's built-in browser), schedule 54 / 156 (`69baa11`, unchanged); tests `9c99dde`, hub `e5685cf` — released by him about 6:33 PM; HEAD = origin on all four. Rehearsal site republished to the same link, carrying 261 / 429 (`published.json`). Waiting for ▶ RELEASE: only this close (hub, tests: their COMMIT-MESSAGE lines). **▶ NEXT: THE 10 RUN-THROUGHS** (§474, PLAN §5) — in his Chrome (his pick at this close; Chrome reconnected 6:40 PM), next session, rehearsal auction reset first (TODO §1).
-**The session, in order.**
-- **5:02 PM:** opened (§4 from disk, `tests` attached). His Chrome "not connected" → step 2 could not run. **5:07 PM his *"fix this.  the last session broke something about starthere."*** → the built-in browser read all five addresses (= disk) and step 2 now falls back to it (§481).
-- **5:13 PM:** the build (his "yes"): three helpers on separate cloud copies of `b7ea8f1` — C (rehearsal F5) 5:37, A (staff 261) 5:46, B (admin 429) 6:15. A found the approved cap sentence breaks on stored caps with "no limit" before a cap; Claude confirmed by running it; his *"There are no backups that have that setting"* → no change (§482).
-- **6:16–6:29 PM:** joined on a clean copy (B's test-413 edit narrowed where A had edited the same line), versions.json, `crna-stamp.mjs`, 130 suites on the build and on `b7ea8f1` (94 green both, 34 failing identically both, new suites green and red on the old build), every inline script `node --check`ed, the whole difference read; filed by zip + md5 (49 files); rehearsal site republished. **6:33 PM** his ▶ RELEASE; live check 6:35 PM.
-**Lessons.** 1. **Clock times in the records were estimated, not read, and several were wrong** (7:00–7:30 PM written for steps done 6:16–6:29): corrected from the files' own save times. Read the time (`TZ=America/Los_Angeles date`, a file's mtime) before writing it. 2. Two helpers' suite edits met on one line (test-413) — B's script checks every edit before writing any, so nothing was half-applied; the integrator narrows one of them. 3. The helpers' reports could not be written by the helpers (STANDING TRAPS).
-**Session close** 16 Nov 2026 about 6:45 PM; NO compaction; at most 574,467 tokens (metered, 114 requests, read about 6:30 PM). Closing checklist:
-- 0: HEAD = origin on all four after his 6:33 PM release (public repos fetched; tests by `ls-remote` = `9c99dde`); stray locks moved to `_to_delete/`.
-- 1: chat reviewed — §481, §482 filed the turn each was said; START-HERE step 2 and its LIVE line; TODO §1 (the build line replaced by the run-throughs); two STANDING TRAPS.
-- 2: `status.mjs` (below).
-- 3: gates as above (BUILD-LOG row); no code changed after them.
-- 3a: rehearsal site republished, carries admin 429 / staff 261.
-- 4: everything released 6:33 PM; after it only these records (hub; tests: CHECKPOINT), their lines in COMMIT-MESSAGE.txt; auction and schedule clean.
-- 4a: `_to_delete/` — his to empty.
-- 5: handed over.
-
-
 ## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V4" — THE REHEARSAL RUN-THROUGHS (PARTLY), THE FINDINGS REVIEWED (§484–§486), RULE 26 WIDENED (§485) — NO SITE CHANGE
 **State.** No page changed: MD / CRNA / testing sites still serve staff 261 / admin 429 (V3). Rehearsal site not republished (no page changed). Waiting for ▶ RELEASE: hub (DECISIONS §484–§486, START-HERE rule 26 + LAST REVISED, TODO, HANDOFF) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, REVIEW.html).
 **The session, in order.**
@@ -898,3 +861,30 @@ nowhere.*
 - 4a: `_to_delete/` 49 files, 3.1 MB — his to empty.
 - 5: handed over.
 
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V1" — V5-F1 NOT A DEFECT; THE V5 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 262 / ADMIN 430, §490–§498)
+**State.** LIVE 262 / 19 / 430 on `/vacation/`, `crna/`, `testing/` (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`; read in his Chrome about 11:07 AM); schedule 54 / 156. Rehearsal site republished, carries 262 / 430. Record: `tests/docs/v5-fix-build/CHECKPOINT.md` (every step, in order).
+**The session, in order.** 6:37 §4 opening; §490 (▶ RELEASE `y` / `all`). 6:43–7:01 V5-F1 run headless on the real admin page three times: the restore gives back the time left — not a defect. 7:15 plan + review page (Q1–Q37); 7:16 his *"Don't present questions that I've already ruled on"* → §491, rule 26, a second page with the 19 unruled lines; 8:28 his answers §492; 8:36–8:39 §493 (both people's rows "1 · split with BB"); 8:46 §494 (the admin-split refresh item dropped); 8:54 §495 (admin alerts reach the split partner — his own rule 6.36); 8:56 "go". Three helpers built A / B / C; the integrator §490, D12, D14; join; 137 targeted suites beside a pristine tree; blind review SAFE (8 LOW, 5 fixed in the one fix round); headless run-through 16/16 (4/16 on the old pages); filed 10:40 (§497); his ▶ RELEASE 11:05; 11:05 *"always update rehearsal site"* → §498.
+**Lessons.** 1. **A headless run-through on the rehearsal layer (`drive-f1.mjs`, `drive-split.mjs`, `drive-v5.mjs` in the build folder) needs no browser of his and reads the stored data directly** — it settled V5-F1 and the split-refresh report in minutes, and run on the OLD pages it proves the checks bite. 2. **Before a review page, check every line against DECISIONS** (§491) — now rule 26. 3. **A helper's REPORT.md may be refused by the harness** — file the helper's final message as its report the same turn. 4. **A join's test pins live in suites no helper ran together** (test-255 / 396 / 398 / 400 / delta-fixes): run the targeted suites on the joined tree beside a pristine tree with full git history and the schedule repo, and read every difference.
+**Session close** 17 Nov 2026 about 11:12 AM. Closing checklist:
+- 0: four repos = origin at the release (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`, schedule `69baa11`); this close's records are uncommitted for the next ▶ RELEASE.
+- 1: chat reviewed — §490–§498 filed the turn each was said; TODO; this entry.
+- 2: `status.mjs` (run below).
+- 3: gates — the build's (BUILD-LOG row); nothing changed since.
+- 3a: rehearsal site republished (version `1794942336-29ef`), recorded 262 / 430.
+- 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`testsite/published.json`, `docs/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (incl. `xfer/build-262-430-files.zip`).
+- 5: handed over; the start message below.
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V2" — 10 MORE REHEARSALS (§500) DONE; EVERY FINDING RULED (§499–§506)
+**State.** LIVE unchanged: 262 / 19 / 430 (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`, schedule `69baa11` = origin). Rehearsal site carries 262 / 430 (no page changed — not republished). Record: `tests/docs/rehearsal-runs-2/CHECKPOINT.md` (plan, 10 runs, findings R2-F1–F3, R2-O1–O13, every ruling) and `HELPER-BRIEF.md`.
+**The session, in order.** §4 opening; 11:10 his "no" to the run-through rule (§499) and the 10 rehearsals (§500). Runs 1–5 driven here (screenshot + click in his Chrome), runs 6–10 each by ONE helper at a time from `HELPER-BRIEF.md` (his 12:04 question about helpers). Rulings as they came: 12:35 §501, 12:45 §502, 1:16–1:19 §503, 1:43 §504 (stop at 9 — then 1:49 §505 "go with 10 now"), 2:16 §506. Next session: plan and build the fix build (§504; TODO ▶ NEXT SESSION).
+**Lessons.** 1. **Rehearsal runs by screenshot fill the chat fast** — one whole auction is dozens of screenshots; a helper per run, one at a time (two would clobber the one rehearsal site), with a written brief on the Mac and the run written to CHECKPOINT before it reports, kept this session from compacting again. 2. **Claude in Chrome brings his Chrome to the front on every screenshot** — he cannot work on that Mac while a run goes; ask before each run when he is working. 3. **A server restart stops a running helper without a report** — resume it by message from its saved transcript (it is stopped, not running, so this is not an interruption), after checking what it had written. 4. **Check a word before reporting it** — "NP" was called "no preference" in a report; it is "No Priority" (`index.html` 871).
+**Session close** 17 Nov 2026 about 2:20 PM. Closing checklist:
+- 0: fetched; four repos = origin (above); three stray `maintenance.lock` moved to `_to_delete/`.
+- 1: chat reviewed — §499–§506 filed the turn each was said (each grep-checked); TODO ▶ NEXT SESSION; this entry. No START-HERE rule changed.
+- 2: `status.mjs` (run below).
+- 3: no build this session — no gates.
+- 3a: rehearsal site — no page changed, not republished (carries 262 / 430).
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, MAP, COMMIT-MESSAGE + the V1 close's START-HERE / HANDOFF-ARCHIVE), auction (BUILD-LOG, from V1), tests (`testsite/published.json` from V1, `docs/rehearsal-runs-2/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty.
+- 5: handed over; the start message in the chat.
