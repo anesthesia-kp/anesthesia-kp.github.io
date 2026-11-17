@@ -495,6 +495,8 @@
 | §478 | 16 Nov 2026 | REVIEW PAGES: EVERY CHOICE IN ONE SHAPE WITH EXACT BUTTONS, CHECKED BEFORE PUBLISHING |  |
 | §479 | 16 Nov 2026 | REVIEW PAGES: EVERY LINE HAS "OTHER", AND "ADD A NOTE" SEPARATE FROM IT |  |
 | §480 | 16 Nov 2026 | FIRST PERSON ON THE STAFF PAGE: P1–P7 CHANGE, P8–P9 STAY |  |
+| §481 | 16 Nov 2026 | §4 STEP 2: WHEN HIS CHROME IS NOT CONNECTED, THE APP'S BUILT-IN BROWSER READS THE LIVE VERSIONS |  |
+| §482 | 16 Nov 2026 | THE CAP SENTENCE STAYS AS APPROVED: NO STORED CAPS HAVE "NO LIMIT" BEFORE A CAP |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8714,3 +8716,11 @@ Session "Vacation Auction 16 Nov 2026 V2", straight after §478. **4:52 PM, verb
 ## §480 — FIRST PERSON ON THE STAFF PAGE: P1–P7 CHANGE, P8–P9 STAY — 16 Nov 2026
 
 Session "Vacation Auction 16 Nov 2026 V2". The review page "First Person on the Staff Page — Review" https://claude.ai/artifact/DtgbdSoTzPfcuuskmoHgVG (copy `tests/docs/rehearsal-fixes/FIRST-PERSON-REVIEW.html`; the first page built to §478–§479). **4:55 PM, his paste, verbatim:** *"First person review: P1 "Your Bids & Projections" · P2 "Bid Count" · P3 "Phase History" · P4 "Your Bid:" · P5 "Changes to your projections" · P6 "Your withdrawn bid would win again" · P7 Other: Why can't it be removed? · P8 "Remember me on this device" · P9 "Remind me later""* — RULED: in next session's build (PLAN amendment 3) — P1 `Your Bids & Projections` · P2 `Bid Count` · P3 `Phase History` · P4 `Your Bid:` · P5 `Changes to your projections` · P6 `Your withdrawn bid would win again` (the alert switches' names: everywhere they are named — the staff box, its e-mails, and the admin page's "Turned off by people" line, admin ~4303) · P7 `Why can't it be removed?` (his own wording; generic, as rule 31 allows where he picks). Unchanged: P8 `Remember me on this device`, P9 `Remind me later`.
+
+## §481 — §4 STEP 2: WHEN HIS CHROME IS NOT CONNECTED, THE APP'S BUILT-IN BROWSER READS THE LIVE VERSIONS — 16 Nov 2026
+
+Session "Vacation Auction 16 Nov 2026 V3". At the opening (about 5:02 PM) Claude in Chrome answered "Browser extension is not connected" (`list_connected_browsers` empty), and step 2 — Chrome only since §464 / §471, WebFetch refused for `/vacation/` and `/schedule/` — had no second route, so the live check did not run. **5:07 PM, verbatim:** *"fix this.  the last session broke something about starthere."* — FIXED (rule 32): the Claude app's built-in browser on his Mac (`mcp__remote-devices__Claude_Browser__*`) read all five addresses at about 5:08 PM — `/vacation/` `?c=b7ea8f1` and `?c=b7ea8f1b`, `crna/`, `testing/`: 260 / 19 / 428; `/schedule/` `?c=69baa11`: 54 / 156 — all equal to disk. START-HERE §4 step 2 now reads: his Chrome first; when it is not connected, the built-in browser at once, without asking; the report names the browser; only when neither answers, his admin page-load. The header LIVE line says "verified in his Mac's browser". WebFetch stays out (§464).
+
+## §482 — THE CAP SENTENCE STAYS AS APPROVED: NO STORED CAPS HAVE "NO LIMIT" BEFORE A CAP — 16 Nov 2026
+
+Session "Vacation Auction 16 Nov 2026 V3", the rehearsal-fixes build. Helper A found, and Claude confirmed by running the reference `capSentence` (CAP-BUILDER-TEST.html, §476), that the approved sentence breaks on stored caps with "no limit" in an earlier phase and a cap later — a shape the old caps editor allowed: Phase 1 none + Through Phase 2 = 4 prints "Bid cap:  and undefined, no limit after that."; 4 / none / 8 prints "up to 4 weeks in Phase 1, no limit after that." (untrue). Put to him (a sentence naming each phase as stored, or no change). **About 6:05 PM, verbatim:** *"There are no backups that have that setting"* — RULED, read as: no change; the sentence stays as approved (the builder refuses such caps for new saves, Q9). The one place known to hold that shape is his rehearsal auction (the O7 save), which is reset before the run-throughs (§474).
