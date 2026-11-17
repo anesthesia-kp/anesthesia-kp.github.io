@@ -3800,3 +3800,52 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: auction and hub with record changes, lines filed; tests clean.
 - 4a: `_to_delete/`, his to empty.
 - 5: handed over.
+
+---
+## ⤵ moved 16 Nov 2026 from HANDOFF.md — 15 Nov 2026 — "Vacation Auction 15 Nov 2026 V1" — THE NAMES: "THE REHEARSAL SITE" / "THE TESTING SITE" (§465) · THE REHEARSAL SITE'S CALENDAR FAULT FOUND, FIXED AND REPUBLISHED (§466) — NO SITE CHANGE
+
+## 15 Nov 2026 — "Vacation Auction 15 Nov 2026 V1" — THE NAMES: "THE REHEARSAL SITE" / "THE TESTING SITE" (§465) · THE REHEARSAL SITE'S CALENDAR FAULT FOUND, FIXED AND REPUBLISHED (§466) — NO SITE CHANGE
+**State.** Live = staff 260 / mobile 19 / admin 428 on `/vacation/` (both endings), `crna/`, `testing/` at auction `b7ea8f1`, read in his Chrome 6:42 AM; schedule 54 / 156 (`69baa11`); HEAD = origin on all four (tests `fafdc2f` by ls-remote). Rehearsal site republished 8:21 AM ("Vacation Rehearsal Site", same link, 260 / 428). Pending his ▶ RELEASE: tests (`testsite/` fix + rename, `published.json`, `docs/rehearsal-reload/`), hub (DECISIONS §465–§466, START-HERE, TODO, MAP, HANDOFF and its archive) — each repo's line filed. No auction, rules or mail-server change.
+**The session, in order.**
+- **6:40–6:47 AM:** opened (§4 from disk; `tests` attached, clone = ls-remote `fafdc2f`; reading at most 289,225). His timer question: Reset Auction turns the timer off; Begin Phase 1 arms it and checks it (read from the code). The July 4 item read on the real testing site: a fresh load correct; the floor line names holidays only by design (§302, W44).
+- **6:56–7:20 AM:** his *"i was talking about artifact here"* — the names ruled (§465). Starting the timer off: no effect on bidding (Begin Phase 1 arms it), a clean pre-auction screen.
+- **7:24–7:40 AM:** reproduced on a cloud copy: the front door's two frames share one tab's `sessionStorage`; the admin's reload sets `acReloadedFor`, the staff page skips its own ([B5]); separate tabs reload both. Plan `tests/docs/rehearsal-reload/PLAN.md`.
+- **8:14–8:22 AM:** his "Go" (§466): `testsite.js` gives each page its own `sessionStorage`; the new name; `testsite-check.mjs` step 10 — 35/35, honesty on `fafdc2f:testsite/testsite.js` 33/35 red on exactly the two new checks; `test-testsite-make` 39/0; `test-241-whyscroll` 8/0; files md5-matched; republished, served sha256 = build.
+**Lessons.**
+1. **Two names one word apart sent the work to the wrong site** — "Testing site" / "test site" read the real `/vacation/testing/` for an artifact fault; fixed by the names (§465), not by care.
+2. **The `/tmp` trap struck again** (STANDING TRAPS): `node status.mjs > /tmp/…` never ran and an old log read as a failure — the gate's own exit had to be re-read from a `$HOME` log.
+3. **An honesty run rebuilds the shared output folder** — rebuild (with the gate) before publishing, or the old layer goes out.
+**Session close** 15 Nov 2026 about 8:45 AM; NO compaction; at most 541,631 tokens (metered, 102 requests, read 8:22 AM). Closing checklist:
+- 0: fetched the three public repos, tests by ls-remote; HEAD = origin on all four; stranded maintenance locks moved to `_to_delete/`.
+- 1: chat reviewed (§465–§466; TODO item closed).
+- 2: `status.mjs` (below); HANDOFF over its tripwire → four entries archived (11 Nov V1–V3, 12 Nov V1; their lessons already in START-HERE / STANDING TRAPS / their plans), exit 0.
+- 3: the gates above (no auction page changed; no battery due).
+- 3a: rehearsal site 260 / 428, republished and recorded.
+- 4: tests and hub with changes, lines filed; auction and schedule clean.
+- 4a: `_to_delete/`, his to empty.
+- 5: handed over.
+
+---
+## ⤵ moved 16 Nov 2026 from HANDOFF.md — 15–16 Nov 2026 — "Vacation Auction 15 Nov 2026 V1" (continued, 5:17 PM – 5:20 AM) — SPEED AUCTIONS: A DONE (THE RUN-THROUGH REPAIRED), B BUILT AND STOPPED, C DROPPED (§467–§470) — NO SITE CHANGE
+
+## 15–16 Nov 2026 — "Vacation Auction 15 Nov 2026 V1" (continued, 5:17 PM – 5:20 AM) — SPEED AUCTIONS: A DONE (THE RUN-THROUGH REPAIRED), B BUILT AND STOPPED, C DROPPED (§467–§470) — NO SITE CHANGE
+**State.** Live unchanged: staff 260 / mobile 19 / admin 428 (auction `b7ea8f1`), schedule 54 / 156 (`69baa11`). His ▶ RELEASE 5:14–5:15 AM: tests `02955a1`, hub `0b37cc2`; HEAD = origin on all four. **▶ NEXT SESSION (§470): test the rehearsal site by driving his Chrome (Claude in Chrome), scenario by scenario** — first find out whether Claude in Chrome may act inside the claude.ai artifact viewer; ask before resetting his own rehearsal auction (it lives in his browser); a first scenario: the Christmas week (2027-12-19) bid box, where 16 made-up doctors met "offers no single bid" (site or tool, not triaged).
+**The session, in order.**
+- **5:17–5:27 PM:** his idea (speed auctions by real clicks) → A then B (§467); not the testing site (real Google accounts, bot checks, real e-mails); plan `tests/docs/speed-auctions/PLAN.md`; answers 12 doctors, phone in, 50 runs, the simulator from his Mac (§468); "no bid from Run Simulation"; "Build here".
+- **5:30–6:10 PM, A:** the sweep clean on 260 / 428 but shallow on the staff page; `sweep/phase-runthrough.mjs` repaired (stand-in mail server, Publish / Finish, Rounds as phases, an honest exit) — Phase 1 → Finish, honesty proven; the emulator jar copied from his Mac (`~/.cache/firebase/emulators`, his approval) runs in the cloud.
+- **6:15 PM – 1:15 AM, B:** `tests/speed/` — five helpers (core + rehearsal target, catalogue, checks, simulator target, runner), each self-test re-run by Claude; the runner's proof (`speed/lanes/lane5.md`): full size 1,961 steps / 4,463 clicks / 86 min; configs A–E at small size; the simulator with the same-moment step; random runs + an exact replay; the planted-fault gate (re-run by Claude 5:00 AM). Server restarts ended the runner twice; resumed once.
+- **8:13–8:15 PM:** 50 runs too much → C overnight on his Mac next session (§469).
+- **5:00–5:15 AM:** the blind review (`speed/lanes/REVIEW.md`, 7 HIGH) — confirmed by Claude: only 29 / 35 doctors bid by clicks, empty Rounds, both splits removed by the admin sweep; Claude corrected its 4:55 AM report; his *"i'll do my own testing"* — B stopped, C dropped (§470).
+**Lessons.**
+1. **A helper's proof is not the owner's requirement met** — Claude relayed the runner's "all 35 bid by clicks … every phase … splits" without counting them in the run's own step list; the review did, and the report to him had to be withdrawn. Before saying a run met a requirement, count it in the run's record.
+2. **`mobile.html` is retired** (it forwards to the staff page) — a question put to him (Q2) called it a separate page; read a page before naming it in a question.
+3. **A server restart ends running helpers** — what saved the night was the runner writing its numbers to `lane5.md` as each proof finished; brief every long helper to do so.
+**Session close** 16 Nov 2026 about 5:20 AM; NO compaction; at most 1,718,812 tokens (metered, 245 requests; the helpers ran on their own, not counted here). Closing checklist:
+- 0: fetched the three public repos, tests by fetch (attached); HEAD = origin on all four after his release; stranded maintenance locks moved to `_to_delete/`.
+- 1: chat reviewed (§467–§470; TODO §1).
+- 2: `status.mjs` (below); HANDOFF over its tripwire → three entries archived (12 Nov V2, 13 Nov V1–V2).
+- 3: A's gates (`speed-auctions/GATE-*.txt`); each B lane's self-test re-run by Claude; the planted-fault gate re-run.
+- 3a: rehearsal site unchanged since 15 Nov 8:21 AM (260 / 428).
+- 4: hub with this entry's record changes, line filed; tests, auction, schedule clean.
+- 4a: `_to_delete/` (15 files), his to empty.
+- 5: handed over.
