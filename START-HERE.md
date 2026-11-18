@@ -1,7 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 17 Nov 2026** — session "Vacation Auction 17 Nov 2026 V3" (about 6:27 PM): LIVE line 263 / 431 (the R2 fix build, released); rule 31 (§507).
+**LAST REVISED: 18 Nov 2026** — session "Vacation Auction 18 Nov 2026 V2" (about 9:55 AM): FILED, NOT YET PUSHED line added for the final fix build (staff 264 / admin 432 + mail server).
+
+**FILED, NOT YET PUSHED: auction admin 432 · staff (index) 264 + the mail server (the final fix build, 18 Nov 2026; BUILD-LOG top row) — waits for his ▶ RELEASE (pages ×3, mail server ×3, no rules change).**
 
 **LIVE, verified in his Mac's browser at the pushed commit, 17 Nov 2026: auction admin 431 · staff (index) 263 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 6:26 PM in his Chrome at auction `fa8f121` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 263 / 19 / 431) / schedule `69baa11` (54 / 156); tests `05aac0d`, hub `81a6af7` — staff 263 / admin 431 (the R2 fix build, §501–§508) released by him with ▶ RELEASE about 6:24 PM: the auction repo, tests and the hub; no rules or mail-server change); git HEAD = origin/main on all four repos at the release.
 
