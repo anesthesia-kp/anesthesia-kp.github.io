@@ -3913,3 +3913,24 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: everything released 4:57 PM (hub, tests); after it only this note and START-HERE's LIVE line (hub), its line in COMMIT-MESSAGE.txt; auction, schedule and tests clean.
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over.
+
+---
+## ⤵ moved 17 Nov 2026 from HANDOFF.md — 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V4" — THE REHEARSAL RUN-THROUGHS (PARTLY), THE FINDINGS REVIEWED (§484–§486), RULE 26 WIDENED (§485) — NO SITE CHANGE
+
+## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V4" — THE REHEARSAL RUN-THROUGHS (PARTLY), THE FINDINGS REVIEWED (§484–§486), RULE 26 WIDENED (§485) — NO SITE CHANGE
+**State.** No page changed: MD / CRNA / testing sites still serve staff 261 / admin 429 (V3). Rehearsal site not republished (no page changed). Waiting for ▶ RELEASE: hub (DECISIONS §484–§486, START-HERE rule 26 + LAST REVISED, TODO, HANDOFF) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, REVIEW.html).
+**The session, in order.**
+- 6:45–8:46 PM: run-throughs in his Chrome on the rehearsal site (§483). Runs 1–3 full; 4–6 and 10 partly; 7, 8, 9's withheld numbers and O4 not done. Findings F-R1…F-R11, O-R1…O-R18 in `tests/docs/rehearsal-runs/CHECKPOINT.md`. Paused 8:21–8:30 PM at his word (the Chrome debugging bar is browser-wide).
+- 8:45–8:48 PM: rulings §484 (auto-approve never used; one welcome at Phase 1 begin, added people and addresses too; summer floor stays).
+- ~8:50 PM: review page D1–D30 published (artifact 1qWzxFR3CwsvqhyQBmQNCe). 9:02 PM republished without asking (real-sites tags) — his picks were lost (§485). Real-sites check: D1, D2, D4 real (read in the real code); D12, D14 rehearsal only (the rehearsal's stand-in firebase-app has no `options`, so backups there record no site).
+- 9:35 PM: his answers re-entered and filed verbatim (§486); D6, D16 open. 9:36 PM: "Handoff, then start with 10 new auction runs overnight." · "the build to fix will follow that".
+**Lessons.** 1. **Never republish a page he may have open without asking (§485, rule 26).** A review page keeps no answers; a new version wipes his picks — 20 minutes lost. 2. **"Done" means each auction finished.** I said all ten setups were done when only three were full auctions; he caught it. Count runs by finished auctions only. 3. **Check a finding against the real code before putting it to him.** D14 was rehearsal-only and D16's reason ("no button is called that") was wrong — the approve box has "Stop bidding & lock all weeks now". 4. In his Chrome the window size changes under you: screenshot before every click; focus-click a heading, never the page's right side (a focus click turned Rehearsal Mode off once).
+**Session close** 16 Nov 2026 about 9:42 PM (D6 ruled 9:40 PM; D16 to tomorrow, 9:41 PM — §486); compacted once (before 9:00 PM); context reading not measured after the compaction. Closing checklist:
+- 0: fetched the three public repos (HEAD = origin, nothing behind); tests HEAD 9abc1c0 = origin (cloud `ls-remote`); three stray `maintenance.lock` moved to `_to_delete/`.
+- 1: chat reviewed — §484, §485, §486 filed the turn each was said; START-HERE rule 26; TODO NEXT line; this entry.
+- 2: `status.mjs` exit 0, after archiving the V1 entry to HANDOFF-ARCHIVE.md (HANDOFF 882/900).
+- 3: no code changed — no gates.
+- 3a: test site — no page changed, not republished.
+- 4: hub (4 files) and tests (`docs/rehearsal-runs/`) uncommitted for ▶ RELEASE; auction and schedule clean.
+- 4a: `_to_delete/` — his to empty.
+- 5: handed over.

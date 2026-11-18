@@ -1,11 +1,10 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 17 Nov 2026** — session "Vacation Auction 17 Nov 2026 V3" (about 5:45 PM): the R2 fix build filed, not yet pushed (staff 263 / admin 431); rule 31 (§507); LIVE line 262 / 430.
+**LAST REVISED: 17 Nov 2026** — session "Vacation Auction 17 Nov 2026 V3" (about 6:27 PM): LIVE line 263 / 431 (the R2 fix build, released); rule 31 (§507).
 
-**LIVE, verified in his Mac's browser at the pushed commit, 17 Nov 2026: auction admin 430 · staff (index) 262 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 11:07 AM in his Chrome at auction `7fe2888` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 262 / 19 / 430) / schedule `69baa11` (54 / 156); tests `1eb422e`, hub `e5d27b0` — staff 262 / admin 430 (the V5 fix build, §497) released by him with ▶ RELEASE about 11:05 AM: the auction repo, tests and the hub; no rules or mail-server change); git HEAD = origin/main on all four repos at the release.
+**LIVE, verified in his Mac's browser at the pushed commit, 17 Nov 2026: auction admin 431 · staff (index) 263 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 6:26 PM in his Chrome at auction `fa8f121` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 263 / 19 / 431) / schedule `69baa11` (54 / 156); tests `05aac0d`, hub `81a6af7` — staff 263 / admin 431 (the R2 fix build, §501–§508) released by him with ▶ RELEASE about 6:24 PM: the auction repo, tests and the hub; no rules or mail-server change); git HEAD = origin/main on all four repos at the release.
 
-**FILED, NOT YET PUSHED: staff 263 / admin 431 / mobile 19** (the R2 fix build, §501–§507; staff `5060e596…`, admin `dd7d5e5a…`; BUILD-LOG top row) — the LIVE line above is 262 / 430 until his ▶ RELEASE (auction, tests, hub).
 
 
 

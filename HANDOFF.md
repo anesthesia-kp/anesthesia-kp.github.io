@@ -385,6 +385,8 @@ Add a line the turn a new one is paid for. Retire a line only when the tool or m
   open them there with PIL; never ask him to drag files (24 Aug).
 - **The rehearsal site (the claude.ai artifact) in his Chrome is screenshot + click only** (16 Nov 2026): `read_page`, `find` and `get_page_text` see only the claude.ai frame, and scripts on claude.ai are refused without his approval card — never work around that. A native `<select>` is set by focusing it (click, then Escape) and TYPING the option's text; arrow keys do nothing. The sign-in picker's search box needs a click first (it has no focus) — a click a few pixels low signs in the person in the list instead; zoom on the result before clicking it. Every first sign-in shows the KP e-mail box, which covers the page. If he resizes the window the coordinates move; ask him to leave it, and screenshot after any doubt.
 - **On the rehearsal site, Send Results strands the phase** (16 Nov 2026, F5 — there is no mail server): use "Skip sending (testing)". A reset is the only way out once sent.
+- **In his Chrome the window size changes under you** (16 Nov 2026 V4): screenshot before every click; focus-click a heading, never the page's right side. **Its tab group can vanish between turns** ("Couldn't determine which page", 16–17 Nov V5): `tabs_context_mcp` with createIfEmpty, then navigate again. **Count a rehearsal run as done only when its auction is finished** (V4).
+- **A headless drive of the rehearsal build (`drive-v5.mjs`, `tests/docs/r2-fix-build/drive-r2.mjs`)** (17 Nov 2026 V3): the pages' main scripts are modules, so a page variable (`phasesData`, `_saF`, `getCurrentUser`) is not reachable from the drive — use `window.*` functions, the DOM and the rehearsal store (`localStorage` `ts:doc:vacations/<doc>`); after a reload the admin gate shows "Continue →" and the staff gate "Sign in as someone else"; one staff person at a time (`ts:auth:staff` is shared). Run the same drive on a rehearsal build of the OLD pages to prove it bites.
 
 **Method — the lessons that are not tool-specific and not yet a numbered rule**
 - A negative finding is only as wide as the fixture that produced it: put the scope IN the sentence ("no double-counting
@@ -826,25 +828,6 @@ nowhere.*
 
 ---
 
-## 16 Nov 2026 — "Vacation Auction 16 Nov 2026 V4" — THE REHEARSAL RUN-THROUGHS (PARTLY), THE FINDINGS REVIEWED (§484–§486), RULE 26 WIDENED (§485) — NO SITE CHANGE
-**State.** No page changed: MD / CRNA / testing sites still serve staff 261 / admin 429 (V3). Rehearsal site not republished (no page changed). Waiting for ▶ RELEASE: hub (DECISIONS §484–§486, START-HERE rule 26 + LAST REVISED, TODO, HANDOFF) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, REVIEW.html).
-**The session, in order.**
-- 6:45–8:46 PM: run-throughs in his Chrome on the rehearsal site (§483). Runs 1–3 full; 4–6 and 10 partly; 7, 8, 9's withheld numbers and O4 not done. Findings F-R1…F-R11, O-R1…O-R18 in `tests/docs/rehearsal-runs/CHECKPOINT.md`. Paused 8:21–8:30 PM at his word (the Chrome debugging bar is browser-wide).
-- 8:45–8:48 PM: rulings §484 (auto-approve never used; one welcome at Phase 1 begin, added people and addresses too; summer floor stays).
-- ~8:50 PM: review page D1–D30 published (artifact 1qWzxFR3CwsvqhyQBmQNCe). 9:02 PM republished without asking (real-sites tags) — his picks were lost (§485). Real-sites check: D1, D2, D4 real (read in the real code); D12, D14 rehearsal only (the rehearsal's stand-in firebase-app has no `options`, so backups there record no site).
-- 9:35 PM: his answers re-entered and filed verbatim (§486); D6, D16 open. 9:36 PM: "Handoff, then start with 10 new auction runs overnight." · "the build to fix will follow that".
-**Lessons.** 1. **Never republish a page he may have open without asking (§485, rule 26).** A review page keeps no answers; a new version wipes his picks — 20 minutes lost. 2. **"Done" means each auction finished.** I said all ten setups were done when only three were full auctions; he caught it. Count runs by finished auctions only. 3. **Check a finding against the real code before putting it to him.** D14 was rehearsal-only and D16's reason ("no button is called that") was wrong — the approve box has "Stop bidding & lock all weeks now". 4. In his Chrome the window size changes under you: screenshot before every click; focus-click a heading, never the page's right side (a focus click turned Rehearsal Mode off once).
-**Session close** 16 Nov 2026 about 9:42 PM (D6 ruled 9:40 PM; D16 to tomorrow, 9:41 PM — §486); compacted once (before 9:00 PM); context reading not measured after the compaction. Closing checklist:
-- 0: fetched the three public repos (HEAD = origin, nothing behind); tests HEAD 9abc1c0 = origin (cloud `ls-remote`); three stray `maintenance.lock` moved to `_to_delete/`.
-- 1: chat reviewed — §484, §485, §486 filed the turn each was said; START-HERE rule 26; TODO NEXT line; this entry.
-- 2: `status.mjs` exit 0, after archiving the V1 entry to HANDOFF-ARCHIVE.md (HANDOFF 882/900).
-- 3: no code changed — no gates.
-- 3a: test site — no page changed, not republished.
-- 4: hub (4 files) and tests (`docs/rehearsal-runs/`) uncommitted for ▶ RELEASE; auction and schedule clean.
-- 4a: `_to_delete/` — his to empty.
-- 5: handed over.
-
-
 ## 16–17 Nov 2026 — "Vacation Auction 16 Nov 2026 V5" — THE 10 OVERNIGHT RUNS, FINDINGS TAGGED (§487), THE FIX LIST COMPLETE (§488–§489) — NO SITE CHANGE
 **State.** No page changed: MD / CRNA / testing still serve staff 261 / admin 429. Rehearsal site not republished; its own auction was reset at 6:20 AM for the O7 screenshots and left with Phase 1 closed. Waiting for ▶ RELEASE: hub (DECISIONS §487–§489, TODO) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, OPEN-DECISIONS.html).
 **The session, in order.**
@@ -887,4 +870,18 @@ nowhere.*
 - 3a: rehearsal site — no page changed, not republished (carries 262 / 430).
 - 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, MAP, COMMIT-MESSAGE + the V1 close's START-HERE / HANDOFF-ARCHIVE), auction (BUILD-LOG, from V1), tests (`testsite/published.json` from V1, `docs/rehearsal-runs-2/`, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty.
+- 5: handed over; the start message in the chat.
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V3" — THE R2 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 263 / ADMIN 431, §507–§508); RULE 31 CHANGED
+**State.** LIVE 263 / 19 / 431 on `/vacation/`, `crna/`, `testing/` (auction `fa8f121`, tests `05aac0d`, hub `81a6af7`; read in his Chrome about 6:26 PM); schedule 54 / 156. Rehearsal site republished, carries 263 / 431. Record: `tests/docs/r2-fix-build/CHECKPOINT.md` (every step), PLAN.md + Amendments 1–2, BUILD-BRIEF.md, REPORT-A.md, REPORT-B.md, `scratch/`.
+**The session, in order.** 2:20 §4 opening; 2:21 "go" (plan); 2:27 review page U1–U5 → 3:24 answers (§507); 3:30 three follow-ups (§507: no initials after a full name in ALL staff split wording → START-HERE rule 31 edited; Restore One User kept, its refusal words); 3:40 "Here. Go." Helpers A (staff) and B (admin) in parallel; join; 91 targeted suites; blind review (no high / medium; 4 of 5 low fixed at the join); `drive-r2.mjs` 15/0 (10/5 on 262 / 430); filed 5:45; released 6:24; 6:24 "agree with your choices" (§508).
+**Lessons.** 1. **When two helpers build twins of one function (staff / admin), brief them with the byte-identical line** — the brief gave each page's own cap reader with a different guard, and test-407 N3 (twins byte for byte) failed at the join; one join edit fixed it. 2. **Two helpers' suite repoints both edit `lib427.mjs`**: apply A's, then dry-run B's anchors and move the one A moved — `repoint-B` is all-or-nothing, so nothing half-applies. 3. **The blind review earns its run**: it found that the restore's new Global-Lock rule left the server's copy of the locks (timer `lockAll`) on the backup's value — a gap no suite or drive had looked at. 4. Ask him nothing a helper has already settled in code — the three small calls went in the hand-over and he agreed in one line.
+**Session close** 17 Nov 2026 about 6:35 PM. Closing checklist:
+- 0: fetched the three public repos (= origin); tests `05aac0d` = GitHub (cloud `ls-remote`); no stray locks.
+- 1: chat reviewed — §507 and §508 filed the turn each was said (grep-checked); START-HERE rule 31 + LIVE line + LAST REVISED; TODO; BUILD-LOG row; two traps promoted to STANDING TRAPS; this entry.
+- 2: `status.mjs` (run below), after archiving the 16 Nov V4 entry (HANDOFF 893 → 874).
+- 3: gates — the build's (BUILD-LOG row); nothing changed since the release.
+- 3a: rehearsal site republished (version `1794965821-8848`), recorded 263 / 431.
+- 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`docs/r2-fix-build/CHECKPOINT.md`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (incl. `xfer/build-263-431-files.zip`).
 - 5: handed over; the start message in the chat.
