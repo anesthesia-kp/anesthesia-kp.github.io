@@ -3953,3 +3953,37 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: hub (DECISIONS, TODO, HANDOFF) and tests (CHECKPOINT, OPEN-DECISIONS.html) uncommitted for ▶ RELEASE; auction and schedule clean.
 - 4a: `_to_delete/` 49 files, 3.1 MB — his to empty.
 - 5: handed over.
+
+---
+## ⤵ moved 18 Nov 2026 from HANDOFF.md — 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V1" — V5-F1 NOT A DEFECT; THE V5 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 262 / ADMIN 430, §490–§498)
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V1" — V5-F1 NOT A DEFECT; THE V5 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 262 / ADMIN 430, §490–§498)
+**State.** LIVE 262 / 19 / 430 on `/vacation/`, `crna/`, `testing/` (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`; read in his Chrome about 11:07 AM); schedule 54 / 156. Rehearsal site republished, carries 262 / 430. Record: `tests/docs/v5-fix-build/CHECKPOINT.md` (every step, in order).
+**The session, in order.** 6:37 §4 opening; §490 (▶ RELEASE `y` / `all`). 6:43–7:01 V5-F1 run headless on the real admin page three times: the restore gives back the time left — not a defect. 7:15 plan + review page (Q1–Q37); 7:16 his *"Don't present questions that I've already ruled on"* → §491, rule 26, a second page with the 19 unruled lines; 8:28 his answers §492; 8:36–8:39 §493 (both people's rows "1 · split with BB"); 8:46 §494 (the admin-split refresh item dropped); 8:54 §495 (admin alerts reach the split partner — his own rule 6.36); 8:56 "go". Three helpers built A / B / C; the integrator §490, D12, D14; join; 137 targeted suites beside a pristine tree; blind review SAFE (8 LOW, 5 fixed in the one fix round); headless run-through 16/16 (4/16 on the old pages); filed 10:40 (§497); his ▶ RELEASE 11:05; 11:05 *"always update rehearsal site"* → §498.
+**Lessons.** 1. **A headless run-through on the rehearsal layer (`drive-f1.mjs`, `drive-split.mjs`, `drive-v5.mjs` in the build folder) needs no browser of his and reads the stored data directly** — it settled V5-F1 and the split-refresh report in minutes, and run on the OLD pages it proves the checks bite. 2. **Before a review page, check every line against DECISIONS** (§491) — now rule 26. 3. **A helper's REPORT.md may be refused by the harness** — file the helper's final message as its report the same turn. 4. **A join's test pins live in suites no helper ran together** (test-255 / 396 / 398 / 400 / delta-fixes): run the targeted suites on the joined tree beside a pristine tree with full git history and the schedule repo, and read every difference.
+**Session close** 17 Nov 2026 about 11:12 AM. Closing checklist:
+- 0: four repos = origin at the release (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`, schedule `69baa11`); this close's records are uncommitted for the next ▶ RELEASE.
+- 1: chat reviewed — §490–§498 filed the turn each was said; TODO; this entry.
+- 2: `status.mjs` (run below).
+- 3: gates — the build's (BUILD-LOG row); nothing changed since.
+- 3a: rehearsal site republished (version `1794942336-29ef`), recorded 262 / 430.
+- 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`testsite/published.json`, `docs/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (incl. `xfer/build-262-430-files.zip`).
+- 5: handed over; the start message below.
+
+---
+## ⤵ moved 18 Nov 2026 from HANDOFF.md — 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V2" — 10 MORE REHEARSALS (§500) DONE; EVERY FINDING RULED (§499–§506)
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V2" — 10 MORE REHEARSALS (§500) DONE; EVERY FINDING RULED (§499–§506)
+**State.** LIVE unchanged: 262 / 19 / 430 (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`, schedule `69baa11` = origin). Rehearsal site carries 262 / 430 (no page changed — not republished). Record: `tests/docs/rehearsal-runs-2/CHECKPOINT.md` (plan, 10 runs, findings R2-F1–F3, R2-O1–O13, every ruling) and `HELPER-BRIEF.md`.
+**The session, in order.** §4 opening; 11:10 his "no" to the run-through rule (§499) and the 10 rehearsals (§500). Runs 1–5 driven here (screenshot + click in his Chrome), runs 6–10 each by ONE helper at a time from `HELPER-BRIEF.md` (his 12:04 question about helpers). Rulings as they came: 12:35 §501, 12:45 §502, 1:16–1:19 §503, 1:43 §504 (stop at 9 — then 1:49 §505 "go with 10 now"), 2:16 §506. Next session: plan and build the fix build (§504; TODO ▶ NEXT SESSION).
+**Lessons.** 1. **Rehearsal runs by screenshot fill the chat fast** — one whole auction is dozens of screenshots; a helper per run, one at a time (two would clobber the one rehearsal site), with a written brief on the Mac and the run written to CHECKPOINT before it reports, kept this session from compacting again. 2. **Claude in Chrome brings his Chrome to the front on every screenshot** — he cannot work on that Mac while a run goes; ask before each run when he is working. 3. **A server restart stops a running helper without a report** — resume it by message from its saved transcript (it is stopped, not running, so this is not an interruption), after checking what it had written. 4. **Check a word before reporting it** — "NP" was called "no preference" in a report; it is "No Priority" (`index.html` 871).
+**Session close** 17 Nov 2026 about 2:20 PM. Closing checklist:
+- 0: fetched; four repos = origin (above); three stray `maintenance.lock` moved to `_to_delete/`.
+- 1: chat reviewed — §499–§506 filed the turn each was said (each grep-checked); TODO ▶ NEXT SESSION; this entry. No START-HERE rule changed.
+- 2: `status.mjs` (run below).
+- 3: no build this session — no gates.
+- 3a: rehearsal site — no page changed, not republished (carries 262 / 430).
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, MAP, COMMIT-MESSAGE + the V1 close's START-HERE / HANDOFF-ARCHIVE), auction (BUILD-LOG, from V1), tests (`testsite/published.json` from V1, `docs/rehearsal-runs-2/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty.
+- 5: handed over; the start message in the chat.
