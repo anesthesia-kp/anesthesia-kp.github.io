@@ -3934,3 +3934,22 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: hub (4 files) and tests (`docs/rehearsal-runs/`) uncommitted for ▶ RELEASE; auction and schedule clean.
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over.
+
+---
+## ⤵ moved 17 Nov 2026 from HANDOFF.md — 16–17 Nov 2026 — "Vacation Auction 16 Nov 2026 V5" — THE 10 OVERNIGHT RUNS, FINDINGS TAGGED (§487), THE FIX LIST COMPLETE (§488–§489) — NO SITE CHANGE
+
+## 16–17 Nov 2026 — "Vacation Auction 16 Nov 2026 V5" — THE 10 OVERNIGHT RUNS, FINDINGS TAGGED (§487), THE FIX LIST COMPLETE (§488–§489) — NO SITE CHANGE
+**State.** No page changed: MD / CRNA / testing still serve staff 261 / admin 429. Rehearsal site not republished; its own auction was reset at 6:20 AM for the O7 screenshots and left with Phase 1 closed. Waiting for ▶ RELEASE: hub (DECISIONS §487–§489, TODO) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, OPEN-DECISIONS.html).
+**The session, in order.**
+- 9:45 PM his "Go"; 9:46 PM §487 (every finding tagged real sites / rehearsal only). Runs 1–10 in his Chrome, 9:47–11:10 PM, each to "Auction complete." — findings V5-O1…O8 and V5-F1 in `tests/docs/rehearsal-runs/CHECKPOINT.md`. Compacted once (during run 7).
+- 6:17–6:33 AM: §488 (findings join the fix build), O7 shown by screenshot (the wheel box is taller than a short window; his pick: the box fits the window), the sim makes no splits, review page "Open Decisions — 17 Nov" (5Mum6noYHKD5SDYcMZXFQS) → §489, all five ruled. 6:33 AM: "actually handoff and design/build next session".
+**Lessons.** 1. **Before putting a finding to him, grep DECISIONS for it:** V5-O6 and the wheel heading were already ruled the night before (§486 D25, D30) and were listed to him as open — caught only while building the review page. 2. A finding seen at one window size can look different at another (O7): show it at his size before choosing the fix. 3. In his Chrome the tab group can vanish between turns ("Couldn't determine which page") — `tabs_context_mcp` with createIfEmpty, then navigate to the artifact URL.
+**Session close** 17 Nov 2026 about 6:35 AM; compacted once (during the runs); since the compaction 249 requests, 93.2M tokens read from cache (about 375k a request on average), 0.8M written, 125k output (metered, 6:35 AM). HANDOFF now 900/900 — archive the V3 entry next session. Closing checklist:
+- 0: no fetch over the bridge (read-only); `status.mjs`: all four repos in sync with origin, no locks.
+- 1: chat reviewed — §487, §488, §489 filed the turn each was said; TODO NEXT line; this entry.
+- 2: `status.mjs` exit 0.
+- 3: no code changed — no gates.
+- 3a: test site — no page changed, not republished.
+- 4: hub (DECISIONS, TODO, HANDOFF) and tests (CHECKPOINT, OPEN-DECISIONS.html) uncommitted for ▶ RELEASE; auction and schedule clean.
+- 4a: `_to_delete/` 49 files, 3.1 MB — his to empty.
+- 5: handed over.

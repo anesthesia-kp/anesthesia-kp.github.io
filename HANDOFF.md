@@ -245,6 +245,8 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 # 🪤 STANDING TRAPS — the tools and machines as they are today. Promoted from dated entries; NEVER ARCHIVED.
 
+**IN HIS CHROME THE SCREENSHOT FRAME AND THE PAGE CAN SHIFT MID-SESSION** (17 Nov 2026 V4): the tab's frame went from 1440 to 1171 wide and the rehearsal page's header later sat 8 px lower, so stored click coordinates landed on the wrong control. Take a screenshot (its reply names the frame) before reusing any coordinate, and after every sign-in, reload or window change.
+
 **A HELPER (SUBAGENT) CANNOT WRITE ITS OWN REPORT FILE** (16 Nov 2026 V3, all three build helpers): the environment refuses a subagent writing a report `.md`; each returned its report as its final message instead. Brief helpers to return the report as their final message (their build scripts, suites and diffs they CAN write); Claude files the report to the Mac when it arrives (rule 33).
 
 **HIS CHROME CAN BE "NOT CONNECTED" FOR A WHOLE SESSION, AND THE APP'S BUILT-IN BROWSER IS NOT SIGNED IN TO CLAUDE.AI** (16 Nov 2026 V3). The built-in browser reads the public sites (§4 step 2, §481) but shows "Sign in to view this page." for the rehearsal site (a claude.ai artifact); Claude never types his sign-in. A session that needs the rehearsal site in a browser needs his Chrome connected, or him signed in to claude.ai in the built-in browser.
@@ -828,22 +830,6 @@ nowhere.*
 
 ---
 
-## 16–17 Nov 2026 — "Vacation Auction 16 Nov 2026 V5" — THE 10 OVERNIGHT RUNS, FINDINGS TAGGED (§487), THE FIX LIST COMPLETE (§488–§489) — NO SITE CHANGE
-**State.** No page changed: MD / CRNA / testing still serve staff 261 / admin 429. Rehearsal site not republished; its own auction was reset at 6:20 AM for the O7 screenshots and left with Phase 1 closed. Waiting for ▶ RELEASE: hub (DECISIONS §487–§489, TODO) and tests (`docs/rehearsal-runs/`: CHECKPOINT.md, OPEN-DECISIONS.html).
-**The session, in order.**
-- 9:45 PM his "Go"; 9:46 PM §487 (every finding tagged real sites / rehearsal only). Runs 1–10 in his Chrome, 9:47–11:10 PM, each to "Auction complete." — findings V5-O1…O8 and V5-F1 in `tests/docs/rehearsal-runs/CHECKPOINT.md`. Compacted once (during run 7).
-- 6:17–6:33 AM: §488 (findings join the fix build), O7 shown by screenshot (the wheel box is taller than a short window; his pick: the box fits the window), the sim makes no splits, review page "Open Decisions — 17 Nov" (5Mum6noYHKD5SDYcMZXFQS) → §489, all five ruled. 6:33 AM: "actually handoff and design/build next session".
-**Lessons.** 1. **Before putting a finding to him, grep DECISIONS for it:** V5-O6 and the wheel heading were already ruled the night before (§486 D25, D30) and were listed to him as open — caught only while building the review page. 2. A finding seen at one window size can look different at another (O7): show it at his size before choosing the fix. 3. In his Chrome the tab group can vanish between turns ("Couldn't determine which page") — `tabs_context_mcp` with createIfEmpty, then navigate to the artifact URL.
-**Session close** 17 Nov 2026 about 6:35 AM; compacted once (during the runs); since the compaction 249 requests, 93.2M tokens read from cache (about 375k a request on average), 0.8M written, 125k output (metered, 6:35 AM). HANDOFF now 900/900 — archive the V3 entry next session. Closing checklist:
-- 0: no fetch over the bridge (read-only); `status.mjs`: all four repos in sync with origin, no locks.
-- 1: chat reviewed — §487, §488, §489 filed the turn each was said; TODO NEXT line; this entry.
-- 2: `status.mjs` exit 0.
-- 3: no code changed — no gates.
-- 3a: test site — no page changed, not republished.
-- 4: hub (DECISIONS, TODO, HANDOFF) and tests (CHECKPOINT, OPEN-DECISIONS.html) uncommitted for ▶ RELEASE; auction and schedule clean.
-- 4a: `_to_delete/` 49 files, 3.1 MB — his to empty.
-- 5: handed over.
-
 ## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V1" — V5-F1 NOT A DEFECT; THE V5 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 262 / ADMIN 430, §490–§498)
 **State.** LIVE 262 / 19 / 430 on `/vacation/`, `crna/`, `testing/` (auction `7fe2888`, tests `1eb422e`, hub `e5d27b0`; read in his Chrome about 11:07 AM); schedule 54 / 156. Rehearsal site republished, carries 262 / 430. Record: `tests/docs/v5-fix-build/CHECKPOINT.md` (every step, in order).
 **The session, in order.** 6:37 §4 opening; §490 (▶ RELEASE `y` / `all`). 6:43–7:01 V5-F1 run headless on the real admin page three times: the restore gives back the time left — not a defect. 7:15 plan + review page (Q1–Q37); 7:16 his *"Don't present questions that I've already ruled on"* → §491, rule 26, a second page with the 19 unruled lines; 8:28 his answers §492; 8:36–8:39 §493 (both people's rows "1 · split with BB"); 8:46 §494 (the admin-split refresh item dropped); 8:54 §495 (admin alerts reach the split partner — his own rule 6.36); 8:56 "go". Three helpers built A / B / C; the integrator §490, D12, D14; join; 137 targeted suites beside a pristine tree; blind review SAFE (8 LOW, 5 fixed in the one fix round); headless run-through 16/16 (4/16 on the old pages); filed 10:40 (§497); his ▶ RELEASE 11:05; 11:05 *"always update rehearsal site"* → §498.
@@ -884,4 +870,18 @@ nowhere.*
 - 3a: rehearsal site republished (version `1794965821-8848`), recorded 263 / 431.
 - 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`docs/r2-fix-build/CHECKPOINT.md`, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty (incl. `xfer/build-263-431-files.zip`).
+- 5: handed over; the start message in the chat.
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V4" — REHEARSAL RUNS 1–2 IN HIS CHROME + CLOUD E-MAIL CHECKS (§509–§515); RUNS 3–5 REPLACED BY A MEGA-FUZZ + ONE CHROME PASS NEXT SESSION — NO SITE CHANGE
+**State.** LIVE 263 / 19 / 431 unchanged (auction `2b2513e`, tests `c0a933e`, hub `131a079` = GitHub, checked at the close). Rehearsal site unchanged (no page changed). Record: `tests/docs/rehearsal-runs-3/CHECKPOINT.md` (both runs, step by step), `mailcheck.mjs` (6e6bab4e), `run1.mjs`, `run2.mjs`, `run1-mail.json`, `run2-mail.json`, `REVIEW-RUN1.html`, `REVIEW-RUN2.html`.
+**The session, in order.** §4 opening; "any recs?"; 6:35 his order (§509 counter no change; §510 five runs, splits especially, every e-mail); "use chrome control" → Chrome + cloud e-mail check; run 1 6:41–7:03, cloud check, review page → 8:19 answers (§511); run 2 8:20–8:47 (R3-F1 found by eye, reproduced twice and in the cloud with the stored sides), cloud check, review page → 9:03 answers (§514); 8:56 §512 (runs stop once their items are tested); 9:04 "stop"; 9:05–9:09 §515 (runs 3–5 → cloud mega-fuzz + one Chrome pass next session; every finding its own review line); hand-over.
+**Lessons.** 1. **Eyes and the fuzz find different things:** of runs 1–2's 12 findings, 7 were seen only on screen and about 3 a fuzz would catch — and R3-F1 was seen by eye first, then nailed by reading the stored sides in the cloud. Use both, each for its own job (§515). 2. **A test helper's branch that has never run fails at its first use** — `propose(…, meBid=false)` checked a radio value ("them") the page never had ("p"); run each helper branch once before a scenario leans on it. 3. **Don't play phases the items don't need** (§512) — Phases 3–4 of run 2 added nothing. 4. Chrome frame/offset trap → STANDING TRAPS.
+**Session close** 17 Nov 2026 about 9:15 PM. Closing checklist:
+- 0: the four repos' heads = GitHub (cloud `ls-remote`: hub `131a079`, auction `2b2513e`, schedule `69baa11`, tests `c0a933e`); no stray `.git` locks.
+- 1: chat reviewed — §509–§515 filed the turn each was said (grep-checked); TODO NEXT line (§515); CHECKPOINT; one trap promoted; this entry.
+- 2: `status.mjs` (run below), after archiving the 16 Nov V5 entry (HANDOFF 888 → 872).
+- 3: no code changed — no gates.
+- 3a: rehearsal site — no page changed, not republished (carries 263 / 431).
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP/status outputs, COMMIT-MESSAGE), tests (`docs/rehearsal-runs-3/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (9.5 MB).
 - 5: handed over; the start message in the chat.
