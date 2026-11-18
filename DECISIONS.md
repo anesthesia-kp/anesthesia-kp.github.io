@@ -521,6 +521,7 @@
 | §504 |  | STOP AFTER RUN 9; REVIEW, DECIDE, HAND OVER; DESIGN AND BUILD NEXT SESSION — 17 Nov 2026 1:43 PM |  |
 | §505 |  | R2-O1 AND R2-O11 FIXED, R2-O2 KEPT; RUN 10 AFTER ALL — 17 Nov 2026 1:49 PM |  |
 | §506 |  | R2-F3, R2-O12, R2-O13 RULED — 17 Nov 2026 2:16 PM |  |
+| §507 |  | R2 FIX BUILD: THE FIVE UNRULED CHOICES ANSWERED — 17 Nov 2026 3:24 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -8919,3 +8920,12 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - **R2-O12 — FIX:** removing a split with no bid reads "Remove this split? It has no bid on Week 13." (admin 430 `removeSplit` ~12854).
 - **R2-O13 — FIX:** a full restore leaves Global Lock ON, and its closing message says "Global Lock is still on — turn it off when ready." (admin 430 full-restore map ~16077 includes `locks`).
 - Recorded, not fixed now (§92): all three join the next fix build's list.
+
+## §507 — R2 FIX BUILD: THE FIVE UNRULED CHOICES ANSWERED — 17 Nov 2026 3:24 PM
+- Session "Vacation Auction 17 Nov 2026 V3", review page "R2 Fix Build — Unruled Only" https://claude.ai/artifact/3vEhPo4ra95FNvdZoPWuM1 (copy `tests/docs/r2-fix-build/REVIEW.html`). **Owner verbatim:** *"R2 fix build review: U1 "This split can't start. Brian Cole (BC) would go over the bid cap." (note: Don’t need (BC), it’s redundant.) · U2 "This bid can't be placed with this split. Ben Brooks (BB) would go over the bid cap." (note: Same as above) · U3 "Alice Barrow (AB) is the bidder on your Week 7 split, so AB has to set this alert." (note: Same as above) · U4 "Keep it; refuse anyone in a split" (note: Is this smaller than removal?  Not sure if I could end up needing it?) · U5 "Leave out people with no usable number (Tara Tran still listed)"*
+- **U1 (R2-O5) — RULED:** "This split can't start. Brian Cole would go over the bid cap." — full name, no initials (his note); "You would go over the bid cap." when it is the signed-in person.
+- **U2 (R2-O9) — RULED:** "This bid can't be placed with this split. Ben Brooks would go over the bid cap." — no initials.
+- **U3 (R2-O10) — RULED (3:30 PM, his pick of Claude's recommendation):** "Alice Barrow is the bidder on your Week 7 split and has to set this alert."
+- **NO INITIALS AFTER A FULL NAME IN ANY STAFF SPLIT WORDING — RULED 3:30 PM:** asked "only these three new lines, or all staff split wording?", **his pick: "All staff split wording".** Every staff split line that names the other person by full name drops the "(CD)" after it ("Carmen Diaz proposed this split."). Replaces the "full name first, then initials" of §435–§436 / rule 31 / Rules 6.37 for staff split wording. Read 3:35 PM: on the staff page only ONE existing line puts initials after a full name — the Split weeks form's bidder choice "Carmen Diaz (CD)" (§486 D27, staff 262 ~8054) → "Carmen Diaz"; the other split lines already use the full name alone or initials alone in short labels ("Waiting for CD", "Bidder: CD"), and the split e-mails (mail server) put no initials after the name. So it touches: that line, U1–U3, Rules 6.37, START-HERE rule 31 (edited 3:35 PM to match). PLAN AMENDMENT 2.
+- **U4 (R2-F3) — RULED: KEEP Restore One User; it refuses anyone in a split** (at the backup or now). Answered his "Is this smaller than removal?": yes to build (about 15 lines and one box vs deleting about 110 lines, two buttons and repointing 7 suites); a use: one person's bids changed by mistake, put back without undoing everyone else's since the backup. **Refusal words RULED 3:30 PM (Claude's recommendation):** "AB was in a split at this backup or is in one now. Use the full restore, which brings back splits."
+- **U5 (R2-O6) — RULED: the small version.** "Users without bids" and Send Reminders also leave out anyone with no usable bid number on any open week (used, won, withheld, below the week's floor, NP not allowed); a competition week's minimum new bid is not checked, so a case like run 7's Tara Tran stays listed.
