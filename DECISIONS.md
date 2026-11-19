@@ -547,6 +547,9 @@
 | §530 |  | TIDY `Claude outputs/` AND THREE SMALL TEST-TOOL FIXES — 18 Nov 2026 8:44 PM |  |
 | §531 |  | NO PHASE 4 READINESS CHECK — 18 Nov 2026 9:48 PM |  |
 | §532 |  | THE WALKTHROUGH DECK IS NOT UPDATED — 18 Nov 2026 10:24 PM |  |
+| §533 |  | THE WALKTHROUGH DECK TO BE UPDATED TO THE MD SITE: A NEW DECK BESIDE THE OLD — 18 Nov 2026 10:29 PM |  |
+| §534 |  | THE NEW DECK, HIS FIRST REVIEW: LOWERINGS, THE SITE FONT, CAPACITIES ROUNDED UP — 19 Nov 2026 6:41 AM |  |
+| §535 |  | A SECOND DECK: COMPETITION WEEKS STRICT, SPLIT WEEKS ON — 19 Nov 2026 7:21 AM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9111,3 +9114,41 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - Session "Vacation Auction 18 Nov 2026 V5". **Owner verbatim, 10:19 PM:** *"I want you to update my powerpoint so that it follows all the current settings of the MD site."* · *"I want the styling and format to remain the same as it is now"* · 10:21 PM *"open the page"* · *"already open"* · 10:24 PM *"comp week rules are the biggest change"* · *"actually not worth doing this now"* · *"forget it"*.
 - Claude had read (view only, nothing saved) the MD staff Rules & Reminders and the admin Settings and Week Capacity pages in his Chrome; the differences are kept in `tests/docs/deck-update/FINDINGS.md`. No deck changed.
 - **RULED:** dropped. Not to be raised again; he will ask.
+
+## §533 — THE WALKTHROUGH DECK TO BE UPDATED TO THE MD SITE: A NEW DECK BESIDE THE OLD — 18 Nov 2026 10:29 PM
+- Session "Vacation Auction 18 Nov 2026 V6". He reopens §532 himself. **Owner verbatim, 10:29 PM:** *"Please update my powerpoint for the MD site.  The site design has dramatically changed, so will need all new photos from the site.  keep text the same, but change to match current site colors.  comp week rules are new since the ppt was made, but for now will use loose settings and lowerings.  Read current site settings and capture new images that informatically replace what I have now.  There will be many changes needed."* · **10:30 PM:** *"going to sleep, keep the old ppt and create the new one."*
+- Deck: `tests/docs/VacationAuctionWalkthrough.pptx` (35 slides) — KEPT unchanged; the new deck is a new file beside it. Earlier differences read in V5: `tests/docs/deck-update/FINDINGS.md`.
+- **10:35 PM, owner verbatim:** *"Use only my name and vacation goddess names"* — every person shown in the new pictures is him (Aaron Frankel, AF) or Vacation Goddess; no other name.
+- **10:36 PM, owner verbatim:** *"Ok to add other users if absolutely needed"*.
+- **RULED:** build a new deck tonight while he sleeps — every screenshot re-captured from the site as it is today, the text kept, the deck's colours changed to the site's. He is away, so Claude takes the reading recorded in `tests/docs/deck-update/PLAN.md` and lists every choice there for him to check.
+
+## §534 — THE NEW DECK, HIS FIRST REVIEW: LOWERINGS, THE SITE FONT, CAPACITIES ROUNDED UP — 19 Nov 2026 6:41 AM
+- Session "Vacation Auction 18 Nov 2026 V6". The new deck (`tests/docs/VacationAuctionWalkthrough-MD-2026-11-19.pptx`, §533). **Owner verbatim, 6:41 AM:** *"lowerings are set different.  New font might be better to match site font?  those supply weeks were rounded down, so should round back up."*
+- **RULED:** (1) the deck's lowering lines are wrong — re-read how lowerings are set and correct them; (2) the font question put to him (the site's font is Hanken Grotesk); (3) the supply slides use the week capacities rounded UP to whole FTE (5.8 → 6, 3.8 / 3.9 → 4).
+- Re-read 6:45 AM on the MD admin Setup page, view only: Allowed Lowerings Per Phase = Unlimited in Phases 1–3 and each Phase 4 round ("Rule shown to users: none — bid lowerings are unlimited in every phase"). Put to him.
+- **Owner's picks, 6:47 AM:** lowerings — *"2 / 4 / 2 like the old deck"* (Phase 1: 2 · Phases 2 and 3: 4 · each Phase 4 round: 2; the deck then differs from the MD setting until he changes it); font — *"Keep Calibri"*.
+- **6:44 AM, his screenshot:** the MD admin's "Change allowed lowerings?" box — Phase 1: Unlimited → 2 · Phase 2: Unlimited → 4 · Phase 3: Unlimited → 4 · Each Phase-4 round: Unlimited → 2 (he is setting the MD site himself; Claude changes nothing there).
+- **6:47 AM, owner verbatim:** *"I changed settings"* — with a screenshot of his MD staff page: Bid Count shows "2 of 4 bid lowerings left". The MD site now limits lowerings 2 / 4 / 4 / 2.
+- **6:49 AM, owner verbatim:** *"Add slides about the new menu button for staff Alerts use"* — RULED: new slides on the staff ☰ menu and its E-mail alerts, pictures from the private copy.
+- **6:49 AM, owner verbatim:** *"Update previous phases to new look"* — read as: slide 25's Phase History picture shows the box with a completed phase (Phase 1 results), not the empty box.
+- **6:52 AM, owner verbatim:** *"Start with Menu button and then go on to what's in it"* — the new slides open on the ☰ button, then take its items in turn (Rules & Reminders, E-mail alerts with Notify if a week opens up, View previous phases, Sign out).
+- **7:05 AM, owner verbatim:** *"too much dark green"* — with a screenshot of the "Things to remember" slide (full dark-green background). RULED: the full-dark slides (title, Things to remember, Questions?) go light like the rest; dark green kept only where the site itself uses it (the sign-in panel).
+- **7:09 AM, owner verbatim:** *"what i meant is that there was no contrast and looked bad."* · *"I think the lighter green with whiter background would be fine"* — RULED: "Things to remember" and "Questions?" on a white background, rows in a light tint of the site green, ink text.
+- **7:11 AM, owner verbatim:** *"slides need to remain consistent.  background lighter green with lighter/whiter cards"* — RULED, superseding 7:09: every slide on the same light-green page (the site's `#EBF0E6`) with white cards; "Things to remember", "Questions?" and the title slide's right side follow it.
+- **7:11 AM, owner verbatim:** *"you did the opposite"* (of the 7:09 version). **7:12 AM:** *"you removed all contrast and we're right back where we started.  pay attention."* — the near-white `#EBF0E6` page behind white cards has no contrast. Three greens put to him on a picture (A `#C9D8C5` · B `#A9C0A6` · C `#7FA38A`). **His pick: A.** Which slides: not answered — Claude took every slide (his 7:11 "slides need to remain consistent") and says so.
+- **RULED (7:12):** every slide's page `#C9D8C5` — not built; replaced at 7:14.
+- **7:14 AM, owner verbatim:** *"remove slide 1.  a is for slides 37-40"* — RULED: the cover picture slide is removed; option A (`#C9D8C5` page) on the 40-slide deck's slides 37–40 only (Questions?, All rules and reminders ×2, Timer rules in full); every other slide stays as it is.
+- **7:16 AM, owner verbatim:** *"still not good.  background green must be the same as all other slides"* — RULED: those four slides keep the deck's page colour `#EBF0E6`; their content goes on a white card (the deck's own card), text in ink `#1F2329`, for contrast.
+- **7:17 AM, owner verbatim:** *"ok, this is good.  thank you."* — the new deck APPROVED as delivered (39 slides; `tests/docs/VacationAuctionWalkthrough-MD-2026-11-19.pptx`, md5 efccabbc75ac1b6891ce48ae18ce6c16).
+- **7:19 AM, owner verbatim:** *"should cancelling be changed to removing?  i think we did that on the site?"* — read on staff 266: the site says Remove ("Remove your bid for…", the Remove button, "Remove a bid first", "can't be removed"); "Cancel" is only the button that closes a box. RULED: the deck's four "cancel" lines say remove/removal (slide 18 title "Removing a bid"; "Late removals of winning bids…" ×2; the timer line "a bid, change, or removal").
+- **RULED:** the deck states 2 / 4 / 4 / 2 lowerings (his screenshot), and its pictures and rule lines are re-taken from the private copy set to that; Calibri stays; capacities rounded up (done: 235 FTE-weeks, 6 / 5 / 4 categories, 32.9 FTE, 7.1 weeks per FTE).
+
+## §535 — A SECOND DECK: COMPETITION WEEKS STRICT, SPLIT WEEKS ON — 19 Nov 2026 7:21 AM
+- Session "Vacation Auction 18 Nov 2026 V6". After §534's deck was approved (7:17 AM) and "cancel" → "remove" (7:19 AM). **Owner verbatim, 7:21 AM:** *"great, thanks.  I also want 1 additional version of the ppt that has comp weeks strict and split weeks on."*
+- **RULED:** a second deck beside the approved one, the same deck but written and pictured for the Strict competition-week rules with split weeks on. To be planned first (§0): the settings it assumes, which slides change, the split-weeks slides it adds.
+- **7:22 AM, owner verbatim:** *"if you can get split weeks screenshots from the testing site, ok to to do that.  testing site has a fresh auction and ready to start with 4 users that can be used as testing.  ok if emails are sent as part of getting images."* — permission noted. Claude's reading put to him: the private cloud copy runs the same pages and can show a split between Aaron Frankel and Vacation Goddess (§533's names rule), with no sign-ins, no e-mails and the testing site untouched — so the testing site is not used unless he wants it.
+- **7:23 AM, owner verbatim:** *"i have 4 chrome windows open with the 4 profiles of the 4 users on the testing site"* · *"if you don't need that, also fine"*. Only one Chrome profile is connected to Claude ("Browser 1"), so the four testing-site users cannot be driven; the private copy is used.
+- Plan `tests/docs/deck-update/PLAN-STRICT-SPLIT.md` put to him. **Owner's picks, 7:23 AM:** slide 10 — *"Strict: can't remove a winner"*; split weeks — *"Two slides"* (what a split is and how it bids · setting one up: propose, accept, the bid); *"Build here"*.
+- **RULED:** build the Strict + split deck now, as planned with those picks.
+- **7:35 AM, owner verbatim:** *"Ensure files are named something short and easy to know which of the 3 ppt each one is"* — RULED: in `tests/docs/`: `Walkthrough-Old.pptx` (the September deck, renamed, content unchanged) · `Walkthrough-Loose.pptx` (the §534 deck, approved 7:17 AM) · `Walkthrough-Strict-Split.pptx` (this deck). Earlier rulings keep the names they used at the time.
+

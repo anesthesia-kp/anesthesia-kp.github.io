@@ -4039,3 +4039,13 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP, COMMIT-MESSAGE), tests (`docs/rehearsal-final/`, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over; the start message in the chat.
+
+---
+## ⤵ moved 19 Nov 2026 from HANDOFF.md — 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V3" — THE TARGETED CHECK DONE, THE REHEARSALS END (§520); EM-1 + THE SPLITS PAGE BUILT AND LIVE (STAFF 265 / ADMIN 433, §521)
+
+## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V3" — THE TARGETED CHECK DONE, THE REHEARSALS END (§520); EM-1 + THE SPLITS PAGE BUILT AND LIVE (STAFF 265 / ADMIN 433, §521)
+**Written by V4 from the records** — V3 closed without a hand-over (his 11:27 AM: *"done with old chat, forgot to handoff.  ok?"*); everything it ruled and built was already on disk and pushed.
+**State.** LIVE 265 / 19 / 433 on `/vacation/` (both endings), `crna/`, `testing/` (his Chrome 11:23 AM; read again by V4 11:26 AM at auction `84f0609`); schedule 54 / 156. ▶ RELEASE by him 11:21 AM (auction `9d66ba5`, tests `bd6ade8`, hub `4a18efa`) and 11:25 AM docs (hub `ef6734a`, auction `84f0609`, tests `4454de2`); no rules or mail-server change. Rehearsal site republished (265 / 433, version `1795029536-4742`). Records: `tests/docs/fix-check/` (the check), `tests/docs/em1/` (PLAN + CHECKPOINT, staff 265), `tests/docs/admin433/` (PLAN + CHECKPOINT).
+**The session, in order.** The targeted check of staff 264 / admin 432 + the mail server (§515 (4)): cloud 7 / 7, Chrome on the rehearsal site 16 / 16 → **the rehearsals END** (§520); EM-1 (partner of a bidless split gets no View previous phases row) and CK-1 (the rehearsal site's fake database clears a merged empty map) ruled on a question card (§520); EM-1 planned, his "Build here", built, gated (`test-em1-bidless-split-row.mjs` 17 / 0, honesty 9 red on 264), filed; its class hunt found the admin Splits page's "Ended — bid lost" for a bidless split → his "Ended — no bid", *"ok for next session"* · *"or here if easy"* (§521) → admin 433 built, gated (`test-433-split-status.mjs` 13 / 0, honesty 3 red on 432), filed; CK-1 done (test tools only); released together 11:21 AM.
+**▶ NEXT:** nothing queued — his call.
+**Session close** — not run by V3; this entry is V4's (18 Nov 2026 about 11:28 AM). V4's §4 opening covered the checks: heads = GitHub on all four repos; the fetch's three `maintenance.lock` files moved to `_to_delete/`.
