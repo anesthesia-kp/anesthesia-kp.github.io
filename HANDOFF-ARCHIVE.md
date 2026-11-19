@@ -3987,3 +3987,20 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, MAP, COMMIT-MESSAGE + the V1 close's START-HERE / HANDOFF-ARCHIVE), auction (BUILD-LOG, from V1), tests (`testsite/published.json` from V1, `docs/rehearsal-runs-2/`, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over; the start message in the chat.
+
+---
+## ⤵ moved 18 Nov 2026 from HANDOFF.md — 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V3" — THE R2 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 263 / ADMIN 431, §507–§508); RULE 31 CHANGED
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V3" — THE R2 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 263 / ADMIN 431, §507–§508); RULE 31 CHANGED
+**State.** LIVE 263 / 19 / 431 on `/vacation/`, `crna/`, `testing/` (auction `fa8f121`, tests `05aac0d`, hub `81a6af7`; read in his Chrome about 6:26 PM); schedule 54 / 156. Rehearsal site republished, carries 263 / 431. Record: `tests/docs/r2-fix-build/CHECKPOINT.md` (every step), PLAN.md + Amendments 1–2, BUILD-BRIEF.md, REPORT-A.md, REPORT-B.md, `scratch/`.
+**The session, in order.** 2:20 §4 opening; 2:21 "go" (plan); 2:27 review page U1–U5 → 3:24 answers (§507); 3:30 three follow-ups (§507: no initials after a full name in ALL staff split wording → START-HERE rule 31 edited; Restore One User kept, its refusal words); 3:40 "Here. Go." Helpers A (staff) and B (admin) in parallel; join; 91 targeted suites; blind review (no high / medium; 4 of 5 low fixed at the join); `drive-r2.mjs` 15/0 (10/5 on 262 / 430); filed 5:45; released 6:24; 6:24 "agree with your choices" (§508).
+**Lessons.** 1. **When two helpers build twins of one function (staff / admin), brief them with the byte-identical line** — the brief gave each page's own cap reader with a different guard, and test-407 N3 (twins byte for byte) failed at the join; one join edit fixed it. 2. **Two helpers' suite repoints both edit `lib427.mjs`**: apply A's, then dry-run B's anchors and move the one A moved — `repoint-B` is all-or-nothing, so nothing half-applies. 3. **The blind review earns its run**: it found that the restore's new Global-Lock rule left the server's copy of the locks (timer `lockAll`) on the backup's value — a gap no suite or drive had looked at. 4. Ask him nothing a helper has already settled in code — the three small calls went in the hand-over and he agreed in one line.
+**Session close** 17 Nov 2026 about 6:35 PM. Closing checklist:
+- 0: fetched the three public repos (= origin); tests `05aac0d` = GitHub (cloud `ls-remote`); no stray locks.
+- 1: chat reviewed — §507 and §508 filed the turn each was said (grep-checked); START-HERE rule 31 + LIVE line + LAST REVISED; TODO; BUILD-LOG row; two traps promoted to STANDING TRAPS; this entry.
+- 2: `status.mjs` (run below), after archiving the 16 Nov V4 entry (HANDOFF 893 → 874).
+- 3: gates — the build's (BUILD-LOG row); nothing changed since the release.
+- 3a: rehearsal site republished (version `1794965821-8848`), recorded 263 / 431.
+- 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`docs/r2-fix-build/CHECKPOINT.md`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (incl. `xfer/build-263-431-files.zip`).
+- 5: handed over; the start message in the chat.

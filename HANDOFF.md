@@ -834,20 +834,6 @@ nowhere.*
 
 ---
 
-## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V3" — THE R2 FIX BUILD PLANNED, BUILT AND LIVE (STAFF 263 / ADMIN 431, §507–§508); RULE 31 CHANGED
-**State.** LIVE 263 / 19 / 431 on `/vacation/`, `crna/`, `testing/` (auction `fa8f121`, tests `05aac0d`, hub `81a6af7`; read in his Chrome about 6:26 PM); schedule 54 / 156. Rehearsal site republished, carries 263 / 431. Record: `tests/docs/r2-fix-build/CHECKPOINT.md` (every step), PLAN.md + Amendments 1–2, BUILD-BRIEF.md, REPORT-A.md, REPORT-B.md, `scratch/`.
-**The session, in order.** 2:20 §4 opening; 2:21 "go" (plan); 2:27 review page U1–U5 → 3:24 answers (§507); 3:30 three follow-ups (§507: no initials after a full name in ALL staff split wording → START-HERE rule 31 edited; Restore One User kept, its refusal words); 3:40 "Here. Go." Helpers A (staff) and B (admin) in parallel; join; 91 targeted suites; blind review (no high / medium; 4 of 5 low fixed at the join); `drive-r2.mjs` 15/0 (10/5 on 262 / 430); filed 5:45; released 6:24; 6:24 "agree with your choices" (§508).
-**Lessons.** 1. **When two helpers build twins of one function (staff / admin), brief them with the byte-identical line** — the brief gave each page's own cap reader with a different guard, and test-407 N3 (twins byte for byte) failed at the join; one join edit fixed it. 2. **Two helpers' suite repoints both edit `lib427.mjs`**: apply A's, then dry-run B's anchors and move the one A moved — `repoint-B` is all-or-nothing, so nothing half-applies. 3. **The blind review earns its run**: it found that the restore's new Global-Lock rule left the server's copy of the locks (timer `lockAll`) on the backup's value — a gap no suite or drive had looked at. 4. Ask him nothing a helper has already settled in code — the three small calls went in the hand-over and he agreed in one line.
-**Session close** 17 Nov 2026 about 6:35 PM. Closing checklist:
-- 0: fetched the three public repos (= origin); tests `05aac0d` = GitHub (cloud `ls-remote`); no stray locks.
-- 1: chat reviewed — §507 and §508 filed the turn each was said (grep-checked); START-HERE rule 31 + LIVE line + LAST REVISED; TODO; BUILD-LOG row; two traps promoted to STANDING TRAPS; this entry.
-- 2: `status.mjs` (run below), after archiving the 16 Nov V4 entry (HANDOFF 893 → 874).
-- 3: gates — the build's (BUILD-LOG row); nothing changed since the release.
-- 3a: rehearsal site republished (version `1794965821-8848`), recorded 263 / 431.
-- 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`docs/r2-fix-build/CHECKPOINT.md`, COMMIT-MESSAGE).
-- 4a: `_to_delete/` — his to empty (incl. `xfer/build-263-431-files.zip`).
-- 5: handed over; the start message in the chat.
-
 ## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V4" — REHEARSAL RUNS 1–2 IN HIS CHROME + CLOUD E-MAIL CHECKS (§509–§515); RUNS 3–5 REPLACED BY A MEGA-FUZZ + ONE CHROME PASS NEXT SESSION — NO SITE CHANGE
 **State.** LIVE 263 / 19 / 431 unchanged (auction `2b2513e`, tests `c0a933e`, hub `131a079` = GitHub, checked at the close). Rehearsal site unchanged (no page changed). Record: `tests/docs/rehearsal-runs-3/CHECKPOINT.md` (both runs, step by step), `mailcheck.mjs` (6e6bab4e), `run1.mjs`, `run2.mjs`, `run1-mail.json`, `run2-mail.json`, `REVIEW-RUN1.html`, `REVIEW-RUN2.html`.
 **The session, in order.** §4 opening; "any recs?"; 6:35 his order (§509 counter no change; §510 five runs, splits especially, every e-mail); "use chrome control" → Chrome + cloud e-mail check; run 1 6:41–7:03, cloud check, review page → 8:19 answers (§511); run 2 8:20–8:47 (R3-F1 found by eye, reproduced twice and in the cloud with the stored sides), cloud check, review page → 9:03 answers (§514); 8:56 §512 (runs stop once their items are tested); 9:04 "stop"; 9:05–9:09 §515 (runs 3–5 → cloud mega-fuzz + one Chrome pass next session; every finding its own review line); hand-over.
@@ -891,3 +877,10 @@ nowhere.*
 - 4: uncommitted for ▶ RELEASE: hub (START-HERE, TODO, HANDOFF, MAP, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (CHECKPOINT, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty.
 - 5: handed over; the start message in the chat.
+
+## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V3" — THE TARGETED CHECK DONE, THE REHEARSALS END (§520); EM-1 + THE SPLITS PAGE BUILT AND LIVE (STAFF 265 / ADMIN 433, §521)
+**Written by V4 from the records** — V3 closed without a hand-over (his 11:27 AM: *"done with old chat, forgot to handoff.  ok?"*); everything it ruled and built was already on disk and pushed.
+**State.** LIVE 265 / 19 / 433 on `/vacation/` (both endings), `crna/`, `testing/` (his Chrome 11:23 AM; read again by V4 11:26 AM at auction `84f0609`); schedule 54 / 156. ▶ RELEASE by him 11:21 AM (auction `9d66ba5`, tests `bd6ade8`, hub `4a18efa`) and 11:25 AM docs (hub `ef6734a`, auction `84f0609`, tests `4454de2`); no rules or mail-server change. Rehearsal site republished (265 / 433, version `1795029536-4742`). Records: `tests/docs/fix-check/` (the check), `tests/docs/em1/` (PLAN + CHECKPOINT, staff 265), `tests/docs/admin433/` (PLAN + CHECKPOINT).
+**The session, in order.** The targeted check of staff 264 / admin 432 + the mail server (§515 (4)): cloud 7 / 7, Chrome on the rehearsal site 16 / 16 → **the rehearsals END** (§520); EM-1 (partner of a bidless split gets no View previous phases row) and CK-1 (the rehearsal site's fake database clears a merged empty map) ruled on a question card (§520); EM-1 planned, his "Build here", built, gated (`test-em1-bidless-split-row.mjs` 17 / 0, honesty 9 red on 264), filed; its class hunt found the admin Splits page's "Ended — bid lost" for a bidless split → his "Ended — no bid", *"ok for next session"* · *"or here if easy"* (§521) → admin 433 built, gated (`test-433-split-status.mjs` 13 / 0, honesty 3 red on 432), filed; CK-1 done (test tools only); released together 11:21 AM.
+**▶ NEXT:** nothing queued — his call.
+**Session close** — not run by V3; this entry is V4's (18 Nov 2026 about 11:28 AM). V4's §4 opening covered the checks: heads = GitHub on all four repos; the fetch's three `maintenance.lock` files moved to `_to_delete/`.
