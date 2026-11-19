@@ -544,6 +544,7 @@
 | §527 |  | THE GITHUB FOLDER MOVES OUT OF iCLOUD DRIVE — 18 Nov 2026 6:55 PM |  |
 | §528 |  | ▶ RELEASE ALSO PUSHES MARATHON — 18 Nov 2026 7:49 PM |  |
 | §529 |  | `_archive` MOVES INTO THE PRIVATE `tests` REPO, SO ▶ RELEASE BACKS IT UP — 18 Nov 2026 8:09 PM |  |
+| §530 |  | TIDY `Claude outputs/` AND THREE SMALL TEST-TOOL FIXES — 18 Nov 2026 8:44 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9092,3 +9093,9 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - Session "Vacation Auction 18 Nov 2026 V4", after the hand-over. **Owner verbatim, 8:08 PM:** *"i don't use time machine"* → since §527 `_archive/` (105 files, 13 MB), `Claude outputs/`, `_to_delete/` and unreleased work are backed up nowhere. Options put (move `_archive` into the private `tests` repo · Time Machine with a drive · leave it). **8:09 PM:** *"move archive.  any downside?"*
 - **RULED:** `_archive/` moves into the private `tests` repo (pushed by every ▶ RELEASE). Before the move: check it holds no passwords, keys or tokens; then update what names it (START-HERE file hygiene, `status.mjs`'s measure, `_archive/README.md`). Downsides told him: `tests` grows ~13 MB for good; the cloud's clone of `tests` a few seconds slower; anything in it is on GitHub (private) from then on.
 
+
+## §530 — TIDY `Claude outputs/` AND THREE SMALL TEST-TOOL FIXES — 18 Nov 2026 8:44 PM
+- Session "Vacation Auction 18 Nov 2026 V5". After the §4 opening (all sites = disk, queue complete) he asked *"recs?"*. Put to him: (1) pause auction builds until a real need — no third rehearsal round; (2) sort `Claude outputs/` (135 MB, 76 entries, backed up nowhere since §529's *"i don't use time machine"*): keepers into `tests/_archive/`, the rest to `_to_delete/`; (3) tests-repo-only fixes: `test-333` / `test-335` read their dates a day early on a Pacific clock, `test-179`'s count is left out of the battery total, `tests/README.md` and `tests/sched/README.md` carry stale counts. HANDOFF.md 886 / 900 → archive pass at this session's close.
+- **Owner verbatim, 8:44 PM:** *"go with 2/3"*.
+- **RULED:** do 2 and 3. Both are planned first (§0), the keep / move list for 2 is his to approve; neither touches anything the sites serve.
+- **8:48 PM, owner verbatim:** *"go"* — to the plan `tests/docs/outputs-tidy/PLAN.md` as put (groups A–E, the README and TODO note corrections).
