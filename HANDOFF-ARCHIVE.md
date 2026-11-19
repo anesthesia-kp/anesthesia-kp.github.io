@@ -4004,3 +4004,20 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: uncommitted for ▶ RELEASE: hub (START-HERE, DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (`docs/r2-fix-build/CHECKPOINT.md`, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — his to empty (incl. `xfer/build-263-431-files.zip`).
 - 5: handed over; the start message in the chat.
+
+---
+## ⤵ moved 18 Nov 2026 from HANDOFF.md — 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V4" — REHEARSAL RUNS 1–2 IN HIS CHROME + CLOUD E-MAIL CHECKS (§509–§515); RUNS 3–5 REPLACED BY A MEGA-FUZZ + ONE CHROME PASS NEXT SESSION — NO SITE CHANGE
+
+## 17 Nov 2026 — "Vacation Auction 17 Nov 2026 V4" — REHEARSAL RUNS 1–2 IN HIS CHROME + CLOUD E-MAIL CHECKS (§509–§515); RUNS 3–5 REPLACED BY A MEGA-FUZZ + ONE CHROME PASS NEXT SESSION — NO SITE CHANGE
+**State.** LIVE 263 / 19 / 431 unchanged (auction `2b2513e`, tests `c0a933e`, hub `131a079` = GitHub, checked at the close). Rehearsal site unchanged (no page changed). Record: `tests/docs/rehearsal-runs-3/CHECKPOINT.md` (both runs, step by step), `mailcheck.mjs` (6e6bab4e), `run1.mjs`, `run2.mjs`, `run1-mail.json`, `run2-mail.json`, `REVIEW-RUN1.html`, `REVIEW-RUN2.html`.
+**The session, in order.** §4 opening; "any recs?"; 6:35 his order (§509 counter no change; §510 five runs, splits especially, every e-mail); "use chrome control" → Chrome + cloud e-mail check; run 1 6:41–7:03, cloud check, review page → 8:19 answers (§511); run 2 8:20–8:47 (R3-F1 found by eye, reproduced twice and in the cloud with the stored sides), cloud check, review page → 9:03 answers (§514); 8:56 §512 (runs stop once their items are tested); 9:04 "stop"; 9:05–9:09 §515 (runs 3–5 → cloud mega-fuzz + one Chrome pass next session; every finding its own review line); hand-over.
+**Lessons.** 1. **Eyes and the fuzz find different things:** of runs 1–2's 12 findings, 7 were seen only on screen and about 3 a fuzz would catch — and R3-F1 was seen by eye first, then nailed by reading the stored sides in the cloud. Use both, each for its own job (§515). 2. **A test helper's branch that has never run fails at its first use** — `propose(…, meBid=false)` checked a radio value ("them") the page never had ("p"); run each helper branch once before a scenario leans on it. 3. **Don't play phases the items don't need** (§512) — Phases 3–4 of run 2 added nothing. 4. Chrome frame/offset trap → STANDING TRAPS.
+**Session close** 17 Nov 2026 about 9:15 PM. Closing checklist:
+- 0: the four repos' heads = GitHub (cloud `ls-remote`: hub `131a079`, auction `2b2513e`, schedule `69baa11`, tests `c0a933e`); no stray `.git` locks.
+- 1: chat reviewed — §509–§515 filed the turn each was said (grep-checked); TODO NEXT line (§515); CHECKPOINT; one trap promoted; this entry.
+- 2: `status.mjs` (run below), after archiving the 16 Nov V5 entry (HANDOFF 888 → 872).
+- 3: no code changed — no gates.
+- 3a: rehearsal site — no page changed, not republished (carries 263 / 431).
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP/status outputs, COMMIT-MESSAGE), tests (`docs/rehearsal-runs-3/`, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty (9.5 MB).
+- 5: handed over; the start message in the chat.

@@ -542,6 +542,8 @@
 | §525 |  | ROUND 2 REVIEW PAGE ANSWERED (F1–F5): THE MOVE BOX'S SPLIT LINE, THE NP COUNT, "PHASE" IN THE TIMER RULES, THE ALERT'S NAME — 18 Nov 2026 2:47 PM |  |
 | §526 |  | NO APPROVE OR DENY BUTTON OUTSIDE APPROVALS/DENIALS AND UNDER REVIEW: THE SPLITS PAGE'S "DENY THE BID" IS DROPPED — 18 Nov 2026 2:54 PM |  |
 | §527 |  | THE GITHUB FOLDER MOVES OUT OF iCLOUD DRIVE — 18 Nov 2026 6:55 PM |  |
+| §528 |  | ▶ RELEASE ALSO PUSHES MARATHON — 18 Nov 2026 7:49 PM |  |
+| §529 |  | `_archive` MOVES INTO THE PRIVATE `tests` REPO, SO ▶ RELEASE BACKS IT UP — 18 Nov 2026 8:09 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9085,4 +9087,8 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 ## §528 — ▶ RELEASE ALSO PUSHES MARATHON — 18 Nov 2026 7:49 PM
 - Session "Vacation Auction 18 Nov 2026 V4". **Owner verbatim, 7:49 PM:** *"can we add marathon to the rest?"* (the Marathon repo had two docs changed by the move, §527, and ▶ RELEASE pushed only four repos). 7:52 PM his question *"I rarely update marathon, will this add much time to other pushes?"* — answered: no; an unchanged repo costs one local `git status` (well under a second) — the GitHub dry run and the push run only for repos with changes.
 - **RULED (his ask, built the same turn):** `tests/RELEASE.command` and `tests/SETUP-GITHUB-SIGNIN.command` list Marathon (first — his own app, independent of the auction); Marathon's `.gitignore` gains `COMMIT-MESSAGE.txt` and `.DS_Store`; a Marathon change needs its own one-line `COMMIT-MESSAGE.txt`, as every repo. Checked: `zsh -n` both scripts; `test-release-tools.mjs` (REPOS + R10a's order + G1d repointed) 164 / 164 ×3 on the new scripts, 18 FAIL on the old (honest).
+
+## §529 — `_archive` MOVES INTO THE PRIVATE `tests` REPO, SO ▶ RELEASE BACKS IT UP — 18 Nov 2026 8:09 PM
+- Session "Vacation Auction 18 Nov 2026 V4", after the hand-over. **Owner verbatim, 8:08 PM:** *"i don't use time machine"* → since §527 `_archive/` (105 files, 13 MB), `Claude outputs/`, `_to_delete/` and unreleased work are backed up nowhere. Options put (move `_archive` into the private `tests` repo · Time Machine with a drive · leave it). **8:09 PM:** *"move archive.  any downside?"*
+- **RULED:** `_archive/` moves into the private `tests` repo (pushed by every ▶ RELEASE). Before the move: check it holds no passwords, keys or tokens; then update what names it (START-HERE file hygiene, `status.mjs`'s measure, `_archive/README.md`). Downsides told him: `tests` grows ~13 MB for good; the cloud's clone of `tests` a few seconds slower; anything in it is on GitHub (private) from then on.
 
