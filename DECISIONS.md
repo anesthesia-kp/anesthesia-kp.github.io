@@ -541,6 +541,7 @@
 | §524 |  | ROUND 2: E-MAIL LOG LABELS, THE ALERT OPENING, AND "A REMOVED SPLIT IS DEAD"; THE FALSE REFUSAL, THE WRONG E-MAIL AND THE MISLEADING "WHY?" FIXED — 18 Nov 2026 12:25 PM |  |
 | §525 |  | ROUND 2 REVIEW PAGE ANSWERED (F1–F5): THE MOVE BOX'S SPLIT LINE, THE NP COUNT, "PHASE" IN THE TIMER RULES, THE ALERT'S NAME — 18 Nov 2026 2:47 PM |  |
 | §526 |  | NO APPROVE OR DENY BUTTON OUTSIDE APPROVALS/DENIALS AND UNDER REVIEW: THE SPLITS PAGE'S "DENY THE BID" IS DROPPED — 18 Nov 2026 2:54 PM |  |
+| §527 |  | THE GITHUB FOLDER MOVES OUT OF iCLOUD DRIVE — 18 Nov 2026 6:55 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9074,4 +9075,14 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - Read the same turn (admin 433): every other approve / deny control is on those two pages (`renderAppDenials` ~10683 incl. "Approve All Current Winners", `renderDrawsReviews` ~15663, their confirm boxes' `_fastOffer`); the one other is the Simulator's "Auto-Approve/Deny Results" (rehearsal tool, greyed unless Rehearsal Mode is on, R1-5) — put to him whether it stays.
 - **F1 — his question answered:** yes — a moved bid is checked by exactly the rules of any bid placed on the week it moves to (`_mvGate` → `_bidCheck`: competition minimum, floors, cap, lowerings), as the bidder's own whole-week bid (a move records no split), and once moved it can't be lowered there this phase ("A moved bid can't be lowered here this phase. You can raise it."). The "moves" wording still put to him.
 - **2:57 PM, owner verbatim:** *"Keep sim button. Ok to use moves."* — **RULED:** the Simulator's "Auto-Approve/Deny Results" stays (a rehearsal tool, the one exception to §526); **F1's line reads "This moves the bid only. The split with <Full name> stays until you both agree to end it."** Every question of §522's round is now answered.
+
+## §527 — THE GITHUB FOLDER MOVES OUT OF iCLOUD DRIVE — 18 Nov 2026 6:55 PM
+- Session "Vacation Auction 18 Nov 2026 V4". Found 5:15–6:05 PM: `~/Documents/GitHub` lives in iCloud Drive (Finder "Where: iCloud Drive › Documents"; 1.45 GB, ~72,000 files, ~54,500 of them in `node_modules`); iCloud had offloaded files though "Keep Downloaded" was ticked — the bridge could not read them ("Resource deadlock avoided"), git crashed on offloaded pack files ("Bus error"), and his ▶ RELEASE stalled on the schedule repo's git check until "Download Now" finished (about 6:05 PM). Claude's advice (6:0x PM): move the folder out of iCloud, after the fix build's release, as its own job.
+- **Owner verbatim, 6:55 PM:** *"yes, move out of icloud"* (to Claude's "Go ahead with the plan?" — the plan first, §0).
+- **RULED:** the GitHub folder moves out of iCloud Drive; the plan (where, every file naming the old path, the order, the checks) is written and put to him first; the paperwork release of 266 / 434 waits and becomes the first ▶ RELEASE from the new place. Record: `tests/docs/move-out-of-icloud/`.
+- **7:15 PM, owner verbatim:** *"go"* (to the plan `tests/docs/move-out-of-icloud/PLAN.md`, put to him 6:5x PM with "here or next session" — Claude: here) — the move is done THIS session. His question *"is it still always backed up somehwere?"* answered: the five repos on GitHub; `_archive`, `Claude outputs`, `_to_delete`, the launcher and unreleased work only by Time Machine if it covers his home folder — asked whether he uses it.
+
+## §528 — ▶ RELEASE ALSO PUSHES MARATHON — 18 Nov 2026 7:49 PM
+- Session "Vacation Auction 18 Nov 2026 V4". **Owner verbatim, 7:49 PM:** *"can we add marathon to the rest?"* (the Marathon repo had two docs changed by the move, §527, and ▶ RELEASE pushed only four repos). 7:52 PM his question *"I rarely update marathon, will this add much time to other pushes?"* — answered: no; an unchanged repo costs one local `git status` (well under a second) — the GitHub dry run and the push run only for repos with changes.
+- **RULED (his ask, built the same turn):** `tests/RELEASE.command` and `tests/SETUP-GITHUB-SIGNIN.command` list Marathon (first — his own app, independent of the auction); Marathon's `.gitignore` gains `COMMIT-MESSAGE.txt` and `.DS_Store`; a Marathon change needs its own one-line `COMMIT-MESSAGE.txt`, as every repo. Checked: `zsh -n` both scripts; `test-release-tools.mjs` (REPOS + R10a's order + G1d repointed) 164 / 164 ×3 on the new scripts, 18 FAIL on the old (honest).
 
