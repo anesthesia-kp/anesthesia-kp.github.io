@@ -545,6 +545,8 @@
 | §528 |  | ▶ RELEASE ALSO PUSHES MARATHON — 18 Nov 2026 7:49 PM |  |
 | §529 |  | `_archive` MOVES INTO THE PRIVATE `tests` REPO, SO ▶ RELEASE BACKS IT UP — 18 Nov 2026 8:09 PM |  |
 | §530 |  | TIDY `Claude outputs/` AND THREE SMALL TEST-TOOL FIXES — 18 Nov 2026 8:44 PM |  |
+| §531 |  | NO PHASE 4 READINESS CHECK — 18 Nov 2026 9:48 PM |  |
+| §532 |  | THE WALKTHROUGH DECK IS NOT UPDATED — 18 Nov 2026 10:24 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9099,3 +9101,13 @@ Session "Vacation Auction 16 Nov 2026 V4", on the run-through findings (`tests/d
 - **Owner verbatim, 8:44 PM:** *"go with 2/3"*.
 - **RULED:** do 2 and 3. Both are planned first (§0), the keep / move list for 2 is his to approve; neither touches anything the sites serve.
 - **8:48 PM, owner verbatim:** *"go"* — to the plan `tests/docs/outputs-tidy/PLAN.md` as put (groups A–E, the README and TODO note corrections).
+
+## §531 — NO PHASE 4 READINESS CHECK — 18 Nov 2026 9:48 PM
+- Session "Vacation Auction 18 Nov 2026 V5". His 8:53 PM *"we will next do phase 4"* (the real MD auction's next step). Put to him: (1) a Phase 4 day sheet written from today's pages (the go-live runbook last changed 18 Oct 2026); (2) a read-only look at the MD admin in his Chrome (Phase 3 complete, the Phase 4 settings); (3) a Phase 4-only rehearsal, leaned against (rehearsal round 2 ran Phase 4 Rounds 1–2 on today's build).
+- **Owner verbatim, 9:48 PM:** *"don't need this"*.
+- **RULED:** none of the three. Nothing built, nothing read on the MD admin.
+
+## §532 — THE WALKTHROUGH DECK IS NOT UPDATED — 18 Nov 2026 10:24 PM
+- Session "Vacation Auction 18 Nov 2026 V5". **Owner verbatim, 10:19 PM:** *"I want you to update my powerpoint so that it follows all the current settings of the MD site."* · *"I want the styling and format to remain the same as it is now"* · 10:21 PM *"open the page"* · *"already open"* · 10:24 PM *"comp week rules are the biggest change"* · *"actually not worth doing this now"* · *"forget it"*.
+- Claude had read (view only, nothing saved) the MD staff Rules & Reminders and the admin Settings and Week Capacity pages in his Chrome; the differences are kept in `tests/docs/deck-update/FINDINGS.md`. No deck changed.
+- **RULED:** dropped. Not to be raised again; he will ask.

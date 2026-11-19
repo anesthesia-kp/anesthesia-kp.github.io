@@ -1,9 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 18 Nov 2026** — session "Vacation Auction 18 Nov 2026 V4" (about 8:15 PM): `_archive/` moved into the private `tests` repo (`tests/_archive/`, §529).
+**LAST REVISED: 18 Nov 2026** — session "Vacation Auction 18 Nov 2026 V5" (about 10:30 PM): LIVE line re-read at tonight's commits; no rule changed.
 
-**LIVE, verified in his Mac's browser at the pushed commit, 18 Nov 2026: auction admin 434 · staff (index) 266 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read about 6:12 PM in his Chrome at auction `5e929be` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 266 / 19 / 434) / schedule `69baa11` (54 / 156); tests `3b1f440`, hub `f8b534d` — staff 266 / admin 434 + the mail server (the round 2 fix build, §523–§526) released by him with ▶ RELEASE about 6:10 PM: the auction repo, tests and the hub, the mail server on all three projects; no rules change); pushed bytes md5 = gated; git HEAD = origin/main on all four repos at the release.
+**LIVE, verified in his Chrome at the pushed commit, 18 Nov 2026: auction admin 434 · staff (index) 266 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d8d4c39` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 266 / 19 / 434) / schedule `3f9af33` (54 / 156), equal to disk, about 8:24 PM; the last code release was the round 2 fix build (staff 266 / admin 434 + the mail server, §523–§526), released by him with ▶ RELEASE about 6:10 PM; no rules change since; git HEAD = origin/main on all four repos at the V5 opening.
 
 
 

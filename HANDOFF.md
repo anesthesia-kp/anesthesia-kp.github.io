@@ -245,6 +245,8 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 
 # 🪤 STANDING TRAPS — the tools and machines as they are today. Promoted from dated entries; NEVER ARCHIVED.
 
+**CLAUDE IN CHROME SEES ONLY ITS OWN TAB GROUP, NEVER HIS OPEN TABS** (18 Nov 2026 V5): when he says a page is "already open", `tabs_context_mcp` shows nothing of his; open the same address in a new tab of the session's group (his sign-in carries over; the MD admin still needs its "Continue" click). Read the MD site VIEW ONLY: page text and `javascript_tool` reads; on the admin, expand/collapse and page links only — never a button that saves, sends, begins, resets or restores.
+
 **IN HIS CHROME THE SCREENSHOT FRAME AND THE PAGE CAN SHIFT MID-SESSION** (17 Nov 2026 V4): the tab's frame went from 1440 to 1171 wide and the rehearsal page's header later sat 8 px lower, so stored click coordinates landed on the wrong control. Take a screenshot (its reply names the frame) before reusing any coordinate, and after every sign-in, reload or window change.
 
 **A HELPER (SUBAGENT) CANNOT WRITE ITS OWN REPORT FILE** (16 Nov 2026 V3, all three build helpers): the environment refuses a subagent writing a report `.md`; each returned its report as its final message instead. Brief helpers to return the report as their final message (their build scripts, suites and diffs they CAN write); Claude files the report to the Mac when it arrives (rule 33).
@@ -833,21 +835,6 @@ nowhere.*
 
 ---
 
-## 18 Nov 2026 — "Vacation Auction 17 Nov 2026 V5" — THE LAST REHEARSAL DONE (CLOUD MEGA-FUZZ A + B, CHROME PASS C1 + C2, PHONE IN THE CLOUD); EVERY FINDING RULED (§516–§517) — NO SITE CHANGE
-**State.** LIVE 263 / 19 / 431 unchanged on `/vacation/`, `crna/`, `testing/` (read in his Chrome 9:13 PM at auction `2b2513e`); schedule 54 / 156. Repo heads = GitHub at the close: hub `7cbef9f`, auction `2b2513e`, schedule `69baa11`, tests `864f245`. Rehearsal site: no page changed, not republished (carries 263 / 431); his rehearsal auction is left FINISHED (C2), Alice's 5 and Clara's 2 withheld. Record: `tests/docs/rehearsal-final/` — CHECKPOINT.md (every step), COMMON-BRIEF.md, CHROME-BRIEF.md, fuzz-A/ and fuzz-B/ (reports + scripts), phone/ (390 px check + pictures), REVIEW.html.
-**The session, in order.** §4 opening (three stranded maintenance.lock files moved); 9:27 his "go" (§515); fuzz helpers A (splits, all phases, split e-mails) and B (settings, caps, bidding, ties, rounds, restores, every other e-mail) in the cloud; Chrome pass C1 (Phases 1–2) then C2 (withheld numbers, Phase 4 with NP + split, mid-round restore, Finish) one at a time; phone width in the cloud at 390 px (Chrome stops at ~500 px); 10:40–10:52 C-4–C-6 ruled in the chat (§516); Mac offline about 11:2x PM–12:06 AM (held in the cloud, filed on return); review page "Final Rehearsal — Findings" https://claude.ai/artifact/Pz73XdYu5562mF6mQxw3d4 (9 lines; B-3 off as §484) → 12:11–12:16 answers (§517); 12:17 his "make all decisions here and then handoff. plan and build in next session"; 12:29 "all 3" (no testing-first; §517); hand-over.
-**▶ NEXT SESSION: PLAN AND BUILD THE FINAL FIX BUILD — no questions (§517).** List: R1-1–R1-5 (§511), R2-1–R2-5 (§514; R2-5 + A-2 are one mail-server change), R3-F1 (§513) with helper A's three extensions, C-6 (§516), A-1–A-4, B-2 (with R1-3), C-1, C-2 (§517). Every wording is ruled or the site's own; Rules-page lines go in the plan (rule 24). Release to all three sites together, pages and mail server (§517). Then a targeted check of the fixes — including helper A's model check (`fuzz-A/model-explore.mjs`) showing no card mismatch left — then the rehearsals END (§515).
-**Lessons.** 1. **Eyes, fuzz and a model check each find their own things:** the Chrome pass found 6 screen items, fuzz B 2 behaviour faults, and fuzz A's search of every reachable split state showed only three kinds of mismatched cards — A-1, A-3, R3-F1 — so the fix can be PROVEN complete, not just tested. 2. **Ask before claiming certainty about a tool's limits** — "he can't work while Chrome runs" was overstated (trap corrected above). 3. **Check every finding against DECISIONS before it goes on a page** — B-3 was already §484.
-**Session close** 18 Nov 2026 about 12:40 AM. Closing checklist:
-- 0: fetched; four heads = GitHub (above); no stray `.git` locks.
-- 1: chat reviewed — §516, §517 filed the turn each was said (grep-checked); TODO NEXT line; CHECKPOINT; four traps promoted (Chrome pass by helper, he can work during Chrome control, ~500 px minimum / never the full-screen key, device `/tmp`); the 17 Nov V1 and V2 entries archived (HANDOFF 892 → 864) after their lessons were promoted.
-- 2: `status.mjs` (run below).
-- 3: no code changed — no gates.
-- 3a: rehearsal site — no page changed, not republished (carries 263 / 431).
-- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, HANDOFF, HANDOFF-ARCHIVE, MAP, COMMIT-MESSAGE), tests (`docs/rehearsal-final/`, COMMIT-MESSAGE).
-- 4a: `_to_delete/` — his to empty.
-- 5: handed over; the start message in the chat.
-
 ## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V2" — THE FINAL FIX BUILD PLANNED, BUILT AND LIVE (STAFF 264 / ADMIN 432 + MAIL SERVER, §518–§519)
 **State.** LIVE 264 / 19 / 432 on `/vacation/`, `crna/`, `testing/` (read in his Chrome 9:43 AM at auction `30dbe5c`); schedule 54 / 156; the mail server deployed to all three projects by his ▶ RELEASE (9:41 AM); no rules change. Repo heads = GitHub at the close: hub `74147d4`+, auction `30dbe5c`+, schedule `69baa11`, tests `85385ea`+ (+ = this hand-over's paperwork, for his next ▶ RELEASE). Rehearsal site republished (264 / 432, version `1795023184-f926`). Record: `tests/docs/final-fix-build/` — PLAN.md + AMENDMENT 1, BUILD-BRIEF.md, CHECKPOINT.md (every step), BLIND-REVIEW.md, helper-A/, helper-B/.
 **The session, in order.** §4 opening (12:32 AM); plan from the files, no questions (§517); helpers A (split block + staff) and B (admin + mail server) in the cloud; the cloud server stopped ~1:15 AM, both resumed at his 6:51 AM "Update"; A's carry design proved 0 for two people but missed a three-person case → put to him (rule 21) → his *"why can't we just have a decline be more permanent?"* → §518, A rebuilt (answer records `splitAgreements[me]._ans`); a two-admin-removals case → his "Include it" → §519; final join, 89 suites (23 fail as on 263), split model 0 for 2 and 3 people; blind review (three small fixes, build-C); filed 9:30 AM by one md5-checked bundle; ▶ RELEASE 9:41 AM; hand-over.
@@ -884,3 +871,17 @@ nowhere.*
 - 4a: `_to_delete/` — his to empty (old move backups in `_to_delete/move-backup/`).
 - 5: handed over; the start message in the chat.
 - **After the hand-over (8:08–8:15 PM, §529):** his *"i don't use time machine"* → *"move archive"* → *"go now"*: `_archive/` (105 files, 12.6 MB; scanned — no passwords, keys or tokens) moved into the private `tests` repo as `tests/_archive/` (100 files tracked; 5 `.DS_Store` ignored); status.mjs, START-HERE, HANDOFF's housekeeping table + standing trap, TODO (the 5 Nov close marked superseded), schedule/.gitignore comment and `tests/_archive/README.md` updated; `status.mjs` exit 0. Uncommitted for ▶ RELEASE: hub, tests, schedule.
+
+## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V5" — `Claude outputs/` SORTED (§530); PHASE 4 CHECK DECLINED (§531); DECK UPDATE DROPPED (§532) — NO SITE CHANGE
+**State.** LIVE 266 / 19 / 434 on `/vacation/`, `crna/`, `testing/`, schedule 54 / 156 — read in his Chrome 8:24 PM at auction `d8d4c39` / schedule `3f9af33`, equal to disk. No page changed this session. His ▶ RELEASE about 8:51 PM pushed tests `e5da77c` + hub `7a3a547`; he emptied `_to_delete/`.
+**The session, in order.** §4 opening (all clean; stale `maintenance.lock`s from the fetch moved). His *"recs?"* → pause building; sort `Claude outputs/`; small test-tool fixes. *"go with 2/3"* (§530) → plan `tests/docs/outputs-tidy/PLAN.md`, his *"go"*: 29 commit-message files + 3 destination-design files into `tests/_archive/vacation/`, 52 to `_to_delete/`; the test notes turned out already fixed (test-333/335 in build 406, re-run green on Pacific and UTC; test-179 retired) — README counts replaced by where to read them, TODO's four notes corrected. *"we will next do phase 4"* → a readiness check offered, declined (§531). His deck request → MD settings read view-only in his Chrome (staff Rules, admin Settings + Week Capacity), then *"forget it"* (§532; findings kept in `tests/docs/deck-update/FINDINGS.md`).
+**Lessons.** 1. **Check a TODO "known gap" against the code before recommending it** — two of the three test fixes recommended this session were already done (rule 14). 2. Chrome tab-group trap promoted to STANDING TRAPS.
+**Session close** 18 Nov 2026 about 10:30 PM. Closing checklist:
+- 0: heads = GitHub (cloud `ls-remote`) on tests, hub, auction, schedule before this hand-over's paperwork.
+- 1: chat reviewed — §530, §531, §532 filed the turn each was said; TODO lines (§531, §532 in CLOSED / DECLINED); one trap promoted; the 17 Nov V5 entry archived (its lessons already in START-HERE rule 26 and the traps).
+- 2: `status.mjs` (run below); START-HERE LIVE line re-read at tonight's commits.
+- 3: no code changed — no battery; docs only.
+- 3a: test site — no page changed, not republished.
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, START-HERE, COMMIT-MESSAGE), tests (outputs-tidy CHECKPOINT, deck-update FINDINGS, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — 3 hidden machine files only.
+- 5: handed over; the start message in the chat.
