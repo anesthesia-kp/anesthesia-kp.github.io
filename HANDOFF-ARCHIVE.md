@@ -4049,3 +4049,20 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 **The session, in order.** The targeted check of staff 264 / admin 432 + the mail server (§515 (4)): cloud 7 / 7, Chrome on the rehearsal site 16 / 16 → **the rehearsals END** (§520); EM-1 (partner of a bidless split gets no View previous phases row) and CK-1 (the rehearsal site's fake database clears a merged empty map) ruled on a question card (§520); EM-1 planned, his "Build here", built, gated (`test-em1-bidless-split-row.mjs` 17 / 0, honesty 9 red on 264), filed; its class hunt found the admin Splits page's "Ended — bid lost" for a bidless split → his "Ended — no bid", *"ok for next session"* · *"or here if easy"* (§521) → admin 433 built, gated (`test-433-split-status.mjs` 13 / 0, honesty 3 red on 432), filed; CK-1 done (test tools only); released together 11:21 AM.
 **▶ NEXT:** nothing queued — his call.
 **Session close** — not run by V3; this entry is V4's (18 Nov 2026 about 11:28 AM). V4's §4 opening covered the checks: heads = GitHub on all four repos; the fetch's three `maintenance.lock` files moved to `_to_delete/`.
+
+---
+## ⤵ moved 19 Nov 2026 from HANDOFF.md — 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V5" — `Claude outputs/` SORTED (§530); PHASE 4 CHECK DECLINED (§531); DECK UPDATE DROPPED (§532) — NO SITE CHANGE
+
+## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V5" — `Claude outputs/` SORTED (§530); PHASE 4 CHECK DECLINED (§531); DECK UPDATE DROPPED (§532) — NO SITE CHANGE
+**State.** LIVE 266 / 19 / 434 on `/vacation/`, `crna/`, `testing/`, schedule 54 / 156 — read in his Chrome 8:24 PM at auction `d8d4c39` / schedule `3f9af33`, equal to disk. No page changed this session. His ▶ RELEASE about 8:51 PM pushed tests `e5da77c` + hub `7a3a547`; he emptied `_to_delete/`.
+**The session, in order.** §4 opening (all clean; stale `maintenance.lock`s from the fetch moved). His *"recs?"* → pause building; sort `Claude outputs/`; small test-tool fixes. *"go with 2/3"* (§530) → plan `tests/docs/outputs-tidy/PLAN.md`, his *"go"*: 29 commit-message files + 3 destination-design files into `tests/_archive/vacation/`, 52 to `_to_delete/`; the test notes turned out already fixed (test-333/335 in build 406, re-run green on Pacific and UTC; test-179 retired) — README counts replaced by where to read them, TODO's four notes corrected. *"we will next do phase 4"* → a readiness check offered, declined (§531). His deck request → MD settings read view-only in his Chrome (staff Rules, admin Settings + Week Capacity), then *"forget it"* (§532; findings kept in `tests/docs/deck-update/FINDINGS.md`).
+**Lessons.** 1. **Check a TODO "known gap" against the code before recommending it** — two of the three test fixes recommended this session were already done (rule 14). 2. Chrome tab-group trap promoted to STANDING TRAPS.
+**Session close** 18 Nov 2026 about 10:30 PM. Closing checklist:
+- 0: heads = GitHub (cloud `ls-remote`) on tests, hub, auction, schedule before this hand-over's paperwork.
+- 1: chat reviewed — §530, §531, §532 filed the turn each was said; TODO lines (§531, §532 in CLOSED / DECLINED); one trap promoted; the 17 Nov V5 entry archived (its lessons already in START-HERE rule 26 and the traps).
+- 2: `status.mjs` (run below); START-HERE LIVE line re-read at tonight's commits.
+- 3: no code changed — no battery; docs only.
+- 3a: test site — no page changed, not republished.
+- 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, START-HERE, COMMIT-MESSAGE), tests (outputs-tidy CHECKPOINT, deck-update FINDINGS, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — 3 hidden machine files only.
+- 5: handed over; the start message in the chat.
