@@ -4066,3 +4066,21 @@ Final battery on the pushed bytes: **96/96 suites, 3275 assertions, 0 skipped.**
 - 4: uncommitted for ▶ RELEASE: hub (DECISIONS, TODO, MAP, HANDOFF, HANDOFF-ARCHIVE, START-HERE, COMMIT-MESSAGE), tests (outputs-tidy CHECKPOINT, deck-update FINDINGS, COMMIT-MESSAGE).
 - 4a: `_to_delete/` — 3 hidden machine files only.
 - 5: handed over; the start message in the chat.
+
+---
+## ⤵ moved 19 Nov 2026 from HANDOFF.md — 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V2" — THE FINAL FIX BUILD PLANNED, BUILT AND LIVE (STAFF 264 / ADMIN 432 + MAIL SERVER, §518–§519)
+
+## 18 Nov 2026 — "Vacation Auction 18 Nov 2026 V2" — THE FINAL FIX BUILD PLANNED, BUILT AND LIVE (STAFF 264 / ADMIN 432 + MAIL SERVER, §518–§519)
+**State.** LIVE 264 / 19 / 432 on `/vacation/`, `crna/`, `testing/` (read in his Chrome 9:43 AM at auction `30dbe5c`); schedule 54 / 156; the mail server deployed to all three projects by his ▶ RELEASE (9:41 AM); no rules change. Repo heads = GitHub at the close: hub `74147d4`+, auction `30dbe5c`+, schedule `69baa11`, tests `85385ea`+ (+ = this hand-over's paperwork, for his next ▶ RELEASE). Rehearsal site republished (264 / 432, version `1795023184-f926`). Record: `tests/docs/final-fix-build/` — PLAN.md + AMENDMENT 1, BUILD-BRIEF.md, CHECKPOINT.md (every step), BLIND-REVIEW.md, helper-A/, helper-B/.
+**The session, in order.** §4 opening (12:32 AM); plan from the files, no questions (§517); helpers A (split block + staff) and B (admin + mail server) in the cloud; the cloud server stopped ~1:15 AM, both resumed at his 6:51 AM "Update"; A's carry design proved 0 for two people but missed a three-person case → put to him (rule 21) → his *"why can't we just have a decline be more permanent?"* → §518, A rebuilt (answer records `splitAgreements[me]._ans`); a two-admin-removals case → his "Include it" → §519; final join, 89 suites (23 fail as on 263), split model 0 for 2 and 3 people; blind review (three small fixes, build-C); filed 9:30 AM by one md5-checked bundle; ▶ RELEASE 9:41 AM; hand-over.
+**▶ NEXT SESSION: the targeted check of the fixes on the live build (§517) — then the rehearsals END (§515).** List: `tests/docs/final-fix-build/PLAN.md` §1–§5 + AMENDMENT 1, §519; the model check `helper-A/model-explore.mjs` (B's `helper-B/model/` copy carries §519's filter).
+**Lessons.** 1. **When a fix needs information carried through every later step, store it once where nothing overwrites it** — his "make a decline more permanent" replaced a carry-forward design and closed a case the carry missed (§518). 2. **A model check proves only the people it models** — two people missed the three-person case; widen it before calling a split fix complete. 3. **`device_commit_files` to a staged path used before can write the OLD bytes** — always md5 the Mac copy after a commit; use a new staged path each time. 4. **A `git fetch` here leaves `.git/objects/maintenance.lock`** — move them at once, before he releases.
+**Session close** 18 Nov 2026 about 9:50 AM. Closing checklist:
+- 0: fetched; four heads = GitHub at the release (above); the fetch's maintenance.lock files moved to `_to_delete/`.
+- 1: chat reviewed — §518, §519 filed the turn each was said; TODO NEXT line; CHECKPOINT; START-HERE LIVE line + LAST REVISED.
+- 2: `status.mjs` (run below).
+- 3: gates run before filing (CHECKPOINT); pushed bytes md5 = gated (staff 090c6871, admin 2aa218f1, mail 48080660 / 5fc0f618).
+- 3a: rehearsal site republished (264 / 432; `testsite/published.json` recorded).
+- 4: uncommitted for ▶ RELEASE: hub (START-HERE, TODO, HANDOFF, MAP, COMMIT-MESSAGE), auction (BUILD-LOG, COMMIT-MESSAGE), tests (CHECKPOINT, COMMIT-MESSAGE).
+- 4a: `_to_delete/` — his to empty.
+- 5: handed over; the start message in the chat.

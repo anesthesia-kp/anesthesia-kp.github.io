@@ -1,11 +1,12 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 19 Nov 2026** — session "Vacation Auction 19 Nov 2026 V1" (about 12:30 PM): the FILED, NOT YET PUSHED line for staff 267 / admin 435 + mail server (§536); no rule changed.
+**LAST REVISED: 20 Nov 2026** — session "Vacation Auction 19 Nov 2026 V2" (about 12:35 AM): the FILED, NOT YET PUSHED line for staff 268 / admin 436 + mail server (§537); no rule changed.
 
-**LIVE, verified in his Chrome at the pushed commit, 18 Nov 2026: auction admin 434 · staff (index) 266 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d8d4c39` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 266 / 19 / 434) / schedule `3f9af33` (54 / 156), equal to disk, about 8:24 PM; the last code release was the round 2 fix build (staff 266 / admin 434 + the mail server, §523–§526), released by him with ▶ RELEASE about 6:10 PM; no rules change since; git HEAD = origin/main on all four repos at the V5 opening.
+**LIVE, verified in his Chrome at the pushed commit, 19 Nov 2026: auction admin 435 · staff (index) 267 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `a007dfd` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 267 / 19 / 435) / schedule `3f9af33` (54 / 156), equal to disk, about 9:50 PM; the last code release was the §536 testing-run fix build (staff 267 / admin 435 + the mail server, §536), released by him with ▶ RELEASE about 9:44 PM; no rules change since; git HEAD = origin/main on all four repos at the V2 opening.
 
-**FILED, NOT YET PUSHED: auction staff 267 · admin 435 · mobile 19 + the mail server (DECISIONS §536, the testing-site run fixes) — filed 19 Nov 2026 about 12:25 PM in vacation-kp.github.io and tests; waiting for his ▶ RELEASE (mail server ×3, pages ×3; rules unchanged).**
+**FILED, NOT YET PUSHED: auction staff 268 · admin 436 · mobile 19 + the mail server (DECISIONS §537, the testing-site run 2 fixes) — filed 20 Nov 2026 about 12:30 AM in vacation-kp.github.io and tests; waiting for his ▶ RELEASE (mail server ×3, pages ×3; rules unchanged).**
+
 
 
 
