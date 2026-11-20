@@ -1,11 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 20 Nov 2026** — session "Vacation Auction 19 Nov 2026 V2" (about 12:35 AM): the FILED, NOT YET PUSHED line for staff 268 / admin 436 + mail server (§537); no rule changed.
+**LAST REVISED: 20 Nov 2026** — session "Vacation Auction 19 Nov 2026 V2" (about 6:20 AM): the LIVE line for staff 268 / admin 436 (§537 released by him 6:13 AM); the FILED line removed; no rule changed.
 
-**LIVE, verified in his Chrome at the pushed commit, 19 Nov 2026: auction admin 435 · staff (index) 267 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `a007dfd` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 267 / 19 / 435) / schedule `3f9af33` (54 / 156), equal to disk, about 9:50 PM; the last code release was the §536 testing-run fix build (staff 267 / admin 435 + the mail server, §536), released by him with ▶ RELEASE about 9:44 PM; no rules change since; git HEAD = origin/main on all four repos at the V2 opening.
-
-**FILED, NOT YET PUSHED: auction staff 268 · admin 436 · mobile 19 + the mail server (DECISIONS §537, the testing-site run 2 fixes) — filed 20 Nov 2026 about 12:30 AM in vacation-kp.github.io and tests; waiting for his ▶ RELEASE (mail server ×3, pages ×3; rules unchanged).**
+**LIVE, verified in his Chrome at the pushed commit, 20 Nov 2026: auction admin 436 · staff (index) 268 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `b93b817` (both endings on `/vacation/`, one each on `crna/` and `testing/`, all 268 / 19 / 436) / schedule `3f9af33` (54 / 156), equal to disk, about 6:18 AM; the last code release was the §537 testing-run 2 fix build (staff 268 / admin 436 + the mail server, §537), released by him with ▶ RELEASE about 6:13 AM; pushed bytes md5-equal to the gated copies; no rules change since; git HEAD = origin/main on all four repos.
 
 
 
