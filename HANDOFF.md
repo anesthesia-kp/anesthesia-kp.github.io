@@ -885,3 +885,10 @@ nowhere.*
 **7:20 PM released by him (▶ RELEASE): auction `90c916f`, tests `351ed39`, hub `bf89a0d`; served 269 / 19 / 437 on `/vacation/`, `crna/`, `testing/` at `?c=90c916f`, read in his Chrome 7:25 PM.**
 
 **Session close** 20 Nov 2026 about 7:30 PM. Closing checklist: in the chat (steps 0–5). The 18 Nov V4 entry archived for room (its lessons promoted to STANDING TRAPS, with this session's two traps).
+
+## 20 Nov 2026 — "Vacation Auction 20 Nov 2026 V2" — THE TODO §1 TIDY AND THE BATTERY CLEANUP PART A (§541) — NO SITE CHANGE
+**State at the opening (7:28 PM).** LIVE 269 / 19 / 437 on `/vacation/`, `crna/`, `testing/` (his Chrome, aaronjfrankel profile, at `?c=372b188`), schedule 54 / 156 at `3f9af33`; all four repos HEAD = origin = GitHub (hub `575efdb`, auction `372b188`, schedule `3f9af33`, tests `351ed39`); three stale `maintenance.lock` moved to `_to_delete/`.
+**Work (§541).** His 7:30 PM *"the cleanup"*, 7:32 PM *"do above plus tidy of todo"*, 7:54–7:55 PM no working check lost / obsolete ones go / no risk. TODO §1 tidied (401 → 330 lines; 37 entries to TODO-ARCHIVE.md verbatim). Battery: full cloud run 152 / 188 green; the 37 reds classified by helpers (`tests/docs/battery-cleanup/`); his picks Q1 "Leave as is", Part A "Build here". **Part A FILED ~9:5x PM** — 36 suites kept (reworded / obsolete checks dropped naming the kept check), test-403-rules retired; cloud 187 / 187 + mail 4 / 4; 67 / 68 mutants red, the 68th given its own check; 38 files md5 equal on the Mac. COMMIT-MESSAGE.txt in tests and hub. **Waiting for his ▶ RELEASE.** Part B (60 suites off lib406–lib427) — a later session, from PLAN.md.
+**Trap found:** test-release-tools / test-mail-server ran the REAL deploy scripts in the real tests folder since §527 (fake sign-in/deploy, nothing deployed; could delete `.release-record.json` and re-date `server/mail/node_modules`) — fixed by Part A. The device VM has no zsh (macOS does): test-release-tools runs in the cloud.
+
+**Session close** 20 Nov 2026 about 10:00 PM. Closing checklist: in the chat (steps 0–5). Test site — no page changed, not republished.

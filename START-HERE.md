@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 20 Nov 2026** — session "Vacation Auction 20 Nov 2026 V1" (about 7:25 PM): the LIVE line for staff 269 / admin 437 (§539 released by him); the FILED line removed; (about 6:15 PM) rule 34, long helper runs survive a restart (§540); earlier (about 6:24 AM): §4 step 2 picks his Chrome as the aaronjfrankel@gmail.com profile without asking (§538).
+**LAST REVISED: 20 Nov 2026** — session "Vacation Auction 20 Nov 2026 V2" (about 10:00 PM): the FILED line for the battery cleanup Part A (§541, tests only) and the TODO §1 tidy; no site change.
 
 **LIVE, verified in his Chrome at the pushed commit, 20 Nov 2026: auction admin 437 · staff (index) 269 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `90c916f` (versions.json on `/vacation/`, `crna/` and `testing/`, all 269 / 19 / 437) / schedule `3f9af33` (54 / 156), equal to disk, about 7:25 PM; the last code release was the §539 testing-site run 3 fixes (staff 269 / admin 437 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 7:20 PM.**
+
+**FILED, NOT YET PUSHED (20 Nov 2026 V2): `tests` — the battery cleanup Part A (36 suites reworded / obsolete checks dropped, test-403-rules retired; §541); hub — the TODO §1 tidy and the session records. No site change — ▶ RELEASE pushes them.**
 
 
 
