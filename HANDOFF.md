@@ -888,3 +888,4 @@ nowhere.*
 **Lessons.** 1. **Repacking a bundle can drop its contents** — a `tar` with relative `-C` and errors hidden emptied P05's bundle of its suites; listed before filing, rebuilt with absolute paths. List every bundle before it leaves. 2. **Gate 3 sees names, not conditions** — only the diff reader caught a check weakened under its own name; keep both. 3. The copy tool's stale-name trap (STANDING TRAPS).
 
 **Session close** 21 Nov 2026 about 12:25 AM (he is asleep). Closing checklist: in the chat (steps 0–5). Test site — no page changed, not republished.
+**6:20 AM** his *"pushed.  agree with your recs."* — Part B on GitHub (tests `2bc7091`, hub `0bb4a64`); the 9 split-week suites left as they are; START-HERE rule 35 added (§543). Hub COMMIT-MESSAGE.txt written — ▶ RELEASE. **Session closed** about 6:25 AM.
