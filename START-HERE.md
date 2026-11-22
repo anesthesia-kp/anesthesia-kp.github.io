@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V2": testing-site run 5 (§545) and build 545 (staff 271 / admin 439 / mail server), released by him about 9:58 PM.
+**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V3": three new walkthrough decks; build 546 (admin 440) filed, not yet pushed.
 
 **LIVE, verified in his Chrome at the pushed commit, 21 Nov 2026: auction admin 439 · staff (index) 271 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `69b1cce` (versions.json on `/vacation/` (and `?c=69b1cceb`), `crna/` and `testing/`, all 271 / 19 / 439) / schedule `3f9af33` (54 / 156), equal to disk, about 10:00 PM; the last code release was build 545, the §545 testing-site run 5 fixes (staff 271 / admin 439 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 9:58 PM.**
+
+**FILED, NOT YET PUSHED: build 546 — admin 440 (the NP-by-phase box names the round, DECISIONS §546), with `crna/` and `testing/`; staff 271 / mobile 19 unchanged; no rules or mail-server change. ▶ RELEASE carries it.**
 
 
 
