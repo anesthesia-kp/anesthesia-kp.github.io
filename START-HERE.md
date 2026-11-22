@@ -1,11 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V2": testing-site run 5 (§545) and build 545 (staff 271 / admin 439 / mail server) filed, not pushed.
+**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V2": testing-site run 5 (§545) and build 545 (staff 271 / admin 439 / mail server), released by him about 9:58 PM.
 
-**LIVE, verified in his Chrome at the pushed commit, 21 Nov 2026: auction admin 438 · staff (index) 270 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d078692` (versions.json on `/vacation/` (and `?c=d078692b`), `crna/` and `testing/`, all 270 / 19 / 438) / schedule `3f9af33` (54 / 156), equal to disk, about 5:40 PM; the last code release was build 544, the §544 testing-site run 4 fixes (staff 270 / admin 438 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 5:35 PM.**
-
-**FILED, NOT YET PUSHED: build 545 — staff 271 / admin 439 / mobile 19 + the mail server (§545, `tests/docs/build-545/`) — ▶ RELEASE: pages ×3 + mail server ×3, no rules change.**
+**LIVE, verified in his Chrome at the pushed commit, 21 Nov 2026: auction admin 439 · staff (index) 271 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `69b1cce` (versions.json on `/vacation/` (and `?c=69b1cceb`), `crna/` and `testing/`, all 271 / 19 / 439) / schedule `3f9af33` (54 / 156), equal to disk, about 10:00 PM; the last code release was build 545, the §545 testing-site run 5 fixes (staff 271 / admin 439 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 9:58 PM.**
 
 
 
