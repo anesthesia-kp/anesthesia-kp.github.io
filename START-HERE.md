@@ -1,11 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V1": testing-site run 4 and build 544 (staff 270 / admin 438 / mail server) with the 9 frozen split-week suites moved onto today's pages (§544).
+**LAST REVISED: 21 Nov 2026** — session "Vacation Auction 21 Nov 2026 V2": testing-site run 5 (§545) and build 545 (staff 271 / admin 439 / mail server) filed, not pushed.
 
-**LIVE, verified in his Chrome at the pushed commit, 20 Nov 2026: auction admin 437 · staff (index) 269 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `372b188` (versions.json on `/vacation/`, `crna/` and `testing/`, all 269 / 19 / 437) / schedule `3f9af33` (54 / 156), equal to disk, about 10:05 PM; the last code release was the §539 testing-site run 3 fixes (staff 269 / admin 437 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 7:20 PM.**
+**LIVE, verified in his Chrome at the pushed commit, 21 Nov 2026: auction admin 438 · staff (index) 270 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d078692` (versions.json on `/vacation/` (and `?c=d078692b`), `crna/` and `testing/`, all 270 / 19 / 438) / schedule `3f9af33` (54 / 156), equal to disk, about 5:40 PM; the last code release was build 544, the §544 testing-site run 4 fixes (staff 270 / admin 438 + the mail server on all three projects; rules unchanged), released by him with ▶ RELEASE about 5:35 PM.**
 
-**FILED, NOT YET PUSHED: (21 Nov 2026 V1) build 544 — staff 270 / admin 438 (pages ×3: `/vacation/`, `crna/`, `testing/`) + the mail server ×3; tests — test-544, 16 reworded suites, the 9 moved suites; hub — the §544 records. No Firestore rules change — ▶ RELEASE pushes it.**
+**FILED, NOT YET PUSHED: build 545 — staff 271 / admin 439 / mobile 19 + the mail server (§545, `tests/docs/build-545/`) — ▶ RELEASE: pages ×3 + mail server ×3, no rules change.**
 
 
 
