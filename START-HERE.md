@@ -1,11 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 22 Nov 2026** — session "Vacation Auction 22 Nov 2026 V1": build 547 (push alerts + app icons) built in the cloud, gated and FILED; push keys set in all three projects.
+**LAST REVISED: 22 Nov 2026** — session "Vacation Auction 22 Nov 2026 V1": build 547 released about 11:05 PM; build 548 (staff 273: first-try turn-on, alert badge) FILED.
 
-**LIVE, verified at the pushed commit, 22 Nov 2026: auction admin 440 · staff (index) 271 · mobile 19 · schedule admin 156 / staff 54** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `20c861e` (versions.json on `/vacation/` (and `?c=20c861eb`), `crna/` and `testing/`, all 271 / 19 / 440) / schedule `3f9af33` (54 / 156), equal to disk, about 6:26 AM in the app's built-in browser on his Mac (his Chrome not connected); the last code release was build 546, admin 440 (the NP-by-phase box names the round, §546; rules and mail server unchanged), released by him with ▶ RELEASE about 6:23 AM.**
+**LIVE, verified at the pushed commit, 22 Nov 2026: auction admin 441 · staff (index) 272 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `f8b347f` / schedule `a2bff1e` (versions.json on `/vacation/` (and `?c=20c861eb`), `crna/` and `testing/`, all 271 / 19 / 440) / schedule `3f9af33` (54 / 156), equal to disk, about 6:26 AM in the app's built-in browser on his Mac (his Chrome not connected); the last code release was build 546, admin 440 (the NP-by-phase box names the round, §546; rules and mail server unchanged), released by him with ▶ RELEASE about 6:23 AM.**
 
-**FILED, NOT YET PUSHED: build 547 — auction staff 272 / admin 441 (mobile 19) + rules (`pushAlerts`) + mail server; schedule staff 55 / admin 157 (app icons only)** (DECISIONS §547; BUILD-LOG rows in both repos; COMMIT-MESSAGE.txt in all four repos). To the MD, CRNA and testing sites together ("release all together"); then his iPhone test on the testing site from the Home Screen icon (remove and re-add the icon).
+**FILED, NOT YET PUSHED: build 548 — staff 273 + push-sw.js on all three sites (push turns on at the first try; the alert number on the Home Screen icon)** (DECISIONS §547; BUILD-LOG row; COMMIT-MESSAGE.txt).
 
 
 
