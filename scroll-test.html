@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Scroll Test">
+<meta name="robots" content="noindex">
+<title>Alert Box Scroll Test</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#eeebe2,#ffffff);color:#1f2329;padding:40px 20px;min-height:100vh}
+.container{max-width:1200px;margin:0 auto}
+header{text-align:center;margin-bottom:32px}
+.header-top{font-size:2rem;font-weight:700;margin-bottom:6px;background:linear-gradient(135deg,#1f2329,#1f2329);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-sub{font-size:.82rem;font-weight:600;color:#4a505a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.header-phase{font-size:.82rem;font-weight:600;color:#4a505a;text-transform:uppercase;letter-spacing:.1em}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:16px;flex-wrap:wrap}
+.person-selector{display:flex;gap:12px;align-items:center}
+.person-selector label{color:#1f2329;font-weight:600;font-size:.95rem}
+select{padding:10px 14px;font-size:1rem;border:2px solid #cbc4b5;border-radius:10px;background:#ffffff;color:#1f2329;cursor:pointer;transition:border-color .2s;min-width:180px}
+select:hover{border-color:#4a505a}
+select:focus{outline:none;border-color:#1f2329}
+/* [159 · RA-3 F-2] The refusal banner FLOATS. It used to sit in the page flow near the
+   top; every bid is made far down the board behind a centred dialog, so 17 messages —
+   "Save failed" among them — rendered ~800px above the viewport and were never seen.
+   Fixed + above the dialogs = always visible, and still nothing to dismiss. */
+.flash{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100000;width:max-content;max-width:min(560px,calc(100vw - 32px));text-align:center;box-shadow:0 10px 30px rgba(31,35,41,.25);padding:12px 16px;border-radius:8px;font-size:.9rem;display:none;animation:flashIn .3s ease}
+.flash.show{display:block}
+.flash.err{background:#efe9e8;border:1px solid rgba(92,31,21,.5);color:#4a1911}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flashIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* Rules banner */
+.rules-banner{background:rgba(255,255,255,.85);border:1px solid #e2ddd1;border-radius:12px;margin-bottom:18px;overflow:hidden;backdrop-filter:blur(10px)}
+.rules-header{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.rules-header:hover{background:rgba(31,35,41,.04)}
+.rules-header-left{display:flex;align-items:center;gap:9px;font-size:.82rem;font-weight:600;color:#1f2329}
+.rules-chevron{font-size:.7rem;color:#4a505a;transition:transform .25s}
+.rules-chevron.open{transform:rotate(180deg)}
+.rules-body{display:none;padding:0 16px 14px;border-top:1px solid #ffffff}
+.rules-body.open{display:block}
+.rules-list{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.rules-list li{display:flex;align-items:flex-start;gap:8px;font-size:.78rem;color:#4a505a;line-height:1.4}
+.rules-list li::before{content:'—';color:#cbc4b5;flex-shrink:0;margin-top:1px}
+
+/* Countdown */
+#countdownBanner{display:none;background:rgba(255,255,255,.94);border:1px solid #cbc4b5;border-radius:14px;padding:9px 16px;margin-bottom:16px;backdrop-filter:blur(10px);align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#countdownBanner.visible{display:flex}
+#countdownBanner.urgent{border-color:rgba(92,31,21,.5);background:rgba(92,31,21,.06);animation:pulseGlow 2s ease-in-out infinite}
+#countdownBanner.warning{border-color:rgba(111,106,96,.4);background:rgba(111,106,96,.05)}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(92,31,21,0)}50%{box-shadow:0 0 18px rgba(92,31,21,.2)}}
+.countdown-left{display:flex;align-items:center;gap:14px}
+.countdown-icon{font-size:1.15rem;flex-shrink:0}
+.countdown-label{font-size:.78rem;color:#1f2329;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.countdown-desc{font-size:.78rem;color:#4a505a}
+.countdown-time{display:flex;gap:8px;align-items:center}
+.time-block{text-align:center;background:rgba(203,196,181,.7);border:1px solid #cbc4b5;border-radius:8px;padding:4px 8px;min-width:46px}
+.time-value{font-size:1.15rem;font-weight:700;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1f2329;line-height:1;display:block}
+.time-unit{font-size:.6rem;color:#4a505a;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;display:block}
+.time-sep{font-size:1.2rem;color:#4a505a;font-weight:700;margin-bottom:4px}
+#countdownBanner.urgent .time-value{color:#5c1f15}
+#countdownBanner.warning .time-value{color:#6f6a60}
+.countdown-expired{font-size:.9rem;font-weight:600;color:#5c1f15;padding:4px 10px;background:rgba(92,31,21,.15);border:1px solid rgba(92,31,21,.3);border-radius:6px}
+
+/* Notifications */
+.notif-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.notif-chip{background:#ffffff;border:1px solid #e2ddd1;border-radius:8px;padding:7px 12px;font-size:.78rem;color:#4a505a;display:flex;align-items:center;gap:6px;cursor:default}
+.notif-chip.has-mine{border-color:rgba(111,106,96,.4);background:rgba(111,106,96,.07);color:#5e5c57}
+.notif-dot{width:7px;height:7px;border-radius:50%;background:#6f6a60;flex-shrink:0}
+.notif-popover{position:relative;display:inline-block}
+.notif-popover-content{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:200;background:#ffffff;border:1.5px solid #4a505a;border-radius:10px;box-shadow:0 18px 44px rgba(31,35,41,.30);font-size:.78rem;width:min(360px,calc(100vw - 40px));overflow:hidden;flex-direction:column}
+.notif-popover.open .notif-popover-content{display:flex}
+/* An open popover must paint ABOVE the sibling boxes below it — those boxes use
+   backdrop-filter, which creates stacking contexts that otherwise cover the
+   dropdown. Raise whichever container currently holds an open popover. */
+#pcWidget:has(.notif-popover.open),.selections-bar:has(.notif-popover.open){position:relative;z-index:500}
+/* [225 · §295] The Popcornometer box shows only while the timer box shows (owner, 26 Oct 2026: "when the timer is off, the popcornometer
+   should disappear") - before Phase 1, in every gap, after the end, and with the timer switched off. !important: the box sets display inline. */
+#timerRow:not(:has(#countdownBanner.visible)) #pcWidget{display:none!important}
+/* [180 · §219 · owner-found] On narrow screens the Popcornometer box drops BELOW the timer, which puts the
+   "changes in last 12h" button at the screen's LEFT edge; the list (pinned to the button's right edge,
+   opening leftward) then ran 110–165px off-screen. Here the list lines up with the right edge of the
+   Popcornometer box instead, at its usual width but never wider than the screen (a list only as wide as the
+   box squashed long names onto two lines on tablets). Display only. Wider than 860px: untouched. */
+@media(max-width:860px){#pcWidget{position:relative}#notifAll .notif-popover{position:static}#notifAll .notif-popover-content{width:min(360px,calc(100vw - 24px))}}
+.notif-popover-header{padding:8px 8px 8px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0;background:#1f2329} /* [211 · owner-found 13 Oct] a dark header the list cannot blend into */
+.notif-popover-title{font-weight:700;color:#ffffff;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+.notif-popover-close{background:#ffffff;border:none;color:#1f2329;border-radius:8px;font:700 .82rem/1 'Hanken Grotesk',system-ui,-apple-system,sans-serif;cursor:pointer;padding:7px 12px;min-height:34px;flex:0 0 auto;white-space:nowrap} /* [211] a real Close button, not a 0.55rem ✕; flex:0 0 auto beats the page-wide button{flex:1} */
+.notif-popover-close:hover{background:#eeebe2}
+.notif-popover-close:focus-visible{outline:2px solid #6f6a60;outline-offset:2px}
+.notif-backdrop{display:none}
+.notif-popover-scroll{max-height:340px;overflow-y:auto;overscroll-behavior:contain;padding:8px 12px 12px;-webkit-overflow-scrolling:touch}
+.notif-popover-scroll::-webkit-scrollbar{width:8px}
+/* [211 · owner-found 13 Oct 2026, his "perfect now"] PHONES: an open change list is a box in the MIDDLE of the screen
+   over the dimmed page - always fully in view wherever the page is scrolled (210's sheet pinned to the bottom blended
+   in when empty). At most 70% of the screen tall, scrolling inside itself. Tapping the dim closes it; the page does not
+   scroll behind it. backdrop-filter is lifted from the box holding the open list (#pcWidget sets its blur INLINE, hence
+   !important): it would otherwise make that box, not the screen, the frame position:fixed measures from. The dim sits
+   under the list (150 < 200) inside the raised box (500). !important beats the inline left/right. */
+@media(max-width:820px){
+  #pcWidget:has(.notif-popover.open),.selections-bar:has(.notif-popover.open){backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  html:has(.notif-popover.open){overflow:hidden}
+  .notif-popover.open .notif-backdrop{display:block;position:fixed;inset:0;z-index:150;background:rgba(31,35,41,.45);touch-action:none}
+  #notifAll .notif-popover-content,#notifMine .notif-popover-content{position:fixed;top:50%;bottom:auto;left:12px!important;right:12px!important;transform:translateY(-50%);width:auto;max-height:70vh;max-height:min(70dvh,560px);border:0;border-radius:14px}
+  #notifAll .notif-popover-header,#notifMine .notif-popover-header{padding:12px 12px 12px 18px}
+  #notifAll .notif-popover-title,#notifMine .notif-popover-title{font-size:.85rem}
+  #notifAll .notif-popover-close,#notifMine .notif-popover-close{min-height:44px;padding:10px 16px;font-size:.95rem}
+  #notifAll .notif-popover-scroll,#notifMine .notif-popover-scroll{max-height:none;flex:1 1 auto;min-height:0;font-size:.9rem}
+}
+.notif-popover-scroll::-webkit-scrollbar-track{background:rgba(31,35,41,.08);border-radius:4px}
+.notif-popover-scroll::-webkit-scrollbar-thumb{background:#cbc4b5;border-radius:4px}
+.notif-popover-scroll::-webkit-scrollbar-thumb:hover{background:#4a505a}
+.notif-chip{cursor:pointer}
+.notif-chip:hover{background:rgba(203,196,181,.7);border-color:#4a505a}
+.notif-row{padding:4px 0;border-bottom:1px solid #ffffff;color:#1f2329}
+.notif-row:last-child{border:none}
+.notif-row.mine-row{color:#6f6a60}
+.notif-empty-sm{color:#4a505a;font-size:.9rem;text-align:center;padding:16px 6px} /* [211] readable, not pale italic */
+
+/* Selections bar */
+.selections-bar{background:rgba(255,255,255,.75);border:1px solid #e2ddd1;border-radius:14px;padding:18px 22px;margin-bottom:24px;backdrop-filter:blur(10px)}
+.selections-bar-title{font-size:.95rem;font-weight:700;color:#1f2329;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.selections-bar-title::before{content:'';width:4px;height:16px;background:linear-gradient(180deg,#1f2329,#36694a);border-radius:2px}
+.selections-list{display:flex;flex-wrap:wrap;gap:7px}
+.selection-item{background:linear-gradient(135deg,rgba(31,35,41,.18),rgba(31,35,41,.1));border:1px solid #cbc4b5;border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:7px;font-size:.82rem;color:#1f2329}
+.selection-date{font-weight:600;color:#4e5e36;font-size:.78rem}
+.selection-outcome{font-size:.68rem;font-weight:700;padding:2px 5px;border-radius:3px}
+.outcome-win{background:rgba(54,105,74,.2);color:#36694a}
+.outcome-approved{background:#36694a;color:#ffffff}
+.outcome-lose{background:rgba(92,31,21,.2);color:#5c1f15}
+.outcome-review{background:rgba(138,100,20,.2);color:#8a6414}
+.remove-btn{background:rgba(92,31,21,.2);color:#4a1911;border:none;padding:2px 6px;border-radius:3px;cursor:pointer;font-size:.72rem;font-weight:600;transition:background .2s;flex:unset}
+.remove-btn:hover{background:rgba(92,31,21,.35)}
+.empty-msg{color:#4a505a;font-style:italic;font-size:.85rem}
+
+/* Standings panel */
+.standings-panel{background:rgba(255,255,255,.75);border:1px solid #e2ddd1;border-radius:14px;margin-bottom:24px;backdrop-filter:blur(10px);overflow:hidden}
+.standings-header{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;cursor:pointer;user-select:none;transition:background .15s}
+.standings-header:hover{background:rgba(31,35,41,.04)}
+.standings-header-left{display:flex;align-items:center;gap:9px;font-size:.9rem;font-weight:700;color:#1f2329}
+.standings-header-left::before{content:'';width:4px;height:16px;background:linear-gradient(180deg,#36694a,#6f6a60);border-radius:2px;display:inline-block}
+.standings-chevron{font-size:.7rem;color:#4a505a;transition:transform .25s}
+.standings-chevron.open{transform:rotate(180deg)}
+.standings-body{display:none;border-top:1px solid #ffffff;padding:0 18px 18px}
+.standings-body.open{display:block}
+.standings-week{margin-top:14px;background:rgba(31,35,41,.35);border:1px solid #e2ddd1;border-radius:10px;overflow:hidden}
+.standings-week-header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:rgba(31,35,41,.08);border-bottom:1px solid #ffffff}
+.standings-week-date{font-size:.82rem;font-weight:700;color:#1f2329}
+.standings-week-meta{font-size:.67rem;color:#4a505a}
+.standings-groups{display:flex;flex-wrap:wrap;gap:6px;padding:9px 12px}
+.standings-group{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.standings-group-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 6px;border-radius:3px;margin-right:2px}
+.sg-win .standings-group-label{background:rgba(54,105,74,.2);color:#36694a}
+.sg-draw .standings-group-label{background:rgba(111,106,96,.2);color:#6f6a60}
+.sg-review .standings-group-label{background:rgba(138,100,20,.2);color:#8a6414}
+.sg-lose .standings-group-label{background:rgba(92,31,21,.2);color:#5c1f15}
+.standings-chip{font-size:.67rem;font-weight:600;padding:2px 7px;border-radius:4px;display:inline-flex;align-items:center;gap:3px}
+.sc-win{background:rgba(54,105,74,.15);color:#2b5540;border:1px solid rgba(54,105,74,.3)}
+.sc-win.sc-me{background:rgba(54,105,74,.3);border-color:#36694a;color:#36694a;font-weight:700}
+.sc-draw{background:rgba(111,106,96,.12);color:#6f6a60;border:1px solid rgba(111,106,96,.3)}
+.sc-draw.sc-me{background:rgba(111,106,96,.28);border-color:#6f6a60;color:#6f6a60;font-weight:700}
+.sc-review{background:rgba(138,100,20,.12);color:#8a6414;border:1px solid rgba(138,100,20,.3)}
+.sc-review.sc-me{background:rgba(138,100,20,.28);border-color:#8a6414;color:#8a6414;font-weight:700}
+.sc-lose{background:rgba(92,31,21,.1);color:#4a1911;border:1px solid rgba(92,31,21,.2)}
+.sc-lose.sc-me{background:rgba(92,31,21,.25);border-color:#5c1f15;color:#5c1f15;font-weight:700}
+.standings-empty{font-size:.78rem;color:#cbc4b5;padding:10px 12px}
+.standings-filter{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;align-items:center}
+.sf-label{font-size:.72rem;color:#4a505a;margin-right:2px}
+.sf-btn{font-size:.68rem;padding:3px 9px;border-radius:5px;border:1px solid #e2ddd1;background:#eeebe2;color:#4a505a;cursor:pointer;transition:all .15s;font-weight:600}
+.sf-btn.active{border-color:#1f2329;background:rgba(31,35,41,.18);color:#4e5e36}
+
+
+.bidding-board-header{display:flex;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.bidding-board-title{font-size:1.35rem;font-weight:700;color:#1f2329;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.bidding-board-title::before{content:'';width:4px;height:22px;background:linear-gradient(180deg,#1f2329,#36694a);border-radius:2px;display:inline-block}
+.board-view-select{margin-left:10px;padding:8px 36px 8px 14px;font-size:.88rem;border:1px solid #cbc4b5;border-radius:8px;background:#ffffff;color:#1f2329;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a505a' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;min-width:210px}
+.board-view-select:hover{border-color:#1f2329}
+.board-view-select:focus{outline:none;border-color:#1f2329}
+.months-grid{display:grid;gap:28px;margin-bottom:28px}
+/* Consolidated row — holds up to 4 month sub-boxes side by side */
+.consolidated-row{display:grid;gap:12px;margin-bottom:28px}
+.consolidated-row.cols-2{grid-template-columns:repeat(2,1fr)}
+.consolidated-row.cols-3{grid-template-columns:repeat(3,1fr)}
+.consolidated-row.cols-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.consolidated-row.cols-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.consolidated-row.cols-2,.consolidated-row.cols-3,.consolidated-row.cols-4{grid-template-columns:1fr}}
+.month-box{background:rgba(255,255,255,.88);border:1px solid #e2ddd1;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.month-box-title{font-size:.78rem;font-weight:700;color:#1f2329;text-transform:uppercase;letter-spacing:.08em;padding-bottom:8px;border-bottom:1px solid #ffffff;display:flex;align-items:center;gap:6px}
+.month-box-title::before{content:'';width:3px;height:12px;background:#1f2329;border-radius:2px;display:inline-block;flex-shrink:0}
+.month-box .weeks-grid{grid-template-columns:1fr}
+.month-section{background:rgba(255,255,255,.75);border:1px solid #e2ddd1;border-radius:14px;padding:22px;backdrop-filter:blur(10px)}
+.month-title{font-size:1.2rem;font-weight:700;color:#1f2329;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.month-title::before{content:'';width:4px;height:20px;background:linear-gradient(180deg,#1f2329,#36694a);border-radius:2px}
+.weeks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px}
+.week{background:#ffffff;border:2px solid #cbc4b5;border-radius:10px;padding:11px;cursor:pointer;transition:border-color .15s,background .15s,transform .15s;position:relative;overflow:hidden}
+.week:hover{border-color:#4a505a;transform:translateY(-2px)}
+.week.outcome-win{border-color:#36694a;background:linear-gradient(135deg,rgba(54,105,74,.18),rgba(54,105,74,.1));box-shadow:0 0 14px rgba(54,105,74,.18)}
+.week.outcome-win .week-day-label{color:#36694a}
+.week.outcome-approved{border-color:#36694a;background:linear-gradient(135deg,rgba(54,105,74,.22),rgba(54,105,74,.12));box-shadow:0 0 14px rgba(54,105,74,.22)}
+.week.outcome-approved .week-day-label{color:#2b5540}
+.week.outcome-lose{border-color:#5c1f15;background:linear-gradient(135deg,rgba(92,31,21,.15),rgba(92,31,21,.08));box-shadow:0 0 14px rgba(92,31,21,.12)}
+.week.outcome-lose .week-day-label{color:#5c1f15}
+.week.outcome-review{border-color:#8a6414;background:linear-gradient(135deg,rgba(138,100,20,.15),rgba(138,100,20,.08));box-shadow:0 0 14px rgba(138,100,20,.12)}
+.week.outcome-review .week-day-label{color:#8a6414}
+/* [206 · §266] A locked week is grey, never red: dashed grey edge, text at full strength (it is there to be read), the W / R / L box
+   and word in grey so they sit back. A locked week the person won is the green card (.lk-won). Neither takes a tap. */
+.week.lk-grey{background:#ece9e1;border-color:#d6d1c6;border-style:dashed;cursor:not-allowed}
+.week.lk-grey:hover,.week.lk-won:hover{transform:none}
+.week.lk-grey:hover{border-color:#d6d1c6}
+.week.lk-won{cursor:default}
+.week.lk-grey .week-day-label{color:#5e5c57}
+.week.lk-grey .obadge{background:rgba(74,80,90,.10);color:#5e5c57}
+.lk-out{color:#5e5c57;font-weight:600}
+/* [207 · §266 (12)] the person's own bid on a locked week, before results are sent: the projection's colour, as during bidding */
+.week.lk-proj{cursor:not-allowed}
+.week.lk-proj:hover{transform:none}
+.week.outcome-win.lk-proj .lk-out{color:#36694a}
+.week.outcome-review.lk-proj .lk-out{color:#8a6414}
+.week.outcome-lose.lk-proj .lk-out{color:#5c1f15}
+.lk-tag{margin-top:6px;display:inline-block;background:rgba(74,80,90,.13);color:#5e5c57;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:700}
+.month-section.lk-sec{border-color:#d6d1c6;background:#ece9e1}
+.month-section.lk-sec .month-title{color:#5e5c57}
+.month-section.lk-sec .month-title::before{background:#d6d1c6}
+.week-day-label{font-weight:700;font-size:.95rem;color:#1f2329}
+.week-range{font-size:.75rem;color:#1f2329;margin-bottom:6px;font-family:'Hanken Grotesk',sans-serif}
+.slot-count-label{font-size:.68rem;font-weight:700;display:inline-block;color:#1f2329}
+.special-label{font-size:.65rem;font-weight:700;padding:2px 6px;border-radius:3px;display:inline-block;margin-bottom:6px;margin-left:4px}
+.week-competitors{font-size:.72rem;color:#1f2329;margin-top:4px}
+.competitor-label{color:#1f2329;display:block;margin-bottom:3px;font-size:.64rem;letter-spacing:.5px;font-weight:600;margin-top:4px}
+.competitor{display:inline-block;background:rgba(92,31,21,.2);color:#4a1911;padding:2px 5px;border-radius:3px;margin:2px 2px 2px 0;font-size:.67rem;font-weight:500}
+/* [204 · §261] Blinded bidding: the mark that stands where a colleague's initials would be. As wide as two or three letters, so the row keeps its shape. */
+.anon-mark{display:inline-flex;align-items:center;justify-content:center;min-width:1.35em;vertical-align:-.12em}
+.anon-mark svg{width:1.05em;height:1.05em;display:block;fill:#4a505a}
+.edit-btn{background:rgba(31,35,41,.15);color:#4e5e36;border:1px solid rgba(31,35,41,.3);padding:4px 8px;border-radius:5px;font-size:.65rem;font-weight:600;cursor:pointer;transition:background .15s;flex:1;text-align:center}
+.edit-btn:hover{background:rgba(31,35,41,.25)}
+.cancel-btn{background:rgba(92,31,21,.15);color:#4a1911;border:1px solid rgba(92,31,21,.35);padding:4px 8px;border-radius:5px;font-size:.65rem;font-weight:600;cursor:pointer;transition:background .15s;flex:1;text-align:center}
+.cancel-btn:hover{background:rgba(92,31,21,.28)}
+/* [204 · owner-found 10 Oct 2026] The signed-in person's own row on a week card keeps ✎ and ✕ on the bid's own line: the initials, the bid
+   and the letter keep their width, and the two buttons share what is left - as wide as before where there is room, down to 20px each
+   where there is not. Only when even 20px each cannot be had (very large text, on the narrowest two-to-a-row phones) does ✕ go to a
+   second line, full size, as it did before: a button too thin to press would be worse than a second line. */
+.own-row>span{flex:none;white-space:nowrap}
+.own-row .edit-btn,.own-row .cancel-btn{min-width:20px;padding-left:2px;padding-right:2px}
+@media(max-width:820px){.own-row{gap:4px!important}.own-row .obadge{margin-right:0}} /* a phone's two-to-a-row cards: the slack between the pieces goes to the buttons */
+
+/* Modals */
+.modal{display:none;position:fixed;inset:0;background:rgba(31,35,41,.6);align-items:center;justify-content:center;z-index:1000;overflow-y:auto;padding:40px 0}
+.modal.show{display:flex}
+.modal-content{background:#ffffff;border:1px solid #cbc4b5;border-radius:16px;padding:26px;max-width:400px;width:90%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(31,35,41,.15)}
+.modal-title{font-size:1.2rem;font-weight:700;margin-bottom:16px;color:#1f2329}
+.modal-label{display:block;margin-bottom:7px;color:#1f2329;font-weight:600;font-size:.88rem}
+/* Split-hero login — fills the whole viewport, no gray backdrop */
+#accountSelectModal.modal{background:#ffffff;padding:0;align-items:stretch;justify-content:stretch;overflow:hidden}
+.login-card{display:flex;width:100vw;height:100vh;max-width:none;max-height:none;overflow:hidden;background:#ffffff;border-radius:0;box-shadow:none;margin:0}
+.login-hero-panel{flex:0 0 42%;background:#2B5540;color:#ffffff;padding:36px 44px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.login-logo{margin-bottom:14px}
+.login-hero-year{font-size:clamp(3rem,6vw,4.6rem);font-weight:900;letter-spacing:.03em;line-height:.9}
+.login-hero-title{font-size:clamp(1.25rem,2.4vw,1.9rem);font-weight:800;line-height:1.2;margin-top:6px}
+.login-phase{margin-top:20px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+/* [174 · §196] Destination of the day — straight on the blue under the phase line (his look A, no tile): a small tilted photo, the place, its region. Nothing else. */
+.dest-pill{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:0;color:#ffffff;text-decoration:none;align-self:flex-start;max-width:100%;transition:transform .15s}
+.dest-pill:hover{transform:translateY(-1px)}
+.dest-pill img{width:84px;height:64px;border-radius:8px;object-fit:cover;flex:none;display:block;background:#e2ddd1;box-shadow:0 4px 10px rgba(31,35,41,.25)}
+.dest-pill span{display:block;font-size:1rem;font-weight:800;line-height:1.15;letter-spacing:0;text-transform:none;text-align:left}
+.dest-pill small{display:block;font-size:.72rem;font-weight:600;opacity:.82;margin-top:2px;letter-spacing:0;text-transform:none;text-align:left}
+.dest-pill[hidden]{display:none}
+.login-form-panel{flex:1 1 58%;padding:36px 44px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
+.login-form-inner{width:100%;max-width:380px;margin:0 auto}
+.login-form-panel input[type=text]:focus,.login-form-panel input[type=password]:focus{outline:none;border-color:#1f2329}
+@media(max-width:640px){
+  .login-card{flex-direction:column;width:100vw;height:100vh;overflow-y:auto}
+  .login-hero-panel{flex:none;padding:34px 24px 26px;text-align:center;align-items:center}
+  .login-form-panel{flex:1 0 auto;padding:28px 24px 40px;justify-content:flex-start}
+  .dest-pill{align-self:center;margin-top:16px;text-align:left} /* [174 · §196] phones too (his ruling) */
+}
+.priority-input{width:100%;padding:10px 13px;margin-bottom:16px;border:2px solid #cbc4b5;border-radius:10px;background:#eeebe2;color:#1f2329;font-size:.95rem;transition:border-color .2s}
+.priority-input:focus{outline:none;border-color:#1f2329}
+/* [202 · §259] The bid box's choices are buttons on the page, not a drop-down the phone draws. Every size here is a class rule,
+   never an inline style: the phone rule further down forces any INLINE grid in this box to three columns. */
+.bid-tiles{margin-bottom:14px}
+.bid-tiles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.bid-tile{flex:none;min-height:46px;padding:4px;border:2px solid #1f2329;border-radius:10px;background:#ffffff;color:#4e5e36;font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums}
+.bid-tile.wide{grid-column:span 2}
+.bid-tile[aria-pressed="true"],.swap-row[aria-pressed="true"]{background:#1f2329;color:#ffffff}
+.bid-tile,.swap-row{touch-action:manipulation} /* two quick taps choose twice - they never zoom the page */
+.bid-tile:focus-visible,.swap-row:focus-visible{outline:3px solid #1f2329;outline-offset:2px}
+.bid-tiles:focus,.bid-tiles-na:focus,.swap-rows:focus{outline:none} /* the holder takes the keyboard when the box opens (see _pickFocus); it is not itself a control */
+.bid-tiles-hint{margin-top:10px;min-height:1.4em;font-size:.88rem;color:#1f2329}
+.bid-tiles-hint b{color:#4e5e36}
+.bid-tiles-na{margin:0 0 14px;padding-top:10px;border-top:1px solid #e2ddd1}
+.bid-tiles-na-h{margin-bottom:6px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4a505a}
+.bid-tiles-na-list{display:flex;flex-wrap:wrap;gap:5px}
+.bid-tiles-na-chip{padding:3px 9px;border:1px dashed #cbc4b5;border-radius:999px;background:#eeebe2;color:#4a505a;font-size:.82rem;font-variant-numeric:tabular-nums}
+/* [220 · §288 · plan §3h, §11j-§11m] 🔔 E-MAIL ALERTS — the button under Sign out, the box, the full-screen alert window and the bell on a week
+   card, in the look of the approved phone test page v5 (built from this page's own styles). */
+.al-btn{flex:0 0 auto;font-size:12px;font-weight:700;color:#4e5e36;background:transparent;border:1px solid #1f2329;border-radius:8px;padding:5px 12px;cursor:pointer}
+#alertsModal .modal-content{max-width:460px}
+#alertsModal [hidden],.al-win[hidden],.al-win [hidden]{display:none!important}
+.al-sw{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #e2ddd1}
+.al-sw-txt{flex:1;min-width:0}
+.al-sw-name{font-size:.95rem;font-weight:700;color:#1f2329}
+.al-toggle{flex:0 0 auto;position:relative;width:50px;height:30px;border-radius:999px;border:none;background:#cbc4b5;cursor:pointer;padding:0;transition:none}
+.al-toggle::after{content:'';position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#ffffff;box-shadow:0 1px 3px rgba(31,35,41,.25);transition:transform .15s}
+.al-toggle[aria-checked="true"]{background:#1f2329}
+.al-toggle[aria-checked="true"]::after{transform:translateX(20px)}
+.al-toggle:disabled{opacity:.5;cursor:default}
+.al-toggle.al-pend,.al-gi-row.al-pend{opacity:.55;outline:2px dashed #cbc4b5;outline-offset:2px} /* [fix round, review lane 3 M2] a save not confirmed yet */
+.al-toggle:focus-visible,.al-wrow:focus-visible{outline:3px solid #1f2329;outline-offset:2px}
+@media (prefers-reduced-motion: reduce){.al-toggle::after{transition:none}}
+.al-gi-h{font-size:.95rem;font-weight:700;color:#1f2329;margin:14px 0 6px;padding-top:12px;border-top:1px solid #e2ddd1}
+.al-gi-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid #e2ddd1;border-radius:10px;margin-bottom:6px;font-size:.88rem;color:#1f2329}
+.al-gi-row b{font-variant-numeric:tabular-nums}
+.al-gi-t{min-width:0}
+.al-gi-b{display:flex;gap:6px;flex:0 0 auto}
+.al-gi-ch,.al-gi-rm{flex:0 0 auto;font-size:.8rem;font-weight:700;background:transparent;border-radius:8px;padding:5px 10px;cursor:pointer}
+.al-gi-ch{color:#4e5e36;border:1.5px solid #cbc4b5}
+.al-gi-rm{color:#4a1911;border:1.5px solid #cebcb9}
+.al-gi-none{font-size:.84rem;color:#4a505a}
+.al-add{flex:none;display:inline-block;margin-top:2px;font-size:.82rem;font-weight:700;color:#4e5e36;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline}
+.al-add:disabled{opacity:.5;cursor:default}
+.al-kp-line{font-size:.82rem;color:#4a505a;margin-top:2px;overflow-wrap:anywhere}#emailModal [hidden]{display:none!important} /* [399 · §305] KP §2: the KP e-mail row's small line; menu mode hides buttons of the sign-in box · [399 · §311] the row's control is the alert switches' own .al-toggle */
+.flash.al-toast{top:auto;bottom:calc(88px + env(safe-area-inset-bottom,0px));background:#1f2329;border:1px solid #1f2329;color:#ffffff} /* low on the screen: never over the box's title or the window's header */
+.al-bell{position:absolute;top:14px;right:14px;font-size:11px;line-height:12px;height:12px;opacity:.85;pointer-events:none;text-transform:none;letter-spacing:0} /* [248 · §375] in the card's top-right corner, a 12 px mark with no border (its svg is 1.1em of 11px), level with the split button's middle; just left of that button when the card has one (.week:has(.sr-icon) .al-bell below); the rows beside it keep room for it */
+.al-win{position:fixed;inset:0;z-index:1001;display:flex;flex-direction:column;background:#eeebe2;color:#1f2329}
+.al-win *{box-sizing:border-box}
+.al-win-head{flex:0 0 auto;background:#1f2329;color:#ffffff;padding:calc(12px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+.al-win-step{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.al-win-title{margin:2px 0 0;font-size:1.1rem;font-weight:700;color:#ffffff}
+.al-win-title:focus{outline:none}
+.al-win-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:14px max(16px,env(safe-area-inset-right,0px)) 14px max(16px,env(safe-area-inset-left,0px))}
+.al-win-in{max-width:560px;margin:0 auto}
+.al-win-msg{flex:0 0 auto;padding:0 16px;font-size:.84rem;color:#6f6a60;text-align:center;background:#ffffff}
+.al-win-msg:not(:empty){padding:8px 16px;border-top:1px solid #e2ddd1}
+.al-win-foot{flex:0 0 auto;display:flex;gap:8px;justify-content:center;background:#ffffff;border-top:1px solid #e2ddd1;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.al-win-foot button{flex:1 1 0;min-width:0;max-width:220px;padding:11px 8px;font-size:.9rem}
+.al-win-foot button[disabled]{opacity:.45;cursor:default;transform:none;box-shadow:none}
+.al-btn-danger{background:transparent;color:#4a1911;border:2px solid #cebcb9}
+.al-wmonth{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4a505a;margin:10px 0 6px}
+.al-wrow{flex:none;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;text-align:left;background:#ffffff;border:2px solid #e2ddd1;border-radius:10px;padding:9px 12px;margin-bottom:6px;color:#1f2329;font-size:.9rem;font-weight:400;transition:none}
+.al-wrow[aria-pressed="true"]{border-color:#1f2329;background:#eeebe2}
+.al-wrow.off{background:#eeebe2;color:#4a505a}
+.al-wr-l{min-width:0}
+.al-wr-d{font-weight:700;font-size:.92rem}
+.al-wr-s{font-size:.72rem;color:#4a505a}
+.al-wr-r{flex:0 0 auto;font-size:.72rem;font-weight:700;text-align:right}
+.al-panel{background:rgba(31,35,41,.08);border:1px solid rgba(31,35,41,.25);border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:.85rem}
+.al-q{font-size:.92rem;color:#1f2329;font-weight:600;margin:14px 0 8px}
+.al-conf{font-size:.95rem;color:#1f2329;margin:14px 0 0}
+.al-true{font-size:.88rem;color:#36694a;margin:10px 0 0}
+/* [228 · §297] THE E-MAIL ALERTS BOX (PLAN §B4.3): the first switch sits straight under the title with no divider above it, and Done
+   has room above it. */
+#alertsModal .modal-title+.al-sw{border-top:none}
+#alertsModal .al-add+.modal-buttons{margin-top:16px}
+/* [547 · push] THE PUSH ALERTS BOX in the E-mail alerts box's look: the switch row straight under the title with no divider; the one line
+   that says why there is no switch (or why it is off); Done with room above it. */
+#pushModal .modal-content{max-width:460px}
+#pushModal [hidden]{display:none!important}
+#pushModal .modal-title+.al-sw{border-top:none}
+#pushModal .pu-line{font-size:.9rem;line-height:1.45;color:#1f2329;margin:6px 0 0}
+#pushModal .pu-recent{border-top:1px solid #e2ddd1;margin-top:12px;padding-top:12px} /* [552 · §554] Recent alerts */
+#pushModal .pu-recent[hidden]{display:none}
+#pushModal .pu-rh{font-size:.95rem;font-weight:700;color:#1f2329;margin-bottom:4px}
+#pushModal .pu-list{max-height:45vh;overflow-y:auto;-webkit-overflow-scrolling:touch;margin:0 -4px}
+#pushModal .pu-row{display:grid;grid-template-columns:12px minmax(0,1fr);gap:6px;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #e2ddd1;border-radius:10px;padding:10px 4px;font:inherit;color:#1f2329;cursor:pointer;min-height:44px}
+#pushModal .pu-row:last-child{border-bottom:0}
+#pushModal .pu-row:focus-visible{outline:3px solid #1f2329;outline-offset:2px}
+#pushModal .pu-dot{width:8px;height:8px;border-radius:50%;margin-top:7px}
+#pushModal .pu-unseen .pu-dot{background:#5c1f15}
+#pushModal .pu-when{display:block;font-size:.78rem;color:#4a505a}
+#pushModal .pu-ln{display:block;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pushModal .pu-unseen .pu-ln{font-weight:700}
+#pushModal .modal-buttons{margin-top:16px}
+/* [549] THE AUCTION ALERT BOX (a tapped push alert's whole e-mail) in the Push alerts box's look: the title, the e-mail's words with their
+   line breaks (they scroll inside the box; Done stays in sight), Done. Above every other box: it shows when the site comes forward. */
+#aaModal{z-index:1002}
+#aaModal .modal-content{max-width:460px;display:flex;flex-direction:column;overflow:hidden;max-height:90vh;max-height:90dvh}
+#aaModal .aa-text{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;font-size:.9rem;line-height:1.45;color:#1f2329;white-space:pre-wrap;overflow-wrap:anywhere;margin:6px 0 0}
+#aaModal .aa-text:focus{outline:none}
+#aaModal .modal-buttons{flex:0 0 auto;margin-top:16px}
+/* [247 · S2a · §373] THE SPLIT WEEKS BOX in the E-mail alerts box's look (its rows are .al-gi-row, its sub-headings .al-gi-h); the ☰ entry while hidden;
+   ICON E on a week's card: a 29 px button with its own border and fill in the card's top-right corner, a 12 px mark inside (§375); placed
+   absolutely (the card is position:relative), so the week-number row, the minimum-bid line and the date line keep room on their right while
+   it or the 🔔 is there - and nothing on the card runs under either. */
+#splitModal .modal-content{max-width:460px;display:flex;flex-direction:column;overflow:hidden;max-height:90vh;max-height:90dvh} /* [252 · T1] a column: the title, the middle that scrolls (#srScroll), the footer always in sight - the Rules box's pattern with the bid box's dvh */
+#splitModal .modal-title{flex:none}
+#srScroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+@media(min-width:821px) and (min-height:481px){#splitModal .modal-content{max-height:78dvh}} /* [252 · T1] a wide screen is drawn at 115%: 78 x 1.15 = 90 */
+#splitModal [hidden],:root:root #userTopBar .tm-item[hidden]{display:none!important}
+.sr-row .al-gi-t{overflow-wrap:anywhere}
+button.sr-open{width:100%;text-align:left;background:transparent;font-family:inherit;cursor:pointer} /* [253 · §405] a row of my list: it opens that week's box */
+button.sr-open:disabled{opacity:.45;cursor:default}
+#srOther{margin:8px 0 0} /* [253 · §405] Open a week (my list's last line) · [254 · §410] */
+#srTickL{margin-top:8px} /* [253 · §405] the tick Interested [256] */
+.sr-half{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid #e2ddd1;border-radius:10px;margin-bottom:6px;font-size:.88rem;color:#1f2329;cursor:pointer}
+.sr-half input{flex:none;width:18px;height:18px;margin:0;accent-color:#1f2329}
+.sr-frozen{font-size:.88rem;color:#4a505a;line-height:1.45;margin-top:14px}
+.sr-rule{border:0;border-top:1px solid #e2ddd1;margin:18px 0 16px} /* [254 · §408] the divider above Propose a split (shown with it) */
+#splitModal .modal-buttons{flex:none;margin-top:12px;padding-top:12px;border-top:1px solid #e2ddd1} /* [252 · T1 · Q2] the footer: Done; while a form is open Cancel · Send */
+/* [249 · S2b · §376–§378] MY AGREEMENTS: cards in the rows' look, their lines one under another and their buttons on a line below them (they wrap at 320 px).
+   THE AGREEMENT FORM: a view of the box of its own - while it shows, the rest of the box is hidden (its own Cancel goes back). */
+.sa-card{flex-wrap:wrap}
+.sa-card .al-gi-t{flex:1 1 100%;overflow-wrap:anywhere}
+.sa-card .al-gi-b{flex-wrap:wrap}
+.sa-l{display:block}
+.sa-l:first-child{font-weight:700}
+#saStartBtn{width:100%;margin-top:2px}
+#saStartBtn:disabled,#saApprove:disabled{opacity:.5;cursor:not-allowed}
+#splitModal .al-gi-b>button:disabled{opacity:.45;cursor:default} /* [252 · fix] F2 the rows' and cards' buttons greyed when disabled (as .al-win-foot's) */
+#saForm{margin:0 0 6px;outline:none} /* [253 · §405] the form fills the week's box */
+.sa-l.sa-note{color:#4a505a;font-weight:400} /* [252 · T7] a grey note: no button, gone once seen */
+.sa-ftitle{font-size:1rem;font-weight:700;color:#1f2329;margin:0 0 10px;outline:none}
+.sa-ftext{font-size:.88rem;color:#1f2329;margin:0 0 12px;overflow-wrap:anywhere}
+#saForm .priority-input{margin-bottom:12px}
+.sr-icon{position:absolute;top:6px;right:6px;z-index:1;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:29px;height:29px;padding:0;margin:0;background:#f3f0e8;border:1.5px solid #8a8577;border-radius:8px;box-shadow:0 1px 2px rgba(31,35,41,.12);color:#1f2329;cursor:pointer;transition:none}
+.sr-icon:active{background:#e2ddd1;border-color:#1f2329}
+.week:has(.sr-icon) .al-bell{right:39px} /* [248 · §375] the 🔔 just left of the button: 6 + 29 + 4 px from the corner */
+/* [248 · §375] room on the right of the rows level with the corner: 30 px beside the button, 22 px beside the 🔔 alone, 47 px beside both */
+.week:has(.al-bell)>:is(div:first-child,.comp-min-row,.week-day-label){padding-right:22px}
+.week:has(.sr-icon)>:is(div:first-child,.comp-min-row,.week-day-label){padding-right:30px}
+.week:has(.sr-icon):has(.al-bell)>:is(div:first-child,.comp-min-row,.week-day-label){padding-right:47px}
+/* [248 · §375] a two-ended week-number row ("Competition week") wraps when it is too narrow: the label drops under the number, still at the right */
+.week>div:first-child{flex-wrap:wrap;row-gap:1px!important}
+.week>div:first-child>.comp-tag{margin-left:auto}
+.sr-icon:focus-visible{outline:2px solid #1f2329;outline-offset:1px}
+.sr-icon svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* [228 · §297] fix round: the alerts box carries no .al-sub, .al-sw-desc, .al-sw-off or .al-foot element, so those rules are gone too. */
+/* [227 · §296] THE ☰ MENU (top right) — the approved phone test page's .tm-* rules. The :root:root #userTopBar rules beat the redesign
+   block's #userTopBar button rule. */
+.tm-wrap{position:relative}
+/* the ☰ button is 44 x 44 (a phone's smallest comfortable target) */
+:root:root #userTopBar .tm-btn{width:44px;height:44px;padding:0;font-size:1.15rem;line-height:1;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer}
+:root:root #userTopBar .tm-btn[aria-expanded="true"]{background:var(--rd-ink)!important;color:#ffffff!important;border-color:var(--rd-ink)!important}
+.tm-list{position:absolute;top:calc(100% + 6px);right:0;z-index:600;min-width:220px;max-width:calc(100vw - 32px);background:#ffffff;border-radius:16px;padding:6px;box-shadow:0 1px 2px rgba(31,35,41,.08),0 12px 30px -12px rgba(31,35,41,.28),0 0 0 1px rgba(31,35,41,.06);display:flex;flex-direction:column}
+.tm-list[hidden]{display:none}
+.tm-count{display:inline-block;box-sizing:border-box;min-width:18px;height:18px;padding:0 5px;margin-left:8px;border-radius:9px;background:#5c1f15;color:#ffffff;font-size:.72rem;font-weight:700;line-height:18px;text-align:center;vertical-align:1px} /* [252 · T8 · Q4] how many split cards wait for my tap */
+.tm-count[hidden]{display:none!important}
+:root:root #userTopBar .tm-btn{position:relative}
+.tm-btn>.tm-count{position:absolute;top:-6px;right:-6px;margin:0}
+:root:root #userTopBar .tm-item{display:block;width:100%;text-align:left;background:transparent!important;border:0!important;border-radius:10px!important;color:var(--rd-ink)!important;font-size:.95rem;font-weight:600;padding:12px 14px;min-height:44px;cursor:pointer}
+:root:root #userTopBar .tm-item:hover,:root:root #userTopBar .tm-item:focus-visible{background:var(--rd-tint)!important;outline:none}
+:root:root #userTopBar .tm-item.tm-last{margin-top:6px;position:relative}
+:root:root #userTopBar .tm-item.tm-last::before{content:"";position:absolute;left:10px;right:10px;top:-4px;border-top:1px solid var(--rd-line)}
+@media (prefers-reduced-motion:no-preference){.tm-list:not([hidden]){animation:tmIn .12s ease-out}@keyframes tmIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+/* [227 · §296] THE RULES & REMINDERS BOX: a column — the title on top, the rules in their own scrolling area (#rulesScroll), the Close row
+   pinned at the bottom, so Close is always in sight. 80vh: the box fits on a computer, where the page is drawn at 115%. */
+#rulesModal .modal-content{max-width:560px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
+#rulesModal .modal-title{flex:none}
+#rulesModal .modal-title:focus{outline:none}
+#rulesScroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#rulesScroll>.rules-list:first-child{margin-top:0}
+#rulesModal .modal-buttons{flex:none;margin-top:12px;padding-top:12px;border-top:1px solid #e2ddd1}
+#rulesClose{min-height:44px}
+/* [227 · §296] THE ALERT WINDOW'S STEP 1 ("Choose a week for your alert") in the approved look A — only while .al-s1 is on #alWin
+   (_alWinPaint): the page's green ground, bold month headings with the board's green line, the weeks as white rows, the chosen week
+   outlined dark, the weeks that cannot be picked dashed like the board's locked weeks, the tags (.al-tag + its state) as pills. */
+.al-win.al-s1{background:var(--rd-page)!important}
+.al-win.al-s1 .al-wmonth{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;text-transform:none;color:var(--rd-ink);margin:16px 2px 10px;padding-bottom:6px;border-bottom:2px solid #9FB08A}
+.al-win.al-s1 .al-wrow{border:1px solid var(--rd-line);border-radius:14px;padding:11px 14px}
+.al-win.al-s1 .al-wrow[aria-pressed="true"]{border:2px solid var(--rd-ink);background:var(--rd-surface);padding:10px 13px}
+.al-win.al-s1 .al-wrow.off{background:var(--rd-lockBg);border:1px dashed var(--rd-lockLine);color:var(--rd-muted)}
+.al-win.al-s1 .al-wr-r>span{display:inline-block;border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:800}
+.al-win.al-s1 .al-tag.bid{background:var(--rd-surface);color:var(--rd-ink)!important;border:1px solid var(--rd-line2)}
+.al-win.al-s1 .al-tag.won{background:var(--rd-winFill);color:#ffffff!important}
+.al-win.al-s1 .al-tag.locked{background:rgba(74,80,90,.10);color:#5e5c57!important}
+.al-win.al-s1 .al-tag.alert{background:var(--rd-ink);color:#ffffff!important}
+.al-win.al-s1 .al-tag.min{background:var(--rd-tint);color:var(--rd-ink)!important;border:1px solid var(--rd-line2)}
+.swap-rows{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.swap-row{flex:none;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;padding:8px 14px;border:2px solid #1f2329;border-radius:10px;background:#ffffff;color:#4e5e36;font-size:.95rem;font-weight:700;text-align:left}
+.swap-row-bid{font-size:1.05rem;white-space:nowrap}
+/* [217 · §285] THE TWO SCREENS of the bid box. Screen 1 = the single numbers and NP (#bidTiles), the "Combination bids ›" button
+   (#comboEntry), Swap and the "Not available" row; screen 2 = the combinations (#comboScreen). The class .combo-on on #prioStep1 is the
+   only switch: the title row with its refusal slot, the week panel and the button row are on both screens. !important: the holders
+   carry an inline display, set by the paint. */
+#prioStep1.combo-on>.modal-label,#prioStep1.combo-on>#bidTiles,#prioStep1.combo-on>#comboEntry,#prioStep1.combo-on>#swapEntry,#prioStep1.combo-on>#bidTilesNA{display:none!important}
+#prioStep1:not(.combo-on)>#comboScreen{display:none!important}
+.combo-open[aria-pressed="true"]{background:#1f2329!important;color:#ffffff!important} /* a combination is the chosen bid: the button is filled */
+.combo-place{font-size:.8rem;font-weight:600;opacity:.85;text-align:right} /* a combination tile's place ("better than 2"), in small type */
+/* The list the bid is read from stays in the page, out of sight, ONLY while its buttons are drawn (the script sets .tiles-on last).
+   min-width:0 undoes the 180px every drop-down on this page is given on a wide screen. */
+.tiles-on>.priority-input{position:absolute;width:1px;min-width:0;height:1px;margin:-1px;padding:0;border:0;opacity:0;overflow:hidden;clip-path:inset(50%);pointer-events:none}
+/* Cancel / Continue stay on screen in every step of this box: the row sticks to the bottom while the rest scrolls behind it.
+   dvh = the part of a phone's screen its own toolbars leave free; a browser without it keeps the 90vh above. */
+#priorityModal .modal-content{padding-bottom:0;max-height:90dvh;scroll-padding-bottom:84px} /* scroll-padding: a button reached by the Tab key is never left under the row */
+#priorityModal .modal-buttons{position:sticky;bottom:0;z-index:1;background:#ffffff;padding:12px 0 18px;border-top:1px solid #e2ddd1}
+/* What scrolls behind the row fades out above it - the sign that there is more below. At the end of the box it lies over empty space. */
+#priorityModal .modal-buttons::before{content:"";position:absolute;left:0;right:0;bottom:calc(100% + 1px);height:16px;background:linear-gradient(to top,#ffffff,rgba(255,255,255,0));pointer-events:none}
+/* A wide screen is drawn at 115% (body zoom, further down), which makes 90dvh taller than the window: 78 × 1.15 = 90. */
+@media(min-width:821px) and (min-height:481px){#priorityModal .modal-content{max-height:78dvh}} /* not on a wide phone held sideways: there every pixel of height shows a choice */
+/* A phone held sideways has too little height for a row that stays put - it would cover the choices. There the row ends the box, as before 202. */
+@media(orientation:landscape) and (max-height:480px){#priorityModal .modal-buttons{position:relative}}
+.modal-buttons{display:flex;gap:10px;flex-wrap:wrap}
+button{flex:1;padding:10px 16px;border:none;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,#1f2329,#1f2329);color:#ffffff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(31,35,41,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-secondary{background:transparent;color:#1f2329;border:2px solid #cbc4b5}
+.btn-secondary:hover{border-color:#4a505a;background:rgba(31,35,41,.04)}
+#globalLockBanner{display:none;background:rgba(92,31,21,.12);border:1px solid rgba(92,31,21,.4);color:#4a1911;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-weight:600;font-size:.9rem;text-align:center}
+
+@media(max-width:768px){.toolbar{flex-direction:column;align-items:stretch}.person-selector{flex-direction:column}select{min-width:unset}}
+
+/* Global scale — renders as if the browser were at 115% zoom. Change the one
+   number below to retune (1 = 100%, 1.15 = 115%). */
+body{zoom:1.15}
+
+/* Outcome badges — single letter, color coded. W win / R under review / L lose */
+.obadge{display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1.35em;border-radius:4px;font-weight:800;font-size:.82em;line-height:1;margin-right:.35em;flex:none;vertical-align:middle;position:relative;top:-.05em}
+.ob-win{background:rgba(54,105,74,.16);color:#36694a}
+.ob-approved{background:#36694a;color:#ffffff}
+.ob-review{background:rgba(138,100,20,.16);color:#8a6414}
+.ob-lose{background:rgba(92,31,21,.16);color:#5c1f15}
+.obadge-lg{width:1.5em;height:1.5em;font-size:.9em}
+
+/* ===== Responsive user site (authoritative — placed last so it wins) ===== */
+@media(max-width:820px){
+  body{zoom:1!important;padding:14px 12px}
+  .container{max-width:100%}
+  .header-top{font-size:1.45rem;text-align:center}
+  .header-sub,.header-phase{text-align:center}
+  .toolbar{flex-direction:column;align-items:stretch;gap:10px}
+  .person-selector{flex-direction:column;align-items:stretch}
+  select{min-width:unset;width:100%}
+  .months-grid{gap:16px}
+  .month-title{font-size:1rem}
+  .weeks-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .week{padding:10px;font-size:.72rem}
+  .week-day-label{font-size:.82rem;line-height:1.15}
+  .week-range{font-size:.64rem}
+  .selections-bar{padding:14px 14px}
+  .selections-bar-title{font-size:.9rem}
+  .modal{padding:14px 0;align-items:flex-start}
+  .modal-content{padding:18px 16px;width:94%;max-width:460px;margin:10px auto}
+  #countdownBanner{flex-direction:column;align-items:stretch;gap:8px}
+  #priorityModal .modal-content .prio-grid,#priorityModal .modal-content [style*="grid-template-columns"]{grid-template-columns:repeat(3,1fr)!important}
+}
+@media(max-width:380px){
+  .weeks-grid{grid-template-columns:1fr}
+}
+
+/* ── reCAPTCHA badge [build 148] ────────────────────────────────────────────────
+   NO RULE HERE, DELIBERATELY. Firebase App Check renders the reCAPTCHA v3 badge inside
+   a container it creates itself (div#fire_app_check_<firebaseAppName>) carrying an
+   inline display:none, so the badge is hidden unless we override it. Build 282/147
+   DID override it, at the owner's request. He then saw it live and reversed:
+   "I don't like the recaptcha being visible actually. it's in the way." (DECISIONS §66.)
+   So the override is REMOVED and Firebase's hidden default stands.
+   ⚠️ THE CONSEQUENCE IS NOT OPTIONAL: with the badge hidden, Google's branding terms
+   REQUIRE the reCAPTCHA attribution to be visible in the user flow. It lives in the
+   sign-in security box below. If that attribution is ever removed, this rule must come
+   back — showing the badge and carrying the attribution are the only two permitted
+   positions, and there is nothing in between. */
+</style>
+<style id="redesign-looks">@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:100 900;font-display:swap;src:url(/vacation/fonts/HankenGrotesk-Variable.woff2) format('woff2')}@font-face{font-family:'Hanken Grotesk';font-style:italic;font-weight:100 900;font-display:swap;src:url(/vacation/fonts/HankenGrotesk-Italic-Variable.woff2) format('woff2')}:root{--rd-page:#EBF0E6;--rd-surface:#FFFFFF;--rd-tint:#EEEBE2;--rd-line:#E2DDD1;--rd-line2:#CBC4B5;--rd-ink:#1F2329;--rd-muted:#4A505A;--rd-accent:#1F2329;--rd-shade:#1F2329;--rd-lockBg:#ECE9E1;--rd-lockLine:#D6D1C6;--rd-win:#36694A;--rd-winFill:#458359;--rd-review:#8A6414;--rd-reviewFill:#E9C542;--rd-reviewOn:#2B2000;--rd-lose:#5C1F15;--rd-loseFill:#5C1F15;--rd-warn:#6F6A60;--rd-comp:#4A4F5A;accent-color:#458359}button,input,select,textarea{color:inherit}:root :is(button,input,select,textarea){font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif!important}:root body{color:var(--rd-ink);font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif;font-weight:500}:root body:where(:not([style*="background"])){background:var(--rd-page)!important}:root :is(.header-top,.bidding-board-title,.month-title,.month-box-title,.selections-bar-title,.week-day-label,.modal-title,.standings-header-left,.rules-header-left){font-family:'Hanken Grotesk',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}:root .header-top{-webkit-text-fill-color:currentColor!important;font-size:1.75rem;font-weight:800}:root .header-top:where(:not([style*="background"])){background:none!important}:root .header-top:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root :is(.header-sub,.header-phase){letter-spacing:.14em;font-weight:600}:root :is(.header-sub,.header-phase):where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-muted)!important}:root :is(.selections-bar-title,.standings-header-left,.bidding-board-title,.month-title,.month-box-title)::before{content:none!important}:root :is(.rules-banner,.selections-bar,.standings-panel,.month-section:where(:not(.lk-sec)),#countdownBanner:where(:not(.urgent,.warning)),#pcWidget){background:var(--rd-surface)!important;border:0 solid transparent!important}:root :is(.rules-banner,.selections-bar,.standings-panel,.month-section,#countdownBanner,#pcWidget){border-radius:20px!important}:root :is(.rules-banner,.selections-bar,.standings-panel,.month-section,#countdownBanner:where(:not(.urgent)),#pcWidget){box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 8%,transparent),0 12px 30px -12px color-mix(in srgb,var(--rd-shade) 20%,transparent)!important}:root .month-section{padding:0 0 16px!important}:root .month-title{font-size:1.15rem}:root .month-section>.month-title{margin:0 14px 14px;padding:14px 2px 8px;border-bottom:2px solid #9FB08A}:root .month-section>.month-title:where(:not([style*="background"])){background:transparent!important}:root .month-section>.month-title:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root .month-section>.weeks-grid{padding:0 14px}:root .week{border-radius:14px;padding:12px;box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 9%,transparent),0 6px 16px -6px color-mix(in srgb,var(--rd-shade) 18%,transparent)}:root .week:where(:not(.lk-grey)){background:var(--rd-surface)}:root .week:where(:not(.lk-grey)):where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid transparent!important}:root .week.outcome-win{box-shadow:inset 0 5px 0 var(--rd-win),0 1px 2px color-mix(in srgb,var(--rd-shade) 9%,transparent),0 6px 16px -6px color-mix(in srgb,var(--rd-shade) 18%,transparent)}:root .week.outcome-win:where(:not([style*="background"])){background:color-mix(in srgb,var(--rd-win) 10%,var(--rd-surface))!important}:root .week.outcome-win:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:color-mix(in srgb,var(--rd-win) 55%,var(--rd-surface))!important}:root .week.outcome-approved{box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 9%,transparent),0 6px 16px -6px color-mix(in srgb,var(--rd-shade) 18%,transparent)}:root .week.outcome-approved:where(:not([style*="background"])){background:color-mix(in srgb,var(--rd-win) 14%,var(--rd-surface))!important}:root .week.outcome-approved:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:var(--rd-win)!important}:root .week.outcome-lose{box-shadow:inset 0 5px 0 var(--rd-lose),0 1px 2px color-mix(in srgb,var(--rd-shade) 9%,transparent),0 6px 16px -6px color-mix(in srgb,var(--rd-shade) 18%,transparent)}:root .week.outcome-lose:where(:not([style*="background"])){background:color-mix(in srgb,var(--rd-lose) 8%,var(--rd-surface))!important}:root .week.outcome-lose:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:color-mix(in srgb,var(--rd-lose) 55%,var(--rd-surface))!important}:root .week.outcome-review{box-shadow:inset 0 5px 0 var(--rd-reviewFill),0 1px 2px color-mix(in srgb,var(--rd-shade) 9%,transparent),0 6px 16px -6px color-mix(in srgb,var(--rd-shade) 18%,transparent)}:root .week.outcome-review:where(:not([style*="background"])){background:color-mix(in srgb,var(--rd-reviewFill) 14%,var(--rd-surface))!important}:root .week.outcome-review:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:color-mix(in srgb,var(--rd-reviewFill) 70%,var(--rd-surface))!important}:root .week.outcome-win:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])),:root .week.outcome-lose:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])),:root .week.outcome-review:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-width:1px!important}:root #phaseLabel{background:var(--rd-accent)!important;color:var(--rd-surface)!important;border-radius:999px!important;padding:4px 14px!important}:root :is(select,.board-view-select){border-radius:999px!important}:root :is(select,.board-view-select):where(:not([style*="background"])){background-color:var(--rd-surface)!important}:root :is(select,.board-view-select):where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid var(--rd-line2)!important}:root :is(.al-btn,#userTopBar button){background:var(--rd-surface)!important;border:1px solid var(--rd-line2)!important;color:var(--rd-ink)!important;border-radius:999px!important}:root :is(.selection-item,.notif-chip,#topBarInitials,#bidPoolBox span[style*="inline-block"],.selection-outcome,.obadge,.edit-btn,.cancel-btn){border-radius:999px!important}:root .selection-item{padding:6px 12px!important}:root .selection-item:where(:not([style*="background"])){background:var(--rd-surface)!important}:root .selection-item:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid var(--rd-line)!important}:root .selection-outcome{padding:2px 8px}:root .edit-btn:where(:not([style*="background"])){background:var(--rd-tint)!important}:root .edit-btn:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid var(--rd-line2)!important}:root .edit-btn:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root .cancel-btn:where(:not([style*="background"])){background:color-mix(in srgb,var(--rd-lose) 8%,var(--rd-surface))!important}:root .cancel-btn:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid color-mix(in srgb,var(--rd-lose) 35%,var(--rd-surface))!important}:root #pcCanvas{border-color:var(--rd-line)!important}:root .week-day-label{font-weight:800}:root:root .obadge{font-weight:800}:root:root :is(.obadge.ob-win,.obadge.ob-approved,.selection-outcome.outcome-win,.selection-outcome.outcome-approved):where(:not([style*="background"])){background:var(--rd-winFill)!important}:root:root :is(.obadge.ob-win,.obadge.ob-approved,.selection-outcome.outcome-win,.selection-outcome.outcome-approved):where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root:root :is(.obadge.ob-review,.selection-outcome.outcome-review):where(:not([style*="background"])){background:var(--rd-reviewFill)!important}:root:root :is(.obadge.ob-review,.selection-outcome.outcome-review):where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-reviewOn)!important}:root:root :is(.obadge.ob-lose,.selection-outcome.outcome-lose):where(:not([style*="background"])){background:var(--rd-loseFill)!important}:root:root :is(.obadge.ob-lose,.selection-outcome.outcome-lose):where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root .own-row>span:nth-child(-n+2){font-weight:800!important}:root .own-row>span:nth-child(-n+2):where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root :is(.time-value,.week-range){font-variant-numeric:tabular-nums}:root .modal-content{border-radius:20px!important}:root .modal-content:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:0!important}:root .modal-content:where(:not([style*="box-shadow"])){box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 8%,transparent),0 12px 30px -12px color-mix(in srgb,var(--rd-shade) 20%,transparent)!important}:root .modal-title:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root .btn-secondary{border-radius:999px!important}:root .btn-secondary:where(:not([style*="background"])){background:var(--rd-surface)!important}:root .btn-secondary:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1px solid var(--rd-line2)!important}:root .btn-secondary:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root .btn-primary{border-radius:999px!important}:root .btn-primary:where(:not([style*="background"])){background:var(--rd-accent)!important}:root .btn-primary:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root .bid-tile:where(:not([style*="background"])){background:var(--rd-surface)!important}:root .bid-tile:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:1.5px solid var(--rd-line2)!important}:root .bid-tile:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:var(--rd-ink)!important}:root .bid-tile[aria-pressed="true"]:where(:not([style*="background"])){background:var(--rd-accent)!important}:root .bid-tile[aria-pressed="true"]:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:var(--rd-accent)!important}:root .bid-tile[aria-pressed="true"]:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root .bid-tiles-na-chip{border-radius:999px!important}:root #confirmYes{background:color-mix(in srgb,var(--rd-lose) 8%,var(--rd-surface))!important;border:1px solid color-mix(in srgb,var(--rd-lose) 35%,var(--rd-surface))!important;color:var(--rd-lose)!important;border-radius:999px!important}:root #confirmNo{background:var(--rd-surface)!important;border:1px solid var(--rd-line2)!important;color:var(--rd-ink)!important;border-radius:999px!important}:root .al-toggle[aria-checked="true"]:where(:not([style*="background"])){background:var(--rd-winFill)!important}:root .al-toggle{background:var(--rd-line2)}:root .al-gi-row{border-radius:14px!important}:root :is(.al-gi-ch,.al-gi-rm){border-radius:999px!important}:root .flash{border-radius:999px!important}:root .flash:where(:not([style*="box-shadow"])){box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 8%,transparent),0 12px 30px -12px color-mix(in srgb,var(--rd-shade) 20%,transparent)!important}:root .flash.err:where(:not([style*="background"])){background:var(--rd-loseFill)!important}:root .flash.err:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:0!important}:root .flash.err:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root .flash.al-toast:where(:not([style*="background"])){background:var(--rd-ink)!important}:root .flash.al-toast:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border:0!important}:root .flash.al-toast:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#FFFFFF!important}:root #accountSelectModal.modal,:root .login-card{background:var(--rd-surface)!important}:root .login-hero-year{font-family:'Hanken Grotesk',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}:root #userGoogleBtn{border:1px solid var(--rd-line2)!important;border-radius:999px!important}#centerAlertOverlay>div{border-radius:20px!important}:root #centerAlertOverlay>div{border:0!important;box-shadow:0 1px 2px color-mix(in srgb,var(--rd-shade) 8%,transparent),0 12px 30px -12px color-mix(in srgb,var(--rd-shade) 20%,transparent)!important}:root #centerAlertOk{border-radius:999px!important}.login-logo{display:none}.login-phase{color:#BED4C5}.dest-pill small{opacity:1}:root ::placeholder{color:#6F6A60;opacity:1}:root select:hover:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#4a505a!important}:root select:focus:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#1f2329!important}:root .board-view-select:hover:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#1f2329!important}:root .board-view-select:focus:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#1f2329!important}:root .week:hover:where(:not(.outcome-win,.outcome-approved,.outcome-lose,.outcome-review,.lk-grey)):where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#4a505a!important}:root .week.lk-grey .obadge:where(:not([style*="background"])){background:rgba(74,80,90,.10)!important}:root .week.lk-grey .obadge:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#5e5c57!important}:root .month-section.lk-sec .month-title:where(:not([style^="color"],[style*=";color"],[style*=" color:"])){color:#5e5c57!important}:root .edit-btn:hover:where(:not([style*="background"])){background:rgba(31,35,41,.25)!important}:root .cancel-btn:hover:where(:not([style*="background"])){background:rgba(92,31,21,.28)!important}:root .btn-secondary:hover:where(:not([style*="background"])){background:rgba(31,35,41,.04)!important}:root .btn-secondary:hover:where(:not([style*="border:"],[style*="border-color"],[style*="border-style"],[style*="border-width"],[style*="border-top"],[style*="border-right"],[style*="border-bottom"],[style*="border-left"])){border-color:#4a505a!important}</style>
+<style id="why-looks">/* [405 · §342 · plan S] the "Why?" link and its answer, as the approved test page "Why Box Test" v11 draws them */.tp-narow{display:flex;justify-content:flex-start;align-items:center;gap:18px}button.tp-why{flex:none;background:none;border:0;padding:2px 0;color:#1f2329;font-size:.82rem;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.tp-short{font-size:.85rem;color:#4a4f5a;font-weight:600;margin-bottom:14px;line-height:1.45}.tp-whybox{margin:8px 0 14px;padding:10px 12px;background:#eeebe2;border:1px solid #e2ddd1;border-radius:10px;font-size:.84rem;color:#1f2329;line-height:1.45}.tp-whybox[hidden]{display:none}.tp-brief{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}.tp-one{margin:0}</style>
+<style>
+/* the test's own lines: its header, the page behind, and the two fixes under test */
+.st-head{padding:max(18px,env(safe-area-inset-top)) 16px 8px;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1f2329}
+.st-head h1{font-size:1.3rem;margin:0 0 6px}
+.st-head p{margin:0 0 10px;font-size:.95rem;line-height:1.45;color:#4a505a}
+.st-ver{display:flex;gap:6px;margin:0 0 12px}
+.st-ver button{flex:1;min-height:44px;border-radius:10px;border:1px solid #cbc4b5;background:#ffffff;font:700 .9rem 'Hanken Grotesk',system-ui,sans-serif;color:#1f2329}
+.st-ver button[aria-pressed="true"]{background:#1f2329;color:#ffffff;border-color:#1f2329}
+.st-open{display:flex;flex-direction:column;gap:10px;margin:0 0 8px}
+.st-open button{min-height:48px;border-radius:12px;border:1px solid #1f2329;background:#ffffff;font:700 1rem 'Hanken Grotesk',system-ui,sans-serif;color:#1f2329}
+.st-row{margin:0 16px;padding:16px 4px;border-bottom:1px solid #e2ddd1;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1f2329}
+.st-which{font-size:.8rem;color:#4a505a;margin:2px 0 0}
+/* B: a swipe stays inside the box */
+html.v-contain .modal,html.v-contain .modal-content,html.v-contain #aaModal .aa-text,html.v-contain #pushModal .pu-list{overscroll-behavior:contain}
+</style></head><body>
+<div id="stMain">
+<div class="st-head"><h1>Alert box scroll test</h1>
+<p>Pick a version, then open an alert both ways. In each, scroll to the bottom of the alert's text and back up. The text should move, never the weeks behind. Sample text only.</p>
+<div class="st-ver" role="group" aria-label="Version"><button type="button" data-v="now" aria-pressed="true">A · As now</button><button type="button" data-v="contain" aria-pressed="false">B · Contain</button><button type="button" data-v="lock" aria-pressed="false">C · Locked</button></div>
+<div class="st-open"><button type="button" id="stDirect">Open an alert (as a tapped push does)</button><button type="button" id="stMenu">Open Push alerts (Recent alerts)</button></div>
+<div class="st-which" id="stWhich">Version A · As now</div></div>
+<div class="st-row"><b>Week 1</b> · the page behind the boxes</div><div class="st-row"><b>Week 2</b> · the page behind the boxes</div><div class="st-row"><b>Week 3</b> · the page behind the boxes</div><div class="st-row"><b>Week 4</b> · the page behind the boxes</div><div class="st-row"><b>Week 5</b> · the page behind the boxes</div><div class="st-row"><b>Week 6</b> · the page behind the boxes</div><div class="st-row"><b>Week 7</b> · the page behind the boxes</div><div class="st-row"><b>Week 8</b> · the page behind the boxes</div><div class="st-row"><b>Week 9</b> · the page behind the boxes</div><div class="st-row"><b>Week 10</b> · the page behind the boxes</div><div class="st-row"><b>Week 11</b> · the page behind the boxes</div><div class="st-row"><b>Week 12</b> · the page behind the boxes</div><div class="st-row"><b>Week 13</b> · the page behind the boxes</div><div class="st-row"><b>Week 14</b> · the page behind the boxes</div><div class="st-row"><b>Week 15</b> · the page behind the boxes</div><div class="st-row"><b>Week 16</b> · the page behind the boxes</div><div class="st-row"><b>Week 17</b> · the page behind the boxes</div><div class="st-row"><b>Week 18</b> · the page behind the boxes</div><div class="st-row"><b>Week 19</b> · the page behind the boxes</div><div class="st-row"><b>Week 20</b> · the page behind the boxes</div><div class="st-row"><b>Week 21</b> · the page behind the boxes</div><div class="st-row"><b>Week 22</b> · the page behind the boxes</div><div class="st-row"><b>Week 23</b> · the page behind the boxes</div><div class="st-row"><b>Week 24</b> · the page behind the boxes</div><div class="st-row"><b>Week 25</b> · the page behind the boxes</div><div class="st-row"><b>Week 26</b> · the page behind the boxes</div><div class="st-row"><b>Week 27</b> · the page behind the boxes</div><div class="st-row"><b>Week 28</b> · the page behind the boxes</div><div class="st-row"><b>Week 29</b> · the page behind the boxes</div><div class="st-row"><b>Week 30</b> · the page behind the boxes</div><div class="st-row"><b>Week 31</b> · the page behind the boxes</div><div class="st-row"><b>Week 32</b> · the page behind the boxes</div><div class="st-row"><b>Week 33</b> · the page behind the boxes</div><div class="st-row"><b>Week 34</b> · the page behind the boxes</div><div class="st-row"><b>Week 35</b> · the page behind the boxes</div><div class="st-row"><b>Week 36</b> · the page behind the boxes</div><div class="st-row"><b>Week 37</b> · the page behind the boxes</div><div class="st-row"><b>Week 38</b> · the page behind the boxes</div><div class="st-row"><b>Week 39</b> · the page behind the boxes</div><div class="st-row"><b>Week 40</b> · the page behind the boxes</div><div class="st-row"><b>Week 41</b> · the page behind the boxes</div><div class="st-row"><b>Week 42</b> · the page behind the boxes</div><div class="st-row"><b>Week 43</b> · the page behind the boxes</div><div class="st-row"><b>Week 44</b> · the page behind the boxes</div><div class="st-row"><b>Week 45</b> · the page behind the boxes</div><div class="st-row"><b>Week 46</b> · the page behind the boxes</div><div class="st-row"><b>Week 47</b> · the page behind the boxes</div><div class="st-row"><b>Week 48</b> · the page behind the boxes</div><div class="st-row"><b>Week 49</b> · the page behind the boxes</div><div class="st-row"><b>Week 50</b> · the page behind the boxes</div><div class="st-row"><b>Week 51</b> · the page behind the boxes</div><div class="st-row"><b>Week 52</b> · the page behind the boxes</div>
+</div>
+<div id="pushModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="puTitle">
+  <div class="modal-content">
+    <h2 class="modal-title" id="puTitle">Push alerts</h2>
+    <div class="al-sw" id="puRow">
+      <div class="al-sw-txt">
+        <div class="al-sw-name" id="puSwN">Push alerts on this device</div>
+        <div class="al-kp-line" id="puSub">Every e-mail you get from the auction also comes as an alert on this device.</div>
+      </div>
+      <button type="button" class="al-toggle" role="switch" aria-checked="false" aria-labelledby="puSwN" aria-describedby="puSub" id="puSw"></button>
+    </div>
+    <p class="pu-line" id="puLine" role="status" hidden></p>
+    <div class="pu-recent" id="puRecent" hidden><div class="pu-rh">Recent alerts</div><div class="pu-list" id="puList"></div></div><!-- [552 · §554] this phone's alerts of this auction (_paPaint) -->
+    <div class="modal-buttons"><button type="button" class="btn-primary" id="puDone">Done</button></div>
+  </div>
+</div>
+
+<div id="aaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="aaTitle" aria-describedby="aaText">
+  <div class="modal-content">
+    <h2 class="modal-title" id="aaTitle">Auction Alert</h2>
+    <div class="aa-text" id="aaText" tabindex="-1"></div>
+    <div class="modal-buttons"><button type="button" class="btn-primary" id="aaDone">Done</button></div>
+  </div>
+</div>
+
+<script>
+{
+const V={now:'A · As now',contain:'B · Contain',lock:'C · Locked'};
+let ver='now';
+const H=document.documentElement, main=document.getElementById('stMain');
+const pm=document.getElementById('pushModal'), am=document.getElementById('aaModal'), tx=document.getElementById('aaText');
+const lock=(on)=>{ H.style.overflow=on?'hidden':''; document.body.style.overflow=on?'hidden':''; main.inert=!!on; }; // the alerts window's own lock (_alLock)
+const anyOpen=()=>pm.classList.contains('show')||am.classList.contains('show');
+const after=()=>{ if(ver==='lock') lock(anyOpen()); };
+const para=(n)=>'Sample paragraph '+n+'. Scroll down to the end of this text, then back up. The text should move, never the weeks behind.';
+const LONG=['Welcome to the sample auction.','This text is long like the welcome e-mail, so the box has to scroll.'].concat(Array.from({length:18},(_,i)=>para(i+1))).concat(['End of the sample text. Now scroll back up.']).join('\n\n');
+const SHORT='There was activity on these weeks:\n\n• Wk 13 · Mar 28 — at 10:41 AM your projection changed from Winning to Losing.\n\nCheck the board for the latest.';
+const showAlert=(t)=>{ tx.textContent=t; tx.scrollTop=0; am.classList.add('show'); after(); };
+document.querySelectorAll('.st-ver button').forEach(b=>b.addEventListener('click',()=>{
+  ver=b.dataset.v; document.querySelectorAll('.st-ver button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  H.classList.toggle('v-contain',ver==='contain'); document.getElementById('stWhich').textContent='Version '+V[ver];
+}));
+document.getElementById('stDirect').addEventListener('click',()=>showAlert(LONG));
+document.getElementById('stMenu').addEventListener('click',()=>{
+  const sw=document.getElementById('puSw'); sw.setAttribute('aria-checked','true');
+  const L=document.getElementById('puList'); L.textContent=''; document.getElementById('puRecent').hidden=false;
+  [['Today 12:05 PM','Welcome to the sample auction.',LONG,true],['Today 10:41 AM','There was activity on these weeks:',SHORT,false]].forEach(([w,l,t,u])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='pu-row'+(u?' pu-unseen':'');
+    const d=document.createElement('span'); d.className='pu-dot'; const s=document.createElement('span'), a=document.createElement('span'), c=document.createElement('span');
+    a.className='pu-when'; a.textContent=w; c.className='pu-ln'; c.textContent=l; s.append(a,c); b.append(d,s);
+    b.addEventListener('click',()=>{ if(ver==='lock') pm.classList.remove('show'); showAlert(t); }); // C: one box at a time
+    L.appendChild(b);
+  });
+  pm.classList.add('show'); after();
+});
+document.getElementById('puDone').addEventListener('click',()=>{ pm.classList.remove('show'); after(); });
+document.getElementById('aaDone').addEventListener('click',()=>{ am.classList.remove('show'); after(); });
+}
+</script></body></html>

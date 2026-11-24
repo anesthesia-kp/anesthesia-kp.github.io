@@ -1,9 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 23 Nov 2026 V1" closed at his 10:04 AM "pushed.  file slide decks as todo.  handoff.": build 552 released.
+**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 24 Nov 2026 V1": build 553 (mail server only — the "your bid was removed" e-mail names each week once, §556) and the walkthrough decks, released by him with ▶ RELEASE about 11:53–11:54 AM.
 
-**LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 442 · staff (index) 276 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `3361d1f` (versions.json on all three 276 / 19 / 442; testing/push-sw.js with the Recent alerts store), equal to disk, about 10:06 AM in his Chrome / schedule `1cd7540` (55 / 157); the last code release: build 552 — staff 276 / admin 442, push-sw.js and the mail server (Recent alerts, the ☰ number, each push carrying its auction id, §554; the Push alerts rule shortened, §555) — by him with ▶ RELEASE about 10:04 AM; before it builds 551 (24 Nov 6:33 AM) and 550 (23 Nov 9:53 PM).**
+**LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 442 · staff (index) 276 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `799de30` (versions.json on all three 276 / 19 / 442), equal to disk, about 11:56 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 553 — the mail server only (one removal line a week, one "Admin ended your split" line a week per person, §556), pages unchanged — by him with ▶ RELEASE about 11:53 AM (tests `35bedc2`, auction `799de30`, hub `0a9eeda`; the first run stopped at the hub because Claude wrote TODO.md during it, re-run 11:54 AM); before it build 552 (24 Nov 10:04 AM).**
 
 
 
