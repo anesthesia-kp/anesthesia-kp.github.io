@@ -1,10 +1,10 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 23 Nov 2026 V1" (continued after the 6:45 AM hand-over): build 552 (staff 276 / admin 442) filed, amended 9:45 AM.
+**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 23 Nov 2026 V1" closed at his 10:04 AM "pushed.  file slide decks as todo.  handoff.": build 552 released.
 
-**LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 441 · staff (index) 275 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d295da5` (versions.json 275 / 19 / 441; crna/manifest.webmanifest "CRNA Vacay"; testing/push-sw.js with the "Auction Alert" title and the tap clearing the icon number), equal to disk, about 6:40 AM in his Chrome / schedule `1cd7540` (55 / 157); the last code releases: build 550, staff 275 (the push switch with no database wait, §548) 23 Nov 9:53 PM, and build 551 (push-sw.js, the mail server's alert title "Auction Alert", the CRNA Home Screen name "CRNA Vacay", §551–§552; page numbers unchanged) 24 Nov about 6:33 AM, both by him with ▶ RELEASE.**
-**FILED, NOT YET PUSHED: build 552 — staff 276 / admin 442 (mobile 19 unchanged): Recent alerts in the Push alerts box and the ☰ number (DECISIONS §554), with push-sw.js and the mail server (each push carries its auction id); the Push alerts rule shortened (§555); MD, `crna/` and `testing/`; waits for his ▶ RELEASE, which deploys the mail server to all three.**
+**LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 442 · staff (index) 276 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `3361d1f` (versions.json on all three 276 / 19 / 442; testing/push-sw.js with the Recent alerts store), equal to disk, about 10:06 AM in his Chrome / schedule `1cd7540` (55 / 157); the last code release: build 552 — staff 276 / admin 442, push-sw.js and the mail server (Recent alerts, the ☰ number, each push carrying its auction id, §554; the Push alerts rule shortened, §555) — by him with ▶ RELEASE about 10:04 AM; before it builds 551 (24 Nov 6:33 AM) and 550 (23 Nov 9:53 PM).**
+
 
 
 
