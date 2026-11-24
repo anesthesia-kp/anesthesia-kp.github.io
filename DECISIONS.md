@@ -563,6 +563,10 @@
 | §546 |  | THREE NEW WALKTHROUGH DECKS (MD SITE AS IT IS · STRICT · STRICT + SPLIT WEEKS) AND RUN 5'S UNTESTED CORNERS — 21 Nov 2026 10:10 PM |  |
 | §547 |  | PUSH ALERTS — A PUSH WITH EVERY AUCTION E-MAIL, OFF UNTIL EACH PERSON TURNS IT ON; ADMIN SEES AND CAN TURN OFF — 22 Nov 2026 9:44 AM |  |
 | §548 |  | THE PUSH SWITCH: QUICK AND RELIABLE — NO DATABASE WAIT WHEN TURNING ON OR OPENING THE BOX (BUILD 550, STAFF 275) — 23 Nov 2026 9:39 PM |  |
+| §549 |  | WELCOME E-MAILS AFTER A RESET IN THE SAME ADMIN PAGE VISIT: FOUND, NOT FIXED — 23 Nov 2026 10:22 PM |  |
+| §550 |  | E-MAIL TIMING WITH PUSH: ANSWERED (NO CHANGE) — 23 Nov 2026 10:30 PM |  |
+| §551 |  | THE PUSH ALERT'S TITLE: "Vacation Auction" ON ALL THREE SITES — 23 Nov 2026 10:34 PM |  |
+| §552 |  | THE ICON'S RED NUMBER: A TAPPED ALERT CLEARS IT; THE ALERTS STAY LISTED — 23 Nov 2026 10:37 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9339,3 +9343,30 @@ Session "Vacation Auction 23 Nov 2026 V1". The cable diagnosis (§547's 4:52 PM 
 - **Put to him:** (1) the turn-on stops re-reading the list and uses the copy the box read on opening; (2) the box opens in the position the phone remembers, the read only confirming. **9:38 PM, owner verbatim:** *"i'm not sure.  i want this to work well, simply, reliably."* · *"and quickly of course"* — Claude: both, as one small build. **9:39 PM, owner verbatim:** *"go with both"*. 
 - **Ruled:** build 550 (staff 275) as `tests/docs/build550-push-quick/PLAN.md`: no Rules page or wording change, no rules or mail server change; MD, CRNA and testing together (rule 27). Accepted rare cases: a 6th device in the same seconds → refused, next tap works; push turned off for this phone elsewhere → the box corrects itself when the read answers.
 - **9:40 PM, owner verbatim:** *"here"* (build in this session). **About 9:55 PM:** build 550 (staff 275) built in the cloud scratch copy, gated (test-550-push-quick 38/0, honesty 21 red on 274; four old suites repointed, each red on 274 where its premise moved; the rest green), filed to the Mac (md5 equal both ends), BUILD-LOG row, COMMIT-MESSAGE ×3; rehearsal site republished (carries staff 275 / admin 441). Waiting on his ▶ RELEASE.
+- **9:53 PM, owner verbatim:** *"pushd"* — build 550 RELEASED: served staff 275 / mobile 19 / admin 441 at `/vacation/`, `crna/`, `testing/` (`21c486a`), read in his Chrome. Waiting on his iPhone check.
+
+## §549 — WELCOME E-MAILS AFTER A RESET IN THE SAME ADMIN PAGE VISIT: FOUND, NOT FIXED — 23 Nov 2026 10:22 PM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **10:17 PM, owner verbatim:** *"I just reset the testing auction and then hit begin P1, but welcome e-mails weren't triggered.  Could it have something to do with repeated auction resets and welcome emails can't get sent repeatedly?"*
+- **Found (testing project, read only in his Chrome; and a run of the admin page's own code, `tests/docs/welcome-after-reset/wl-repro.mjs`):** Begin at ~9:54 and ~10:13 PM each sent 4 welcomes (delivered); after a Reset, Phase 1 began 10:16:41 PM and no welcome was asked for. Cause: `welcomeOnce`'s `_welcomeInFlight` set lasts the page visit and Reset never clears it, so a second Begin in the same visit asks for none (while the Begin dialog still counts them). Not a limit on resets; reloading the admin page between Reset and Begin avoids it; owed welcomes still go at each person's first sign-in.
+- **10:22 PM, owner verbatim:** *"don't need to fix it"* — DECLINED; one line in TODO §1's CLOSED / DECLINED table. Do not re-raise.
+
+## §550 — E-MAIL TIMING WITH PUSH: ANSWERED (NO CHANGE) — 23 Nov 2026 10:30 PM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **10:26 PM, owner verbatim:** *"it seems like apple mail might be delaying email sends when it also sends a push?"* · **10:27 PM:** *"there appears to be a 2 minute delay from e-mail send time to delivered time?"*
+- **Answered from the mail server's code (`tests/server/mail/lib/run.js`: the e-mail goes to EmailJS first, then the push, same run) and the testing project's records tonight (read only):** the push and the e-mail leave in the same second, every time. Request → sent: welcomes 5–50 s, the admin message 37 s, the bidding alert 1 min 54 s — the alert's built-in 90-second wait plus the server's once-a-minute run. Push cannot delay the e-mail. Apple Mail on an iPhone collects a Gmail account by fetching (Gmail gives it no push), so the push alert can show before Mail picks the e-mail up. No change asked for.
+
+## §551 — THE PUSH ALERT'S TITLE: "Vacation Auction" ON ALL THREE SITES — 23 Nov 2026 10:34 PM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **10:33 PM, owner verbatim:** *"notification says Testing. Site - vacation auction from testing.  This reads poorly."* — the title is the mail server's per-site push_title (MD "MD Vacation Auction", CRNA "CRNA Vacation Auction", testing "Testing Site — Vacation Auction"); an iPhone adds "from <Home Screen name>". Put to him: "Vacation Auction" on all three (recommended) or "Testing Vacation Auction" on testing only.
+- **10:34 PM, owner verbatim:** *"I want short and simple"* — RULED: the alert title is **"Vacation Auction"** on the MD, CRNA and testing sites (the iPhone's "from" line names the site). A mail server change (▶ RELEASE deploys it to all three). Build go: asked with the badge item (TODO §1).
+
+## §552 — THE ICON'S RED NUMBER: A TAPPED ALERT CLEARS IT; THE ALERTS STAY LISTED — 23 Nov 2026 10:37 PM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **10:28 PM, owner verbatim:** *"if i click a push alert from notifications, the app opens with the alert correctly.  however, i still see the notification # on the icon in that case."* — found (TODO §1): push-sw.js's tap handler resets the number to the alerts still listed, which can land after the page's clear; his 548 ruling was "cleared when the app opens".
+- **10:35 PM:** *"what happens if multiple notifications pile for a user?"* — answered from the code (one alert per e-mail, stacked, never replaced; the number counts them; a tap opens that alert's text; the rest stay listed; a day's wait when the phone is unreachable).
+- **10:37 PM, owner verbatim:** *"so all alerts clear upon opening 1?"* — answered: only the number; offered also clearing the list. **10:37 PM, owner verbatim:** *"number only"* — RULED: opening the app or tapping an alert clears the red number outright (no recount); the alerts stay in Notification Center; a new alert still sets the number. push-sw.js on all three sites. With §551 as one small build; build here / next session asked.
+- **10:37 PM, owner verbatim:** *"go with both"* — read as build here (said in the chat). **About 10:55 PM:** build 551 built in a cloud scratch copy (push-sw.js clearBadge on a tap; mail-core push_title "Vacation Auction" ×3), gated (four repointed suites green, each red on the old code; mail server suites green), filed to the Mac (md5 equal), BUILD-LOG row. Waiting on his ▶ RELEASE. Record: `tests/docs/build551-push-title-badge/`.
+- **24 Nov 2026 6:19 AM, owner verbatim:** *""Vacation Auction · from Testing" is still too long"* — Claude: only the title is the site's (the "from …" part is the iPhone's, fixed when the icon is saved); offered "Auction". **6:21 AM, owner verbatim:** *"Maybe Auction Alert. I don’t like the reuse of words"* — RULED (replaces 10:34 PM's "Vacation Auction"): the push alert title is **"Auction Alert"** on all three sites (the push file's own fallback title too). Build 551 not yet released, so changed before release.
+- **6:22 AM, owner verbatim:** *"Can the site be CRNA Vacay?"* — answered: yes, the CRNA staff Home Screen name (crna-stamp.mjs app name → crna/manifest.webmanifest); icons already saved keep "CRNA Vac" until re-added. **6:22 AM, owner verbatim:** *"Yes"* — RULED: the CRNA staff Home Screen name is **"CRNA Vacay"**, added to build 551.
+- **About 6:40 AM 24 Nov:** build 551 rebuilt from the clean base with "Auction Alert" and "CRNA Vacay" (push-sw.js kept under its 6,000-character cap by shortening the new comments), gated (every repointed check red on the old code), filed to the Mac (md5 equal), BUILD-LOG row updated. Waiting on his ▶ RELEASE.
