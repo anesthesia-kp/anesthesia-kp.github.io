@@ -1,10 +1,10 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 23 Nov 2026 V1": build 551 FILED, WAITING FOR ▶ RELEASE (page build numbers unchanged: push-sw.js — a tapped alert clears the icon number, §552; the mail server — the alert title "Auction Alert", §551; the CRNA Home Screen name "CRNA Vacay"; the release deploys the mail server to all three).
+**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 23 Nov 2026 V1" (continued after the 6:45 AM hand-over): build 552 (staff 276 / admin 442) filed, amended 9:45 AM.
 
-**LIVE, verified at the pushed commit, 23 Nov 2026: auction admin 441 · staff (index) 275 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `21c486a` (versions.json on `/vacation/` (and `?c=21c486ab`), `crna/` and `testing/`, all 275 / 19 / 441) / schedule `1cd7540` (55 / 157), equal to disk, about 9:55 PM in his Chrome; the last code release was build 550, staff 275 (the push switch with no database wait, §548; rules and mail server unchanged), released by him with ▶ RELEASE about 9:53 PM.**
-
+**LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 441 · staff (index) 275 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `d295da5` (versions.json 275 / 19 / 441; crna/manifest.webmanifest "CRNA Vacay"; testing/push-sw.js with the "Auction Alert" title and the tap clearing the icon number), equal to disk, about 6:40 AM in his Chrome / schedule `1cd7540` (55 / 157); the last code releases: build 550, staff 275 (the push switch with no database wait, §548) 23 Nov 9:53 PM, and build 551 (push-sw.js, the mail server's alert title "Auction Alert", the CRNA Home Screen name "CRNA Vacay", §551–§552; page numbers unchanged) 24 Nov about 6:33 AM, both by him with ▶ RELEASE.**
+**FILED, NOT YET PUSHED: build 552 — staff 276 / admin 442 (mobile 19 unchanged): Recent alerts in the Push alerts box and the ☰ number (DECISIONS §554), with push-sw.js and the mail server (each push carries its auction id); the Push alerts rule shortened (§555); MD, `crna/` and `testing/`; waits for his ▶ RELEASE, which deploys the mail server to all three.**
 
 
 

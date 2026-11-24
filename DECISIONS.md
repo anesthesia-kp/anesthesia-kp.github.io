@@ -567,6 +567,9 @@
 | §550 |  | E-MAIL TIMING WITH PUSH: ANSWERED (NO CHANGE) — 23 Nov 2026 10:30 PM |  |
 | §551 |  | THE PUSH ALERT'S TITLE: "Vacation Auction" ON ALL THREE SITES — 23 Nov 2026 10:34 PM |  |
 | §552 |  | THE ICON'S RED NUMBER: A TAPPED ALERT CLEARS IT; THE ALERTS STAY LISTED — 23 Nov 2026 10:37 PM |  |
+| §553 |  | THE WELCOME E-MAIL KEEPS ITS PUSH ALERT — 24 Nov 2026 7:12 AM |  |
+| §554 |  | RECENT ALERTS IN THE PUSH ALERTS BOX, THE ☰ COUNT, KEPT PER AUCTION (BUILD 552, STAFF 276) — 24 Nov 2026 7:15 AM |  |
+| §555 |  | THE PUSH ALERTS RULE SHORTENED — 24 Nov 2026 9:28 AM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9370,3 +9373,18 @@ Session "Vacation Auction 23 Nov 2026 V1".
 - **24 Nov 2026 6:19 AM, owner verbatim:** *""Vacation Auction · from Testing" is still too long"* — Claude: only the title is the site's (the "from …" part is the iPhone's, fixed when the icon is saved); offered "Auction". **6:21 AM, owner verbatim:** *"Maybe Auction Alert. I don’t like the reuse of words"* — RULED (replaces 10:34 PM's "Vacation Auction"): the push alert title is **"Auction Alert"** on all three sites (the push file's own fallback title too). Build 551 not yet released, so changed before release.
 - **6:22 AM, owner verbatim:** *"Can the site be CRNA Vacay?"* — answered: yes, the CRNA staff Home Screen name (crna-stamp.mjs app name → crna/manifest.webmanifest); icons already saved keep "CRNA Vac" until re-added. **6:22 AM, owner verbatim:** *"Yes"* — RULED: the CRNA staff Home Screen name is **"CRNA Vacay"**, added to build 551.
 - **About 6:40 AM 24 Nov:** build 551 rebuilt from the clean base with "Auction Alert" and "CRNA Vacay" (push-sw.js kept under its 6,000-character cap by shortening the new comments), gated (every repointed check red on the old code), filed to the Mac (md5 equal), BUILD-LOG row updated. Waiting on his ▶ RELEASE.
+- **24 Nov 2026 6:35 AM, owner verbatim:** *"pushed. handoff"* — build 551 RELEASED at `d295da5` (tests `fe8ab17`, hub `ba48306`): versions.json 275 / 19 / 441, crna/manifest.webmanifest "CRNA Vacay", testing/push-sw.js with "Auction Alert" and the tap clearing the number, read in his Chrome. Waiting on his iPhone check.
+
+## §553 — THE WELCOME E-MAIL KEEPS ITS PUSH ALERT — 24 Nov 2026 7:12 AM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **7:03 AM, owner verbatim:** *"…I’m not entirely sure how to handle the fact that the welcome email push notification says you’re now enrolled in email alerts. I think it’s probably fine unless you have any ideas. It’s true, it’s just slightly out of place as a push alert."* — Claude recommended no push with the welcome e-mail (one mail server line), more strongly after his 7:08 AM *"I would recommend people set up push alerts before the auction starts"* (nearly everyone would get it at Begin Phase 1); asked again at his 7:11 AM *"What about push alerts stating enrolled in email?"*.
+- **7:12 AM, owner verbatim:** *"I think it’s ok to leave welcome email as it is"* — RULED: no change; the welcome e-mail and its push alert stay as they are. Do not re-raise.
+
+## §554 — RECENT ALERTS IN THE PUSH ALERTS BOX, THE ☰ COUNT, KEPT PER AUCTION (BUILD 552, STAFF 276) — 24 Nov 2026 7:15 AM
+Session "Vacation Auction 23 Nov 2026 V1". His idea 6:57 AM (*"…I think real apps would show the notifications in the app as well. Could the menu show this number for unviewed notifications?  How about notification history there?  I don’t want to overbuild, but if it’s easy …"*); his questions and picks 6:59–7:12 AM are in TODO §1's line (mock-up https://claude.ai/artifact/K4mk93vvduyPXfvwNvuQFR): no new menu item — the count on ☰ and Push alerts; "Recent alerts" under the switch, hidden while a phone has none (7:07 AM *"Not sure we need nothing new?"*); no age limit, the last 20 (7:09 AM *"Why not always show recent alerts?  It’s clear which are new because of the red dot."*); a Reset clears it (7:09 AM *"When I reset the auction, wouldn’t alerts from prior year clear?"* → each alert carries its auction id); the welcome keeps its push (§553).
+- **7:15 AM, owner verbatim:** *"Go"* — build 552 as `tests/docs/build552-alerts-list/PLAN.md`, here.
+- **About 7:40 AM:** build 552 built in a cloud scratch copy (restructured once so the older suites' cuts reach the new code: the Recent alerts code inside the push section, cross-section calls behind typeof, the page's existing listeners reused; staff wording never says "new" — "not viewed"), gated (test-552 62/0, honesty 23 red on 551; repointed suites each red on 551 where the premise moved; the rest green; rehearsal site 40/40, republished), filed to the Mac (md5 equal), BUILD-LOG row. Waiting on his ▶ RELEASE.
+
+## §555 — THE PUSH ALERTS RULE SHORTENED — 24 Nov 2026 9:28 AM
+Session "Vacation Auction 23 Nov 2026 V1".
+- **9:28 AM, owner verbatim:** *"Remove this: On iPhone and iPad they work only from the Home Screen icon. The admin can turn anyone's push alerts off; only the person can turn them on."* — RULED: the two sentences leave the Push alerts rule everywhere it is written (staff Rules & Reminders, the rules text the e-mails carry, the admin page's copy and its rules list 7.11). It now reads: "Push alerts: each person turns them on from the menu, on each device. Every e-mail from the auction also comes as a push alert on those devices." Folded into build 552 before its release (admin 441 → 442). The Push alerts box's own iPhone line (how to add the Home Screen icon) is a different line and stays. Not done: the walkthrough decks' "All rules and reminders" slide still carries the two sentences — asked.
