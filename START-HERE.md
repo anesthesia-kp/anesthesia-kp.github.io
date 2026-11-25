@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 24 Nov 2026 V1": build 553 (mail server only — the "your bid was removed" e-mail names each week once, §556) and the walkthrough decks, released by him with ▶ RELEASE about 11:53–11:54 AM.
+**LAST REVISED: 24 Nov 2026** — session "Vacation Auction 24 Nov 2026 V1": build 553 released 11:53 AM; build 554 (one "Alerts" box, Recent alerts from the e-mails, the boxes lock the page behind — §557) built and filed about 5:20 PM.
 
 **LIVE, verified at the pushed commit, 24 Nov 2026: auction admin 442 · staff (index) 276 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `799de30` (versions.json on all three 276 / 19 / 442), equal to disk, about 11:56 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 553 — the mail server only (one removal line a week, one "Admin ended your split" line a week per person, §556), pages unchanged — by him with ▶ RELEASE about 11:53 AM (tests `35bedc2`, auction `799de30`, hub `0a9eeda`; the first run stopped at the hub because Claude wrote TODO.md during it, re-run 11:54 AM); before it build 552 (24 Nov 10:04 AM).**
+
+**FILED, NOT YET PUSHED: build 554 — staff 277 / admin 443 + push-sw.js + mail server + firestore.rules (DECISIONS §557, BUILD-LOG 554). Needs his RA-2 (rules change), then ▶ RELEASE to all three sites. Until then the LIVE line above is what is served.**
 
 
 
