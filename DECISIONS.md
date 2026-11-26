@@ -583,6 +583,7 @@
 | §566 |  | THE TESTING SITE'S HEADER LINE LOOKS BIGGER THAN THE MD ONE ON HIS IPHONE — 25 Nov 2026 1:00 PM |  |
 | §567 |  | CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM |  |
 | §568 |  | A TAPPED PHONE ALERT SHOWS THE WHOLE E-MAIL — 25 Nov 2026 5:50 PM |  |
+| §569 |  | A TAPPED ALERT AND THE ALERTS BOX OPEN AT THE TOP — 25 Nov 2026 6:26 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9540,3 +9541,8 @@ Session "Vacation Auction 25 Nov 2026 V3". Owner-found on his iPhone (testing si
 - **5:55 PM, owner verbatim:** *"rest in e-mail fine.  will this happen with every welcome e-mail?"* — the line's words RULED: "The rest is in your e-mail." (as built; PLAN §4).
 - **~6:35 PM: BUILD 558 FILED TO THE MAC** (staff 281; built and gated in a cloud scratch copy; 12 files md5-checked on the Mac: the MD, CRNA and testing pages + versions.json, BUILD-LOG, the auction and tests COMMIT-MESSAGE lines, test-558-aa-whole.mjs, the repointed test-554.mjs, testsite/published.json). Gates in BUILD-LOG 558. Rehearsal site republished (281/445). Waits for his ▶ RELEASE — pages only, no rules, no mail server.
 - **6:16 PM, owner verbatim:** *"pushed handoff"* — **BUILD 558 RELEASED** (auction `862c740`, tests `eaa3ade`, hub `fa89e56`; pages only); the Mac clean, no locks. Served versions read ~6:20 PM in his Chrome: MD (`?c=862c740` and `?c=862c740b`), CRNA and testing all serve staff 281 / mobile 19 / admin 445.
+
+## §569 — A TAPPED ALERT AND THE ALERTS BOX OPEN AT THE TOP — 25 Nov 2026 6:26 PM
+Session "Vacation Auction 25 Nov 2026 V4". Owner-found on his iPhone (testing site, build 558), 6:23 PM, verbatim: *"entire alert showed.  it started scrolled part way down.  not a huge deal, but not also not right."* Read (staff 281): `_aaShow` sets the text's scroll to the top while the box is still hidden; the other staff boxes that reset (Recent alerts, Split weeks, Rules) do it after the box shows. Likely cause, not proved: the box kept the scroll point of the earlier alert he scrolled at 5:45 PM. The same shape: `openAlertsBox` never resets its scroll.
+- **6:26 PM, owner verbatim:** *"yes and build here"* — RULED: build 559 (staff 282): the Auction Alert box opens at the e-mail's first line (scroll set after the box shows); the Alerts box (☰ → Alerts) opens at its top too. Build here (rule 25). No wording, no Rules lines (nothing the site does changes). Plan: `tests/docs/build559-scroll-top/PLAN.md`.
+- **~6:50 PM: BUILD 559 FILED TO THE MAC** (staff 282; built and gated in a cloud scratch copy; MD, CRNA and testing pages + versions.json md5-checked on the Mac; test-559-scroll-top.mjs; BUILD-LOG 559; the auction, tests and hub COMMIT-MESSAGE lines). Honesty on staff 281 reproduced his report (the second alert opened 1,966 px down; the Alerts box reopened 61 px down). Rehearsal site republished (282/445). Waits for his ▶ RELEASE — pages only, no rules, no mail server.
