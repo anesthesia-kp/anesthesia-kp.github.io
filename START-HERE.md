@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V2" closed: build 557 (staff 280 / admin 445 — status badges never circles, the alert lines under their own "Alerts" heading, every Rules & Reminders heading alike, §561–§566) released 4:42 PM, after deck updates 6–7 (4:14 PM); built in the cloud while the Mac was off (§563). After the close: delete permission asked with the folder access, and `_to_delete/` emptied by Claude at every handoff (§4 step 4, §567).
+**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V3": build 558 (staff 281 — a tapped phone alert shows the whole e-mail, §568) built in the cloud, gated and filed to the Mac ~6:35 PM; waits for his ▶ RELEASE.
 
 **LIVE, verified at the pushed commit, 25 Nov 2026: auction admin 445 · staff (index) 280 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `77ec2a0` (versions.json on all three 280 / 19 / 445, and with `b` added), about 5:17 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 557 — staff 280 / admin 445 (status badges never circles; the alert lines under "Alerts"; every Rules & Reminders heading alike; the 1/2/3 line only while a combination is allowed; pages only) — by him with ▶ RELEASE about 4:42 PM 25 Nov (tests `e8cabca`, auction `77ec2a0`, hub `1ace5e7`); before it build 556 (25 Nov 9:14 AM: every box holds the page still).**
+
+**FILED, NOT YET PUSHED: staff 281 (build 558, §568 — a tapped phone alert shows the whole e-mail) — pages only, MD + CRNA + testing (staff md5 f63c0fd8); test-558 and the repointed test-554 in the tests repo. ▶ RELEASE pushes them; the live line above stays 280 / 445 until it does.**
 
 
 

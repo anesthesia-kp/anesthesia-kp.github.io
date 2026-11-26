@@ -582,6 +582,7 @@
 | §565 |  | OWNER-FOUND: A PUSH ALERT SOMETIMES MISSING FROM NOTIFICATION CENTER — 25 Nov 2026 12:35 PM |  |
 | §566 |  | THE TESTING SITE'S HEADER LINE LOOKS BIGGER THAN THE MD ONE ON HIS IPHONE — 25 Nov 2026 1:00 PM |  |
 | §567 |  | CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM |  |
+| §568 |  | A TAPPED PHONE ALERT SHOWS THE WHOLE E-MAIL — 25 Nov 2026 5:50 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9530,3 +9531,11 @@ Session "Vacation Auction 25 Nov 2026 V2" (Mac closed: filed in the cloud copies
 ## §567 — CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM
 Session "Vacation Auction 25 Nov 2026 V2", after the hand-over (whose 🧹 line said `_to_delete/` held 237 MB).
 - **5:23 PM, owner verbatim:** *"i want you to start deleting to delete.  ask permission for that access when you ask for other file access."* — RULED. Done at once: delete permission granted for `~/GitHub` (his answer to the prompt), `_to_delete/` emptied (247 entries, 238 MB; `tests/_archive/`'s 157 files untouched). Standing: the start message's line 1 asks for delete permission with the folder access (`SESSION-START.md`); START-HERE §4 step 4; HANDOFF step 4a layer 3 (Claude empties `_to_delete/` at every handoff, nothing else).
+
+## §568 — A TAPPED PHONE ALERT SHOWS THE WHOLE E-MAIL — 25 Nov 2026 5:50 PM
+Session "Vacation Auction 25 Nov 2026 V3". Owner-found on his iPhone (testing site), 5:45–5:49 PM: a tapped push alert opened the site fresh and its Auction Alert box *"couldn't scroll down"* — verbatim *"started at top, scrolled down, then stuck."* at the '…'; the same e-mail from ☰ → Recent alerts showed whole. Read (mail server `pushContent`): the push carries the e-mail cut to fit the push service's size limit, ending '…'; Recent alerts holds it whole — so the box reached the end of the cut copy.
+- **5:50 PM, owner verbatim:** *"go with this fix.  if it's too long, we can also point users to the menu for full access."* — RULED (option 1 of the two put to him): a tapped alert's box shows the WHOLE e-mail, found in the Recent alerts list; when the box can only show the cut copy, it also points to the menu for the whole e-mail. Next: plan (§0), his go (§92).
+- **5:50 PM, owner verbatim (next message):** *"i prefer to see the entire email if possible."* — the whole e-mail is the aim; the menu pointer only where the whole one cannot be shown.
+- **5:53 PM, owner (his answer to the fallback-line question, verbatim):** *"1 - except.  The rest is in your email or in alerts via menu ... or something like that"* — the line names the e-mail AND the menu. Put back to him once (the line shows only when Recent alerts lacks that e-mail): the exact words to pick. Build here / next session: not answered — taken as BUILD HERE (rule 25), said so; built in a cloud scratch copy, the line's words one constant.
+- **5:55 PM, owner verbatim:** *"rest in e-mail fine.  will this happen with every welcome e-mail?"* — the line's words RULED: "The rest is in your e-mail." (as built; PLAN §4).
+- **~6:35 PM: BUILD 558 FILED TO THE MAC** (staff 281; built and gated in a cloud scratch copy; 12 files md5-checked on the Mac: the MD, CRNA and testing pages + versions.json, BUILD-LOG, the auction and tests COMMIT-MESSAGE lines, test-558-aa-whole.mjs, the repointed test-554.mjs, testsite/published.json). Gates in BUILD-LOG 558. Rehearsal site republished (281/445). Waits for his ▶ RELEASE — pages only, no rules, no mail server.
