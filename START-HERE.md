@@ -1,11 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 25 Nov 2026 V5" (continued 26 Nov): build 564 (staff 287 — a tapped phone alert opens ☰ → Alerts like every other way in, §571) built in the cloud, filed to the Mac ~8:25 AM; waits for ▶ RELEASE.
+**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 25 Nov 2026 V5" closed (26 Nov ~8:30 AM): build 564 (staff 287 — a tapped phone alert opens ☰ → Alerts like every other way in, §571) released by him ~8:24 AM; served 287 / 19 / 445 at `?c=a833b2a`.
 
-**LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 445 · staff (index) 286 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `cc377fe` (versions.json on all three 286 / 19 / 445, and with `b` added), about 8:00 AM in the app's built-in browser (his Chrome not connected) / schedule `1cd7540` (55 / 157); the last release: build 563 — staff 286 (the Alerts box opens by itself while an alert is not viewed; every box opens at its top; pages only) — by him with ▶ RELEASE about 7:55 AM 26 Nov (tests `3abddbf`, auction `cc377fe`, hub `bca23da`); before it build 562 (6:48 AM).**
-
-**FILED, NOT YET PUSHED: staff 287 (build 564, §571 — a tapped phone alert opens ☰ → Alerts like every other way in; the page no longer takes the tap's hand-off) — pages only, MD + CRNA + testing (staff md5 39172ed1); test-564, the reworded 549/552/554/555/563 and test-562 retired in the tests repo. ▶ RELEASE pushes them; the live line above stays 286 / 445 until it does.**
+**LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 445 · staff (index) 287 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `a833b2a` (versions.json on all three 287 / 19 / 445, and with `b` added), about 8:27 AM in the app's built-in browser (his Chrome not connected) / schedule `1cd7540` (55 / 157); the last release: build 564 — staff 287 (a tapped phone alert opens ☰ → Alerts; pages only) — by him with ▶ RELEASE about 8:24 AM 26 Nov (tests `85b70a6`, auction `a833b2a`, hub `84dc5b2`); before it build 563 (7:55 AM).**
 
 
 
