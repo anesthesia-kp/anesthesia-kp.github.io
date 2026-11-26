@@ -581,11 +581,13 @@
 | §564 |  | RULES & REMINDERS: THE ALERT LINES OUT OF "UNDERSTANDING OUTCOMES" (BUILD 557) — 25 Nov 2026 12:13 PM |  |
 | §565 |  | OWNER-FOUND: A PUSH ALERT SOMETIMES MISSING FROM NOTIFICATION CENTER — 25 Nov 2026 12:35 PM |  |
 | §566 |  | THE TESTING SITE'S HEADER LINE LOOKS BIGGER THAN THE MD ONE ON HIS IPHONE — 25 Nov 2026 1:00 PM |  |
-| §567 |  | CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM |  |
+| §567 |  | CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM | SUPERSEDED BY §572 |
 | §568 |  | A TAPPED PHONE ALERT SHOWS THE WHOLE E-MAIL — 25 Nov 2026 5:50 PM |  |
 | §569 |  | A TAPPED ALERT AND THE ALERTS BOX OPEN AT THE TOP — 25 Nov 2026 6:26 PM |  |
 | §570 |  | A TAPPED ALERT OPENS ITS BOX WHEN THE WEB APP WAS OPEN IN THE BACKGROUND — 25 Nov 2026 8:32 PM |  |
 | §571 |  | THE ALERT BOX OPENS WITH THE NEWEST ALERT NOT YET VIEWED WHEN THE WEB APP OPENS OR COMES TO THE FRONT (BUILD 561) — 25 Nov 2026 8:57 PM |  |
+| §572 |  | DELETE PERMISSION ASKED ONLY WHEN `_to_delete/` HOLDS MANY FILES — 26 Nov 2026 8:39 AM |  |
+| §573 |  | OPENING THE WEB APP CLEARS THAT DEVICE'S BANNERS FOR ALERTS ALREADY VIEWED — 26 Nov 2026 8:56 AM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9585,3 +9587,16 @@ Session "Vacation Auction 25 Nov 2026 V5". 8:55 PM, owner verbatim, staff 283 li
 - **8:06 AM, his pick (question card):** *"Always the Alerts box"* — RULED: a tapped phone alert always opens ☰ → Alerts, the same as every other way in (new ones dotted, newest first; a row shows its e-mail whole); the page stops using the tap's hand-off. Supersedes the 8:01 AM whole-e-mail plan. Build here (his 8:04 AM "go with build here"): build 564, staff 287.
 - **8:06 AM, owner verbatim:** *"does this handle the multiple alert thing better?"* — answered: yes — every way in opens ☰ → Alerts with all new alerts listed and dotted; nothing is counted viewed before it has been in front of the person. **~8:25 AM: BUILD 564 FILED TO THE MAC** (staff 287; md5-checked; test-564-tap-alerts 13/13, honesty on 286 FAILED — his report reproduced; 549/552/554/555/563 tap-path checks reworded (rule 35), each failing on 286; test-562 retired; BUILD-LOG 564). Rehearsal site 287/445. Waits for his ▶ RELEASE — pages only.
 - **8:25 AM, owner verbatim:** *"pushed.  handoff."* — build 564 released ~8:24 AM (served 287 / 19 / 445 on all three sites at `?c=a833b2a`, read 8:27 AM). Session closed.
+- **8:37 AM, owner verbatim:** *"Working great, thank you."* — his iPhone check of build 564 passed; TODO §1 item closed.
+
+## §572 — DELETE PERMISSION ASKED ONLY WHEN `_to_delete/` HOLDS MANY FILES — 26 Nov 2026 8:39 AM
+Session "Vacation Auction 26 Nov 2026 V1", at the opening (delete permission had just been asked with the folder access, as §567 said; `_to_delete/` held 0 files).
+- **8:39 AM, owner verbatim:** *"Only ask for delete file access when the # of files is high and otherwise stop asking about it."*
+- **8:40 AM, owner verbatim:** *"I doin't want to discuss that egery session when it's not relevant"* — RULED, standing (replaces §567's "ask with the folder access"): the session opening asks for `~/GitHub` folder access only. Delete permission is asked ONLY when `_to_delete/` holds many files — Claude's reading of "high": about 50 files or more (counted with `find _to_delete -type f | wc -l`) — and then only at the moment it is to be emptied (HANDOFF step 4a). With fewer, the files stay and nothing is said: no ask, no mention in the §4 report, the hand-over or any summary. When permission is granted, its one use is unchanged: emptying `_to_delete/` — never `_archive/`, never a repo file. Done at once: `SESSION-START.md` line 1, START-HERE §4 step 4, HANDOFF step 4a layer 3.
+
+## §573 — OPENING THE WEB APP CLEARS THAT DEVICE'S BANNERS FOR ALERTS ALREADY VIEWED — 26 Nov 2026 8:56 AM
+Session "Vacation Auction 26 Nov 2026 V1". 8:48 AM, owner verbatim: *"do alerts keep showing as new if viewed on different devices?"* — answered (staff 287, hand-read): "viewed up to" is one server value per person (`alertSeen/{u}`), so the ☰ number and the Alerts list's dots follow on every device (an Alerts box already open keeps its dots until it is opened again); the web app's icon number is cleared whenever the web app opens or comes to the front (`_puBadgeClear`, build 548 — Claude first said it stayed until a tap, and corrected that at 8:55 AM); the phone's banners stay.
+- **8:51 AM, owner verbatim:** *"IDeally, icon # and red dot would be cleared if viewed elsewhere"* — put to him: a phone that is not opened cannot be cleared (Apple allows no push that shows nothing; three and the phone's push is turned off); options (1) page only, banners cleared on opening, (2) also the mail server, (3) leave as is.
+- **8:56 AM, his picks (question card):** "red dot" = *"both"* (the icon's red number and the Alerts list's dots — both already follow; nothing to build for them) · *"Clear banners when opened (Recommended)"* — RULED: when the web app opens or comes to the front, it also removes that device's banners for alerts already viewed on any device. Page only (staff page; CRNA and testing by the stamp). Next: plan (§0), his go (§92).
+- **8:58 AM, owner verbatim:** *"go"* — to the plan `tests/docs/build565-banners/PLAN.md` (build 565, staff 288 / admin 446), put with "build here or next session" — taken as BUILD HERE.
+- **~10:40 AM: BUILD 565 FILED TO THE MAC** (staff 288 / admin 446; 156 files md5-checked; test-565-banners 27/27, honesty on 287 FAILED; test-548 B2, test-final-B B13, test-410 RT4, test-557 A1 repointed; BUILD-LOG 565). Built the simpler way on two points, said in the plan: Rules gains its own item 7.13 (7.11 and its staff and e-mail twins unchanged); this site's own background file is taken with register('./push-sw.js',{scope:'./'}) only while notifications are allowed (the stamp's guard refused getRegistration). Rehearsal site 288/446. Waits for his ▶ RELEASE — pages only.
