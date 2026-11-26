@@ -574,6 +574,14 @@
 | §557 |  | RECENT ALERTS EMPTY AFTER OPENING ONE, AND THE ALERT BOX SCROLLING THE PAGE BEHIND: HOW THEY ARE TRACED — 24 Nov 2026 12:18 PM | LIVE |
 | §558 |  | THE PAGE BEHIND EVERY BOX STAYS STILL; "WEB APP"; THE FULL-WEEK EXAMPLE; THE DECKS — 25 Nov 2026 5:57 AM |  |
 | §559 |  | PUSH ALERTS ONLY, NO E-MAIL: WILL NOT DO; THE BID BOX OPENING TOO HIGH (P4 R1) — 25 Nov 2026 6:32 AM |  |
+| §560 |  | THE WALKTHROUGH DECKS: HOW TO TURN ON PUSH ALERTS IN THE WEB APP (DECK UPDATE 6) — 25 Nov 2026 9:20 AM |  |
+| §561 |  | FROM A SIDE CHAT, 25 NOV 2026 (~10:50–11:40 AM): THE CIRCLE BADGES ("MORE OVAL") AND TWO OUTBID ALERTS NOT SENT ON THE TESTING SITE |  |
+| §562 |  | THE WALKTHROUGH DECKS GET THE "NOTIFY IF A WEEK OPENS UP" EXAMPLES (DECK UPDATE 7) — 25 Nov 2026 11:51 AM |  |
+| §563 |  | BUILD IN THE CLOUD WITHOUT THE MAC; THE CIRCLE FIX THERE; BIDS 11–16 — 25 Nov 2026 12:02 PM |  |
+| §564 |  | RULES & REMINDERS: THE ALERT LINES OUT OF "UNDERSTANDING OUTCOMES" (BUILD 557) — 25 Nov 2026 12:13 PM |  |
+| §565 |  | OWNER-FOUND: A PUSH ALERT SOMETIMES MISSING FROM NOTIFICATION CENTER — 25 Nov 2026 12:35 PM |  |
+| §566 |  | THE TESTING SITE'S HEADER LINE LOOKS BIGGER THAN THE MD ONE ON HIS IPHONE — 25 Nov 2026 1:00 PM |  |
+| §567 |  | CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM |  |
 <!-- DECISIONS-INDEX:END -->
 
 ---
@@ -9517,3 +9525,8 @@ Session "Vacation Auction 25 Nov 2026 V2" (Mac closed: filed in the cloud copies
 - **1:11 PM, owner verbatim (after the "Build 557 headings" test page, https://claude.ai/artifact/RvQyCyD7hokwFTeMKrPNTX):** *"Good. Go."* — the matching headings APPROVED, in build 557. Gates re-run on the rebuilt pages: all eight green (test-557 76/0 with R1 / R1b: the three headings drawn exactly alike, none a list line). **1:13 PM, owner verbatim:** *"Finish all outstanding items from this session. Will be back at mac at later."*
 - **4:14 PM, owner verbatim:** *"pushed"* — his ▶ RELEASE carried what was on the Mac: deck updates 6 and 7 (tests `56fbd4d`) and the hub's TODO / DECISIONS as filed at 12:06 PM (hub `b2ffb2a`); auction unchanged (`22f4677`, 279 / 444). **Build 557 was NOT in it** — it was still only in the cloud (the Mac closed 12:06 PM). Read 4:16 PM: the Mac's TODO / DECISIONS / cloud-setup.sh byte-identical to the cloud copies' base; the build 557 bundle filed to the Mac next; a second ▶ RELEASE carries build 557.
 - **~4:20 PM: BUILD 557 FILED TO THE MAC** — 33 files sent (the other 19 of the 52 already byte-identical from his 4:14 PM release), every one of the 52 md5-checked OK; the Mac reads staff 280 / admin 445; no git locks. Waits for his ▶ RELEASE (auction pages only — no rules, no mail server; tests and hub repos too).
+- **4:42 PM, owner verbatim:** *"pushed"* — **BUILD 557 RELEASED** (auction `77ec2a0`, tests `e8cabca`, hub `1ace5e7`; pages only); the Mac clean, no locks. Served versions read 5:17 PM in his Chrome (his "chrome available"): MD (`?c=77ec2a0` and `?c=77ec2a0b`), CRNA and testing all serve staff 280 / mobile 19 / admin 445.
+
+## §567 — CLAUDE EMPTIES `_to_delete/`; DELETE PERMISSION ASKED WITH THE FOLDER ACCESS — 25 Nov 2026 5:23 PM
+Session "Vacation Auction 25 Nov 2026 V2", after the hand-over (whose 🧹 line said `_to_delete/` held 237 MB).
+- **5:23 PM, owner verbatim:** *"i want you to start deleting to delete.  ask permission for that access when you ask for other file access."* — RULED. Done at once: delete permission granted for `~/GitHub` (his answer to the prompt), `_to_delete/` emptied (247 entries, 238 MB; `tests/_archive/`'s 157 files untouched). Standing: the start message's line 1 asks for delete permission with the folder access (`SESSION-START.md`); START-HERE §4 step 4; HANDOFF step 4a layer 3 (Claude empties `_to_delete/` at every handoff, nothing else).

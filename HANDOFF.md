@@ -150,10 +150,7 @@ REDIRECTS; open one and read its `<title>` before touching it.
    first thing anyone reads. Over 50 MB it says so in bold. It only ever REPORTS — it deletes nothing.
 2. **This step.** Every handoff: read that 🧹 line, file anything loose, and if `_to_delete/` is not
    empty, tell him in the handover with the size.
-3. **The deletion itself needs him or a permission grant.** The device bridge cannot delete by
-   default; `device_request_delete_permission` puts a prompt on his Mac and a person must answer it.
-   So Claude may ASK to empty `_to_delete/`, and may never quietly do it. If he declines or is away,
-   say the folder is full and move on — never delete around the refusal, and never touch `_archive/`.
+3. **Claude empties `_to_delete/` at every handoff (owner, 25 Nov 2026 5:23 PM, DECISIONS §567: *"i want you to start deleting to delete.  ask permission for that access when you ask for other file access."*).** The delete permission is asked at the session's opening, with the folder access (START-HERE §4 step 4); at step 4a Claude deletes everything INSIDE `_to_delete/` (`find _to_delete -mindepth 1 -maxdepth 1 -exec rm -rf {} +`), says how much went, and touches nothing else — never `_archive/`, never a repo file. If the permission was not granted (he declined, or was away), say the folder's size and move on — never delete around a refusal.
 
 **Housekeeping is its own commit** (START-HERE §3) and every move is recorded in `_archive/README.md`.
 
@@ -244,6 +241,8 @@ still owed is far worse than a file that is fifty lines longer than it needed to
 ---
 
 # 🪤 STANDING TRAPS — the tools and machines as they are today. Promoted from dated entries; NEVER ARCHIVED.
+
+**`device_commit_files` REFUSES A CLOUD FILE OVER ABOUT 25 MB** (25 Nov 2026 V2): a 42 MB zip came back "HTTP 400 fetching session file" (its md5 list, small, went through). Send only what the Mac lacks — md5 the Mac's copies of the bundle's files first and zip the rest (that day 33 of 52 files, 4.5 MB, the decks already on the Mac); or split under 25 MB.
 
 **A BUNDLE CAN LEAVE EMPTY, AND GATE 3 SEES NAMES NOT CONDITIONS** (20–21 Nov 2026 V3, promoted 25 Nov): a `tar` with a relative `-C` and its errors hidden emptied a bundle of its suites — list every bundle (and md5 its files) before it leaves; the gate-3 tool counts checks by name, so a check weakened under its own name passes it — keep a reviewer who reads the diff.
 
@@ -888,3 +887,7 @@ Builds 553 (mail server: the removal e-mail names each week once, §556), 554 (o
 ## 25 Nov 2026 — "Vacation Auction 25 Nov 2026 V1" — BUILD 556 RELEASED (EVERY BOX HOLDS THE PAGE STILL AND KEEPS ITS BUTTONS ON SCREEN; STAFF 279 / ADMIN 444) AND DECK UPDATE 5 ("USE THE SITE AS A WEB APP")
 Owner-found at 5:57 AM (the page behind scrolling under boxes; then the exit route, the fade, the pill turned circle) — all in build 556 (§558–§559; BUILD-LOG 556; `tests/docs/build556-page-still/`, built by helpers: build, test, blind review). "Push alerts only, no e-mail" DECLINED (§559). The bid box opening too high on a P4 R1 week with no bids is NOT reproduced off his iPhone — his check after release (TODO §1). Lessons: (1) the test helper caught the fade missing on boxes that scroll an inner area — a ruling's "every" is checked against every kind of box, not the common kind; (2) four text guards (test-254 V1, test-255 V2, test-413 W4, test-S2b W4) read an edited line as added text and flagged "Minimum new bid" — excused as that exact phrase; (3) a picture sent straight with `device_commit_files` arrived changed (STANDING TRAPS); (4) the blind review found the lock's two paths keeping separate memories — fixed before filing.
 **Session close** 25 Nov 2026 about 9:25 AM, at his 9:14 AM *"pushed.  handoff."*. Closing checklist: in the chat (steps 0–5). Test site — carries admin 444 / staff 279 (republished 25 Nov ~7:43 AM); no page changed since.
+
+## 25 Nov 2026 — "Vacation Auction 25 Nov 2026 V2" — BUILD 557 RELEASED (STATUS BADGES NEVER CIRCLES; THE ALERT LINES UNDER "ALERTS"; EVERY RULES & REMINDERS HEADING ALIKE; STAFF 280 / ADMIN 445), BUILT IN THE CLOUD; DECK UPDATES 6–7
+Deck update 6 (push alerts in the web app, §560) and 7 (the Notify examples slide, §562) released 4:14 PM. A side chat opened by mistake (circles, a missed outbid alert) was pulled in from his chat history (§561): the missed alert traced on the testing site to the simulator working from a copy of the schedule without his 10:43 bids — LEFT AS IS ("just a testing glitch"). Build 557 built and gated in the CLOUD while the Mac was closed (§563, `tests/cloud-setup.sh`; `tests/docs/build557/`), the move and the headings his picks (§564, §566), released 4:42 PM after being filed to the Mac. Withdrawn / left as is: the push report (§565), the testing header size (§566 — the header test page drew all four alike on his iPhone). Lessons: (1) his first release after the Mac came back carried only what was on the Mac — build 557 was still in the cloud (START-HERE §6, "Building without the Mac"); (2) a 42 MB bundle refused by `device_commit_files` (STANDING TRAPS); (3) two checks passed on the old pages by ABSENCE (no Alerts heading, no ALERTS part) — caught reading the honesty run's passes (rule 18), tightened; (4) a test page sample was wrong (two class attributes) — caught by looking at its render before publishing; (5) four older suites pinned the moved lines and section 7's length — repointed, each red on 279/444.
+**Session close** 25 Nov 2026 about 5:30 PM, at his 5:18 PM *"handoff"*. Closing checklist: in the chat (steps 0–5). Test site — carries admin 445 / staff 280 (republished 25 Nov ~1:15 PM); no page changed since.
