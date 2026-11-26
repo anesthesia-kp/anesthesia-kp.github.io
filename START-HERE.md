@@ -1,11 +1,12 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V4" closed (again, ~9:00 PM): build 560 (staff 283 — a tapped alert opens its box when the web app was open in the background, §570) built in the cloud, filed to the Mac ~8:55 PM; waits for ▶ RELEASE.
+**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V5": build 561 (staff 284 — a tapped alert looked for for about 10 seconds; the icon opens no box, §571) built in the cloud, filed to the Mac ~9:42 PM; waits for ▶ RELEASE.
 
-**LIVE, verified at the pushed commit, 25 Nov 2026: auction admin 445 · staff (index) 282 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `dfb38df` (versions.json on all three 282 / 19 / 445, and with `b` added), about 7:57 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 559 — staff 282 (a tapped alert and the Alerts box open at the top; pages only) — by him with ▶ RELEASE about 7:55 PM 25 Nov (tests `dd74f6f`, auction `dfb38df`, hub `8319131`); before it build 558 (25 Nov 6:16 PM: a tapped phone alert shows the whole e-mail).**
+**LIVE, verified at the pushed commit, 25 Nov 2026: auction admin 445 · staff (index) 283 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `07053e9` (versions.json on all three 283 / 19 / 445, and with `b` added), about 8:51 PM in the app's built-in browser (his Chrome not connected) / schedule `1cd7540` (55 / 157); the last release: build 560 — staff 283 (a tapped alert opens its box when the web app was open in the background; pages only) — by him with ▶ RELEASE about 8:46 PM 25 Nov (tests `8d25497`, auction `07053e9`, hub `06198cc`); before it build 559 (25 Nov 7:55 PM: a tapped alert and the Alerts box open at the top).**
 
-**FILED, NOT YET PUSHED: staff 283 (build 560, §570 — a tapped alert opens its box when the web app was open in the background) — pages only, MD + CRNA + testing (staff md5 3a82d161); test-560 and the build-560 docs in the tests repo; with 559's paperwork. ▶ RELEASE pushes them; the live line above stays 282 / 445 until it does.**
+**FILED, NOT YET PUSHED: staff 284 (build 561, §571 — a tapped alert is looked for for about 10 seconds, so its box opens even when the app comes forward first; the icon opens no box) — pages only, MD + CRNA + testing (staff md5 0c19d987); test-561-tap-look and the build-561 docs in the tests repo. ▶ RELEASE pushes them; the live line above stays 283 / 445 until it does.**
+
 
 
 
