@@ -1,11 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 26 Nov 2026 V1" (~9:58 AM): build 566 filed (staff 289 / admin 447 — with no combination allowed, the combinations line says nothing, §574); the FILED line below the live line.
+**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 26 Nov 2026 V1" (10:02 AM): build 566 released by him ~10:00 AM (staff 289 / admin 447, §574); served 289 / 19 / 447 at `?c=88de9ef`.
 
-**LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 446 · staff (index) 288 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `1911ad0` (versions.json on all three 288 / 19 / 446, and with `b` added), about 9:36 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 565 — staff 288 / admin 446 (opening the web app clears that device's banners for alerts already viewed; admin Rules 7.13; pages only) — by him with ▶ RELEASE about 9:33 AM 26 Nov (tests `15ba9ca`, auction `1911ad0`, hub `c5bc08f`); before it build 564 (8:24 AM).**
-
-**FILED, NOT YET PUSHED: staff 289 / admin 447 (build 566, §574 — with no combination allowed, the combinations line says nothing) — pages only, MD + CRNA + testing (staff md5 36d91524, admin md5 ddd457ae); test-566, the reworded suites and the build-566 docs in the tests repo. ▶ RELEASE pushes them; the live line above stays 288 / 446 until it does.**
+**LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 447 · staff (index) 289 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `88de9ef` (versions.json on all three 289 / 19 / 447, and with `b` added), about 10:01 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 566 — staff 289 / admin 447 (with no combination allowed, the combinations line says nothing; pages only) — by him with ▶ RELEASE about 10:00 AM 26 Nov (tests `c305041`, auction `88de9ef`, hub `a4e6d2d`); before it build 565 (9:33 AM).**
 
 
 
