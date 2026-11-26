@@ -1,11 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V4": build 559 (staff 282 — a tapped alert and the Alerts box open at the top, §569) built in the cloud, filed to the Mac ~6:50 PM; waits for ▶ RELEASE.
+**LAST REVISED: 25 Nov 2026** — session "Vacation Auction 25 Nov 2026 V4" closed (again, ~9:00 PM): build 560 (staff 283 — a tapped alert opens its box when the web app was open in the background, §570) built in the cloud, filed to the Mac ~8:55 PM; waits for ▶ RELEASE.
 
-**LIVE, verified at the pushed commit, 25 Nov 2026: auction admin 445 · staff (index) 281 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `862c740` (versions.json on all three 281 / 19 / 445, and with `b` added), about 6:20 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 558 — staff 281 (a tapped phone alert shows the whole e-mail; pages only) — by him with ▶ RELEASE about 6:16 PM 25 Nov (tests `eaa3ade`, auction `862c740`, hub `fa89e56`); before it build 557 (25 Nov 4:42 PM: status badges never circles; the alert lines under "Alerts").**
+**LIVE, verified at the pushed commit, 25 Nov 2026: auction admin 445 · staff (index) 282 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `dfb38df` (versions.json on all three 282 / 19 / 445, and with `b` added), about 7:57 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 559 — staff 282 (a tapped alert and the Alerts box open at the top; pages only) — by him with ▶ RELEASE about 7:55 PM 25 Nov (tests `dd74f6f`, auction `dfb38df`, hub `8319131`); before it build 558 (25 Nov 6:16 PM: a tapped phone alert shows the whole e-mail).**
 
-**FILED, NOT YET PUSHED: staff 282 (build 559, §569 — a tapped alert and the Alerts box open at the top) — pages only, MD + CRNA + testing (staff md5 1b2f2e9b); test-559 and the build-559 docs in the tests repo. ▶ RELEASE pushes them; the live line above stays 281 / 445 until it does.**
+**FILED, NOT YET PUSHED: staff 283 (build 560, §570 — a tapped alert opens its box when the web app was open in the background) — pages only, MD + CRNA + testing (staff md5 3a82d161); test-560 and the build-560 docs in the tests repo; with 559's paperwork. ▶ RELEASE pushes them; the live line above stays 282 / 445 until it does.**
 
 
 
