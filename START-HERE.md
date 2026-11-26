@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 26 Nov 2026 V1" (10:02 AM): build 566 released by him ~10:00 AM (staff 289 / admin 447, §574); served 289 / 19 / 447 at `?c=88de9ef`.
+**LAST REVISED: 26 Nov 2026** — session "Vacation Auction 26 Nov 2026 V2" (1:15 PM): build 567 filed (admin 448, §577), not yet released.
 
 **LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 447 · staff (index) 289 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `88de9ef` (versions.json on all three 289 / 19 / 447, and with `b` added), about 10:01 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 566 — staff 289 / admin 447 (with no combination allowed, the combinations line says nothing; pages only) — by him with ▶ RELEASE about 10:00 AM 26 Nov (tests `c305041`, auction `88de9ef`, hub `a4e6d2d`); before it build 565 (9:33 AM).**
+
+**FILED, NOT YET PUSHED: build 567 — admin 448 (staff 289 / mobile 19 unchanged; MD, CRNA and testing pages), filed 26 Nov 2026 ~1:15 PM (§577; BUILD-LOG 567). Pages only — goes with his next ▶ RELEASE.**
 
 
 
