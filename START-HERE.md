@@ -1,11 +1,9 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 27 Nov 2026** — session "Vacation Auction 26 Nov 2026 V3" (~7:00 AM 27 Nov): build 568 filed (admin 449, §578), not yet pushed.
+**LAST REVISED: 27 Nov 2026** — session "Vacation Auction 26 Nov 2026 V3" (7:25 AM 27 Nov): build 568 released by him ~7:15 AM (admin 449, §578); served 289 / 19 / 449 at `?c=a2d3f66`.
 
-**LIVE, verified at the pushed commit, 26 Nov 2026: auction admin 448 · staff (index) 289 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `0fba5f1` (versions.json on all three 289 / 19 / 448, and with `b` added), about 1:21 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 567 — admin 448 (the admin's edit boxes name who could miss an alert; pages only) — by him with ▶ RELEASE about 1:19 PM 26 Nov (tests `a7fd5ed`, auction `0fba5f1`, hub `8492a1f`); before it build 566 (10:00 AM).**
-
-**FILED, NOT YET PUSHED: build 568 — admin 449 (the admin Messaging → Alerts page, one row per person, view only; §578), MD, CRNA and testing pages; waits for his ▶ RELEASE (pages only).**
+**LIVE, verified at the pushed commit, 27 Nov 2026: auction admin 449 · staff (index) 289 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `a2d3f66` (versions.json on all three 289 / 19 / 449, and with `b` added), about 7:17 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 568 — admin 449 (the admin Messaging → Alerts page, one row per person, view only; pages only) — by him with ▶ RELEASE about 7:15 AM 27 Nov (tests `65301ab`, auction `a2d3f66`, hub `700b44e`); before it build 567 (26 Nov 1:19 PM).**
 
 
 
