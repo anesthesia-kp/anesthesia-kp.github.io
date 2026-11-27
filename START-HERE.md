@@ -1,11 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 27 Nov 2026** — session "Vacation Auction 27 Nov 2026 V1" (~11:15 AM): build 571 filed (staff 292 / admin 452, §581), not yet pushed.
+**LAST REVISED: 27 Nov 2026** — session "Vacation Auction 27 Nov 2026 V1" (~2:35 PM): build 572 filed (staff 293 / admin 453, §582), not yet pushed.
 
-**LIVE, verified at the pushed commit, 27 Nov 2026: auction admin 451 · staff (index) 291 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `296b226` (versions.json on all three 291 / 19 / 451, and with `b` added), about 9:58 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 570 — staff 291 / admin 451 (the phone's covered edges: the pages and every box keep clear of the status bar, the camera cut-out and the Home bar in the web app; pages only) — by him with ▶ RELEASE about 9:44 AM 27 Nov (tests `1ac65c3`, auction `296b226`, hub `ec4bd8a`); before it build 569 (27 Nov 8:15 AM).**
+**LIVE, verified at the pushed commit, 27 Nov 2026: auction admin 452 · staff (index) 292 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `724d58b` (versions.json on all three 292 / 19 / 452), about 1:38 PM / schedule `1cd7540` (55 / 157); his phone's testing web app read 292 through Safari Web Inspector at 2:10 PM; the last release: build 571 — staff 292 / admin 452 (the web app's top fade, edge + 24) — by him with ▶ RELEASE about 1:36 PM 27 Nov (tests `0122b64`, auction `724d58b`, hub `cf7bb44`); before it build 570 (27 Nov 9:44 AM).**
 
-**FILED, NOT YET PUSHED: build 571 — staff 292 / admin 452 (the web app's top fade: where the phone has a top edge the content starts 24 pt lower; §581), MD, CRNA and testing pages; waits for his ▶ RELEASE (pages only).**
+**FILED, NOT YET PUSHED: build 572 — staff 293 / admin 453 (the web app's top fade as measured on his iPhone: 24 px at the top in the Home Screen web app held upright; §582), MD, CRNA and testing pages; waits for his ▶ RELEASE (pages only).**
 
 
 
