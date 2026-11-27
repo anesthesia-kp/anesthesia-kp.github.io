@@ -9674,3 +9674,4 @@ Session "Vacation Auction 27 Nov 2026 V1". After build 570 (released ~9:44 AM). 
 
 - **2:21 PM, verbatim:** *"it looks good now, happy with it"* (the 24 px live trial on his phone).
 - **2:21 PM, verbatim:** *"here, go"* — **~2:35 PM BUILD 572 FILED** (staff 293 / admin 453; BUILD-LOG 572; `tests/docs/build572-web-app-top/`): `@media (display-mode:standalone) and (orientation:portrait) and (pointer:coarse){:root{--sa-fade:24px}}` added after each page's `:root` line; MD, CRNA and testing pages; rehearsal site republished.
+- **2:35 PM, verbatim:** *"pushed.  looks good.  handoff."* — build 572 released (served 293 / 19 / 453 at `?c=356ecd9`, all three sites).
