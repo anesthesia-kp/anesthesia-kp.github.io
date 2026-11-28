@@ -1,9 +1,11 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 27 Nov 2026** — session "Vacation Auction 27 Nov 2026 V1" (~2:45 PM, hand-over): build 572 released (staff 293 / admin 453, §582).
+**LAST REVISED: 28 Nov 2026** — session "Vacation Auction 27 Nov 2026 V2" (continued 28 Nov, ~7:50 AM): builds 573 and 574 filed, not yet pushed (§583).
 
 **LIVE, verified at the pushed commit, 27 Nov 2026: auction admin 453 · staff (index) 293 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `356ecd9` (versions.json on all three 293 / 19 / 453, and with `b` added), about 2:40 PM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 572 — staff 293 / admin 453 (the web app's top fade as measured on his iPhone: 24 px at the top in the Home Screen web app held upright) — by him with ▶ RELEASE about 2:35 PM 27 Nov (tests `cdc0e69`, auction `356ecd9`, hub `dc7b1f2`); before it build 571 (27 Nov 1:36 PM).**
+
+**FILED, NOT YET PUSHED: build 573 — admin 454 / staff 294 (the full-file warning, Settings → File Sizes, Rules 2.44, the alert-cancel line in the OK pop-up) and build 574 — staff 295 + the mail server (Recent alerts keeps the last 100); filed 28 Nov 2026 ~7:45 AM for his ▶ RELEASE (pages + mail server ×3, no rules change; §583).**
 
 
 
