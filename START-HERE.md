@@ -1,11 +1,10 @@
 # START HERE — KP East Bay Anesthesia. Both sites. Read from the disk, never pasted.
 <!-- answers: how we work — every binding rule, once; a pointer to the map of every file and archive (`MAP.md`); the LIVE line — read from the disk every session (the owner pastes only SESSION-START.md's short message); read first, every session, then TODO's STATUS block and §1 -->
 
-**LAST REVISED: 28 Nov 2026** — session "Vacation Auction 27 Nov 2026 V2" (continued 28 Nov, ~9:00 AM, hand-over): builds 573 + 574 released; build 575 (admin 455) filed, not yet pushed (§583).
+**LAST REVISED: 28 Nov 2026** — session "Vacation Auction 27 Nov 2026 V2" (continued 28 Nov, ~9:20 AM, hand-over): builds 573, 574 and 575 released (staff 295 / admin 455 + the mail server, §583).
 
-**LIVE, verified at the pushed commit, 28 Nov 2026: auction admin 454 · staff (index) 295 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `fb4845f` (versions.json on all three 295 / 19 / 454, and with `b` added), about 8:45 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: builds 573 + 574 — staff 295 / admin 454 (the full-file warning, Settings → File Sizes, Rules 2.44, the alert-cancel line in the OK pop-up; Recent alerts keeps the last 100, the mail server deployed ×3) — by him with ▶ RELEASE, committed about 7:33 AM 28 Nov (tests `159e483`, auction `fb4845f`, hub `7173cc5`); before it build 572 (27 Nov 2:35 PM).**
+**LIVE, verified at the pushed commit, 28 Nov 2026: auction admin 455 · staff (index) 295 · mobile 19 · schedule admin 157 / staff 55** (the auction pages served at `/vacation/`, `/vacation/crna/` (CRNA, crna-vacation) and `/vacation/testing/` (testing-vacation); read at auction `93f22b1` (versions.json on all three 295 / 19 / 455, and with `b` added), about 9:15 AM in his Chrome / schedule `1cd7540` (55 / 157); the last release: build 575 — admin 455 (Settings → File Sizes with every file under 1%: no empty table, each file to one decimal) — by him with ▶ RELEASE, committed about 9:01 AM 28 Nov (tests `30936c5`, auction `93f22b1`, hub `78a4a71`); before it builds 573 + 574 (`fb4845f`, 28 Nov ~7:33 AM: the full-file warning, File Sizes, Rules 2.44, the alert-cancel pop-up; Recent alerts keeps 100, the mail server deployed ×3).**
 
-**FILED, NOT YET PUSHED: build 575 — admin 455 (Settings → File Sizes with every file under 1%: no empty table, "Every file is under 1% full.", each file to one decimal); filed 28 Nov 2026 ~8:55 AM for his ▶ RELEASE (admin pages only; §583).**
 
 
 
